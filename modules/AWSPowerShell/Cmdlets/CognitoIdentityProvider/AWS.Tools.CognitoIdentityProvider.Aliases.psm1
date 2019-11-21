@@ -1,0 +1,3 @@
+﻿# CognitoIdentityProvider
+
+Export-ModuleMember -Alias *

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>mediapackage-vod</C2jFilename>
+    <AssemblyName>MediaPackageVod</AssemblyName>
+    <ServiceNounPrefix>EMPV</ServiceNounPrefix>
+    <ServiceName>AWS Elemental MediaPackage VOD</ServiceName>
+    <ServiceClientInterface>IAmazonMediaPackageVod</ServiceClientInterface>
+    <ServiceClient>AmazonMediaPackageVodClient</ServiceClient>
+    <ServiceModuleGuid>573c304d-2cf5-484e-be16-72f5679085f4</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAsset" OutputProperty="*" Verb="New" Noun="Asset" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePackagingConfiguration" OutputProperty="*" Verb="New" Noun="PackagingConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePackagingGroup" OutputProperty="*" Verb="New" Noun="PackagingGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAsset" Verb="Remove" Noun="Asset" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePackagingConfiguration" Verb="Remove" Noun="PackagingConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePackagingGroup" Verb="Remove" Noun="PackagingGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePackagingConfiguration" OutputProperty="*" Verb="Get" Noun="PackagingConfiguration" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePackagingGroup" OutputProperty="*" Verb="Get" Noun="PackagingGroup" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssets" OutputProperty="Assets" Verb="Get" Noun="AssetList" PipelineParameter="PackagingGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPackagingConfigurations" OutputProperty="PackagingConfigurations" Verb="Get" Noun="PackagingConfigurationList" PipelineParameter="PackagingGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPackagingGroups" OutputProperty="PackagingGroups" Verb="Get" Noun="PackagingGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.MediaPackageVod.Model.CmafPackage</Type>
+        <Type>Amazon.MediaPackageVod.Model.DashPackage</Type>
+        <Type>Amazon.MediaPackageVod.Model.HlsPackage</Type>
+        <Type>Amazon.MediaPackageVod.Model.MssPackage</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

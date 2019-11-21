@@ -1,0 +1,17 @@
+﻿@inherits AWSPowerShellGenerator.Writers.SourceCode.AliasFileTemplate
+@using System
+@using System.Linq
+@foreach (var project in ProjectAliases)
+{
+@:# @(project.Project)
+    @foreach(var alias in project.Aliases.OrderBy(alias => alias.Key))
+    {
+@:Set-Alias -Name @(alias.Key) -Value @(alias.Value)
+    }
+@:
+}
+@*Must export the aliases in this nested submodule for users on PSv3 or v4. If we don't,
+    the aliases will not be present afterward even though we have expliclty listed them in
+    the main module manifest. PS v5+ seems to have scoping changes that make this unnecessary,
+    but harmless.*@
+Export-ModuleMember -Alias *

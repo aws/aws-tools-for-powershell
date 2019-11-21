@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-ELBAppCookieStickinessPolicy -LoadBalancerName my-load-balancer -PolicyName my-app-cookie-policy -CookieName my-app-cookie</code>
+    <description>This example creates a stickiness policy that follows the sticky session lifetimes of the specified application-generated cookie.</description>
+  </example>
+</examples>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> $endpoint = "https://adfs.example.com/adfs/ls/IdpInitiatedSignOn.aspx?loginToRp=urn:amazon:webservices"	
+PS C:\> Set-AWSSamlEndpoint -StoreAs MyADFSEndpoint -Endpoint $endpoint
+	</code>
+    <description>Creates or updates a profile name MyADFSEndpoint for use with Set-AWSSamlRoleProfile. Kerberos will be used as the authentication protocol when authenticating users against the endoint.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> $endpoint = "https://adfs.example.com/adfs/ls/IdpInitiatedSignOn.aspx?loginToRp=urn:amazon:webservices"	
+PS C:\> Set-AWSSamlEndpoint -StoreAs MyADFSEndpoint -Endpoint $endpoint -AuthenticationType NTLM
+	</code>
+    <description>Creates or updates a profile name MyADFSEndpoint for use with Set-AWSSamlRoleProfile. The endpoint is configured to use the NTLM protocol during authentication (other options are Digest, Basic, Kerberos and Negotiate).</description>
+  </example>
+</examples>

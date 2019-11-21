@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>New-DMSReplicationTask -ReplicationInstanceArn "arn:aws:dms:us-east-1:123456789012:rep:EXAMPLE66XFJUWATDJGBEXAMPLE"`
+  -CdcStartTime “2019-08-08T12:12:12”`
+  -CdcStopPosition "server_time:2019-08-09T12:12:12"`
+  -MigrationType "full-load-and-cdc"`
+  -ReplicationTaskIdentifier "task1"`
+  -ReplicationTaskSetting ""`
+  -SourceEndpointArn "arn:aws:dms:us-east-1:123456789012:endpoint:EXAMPLEW5UANC7Y3P4EEXAMPLE"`
+  -TableMapping "file:////home/testuser/table-mappings.json"`
+  -Tag @{"Key"="Stage";"Value"="Test"}`
+  -TargetEndpointArn "arn:aws:dms:us-east-1:123456789012:endpoint:EXAMPLEJZASXWHTWCLNEXAMPLE"</code>
+    <description>This example creates a new AWS Database Migration Service replication task that uses CdcStartTime instead of CdcStartPosition. The MigrationType is set to "full-load-and-cdc", meaning the target table must be empty.
+    The new task is tagged with a tag that has a key of Stage and a key value of Test. For more information about the values used by this cmdlet, see Creating a Task (https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.Creating.html) in the AWS Database Migration Service User Guide.</description>
+  </example>
+</examples>

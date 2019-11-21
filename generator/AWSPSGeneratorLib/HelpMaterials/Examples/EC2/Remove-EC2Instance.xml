@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Remove-EC2Instance -InstanceId i-12345678
+    
+CurrentState                      InstanceId    PreviousState
+------------                      ----------    -------------
+Amazon.EC2.Model.InstanceState    i-12345678    Amazon.EC2.Model.InstanceState</code>
+    <description>This example terminates the specified instance (the instance may be running or in 'stopped' state).<br/>The cmdlet will prompt for confirmation before proceeding; use the -Force switch to suppress the prompt.</description>
+  </example>
+</examples>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMAutomationExecutionList
+
+AutomationExecutionId     : 4105a4fc-f944-11e6-9d32-8fb2db27a909
+AutomationExecutionStatus : Failed
+DocumentName              : AWS-UpdateLinuxAmi
+DocumentVersion           : 1
+ExecutedBy                : admin
+ExecutionEndTime          : 2/22/2017 9:17:08 PM
+ExecutionStartTime        : 2/22/2017 9:17:02 PM
+LogFile                   :
+Outputs                   : {[createImage.ImageId, Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}</code>
+        <description>This example describes all active and terminated Automation Executions associated with your account.</description>
+    </example>
+  <example>
+    <code>Get-SSMAutomationExecutionList | Where-Object AutomationExecutionStatus -ne "Success" | Select-Object AutomationExecutionId, DocumentName, AutomationExecutionStatus, ExecutionStartTime, ExecutionEndTime | Format-Table -AutoSize
+
+AutomationExecutionId                DocumentName                            AutomationExecutionStatus ExecutionStartTime   ExecutionEndTime
+---------------------                ------------                            ------------------------- ------------------   ----------------
+e1d2bad3-4567-8901-ae23-456c7c8901be AWS-UpdateWindowsAmi                    Cancelled                 4/16/2019 5:37:04 AM 4/16/2019 5:47:29 AM
+61234567-a7f8-90e1-2b34-567b8bf9012c Fixed-UpdateAmi                         Cancelled                 4/16/2019 5:33:04 AM 4/16/2019 5:40:15 AM
+91234d56-7e89-0ac1-2aee-34ea5d6a7c89 AWS-UpdateWindowsAmi                    Failed                    4/16/2019 5:22:46 AM 4/16/2019 5:27:29 AM</code>
+    <description>This example displays ExecutionID, document, execution start/end timestamp for executions with AutomationExecutionStatus other than 'Success'</description>
+  </example>
+</examples>

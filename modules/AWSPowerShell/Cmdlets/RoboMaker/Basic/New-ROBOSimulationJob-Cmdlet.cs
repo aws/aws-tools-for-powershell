@@ -1,0 +1,437 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.RoboMaker;
+using Amazon.RoboMaker.Model;
+
+namespace Amazon.PowerShell.Cmdlets.ROBO
+{
+    /// <summary>
+    /// Creates a simulation job.
+    /// 
+    ///  <note><para>
+    /// After 90 days, simulation jobs expire and will be deleted. They will no longer be
+    /// accessible. 
+    /// </para></note>
+    /// </summary>
+    [Cmdlet("New", "ROBOSimulationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RoboMaker.Model.CreateSimulationJobResponse")]
+    [AWSCmdlet("Calls the AWS RoboMaker CreateSimulationJob API operation.", Operation = new[] {"CreateSimulationJob"}, SelectReturnType = typeof(Amazon.RoboMaker.Model.CreateSimulationJobResponse))]
+    [AWSCmdletOutput("Amazon.RoboMaker.Model.CreateSimulationJobResponse",
+        "This cmdlet returns an Amazon.RoboMaker.Model.CreateSimulationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class NewROBOSimulationJobCmdlet : AmazonRoboMakerClientCmdlet, IExecutor
+    {
+        
+        #region Parameter ClientRequestToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter DataSource
+        /// <summary>
+        /// <para>
+        /// <para>The data sources for the simulation job.</para><note><para>There is a limit of 100 files and a combined size of 25GB for all <code>DataSourceConfig</code>
+        /// objects. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSources")]
+        public Amazon.RoboMaker.Model.DataSourceConfig[] DataSource { get; set; }
+        #endregion
+        
+        #region Parameter FailureBehavior
+        /// <summary>
+        /// <para>
+        /// <para>The failure behavior the simulation job.</para><dl><dt>Continue</dt><dd><para>Restart the simulation job in the same host instance.</para></dd><dt>Fail</dt><dd><para>Stop the simulation job and terminate the instance.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RoboMaker.FailureBehavior")]
+        public Amazon.RoboMaker.FailureBehavior FailureBehavior { get; set; }
+        #endregion
+        
+        #region Parameter IamRole
+        /// <summary>
+        /// <para>
+        /// <para>The IAM role name that allows the simulation instance to call the AWS APIs that are
+        /// specified in its associated policies on your behalf. This is how credentials are passed
+        /// in to your simulation job. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IamRole { get; set; }
+        #endregion
+        
+        #region Parameter MaxJobDurationInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum simulation job duration in seconds (up to 14 days or 1,209,600 seconds.
+        /// When <code>maxJobDurationInSeconds</code> is reached, the simulation job will status
+        /// will transition to <code>Completed</code>.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("MaxJobDurationInSeconds")]
+        public System.Int64? MaxJobDurationInSecond { get; set; }
+        #endregion
+        
+        #region Parameter OutputLocation
+        /// <summary>
+        /// <para>
+        /// <para>Location for output files generated by the simulation job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.RoboMaker.Model.OutputLocation OutputLocation { get; set; }
+        #endregion
+        
+        #region Parameter LoggingConfig_RecordAllRosTopic
+        /// <summary>
+        /// <para>
+        /// <para>A boolean indicating whether to record all ROS topics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingConfig_RecordAllRosTopics")]
+        public System.Boolean? LoggingConfig_RecordAllRosTopic { get; set; }
+        #endregion
+        
+        #region Parameter RobotApplication
+        /// <summary>
+        /// <para>
+        /// <para>The robot application to use in the simulation job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RobotApplications")]
+        public Amazon.RoboMaker.Model.RobotApplicationConfig[] RobotApplication { get; set; }
+        #endregion
+        
+        #region Parameter SimulationApplication
+        /// <summary>
+        /// <para>
+        /// <para>The simulation application to use in the simulation job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SimulationApplications")]
+        public Amazon.RoboMaker.Model.SimulationApplicationConfig[] SimulationApplication { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map that contains tag keys and tag values that are attached to the simulation job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig
+        /// <summary>
+        /// <para>
+        /// <para>If your simulation job accesses resources in a VPC, you provide this parameter identifying
+        /// the list of security group IDs and subnet IDs. These must belong to the same VPC.
+        /// You must provide at least one security group and one subnet ID. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.RoboMaker.Model.VPCConfig VpcConfig { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RoboMaker.Model.CreateSimulationJobResponse).
+        /// Specifying the name of a property of type Amazon.RoboMaker.Model.CreateSimulationJobResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the IamRole parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IamRole' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IamRole' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IamRole), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ROBOSimulationJob (CreateSimulationJob)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.RoboMaker.Model.CreateSimulationJobResponse, NewROBOSimulationJobCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.IamRole;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientRequestToken = this.ClientRequestToken;
+            if (this.DataSource != null)
+            {
+                context.DataSource = new List<Amazon.RoboMaker.Model.DataSourceConfig>(this.DataSource);
+            }
+            context.FailureBehavior = this.FailureBehavior;
+            context.IamRole = this.IamRole;
+            #if MODULAR
+            if (this.IamRole == null && ParameterWasBound(nameof(this.IamRole)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IamRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.LoggingConfig_RecordAllRosTopic = this.LoggingConfig_RecordAllRosTopic;
+            context.MaxJobDurationInSecond = this.MaxJobDurationInSecond;
+            #if MODULAR
+            if (this.MaxJobDurationInSecond == null && ParameterWasBound(nameof(this.MaxJobDurationInSecond)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MaxJobDurationInSecond which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.OutputLocation = this.OutputLocation;
+            if (this.RobotApplication != null)
+            {
+                context.RobotApplication = new List<Amazon.RoboMaker.Model.RobotApplicationConfig>(this.RobotApplication);
+            }
+            if (this.SimulationApplication != null)
+            {
+                context.SimulationApplication = new List<Amazon.RoboMaker.Model.SimulationApplicationConfig>(this.SimulationApplication);
+            }
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
+            context.VpcConfig = this.VpcConfig;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.RoboMaker.Model.CreateSimulationJobRequest();
+            
+            if (cmdletContext.ClientRequestToken != null)
+            {
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.DataSource != null)
+            {
+                request.DataSources = cmdletContext.DataSource;
+            }
+            if (cmdletContext.FailureBehavior != null)
+            {
+                request.FailureBehavior = cmdletContext.FailureBehavior;
+            }
+            if (cmdletContext.IamRole != null)
+            {
+                request.IamRole = cmdletContext.IamRole;
+            }
+            
+             // populate LoggingConfig
+            var requestLoggingConfigIsNull = true;
+            request.LoggingConfig = new Amazon.RoboMaker.Model.LoggingConfig();
+            System.Boolean? requestLoggingConfig_loggingConfig_RecordAllRosTopic = null;
+            if (cmdletContext.LoggingConfig_RecordAllRosTopic != null)
+            {
+                requestLoggingConfig_loggingConfig_RecordAllRosTopic = cmdletContext.LoggingConfig_RecordAllRosTopic.Value;
+            }
+            if (requestLoggingConfig_loggingConfig_RecordAllRosTopic != null)
+            {
+                request.LoggingConfig.RecordAllRosTopics = requestLoggingConfig_loggingConfig_RecordAllRosTopic.Value;
+                requestLoggingConfigIsNull = false;
+            }
+             // determine if request.LoggingConfig should be set to null
+            if (requestLoggingConfigIsNull)
+            {
+                request.LoggingConfig = null;
+            }
+            if (cmdletContext.MaxJobDurationInSecond != null)
+            {
+                request.MaxJobDurationInSeconds = cmdletContext.MaxJobDurationInSecond.Value;
+            }
+            if (cmdletContext.OutputLocation != null)
+            {
+                request.OutputLocation = cmdletContext.OutputLocation;
+            }
+            if (cmdletContext.RobotApplication != null)
+            {
+                request.RobotApplications = cmdletContext.RobotApplication;
+            }
+            if (cmdletContext.SimulationApplication != null)
+            {
+                request.SimulationApplications = cmdletContext.SimulationApplication;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.VpcConfig != null)
+            {
+                request.VpcConfig = cmdletContext.VpcConfig;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.RoboMaker.Model.CreateSimulationJobResponse CallAWSServiceOperation(IAmazonRoboMaker client, Amazon.RoboMaker.Model.CreateSimulationJobRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS RoboMaker", "CreateSimulationJob");
+            try
+            {
+                #if DESKTOP
+                return client.CreateSimulationJob(request);
+                #elif CORECLR
+                return client.CreateSimulationJobAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String ClientRequestToken { get; set; }
+            public List<Amazon.RoboMaker.Model.DataSourceConfig> DataSource { get; set; }
+            public Amazon.RoboMaker.FailureBehavior FailureBehavior { get; set; }
+            public System.String IamRole { get; set; }
+            public System.Boolean? LoggingConfig_RecordAllRosTopic { get; set; }
+            public System.Int64? MaxJobDurationInSecond { get; set; }
+            public Amazon.RoboMaker.Model.OutputLocation OutputLocation { get; set; }
+            public List<Amazon.RoboMaker.Model.RobotApplicationConfig> RobotApplication { get; set; }
+            public List<Amazon.RoboMaker.Model.SimulationApplicationConfig> SimulationApplication { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public Amazon.RoboMaker.Model.VPCConfig VpcConfig { get; set; }
+            public System.Func<Amazon.RoboMaker.Model.CreateSimulationJobResponse, NewROBOSimulationJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}

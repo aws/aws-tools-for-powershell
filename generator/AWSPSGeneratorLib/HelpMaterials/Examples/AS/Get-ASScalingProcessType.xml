@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-ASScalingProcessType
+    
+ProcessName
+-----------
+AZRebalance
+AddToLoadBalancer
+AlarmNotification
+HealthCheck
+Launch
+ReplaceUnhealthy
+ScheduledActions
+Terminate</code>
+    <description>This example lists the process types that are supported by Auto Scaling.</description>
+  </example>
+</examples>

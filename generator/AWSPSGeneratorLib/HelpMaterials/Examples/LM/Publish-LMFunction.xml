@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> Publish-LMFunction -Description "My C# Lambda Function" `
+        -FunctionName MyFunction `
+        -ZipFilename .\MyFunctionBinaries.zip `
+        -Handler "AssemblyName::Namespace.ClassName::MethodName" `
+        -Role "arn:aws:iam::123456789012:role/LambdaFullExecRole" `
+        -Runtime dotnetcore1.0 `
+        -Environment_Variable @{ "envvar1"="value";"envvar2"="value" }    
+    
+CodeSha256       : /NgBMd...gq71I=
+CodeSize         : 214784
+DeadLetterConfig :
+Description      : My C# Lambda Function
+Environment      : Amazon.Lambda.Model.EnvironmentResponse
+FunctionArn      : arn:aws:lambda:us-west-2:123456789012:function:ToUpper
+FunctionName     : MyFunction
+Handler          : AssemblyName::Namespace.ClassName::MethodName
+KMSKeyArn        :
+LastModified     : 2016-12-29T23:50:14.207+0000
+MemorySize       : 128
+Role             : arn:aws:iam::123456789012:role/LambdaFullExecRole
+Runtime          : dotnetcore1.0
+Timeout          : 3
+Version          : $LATEST
+VpcConfig        :    
+    </code>
+    <description>This example creates a new C# (dotnetcore1.0 runtime) function named MyFunction in AWS Lambda, providing the compiled binaries for the function from a zip file on the local file system (relative or absolute paths may be used). C# Lambda functions specify the handler for the function using the designation <i>AssemblyName::Namespace.ClassName::MethodName</i>. You should replace the assembly name (without .dll suffix), namespace, class name and method name parts of the handler spec appropriately. The new function will have environment variables 'envvar1' and 'envvar2' set up from the provided values.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> Write-S3Object -BucketName mybucket -Key MyFunctionBinaries.zip -File .\MyFunctionBinaries.zip    
+PS C:\> Publish-LMFunction -Description "My C# Lambda Function" `
+        -FunctionName MyFunction `
+        -BucketName mybucket `
+        -Key MyFunctionBinaries.zip `
+        -Handler "AssemblyName::Namespace.ClassName::MethodName" `
+        -Role "arn:aws:iam::123456789012:role/LambdaFullExecRole" `
+        -Runtime dotnetcore1.0 `
+        -Environment_Variable @{ "envvar1"="value";"envvar2"="value" }    
+    </code>
+    <description>This example is similar to the previous one except the function binaries are first uploaded to an Amazon S3 bucket (which must be in the same region as the intended Lambda function) and the resulting S3 object is then referenced when creating the function.</description>
+  </example>
+</examples>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>gamelift</C2jFilename>
+    <AssemblyName>GameLift</AssemblyName>
+    <ServiceNounPrefix>GML</ServiceNounPrefix>
+    <ServiceName>Amazon GameLift Service</ServiceName>
+    <ServiceClientInterface>IAmazonGameLift</ServiceClientInterface>
+    <ServiceClient>AmazonGameLiftClient</ServiceClient>
+    <ServiceModuleGuid>44a60bb5-a0ae-4d09-a478-9ed730458cef</ServiceModuleGuid>
+    <PipelineParameter>BuildId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptMatch" Verb="Confirm" Noun="Match" ShouldProcessTarget="TicketId" PipelineParameter="TicketId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAlias" OutputProperty="Alias" Verb="New" Noun="Alias" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBuild" OutputProperty="*" Verb="New" Noun="Build" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFleet" OutputProperty="FleetAttributes" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGameSession" OutputProperty="GameSession" Verb="New" Noun="GameSession" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGameSessionQueue" OutputProperty="GameSessionQueue" Verb="New" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMatchmakingConfiguration" OutputProperty="Configuration" Verb="New" Noun="MatchmakingConfiguration" ShouldProcessTarget="RuleSetName" PipelineParameter="RuleSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMatchmakingRuleSet" OutputProperty="RuleSet" Verb="New" Noun="MatchmakingRuleSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlayerSession" Verb="" Noun="" Exclude="true" ShouldProcessTarget="PlayerId" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlayerSessions" OutputProperty="PlayerSessions" Verb="New" Noun="PlayerSession" ShouldProcessTarget="GameSessionId" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateScript" OutputProperty="Script" Verb="New" Noun="Script" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcPeeringAuthorization" OutputProperty="VpcPeeringAuthorization" Verb="New" Noun="VpcPeeringAuthorization" ShouldProcessTarget="PeerVpcId" PipelineParameter="PeerVpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcPeeringConnection" Verb="New" Noun="VpcPeeringConnection" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBuild" Verb="Remove" Noun="Build" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGameSessionQueue" Verb="Remove" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMatchmakingConfiguration" Verb="Remove" Noun="MatchmakingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMatchmakingRuleSet" Verb="Remove" Noun="MatchmakingRuleSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScalingPolicy" Verb="Remove" Noun="ScalingPolicy" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScript" Verb="Remove" Noun="Script" ShouldProcessTarget="ScriptId" PipelineParameter="ScriptId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcPeeringAuthorization" Verb="Remove" Noun="VpcPeeringAuthorization" ShouldProcessTarget="PeerVpcId" PipelineParameter="PeerVpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcPeeringConnection" Verb="Remove" Noun="VpcPeeringConnection" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlias" OutputProperty="Alias" Verb="Get" Noun="AliasDetail" PipelineParameter="AliasId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBuild" OutputProperty="Build" Verb="Get" Noun="BuildDetail" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEC2InstanceLimits" OutputProperty="EC2InstanceLimits" Verb="Get" Noun="EC2InstanceLimit" PipelineParameter="EC2InstanceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetAttributes" OutputProperty="FleetAttributes" Verb="Get" Noun="FleetAttribute" PipelineParameter="FleetIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetCapacity" OutputProperty="FleetCapacity" Verb="Get" Noun="FleetCapacity" PipelineParameter="FleetIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetEvents" OutputProperty="Events" Verb="Get" Noun="FleetEvent" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetPortSettings" OutputProperty="InboundPermissions" Verb="Get" Noun="FleetPortSetting" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetUtilization" OutputProperty="FleetUtilization" Verb="Get" Noun="FleetUtilization" PipelineParameter="FleetIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGameSessionDetails" OutputProperty="GameSessionDetails" Verb="Get" Noun="GameSessionDetail" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGameSessionPlacement" OutputProperty="GameSessionPlacement" Verb="Get" Noun="GameSessionPlacement" PipelineParameter="PlacementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGameSessionQueues" OutputProperty="GameSessionQueues" Verb="Get" Noun="GameSessionQueue" PipelineParameter="Names" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGameSessions" OutputProperty="GameSessions" Verb="Get" Noun="GameSession" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstances" OutputProperty="Instances" Verb="Get" Noun="Instance" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMatchmaking" OutputProperty="TicketList" Verb="Get" Noun="Matchmaking" PipelineParameter="TicketIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMatchmakingConfigurations" OutputProperty="Configurations" Verb="Get" Noun="MatchmakingConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMatchmakingRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="MatchmakingRuleSet" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePlayerSessions" OutputProperty="PlayerSessions" Verb="Get" Noun="PlayerSession" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRuntimeConfiguration" OutputProperty="RuntimeConfiguration" Verb="Get" Noun="RuntimeConfiguration" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScript" OutputProperty="Script" Verb="Get" Noun="Script" PipelineParameter="ScriptId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcPeeringAuthorizations" OutputProperty="VpcPeeringAuthorizations" Verb="Get" Noun="VpcPeeringAuthorization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcPeeringConnections" OutputProperty="VpcPeeringConnections" Verb="Get" Noun="VpcPeeringConnection" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGameSessionLogUrl" OutputProperty="PreSignedUrl" Verb="Get" Noun="GameSessionLogUrl" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceAccess" OutputProperty="InstanceAccess" Verb="Get" Noun="InstanceAccess" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="Alias" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBuilds" OutputProperty="Builds" Verb="Get" Noun="Build" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetIds" Verb="Get" Noun="Fleet" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListScripts" OutputProperty="Scripts" Verb="Get" Noun="ScriptList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="Name" Verb="Write" Noun="ScalingPolicy" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestUploadCredentials" OutputProperty="*" Verb="Request" Noun="UploadCredential" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResolveAlias" OutputProperty="FleetId" Verb="Resolve" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchGameSessions" OutputProperty="GameSessions" Verb="Find" Noun="GameSession" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFleetActions" Verb="Start" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartGameSessionPlacement" OutputProperty="GameSessionPlacement" Verb="Start" Noun="GameSessionPlacement" ShouldProcessTarget="GameSessionName" PipelineParameter="GameSessionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMatchBackfill" OutputProperty="MatchmakingTicket" Verb="Start" Noun="MatchBackfill" ShouldProcessTarget="GameSessionArn" PipelineParameter="GameSessionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMatchmaking" OutputProperty="MatchmakingTicket" Verb="Start" Noun="Matchmaking" ShouldProcessTarget="ConfigurationName" PipelineParameter="ConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopFleetActions" Verb="Stop" Noun="FleetAction" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopGameSessionPlacement" OutputProperty="GameSessionPlacement" Verb="Stop" Noun="GameSessionPlacement" ShouldProcessTarget="PlacementId" PipelineParameter="PlacementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopMatchmaking" Verb="Stop" Noun="Matchmaking" ShouldProcessTarget="TicketId" PipelineParameter="TicketId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAlias" OutputProperty="Alias" Verb="Update" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBuild" OutputProperty="Build" Verb="Update" Noun="Build" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFleetAttributes" OutputProperty="FleetId" Verb="Update" Noun="FleetAttribute" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFleetCapacity" OutputProperty="FleetId" Verb="Update" Noun="FleetCapacity" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFleetPortSettings" OutputProperty="FleetId" Verb="Update" Noun="FleetPortSetting" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGameSession" OutputProperty="GameSession" Verb="Update" Noun="GameSession" ShouldProcessTarget="GameSessionId" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGameSessionQueue" OutputProperty="GameSessionQueue" Verb="Update" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMatchmakingConfiguration" OutputProperty="Configuration" Verb="Update" Noun="MatchmakingConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRuntimeConfiguration" OutputProperty="RuntimeConfiguration" Verb="Update" Noun="RuntimeConfiguration" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScript" OutputProperty="Script" Verb="Update" Noun="Script" ShouldProcessTarget="ScriptId" PipelineParameter="ScriptId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateMatchmakingRuleSet" OutputProperty="Valid" Verb="Test" Noun="MatchmakingRuleSetValidity" PipelineParameter="RuleSetBody" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>inspector</C2jFilename>
+    <AssemblyName>Inspector</AssemblyName>
+    <ServiceNounPrefix>INS</ServiceNounPrefix>
+    <ServiceName>Amazon Inspector</ServiceName>
+    <ServiceClientInterface>IAmazonInspector</ServiceClientInterface>
+    <ServiceClient>AmazonInspectorClient</ServiceClient>
+    <ServiceModuleGuid>ac81a886-9dc1-462a-a4d1-43f3f869ac5e</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddAttributesToFindings" OutputProperty="FailedItems" Verb="Add" Noun="FindingAttribute" ShouldProcessTarget="FindingArns" PipelineParameter="FindingArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssessmentTarget" OutputProperty="AssessmentTargetArn" Verb="New" Noun="AssessmentTarget" ShouldProcessTarget="AssessmentTargetName" PipelineParameter="ResourceGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssessmentTemplate" OutputProperty="AssessmentTemplateArn" Verb="New" Noun="AssessmentTemplate" ShouldProcessTarget="AssessmentTemplateName" PipelineParameter="AssessmentTargetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateExclusionsPreview" OutputProperty="PreviewToken" Verb="New" Noun="ExclusionsPreview" ShouldProcessTarget="AssessmentTemplateArn" PipelineParameter="AssessmentTemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceGroup" OutputProperty="ResourceGroupArn" Verb="New" Noun="ResourceGroup" ShouldProcessTarget="ResourceGroupTags" PipelineParameter="ResourceGroupTags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessmentRun" Verb="Remove" Noun="AssessmentRun" ShouldProcessTarget="AssessmentRunArn" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessmentTarget" Verb="Remove" Noun="AssessmentTarget" ShouldProcessTarget="AssessmentTargetArn" PipelineParameter="AssessmentTargetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessmentTemplate" Verb="Remove" Noun="AssessmentTemplate" ShouldProcessTarget="AssessmentTemplateArn" PipelineParameter="AssessmentTemplateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssessmentRuns" OutputProperty="*" Verb="Get" Noun="AssessmentRun" PipelineParameter="AssessmentRunArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssessmentTargets" OutputProperty="*" Verb="Get" Noun="AssessmentTarget" PipelineParameter="AssessmentTargetArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssessmentTemplates" OutputProperty="*" Verb="Get" Noun="AssessmentTemplate" PipelineParameter="AssessmentTemplateArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCrossAccountAccessRole" OutputProperty="*" Verb="Get" Noun="CrossAccountAccessRole" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExclusions" OutputProperty="*" Verb="Get" Noun="Exclusion" PipelineParameter="ExclusionArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFindings" OutputProperty="*" Verb="Get" Noun="Finding" PipelineParameter="FindingArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourceGroups" OutputProperty="*" Verb="Get" Noun="ResourceGroup" PipelineParameter="ResourceGroupArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRulesPackages" OutputProperty="*" Verb="Get" Noun="RulesPackage" PipelineParameter="RulesPackageArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssessmentReport" OutputProperty="*" Verb="Get" Noun="AssessmentReport" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExclusionsPreview" OutputProperty="*" Verb="Get" Noun="ExclusionsPreview" PipelineParameter="AssessmentTemplateArn" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTelemetryMetadata" OutputProperty="TelemetryMetadata" Verb="Get" Noun="TelemetryMetadata" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentRunAgents" OutputProperty="AssessmentRunAgents" Verb="Get" Noun="AssessmentRunAgent" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentRuns" OutputProperty="AssessmentRunArns" Verb="Get" Noun="AssessmentRunList" PipelineParameter="AssessmentTemplateArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentTargets" OutputProperty="AssessmentTargetArns" Verb="Get" Noun="AssessmentTargetList" PipelineParameter="Filter_AssessmentTargetNamePattern" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentTemplates" OutputProperty="AssessmentTemplateArns" Verb="Get" Noun="AssessmentTemplateList" PipelineParameter="AssessmentTargetArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="EventSubscription" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExclusions" OutputProperty="ExclusionArns" Verb="Get" Noun="ExclusionList" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingArns" Verb="Get" Noun="FindingList" PipelineParameter="AssessmentRunArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRulesPackages" OutputProperty="RulesPackageArns" Verb="Get" Noun="RulesPackageList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PreviewAgents" OutputProperty="AgentPreviews" Verb="Get" Noun="AgentPreview" PipelineParameter="PreviewAgentsArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterCrossAccountAccessRole" Verb="Register" Noun="CrossAccountAccessRole" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveAttributesFromFindings" OutputProperty="FailedItems" Verb="Remove" Noun="FindingAttribute" ShouldProcessTarget="FindingArns" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetTagsForResource" Verb="Set" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAssessmentRun" OutputProperty="AssessmentRunArn" Verb="Start" Noun="AssessmentRun" ShouldProcessTarget="AssessmentTemplateArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAssessmentRun" Verb="Stop" Noun="AssessmentRun" ShouldProcessTarget="AssessmentRunArn" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubscribeToEvent" Verb="Add" Noun="EventSubscription" ShouldProcessTarget="TopicArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnsubscribeFromEvent" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="TopicArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssessmentTarget" Verb="Update" Noun="AssessmentTarget" ShouldProcessTarget="AssessmentTargetArn" PipelineParameter="AssessmentTargetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

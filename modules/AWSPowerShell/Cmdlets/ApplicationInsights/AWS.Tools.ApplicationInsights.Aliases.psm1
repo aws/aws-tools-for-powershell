@@ -1,0 +1,3 @@
+﻿# ApplicationInsights
+
+Export-ModuleMember -Alias *

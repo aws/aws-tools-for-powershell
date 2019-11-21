@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemaker</C2jFilename>
+    <AssemblyName>SageMaker</AssemblyName>
+    <ServiceNounPrefix>SM</ServiceNounPrefix>
+    <ServiceName>Amazon SageMaker Service</ServiceName>
+    <ServiceClientInterface>IAmazonSageMaker</ServiceClientInterface>
+    <ServiceClient>AmazonSageMakerClient</ServiceClient>
+    <ServiceModuleGuid>2c5c1112-6b0f-437e-b18c-2da050c9f8c9</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTags" OutputProperty="Tags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAlgorithm" OutputProperty="AlgorithmArn" Verb="New" Noun="Algorithm" ShouldProcessTarget="AlgorithmName" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="New" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCompilationJob" OutputProperty="CompilationJobArn" Verb="New" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEndpointConfig" OutputProperty="EndpointConfigArn" Verb="New" Noun="EndpointConfig" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateHyperParameterTuningJob" OutputProperty="HyperParameterTuningJobArn" Verb="New" Noun="HyperParameterTuningJob" ShouldProcessTarget="HyperParameterTuningJobName" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLabelingJob" OutputProperty="LabelingJobArn" Verb="New" Noun="LabelingJob" ShouldProcessTarget="LabelingJobName" PipelineParameter="LabelingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModel" OutputProperty="ModelArn" Verb="New" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="PrimaryContainer" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelPackage" OutputProperty="ModelPackageArn" Verb="New" Noun="ModelPackage" ShouldProcessTarget="ModelPackageName" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotebookInstance" OutputProperty="NotebookInstanceArn" Verb="New" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotebookInstanceLifecycleConfig" OutputProperty="NotebookInstanceLifecycleConfigArn" Verb="New" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePresignedNotebookInstanceUrl" OutputProperty="AuthorizedUrl" Verb="New" Noun="PresignedNotebookInstanceUrl" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrainingJob" OutputProperty="TrainingJobArn" Verb="New" Noun="TrainingJob" ShouldProcessTarget="TrainingJobName" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransformJob" OutputProperty="TransformJobArn" Verb="New" Noun="TransformJob" ShouldProcessTarget="TransformJobName" PipelineParameter="TransformJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkteam" OutputProperty="WorkteamArn" Verb="New" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAlgorithm" Verb="Remove" Noun="Algorithm" ShouldProcessTarget="AlgorithmName" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCodeRepository" Verb="Remove" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpointConfig" Verb="Remove" Noun="EndpointConfig" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModel" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModelPackage" Verb="Remove" Noun="ModelPackage" ShouldProcessTarget="ModelPackageName" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotebookInstance" Verb="Remove" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotebookInstanceLifecycleConfig" Verb="Remove" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="TagKeys" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkteam" OutputProperty="Success" Verb="Remove" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlgorithm" OutputProperty="*" Verb="Get" Noun="Algorithm" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCodeRepository" OutputProperty="*" Verb="Get" Noun="CodeRepository" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCompilationJob" OutputProperty="*" Verb="Get" Noun="CompilationJob" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoint" OutputProperty="*" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpointConfig" OutputProperty="*" Verb="Get" Noun="EndpointConfig" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHyperParameterTuningJob" OutputProperty="*" Verb="Get" Noun="HyperParameterTuningJob" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLabelingJob" OutputProperty="*" Verb="Get" Noun="LabelingJob" PipelineParameter="LabelingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModel" OutputProperty="*" Verb="Get" Noun="Model" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelPackage" OutputProperty="*" Verb="Get" Noun="ModelPackage" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotebookInstance" OutputProperty="*" Verb="Get" Noun="NotebookInstance" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotebookInstanceLifecycleConfig" OutputProperty="*" Verb="Get" Noun="NotebookInstanceLifecycleConfig" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSubscribedWorkteam" OutputProperty="SubscribedWorkteam" Verb="Get" Noun="SubscribedWorkteam" PipelineParameter="WorkteamArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrainingJob" OutputProperty="*" Verb="Get" Noun="TrainingJob" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransformJob" OutputProperty="*" Verb="Get" Noun="TransformJob" PipelineParameter="TransformJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkteam" OutputProperty="Workteam" Verb="Get" Noun="Workteam" PipelineParameter="WorkteamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSearchSuggestions" OutputProperty="PropertyNameSuggestions" Verb="Get" Noun="SearchSuggestion" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAlgorithms" OutputProperty="AlgorithmSummaryList" Verb="Get" Noun="AlgorithmList" PipelineParameter="NameContains" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeRepositories" OutputProperty="CodeRepositorySummaryList" Verb="Get" Noun="CodeRepositoryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCompilationJobs" OutputProperty="CompilationJobSummaries" Verb="Get" Noun="CompilationJobList" PipelineParameter="NameContains" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEndpointConfigs" OutputProperty="EndpointConfigs" Verb="Get" Noun="ConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHyperParameterTuningJobs" OutputProperty="HyperParameterTuningJobSummaries" Verb="Get" Noun="HyperParameterTuningJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLabelingJobs" OutputProperty="LabelingJobSummaryList" Verb="Get" Noun="LabelingJobList" PipelineParameter="NameContains" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLabelingJobsForWorkteam" OutputProperty="LabelingJobSummaryList" Verb="Get" Noun="LabelingJobListForWorkteam" PipelineParameter="WorkteamArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelPackages" OutputProperty="ModelPackageSummaryList" Verb="Get" Noun="ModelPackageList" PipelineParameter="NameContains" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModels" OutputProperty="Models" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotebookInstanceLifecycleConfigs" OutputProperty="NotebookInstanceLifecycleConfigs" Verb="Get" Noun="NotebookInstanceLifecycleConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotebookInstances" OutputProperty="NotebookInstances" Verb="Get" Noun="NotebookInstanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscribedWorkteams" OutputProperty="SubscribedWorkteams" Verb="Get" Noun="SubscribedWorkteamList" PipelineParameter="NameContains" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTrainingJobs" OutputProperty="TrainingJobSummaries" Verb="Get" Noun="TrainingJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTrainingJobsForHyperParameterTuningJob" OutputProperty="TrainingJobSummaries" Verb="Get" Noun="TrainingJobsForHyperParameterTuningJobList" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTransformJobs" OutputProperty="TransformJobSummaries" Verb="Get" Noun="TransformJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkteams" OutputProperty="Workteams" Verb="Get" Noun="WorkteamList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RenderUiTemplate" OutputProperty="*" Verb="Invoke" Noun="UiTemplateRendering" ShouldProcessTarget="RoleArn" PipelineParameter="UiTemplate_Content" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Search" OutputProperty="Results" Verb="Search" Noun="Resource" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartNotebookInstance" Verb="Start" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopCompilationJob" Verb="Stop" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopHyperParameterTuningJob" Verb="Stop" Noun="HyperParameterTuningJob" ShouldProcessTarget="HyperParameterTuningJobName" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopLabelingJob" Verb="Stop" Noun="LabelingJob" ShouldProcessTarget="LabelingJobName" PipelineParameter="LabelingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopNotebookInstance" Verb="Stop" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTrainingJob" Verb="Stop" Noun="TrainingJob" ShouldProcessTarget="TrainingJobName" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTransformJob" Verb="Stop" Noun="TransformJob" ShouldProcessTarget="TransformJobName" PipelineParameter="TransformJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="Update" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="EndpointArn" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEndpointWeightsAndCapacities" OutputProperty="EndpointArn" Verb="Update" Noun="EndpointWeightAndCapacity" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotebookInstance" Verb="Update" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotebookInstanceLifecycleConfig" Verb="Update" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkteam" OutputProperty="Workteam" Verb="Update" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.SageMaker.Model.AlgorithmSpecification</Type>
+        <Type>Amazon.SageMaker.Model.ContainerDefinition</Type>
+        <Type>Amazon.SageMaker.Model.DesiredWeightAndCapacity</Type>
+        <Type>Amazon.SageMaker.Model.OutputDataConfig</Type>
+        <Type>Amazon.SageMaker.Model.ResourceConfig</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

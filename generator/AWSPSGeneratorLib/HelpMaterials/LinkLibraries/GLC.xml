@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="Developer Guide">https://docs.aws.amazon.com/amazonglacier/latest/dev/</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-api.html</link>
+	<link name="SQL Reference">https://docs.aws.amazon.com/amazonglacier/latest/dev/s3-glacier-select-sql-reference.html</link>
+  </set>
+</links>

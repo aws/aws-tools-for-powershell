@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Get-R53HostedZone -Id Z1D633PJN98FT9</code>
+        <description>Returns details of the hosted zone with ID Z1D633PJN98FT9.</description>
+    </example>
+</examples>

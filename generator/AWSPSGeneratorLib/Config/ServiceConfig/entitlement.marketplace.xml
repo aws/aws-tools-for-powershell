@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>entitlement.marketplace</C2jFilename>
+    <AssemblyName>MarketplaceEntitlementService</AssemblyName>
+    <ServiceNounPrefix>MES</ServiceNounPrefix>
+    <ServiceName>AWS Marketplace Entitlement Service</ServiceName>
+    <ServiceClientInterface>IAmazonMarketplaceEntitlementService</ServiceClientInterface>
+    <ServiceClient>AmazonMarketplaceEntitlementServiceClient</ServiceClient>
+    <ServiceModuleGuid>177af441-3156-4ee1-8d81-9a0342f4ec7d</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="EntitlementList" PipelineParameter="ProductCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

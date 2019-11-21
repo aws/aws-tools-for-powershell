@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMPolicyList -MaxItem 3
+
+Arn              : arn:aws:iam::aws:policy/AWSDirectConnectReadOnlyAccess
+AttachmentCount  : 0
+CreateDate       : 2/6/2015 10:40:08 AM
+DefaultVersionId : v1
+Description      : 
+IsAttachable     : True
+Path             : /
+PolicyId         : Z27SI6FQMGNQ2EXAMPLE1
+PolicyName       : AWSDirectConnectReadOnlyAccess
+UpdateDate       : 2/6/2015 10:40:08 AM
+      
+Arn              : arn:aws:iam::aws:policy/AmazonGlacierReadOnlyAccess
+AttachmentCount  : 0
+CreateDate       : 2/6/2015 10:40:27 AM
+DefaultVersionId : v1
+Description      : 
+IsAttachable     : True
+Path             : /
+PolicyId         : NJKMU274MET4EEXAMPLE2
+PolicyName       : AmazonGlacierReadOnlyAccess
+UpdateDate       : 2/6/2015 10:40:27 AM
+      
+Arn              : arn:aws:iam::aws:policy/AWSMarketplaceFullAccess
+AttachmentCount  : 0
+CreateDate       : 2/11/2015 9:21:45 AM
+DefaultVersionId : v1
+Description      : 
+IsAttachable     : True
+Path             : /
+PolicyId         : 5ULJSO2FYVPYGEXAMPLE3
+PolicyName       : AWSMarketplaceFullAccess
+UpdateDate       : 2/11/2015 9:21:45 AM</code>
+    <description>This example returns a collection of the first three managed policies available in the current AWS account. Because <code>-scope</code> is not specified, it defaults to <code>all</code> and includes both AWS managed and customer managed policies.</description>
+  </example>
+  <example>
+    <code>PS C:\>Get-IAMPolicyList -Scope local -MaxItem 2
+Arn              : arn:aws:iam::123456789012:policy/MyLocalPolicy
+AttachmentCount  : 0
+CreateDate       : 2/12/2015 9:39:09 AM
+DefaultVersionId : v2
+Description      : 
+IsAttachable     : True
+Path             : /
+PolicyId         : SQVCBLC4VAOUCEXAMPLE4
+PolicyName       : MyLocalPolicy
+UpdateDate       : 2/12/2015 9:39:53 AM
+
+Arn              : arn:aws:iam::123456789012:policy/policyforec2instancerole
+AttachmentCount  : 1
+CreateDate       : 2/17/2015 2:51:38 PM
+DefaultVersionId : v11
+Description      : 
+IsAttachable     : True
+Path             : /
+PolicyId         : X5JPBLJH2Z2SOEXAMPLE5
+PolicyName       : policyforec2instancerole
+UpdateDate       : 2/18/2015 8:52:31 AM</code>
+    <description>This example returns a collection of the first two customer managed policies available in current AWS account. It uses <code>-Scope local</code> to limit the output to only customer managed policies. </description>
+  </example>
+</examples>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="User Guide">http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/using-pelong.html</link>
+  </set>
+</links>

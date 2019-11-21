@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\> Get-WKSWorkspace
+
+BundleId                    : wsb-1a2b3c4d
+ComputerName                :
+DirectoryId                 : d-1a2b3c4d
+ErrorCode                   :
+ErrorMessage                :
+IpAddress                   :
+RootVolumeEncryptionEnabled : False
+State                       : PENDING
+SubnetId                    :
+UserName                    : myuser
+UserVolumeEncryptionEnabled : False
+VolumeEncryptionKey         :
+WorkspaceId                 : ws-1a2b3c4d
+WorkspaceProperties         : Amazon.WorkSpaces.Model.WorkspaceProperties
+        </code>
+        <description>Retrieves details of all your WorkSpaces to the pipeline.</description>
+    </example>
+    <example>
+        <code>
+        PS C:\> (Get-WKSWorkspace -Region us-west-2 -WorkSpaceId ws-xdaf7hc9s).WorkspaceProperties
+        
+        ComputeTypeName                     : STANDARD
+        RootVolumeSizeGib                   : 80
+        RunningMode                         : AUTO_STOP
+        RunningModeAutoStopTimeoutInMinutes : 60
+        UserVolumeSizeGib                   : 50
+        </code>
+        <description>This command shows the values of child properties of <code>WorkSpaceProperties</code> for a workspace in the <code>us-west-2</code> region. For more information about the child properties of <code>WorkSpaceProperties</code>, see https://docs.aws.amazon.com/workspaces/latest/api/API_WorkspaceProperties.html.</description>
+    </example>
+    <example>
+        <code>
+        PS C:\> (Get-WKSWorkspace -Region us-west-2 -WorkSpaceId ws-xdaf7hc9s).WorkspaceProperties.RootVolumeSizeGib
+        
+        80
+        </code>
+        <description>This command shows the value of the child property <code>RootVolumeSizeGib</code> of <code>WorkSpaceProperties</code> for a workspace in the <code>us-west-2</code> region. The root volume size, in GiB, is 80.</description>
+    </example>
+</examples>

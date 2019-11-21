@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Enter-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $true
+    
+ActivityId           : e36a5a54-ced6-4df8-bd19-708e2a59a649
+AutoScalingGroupName : my-asg
+Cause                : At 2015-11-22T15:48:06Z instance i-95b8484f was moved to standby in response to a user request,
+                       shrinking the capacity from 2 to 1.
+Description          : Moving EC2 instance to Standby: i-95b8484f
+Details              : {"Availability Zone":"us-west-2b","Subnet ID":"subnet-5264e837"}
+EndTime              : 
+Progress             : 50
+StartTime            : 11/22/2015 7:48:06 AM
+StatusCode           : InProgress
+StatusMessage        :</code>
+  	<description>This example puts the specified instance into standby mode and decreases the desired capacity so that Auto Scaling does not launch a replacement instance.</description>
+  </example>
+  <example>
+    <code>PS C:\> Enter-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $false
+    
+ActivityId           : e36a5a54-ced6-4df8-bd19-708e2a59a649
+AutoScalingGroupName : my-asg
+Cause                : At 2015-11-22T15:48:06Z instance i-95b8484f was moved to standby in response to a user request.
+Description          : Moving EC2 instance to Standby: i-95b8484f
+Details              : {"Availability Zone":"us-west-2b","Subnet ID":"subnet-5264e837"}
+EndTime              : 
+Progress             : 50
+StartTime            : 11/22/2015 7:48:06 AM
+StatusCode           : InProgress
+StatusMessage        :</code>
+  	<description>This example puts the specified instance into standby mode without decreasing the desired capacity. Auto Scaling launches a replacement instance.</description>
+  </example>
+</examples>

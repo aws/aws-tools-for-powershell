@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>rekognition</C2jFilename>
+    <AssemblyName>Rekognition</AssemblyName>
+    <ServiceNounPrefix>REK</ServiceNounPrefix>
+    <ServiceName>Amazon Rekognition</ServiceName>
+    <ServiceClientInterface>IAmazonRekognition</ServiceClientInterface>
+    <ServiceClient>AmazonRekognitionClient</ServiceClient>
+    <ServiceModuleGuid>9c9c766c-8d86-4d1b-a482-1e1ec5ed6337</ServiceModuleGuid>
+    <PipelineParameter>CollectionId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Get-REKStreamProcessorList">Get-REKStreamProcessorsList</AliasSet>
+    </LegacyAliases>
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CompareFaces" OutputProperty="*" Verb="Compare" Noun="Face" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="SourceImage_S3Object_Bucket" NewName="SourceImageBucket" AutoApplyAlias="false" />
+                <Param Name="SourceImage_S3Object_Name" NewName="SourceImageName" AutoApplyAlias="false" />
+                <Param Name="SourceImage_S3Object_Version" NewName="SourceImageVersion" AutoApplyAlias="false" />
+                <Param Name="SourceImage_Bytes" NewName="SourceImageContent" AutoApplyAlias="false" />
+                <Param Name="TargetImage_S3Object_Bucket" NewName="TargetImageBucket" AutoApplyAlias="false" />
+                <Param Name="TargetImage_S3Object_Name" NewName="TargetImageName" AutoApplyAlias="false" />
+                <Param Name="TargetImage_S3Object_Version" NewName="TargetImageVersion" AutoApplyAlias="false" />
+                <Param Name="TargetImage_Bytes" NewName="TargetImageContent" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCollection" OutputProperty="*" Verb="New" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStreamProcessor" OutputProperty="StreamProcessorArn" Verb="New" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCollection" OutputProperty="StatusCode" Verb="Remove" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFaces" OutputProperty="DeletedFaces" Verb="Remove" Noun="Face" ShouldProcessTarget="CollectionId" PipelineParameter="FaceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStreamProcessor" Verb="Remove" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCollection" OutputProperty="*" Verb="Get" Noun="Collection" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStreamProcessor" OutputProperty="*" Verb="Get" Noun="StreamProcessor" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectFaces" OutputProperty="*" Verb="Find" Noun="Face" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectLabels" OutputProperty="*" Verb="Find" Noun="Label" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectModerationLabels" OutputProperty="*" Verb="Find" Noun="ModerationLabel" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectText" OutputProperty="TextDetections" Verb="Find" Noun="Text" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCelebrityInfo" OutputProperty="*" Verb="Get" Noun="CelebrityInfo" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCelebrityRecognition" OutputProperty="*" Verb="Get" Noun="CelebrityRecognition" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContentModeration" OutputProperty="*" Verb="Get" Noun="ContentModeration" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFaceDetection" OutputProperty="*" Verb="Get" Noun="FaceDetection" PipelineParameter="JobId" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFaceSearch" OutputProperty="*" Verb="Get" Noun="FaceSearch" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLabelDetection" OutputProperty="*" Verb="Get" Noun="LabelDetection" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPersonTracking" OutputProperty="*" Verb="Get" Noun="PersonTracking" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IndexFaces" OutputProperty="*" Verb="Add" Noun="DetectedFacesToCollection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCollections" OutputProperty="*" Verb="Get" Noun="CollectionIdList" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFaces" OutputProperty="*" Verb="Get" Noun="FaceList" PipelineParameter="CollectionId" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreamProcessors" OutputProperty="StreamProcessors" Verb="Get" Noun="StreamProcessorList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RecognizeCelebrities" OutputProperty="*" Verb="Find" Noun="Celebrity" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchFaces" OutputProperty="*" Verb="Search" Noun="Face" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchFacesByImage" OutputProperty="*" Verb="Search" Noun="FacesByImage" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCelebrityRecognition" OutputProperty="JobId" Verb="Start" Noun="CelebrityRecognition" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartContentModeration" OutputProperty="JobId" Verb="Start" Noun="ContentModeration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFaceDetection" OutputProperty="JobId" Verb="Start" Noun="FaceDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFaceSearch" OutputProperty="JobId" Verb="Start" Noun="FaceSearch" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartLabelDetection" OutputProperty="JobId" Verb="Start" Noun="LabelDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPersonTracking" OutputProperty="JobId" Verb="Start" Noun="PersonTracking" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartStreamProcessor" Verb="Start" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopStreamProcessor" Verb="Stop" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.Rekognition.Model.Video</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

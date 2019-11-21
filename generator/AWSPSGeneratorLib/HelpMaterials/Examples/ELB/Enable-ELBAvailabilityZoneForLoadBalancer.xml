@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Enable-ELBAvailabilityZoneForLoadBalancer -LoadBalancerName my-load-balancer -AvailabilityZone us-west-2a
+    
+us-west-2a
+us-west-2b</code>
+    <description>This example adds the specified Availability Zone to the specified load balancer. The output includes the complete list of Availability Zones.</description>
+  </example>
+</examples>

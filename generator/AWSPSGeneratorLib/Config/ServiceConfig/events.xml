@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>events</C2jFilename>
+    <AssemblyName>CloudWatchEvents</AssemblyName>
+    <ServiceNounPrefix>CWE</ServiceNounPrefix>
+    <ServiceName>Amazon CloudWatch Events</ServiceName>
+    <ServiceClientInterface>IAmazonCloudWatchEvents</ServiceClientInterface>
+    <ServiceClient>AmazonCloudWatchEventsClient</ServiceClient>
+    <ServiceModuleGuid />
+    <PipelineParameter>Rule</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ActivateEventSource" Verb="Enable" Noun="EventSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventBus" OutputProperty="EventBusArn" Verb="New" Noun="EventBus" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePartnerEventSource" OutputProperty="EventSourceArn" Verb="New" Noun="PartnerEventSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeactivateEventSource" Verb="Disable" Noun="EventSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventBus" Verb="Remove" Noun="EventBus" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePartnerEventSource" Verb="Remove" Noun="PartnerEventSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventBus" OutputProperty="*" Verb="Get" Noun="EventBus" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventSource" OutputProperty="*" Verb="Get" Noun="EventSource" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePartnerEventSource" OutputProperty="*" Verb="Get" Noun="PartnerEventSource" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRule" OutputProperty="*" Verb="Get" Noun="RuleDetail" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableRule" Verb="Disable" Noun="Rule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableRule" Verb="Enable" Noun="Rule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventBuses" OutputProperty="EventBuses" Verb="Get" Noun="EventBusList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventSources" OutputProperty="EventSources" Verb="Get" Noun="EventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPartnerEventSourceAccounts" OutputProperty="PartnerEventSourceAccounts" Verb="Get" Noun="PartnerEventSourceAccountList" PipelineParameter="EventSourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPartnerEventSources" OutputProperty="PartnerEventSources" Verb="Get" Noun="PartnerEventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRuleNamesByTarget" OutputProperty="RuleNames" Verb="Get" Noun="RuleNamesByTarget" PipelineParameter="TargetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTargetsByRule" OutputProperty="Targets" Verb="Get" Noun="TargetsByRule" PipelineParameter="Rule" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEvents" OutputProperty="*" Verb="Write" Noun="Event" ShouldProcessTarget="Entries" PipelineParameter="Entries" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutPartnerEvents" OutputProperty="Entries" Verb="Write" Noun="PartnerEvent" ShouldProcessTarget="Entries" PipelineParameter="Entries" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutPermission" Verb="Write" Noun="Permission" ShouldProcessTarget="StatementId" PipelineParameter="StatementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRule" OutputProperty="RuleArn" Verb="Write" Noun="Rule" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTargets" OutputProperty="FailedEntries" Verb="Write" Noun="Target" ShouldProcessTarget="Rule" PipelineParameter="Rule" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="StatementId" PipelineParameter="StatementId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTargets" OutputProperty="FailedEntries" Verb="Remove" Noun="Target" ShouldProcessTarget="Ids" PipelineParameter="Rule" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestEventPattern" OutputProperty="Result" Verb="Test" Noun="EventPattern" PipelineParameter="Event" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

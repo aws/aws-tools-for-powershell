@@ -1,0 +1,35 @@
+﻿@inherits AWSPowerShellGenerator.Writers.SourceCode.CmdletListTemplate
+@using System
+@using System.Linq
+<?xml version="1.0" encoding="utf-8" ?>
+<Modules>
+@{
+    var modules = ServiceConfigs.GroupBy(config => config.AssemblyName);
+}
+@foreach(var module in modules)
+{
+    var hasModularVersion = true;
+    var mainModule = module.Where(config => !string.IsNullOrEmpty(config.ServiceModuleGuid)).SingleOrDefault();
+    if (mainModule == null)
+    {
+        hasModularVersion = false;
+        mainModule = module.First();
+    }
+    @if (hasModularVersion || !Modular)
+    {
+    <Service Name="@mainModule.AssemblyName" Description="@mainModule.ServiceName" CmdletNounPrefix="@mainModule.ServiceNounPrefix" ModuleName="@(hasModularVersion?"AWS.Tools." + mainModule.AssemblyName:"")" SDKAssemblyName="AWSSDK.@mainModule.AssemblyName" SDKAssemblyVersion="@(System.Diagnostics.FileVersionInfo.GetVersionInfo(mainModule.Assembly.Location).FileVersion)">
+        @foreach (var operation in module.SelectMany(config => config.ServiceOperationsList))
+        {
+            @if (!operation.Exclude)
+            {
+        <Cmdlet Name="@operation.SelectedVerb-@(mainModule.ServiceNounPrefix)@operation.SelectedNoun" Operations="@operation.MethodName" />
+            }
+        }
+        @foreach (var cmdlet in module.SelectMany(config => config.AdvancedCmdlets))
+        {
+        <Cmdlet Name="@cmdlet.Key" Operations="@string.Join(",", cmdlet.Value.OperationNames)" />
+        }
+    </Service>
+    }
+}
+</Modules>

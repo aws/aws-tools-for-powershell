@@ -1,0 +1,3 @@
+﻿# CognitoSync
+
+Export-ModuleMember -Alias *

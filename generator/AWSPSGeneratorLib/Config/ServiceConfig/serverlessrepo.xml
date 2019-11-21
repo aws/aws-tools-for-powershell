@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>serverlessrepo</C2jFilename>
+    <AssemblyName>ServerlessApplicationRepository</AssemblyName>
+    <ServiceNounPrefix>SAR</ServiceNounPrefix>
+    <ServiceName>AWS Serverless Application Repository</ServiceName>
+    <ServiceClientInterface>IAmazonServerlessApplicationRepository</ServiceClientInterface>
+    <ServiceClient>AmazonServerlessApplicationRepositoryClient</ServiceClient>
+    <ServiceModuleGuid>64f5e1e7-c409-46ae-9791-121848af6a29</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplicationVersion" OutputProperty="*" Verb="New" Noun="ApplicationVersion" ShouldProcessTarget="ApplicationId" PipelineParameter="SemanticVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudFormationChangeSet" OutputProperty="*" Verb="New" Noun="CloudFormationChangeSet" ShouldProcessTarget="ApplicationId" PipelineParameter="SemanticVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudFormationTemplate" OutputProperty="*" Verb="New" Noun="CloudFormationTemplate" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="SemanticVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApplicationPolicy" OutputProperty="Statements" Verb="Get" Noun="ApplicationPolicy" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudFormationTemplate" OutputProperty="*" Verb="Get" Noun="CloudFormationTemplate" PipelineParameter="TemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplicationDependencies" OutputProperty="Dependencies" Verb="Get" Noun="ApplicationDependencyList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="MaxItems" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplicationVersions" OutputProperty="Versions" Verb="Get" Noun="ApplicationVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutApplicationPolicy" OutputProperty="Statements" Verb="Set" Noun="ApplicationPolicy" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="*" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

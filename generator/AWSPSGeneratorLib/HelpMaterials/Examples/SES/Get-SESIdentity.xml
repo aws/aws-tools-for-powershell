@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-SESIdentity</code>
+    <description>This command returns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.</description>
+  </example>
+</examples>

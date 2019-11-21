@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>forecastquery</C2jFilename>
+    <AssemblyName>ForecastQueryService</AssemblyName>
+    <ServiceNounPrefix>FRCQ</ServiceNounPrefix>
+    <ServiceName>Amazon Forecast Query Service</ServiceName>
+    <ServiceClientInterface>IAmazonForecastQueryService</ServiceClientInterface>
+    <ServiceClient>AmazonForecastQueryServiceClient</ServiceClient>
+    <ServiceModuleGuid>eed71717-6f51-46f9-b45c-4191f0bf6417</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="QueryForecast" OutputProperty="Forecast" Verb="Select" Noun="Forecast" ShouldProcessTarget="ForecastArn" PipelineParameter="ForecastArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

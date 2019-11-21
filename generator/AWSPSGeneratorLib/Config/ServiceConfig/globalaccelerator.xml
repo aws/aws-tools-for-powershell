@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>globalaccelerator</C2jFilename>
+    <AssemblyName>GlobalAccelerator</AssemblyName>
+    <ServiceNounPrefix>GACL</ServiceNounPrefix>
+    <ServiceName>AWS Global Accelerator</ServiceName>
+    <ServiceClientInterface>IAmazonGlobalAccelerator</ServiceClientInterface>
+    <ServiceClient>AmazonGlobalAcceleratorClient</ServiceClient>
+    <ServiceModuleGuid>cc19ec13-42bd-46e0-862e-cae7f5eb6845</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAccelerator" OutputProperty="Accelerator" Verb="New" Noun="Accelerator" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEndpointGroup" OutputProperty="EndpointGroup" Verb="New" Noun="EndpointGroup" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateListener" OutputProperty="Listener" Verb="New" Noun="Listener" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccelerator" Verb="Remove" Noun="Accelerator" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpointGroup" Verb="Remove" Noun="EndpointGroup" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteListener" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccelerator" OutputProperty="Accelerator" Verb="Get" Noun="Accelerator" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAcceleratorAttributes" OutputProperty="AcceleratorAttributes" Verb="Get" Noun="AcceleratorAttribute" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpointGroup" OutputProperty="EndpointGroup" Verb="Get" Noun="EndpointGroup" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeListener" OutputProperty="Listener" Verb="Get" Noun="Listener" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccelerators" OutputProperty="Accelerators" Verb="Get" Noun="AcceleratorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEndpointGroups" OutputProperty="EndpointGroups" Verb="Get" Noun="EndpointGroupList" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListListeners" OutputProperty="Listeners" Verb="Get" Noun="ListenerList" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccelerator" OutputProperty="Accelerator" Verb="Update" Noun="Accelerator" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAcceleratorAttributes" OutputProperty="AcceleratorAttributes" Verb="Update" Noun="AcceleratorAttribute" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEndpointGroup" OutputProperty="EndpointGroup" Verb="Update" Noun="EndpointGroup" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateListener" OutputProperty="Listener" Verb="Update" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

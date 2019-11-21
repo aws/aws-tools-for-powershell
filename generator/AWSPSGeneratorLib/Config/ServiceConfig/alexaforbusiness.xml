@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>alexaforbusiness</C2jFilename>
+    <AssemblyName>AlexaForBusiness</AssemblyName>
+    <ServiceNounPrefix>ALXB</ServiceNounPrefix>
+    <ServiceName>Alexa For Business</ServiceName>
+    <ServiceClientInterface>IAmazonAlexaForBusiness</ServiceClientInterface>
+    <ServiceClient>AmazonAlexaForBusinessClient</ServiceClient>
+    <ServiceModuleGuid>988635da-2974-4068-87d7-2d6475ba88ce</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="10" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Remove-ALXBSmartHomeAppliance">Remove-ALXBSmartHomeAppliances</AliasSet>
+    </LegacyAliases>
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ApproveSkill" Verb="Approve" Noun="Skill" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateContactWithAddressBook" Verb="Add" Noun="ContactToAddressBook" ShouldProcessTarget="ContactArn" PipelineParameter="ContactArn" NoPipelineParameter="false" LegacyAlias="Add-ALXBContactWithAddressBook">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDeviceWithNetworkProfile" Verb="Add" Noun="DeviceToNetworkProfile" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDeviceWithRoom" Verb="Add" Noun="DeviceToRoom" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSkillGroupWithRoom" Verb="Add" Noun="SkillGroupToRoom" ShouldProcessTarget="SkillGroupArn" PipelineParameter="SkillGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSkillWithSkillGroup" Verb="Add" Noun="SkillToSkillGroup" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSkillWithUsers" Verb="Add" Noun="SkillToUser" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAddressBook" OutputProperty="AddressBookArn" Verb="New" Noun="AddressBook" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBusinessReportSchedule" OutputProperty="ScheduleArn" Verb="New" Noun="BusinessReportSchedule" ShouldProcessTarget="ScheduleName" PipelineParameter="ScheduleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConferenceProvider" OutputProperty="ConferenceProviderArn" Verb="New" Noun="ConferenceProvider" ShouldProcessTarget="ConferenceProviderName" PipelineParameter="ConferenceProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContact" OutputProperty="ContactArn" Verb="New" Noun="Contact" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="PhoneNumbers" NewName="PhoneNumberList" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGatewayGroup" OutputProperty="GatewayGroupArn" Verb="New" Noun="GatewayGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkProfile" OutputProperty="NetworkProfileArn" Verb="New" Noun="NetworkProfile" ShouldProcessTarget="NetworkProfileName" PipelineParameter="NetworkProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProfile" OutputProperty="ProfileArn" Verb="New" Noun="Profile" ShouldProcessTarget="ProfileName" PipelineParameter="ProfileName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ProfileName" NewName="Name" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRoom" OutputProperty="RoomArn" Verb="New" Noun="Room" ShouldProcessTarget="RoomName" PipelineParameter="RoomName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSkillGroup" OutputProperty="SkillGroupArn" Verb="New" Noun="SkillGroup" ShouldProcessTarget="SkillGroupName" PipelineParameter="SkillGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUser" OutputProperty="UserArn" Verb="New" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAddressBook" Verb="Remove" Noun="AddressBook" ShouldProcessTarget="AddressBookArn" PipelineParameter="AddressBookArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBusinessReportSchedule" Verb="Remove" Noun="BusinessReportSchedule" ShouldProcessTarget="ScheduleArn" PipelineParameter="ScheduleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConferenceProvider" Verb="Remove" Noun="ConferenceProvider" ShouldProcessTarget="ConferenceProviderArn" PipelineParameter="ConferenceProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContact" Verb="Remove" Noun="Contact" ShouldProcessTarget="ContactArn" PipelineParameter="ContactArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDevice" Verb="Remove" Noun="Device" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeviceUsageData" Verb="Remove" Noun="DeviceUsageData" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGatewayGroup" Verb="Remove" Noun="GatewayGroup" ShouldProcessTarget="GatewayGroupArn" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkProfile" Verb="Remove" Noun="NetworkProfile" ShouldProcessTarget="NetworkProfileArn" PipelineParameter="NetworkProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProfile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoom" Verb="Remove" Noun="Room" ShouldProcessTarget="RoomArn" PipelineParameter="RoomArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoomSkillParameter" Verb="Remove" Noun="RoomSkillParameter" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSkillAuthorization" Verb="Remove" Noun="SkillAuthorization" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSkillGroup" Verb="Remove" Noun="SkillGroup" ShouldProcessTarget="SkillGroupArn" PipelineParameter="SkillGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="EnrollmentId" PipelineParameter="EnrollmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateContactFromAddressBook" Verb="Remove" Noun="ContactFromAddressBook" ShouldProcessTarget="ContactArn" PipelineParameter="ContactArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDeviceFromRoom" Verb="Remove" Noun="DeviceFromRoom" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSkillFromSkillGroup" Verb="Remove" Noun="SkillFromSkillGroup" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSkillFromUsers" Verb="Remove" Noun="SkillFromUser" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSkillGroupFromRoom" Verb="Remove" Noun="SkillGroupFromRoom" ShouldProcessTarget="SkillGroupArn" PipelineParameter="SkillGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ForgetSmartHomeAppliances" Verb="Remove" Noun="SmartHomeAppliance" ShouldProcessTarget="RoomArn" PipelineParameter="RoomArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAddressBook" OutputProperty="AddressBook" Verb="Get" Noun="AddressBook" PipelineParameter="AddressBookArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConferencePreference" OutputProperty="Preference" Verb="Get" Noun="ConferencePreference" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConferenceProvider" OutputProperty="ConferenceProvider" Verb="Get" Noun="ConferenceProvider" PipelineParameter="ConferenceProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContact" OutputProperty="Contact" Verb="Get" Noun="Contact" PipelineParameter="ContactArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDevice" OutputProperty="Device" Verb="Get" Noun="Device" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGateway" OutputProperty="Gateway" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGatewayGroup" OutputProperty="GatewayGroup" Verb="Get" Noun="GatewayGroup" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInvitationConfiguration" OutputProperty="*" Verb="Get" Noun="InvitationConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNetworkProfile" OutputProperty="NetworkProfile" Verb="Get" Noun="NetworkProfile" PipelineParameter="NetworkProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRoom" OutputProperty="Room" Verb="Get" Noun="Room" PipelineParameter="RoomArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRoomSkillParameter" OutputProperty="RoomSkillParameter" Verb="Get" Noun="RoomSkillParameter" PipelineParameter="ParameterKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSkillGroup" OutputProperty="SkillGroup" Verb="Get" Noun="SkillGroup" PipelineParameter="SkillGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBusinessReportSchedules" OutputProperty="BusinessReportSchedules" Verb="Get" Noun="BusinessReportScheduleList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConferenceProviders" OutputProperty="ConferenceProviders" Verb="Get" Noun="ConferenceProviderList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeviceEvents" OutputProperty="DeviceEvents" Verb="Get" Noun="DeviceEventList" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGatewayGroups" OutputProperty="GatewayGroups" Verb="Get" Noun="GatewayGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="GatewayList" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSkills" OutputProperty="SkillSummaries" Verb="Get" Noun="SkillList" PipelineParameter="SkillGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSkillsStoreCategories" OutputProperty="CategoryList" Verb="Get" Noun="SkillsStoreCategoryList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSkillsStoreSkillsByCategory" OutputProperty="SkillsStoreSkills" Verb="Get" Noun="SkillsStoreSkillListByCategory" PipelineParameter="CategoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSmartHomeAppliances" OutputProperty="SmartHomeAppliances" Verb="Get" Noun="SmartHomeApplianceList" PipelineParameter="RoomArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="TagList" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConferencePreference" Verb="Write" Noun="ConferencePreference" ShouldProcessTarget="ConferencePreference_DefaultConferenceProviderArn" PipelineParameter="ConferencePreference_DefaultConferenceProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutInvitationConfiguration" Verb="Write" Noun="InvitationConfiguration" ShouldProcessTarget="OrganizationName" PipelineParameter="OrganizationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRoomSkillParameter" Verb="Set" Noun="RoomSkillParameter" ShouldProcessTarget="SkillId" PipelineParameter="RoomSkillParameter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSkillAuthorization" Verb="Write" Noun="SkillAuthorization" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterAVSDevice" OutputProperty="DeviceArn" Verb="Register" Noun="AVSDevice" ShouldProcessTarget="DeviceSerialNumber" PipelineParameter="DeviceSerialNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectSkill" Verb="Deny" Noun="Skill" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResolveRoom" OutputProperty="*" Verb="Resolve" Noun="Room" ShouldProcessTarget="SkillId" PipelineParameter="SkillId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeInvitation" Verb="Revoke" Noun="Invitation" ShouldProcessTarget="EnrollmentId" PipelineParameter="EnrollmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchAddressBooks" OutputProperty="AddressBooks" Verb="Search" Noun="AddressBook" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchContacts" OutputProperty="Contacts" Verb="Search" Noun="Contact" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchDevices" OutputProperty="Devices" Verb="Find" Noun="Device" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchNetworkProfiles" OutputProperty="NetworkProfiles" Verb="Search" Noun="NetworkProfile" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchProfiles" OutputProperty="Profiles" Verb="Find" Noun="Profile" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchRooms" OutputProperty="Rooms" Verb="Find" Noun="Room" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchSkillGroups" OutputProperty="SkillGroups" Verb="Find" Noun="SkillGroup" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchUsers" OutputProperty="Users" Verb="Find" Noun="User" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendAnnouncement" OutputProperty="AnnouncementArn" Verb="Send" Noun="Announcement" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendInvitation" Verb="Send" Noun="Invitation" ShouldProcessTarget="UserArn" PipelineParameter="UserArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDeviceSync" Verb="Start" Noun="DeviceSync" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSmartHomeApplianceDiscovery" Verb="Start" Noun="SmartHomeApplianceDiscovery" ShouldProcessTarget="RoomArn" PipelineParameter="RoomArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="TagKeys" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAddressBook" Verb="Update" Noun="AddressBook" ShouldProcessTarget="AddressBookArn" PipelineParameter="AddressBookArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBusinessReportSchedule" Verb="Update" Noun="BusinessReportSchedule" ShouldProcessTarget="ScheduleArn" PipelineParameter="ScheduleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConferenceProvider" Verb="Update" Noun="ConferenceProvider" ShouldProcessTarget="ConferenceProviderArn" PipelineParameter="ConferenceProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContact" Verb="Update" Noun="Contact" ShouldProcessTarget="ContactArn" PipelineParameter="ContactArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="PhoneNumbers" NewName="PhoneNumberList" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDevice" Verb="Update" Noun="Device" ShouldProcessTarget="DeviceName" PipelineParameter="DeviceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGateway" Verb="Update" Noun="Gateway" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewayGroup" Verb="Update" Noun="GatewayGroup" ShouldProcessTarget="GatewayGroupArn" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNetworkProfile" Verb="Update" Noun="NetworkProfile" ShouldProcessTarget="NetworkProfileArn" PipelineParameter="NetworkProfileArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProfile" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileName" PipelineParameter="ProfileName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ProfileName" NewName="Name" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoom" Verb="Update" Noun="Room" ShouldProcessTarget="RoomName" PipelineParameter="RoomName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSkillGroup" Verb="Update" Noun="SkillGroup" ShouldProcessTarget="SkillGroupName" PipelineParameter="SkillGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.AlexaForBusiness.Model.Profile</Type>
+        <Type>Amazon.AlexaForBusiness.Model.RoomSkillParameter</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

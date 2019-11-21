@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>elasticache</C2jFilename>
+    <AssemblyName>ElastiCache</AssemblyName>
+    <ServiceNounPrefix>EC</ServiceNounPrefix>
+    <ServiceName>Amazon ElastiCache</ServiceName>
+    <ServiceClientInterface>IAmazonElastiCache</ServiceClientInterface>
+    <ServiceClient>AmazonElastiCacheClient</ServiceClient>
+    <ServiceModuleGuid>ca235667-f7a9-48ef-9182-40592e9a9baf</ServiceModuleGuid>
+    <PipelineParameter>CacheClusterId</PipelineParameter>
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" />
+    <VerbMappings>
+        <Map From="Authorize" To="Approve" />
+        <Map From="Purchase" To="Request" />
+        <Map From="Reboot" To="Restart" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="CacheClusters" To="CacheCluster" />
+        <Map From="CacheParameterGroups" To="CacheParameterGroup" />
+        <Map From="CacheParameters" To="CacheParameter" />
+        <Map From="CacheSecurityGroups" To="CacheSecurityGroup" />
+        <Map From="EngineDefaultParameters" To="EngineDefaultParameter" />
+        <Map From="Events" To="Event" />
+        <Map From="ReservedCacheNodes" To="ReservedCacheNode" />
+        <Map From="ReservedCacheNodesOfferings" To="ReservedCacheNodesOffering" />
+        <Map From="Tags" To="Tag" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases>
+        <AliasSet Cmdlet="Approve-ECCacheSecurityGroupIngress">Authorize-ECCacheSecurityGroupIngress</AliasSet>
+        <AliasSet Cmdlet="Request-ECReservedCacheNodesOffering">Purchase-ECReservedCacheNodesOffering</AliasSet>
+        <AliasSet Cmdlet="Restart-ECCacheCluster">Reboot-ECCacheCluster</AliasSet>
+    </CustomAliases>
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTagsToResource" OutputProperty="TagList" Verb="Add" Noun="Tag" ShouldProcessTarget="ResourceName" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeCacheSecurityGroupIngress" OutputProperty="CacheSecurityGroup" Verb="Approve" Noun="CacheSecurityGroupIngress" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchApplyUpdateAction" OutputProperty="*" Verb="Start" Noun="UpdateActionBatch" ShouldProcessTarget="ServiceUpdateName" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchStopUpdateAction" OutputProperty="*" Verb="Stop" Noun="UpdateActionBatch" ShouldProcessTarget="ServiceUpdateName" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CompleteMigration" OutputProperty="ReplicationGroup" Verb="Complete" Noun="Migration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopySnapshot" OutputProperty="Snapshot" Verb="Copy" Noun="Snapshot" ShouldProcessTarget="SourceSnapshotName" PositionalParameters="TargetSnapshotName" PipelineParameter="SourceSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCacheCluster" OutputProperty="CacheCluster" Verb="New" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="PreferredAvailabilityZones" NewName="PreferredAvailabilityZoneSet" />
+                <Param Name="Groups" Alias="GroupId" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCacheParameterGroup" OutputProperty="CacheParameterGroup" Verb="New" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PositionalParameters="CacheParameterGroupFamily;Description" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCacheSecurityGroup" OutputProperty="CacheSecurityGroup" Verb="New" Noun="CacheSecurityGroup" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="Description" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCacheSubnetGroup" OutputProperty="CacheSubnetGroup" Verb="New" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationGroup" OutputProperty="ReplicationGroup" Verb="New" Noun="ReplicationGroup" ShouldProcessTarget="PrimaryClusterId" PipelineParameter="PrimaryClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="CacheClusterId" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DecreaseReplicaCount" OutputProperty="ReplicationGroup" Verb="Request" Noun="ReplicaCountDecrease" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCacheCluster" OutputProperty="CacheCluster" Verb="Remove" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCacheParameterGroup" Verb="Remove" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCacheSecurityGroup" Verb="Remove" Noun="CacheSecurityGroup" ShouldProcessTarget="CacheSecurityGroupName" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCacheSubnetGroup" Verb="Remove" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationGroup" OutputProperty="ReplicationGroup" Verb="Remove" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCacheClusters" OutputProperty="CacheClusters" Verb="Get" Noun="CacheCluster" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCacheEngineVersions" OutputProperty="CacheEngineVersions" Verb="Get" Noun="CacheEngineVersion" PositionalParameters="EngineVersion;CacheParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" LegacyAlias="Get-ECCacheEngineVersions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCacheParameterGroups" OutputProperty="CacheParameterGroups" Verb="Get" Noun="CacheParameterGroup" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCacheParameters" OutputProperty="*" Verb="Get" Noun="CacheParameter" PositionalParameters="Source" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCacheSecurityGroups" OutputProperty="CacheSecurityGroups" Verb="Get" Noun="CacheSecurityGroup" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCacheSubnetGroups" OutputProperty="CacheSubnetGroups" Verb="Get" Noun="CacheSubnetGroup" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" LegacyAlias="Get-ECCacheSubnetGroups">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEngineDefaultParameters" OutputProperty="EngineDefaults" Verb="Get" Noun="EngineDefaultParameter" PipelineParameter="CacheParameterGroupFamily" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
+            <Params>
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationGroups" OutputProperty="ReplicationGroups" Verb="Get" Noun="ReplicationGroup" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyAlias="Get-ECReplicationGroups">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedCacheNodes" OutputProperty="ReservedCacheNodes" Verb="Get" Noun="ReservedCacheNode" PositionalParameters="ReservedCacheNodesOfferingId;CacheNodeType" PipelineParameter="ReservedCacheNodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" OutputProperty="ReservedCacheNodesOfferings" Verb="Get" Noun="ReservedCacheNodesOffering" PositionalParameters="CacheNodeType" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServiceUpdates" OutputProperty="ServiceUpdates" Verb="Get" Noun="ServiceUpdate" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyAlias="Get-ECSnapshots">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUpdateActions" OutputProperty="UpdateActions" Verb="Get" Noun="UpdateAction" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IncreaseReplicaCount" OutputProperty="ReplicationGroup" Verb="Request" Noun="ReplicaCountIncrease" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAllowedNodeTypeModifications" OutputProperty="ScaleUpModifications" Verb="Get" Noun="AllowedNodeTypeModification" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="Tag" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCacheCluster" OutputProperty="CacheCluster" Verb="Edit" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PositionalParameters="NumCacheNodes" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCacheParameterGroup" OutputProperty="CacheParameterGroupName" Verb="Edit" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PositionalParameters="ParameterNameValues" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCacheSubnetGroup" OutputProperty="CacheSubnetGroup" Verb="Edit" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReplicationGroup" OutputProperty="ReplicationGroup" Verb="Edit" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReplicationGroupShardConfiguration" OutputProperty="ReplicationGroup" Verb="Edit" Noun="ReplicationGroupShardConfiguration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" OutputProperty="ReservedCacheNode" Verb="Request" Noun="ReservedCacheNodesOffering" ShouldProcessTarget="ReservedCacheNodesOfferingId" PositionalParameters="ReservedCacheNodeId;CacheNodeCount" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootCacheCluster" OutputProperty="CacheCluster" Verb="Restart" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PositionalParameters="CacheNodeIdsToReboot" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromResource" OutputProperty="TagList" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetCacheParameterGroup" OutputProperty="CacheParameterGroupName" Verb="Reset" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeCacheSecurityGroupIngress" OutputProperty="CacheSecurityGroup" Verb="Revoke" Noun="CacheSecurityGroupIngress" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMigration" OutputProperty="ReplicationGroup" Verb="Start" Noun="Migration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestFailover" OutputProperty="ReplicationGroup" Verb="Test" Noun="Failover" PipelineParameter="NodeGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>pricing</C2jFilename>
+    <AssemblyName>Pricing</AssemblyName>
+    <ServiceNounPrefix>PLS</ServiceNounPrefix>
+    <ServiceName>AWS Price List Service</ServiceName>
+    <ServiceClientInterface>IAmazonPricing</ServiceClientInterface>
+    <ServiceClient>AmazonPricingClient</ServiceClient>
+    <ServiceModuleGuid>d70f27cc-b929-41f3-bac7-7b0430c5a96a</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>FormatVersion</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAttributeValues" OutputProperty="AttributeValues" Verb="Get" Noun="AttributeValue" PipelineParameter="AttributeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProducts" OutputProperty="PriceList" Verb="Get" Noun="Product" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

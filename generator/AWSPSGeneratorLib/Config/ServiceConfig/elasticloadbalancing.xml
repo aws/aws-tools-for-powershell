@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>elasticloadbalancing</C2jFilename>
+    <AssemblyName>ElasticLoadBalancing</AssemblyName>
+    <ServiceNounPrefix>ELB</ServiceNounPrefix>
+    <ServiceName>Elastic Load Balancing</ServiceName>
+    <ServiceClientInterface>IAmazonElasticLoadBalancing</ServiceClientInterface>
+    <ServiceClient>AmazonElasticLoadBalancingClient</ServiceClient>
+    <ServiceModuleGuid>30b845ec-bd0e-4e4c-a703-23c2afa2051c</ServiceModuleGuid>
+    <PipelineParameter>LoadBalancerName</PipelineParameter>
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" />
+    <VerbMappings>
+        <Map From="Apply" To="Join" />
+        <Map From="Configure" To="Set" />
+        <Map From="Deregister" To="Remove" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="LoadBalancerToSubnets" To="LoadBalancerToSubnet" />
+        <Map From="LoadBalancerFromSubnets" To="LoadBalancerFromSubnet" />
+        <Map From="LoadBalancerPolicies" To="LoadBalancerPolicy" />
+        <Map From="LoadBalancerPolicyTypes" To="LoadBalancerPolicyType" />
+        <Map From="LoadBalancerAttributes" To="LoadBalancerAttribute" />
+        <Map From="LoadBalancers" To="LoadBalancer" />
+        <Map From="LoadBalancerListeners" To="LoadBalancerListener" />
+        <Map From="SecurityGroupsToLoadBalancer" To="SecurityGroupToLoadBalancer" />
+        <Map From="InstancesWithLoadBalancer" To="InstanceWithLoadBalancer" />
+        <Map From="InstancesFromLoadBalancer" To="InstanceFromLoadBalancer" />
+        <Map From="LoadBalancerPoliciesForBackendServer" To="LoadBalancerPolicyForBackendServer" />
+        <Map From="LoadBalancerPoliciesOfListener" To="LoadBalancerPolicyOfListener" />
+        <Map From="AvailabilityZonesForLoadBalancer" To="AvailabilityZoneForLoadBalancer" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="LoadBalancerNames" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Add-ELBTags">
+            <Params />
+            <PassThru>
+                <Expression>context.Tag</Expression>
+                <Documentation>Returns the collection of Tag objects that were added</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ApplySecurityGroupsToLoadBalancer" OutputProperty="SecurityGroups" Verb="Join" Noun="SecurityGroupToLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="SecurityGroups" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachLoadBalancerToSubnets" OutputProperty="Subnets" Verb="Add" Noun="LoadBalancerToSubnet" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Subnets" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfigureHealthCheck" OutputProperty="HealthCheck" Verb="Set" Noun="HealthCheck" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAppCookieStickinessPolicy" Verb="New" Noun="AppCookieStickinessPolicy" ShouldProcessTarget="LoadBalancerName" PositionalParameters="PolicyName;CookieName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLBCookieStickinessPolicy" Verb="New" Noun="LBCookieStickinessPolicy" ShouldProcessTarget="LoadBalancerName" PositionalParameters="PolicyName;CookieExpirationPeriod" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoadBalancer" OutputProperty="DNSName" Verb="New" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Listeners;AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoadBalancerListeners" Verb="New" Noun="LoadBalancerListener" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Listeners" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <PassThru>
+                <Expression>context.Listener</Expression>
+                <Documentation>Returns the collection of Listener objects that were created</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoadBalancerPolicy" Verb="New" Noun="LoadBalancerPolicy" ShouldProcessTarget="LoadBalancerName" PositionalParameters="PolicyName;PolicyTypeName;PolicyAttributes" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoadBalancer" Verb="Remove" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoadBalancerListeners" Verb="Remove" Noun="LoadBalancerListener" ShouldProcessTarget="LoadBalancerPorts" PositionalParameters="LoadBalancerPorts" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoadBalancerPolicy" Verb="Remove" Noun="LoadBalancerPolicy" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterInstancesFromLoadBalancer" OutputProperty="Instances" Verb="Remove" Noun="InstanceFromLoadBalancer" ShouldProcessTarget="Instances" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceHealth" OutputProperty="InstanceStates" Verb="Get" Noun="InstanceHealth" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancerAttributes" OutputProperty="LoadBalancerAttributes" Verb="Get" Noun="LoadBalancerAttribute" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancerPolicies" OutputProperty="PolicyDescriptions" Verb="Get" Noun="LoadBalancerPolicy" PositionalParameters="PolicyNames" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancerPolicyTypes" OutputProperty="PolicyTypeDescriptions" Verb="Get" Noun="LoadBalancerPolicyType" PipelineParameter="PolicyTypeNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancerDescriptions" Verb="Get" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="TagDescriptions" Verb="Get" Noun="ResourceTag" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Get-ELBTags">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachLoadBalancerFromSubnets" OutputProperty="Subnets" Verb="Dismount" Noun="LoadBalancerFromSubnet" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Subnets" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableAvailabilityZonesForLoadBalancer" OutputProperty="AvailabilityZones" Verb="Disable" Noun="AvailabilityZoneForLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableAvailabilityZonesForLoadBalancer" OutputProperty="AvailabilityZones" Verb="Enable" Noun="AvailabilityZoneForLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyLoadBalancerAttributes" OutputProperty="*" Verb="Edit" Noun="LoadBalancerAttribute" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterInstancesWithLoadBalancer" OutputProperty="Instances" Verb="Register" Noun="InstanceWithLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Tags" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Remove-ELBTags">
+            <Params />
+            <PassThru>
+                <Expression>context.Tag</Expression>
+                <Documentation>Returns the collection of tag keys that were removed</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetLoadBalancerListenerSSLCertificate" Verb="Set" Noun="LoadBalancerListenerSSLCertificate" ShouldProcessTarget="LoadBalancerName" PositionalParameters="LoadBalancerPort;SSLCertificateId" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetLoadBalancerPoliciesForBackendServer" Verb="Set" Noun="LoadBalancerPolicyForBackendServer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="InstancePort;PolicyNames" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetLoadBalancerPoliciesOfListener" Verb="Set" Noun="LoadBalancerPolicyOfListener" ShouldProcessTarget="LoadBalancerName" PositionalParameters="LoadBalancerPort;PolicyNames" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

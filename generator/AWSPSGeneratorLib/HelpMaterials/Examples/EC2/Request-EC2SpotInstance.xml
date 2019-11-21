@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> $n = New-Object Amazon.EC2.Model.InstanceNetworkInterfaceSpecification
+PS C:\> $n.DeviceIndex = 0
+PS C:\> $n.SubnetId = "subnet-12345678"
+PS C:\> $n.Groups.Add("sg-12345678")
+PS C:\> Request-EC2SpotInstance -InstanceCount 1 -SpotPrice 0.050 -Type one-time `
+-IamInstanceProfile_Arn arn:aws:iam::123456789012:instance-profile/my-iam-role `
+-LaunchSpecification_ImageId ami-12345678 `
+-LaunchSpecification_InstanceType m3.medium `
+-LaunchSpecification_NetworkInterface $n
+
+ActualBlockHourlyPrice   :
+AvailabilityZoneGroup    :
+BlockDurationMinutes     : 0
+CreateTime               : 12/26/2015 7:44:10 AM
+Fault                    :
+InstanceId               :
+LaunchedAvailabilityZone :
+LaunchGroup              :
+LaunchSpecification      : Amazon.EC2.Model.LaunchSpecification
+ProductDescription       : Linux/UNIX
+SpotInstanceRequestId    : sir-12345678
+SpotPrice                : 0.050000
+State                    : open
+Status                   : Amazon.EC2.Model.SpotInstanceStatus
+Tags                     : {}
+Type                     : one-time</code>
+    <description>This example requests a one-time Spot instance in the specified subnet. Note that the security group must be created for the VPC that contains the specified subnet, and it must be specified by ID using the network interface. When you specify a network interface, you must include the subnet ID using the network interface.</description>
+  </example>
+</examples>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Copy-S3Object -BucketName test-files -Key sample.txt -DestinationKey sample-copy.txt</code>
+    <description>This command copies the object "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".</description>
+  </example>
+  <example>
+    <code>Copy-S3Object -BucketName test-files -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket backup-files</code>
+    <description>This command copies the object "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".</description>
+  </example>
+  <example>
+    <code>Copy-S3Object -BucketName test-files -Key sample.txt -LocalFile local-sample.txt</code>
+    <description>This command downloads the object "sample.txt" from bucket "test-files" to a local file with name "local-sample.txt".</description>
+  </example>
+  <example>
+    <code>Copy-S3Object -BucketName test-files -Key data/archive.zip -LocalFolder c:\downloads</code>
+    <description>Downloads the single object to the specified file. The downloaded file will be found at c:\downloads\data\archive.zip</description>
+  </example>
+  <example>
+    <code>Copy-S3Object -BucketName test-files -KeyPrefix data -LocalFolder c:\downloads</code>
+    <description>Downloads all objects that match the specified key prefix to the local folder. The relative key hierarchy will be preserved as subfolders in the overall download location.</description>
+  </example>
+</examples>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>kinesisanalyticsv2</C2jFilename>
+    <AssemblyName>KinesisAnalyticsV2</AssemblyName>
+    <ServiceNounPrefix>KINA2</ServiceNounPrefix>
+    <ServiceName>Amazon Kinesis Analytics V2</ServiceName>
+    <ServiceClientInterface>IAmazonKinesisAnalyticsV2</ServiceClientInterface>
+    <ServiceClient>AmazonKinesisAnalyticsV2Client</ServiceClient>
+    <ServiceModuleGuid>98fd71ee-de84-4dec-a42e-bd4a5cbedc15</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="50" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddApplicationCloudWatchLoggingOption" OutputProperty="*" Verb="Add" Noun="ApplicationCloudWatchLoggingOption" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddApplicationInput" OutputProperty="*" Verb="Add" Noun="ApplicationInput" ShouldProcessTarget="ApplicationName" PipelineParameter="Input" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddApplicationInputProcessingConfiguration" OutputProperty="*" Verb="Add" Noun="ApplicationInputProcessingConfiguration" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddApplicationOutput" OutputProperty="*" Verb="Add" Noun="ApplicationOutput" ShouldProcessTarget="ApplicationName" PipelineParameter="Output" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddApplicationReferenceDataSource" OutputProperty="*" Verb="Add" Noun="ApplicationReferenceDataSource" ShouldProcessTarget="ApplicationName" PipelineParameter="ReferenceDataSource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationDetail" Verb="New" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplicationSnapshot" Verb="New" Noun="ApplicationSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationCloudWatchLoggingOption" OutputProperty="*" Verb="Remove" Noun="ApplicationCloudWatchLoggingOption" ShouldProcessTarget="CloudWatchLoggingOptionId" PipelineParameter="CloudWatchLoggingOptionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationInputProcessingConfiguration" OutputProperty="*" Verb="Remove" Noun="ApplicationInputProcessingConfiguration" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationOutput" OutputProperty="*" Verb="Remove" Noun="ApplicationOutput" ShouldProcessTarget="OutputId" PipelineParameter="OutputId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationReferenceDataSource" OutputProperty="*" Verb="Remove" Noun="ApplicationReferenceDataSource" ShouldProcessTarget="ReferenceId" PipelineParameter="ReferenceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationSnapshot" Verb="Remove" Noun="ApplicationSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplication" OutputProperty="ApplicationDetail" Verb="Get" Noun="Application" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationSnapshot" OutputProperty="SnapshotDetails" Verb="Get" Noun="ApplicationSnapshot" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DiscoverInputSchema" OutputProperty="*" Verb="Find" Noun="InputSchema" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplicationSnapshots" OutputProperty="SnapshotSummaries" Verb="Get" Noun="ApplicationSnapshotList" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartApplication" Verb="Start" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="RunConfiguration" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopApplication" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="ApplicationDetail" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.KinesisAnalyticsV2.Model.Input</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.Output</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ReferenceDataSource</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.RunConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.S3Configuration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.InputStartingPositionConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ParallelismConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.S3ContentLocation</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.CheckpointConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.MonitoringConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationCodeConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.SqlApplicationConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.EnvironmentProperties</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationSnapshotConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.FlinkApplicationConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationRestoreConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ParallelismConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.S3ContentLocationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.CheckpointConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationCodeConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.MonitoringConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.SqlApplicationConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.EnvironmentPropertyUpdates</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.RunConfigurationUpdate</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

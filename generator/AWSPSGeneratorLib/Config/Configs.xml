@@ -1,0 +1,99 @@
+<ConfigModelCollection>
+  <OperationNameMappings>
+    <Map From="Tag" To="AddTag" />
+    <Map From="NewTags" To="AddTag" />
+    <Map From="NewTag" To="AddTag" />
+    <Map From="Untag" To="RemoveTag" />
+    <Map From="ListTags" To="GetTag" />
+    <Map From="TagResource" To="AddResourceTag" />
+    <Map From="UntagResource" To="RemoveResourceTag" />
+    <Map From="ListTagsForResource" To="GetResourceTag" />
+  </OperationNameMappings>
+
+  <VerbMappings>
+    <Map From="Create" To="New" />
+    <Map From="Allocate" To="New" />
+    <Map From="Describe" To="Get" />
+    <Map From="Cancel" To="Stop" />
+    <Map From="Activate" To="Enable" />
+    <Map From="Deactivate" To="Disable" />
+    <Map From="Delete" To="Remove" />
+    <!-- in vNext generator, Attach changed to map to Mount, to match up with Dismount -->
+    <Map From="Attach" To="Mount" />
+    <Map From="Detach" To="Dismount" />
+    <Map From="Modify" To="Edit" />
+    <Map From="Put" To="Write" />
+  </VerbMappings>
+
+  <TypesNotToFlatten>
+    <Type>System.IO.Stream</Type>
+    <Type>System.IO.MemoryStream</Type>
+    <Type>System.Collections.Generic.List`1</Type>
+    <Type>System.Collections.Generic.Dictionary`2</Type>
+  </TypesNotToFlatten>
+
+  <MetadataParameters>
+    <Parameter>NextToken</Parameter>
+    <Parameter>NextPageToken</Parameter>
+    <Parameter>PageToken</Parameter>
+    <Parameter>Marker</Parameter>
+    <Parameter>NextMarker</Parameter>
+    <Parameter>ETag</Parameter>
+    <Parameter>Owner</Parameter>
+    <Parameter>MaxRecords</Parameter>
+    <Parameter>MaxResults</Parameter>
+    <Parameter>MaxItems</Parameter>
+    <Parameter>Limit</Parameter>
+    <Parameter>PaginationToken</Parameter>
+  </MetadataParameters>
+
+  <MetadataProperties>
+    <Property>NextToken</Property>
+    <Property>NextPageToken</Property>
+    <Property>PageToken</Property>
+    <Property>Marker</Property>
+    <Property>NextMarker</Property>
+    <Property>ETag</Property>
+    <Property>IsTruncated</Property>
+    <Property>HasMoreResults</Property>
+    <Property>Owner</Property>
+    <Property>Headers</Property>
+    <Property>MaxRecords</Property>
+    <Property>MaxResults</Property>
+    <Property>MaxItems</Property>
+    <Property>Limit</Property>
+    <Property>PaginationToken</Property>
+  </MetadataProperties>
+
+  <!--
+    any cmdlet generated with these verbs will have 'shouldprocess'
+    attributing and operation confirmation code added automatically
+  -->
+  <SupportsShouldProcessVerbs>
+    <Verb>Remove</Verb>
+  </SupportsShouldProcessVerbs>
+
+  <CommonModuleAliases>
+    <AliasSet Cmdlet="Set-AWSCredential">Set-AWSCredentials</AliasSet>
+    <AliasSet Cmdlet="New-AWSCredential">New-AWSCredentials</AliasSet>
+    <AliasSet Cmdlet="Clear-AWSCredential">Clear-AWSCredentials</AliasSet>
+    <AliasSet Cmdlet="Get-AWSCredential">Get-AWSCredentials</AliasSet>
+    <AliasSet Cmdlet="Initialize-AWSDefaultConfiguration">Initialize-AWSDefaults</AliasSet>
+    <AliasSet Cmdlet="Clear-AWSDefaultConfiguration">Clear-AWSDefaults</AliasSet>
+  </CommonModuleAliases>
+
+  <IncludeLibraries>
+    <!-- This service is excluded from generation but we have hand written cmdlets for it -->
+    <Library Name="AWSSDK.CloudSearchDomain" AddAsReference="true" />
+
+    <!-- Not used. These libraries were previously included in the AWSPowerShell distribution, so we need to keep them for backward compatibility -->
+    <Library Name="AWSSDK.IoT1ClickDevicesService" />
+    <Library Name="AWSSDK.IoT1ClickProjects" />
+    <Library Name="AWSSDK.IoTAnalytics" />
+    <Library Name="AWSSDK.IotData" />
+    <Library Name="AWSSDK.KinesisVideoArchivedMedia" />
+    <Library Name="AWSSDK.MobileAnalytics" />
+    <Library Name="AWSSDK.PinpointSMSVoice" />
+    <Library Name="AWSSDK.Signer" />
+  </IncludeLibraries>
+</ConfigModelCollection>

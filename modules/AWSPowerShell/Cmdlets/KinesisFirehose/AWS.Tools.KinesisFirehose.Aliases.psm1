@@ -1,0 +1,3 @@
+﻿# KinesisFirehose
+
+Export-ModuleMember -Alias *

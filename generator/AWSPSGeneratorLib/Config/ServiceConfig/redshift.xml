@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>redshift</C2jFilename>
+    <AssemblyName>Redshift</AssemblyName>
+    <ServiceNounPrefix>RS</ServiceNounPrefix>
+    <ServiceName>Amazon Redshift</ServiceName>
+    <ServiceClientInterface>IAmazonRedshift</ServiceClientInterface>
+    <ServiceClient>AmazonRedshiftClient</ServiceClient>
+    <ServiceModuleGuid>3c401a3d-ba96-41a6-aa3a-594256917358</ServiceModuleGuid>
+    <PipelineParameter>ClusterIdentifier</PipelineParameter>
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="100" PageSizeIsRequired="true" />
+    <VerbMappings>
+        <Map From="Authorize" To="Approve" />
+        <Map From="Purchase" To="Request" />
+        <Map From="Reboot" To="Restart" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases>
+        <AliasSet Cmdlet="Approve-RSClusterSecurityGroupIngress">Authorize-RSClusterSecurityGroupIngress</AliasSet>
+        <AliasSet Cmdlet="Request-ECReservedNodeOffering">Purchase-RSReservedNodeOffering</AliasSet>
+        <AliasSet Cmdlet="Restart-RSCluster">Reboot-RSCluster</AliasSet>
+    </CustomAliases>
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptReservedNodeExchange" OutputProperty="ExchangedReservedNode" Verb="Switch" Noun="ReservedNode" ShouldProcessTarget="ReservedNodeId" PipelineParameter="ReservedNodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeClusterSecurityGroupIngress" OutputProperty="ClusterSecurityGroup" Verb="Approve" Noun="ClusterSecurityGroupIngress" ShouldProcessTarget="ClusterSecurityGroupName" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeSnapshotAccess" OutputProperty="Snapshot" Verb="Approve" Noun="SnapshotAccess" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="AccountWithRestoreAccess" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteClusterSnapshots" OutputProperty="*" Verb="Remove" Noun="ClusterSnapshotBatch" ShouldProcessTarget="Identifiers" PipelineParameter="Identifiers" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchModifyClusterSnapshots" OutputProperty="*" Verb="Edit" Noun="ClusterSnapshotBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelResize" OutputProperty="*" Verb="Stop" Noun="Resize" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyClusterSnapshot" OutputProperty="Snapshot" Verb="Copy" Noun="ClusterSnapshot" ShouldProcessTarget="SourceSnapshotIdentifier" PositionalParameters="TargetSnapshotIdentifier" PipelineParameter="SourceSnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="DBName" PositionalParameters="ClusterIdentifier;ClusterType;NodeType" PipelineParameter="DBName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="NumberOfNodes" AutoRename="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateClusterParameterGroup" OutputProperty="ClusterParameterGroup" Verb="New" Noun="ClusterParameterGroup" ShouldProcessTarget="ParameterGroupName" PositionalParameters="ParameterGroupFamily;Description" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateClusterSecurityGroup" OutputProperty="ClusterSecurityGroup" Verb="New" Noun="ClusterSecurityGroup" ShouldProcessTarget="ClusterSecurityGroupName" PositionalParameters="Description" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateClusterSnapshot" OutputProperty="Snapshot" Verb="New" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="ClusterIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateClusterSubnetGroup" OutputProperty="ClusterSubnetGroup" Verb="New" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PositionalParameters="Description;SubnetIds" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventSubscription" OutputProperty="EventSubscription" Verb="New" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateHsmClientCertificate" OutputProperty="HsmClientCertificate" Verb="New" Noun="HsmClientCertificate" ShouldProcessTarget="HsmClientCertificateIdentifier" PipelineParameter="HsmClientCertificateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateHsmConfiguration" OutputProperty="HsmConfiguration" Verb="New" Noun="HsmConfiguration" ShouldProcessTarget="HsmPartitionName" PipelineParameter="HsmPartitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshotCopyGrant" OutputProperty="SnapshotCopyGrant" Verb="New" Noun="SnapshotCopyGrant" ShouldProcessTarget="SnapshotCopyGrantName" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshotSchedule" OutputProperty="*" Verb="New" Noun="SnapshotSchedule" ShouldProcessTarget="ScheduleIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyAlias="New-RSTags">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClusterParameterGroup" Verb="Remove" Noun="ClusterParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClusterSecurityGroup" Verb="Remove" Noun="ClusterSecurityGroup" ShouldProcessTarget="ClusterSecurityGroupName" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClusterSnapshot" OutputProperty="Snapshot" Verb="Remove" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClusterSubnetGroup" Verb="Remove" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventSubscription" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHsmClientCertificate" Verb="Remove" Noun="HsmClientCertificate" ShouldProcessTarget="HsmClientCertificateIdentifier" PipelineParameter="HsmClientCertificateIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHsmConfiguration" Verb="Remove" Noun="HsmConfiguration" ShouldProcessTarget="HsmConfigurationIdentifier" PipelineParameter="HsmConfigurationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapshotCopyGrant" Verb="Remove" Noun="SnapshotCopyGrant" ShouldProcessTarget="SnapshotCopyGrantName" PipelineParameter="SnapshotCopyGrantName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapshotSchedule" Verb="Remove" Noun="SnapshotSchedule" ShouldProcessTarget="ScheduleIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="TagKeys" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-RSTags">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="AccountAttributes" Verb="Get" Noun="AccountAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterDbRevisions" OutputProperty="ClusterDbRevisions" Verb="Get" Noun="ClusterDbRevision" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterParameterGroups" OutputProperty="ParameterGroups" Verb="Get" Noun="ClusterParameterGroup" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterParameterGroups">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterParameters" OutputProperty="Parameters" Verb="Get" Noun="ClusterParameter" PositionalParameters="Source" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterParameters">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusters" OutputProperty="Clusters" Verb="Get" Noun="Cluster" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RSClusters">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterSecurityGroups" OutputProperty="ClusterSecurityGroups" Verb="Get" Noun="ClusterSecurityGroup" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterSecurityGroups">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="ClusterSnapshot" PositionalParameters="SnapshotIdentifier;SnapshotType" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RSClusterSnapshots">
+            <Params>
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterSubnetGroups" OutputProperty="ClusterSubnetGroups" Verb="Get" Noun="ClusterSubnetGroup" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterSubnetGroups">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterTracks" OutputProperty="MaintenanceTracks" Verb="Get" Noun="ClusterTrack" PipelineParameter="MaintenanceTrackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClusterVersions" OutputProperty="ClusterVersions" Verb="Get" Noun="ClusterVersion" PositionalParameters="ClusterParameterGroupFamily" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyAlias="Get-RSClusterVersions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDefaultClusterParameters" OutputProperty="DefaultClusterParameters.Parameters" OutputWrapper="DefaultClusterParameters" Verb="Get" Noun="DefaultClusterParameter" PipelineParameter="ParameterGroupFamily" NoPipelineParameter="false" LegacyAlias="Get-RSDefaultClusterParameters">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventCategories" OutputProperty="EventCategoriesMapList" Verb="Get" Noun="EventCategory" PipelineParameter="SourceType" NoPipelineParameter="false" LegacyAlias="Get-RSEventCategories">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RSEvents">
+            <Params>
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSEventSubscriptions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHsmClientCertificates" OutputProperty="HsmClientCertificates" Verb="Get" Noun="HsmClientCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSHsmClientCertificates">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHsmConfigurations" OutputProperty="HsmConfigurations" Verb="Get" Noun="HsmConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSHsmConfigurations">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoggingStatus" OutputProperty="*" Verb="Get" Noun="LoggingStatus" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNodeConfigurationOptions" OutputProperty="NodeConfigurationOptionList" Verb="Get" Noun="NodeConfigurationOption" PipelineParameter="ActionType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrderableClusterOptions" OutputProperty="OrderableClusterOptions" Verb="Get" Noun="OrderableClusterOption" PositionalParameters="NodeType" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyAlias="Get-RSOrderableClusterOptions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedNodeOfferings" OutputProperty="ReservedNodeOfferings" Verb="Get" Noun="ReservedNodeOffering" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false" LegacyAlias="Get-RSReservedNodeOfferings">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedNodes" OutputProperty="ReservedNodes" Verb="Get" Noun="ReservedNode" PipelineParameter="ReservedNodeId" NoPipelineParameter="false" LegacyAlias="Get-RSReservedNodes">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResize" OutputProperty="*" Verb="Get" Noun="Resize" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshotCopyGrants" OutputProperty="SnapshotCopyGrants" Verb="Get" Noun="SnapshotCopyGrant" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshotSchedules" OutputProperty="SnapshotSchedules" Verb="Get" Noun="SnapshotSchedule" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStorage" OutputProperty="*" Verb="Get" Noun="Storage" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTableRestoreStatus" OutputProperty="TableRestoreStatusDetails" Verb="Get" Noun="TableRestoreStatus" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="TaggedResources" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSTags">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableLogging" OutputProperty="*" Verb="Disable" Noun="Logging" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableSnapshotCopy" OutputProperty="Cluster" Verb="Disable" Noun="SnapshotCopy" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableLogging" OutputProperty="*" Verb="Enable" Noun="Logging" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableSnapshotCopy" OutputProperty="Cluster" Verb="Enable" Noun="SnapshotCopy" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetClusterCredentials" OutputProperty="*" Verb="Get" Noun="ClusterCredential" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReservedNodeExchangeOfferings" OutputProperty="ReservedNodeOfferings" Verb="Get" Noun="ReservedNodeExchangeOffering" PipelineParameter="ReservedNodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCluster" OutputProperty="Cluster" Verb="Edit" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params>
+                <Param Name="NumberOfNodes" AutoRename="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClusterDbRevision" OutputProperty="Cluster" Verb="Edit" Noun="ClusterDbRevision" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClusterIamRoles" OutputProperty="Cluster" Verb="Edit" Noun="ClusterIamRole" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyAlias="Edit-RSClusterIamRoles">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClusterMaintenance" OutputProperty="Cluster" Verb="Edit" Noun="ClusterMaintenance" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClusterParameterGroup" OutputProperty="*" Verb="Edit" Noun="ClusterParameterGroup" ShouldProcessTarget="ParameterGroupName" PositionalParameters="Parameters" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClusterSnapshot" OutputProperty="Snapshot" Verb="Edit" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClusterSnapshotSchedule" Verb="Edit" Noun="ClusterSnapshotSchedule" ShouldProcessTarget="ClusterIdentifier" PositionalParameters="ClusterIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClusterSubnetGroup" OutputProperty="ClusterSubnetGroup" Verb="Edit" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PositionalParameters="Description;SubnetIds" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyEventSubscription" OutputProperty="EventSubscription" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifySnapshotCopyRetentionPeriod" OutputProperty="Cluster" Verb="Edit" Noun="SnapshotCopyRetentionPeriod" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifySnapshotSchedule" OutputProperty="*" Verb="Edit" Noun="SnapshotSchedule" ShouldProcessTarget="ScheduleIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseReservedNodeOffering" OutputProperty="ReservedNode" Verb="Request" Noun="ReservedNodeOffering" ShouldProcessTarget="ReservedNodeOfferingId" PositionalParameters="NodeCount" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootCluster" OutputProperty="Cluster" Verb="Restart" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetClusterParameterGroup" OutputProperty="*" Verb="Reset" Noun="ClusterParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResizeCluster" OutputProperty="Cluster" Verb="Set" Noun="ClusterSize" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreFromClusterSnapshot" OutputProperty="Cluster" Verb="Restore" Noun="FromClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="SnapshotIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreTableFromClusterSnapshot" OutputProperty="TableRestoreStatus" Verb="Restore" Noun="TableFromClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeClusterSecurityGroupIngress" OutputProperty="ClusterSecurityGroup" Verb="Revoke" Noun="ClusterSecurityGroupIngress" ShouldProcessTarget="ClusterSecurityGroupName" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeSnapshotAccess" OutputProperty="Snapshot" Verb="Revoke" Noun="SnapshotAccess" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="AccountWithRestoreAccess" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RotateEncryptionKey" OutputProperty="Cluster" Verb="Switch" Noun="EncryptionKey" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

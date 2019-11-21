@@ -1,0 +1,3 @@
+﻿# QuickSight
+
+Export-ModuleMember -Alias *

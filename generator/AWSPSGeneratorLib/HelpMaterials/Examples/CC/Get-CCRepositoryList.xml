@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-CCRepositoryList -Order Ascending -SortBy RepositoryName
+
+RepositoryId                            RepositoryName
+------------                            --------------
+c7d0d2b0-ce40-4303-b4c3-38529EXAMPLE    MyDemoRepo
+05f30c66-e3e3-4f91-a0cd-1c84aEXAMPLE    MyNewRepo</code>
+	<description>This example lists all repositories in ascending order by repository name.</description>
+  </example>
+</examples>

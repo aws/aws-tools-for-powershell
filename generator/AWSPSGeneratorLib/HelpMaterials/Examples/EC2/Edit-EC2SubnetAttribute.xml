@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Edit-EC2SubnetAttribute -SubnetId subnet-1a2b3c4d -MapPublicIpOnLaunch $true</code>
+    <description>This example enables public IP addressing for the specified subnet.</description>
+  </example>
+  <example>
+    <code>PS C:\> Edit-EC2SubnetAttribute -SubnetId subnet-1a2b3c4d -MapPublicIpOnLaunch $false</code>
+    <description>This example disables public IP addressing for the specified subnet.</description>
+  </example>
+</examples>

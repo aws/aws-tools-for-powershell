@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>personalize-runtime</C2jFilename>
+    <AssemblyName>PersonalizeRuntime</AssemblyName>
+    <ServiceNounPrefix>PERSR</ServiceNounPrefix>
+    <ServiceName>Amazon Personalize Runtime</ServiceName>
+    <ServiceClientInterface>IAmazonPersonalizeRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonPersonalizeRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>ef1c4a90-386c-4944-ad3b-88b46ce9672f</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetPersonalizedRanking" OutputProperty="PersonalizedRanking" Verb="Get" Noun="PersonalizedRanking" PipelineParameter="CampaignArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommendations" OutputProperty="ItemList" Verb="Get" Noun="Recommendation" PipelineParameter="CampaignArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

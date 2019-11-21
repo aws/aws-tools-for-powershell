@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>kinesis-video-media</C2jFilename>
+    <AssemblyName>KinesisVideoMedia</AssemblyName>
+    <ServiceNounPrefix>KVM</ServiceNounPrefix>
+    <ServiceName>Amazon Kinesis Video Streams Media</ServiceName>
+    <ServiceClientInterface>IAmazonKinesisVideoMedia</ServiceClientInterface>
+    <ServiceClient>AmazonKinesisVideoMediaClient</ServiceClient>
+    <ServiceModuleGuid>2b0ce8ee-1f98-4cc9-b586-b9238de2b326</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetMedia" OutputProperty="*" Verb="Get" Noun="Media" PipelineParameter="StartSelector" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.KinesisVideoMedia.Model.StartSelector</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>lakeformation</C2jFilename>
+    <AssemblyName>LakeFormation</AssemblyName>
+    <ServiceNounPrefix>LKF</ServiceNounPrefix>
+    <ServiceName>AWS Lake Formation</ServiceName>
+    <ServiceClientInterface>IAmazonLakeFormation</ServiceClientInterface>
+    <ServiceClient>AmazonLakeFormationClient</ServiceClient>
+    <ServiceModuleGuid>86807489-62b6-4973-a06b-ee9c4abacf2a</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGrantPermissions" OutputProperty="Failures" Verb="Grant" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchRevokePermissions" OutputProperty="Failures" Verb="Revoke" Noun="PermissionBatch" ShouldProcessTarget="CatalogId" PipelineParameter="Entries" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterResource" Verb="Unregister" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResource" OutputProperty="ResourceInfo" Verb="Get" Noun="Resource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataLakeSettings" OutputProperty="DataLakeSettings" Verb="Get" Noun="DataLakeSetting" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEffectivePermissionsForPath" OutputProperty="Permissions" Verb="Get" Noun="EffectivePermissionsForPath" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GrantPermissions" Verb="Grant" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="PrincipalResourcePermissions" Verb="Get" Noun="PermissionList" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResources" OutputProperty="ResourceInfoList" Verb="Get" Noun="ResourceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDataLakeSettings" Verb="Write" Noun="DataLakeSetting" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterResource" Verb="Register" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokePermissions" Verb="Revoke" Noun="Permission" ShouldProcessTarget="CatalogId" PipelineParameter="Permissions" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResource" Verb="Update" Noun="Resource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

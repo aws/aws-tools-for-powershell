@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+    <link name="display-name">https://...</link>
+  </set>
+  
+  <set target="cmdlet-name">
+    <link name="display-name">https://...</link>
+  </set>
+</links>

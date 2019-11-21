@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>autoscaling</C2jFilename>
+    <AssemblyName>AutoScaling</AssemblyName>
+    <ServiceNounPrefix>AS</ServiceNounPrefix>
+    <ServiceName>AWS Auto Scaling</ServiceName>
+    <ServiceClientInterface>IAmazonAutoScaling</ServiceClientInterface>
+    <ServiceClient>AmazonAutoScalingClient</ServiceClient>
+    <ServiceModuleGuid>db1bebf4-f2b3-4ad1-a7f5-02a6a7effb87</ServiceModuleGuid>
+    <PipelineParameter>AutoScalingGroupName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" />
+    <VerbMappings>
+        <Map From="Execute" To="Start" />
+        <Map From="Terminate" To="Stop" />
+        <Map From="Record" To="Write" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="AdjustmentTypes" To="AdjustmentType" />
+        <Map From="AutoScalingGroups" To="AutoScalingGroup" />
+        <Map From="AutoScalingInstances" To="AutoScalingInstance" />
+        <Map From="AutoScalingNotificationTypes" To="AutoScalingNotificationType" />
+        <Map From="LaunchConfigurations" To="LaunchConfiguration" />
+        <Map From="MetricCollectionTypes" To="MetricCollectionType" />
+        <Map From="NotificationConfigurations" To="NotificationConfiguration" />
+        <Map From="Policies" To="Policy" />
+        <Map From="Processes" To="Process" />
+        <Map From="ScalingActivities" To="ScalingActivity" />
+        <Map From="ScalingProcessTypes" To="ScalingProcessType" />
+        <Map From="ScheduledActions" To="ScheduledAction" />
+        <Map From="Tags" To="Tag" />
+        <Map From="TerminationPolicyTypes" To="TerminationPolicyType" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AttachInstances" Verb="Mount" Noun="Instance" ShouldProcessTarget="InstanceIds" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyAlias="Add-ASInstances">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachLoadBalancers" Verb="Add" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerNames" PositionalParameters="AutoScalingGroupName" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachLoadBalancerTargetGroups" Verb="Add" Noun="LoadBalancerTargetGroup" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteScheduledAction" OutputProperty="FailedScheduledActions" Verb="Remove" Noun="ScheduledActionBatch" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutScheduledUpdateGroupAction" OutputProperty="FailedScheduledUpdateGroupActions" Verb="Set" Noun="ScheduledUpdateGroupActionBatch" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CompleteLifecycleAction" Verb="Complete" Noun="LifecycleAction" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutoScalingGroup" Verb="New" Noun="AutoScalingGroup" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLaunchConfiguration" Verb="New" Noun="LaunchConfiguration" ShouldProcessTarget="LaunchConfigurationName" PositionalParameters="ImageId;KeyName;SecurityGroups" PipelineParameter="LaunchConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOrUpdateTags" Verb="Set" Noun="Tag" ShouldProcessTarget="Tags" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutoScalingGroup" Verb="Remove" Noun="AutoScalingGroup" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchConfiguration" Verb="Remove" Noun="LaunchConfiguration" ShouldProcessTarget="LaunchConfigurationName" PipelineParameter="LaunchConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLifecycleHook" Verb="Remove" Noun="LifecycleHook" ShouldProcessTarget="LifecycleHookName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotificationConfiguration" Verb="Remove" Noun="NotificationConfiguration" ShouldProcessTarget="TopicARN" PositionalParameters="TopicARN" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="PolicyName" Alias="PolicyARN" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScheduledAction" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PositionalParameters="ScheduledActionName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="Tags" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="*" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-ASAccountLimits">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAdjustmentTypes" OutputProperty="AdjustmentTypes" Verb="Get" Noun="AdjustmentType" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoScalingGroups" OutputProperty="AutoScalingGroups" Verb="Get" Noun="AutoScalingGroup" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoScalingInstances" OutputProperty="AutoScalingInstances" Verb="Get" Noun="AutoScalingInstance" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoScalingNotificationTypes" OutputProperty="AutoScalingNotificationTypes" Verb="Get" Noun="AutoScalingNotificationType" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLaunchConfigurations" OutputProperty="LaunchConfigurations" Verb="Get" Noun="LaunchConfiguration" PipelineParameter="LaunchConfigurationNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLifecycleHooks" OutputProperty="LifecycleHooks" Verb="Get" Noun="LifecycleHook" PositionalParameters="LifecycleHookNames" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyAlias="Get-ASLifecycleHooks">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLifecycleHookTypes" OutputProperty="LifecycleHookTypes" Verb="Get" Noun="LifecycleHookType" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-ASLifecycleHookTypes">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancerTargetGroups" OutputProperty="LoadBalancerTargetGroups" Verb="Get" Noun="LoadBalancerTargetGroup" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetricCollectionTypes" OutputProperty="*" Verb="Get" Noun="MetricCollectionType" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotificationConfigurations" OutputProperty="NotificationConfigurations" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="Policy" PositionalParameters="PolicyNames" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="Activities" Verb="Get" Noun="ScalingActivity" PositionalParameters="ActivityIds" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingProcessTypes" OutputProperty="Processes" Verb="Get" Noun="ScalingProcessType" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledUpdateGroupActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="Filters" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTerminationPolicyTypes" OutputProperty="TerminationPolicyTypes" Verb="Get" Noun="TerminationPolicyType" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachInstances" OutputProperty="Activities" Verb="Dismount" Noun="Instance" ShouldProcessTarget="InstanceIds" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyAlias="Dismount-ASInstances">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachLoadBalancers" Verb="Dismount" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerNames" PositionalParameters="AutoScalingGroupName" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachLoadBalancerTargetGroups" Verb="Dismount" Noun="LoadBalancerTargetGroup" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableMetricsCollection" Verb="Disable" Noun="MetricsCollection" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="Metrics" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableMetricsCollection" Verb="Enable" Noun="MetricsCollection" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="Metrics;Granularity" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnterStandby" OutputProperty="Activities" Verb="Enter" Noun="Standby" ShouldProcessTarget="InstanceIds" PositionalParameters="AutoScalingGroupName;ShouldDecrementDesiredCapacity" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExecutePolicy" Verb="Start" Noun="Policy" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="PolicyName;HonorCooldown" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExitStandby" OutputProperty="Activities" Verb="Exit" Noun="Standby" ShouldProcessTarget="InstanceIds" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLifecycleHook" Verb="Write" Noun="LifecycleHook" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutNotificationConfiguration" Verb="Write" Noun="NotificationConfiguration" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="TopicARN;NotificationTypes" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="*" Verb="Write" Noun="ScalingPolicy" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="PolicyName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutScheduledUpdateGroupAction" Verb="Write" Noun="ScheduledUpdateGroupAction" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="ScheduledActionName;StartTime;EndTime" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+                <Param Name="TimeUtc" NewName="UtcTime" AutoApplyAlias="false" />
+                <Param Name="Time" ExclusiveParameters="UtcTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RecordLifecycleActionHeartbeat" Verb="Write" Noun="LifecycleActionHeartbeat" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeProcesses" Verb="Resume" Noun="Process" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="ScalingProcesses" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetDesiredCapacity" Verb="Set" Noun="DesiredCapacity" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="DesiredCapacity;HonorCooldown" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetInstanceHealth" Verb="Set" Noun="InstanceHealth" ShouldProcessTarget="InstanceId" PositionalParameters="HealthStatus;ShouldRespectGracePeriod" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetInstanceProtection" Verb="Set" Noun="InstanceProtection" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SuspendProcesses" Verb="Suspend" Noun="Process" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="ScalingProcesses" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateInstanceInAutoScalingGroup" OutputProperty="Activity" Verb="Stop" Noun="InstanceInAutoScalingGroup" ShouldProcessTarget="InstanceId" PositionalParameters="ShouldDecrementDesiredCapacity" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutoScalingGroup" Verb="Update" Noun="AutoScalingGroup" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize;DesiredCapacity" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.AutoScaling.Model.MixedInstancesPolicy</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

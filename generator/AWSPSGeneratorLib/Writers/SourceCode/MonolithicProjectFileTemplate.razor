@@ -1,0 +1,100 @@
+@inherits AWSPowerShellGenerator.Writers.SourceCode.MonolithicProjectFileTemplate
+@using System
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net35;netstandard2.0</TargetFrameworks>
+    <RootNamespace>Amazon.PowerShell</RootNamespace>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\solutions\</SolutionDir>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1591,1574,1570,1587</NoWarn>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>aws-powershell.snk</AssemblyOriginatorKeyFile>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningsAsErrors>NU1605,CS0108</WarningsAsErrors>
+    <AssemblyVersion>@Version</AssemblyVersion>
+    <FileVersion>@Version</FileVersion>
+    <Copyright>Copyright 2012-@DateTime.UtcNow.Year Amazon.com, Inc. or its affiliates. All Rights Reserved.</Copyright>
+    <Company>Amazon.com, Inc</Company>
+    <PackageProjectUrl>https://github.com/aws/aws-tools-for-powershell</PackageProjectUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net35'">
+    <AssemblyName>AWSPowerShell</AssemblyName>
+    <DocumentationFile>$(OutputPath)\AWSPowerShell.XML</DocumentationFile>
+    <!-- workaround per https://github.com/Microsoft/msbuild/issues/1333 -->
+    <FrameworkPathOverride>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5\Profile\Client</FrameworkPathOverride>
+    <DefineConstants>$(DefineConstants);DESKTOP</DefineConstants>
+    <Product>AWS Tools for Windows PowerShell</Product>
+    <AssemblyTitle>AWS Tools for Windows PowerShell</AssemblyTitle>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <AssemblyName>AWSPowerShell.NetCore</AssemblyName>
+    <DocumentationFile>$(OutputPath)\AWSPowerShell.NetCore.XML</DocumentationFile>
+    <DefineConstants>$(DefineConstants);NETSTANDARD;NETSTANDARD2_0;CORECLR</DefineConstants>
+    <Product>AWS Tools for PowerShell</Product>
+    <AssemblyTitle>AWS Tools for PowerShell</AssemblyTitle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Cmdlets/*/bin/**" />
+    <Compile Remove="Cmdlets/*/obj/**" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='net35'">
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\thirdparty\System.Management.Automation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+@foreach (var assembly in Assemblies)
+{
+@:    <Reference Include="@assembly">
+@:      <HintPath>../../Include/sdk/ExtractedNuGet/net35/@(assembly).dll</HintPath>
+@:    </Reference>
+}
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="PowerShellStandard.Library" Version="3.0.0-preview-02" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+@foreach (var assembly in Assemblies)
+{
+@:    <Reference Include="@assembly">
+@:      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/@(assembly).dll</HintPath>
+@:    </Reference>
+}
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="CmdletsList.dat" />
+    <EmbeddedResource Include="CmdletsList.dat" />
+    <None Include="aws-powershell.snk" />
+    <None Include="AWSPowerShell.TypeExtensions.ps1xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

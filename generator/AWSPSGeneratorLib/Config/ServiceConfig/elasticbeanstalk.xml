@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>elasticbeanstalk</C2jFilename>
+    <AssemblyName>ElasticBeanstalk</AssemblyName>
+    <ServiceNounPrefix>EB</ServiceNounPrefix>
+    <ServiceName>AWS Elastic Beanstalk</ServiceName>
+    <ServiceClientInterface>IAmazonElasticBeanstalk</ServiceClientInterface>
+    <ServiceClient>AmazonElasticBeanstalkClient</ServiceClient>
+    <ServiceModuleGuid>fa2177f6-257f-4316-b628-b56f26b02fb7</ServiceModuleGuid>
+    <PipelineParameter>ApplicationName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="1000" PageSizeIsRequired="true" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+        <Map From="Terminate" To="Stop" />
+        <Map From="Check" To="Get" />
+        <Map From="Retrieve" To="Get" />
+        <Map From="Swap" To="Set" />
+        <Map From="Validate" To="Test" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Applications" To="Application" />
+        <Map From="ApplicationVersions" To="ApplicationVersion" />
+        <Map From="AvailableSolutionStacks" To="AvailableSolutionStack" />
+        <Map From="ConfigurationOptions" To="ConfigurationOption" />
+        <Map From="ConfigurationSettings" To="ConfigurationSetting" />
+        <Map From="EnvironmentResources" To="EnvironmentResource" />
+        <Map From="Environments" To="Environment" />
+        <Map From="Events" To="Event" />
+        <Map From="EnvironmentCNAMEs" To="EnvironmentCNAME" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>RefreshedAt</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AbortEnvironmentUpdate" Verb="Stop" Noun="EnvironmentUpdate" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ApplyEnvironmentManagedAction" OutputProperty="*" Verb="Submit" Noun="EnvironmentManagedAction" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CheckDNSAvailability" OutputProperty="*" Verb="Get" Noun="DNSAvailability" PipelineParameter="CNAMEPrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ComposeEnvironments" OutputProperty="Environments" Verb="Group" Noun="Environment" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="Application" Verb="New" Noun="Application" ShouldProcessTarget="ApplicationName" PositionalParameters="Description" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplicationVersion" OutputProperty="ApplicationVersion" Verb="New" Noun="ApplicationVersion" ShouldProcessTarget="ApplicationName" PositionalParameters="VersionLabel;Description" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationTemplate" OutputProperty="*" Verb="New" Noun="ConfigurationTemplate" ShouldProcessTarget="ApplicationName" PositionalParameters="TemplateName;SolutionStackName;EnvironmentId;Description" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="*" Verb="New" Noun="Environment" ShouldProcessTarget="ApplicationName" PositionalParameters="EnvironmentName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlatformVersion" OutputProperty="*" Verb="New" Noun="PlatformVersion" ShouldProcessTarget="PlatformName" PipelineParameter="PlatformName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStorageLocation" OutputProperty="S3Bucket" Verb="New" Noun="StorageLocation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationVersion" Verb="Remove" Noun="ApplicationVersion" ShouldProcessTarget="VersionLabel" PositionalParameters="VersionLabel;DeleteSourceBundle" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationTemplate" Verb="Remove" Noun="ConfigurationTemplate" ShouldProcessTarget="TemplateName" PositionalParameters="TemplateName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentConfiguration" Verb="Remove" Noun="EnvironmentConfiguration" ShouldProcessTarget="EnvironmentName" PositionalParameters="EnvironmentName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <PassThru>
+                <Expression>context.EnvironmentName</Expression>
+                <Type>System.String</Type>
+                <Documentation>Returns the name of the environment that was updated</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePlatformVersion" OutputProperty="PlatformSummary" Verb="Remove" Noun="PlatformVersion" ShouldProcessTarget="PlatformArn" PipelineParameter="PlatformArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="ResourceQuotas" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplications" OutputProperty="Applications" Verb="Get" Noun="Application" PipelineParameter="ApplicationNames" NoPipelineParameter="false" LegacyAlias="Get-EBApplications">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationVersions" OutputProperty="ApplicationVersions" Verb="Get" Noun="ApplicationVersion" PositionalParameters="VersionLabels" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyAlias="Get-EBApplicationVersions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationOptions" OutputProperty="*" Verb="Get" Noun="ConfigurationOption" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyAlias="Get-EBConfigurationOptions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationSettings" OutputProperty="ConfigurationSettings" Verb="Get" Noun="ConfigurationSetting" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyAlias="Get-EBConfigurationSettings">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentHealth" OutputProperty="*" Verb="Get" Noun="EnvironmentHealth" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" OutputProperty="ManagedActionHistoryItems" Verb="Get" Noun="EnvironmentManagedActionHistory" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" ServicePageSize="1000" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentManagedActions" OutputProperty="ManagedActions" Verb="Get" Noun="EnvironmentManagedAction" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentResources" OutputProperty="EnvironmentResources" Verb="Get" Noun="EnvironmentResource" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyAlias="Get-EBEnvironmentResources">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironments" OutputProperty="Environments" Verb="Get" Noun="Environment" PositionalParameters="EnvironmentIds;VersionLabel" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="IncludedDeletedBackToUtc" NewName="UtcIncludedDeletedBackTo" AutoApplyAlias="false" />
+                <Param Name="IncludedDeletedBackTo" ExclusiveParameters="UtcIncludedDeletedBackTo" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcIncludedDeletedBackTo instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstancesHealth" OutputProperty="InstanceHealthList" Verb="Get" Noun="InstanceHealth" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePlatformVersion" OutputProperty="PlatformDescription" Verb="Get" Noun="PlatformVersionDetail" PipelineParameter="PlatformArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableSolutionStacks" OutputProperty="*" Verb="Get" Noun="AvailableSolutionStackList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-EBAvailableSolutionStack">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlatformVersions" OutputProperty="PlatformSummaryList" Verb="Get" Noun="PlatformVersion" PipelineParameter="Filters" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebuildEnvironment" Verb="Start" Noun="EnvironmentRebuild" ShouldProcessTarget="EnvironmentId" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <PassThru>
+                <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
+                <Type>System.String</Type>
+                <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestEnvironmentInfo" Verb="Request" Noun="EnvironmentInfo" ShouldProcessTarget="EnvironmentId" PositionalParameters="EnvironmentName;InfoType" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <PassThru>
+                <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
+                <Type>System.String</Type>
+                <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestartAppServer" Verb="Restart" Noun="AppServer" ShouldProcessTarget="EnvironmentId" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <PassThru>
+                <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
+                <Type>System.String</Type>
+                <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveEnvironmentInfo" OutputProperty="EnvironmentInfo" Verb="Get" Noun="EnvironmentInfo" PositionalParameters="EnvironmentName;InfoType" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SwapEnvironmentCNAMEs" Verb="Set" Noun="EnvironmentCNAME" ShouldProcessTarget="SourceEnvironmentId" PositionalParameters="SourceEnvironmentName;DestinationEnvironmentId;DestinationEnvironmentName" PipelineParameter="SourceEnvironmentId" NoPipelineParameter="false" LegacyAlias="Set-EBEnvironmentCNAMEs">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateEnvironment" OutputProperty="*" Verb="Stop" Noun="Environment" ShouldProcessTarget="EnvironmentId" PositionalParameters="EnvironmentName;TerminateResources" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="Application" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationName" PositionalParameters="Description" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplicationResourceLifecycle" OutputProperty="*" Verb="Update" Noun="ApplicationResourceLifecycle" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplicationVersion" OutputProperty="ApplicationVersion" Verb="Update" Noun="ApplicationVersion" ShouldProcessTarget="ApplicationName" PositionalParameters="VersionLabel;Description" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationTemplate" OutputProperty="*" Verb="Update" Noun="ConfigurationTemplate" ShouldProcessTarget="ApplicationName" PositionalParameters="TemplateName;Description;OptionSettings;OptionsToRemove" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="*" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PositionalParameters="EnvironmentName;VersionLabel;TemplateName;Description" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTagsForResource" Verb="Update" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateConfigurationSettings" OutputProperty="Messages" Verb="Test" Noun="ConfigurationSetting" PositionalParameters="OptionSettings" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyAlias="Test-EBConfigurationSettings">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

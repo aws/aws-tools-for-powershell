@@ -1,0 +1,3 @@
+﻿# AutoScalingPlans
+
+Export-ModuleMember -Alias *

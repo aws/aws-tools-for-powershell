@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMOpenIDConnectProviderList
+
+Arn
+---
+arn:aws:iam::123456789012:oidc-provider/server.example.com
+arn:aws:iam::123456789012:oidc-provider/another.provider.com</code>
+    <description>This example returns a list of ARNS of all the OpenID Connect providers that are defined in the current AWS account.</description>
+  </example>
+</examples>

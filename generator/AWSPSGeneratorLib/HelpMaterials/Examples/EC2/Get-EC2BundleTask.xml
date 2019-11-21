@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2BundleTask -BundleId bun-12345678</code>
+    <description>This example describes the specified bundle task.</description>
+  </example>
+  <example>
+    <code>PS C:\> $filter = New-Object Amazon.EC2.Model.Filter
+PS C:\> $filter.Name = "state"
+PS C:\> $filter.Values = @( "complete", "failed" )
+
+PS C:\> Get-EC2BundleTask -Filter $filter
+    </code>
+    <description>This example describes the bundle tasks whose state is either 'complete' or 'failed'.</description>
+  </example>
+</examples>

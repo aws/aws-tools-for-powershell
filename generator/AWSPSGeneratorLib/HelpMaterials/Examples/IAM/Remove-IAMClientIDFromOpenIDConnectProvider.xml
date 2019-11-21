@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Remove-IAMClientIDFromOpenIDConnectProvider -ClientID My-TestApp-3 -OpenIDConnectProviderArn arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com</code>
+    <description>This example removes the client ID <code>My-TestApp-3</code> from the list of client IDs associated with the IAM OIDC provider whose ARN is <code>arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com</code>.</description>
+  </example>
+</examples>

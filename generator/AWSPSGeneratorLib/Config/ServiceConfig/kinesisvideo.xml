@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>kinesisvideo</C2jFilename>
+    <AssemblyName>KinesisVideo</AssemblyName>
+    <ServiceNounPrefix>KV</ServiceNounPrefix>
+    <ServiceName>Amazon Kinesis Video Streams</ServiceName>
+    <ServiceClientInterface>IAmazonKinesisVideo</ServiceClientInterface>
+    <ServiceClient>AmazonKinesisVideoClient</ServiceClient>
+    <ServiceModuleGuid>7a1b7779-c37d-4e6b-9885-a060019ee36b</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="10000" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateStream" OutputProperty="StreamARN" Verb="New" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStream" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamARN" PipelineParameter="StreamARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamInfo" Verb="Get" Noun="Stream" PipelineParameter="StreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataEndpoint" OutputProperty="DataEndpoint" Verb="Get" Noun="DataEndpoint" PipelineParameter="APIName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreams" OutputProperty="StreamInfoList" Verb="Get" Noun="StreamList" PipelineParameter="StreamNameCondition" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForStream" OutputProperty="Tags" Verb="Get" Noun="TagsForStreamList" PipelineParameter="StreamName" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagStream" Verb="Add" Noun="StreamTag" ShouldProcessTarget="StreamName" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagStream" Verb="Remove" Noun="StreamTag" ShouldProcessTarget="StreamName" PipelineParameter="TagKeyList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataRetention" Verb="Update" Noun="DataRetention" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStream" Verb="Update" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.KinesisVideo.Model.StreamNameCondition</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

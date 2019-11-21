@@ -1,0 +1,3 @@
+﻿# WAFRegional
+
+Export-ModuleMember -Alias *

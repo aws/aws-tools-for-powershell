@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>New-EFSTag -FileSystemId fs-1a2b3c4d -Tag @{Key="tagkey1";Value="tagvalue1"},@{Key="tagkey2";Value="tagvalue2"}</code>
+        <description>Applies the collection of tags to the specified file system. If a tag with key specified already exists on the file system the value of the tag is updated.</description>
+    </example>
+    <example>
+        <code>New-EFSTag -FileSystemId fs-1a2b3c4d -Tag @{Key="Name";Value="My File System"}</code>
+        <description>Sets the name tag for the specified file system. This value is returned along with other file system details when the Get-EFSFileSystem cmdlet is used.</description>
+    </example>
+</examples>

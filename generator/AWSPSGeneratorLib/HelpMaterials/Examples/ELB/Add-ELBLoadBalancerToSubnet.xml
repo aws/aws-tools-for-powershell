@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Add-ELBLoadBalancerToSubnet -LoadBalancerName my-load-balancer -Subnet subnet-12345678
+
+subnet-12345678
+subnet-87654321</code>
+    <description>This example adds the specified subnet to the set of subnets configured for the specified load balancer. The output includes the complete list of subnets.</description>
+  </example>
+</examples>

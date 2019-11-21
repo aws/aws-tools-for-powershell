@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\> New-EFSMountTarget -FileSystemId fs-1a2b3c4d -SubnetId subnet-1a2b3c4d
+        
+FileSystemId       : fs-1a2b3c4d
+IpAddress          : 10.0.0.131
+LifeCycleState     : creating
+MountTargetId      : fsmt-1a2b3c4d
+NetworkInterfaceId : eni-1a2b3c4d
+OwnerId            : 123456789012
+SubnetId           : subnet-1a2b3c4d
+        </code>
+        <description>Creates a new mount target for a file system. The specified subnet will be used determine the Virtual Private Cloud (VPC) that the mount target will be created in and the IP address that will be auto-assigned (from the address range of the subnet). The assigned IP address can be used to then mount this file system on an Amazon EC2 instance. As no security groups were specified the network interface created for the target is associated with the default security group for the subnet's VPC.</description>
+    </example>
+    <example>
+        <code>New-EFSMountTarget -FileSystemId fs-1a2b3c4d -SubnetId subnet-1a2b3c4d -SecurityGroup sg-group1,sg-group2,sg-group3</code>
+        <description>Creates a new mount target for the specified file system with auto-assigned IP address. The network interface created for the mount target is associated with the specified security groups (up to 5, in the format "sg-xxxxxxxx", may be specified).</description>
+    </example>
+    <example>
+        <code>New-EFSMountTarget -FileSystemId fs-1a2b3c4d -SubnetId subnet-1a2b3c4d -IpAddress 10.0.0.131</code>
+        <description>Creates a new mount target for the specified file system with the specified IP address.</description>
+    </example>
+</examples>

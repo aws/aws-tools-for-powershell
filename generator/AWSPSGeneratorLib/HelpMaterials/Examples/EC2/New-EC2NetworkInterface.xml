@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-EC2NetworkInterface -SubnetId subnet-1a2b3c4d -Description "my network interface" -Group sg-12345678 -PrivateIpAddress 10.0.0.17
+    
+Association        :
+Attachment         :
+AvailabilityZone   : us-west-2c
+Description        : my network interface
+Groups             : {my-security-group}
+MacAddress         : 0a:72:bc:1a:cd:7f
+NetworkInterfaceId : eni-12345678
+OwnerId            : 123456789012
+PrivateDnsName     : ip-10-0-0-17.us-west-2.compute.internal
+PrivateIpAddress   : 10.0.0.17
+PrivateIpAddresses : {}
+RequesterId        :
+RequesterManaged   : False
+SourceDestCheck    : True
+Status             : pending
+SubnetId           : subnet-1a2b3c4d
+TagSet             : {}
+VpcId              : vpc-12345678</code>
+    <description>This example creates the specified network interface.</description>
+  </example>
+</examples>

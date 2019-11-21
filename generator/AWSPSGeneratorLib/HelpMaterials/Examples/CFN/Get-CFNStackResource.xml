@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-CFNStackResource -StackName "myStack" -LogicalResourceId "MyDBInstance"</code>
+    <description>Returns the description of a resource identified in the template associated with the specified stack by the logical ID "MyDBInstance".</description>
+  </example>
+</examples>

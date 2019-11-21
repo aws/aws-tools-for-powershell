@@ -1,0 +1,3 @@
+﻿# MediaConvert
+
+Export-ModuleMember -Alias *

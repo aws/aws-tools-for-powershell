@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Register-EC2RouteTable -RouteTableId rtb-1a2b3c4d -SubnetId subnet-1a2b3c4d
+    
+rtbassoc-12345678</code>
+    <description>This example associates the specified route table with the specified subnet.</description>
+  </example>
+</examples>

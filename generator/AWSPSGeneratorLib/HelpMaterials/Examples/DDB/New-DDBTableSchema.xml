@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\>New-DDBTableSchema
+
+AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
+---------------                             ---------                                   -------------------------
+{}                                          {}                                          {}
+    </code>
+    <description>Creates an empty TableSchema object ready to accept key and index definitions for use in creating a new Amazon DynamoDB table. The returned object can be piped into the Add-DDBKeySchema, Add-DDBIndexSchema and New-DDBTable cmdlets or passed to them using the -Schema parameter on each cmdlet.</description>
+  </example>
+</examples>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iot-jobs-data</C2jFilename>
+    <AssemblyName>IoTJobsDataPlane</AssemblyName>
+    <ServiceNounPrefix>IOTJ</ServiceNounPrefix>
+    <ServiceName>AWS IoT Jobs Data Plane</ServiceName>
+    <ServiceClientInterface>IAmazonIoTJobsDataPlane</ServiceClientInterface>
+    <ServiceClient>AmazonIoTJobsDataPlaneClient</ServiceClient>
+    <ServiceModuleGuid>db54228f-6885-4547-a110-c2b605962444</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DescribeJobExecution" OutputProperty="Execution" Verb="Get" Noun="JobExecution" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPendingJobExecutions" OutputProperty="*" Verb="Get" Noun="PendingJobExecution" PipelineParameter="ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartNextPendingJobExecution" OutputProperty="Execution" Verb="Start" Noun="NextPendingJobExecution" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateJobExecution" OutputProperty="*" Verb="Update" Noun="JobExecution" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>batch</C2jFilename>
+    <AssemblyName>Batch</AssemblyName>
+    <ServiceNounPrefix>BAT</ServiceNounPrefix>
+    <ServiceName>AWS Batch</ServiceName>
+    <ServiceClientInterface>IAmazonBatch</ServiceClientInterface>
+    <ServiceClient>AmazonBatchClient</ServiceClient>
+    <ServiceModuleGuid>18ba627c-fc7c-41b2-bbb8-a23429961ffb</ServiceModuleGuid>
+    <PipelineParameter>JobId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Get-BATJobList">Get-BATJobsList</AliasSet>
+    </LegacyAliases>
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelJob" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateComputeEnvironment" OutputProperty="*" Verb="New" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironmentName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateJobQueue" OutputProperty="*" Verb="New" Noun="JobQueue" ShouldProcessTarget="JobQueueName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteComputeEnvironment" Verb="Remove" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteJobQueue" Verb="Remove" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterJobDefinition" Verb="Unregister" Noun="JobDefinition" ShouldProcessTarget="JobDefinition" PipelineParameter="JobDefinition" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComputeEnvironments" OutputProperty="ComputeEnvironments" Verb="Get" Noun="ComputeEnvironment" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobDefinitions" OutputProperty="JobDefinitions" Verb="Get" Noun="JobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobQueues" OutputProperty="JobQueues" Verb="Get" Noun="JobQueue" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobs" OutputProperty="Jobs" Verb="Get" Noun="JobDetail" PipelineParameter="Jobs" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaryList" Verb="Get" Noun="JobList" PipelineParameter="JobQueue" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterJobDefinition" OutputProperty="*" Verb="Register" Noun="JobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubmitJob" OutputProperty="*" Verb="Submit" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateJob" Verb="Remove" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateComputeEnvironment" OutputProperty="*" Verb="Update" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateJobQueue" OutputProperty="*" Verb="Update" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.Batch.Model.JobTimeout</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

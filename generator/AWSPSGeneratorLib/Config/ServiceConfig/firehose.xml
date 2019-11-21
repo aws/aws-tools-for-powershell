@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>firehose</C2jFilename>
+    <AssemblyName>KinesisFirehose</AssemblyName>
+    <ServiceNounPrefix>KINF</ServiceNounPrefix>
+    <ServiceName>Amazon Kinesis Firehose</ServiceName>
+    <ServiceClientInterface>IAmazonKinesisFirehose</ServiceClientInterface>
+    <ServiceClient>AmazonKinesisFirehoseClient</ServiceClient>
+    <ServiceModuleGuid>c3053630-8285-4f10-8f90-036467ccae30</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDeliveryStream" OutputProperty="DeliveryStreamARN" Verb="New" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeliveryStream" Verb="Remove" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeliveryStream" OutputProperty="DeliveryStreamDescription" Verb="Get" Noun="DeliveryStream" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeliveryStreams" OutputProperty="*" Verb="Get" Noun="DeliveryStreamList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForDeliveryStream" OutputProperty="*" Verb="Get" Noun="TagsForDeliveryStream" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRecord" OutputProperty="RecordId" Verb="Write" Noun="Record" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true" DefaultParameterSet="FromBlob">
+            <Params>
+                <Param Name="Record_Data" Alias="Blob" ParameterSetName="FromBlob" Mandatory="true" />
+                <Param Name="DeliveryStreamName" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRecordBatch" OutputProperty="*" Verb="Write" Noun="RecordBatch" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="Records" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDeliveryStreamEncryption" Verb="Start" Noun="DeliveryStreamEncryption" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDeliveryStreamEncryption" Verb="Stop" Noun="DeliveryStreamEncryption" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagDeliveryStream" Verb="Add" Noun="DeliveryStreamTag" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagDeliveryStream" Verb="Remove" Noun="DeliveryStreamTag" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration</Type>
+        <Type>Amazon.KinesisFirehose.Model.S3DestinationConfiguration</Type>
+        <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate</Type>
+        <Type>Amazon.KinesisFirehose.Model.S3DestinationUpdate</Type>
+        <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration</Type>
+        <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate</Type>
+        <Type>Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration</Type>
+        <Type>Amazon.KinesisFirehose.Model.SplunkDestinationUpdate</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

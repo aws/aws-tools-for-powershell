@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>comprehendmedical</C2jFilename>
+    <AssemblyName>ComprehendMedical</AssemblyName>
+    <ServiceNounPrefix>CMPM</ServiceNounPrefix>
+    <ServiceName>AWS Comprehend Medical</ServiceName>
+    <ServiceClientInterface>IAmazonComprehendMedical</ServiceClientInterface>
+    <ServiceClient>AmazonComprehendMedicalClient</ServiceClient>
+    <ServiceModuleGuid>cbd15317-2a4b-439c-825f-32489d4c9f01</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DescribeEntitiesDetectionV2Job" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="EntitiesDetectionV2Job" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePHIDetectionJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="PersonalHealthInformationDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectEntities" OutputProperty="*" Verb="Find" Noun="MedicalEntity" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectEntitiesV2" OutputProperty="Entities" Verb="Find" Noun="MedicalEntityV2" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectPHI" OutputProperty="Entities" Verb="Find" Noun="PersonalHealthInformation" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEntitiesDetectionV2Jobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="EntitiesDetectionV2JobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPHIDetectionJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="PersonalHealthInformationDetectionJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartEntitiesDetectionV2Job" OutputProperty="JobId" Verb="Start" Noun="EntitiesDetectionV2Job" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPHIDetectionJob" OutputProperty="JobId" Verb="Start" Noun="PersonalHealthInformationDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopEntitiesDetectionV2Job" OutputProperty="JobId" Verb="Stop" Noun="EntitiesDetectionV2Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopPHIDetectionJob" OutputProperty="JobId" Verb="Stop" Noun="PersonalHealthInformationDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

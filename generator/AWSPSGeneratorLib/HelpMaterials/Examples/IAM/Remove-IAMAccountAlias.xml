@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Remove-IAMAccountAlias -AccountAlias mycompanyaws</code>
+    <description>This example removes the account alias from your AWS account. The user sign in page with the alias at https://mycompanyaws.signin.aws.amazon.com/console no longer works. You must instead use the original URL with your AWS account ID number at https://&lt;accountidnumber&gt;.signin.aws.amazon.com/console.</description>
+  </example>
+</examples>

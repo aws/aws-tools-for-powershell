@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>support</C2jFilename>
+    <AssemblyName>AWSSupport</AssemblyName>
+    <ServiceNounPrefix>ASA</ServiceNounPrefix>
+    <ServiceName>AWS Support</ServiceName>
+    <ServiceClientInterface>IAmazonAWSSupport</ServiceClientInterface>
+    <ServiceClient>AmazonAWSSupportClient</ServiceClient>
+    <ServiceModuleGuid>ef6dc104-1126-4de6-a7f1-bfe16e9b2799</ServiceModuleGuid>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter>CaseId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddAttachmentsToSet" OutputProperty="*" Verb="Add" Noun="AttachmentsToSet" ShouldProcessTarget="AttachmentSetId" PipelineParameter="AttachmentSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddCommunicationToCase" OutputProperty="Result" Verb="Add" Noun="CommunicationToCase" ShouldProcessTarget="CaseId" PositionalParameters="CommunicationBody;CcEmailAddresses" PipelineParameter="CaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCase" OutputProperty="CaseId" Verb="New" Noun="Case" ShouldProcessTarget="AttachmentSetId" PositionalParameters="ServiceCode;SeverityCode;CategoryCode;CommunicationBody" PipelineParameter="Subject" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAttachment" OutputProperty="Attachment" Verb="Get" Noun="Attachment" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCases" OutputProperty="Cases" Verb="Get" Noun="Case" PipelineParameter="CaseIdList" NoPipelineParameter="false" LegacyAlias="Get-ASACases">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCommunications" OutputProperty="Communications" Verb="Get" Noun="Communication" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyAlias="Get-ASACommunications">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PositionalParameters="Language" PipelineParameter="ServiceCodeList" NoPipelineParameter="false" LegacyAlias="Get-ASAServices">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSeverityLevels" OutputProperty="SeverityLevels" Verb="Get" Noun="SeverityLevel" PipelineParameter="Language" NoPipelineParameter="false" LegacyAlias="Get-ASASeverityLevels">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckRefreshStatuses" OutputProperty="Statuses" Verb="Get" Noun="TrustedAdvisorCheckRefreshStatus" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorCheckRefreshStatuses">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckResult" OutputProperty="Result" Verb="Get" Noun="TrustedAdvisorCheckResult" PositionalParameters="Language" PipelineParameter="CheckId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustedAdvisorChecks" OutputProperty="Checks" Verb="Get" Noun="TrustedAdvisorCheck" PipelineParameter="Language" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorChecks">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckSummaries" OutputProperty="Summaries" Verb="Get" Noun="TrustedAdvisorCheckSummary" PipelineParameter="CheckIds" NoPipelineParameter="false" LegacyAlias="Get-ASATrustedAdvisorCheckSummaries">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RefreshTrustedAdvisorCheck" OutputProperty="Status" Verb="Request" Noun="TrustedAdvisorCheckRefresh" ShouldProcessTarget="CheckId" PipelineParameter="CheckId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResolveCase" OutputProperty="*" Verb="Resolve" Noun="Case" ShouldProcessTarget="CaseId" PipelineParameter="CaseId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

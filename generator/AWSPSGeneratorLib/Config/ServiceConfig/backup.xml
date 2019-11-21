@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>backup</C2jFilename>
+    <AssemblyName>Backup</AssemblyName>
+    <ServiceNounPrefix>BAK</ServiceNounPrefix>
+    <ServiceName>AWS Backup</ServiceName>
+    <ServiceClientInterface>IAmazonBackup</ServiceClientInterface>
+    <ServiceClient>AmazonBackupClient</ServiceClient>
+    <ServiceModuleGuid>a284f370-06f4-4612-9e10-f3d5071c8b14</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Remove-BAKBackupVaultNotification">Remove-BAKBackupVaultNotifications</AliasSet>
+    </LegacyAliases>
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateBackupPlan" OutputProperty="*" Verb="New" Noun="BackupPlan" AnonymousShouldProcessTarget="true" PipelineParameter="BackupPlan_BackupPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackupSelection" OutputProperty="*" Verb="New" Noun="BackupSelection" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackupVault" OutputProperty="*" Verb="New" Noun="BackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackupPlan" OutputProperty="*" Verb="Remove" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackupSelection" Verb="Remove" Noun="BackupSelection" ShouldProcessTarget="SelectionId" PipelineParameter="SelectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackupVault" Verb="Remove" Noun="BackupVault" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackupVaultAccessPolicy" Verb="Remove" Noun="BackupVaultAccessPolicy" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackupVaultNotifications" Verb="Remove" Noun="BackupVaultNotification" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecoveryPoint" Verb="Remove" Noun="RecoveryPoint" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBackupJob" OutputProperty="*" Verb="Get" Noun="BackupJob" PipelineParameter="BackupJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBackupVault" OutputProperty="*" Verb="Get" Noun="BackupVault" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProtectedResource" OutputProperty="*" Verb="Get" Noun="ProtectedResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRecoveryPoint" OutputProperty="*" Verb="Get" Noun="RecoveryPoint" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRestoreJob" OutputProperty="*" Verb="Get" Noun="RestoreJob" PipelineParameter="RestoreJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportBackupPlanTemplate" OutputProperty="BackupPlanTemplateJson" Verb="Export" Noun="BackupPlanTemplate" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackupPlan" OutputProperty="*" Verb="Get" Noun="BackupPlan" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackupPlanFromJSON" OutputProperty="BackupPlan" Verb="Get" Noun="BackupPlanFromJSON" PipelineParameter="BackupPlanTemplateJson" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackupPlanFromTemplate" OutputProperty="BackupPlanDocument" Verb="Get" Noun="BackupPlanFromTemplate" PipelineParameter="BackupPlanTemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackupSelection" OutputProperty="*" Verb="Get" Noun="BackupSelection" PipelineParameter="SelectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackupVaultAccessPolicy" OutputProperty="*" Verb="Get" Noun="BackupVaultAccessPolicy" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBackupVaultNotifications" OutputProperty="*" Verb="Get" Noun="BackupVaultNotification" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecoveryPointRestoreMetadata" OutputProperty="*" Verb="Get" Noun="RecoveryPointRestoreMetadata" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSupportedResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="SupportedResourceType" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupJobs" OutputProperty="BackupJobs" Verb="Get" Noun="BackupJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupPlans" OutputProperty="BackupPlansList" Verb="Get" Noun="BackupPlanList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupPlanTemplates" OutputProperty="BackupPlanTemplatesList" Verb="Get" Noun="BackupPlanTemplateList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupPlanVersions" OutputProperty="BackupPlanVersionsList" Verb="Get" Noun="BackupPlanVersionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupSelections" OutputProperty="BackupSelectionsList" Verb="Get" Noun="BackupSelectionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackupVaults" OutputProperty="BackupVaultList" Verb="Get" Noun="BackupVaultList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecoveryPointsByBackupVault" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecoveryPointsByResource" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRestoreJobs" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBackupVaultAccessPolicy" Verb="Write" Noun="BackupVaultAccessPolicy" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBackupVaultNotifications" Verb="Write" Noun="BackupVaultNotification" ShouldProcessTarget="BackupVaultName" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartBackupJob" OutputProperty="*" Verb="Start" Noun="BackupJob" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRestoreJob" OutputProperty="RestoreJobId" Verb="Start" Noun="RestoreJob" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopBackupJob" Verb="Stop" Noun="BackupJob" ShouldProcessTarget="BackupJobId" PipelineParameter="BackupJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBackupPlan" OutputProperty="*" Verb="Update" Noun="BackupPlan" ShouldProcessTarget="BackupPlanId" PipelineParameter="BackupPlan_BackupPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecoveryPointLifecycle" OutputProperty="*" Verb="Update" Noun="RecoveryPointLifecycle" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

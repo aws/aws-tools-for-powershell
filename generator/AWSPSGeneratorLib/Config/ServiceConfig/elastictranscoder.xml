@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>elastictranscoder</C2jFilename>
+    <AssemblyName>ElasticTranscoder</AssemblyName>
+    <ServiceNounPrefix>ETS</ServiceNounPrefix>
+    <ServiceName>Amazon Elastic Transcoder</ServiceName>
+    <ServiceClientInterface>IAmazonElasticTranscoder</ServiceClientInterface>
+    <ServiceClient>AmazonElasticTranscoderClient</ServiceClient>
+    <ServiceModuleGuid>abb69826-c3bd-4f8a-9678-e3c233e2dcd3</ServiceModuleGuid>
+    <PipelineParameter>Id</PipelineParameter>
+    <AutoIterate Start="PageToken" Next="NextPageToken" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Presets" To="Preset" />
+        <Map From="Pipelines" To="Pipeline" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>Warnings</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelJob" Verb="Stop" Noun="Job" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateJob" OutputProperty="Job" Verb="New" Noun="Job" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Input_Encryption_InitializationVector" NewName="InputEncryptionInitializationVector" />
+                <Param Name="Output_Encryption_InitializationVector" NewName="OutputEncryptionInitializationVector" />
+                <Param Name="Input_Encryption_Key" NewName="InputEncryptionKey" />
+                <Param Name="Output_Encryption_Key" NewName="OutputEncryptionKey" />
+                <Param Name="Input_Encryption_KeyMd5" NewName="InputEncryptionKeyMd5" />
+                <Param Name="Output_Encryption_KeyMd5" NewName="OutputEncryptionKeyMd5" />
+                <Param Name="Input_Encryption_Mode" NewName="InputEncryptionMode" />
+                <Param Name="Output_Encryption_Mode" NewName="OutputEncryptionMode" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePipeline" OutputProperty="Pipeline" Verb="New" Noun="Pipeline" ShouldProcessTarget="Name" PositionalParameters="InputBucket;OutputBucket;Role" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePreset" OutputProperty="*" Verb="New" Noun="Preset" ShouldProcessTarget="Name" PositionalParameters="Description;Container" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePipeline" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePreset" Verb="Remove" Noun="Preset" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobsByPipeline" OutputProperty="Jobs" Verb="Get" Noun="JobsByPipeline" PositionalParameters="Ascending" PipelineParameter="PipelineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobsByStatus" OutputProperty="Jobs" Verb="Get" Noun="JobsByStatus" PositionalParameters="Ascending" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelines" OutputProperty="Pipelines" Verb="Get" Noun="Pipeline" PipelineParameter="Ascending" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPresets" OutputProperty="Presets" Verb="Get" Noun="Preset" PipelineParameter="Ascending" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReadJob" OutputProperty="Job" Verb="Read" Noun="Job" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReadPipeline" OutputProperty="Pipeline" Verb="Read" Noun="Pipeline" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReadPreset" OutputProperty="Preset" Verb="Read" Noun="Preset" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestRole" OutputProperty="*" Verb="Test" Noun="Role" PositionalParameters="InputBucket;OutputBucket;Topics" PipelineParameter="Role" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipeline" OutputProperty="Pipeline" Verb="Update" Noun="Pipeline" ShouldProcessTarget="Id" PositionalParameters="Name;InputBucket;Role" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipelineNotifications" OutputProperty="Pipeline" Verb="Update" Noun="PipelineNotification" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyAlias="Update-ETSPipelineNotifications">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipelineStatus" OutputProperty="Pipeline" Verb="Update" Noun="PipelineStatus" ShouldProcessTarget="Id" PositionalParameters="Status" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

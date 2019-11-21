@@ -1,0 +1,3 @@
+﻿# AWSMarketplaceMetering
+
+Export-ModuleMember -Alias *

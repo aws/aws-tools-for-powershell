@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-RGGroupList
+
+GroupArn                                                                  GroupName
+--------                                                                  ---------
+arn:aws:resource-groups:eu-west-1:123456789012:group/auto-no              auto-no
+arn:aws:resource-groups:eu-west-1:123456789012:group/auto-yes             auto-yes
+arn:aws:resource-groups:eu-west-1:123456789012:group/build600             build600</code>
+    <description>This example lists resource group already created.</description>
+  </example>
+</examples>

@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>lightsail</C2jFilename>
+    <AssemblyName>Lightsail</AssemblyName>
+    <ServiceNounPrefix>LS</ServiceNounPrefix>
+    <ServiceName>Amazon Lightsail</ServiceName>
+    <ServiceClientInterface>IAmazonLightsail</ServiceClientInterface>
+    <ServiceClient>AmazonLightsailClient</ServiceClient>
+    <ServiceModuleGuid>e377dc03-9220-472e-b867-022d50e3e328</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="PageToken" Next="NextPageToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>NextPageCount</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AllocateStaticIp" OutputProperty="Operations" Verb="New" Noun="StaticIp" ShouldProcessTarget="StaticIpName" PipelineParameter="StaticIpName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachDisk" OutputProperty="Operations" Verb="Add" Noun="Disk" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachInstancesToLoadBalancer" OutputProperty="Operations" Verb="Add" Noun="InstancesToLoadBalancer" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachLoadBalancerTlsCertificate" OutputProperty="Operations" Verb="Add" Noun="LoadBalancerTlsCertificate" ShouldProcessTarget="CertificateName" PipelineParameter="CertificateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachStaticIp" OutputProperty="Operations" Verb="Mount" Noun="StaticIp" ShouldProcessTarget="StaticIpName" PipelineParameter="StaticIpName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CloseInstancePublicPorts" OutputProperty="Operation" Verb="Close" Noun="InstancePublicPort" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopySnapshot" OutputProperty="Operations" Verb="Copy" Noun="Snapshot" ShouldProcessTarget="TargetSnapshotName" PipelineParameter="TargetSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudFormationStack" OutputProperty="Operations" Verb="New" Noun="CloudFormationStack" ShouldProcessTarget="Instances" PipelineParameter="Instances" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDisk" OutputProperty="Operations" Verb="New" Noun="Disk" ShouldProcessTarget="DiskName" PipelineParameter="DiskName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDiskFromSnapshot" OutputProperty="Operations" Verb="New" Noun="DiskFromSnapshot" ShouldProcessTarget="DiskSnapshotName" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDiskSnapshot" OutputProperty="Operations" Verb="New" Noun="DiskSnapshot" ShouldProcessTarget="DiskSnapshotName" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="Operation" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomainEntry" OutputProperty="Operation" Verb="New" Noun="DomainEntry" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstances" OutputProperty="Operations" Verb="New" Noun="Instance" ShouldProcessTarget="InstanceNames" PipelineParameter="InstanceNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstancesFromSnapshot" OutputProperty="Operations" Verb="New" Noun="InstancesFromSnapshot" ShouldProcessTarget="InstanceNames" PipelineParameter="InstanceNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstanceSnapshot" OutputProperty="Operations" Verb="New" Noun="InstanceSnapshot" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateKeyPair" OutputProperty="*" Verb="New" Noun="KeyPair" ShouldProcessTarget="KeyPairName" PipelineParameter="KeyPairName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoadBalancer" OutputProperty="Operations" Verb="New" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoadBalancerTlsCertificate" OutputProperty="Operations" Verb="New" Noun="LoadBalancerTlsCertificate" ShouldProcessTarget="CertificateName" PipelineParameter="CertificateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRelationalDatabase" OutputProperty="Operations" Verb="New" Noun="RelationalDatabase" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRelationalDatabaseFromSnapshot" OutputProperty="Operations" Verb="New" Noun="RelationalDatabaseFromSnapshot" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRelationalDatabaseSnapshot" OutputProperty="Operations" Verb="New" Noun="RelationalDatabaseSnapshot" ShouldProcessTarget="RelationalDatabaseSnapshotName" PipelineParameter="RelationalDatabaseSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutoSnapshot" OutputProperty="Operations" Verb="Remove" Noun="AutoSnapshot" ShouldProcessTarget="ResourceName" PipelineParameter="Date" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDisk" OutputProperty="Operations" Verb="Remove" Noun="Disk" ShouldProcessTarget="DiskName" PipelineParameter="DiskName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDiskSnapshot" OutputProperty="Operations" Verb="Remove" Noun="DiskSnapshot" ShouldProcessTarget="DiskSnapshotName" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomain" OutputProperty="Operation" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomainEntry" OutputProperty="Operation" Verb="Remove" Noun="DomainEntry" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInstance" OutputProperty="Operations" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInstanceSnapshot" OutputProperty="Operations" Verb="Remove" Noun="InstanceSnapshot" ShouldProcessTarget="InstanceSnapshotName" PipelineParameter="InstanceSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKeyPair" OutputProperty="Operation" Verb="Remove" Noun="KeyPair" ShouldProcessTarget="KeyPairName" PipelineParameter="KeyPairName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKnownHostKeys" OutputProperty="Operations" Verb="Remove" Noun="KnownHostKey" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoadBalancer" OutputProperty="Operations" Verb="Remove" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoadBalancerTlsCertificate" OutputProperty="Operations" Verb="Remove" Noun="LoadBalancerTlsCertificate" ShouldProcessTarget="CertificateName" PipelineParameter="CertificateName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="DeleteWithForce" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRelationalDatabase" OutputProperty="Operations" Verb="Remove" Noun="RelationalDatabase" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRelationalDatabaseSnapshot" OutputProperty="Operations" Verb="Remove" Noun="RelationalDatabaseSnapshot" ShouldProcessTarget="RelationalDatabaseSnapshotName" PipelineParameter="RelationalDatabaseSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachDisk" OutputProperty="Operations" Verb="Dismount" Noun="Disk" ShouldProcessTarget="DiskName" PipelineParameter="DiskName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachInstancesFromLoadBalancer" OutputProperty="Operations" Verb="Dismount" Noun="InstancesFromLoadBalancer" ShouldProcessTarget="LoadBalancerName" PipelineParameter="InstanceNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachStaticIp" OutputProperty="Operations" Verb="Dismount" Noun="StaticIp" ShouldProcessTarget="StaticIpName" PipelineParameter="StaticIpName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableAddOn" OutputProperty="Operations" Verb="Disable" Noun="AddOn" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DownloadDefaultKeyPair" OutputProperty="*" Verb="Read" Noun="DefaultKeyPair" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableAddOn" OutputProperty="Operations" Verb="Enable" Noun="AddOn" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportSnapshot" OutputProperty="Operations" Verb="Export" Noun="Snapshot" ShouldProcessTarget="SourceSnapshotName" PipelineParameter="SourceSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetActiveNames" OutputProperty="ActiveNames" Verb="Get" Noun="ActiveNameList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutoSnapshots" OutputProperty="*" Verb="Get" Noun="AutoSnapshot" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="BlueprintList" PipelineParameter="IncludeInactive" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBundles" OutputProperty="Bundles" Verb="Get" Noun="BundleList" PipelineParameter="IncludeInactive" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudFormationStackRecords" OutputProperty="CloudFormationStackRecords" Verb="Get" Noun="CloudFormationStackRecord" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDisk" OutputProperty="Disk" Verb="Get" Noun="Disk" PipelineParameter="DiskName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDisks" OutputProperty="Disks" Verb="Get" Noun="DiskList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDiskSnapshot" OutputProperty="DiskSnapshot" Verb="Get" Noun="DiskSnapshot" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDiskSnapshots" OutputProperty="DiskSnapshots" Verb="Get" Noun="DiskSnapshotList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomain" OutputProperty="Domain" Verb="Get" Noun="Domain" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExportSnapshotRecords" OutputProperty="ExportSnapshotRecords" Verb="Get" Noun="ExportSnapshotRecord" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstance" OutputProperty="Instance" Verb="Get" Noun="Instance" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceAccessDetails" OutputProperty="AccessDetails" Verb="Get" Noun="InstanceAccessDetail" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceMetricData" OutputProperty="*" Verb="Get" Noun="InstanceMetricData" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstancePortStates" OutputProperty="PortStates" Verb="Get" Noun="InstancePortStateList" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceSnapshot" OutputProperty="InstanceSnapshot" Verb="Get" Noun="InstanceSnapshot" PipelineParameter="InstanceSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceSnapshots" OutputProperty="InstanceSnapshots" Verb="Get" Noun="InstanceSnapshotList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceState" OutputProperty="State" Verb="Get" Noun="InstanceState" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetKeyPair" OutputProperty="KeyPair" Verb="Get" Noun="KeyPairInfo" PipelineParameter="KeyPairName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetKeyPairs" OutputProperty="KeyPairs" Verb="Get" Noun="KeypairList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLoadBalancer" OutputProperty="LoadBalancer" Verb="Get" Noun="LoadBalancer" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLoadBalancerMetricData" OutputProperty="*" Verb="Get" Noun="LoadBalancerMetricData" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancerList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLoadBalancerTlsCertificates" OutputProperty="TlsCertificates" Verb="Get" Noun="LoadBalancerTlsCertificate" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOperation" OutputProperty="Operation" Verb="Get" Noun="Operation" PipelineParameter="OperationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOperations" OutputProperty="Operations" Verb="Get" Noun="OperationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOperationsForResource" OutputProperty="Operations" Verb="Get" Noun="OperationListForResource" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegions" OutputProperty="Regions" Verb="Get" Noun="RegionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabase" OutputProperty="RelationalDatabase" Verb="Get" Noun="RelationalDatabase" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseBlueprints" OutputProperty="Blueprints" Verb="Get" Noun="RelationalDatabaseBlueprint" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseBundles" OutputProperty="Bundles" Verb="Get" Noun="RelationalDatabaseBundle" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseEvents" OutputProperty="RelationalDatabaseEvents" Verb="Get" Noun="RelationalDatabaseEvent" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseLogEvents" OutputProperty="*" Verb="Get" Noun="RelationalDatabaseLogEvent" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseLogStreams" OutputProperty="LogStreams" Verb="Get" Noun="RelationalDatabaseLogStream" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseMasterUserPassword" OutputProperty="*" Verb="Get" Noun="RelationalDatabaseMasterUserPassword" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseMetricData" OutputProperty="*" Verb="Get" Noun="RelationalDatabaseMetricData" PipelineParameter="MetricName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseParameters" OutputProperty="Parameters" Verb="Get" Noun="RelationalDatabaseParameter" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabases" OutputProperty="RelationalDatabases" Verb="Get" Noun="RelationalDatabaseList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseSnapshot" OutputProperty="RelationalDatabaseSnapshot" Verb="Get" Noun="RelationalDatabaseSnapshot" PipelineParameter="RelationalDatabaseSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRelationalDatabaseSnapshots" OutputProperty="RelationalDatabaseSnapshots" Verb="Get" Noun="RelationalDatabaseSnapshotList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStaticIp" OutputProperty="StaticIp" Verb="Get" Noun="StaticIp" PipelineParameter="StaticIpName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStaticIps" OutputProperty="StaticIps" Verb="Get" Noun="StaticIpList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportKeyPair" OutputProperty="Operation" Verb="Import" Noun="KeyPair" ShouldProcessTarget="KeyPairName" PipelineParameter="PublicKeyBase64" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IsVpcPeered" OutputProperty="IsPeered" Verb="Test" Noun="VpcPeered" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="OpenInstancePublicPorts" OutputProperty="Operation" Verb="Open" Noun="InstancePublicPort" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PeerVpc" OutputProperty="Operation" Verb="Add" Noun="PeerVpc" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutInstancePublicPorts" OutputProperty="Operation" Verb="Set" Noun="InstancePublicPort" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootInstance" OutputProperty="Operations" Verb="Restart" Noun="Instance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootRelationalDatabase" OutputProperty="Operations" Verb="Restart" Noun="RelationalDatabase" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReleaseStaticIp" OutputProperty="Operations" Verb="Remove" Noun="StaticIp" ShouldProcessTarget="StaticIpName" PipelineParameter="StaticIpName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartInstance" OutputProperty="Operations" Verb="Start" Noun="Instance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRelationalDatabase" OutputProperty="Operations" Verb="Start" Noun="RelationalDatabase" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopInstance" OutputProperty="Operations" Verb="Stop" Noun="Instance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="OverrideStuck" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopRelationalDatabase" OutputProperty="Operations" Verb="Stop" Noun="RelationalDatabase" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" OutputProperty="Operations" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnpeerVpc" OutputProperty="Operation" Verb="Remove" Noun="PeerVpc" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" OutputProperty="Operations" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainEntry" OutputProperty="Operations" Verb="Update" Noun="DomainEntry" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLoadBalancerAttribute" OutputProperty="Operations" Verb="Update" Noun="LoadBalancerAttribute" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRelationalDatabase" OutputProperty="Operations" Verb="Update" Noun="RelationalDatabase" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRelationalDatabaseParameters" OutputProperty="Operations" Verb="Update" Noun="RelationalDatabaseParameter" ShouldProcessTarget="RelationalDatabaseName" PipelineParameter="RelationalDatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

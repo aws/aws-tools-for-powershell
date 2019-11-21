@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Remove-CWDashboard -DashboardName Dashboard1</code>
+        <description>Deletes the specified dashboard, promoting for confirmation before proceeding. To bypass confirmation add the -Force switch to the command.</description>
+    </example>
+</examples>

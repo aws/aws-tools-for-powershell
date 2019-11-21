@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Type>
+  <Name>Amazon.EC2.Model.RunningInstance</Name>
+  <Members>
+    <ScriptMethod>
+      <Name>Stop</Name>
+      <Script>
+        Stop-EC2Instance -InstanceId $this.InstanceId
+      </Script>
+    </ScriptMethod>
+    <ScriptMethod>
+      <Name>Terminate</Name>
+      <Script>
+        Stop-Ec2Instance -InstanceId $this.InstanceId -Terminate
+      </Script>
+    </ScriptMethod>
+  </Members>
+</Type>

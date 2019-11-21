@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>service-quotas</C2jFilename>
+    <AssemblyName>ServiceQuotas</AssemblyName>
+    <ServiceNounPrefix>SQ</ServiceNounPrefix>
+    <ServiceName>AWS Service Quotas</ServiceName>
+    <ServiceClientInterface>IAmazonServiceQuotas</ServiceClientInterface>
+    <ServiceClient>AmazonServiceQuotasClient</ServiceClient>
+    <ServiceModuleGuid>d68c9bf0-07ac-47d6-9638-7da23e5e9a3a</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateServiceQuotaTemplate" Verb="Register" Noun="ServiceQuotaTemplate" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceQuotaIncreaseRequestFromTemplate" Verb="Remove" Noun="ServiceQuotaIncreaseRequestFromTemplate" ShouldProcessTarget="QuotaCode" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateServiceQuotaTemplate" Verb="Unregister" Noun="ServiceQuotaTemplate" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssociationForServiceQuotaTemplate" OutputProperty="ServiceQuotaTemplateAssociationStatus" Verb="Get" Noun="AssociationForServiceQuotaTemplate" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAWSDefaultServiceQuota" OutputProperty="Quota" Verb="Get" Noun="AWSDefaultServiceQuota" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRequestedServiceQuotaChange" OutputProperty="RequestedQuota" Verb="Get" Noun="RequestedServiceQuotaChange" PipelineParameter="RequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceQuota" OutputProperty="Quota" Verb="Get" Noun="ServiceQuota" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceQuotaIncreaseRequestFromTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplate" Verb="Get" Noun="ServiceQuotaIncreaseRequestFromTemplate" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAWSDefaultServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="AWSDefaultServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistory" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistoryByQuota" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryByQuotaList" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceQuotaIncreaseRequestsInTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplateList" Verb="Get" Noun="ServiceQuotaIncreaseRequestsInTemplateList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="ServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServices" OutputProperty="Services" Verb="Get" Noun="ServiceList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutServiceQuotaIncreaseRequestIntoTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplate" Verb="Write" Noun="ServiceQuotaIncreaseRequestIntoTemplate" ShouldProcessTarget="QuotaCode" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestServiceQuotaIncrease" OutputProperty="RequestedQuota" Verb="Request" Noun="ServiceQuotaIncrease" ShouldProcessTarget="QuotaCode" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

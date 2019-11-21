@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>mediastore-data</C2jFilename>
+    <AssemblyName>MediaStoreData</AssemblyName>
+    <ServiceNounPrefix>EMSD</ServiceNounPrefix>
+    <ServiceName>AWS Elemental MediaStore Data Plane</ServiceName>
+    <ServiceClientInterface>IAmazonMediaStoreData</ServiceClientInterface>
+    <ServiceClient>AmazonMediaStoreDataClient</ServiceClient>
+    <ServiceModuleGuid>7774b224-be34-4912-b75d-4f9b05ce5601</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteObject" Verb="Remove" Noun="Object" ShouldProcessTarget="Path" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeObject" OutputProperty="*" Verb="Get" Noun="ObjectMetadata" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetObject" OutputProperty="*" Verb="Get" Noun="Object" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListItems" OutputProperty="Items" Verb="Get" Noun="ItemList" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutObject" OutputProperty="*" Verb="Write" Noun="Object" ShouldProcessTarget="Path" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

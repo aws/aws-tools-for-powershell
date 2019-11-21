@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Remove-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy -VersionID v2</code>
+    <description>This example deletes the version identified as <code>v2</code> from the policy whose ARN is <code>arn:aws:iam::123456789012:policy/MySamplePolicy</code>.</description>
+  </example>
+  <example>
+    <code>PS C:\>$pol = Get-IAMPolicy -PolicyArn arn:aws:iam::123456789012:policy/MySamplePolicy
+PS C:\>Get-IAMPolicyVersions -PolicyArn $pol.Arn | where {-not $_.IsDefaultVersion} | Remove-IAMPolicyVersion -PolicyArn $pol.Arn -force
+PS C:\>Remove-IAMPolicy -PolicyArn $pol.Arn -force</code>
+    <description>This example deletes a policy by first deleting all non-default policy versions and then deleting the policy itself. The first line retrieves the policy object. The second line retrieves all of the policy versions that are not flagged as the default into a collection and then uses this command to delete each policy in the collection. The last line removes the policy itself as well as the remaining default version. Note that to successfully delete a managed policy, you must also detach the policy from any users, groups, or roles by using the <code>Unregister-IAMUserPolicy</code>, <code>Unregister-IAMGroupPolicy</code>, and <code>Unregister-IAMRolePolicy</code> commands. See the example for the <code>Remove-IAMPolicy</code> cmdlet. </description>
+  </example>
+</examples>

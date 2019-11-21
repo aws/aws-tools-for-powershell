@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-EC2RouteTable
+    
+DestinationCidrBlock    : 10.0.0.0/16
+DestinationPrefixListId :
+GatewayId               : local
+InstanceId              :
+InstanceOwnerId         :
+NetworkInterfaceId      :
+Origin                  : CreateRouteTable
+State                   : active
+VpcPeeringConnectionId  :
+
+DestinationCidrBlock    : 0.0.0.0/0
+DestinationPrefixListId :
+GatewayId               : igw-1a2b3c4d
+InstanceId              :
+InstanceOwnerId         :
+NetworkInterfaceId      :
+Origin                  : CreateRoute
+State                   : active
+VpcPeeringConnectionId  :</code>
+    <description>This example describes all your route tables.</description>
+  </example>
+  <example>
+    <code>Get-EC2RouteTable -RouteTableId rtb-1a2b3c4d</code>
+    <description>This example returns details for the specified route table.</description>
+  </example>
+  <example>
+    <code>Get-EC2RouteTable -Filter @{ Name="vpc-id"; Value="vpc-1a2b3c4d" }
+    
+Associations    : {rtbassoc-12345678}
+PropagatingVgws : {}
+Routes          : {, }
+RouteTableId    : rtb-1a2b3c4d
+Tags            : {}
+VpcId           : vpc-1a2b3c4d</code>
+    <description>This example describes the route tables for the specified VPC.</description>
+  </example>
+</examples>

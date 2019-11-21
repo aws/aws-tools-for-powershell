@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>qldb-session</C2jFilename>
+    <AssemblyName>QLDBSession</AssemblyName>
+    <ServiceNounPrefix>QLDBS</ServiceNounPrefix>
+    <ServiceName>Amazon QLDB Session</ServiceName>
+    <ServiceClientInterface>IAmazonQLDBSession</ServiceClientInterface>
+    <ServiceClient>AmazonQLDBSessionClient</ServiceClient>
+    <ServiceModuleGuid>ca176a00-3267-42cc-8159-f2f2bbe1d784</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="SendCommand" OutputProperty="*" Verb="Send" Noun="Command" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="SessionToken" NewName="QLDBSessionToken" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>New-OPSDeployment -StackID "724z93zz-zz78-4zzz-8z9z-1290123zzz1z" -LayerId "511b99c5-ec78-4caa-8a9d-1440116ffd1b" -AppId "0f7a109c-bf68-4336-8cb9-d37fe0b8c61d" -Command_Name deploy -Command_Arg @{Name="allow_reboot";Value="true"} </code>
+    <description>This command creates a new app deployment on all of the Linux-based instances in a layer in AWS OpsWorks Stacks. Even if you specify a layer ID, you must specify a stack ID, too. The command lets the deployment restart the instances if required.</description>
+  </example>
+  <example>
+    <code>$commandArgs = '{ "Name":"execute_recipes", "Args"{ "recipes":["phpapp::appsetup","testcookbook::secbaseline"] } }'
+New-OPSDeployment -StackID "724z93zz-zz78-4zzz-8z9z-1290123zzz1z" -LayerId "511b99c5-ec78-4caa-8a9d-1440116ffd1b" -InstanceId "d89a6118-0007-4ccf-a51e-59f844127021" -Command_Name $commandArgs -Command_Arg @{Name="allow_reboot";Value="true</code>
+    <description>This command deploys the <code>appsetup</code> recipe from the <code>phpapp</code> cookbook, and the <code>secbaseline</code> recipe from the <code>testcookbook</code> cookbook. The deployment target is one instance, but the stack ID and layer ID are also required. The Command_Arg parameter <code>allow_reboot</code> attribute is set to <code>true</code>, which lets the deployment restart the instances if required.</description>
+  </example>
+</examples>

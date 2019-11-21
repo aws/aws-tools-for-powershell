@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>codedeploy</C2jFilename>
+    <AssemblyName>CodeDeploy</AssemblyName>
+    <ServiceNounPrefix>CD</ServiceNounPrefix>
+    <ServiceName>AWS CodeDeploy</ServiceName>
+    <ServiceClientInterface>IAmazonCodeDeploy</ServiceClientInterface>
+    <ServiceClient>AmazonCodeDeployClient</ServiceClient>
+    <ServiceModuleGuid>e2d40bab-1c44-4806-a685-67b779e1723b</ServiceModuleGuid>
+    <PipelineParameter>ApplicationName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings>
+        <Map From="Deregister" To="Unregister" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTagsToOnPremisesInstances" Verb="Add" Noun="OnPremiseInstanceTag" ShouldProcessTarget="InstanceNames" PipelineParameter="InstanceNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetApplicationRevisions" OutputProperty="*" Verb="Get" Noun="ApplicationRevisionBatch" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetApplications" OutputProperty="ApplicationsInfo" Verb="Get" Noun="ApplicationBatch" PipelineParameter="ApplicationNames" NoPipelineParameter="false" LegacyAlias="Get-CDApplications">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDeploymentGroups" OutputProperty="*" Verb="Get" Noun="DeploymentGroupBatch" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDeploymentInstances" OutputProperty="*" Verb="Get" Noun="DeploymentInstanceBatch" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDeployments" OutputProperty="DeploymentsInfo" Verb="Get" Noun="DeploymentBatch" PipelineParameter="DeploymentIds" NoPipelineParameter="false" LegacyAlias="Get-CDDeployments">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDeploymentTargets" OutputProperty="DeploymentTargets" Verb="Get" Noun="DeploymentTargetBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetOnPremisesInstances" OutputProperty="InstanceInfos" Verb="Get" Noun="OnPremiseInstanceBatch" PipelineParameter="InstanceNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ContinueDeployment" Verb="Resume" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationId" Verb="New" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeployment" OutputProperty="DeploymentId" Verb="New" Noun="Deployment" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="TargetInstances_Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoApplyAlias="false" />
+                <Param Name="TargetInstances_TagFilters" NewName="TargetInstancesTagFilter" Alias="TargetInstances_TagFilter" />
+                <Param Name="Revision_RevisionType" NewName="RevisionType" />
+                <Param Name="TargetInstances_AutoScalingGroups" NewName="TargetInstancesAutoScalingGroup" Alias="TargetInstances_AutoScalingGroup" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeploymentConfig" OutputProperty="DeploymentConfigId" Verb="New" Noun="DeploymentConfig" ShouldProcessTarget="DeploymentConfigName" PipelineParameter="DeploymentConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeploymentGroup" OutputProperty="DeploymentGroupId" Verb="New" Noun="DeploymentGroup" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoApplyAlias="false" />
+                <Param Name="OnPremisesTagSet_OnPremisesTagSetList" NewName="OnPremisesTagSetList" AutoApplyAlias="false" />
+                <Param Name="BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action" NewName="GreenFleetProvisioningOptionAction" Alias="GreenFleetProvisioningOption_Action" />
+                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes" NewName="OnSuccessBlueInstanceTerminationWaitTime" Alias="TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute" />
+                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action" NewName="OnSuccessBlueInstanceTerminationAction" Alias="TerminateBlueInstancesOnDeploymentSuccess_Action" />
+                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes" NewName="DeploymentReadyOptionWaitTime" Alias="DeploymentReadyOption_WaitTimeInMinute" />
+                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout" NewName="DeploymentReadyOptionTimeoutAction" Alias="DeploymentReadyOption_ActionOnTimeout" />
+                <Param Name="DeploymentStyle_DeploymentOption" NewName="DeploymentStyleOption" />
+                <Param Name="DeploymentStyle_DeploymentType" NewName="DeploymentStyleType" />
+                <Param Name="LoadBalancerInfo_ElbInfoList" NewName="LoadBalancerInfoList" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeploymentConfig" Verb="Remove" Noun="DeploymentConfig" ShouldProcessTarget="DeploymentConfigName" PipelineParameter="DeploymentConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeploymentGroup" OutputProperty="HooksNotCleanedUp" Verb="Remove" Noun="DeploymentGroup" ShouldProcessTarget="DeploymentGroupName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGitHubAccountToken" OutputProperty="TokenName" Verb="Remove" Noun="GitHubAccountToken" ShouldProcessTarget="TokenName" PipelineParameter="TokenName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterOnPremisesInstance" Verb="Unregister" Noun="OnPremiseInstance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApplication" OutputProperty="Application" Verb="Get" Noun="Application" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApplicationRevision" OutputProperty="*" Verb="Get" Noun="ApplicationRevision" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeployment" OutputProperty="DeploymentInfo" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeploymentConfig" OutputProperty="DeploymentConfigInfo" Verb="Get" Noun="DeploymentConfig" PipelineParameter="DeploymentConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeploymentGroup" OutputProperty="DeploymentGroupInfo" Verb="Get" Noun="DeploymentGroup" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeploymentInstance" OutputProperty="InstanceSummary" Verb="Get" Noun="DeploymentInstance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeploymentTarget" OutputProperty="DeploymentTarget" Verb="Get" Noun="DeploymentTarget" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOnPremisesInstance" OutputProperty="InstanceInfo" Verb="Get" Noun="OnPremiseInstance" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplicationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ApplicationRevisionList" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeploymentConfigs" OutputProperty="DeploymentConfigsList" Verb="Get" Noun="DeploymentConfigList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeploymentGroups" OutputProperty="*" Verb="Get" Noun="DeploymentGroupList" PipelineParameter="ApplicationName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeploymentInstances" OutputProperty="InstancesList" Verb="Get" Noun="DeploymentInstanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeploymentTargets" OutputProperty="TargetIds" Verb="Get" Noun="DeploymentTargetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGitHubAccountTokenNames" OutputProperty="TokenNameList" Verb="Get" Noun="GitHubAccountTokenNameList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOnPremisesInstances" OutputProperty="InstanceNames" Verb="Get" Noun="OnPremiseInstanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLifecycleEventHookExecutionStatus" OutputProperty="LifecycleEventHookExecutionId" Verb="Write" Noun="LifecycleEventHookExecutionStatus" ShouldProcessTarget="LifecycleEventHookExecutionId" PipelineParameter="LifecycleEventHookExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterApplicationRevision" Verb="Register" Noun="ApplicationRevision" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterOnPremisesInstance" Verb="Register" Noun="OnPremiseInstance" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromOnPremisesInstances" Verb="Remove" Noun="OnPremiseInstanceTag" ShouldProcessTarget="InstanceNames" PipelineParameter="InstanceNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SkipWaitTimeForInstanceTermination" Verb="Skip" Noun="WaitTimeForInstanceTermination" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDeployment" OutputProperty="*" Verb="Stop" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="DeploymentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeploymentGroup" OutputProperty="HooksNotCleanedUp" Verb="Update" Noun="DeploymentGroup" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoApplyAlias="false" />
+                <Param Name="OnPremisesTagSet_OnPremisesTagSetList" NewName="OnPremisesTagSetList" AutoApplyAlias="false" />
+                <Param Name="BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action" NewName="GreenFleetProvisioningOptionAction" Alias="GreenFleetProvisioningOption_Action" />
+                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes" NewName="OnSuccessBlueInstanceTerminationWaitTime" Alias="TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute" />
+                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action" NewName="OnSuccessBlueInstanceTerminationAction" Alias="TerminateBlueInstancesOnDeploymentSuccess_Action" />
+                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes" NewName="DeploymentReadyOptionWaitTime" Alias="DeploymentReadyOption_WaitTimeInMinute" />
+                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout" NewName="DeploymentReadyOptionTimeoutAction" Alias="DeploymentReadyOption_ActionOnTimeout" />
+                <Param Name="DeploymentStyle_DeploymentOption" NewName="DeploymentStyleOption" />
+                <Param Name="DeploymentStyle_DeploymentType" NewName="DeploymentStyleType" />
+                <Param Name="LoadBalancerInfo_ElbInfoList" NewName="LoadBalancerInfoList" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

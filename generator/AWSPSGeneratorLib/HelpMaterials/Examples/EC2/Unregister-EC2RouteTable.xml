@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Unregister-EC2RouteTable -AssociationId rtbassoc-1a2b3c4d</code>
+    <description>This example removes the specified association between a route table and a subnet.</description>
+  </example>
+</examples>

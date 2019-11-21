@@ -1,0 +1,3 @@
+﻿# Shield
+
+Export-ModuleMember -Alias *

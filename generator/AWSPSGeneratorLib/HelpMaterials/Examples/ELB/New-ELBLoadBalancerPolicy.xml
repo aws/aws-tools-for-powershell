@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> $attribute = New-Object Amazon.ElasticLoadBalancing.Model.PolicyAttribute -Property @{
+         AttributeName="ProxyProtocol"
+         AttributeValue="True"
+    }
+PS C:\> New-ELBLoadBalancerPolicy -LoadBalancerName my-load-balancer -PolicyName my-ProxyProtocol-policy -PolicyTypeName ProxyProtocolPolicyType -PolicyAttribute $attribute</code>
+    <description>This example creates a new proxy protocol policy for a specified load balancer.</description>
+  </example>
+</examples>

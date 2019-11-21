@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>$results = Get-IAMUserPolicy -PolicyName Davids_IAM_Admin_Policy -UserName David
+PS C:\>$results
+
+PolicyDocument                                            PolicyName                    UserName
+--------------                                            ----------                    --------
+%7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%...    Davids_IAM_Admin_Policy       David
+
+PS C:\>[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
+PS C:\>[System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:*"
+      ],
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}</code>
+    <description>This example retrieves the details of the inline policy named <code>Davids_IAM_Admin_Policy</code> that is embedded in the IAM user named <code>David</code>. The policy document is URL encoded.</description>
+  </example>
+</examples>

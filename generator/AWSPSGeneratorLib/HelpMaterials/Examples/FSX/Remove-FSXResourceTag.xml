@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-FSXResourceTag -ResourceARN $FSX.ResourceARN -TagKey Users
+
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Remove-FSXResourceTag (UntagResource)" on target "arn:aws:fsx:eu-west-1:933303704102:file-system/fs-07cd45bc6bdf2674a".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y</code>
+    <description>This example removes the resource tag for the given FSX file system resource ARN.</description>
+  </example>
+</examples>

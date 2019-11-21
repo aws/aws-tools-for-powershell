@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>(Get-CFGComplianceByConfigRule -ConfigRuleName ebs-optimized-instance).Compliance
+
+ComplianceContributorCount ComplianceType
+-------------------------- --------------
+                           INSUFFICIENT_DATA</code>
+    <description>This example retrieves compliances details for the rule ebs-optimized-instance, for which there is no current evaluation results for the rule, hence it returns INSUFFICIENT_DATA</description>
+  </example>
+  <example>
+    <code>(Get-CFGComplianceByConfigRule -ConfigRuleName ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK -ComplianceType NON_COMPLIANT).Compliance.ComplianceContributorCount
+
+CapExceeded CappedCount
+----------- -----------
+False       2</code>
+    <description>This example returns the number of non-compliant resources for the rule ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK.</description>
+  </example>
+</examples>

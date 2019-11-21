@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <ViewDefinitions>
+    <View>
+      <Name>LaunchConfiguration</Name>
+      <ViewSelectedBy>
+        <TypeName>Amazon.AutoScaling.Model.LaunchConfiguration</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <AutoSize/>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Width>26</Width>
+            <Label>Name</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>16</Width>
+            <Label>Instance Type</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>24</Width>
+            <Label>IAM Role</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>16</Width>
+            <Label>Tenancy</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>10</Width>
+            <Label>Public IP</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>24</Width>
+            <Label>Key Name</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <PropertyName>LaunchConfigurationName</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>InstanceType</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>IamInstanceProfile</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>PlacementTenancy</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>AssociatePublicIpAddress</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>KeyName</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+  </ViewDefinitions>
+</Configuration>

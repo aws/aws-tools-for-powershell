@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>runtime.sagemaker</C2jFilename>
+    <AssemblyName>SageMakerRuntime</AssemblyName>
+    <ServiceNounPrefix>SMR</ServiceNounPrefix>
+    <ServiceName>Amazon SageMaker Runtime</ServiceName>
+    <ServiceClientInterface>IAmazonSageMakerRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonSageMakerRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>b6a631d8-34e3-4c47-8409-02a125b54040</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="InvokeEndpoint" OutputProperty="*" Verb="Invoke" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

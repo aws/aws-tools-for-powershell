@@ -1,0 +1,3 @@
+﻿# Translate
+
+Export-ModuleMember -Alias *

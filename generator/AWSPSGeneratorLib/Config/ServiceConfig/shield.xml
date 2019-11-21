@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>shield</C2jFilename>
+    <AssemblyName>Shield</AssemblyName>
+    <ServiceNounPrefix>SHLD</ServiceNounPrefix>
+    <ServiceName>AWS Shield</ServiceName>
+    <ServiceClientInterface>IAmazonShield</ServiceClientInterface>
+    <ServiceClient>AmazonShieldClient</ServiceClient>
+    <ServiceModuleGuid>78e23ebe-d7a0-4412-a9e4-7b1d73cbacbd</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateDRTLogBucket" Verb="Grant" Noun="DRTLogBucketAssociation" ShouldProcessTarget="LogBucket" PipelineParameter="LogBucket" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDRTRole" Verb="Grant" Noun="DRTRoleAssociation" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProtection" OutputProperty="ProtectionId" Verb="New" Noun="Protection" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscription" Verb="New" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProtection" Verb="Remove" Noun="Protection" ShouldProcessTarget="ProtectionId" PipelineParameter="ProtectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscription" Verb="Remove" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAttack" OutputProperty="Attack" Verb="Get" Noun="Attack" PipelineParameter="AttackId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDRTAccess" OutputProperty="*" Verb="Get" Noun="DRTAccess" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEmergencyContactSettings" OutputProperty="EmergencyContactList" Verb="Get" Noun="EmergencyContactSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProtection" OutputProperty="Protection" Verb="Get" Noun="Protection" PipelineParameter="ProtectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSubscription" OutputProperty="Subscription" Verb="Get" Noun="Subscription" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDRTLogBucket" Verb="Revoke" Noun="DRTLogBucketAssociation" ShouldProcessTarget="LogBucket" PipelineParameter="LogBucket" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDRTRole" Verb="Revoke" Noun="DRTRoleAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscriptionState" OutputProperty="SubscriptionState" Verb="Get" Noun="SubscriptionState" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAttacks" OutputProperty="AttackSummaries" Verb="Get" Noun="AttackList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProtections" OutputProperty="Protections" Verb="Get" Noun="ProtectionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEmergencyContactSettings" Verb="Update" Noun="EmergencyContactSetting" ShouldProcessTarget="EmergencyContactList" PipelineParameter="EmergencyContactList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscription" Verb="Update" Noun="Subscription" ShouldProcessTarget="AutoRenew" PipelineParameter="AutoRenew" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

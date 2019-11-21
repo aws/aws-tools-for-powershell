@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Register-EC2DhcpOption -DhcpOptionsId dopt-1a2b3c4d -VpcId vpc-12345678
+    </code>
+    <description>This example associates the specified DHCP options set with the specified VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> Register-EC2DhcpOption -DhcpOptionsId default -VpcId vpc-12345678
+    </code>
+    <description>This example associates the default DHCP options set with the specified VPC.</description>
+  </example>
+</examples>

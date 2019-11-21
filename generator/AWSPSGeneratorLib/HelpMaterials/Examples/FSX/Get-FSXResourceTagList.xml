@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-FSXResourceTagList -ResourceARN $fsx.ResourceARN
+
+Key         Value
+---         -----
+FSx-Service Windows
+Users       Dev</code>
+    <description>This example lists tags for provided resource arn.</description>
+  </example>
+</examples>

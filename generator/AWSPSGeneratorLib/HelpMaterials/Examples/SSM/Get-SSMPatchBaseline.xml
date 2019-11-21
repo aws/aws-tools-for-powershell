@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMPatchBaseline
+
+BaselineDescription                                             BaselineId                                                            BaselineName
+-------------------                                             ----------                                                            ------------
+Default Patch Baseline Provided by AWS.                         arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-04fb4ae6142167966 AWS-DefaultP...
+Baseline containing all updates approved for production systems pb-045f10b4f382baeda                                                  Production-B...
+Baseline containing all updates approved for production systems pb-0a2f1059b670ebd31                                                  Production-B...</code>
+        <description>This example lists all patch baselines.</description>
+    </example>
+	<example>
+        <code>PS C:\> $filter1 = @{Key="OWNER";Values=@("AWS")}
+
+PS C:\> Get-SSMPatchBaseline -Filter $filter1</code>
+        <description>This example lists all patch baselines provided by AWS. The syntax used by this example requires PowerShell version 3 or later.</description>
+    </example>
+	<example>
+        <code>PS C:\> $filter1 = @{Key="OWNER";Values=@("Self")}
+		
+PS C:\> Get-SSMPatchBaseline -Filter $filter1</code>
+        <description>This example lists all patch baselines with you as the owner. The syntax used by this example requires PowerShell version 3 or later.</description>
+    </example>
+    <example>
+        <code>PS C:\> $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
+PS C:\> $filter1.Key = "OWNER"
+PS C:\> $filter1.Values = "AWS"
+
+PS C:\> Get-SSMPatchBaseline -Filter $filter1
+
+BaselineDescription                     BaselineId                                                            BaselineName             DefaultBaselin
+                                                                                                                                       e
+-------------------                     ----------                                                            ------------             --------------
+Default Patch Baseline Provided by AWS. arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-04fb4ae6142167966 AWS-DefaultPatchBaseline True</code>
+        <description>With PowerShell version 2, you must use New-Object to create each tag.</description>
+    </example>
+</examples>

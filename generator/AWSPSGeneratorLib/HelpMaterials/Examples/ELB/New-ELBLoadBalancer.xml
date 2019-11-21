@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> $httpListener = New-Object Amazon.ElasticLoadBalancing.Model.Listener
+PS C:\> $httpListener.Protocol = "http"
+PS C:\> $httpListener.LoadBalancerPort = 80
+PS C:\> $httpListener.InstanceProtocol = "http"
+PS C:\> $httpListener.InstancePort = 80
+PS C:\> New-ELBLoadBalancer -LoadBalancerName my-vpc-load-balancer -SecurityGroup sg-a61988c3 -Subnet subnet-15aaab61 -Listener $httpListener
+
+my-vpc-load-balancer-1234567890.us-west-2.elb.amazonaws.com</code>
+    <description>This example creates a load balancer with an HTTP listener in a VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> New-ELBLoadBalancer -LoadBalancerName my-classic-load-balancer -AvailabilityZone us-west-2a` -Listener $httpListener
+    
+my-classic-load-balancer-123456789.us-west-2.elb.amazonaws.com</code>
+    <description>This example creates a load balancer with an HTTP listener in EC2-Classic.</description>
+  </example>
+  <example>
+    <code>PS C:\> $httpsListener = New-Object Amazon.ElasticLoadBalancing.Model.Listener
+PS C:\> $httpsListener.Protocol = "https"
+PS C:\> $httpsListener.LoadBalancerPort = 443
+PS C:\> $httpsListener.InstanceProtocol = "http"
+PS C:\> $httpsListener.InstancePort = 80 
+PS C:\> $httpsListener.SSLCertificateId="arn:aws:iam::123456789012:server-certificate/my-server-cert"
+PS C:\> New-ELBLoadBalancer -LoadBalancerName my-load-balancer -AvailabilityZone us-west-2a -Listener $httpsListener
+
+my-load-balancer-123456789.us-west-2.elb.amazonaws.com</code>
+    <description>This example creates a load balancer with an HTTPS listener.</description>
+  </example>
+</examples>

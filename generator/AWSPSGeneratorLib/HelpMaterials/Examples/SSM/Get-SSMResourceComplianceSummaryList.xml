@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>$FilterValues = @{
+		"Key"="Product"
+        "Type"="EQUAL"
+        "Values"="Windows10"
+}
+        Get-SSMResourceComplianceSummaryList -Filter $FilterValues -MaxResult 50</code>
+        <description>This example gets a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts for products that match "Windows10". Because the MaxResult default is 100 if the parameter is not specified, and this value is not valid, MaxResult parameter is added, and the value is set to 50.</description>
+    </example>
+</examples>

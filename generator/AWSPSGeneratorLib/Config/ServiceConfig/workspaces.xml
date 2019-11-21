@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>workspaces</C2jFilename>
+    <AssemblyName>WorkSpaces</AssemblyName>
+    <ServiceNounPrefix>WKS</ServiceNounPrefix>
+    <ServiceName>Amazon WorkSpaces</ServiceName>
+    <ServiceClientInterface>IAmazonWorkSpaces</ServiceClientInterface>
+    <ServiceClient>AmazonWorkSpacesClient</ServiceClient>
+    <ServiceModuleGuid>d13980f0-ac54-4333-8d63-f2afab7987fe</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings>
+        <Map From="Tags" To="Tag" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateIpGroups" Verb="Register" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeIpRules" Verb="Approve" Noun="IpRule" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyWorkspaceImage" OutputProperty="ImageId" Verb="Copy" Noun="WorkspaceImage" ShouldProcessTarget="SourceImageId" PipelineParameter="SourceImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpGroup" OutputProperty="GroupId" Verb="New" Noun="IpGroup" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="ResourceId" NewName="WorkspaceId" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspaces" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Workspaces" PipelineParameter="Workspaces" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpGroup" Verb="Remove" Noun="IpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspaceImage" Verb="Remove" Noun="WorkspaceImage" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccount" OutputProperty="*" Verb="Get" Noun="Account" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountModifications" OutputProperty="AccountModifications" Verb="Get" Noun="AccountModification" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClientProperties" OutputProperty="ClientPropertiesList" Verb="Get" Noun="ClientProperty" PipelineParameter="ResourceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpGroups" OutputProperty="Result" Verb="Get" Noun="IpGroup" PipelineParameter="GroupIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="TagList" Verb="Get" Noun="Tag" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ResourceId" NewName="WorkspaceId" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspaceBundles" OutputProperty="Bundles" Verb="Get" Noun="WorkspaceBundle" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaceBundles">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspaceDirectories" OutputProperty="Directories" Verb="Get" Noun="WorkspaceDirectory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyAlias="Get-WKSWorkspaceDirectories">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspaceImages" OutputProperty="Images" Verb="Get" Noun="WorkspaceImage" PipelineParameter="ImageIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="Workspace" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaces">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" OutputProperty="WorkspacesConnectionStatus" Verb="Get" Noun="WorkspacesConnectionStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspaceSnapshots" OutputProperty="*" Verb="Get" Noun="WorkspaceSnapshot" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateIpGroups" Verb="Unregister" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportWorkspaceImage" OutputProperty="ImageId" Verb="Import" Noun="WorkspaceImage" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableManagementCidrRanges" OutputProperty="ManagementCidrRanges" Verb="Get" Noun="AvailableManagementCidrRangeList" PipelineParameter="ManagementCidrRangeConstraint" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyAccount" Verb="Edit" Noun="Account" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClientProperties" Verb="Edit" Noun="ClientProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ClientProperties_ReconnectEnabled" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyWorkspaceProperties" Verb="Edit" Noun="WorkspaceProperty" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyWorkspaceState" Verb="Edit" Noun="WorkspaceState" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootWorkspaces" OutputProperty="FailedRequests" Verb="Restart" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebootWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
+            <Params>
+                <Param Name="RebootWorkspaceRequests" NewName="Request" Alias="RebootWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebuildWorkspaces" OutputProperty="FailedRequests" Verb="Reset" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="RebuildWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
+            <Params>
+                <Param Name="RebuildWorkspaceRequests" NewName="Request" Alias="RebuildWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreWorkspace" Verb="Restore" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeIpRules" Verb="Revoke" Noun="IpRule" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartWorkspaces" OutputProperty="FailedRequests" Verb="Start" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StartWorkspaceRequests" NoPipelineParameter="true" DefaultParameterSet="IdFromRequestObject">
+            <Params>
+                <Param Name="StartWorkspaceRequests" NewName="Request" Alias="StartWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopWorkspaces" OutputProperty="FailedRequests" Verb="Stop" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StopWorkspaceRequests" NoPipelineParameter="true" DefaultParameterSet="IdFromRequestObject">
+            <Params>
+                <Param Name="StopWorkspaceRequests" NewName="Request" Alias="StopWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateWorkspaces" OutputProperty="FailedRequests" Verb="Remove" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="TerminateWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
+            <Params>
+                <Param Name="TerminateWorkspaceRequests" NewName="Request" Alias="TerminateWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRulesOfIpGroup" Verb="Update" Noun="RulesOfIpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

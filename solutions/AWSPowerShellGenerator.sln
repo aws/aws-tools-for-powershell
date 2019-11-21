@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSPSGeneratorLib", "..\generator\AWSPSGeneratorLib\AWSPSGeneratorLib.csproj", "{242938AA-9D24-4BCF-9589-AAEA20658B58}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSPSGenerator", "..\generator\AWSPSGenerator\AWSPSGenerator.csproj", "{A24528BA-C34C-4D97-A1DD-86395EE68239}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{242938AA-9D24-4BCF-9589-AAEA20658B58}.Release|x86.ActiveCfg = Release|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Debug|x86.Build.0 = Debug|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|x86.ActiveCfg = Release|Any CPU
+		{A24528BA-C34C-4D97-A1DD-86395EE68239}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E55F5968-14C1-410D-9E74-8973C3A06978}
+	EndGlobalSection
+EndGlobal

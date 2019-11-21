@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Enable-EC2VpcClassicLinkDnsSupport -VpcId vpc-0b12d3456a7e8910d -Region eu-west-1</code>
+    <description>This example enables vpc-0b12d3456a7e8910d to support DNS hostname resolution for ClassicLink</description>
+  </example>
+</examples>

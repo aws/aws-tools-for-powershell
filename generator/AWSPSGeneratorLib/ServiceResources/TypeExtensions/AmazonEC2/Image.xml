@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Type>
+  <Name>Amazon.EC2.Model.Image</Name>
+  <Members>
+    <ScriptMethod>
+      <Name>Start</Name>
+      <Script>
+      # Starts one or more instances of the image
+      # Usage: Start(instanceType, maxCount) or Start(@params)
+      # Notes:
+      #   If maxCount is not specified, a single instance is started.
+      $instance = $null
+
+      if ($args.Length -gt 0)
+      {
+        if ($args[0].GetType().FullName -eq 'System.Collections.Hashtable')
+        {
+          $parms = $args[0]
+          $instance = Run-EC2Instance -ImageId $this.ImageId -MinCount 1 @parms
+        }
+        else
+        {
+          $instanceType = $args[0]
+          $maxCount = 1
+          if ($args.Length -gt 1)
+          {
+            $maxCount = $args[1]
+          }
+
+          $instance = Run-EC2Instance -ImageId $this.ImageId -InstanceType $instanceType -MinCount 1 -MaxCount $maxCount
+        }
+
+        $instance
+      }
+      else
+      {
+        Write-Host "Usage: Start(instanceType, maxCount) or Start(@params)"
+      }
+      </Script>
+    </ScriptMethod>
+    <ScriptMethod>
+      <Name>Deregister</Name>
+      <Script>
+      # Deregisters the ami from the catalog
+      # Usage: Deregister() or Deregister(@params)
+      # Notes:
+      #   Parameters are not required unless the AWS credentials and/or region cannot be inferred
+      #   from the invoking context.
+      $parms = $null
+      if ($args.Length -gt 0)
+      {
+        if ($args[0].GetType().FullName -eq 'System.Collections.Hashtable')
+        {
+          $parms = $args[0]
+        }
+      }
+      
+      Deregister-EC2Image -ImageId $this.ImageId @parms
+      </Script>
+    </ScriptMethod>
+  </Members>
+</Type>

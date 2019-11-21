@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> $params = @{
+    CertificateArn="arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"
+    Domain="www.example.com"
+    ValidationDomain="example.com"    
+}        
+PS C:\> Send-ACMValidationEmail @params
+    </code>
+    <description>Requests that the email to validate domain ownership for 'www.example.com' be sent. If your shell's $ConfirmPreference is set to 'Medium' or lower, the cmdlet will prompt for confirmation before proceeeding. Add the -Force switch to suppress confirmation prompts.</description>
+  </example>
+</examples>

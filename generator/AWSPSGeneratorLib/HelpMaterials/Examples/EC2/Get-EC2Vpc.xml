@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2Vpc -VpcId vpc-12345678
+    
+CidrBlock       : 10.0.0.0/16
+DhcpOptionsId   : dopt-1a2b3c4d
+InstanceTenancy : default
+IsDefault       : False
+State           : available
+Tags            : {Name}
+VpcId           : vpc-12345678</code>
+    <description>This example describes the specified VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Vpc -Filter @{Name="isDefault"; Values="true"}
+    
+CidrBlock       : 172.31.0.0/16
+DhcpOptionsId   : dopt-12345678
+InstanceTenancy : default
+IsDefault       : True
+State           : available
+Tags            : {}
+VpcId           : vpc-45678901</code>
+    <description>This example describes the default VPC (there can be only one per region). If your account supports EC2-Classic in this region, there is no default VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Vpc -Filter @{Name="cidr"; Values="10.0.0.0/16"},@{Name="state";Values="available"}</code>
+    <description>This example describes the VPCs that match the specified filter (that is, have a CIDR that matches the value '10.0.0.0/16' and are in the state 'available').</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Vpc</code>
+    <description>This example describes all your VPCs.</description>
+  </example>
+</examples>

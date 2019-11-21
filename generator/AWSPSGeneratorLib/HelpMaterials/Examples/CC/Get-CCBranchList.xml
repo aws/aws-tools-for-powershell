@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-CCBranchList -RepositoryName MyDemoRepo
+
+master
+MyNewBranch</code>
+	<description>This example gets a list of branch names for the specified repository.</description>
+  </example>
+</examples>

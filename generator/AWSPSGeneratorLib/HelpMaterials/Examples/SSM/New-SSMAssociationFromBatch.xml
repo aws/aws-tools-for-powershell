@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> $option1 = @{InstanceId="i-0cb2b964d3e14fd9f";Name=@("AWS-UpdateSSMAgent")}
+PS C:\> $option2 = @{InstanceId="i-0000293ffd8c57862";Name=@("AWS-UpdateSSMAgent")}
+PS C:\> New-SSMAssociationFromBatch -Entry $option1,$option2
+
+Failed  Successful
+------  ----------
+{}      {Amazon.SimpleSystemsManagement.Model.FailedCreateAssociation, Amazon.SimpleSystemsManagement.Model.FailedCreateAsso...</code>
+        <description>This example associates a configuration document with multiple instances. The output returns a list of successful and failed operations, if applicable.</description>
+    </example>
+	<example>
+        <code>PS C:\> $option1 = @{InstanceId="i-0cb2b964d3e14fd9f";Name=@("AWS-UpdateSSMAgent")}
+PS C:\> $option2 = @{InstanceId="i-0000293ffd8c57862";Name=@("AWS-UpdateSSMAgent")}
+PS C:\> (New-SSMAssociationFromBatch -Entry $option1,$option2).Successful</code>
+        <description>This example will show the full details of a successful operation.</description>
+    </example>
+</examples>

@@ -1,0 +1,3 @@
+﻿# EKS
+
+Export-ModuleMember -Alias *

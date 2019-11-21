@@ -1,0 +1,3 @@
+﻿# GameLift
+
+Export-ModuleMember -Alias *

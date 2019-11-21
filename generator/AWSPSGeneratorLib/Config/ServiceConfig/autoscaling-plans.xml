@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>autoscaling-plans</C2jFilename>
+    <AssemblyName>AutoScalingPlans</AssemblyName>
+    <ServiceNounPrefix>ASP</ServiceNounPrefix>
+    <ServiceName>AWS Auto Scaling Plans</ServiceName>
+    <ServiceClientInterface>IAmazonAutoScalingPlans</ServiceClientInterface>
+    <ServiceClient>AmazonAutoScalingPlansClient</ServiceClient>
+    <ServiceModuleGuid>7df968a6-a70d-4cf8-a3e5-2bf7a38d5fd5</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="50" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateScalingPlan" OutputProperty="ScalingPlanVersion" Verb="New" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScalingPlan" Verb="Remove" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingPlanResources" OutputProperty="ScalingPlanResources" Verb="Get" Noun="ScalingPlanResource" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingPlans" OutputProperty="ScalingPlans" Verb="Get" Noun="ScalingPlan" PipelineParameter="ScalingPlanNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetScalingPlanResourceForecastData" OutputProperty="Datapoints" Verb="Get" Noun="ScalingPlanResourceForecastData" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScalingPlan" Verb="Update" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

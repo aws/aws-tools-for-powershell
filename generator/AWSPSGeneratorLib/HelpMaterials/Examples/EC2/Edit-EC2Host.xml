@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Edit-EC2Host -HostId h-03e09f8cd681609f3 -AutoPlacement off
+
+Successful            Unsuccessful
+----------            ------------
+{h-01e23f4cd567890f3} {}</code>
+    <description>This example modifies the AutoPlacement settings to off for the dedicated host h-01e23f4cd567890f3</description>
+  </example>
+</examples>

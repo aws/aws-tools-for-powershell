@@ -1,0 +1,37 @@
+######################################
+# Visual Studio per-user settings data
+######################################
+*.suo
+*.user
+
+####################
+# Build/Test folders
+####################
+
+**/bin/
+**/obj/
+**/TestResults/
+**/Temp/
+**/NuGet.exe
+**/logs/
+
+Deployment/**
+DocDeployment/**
+Include/**
+Packages/**
+
+**/.vs/
+**/project.lock.json
+**/*.project.lock.json
+**/launchSettings.json
+
+AWSPowerShell.Src_*.zip
+
+test/results/
+test/temp/**
+tests/Results/
+tests/Temp/**
+
+PSGalleryDownloads
+/ReleaseNotesDraft.txt
+/report.xml

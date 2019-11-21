@@ -1,0 +1,460 @@
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="../resources/style.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shCore.css">
+    <link rel="stylesheet" type="text/css" href="../resources/syntaxhighlighter/shThemeDefault.css">
+    <link rel="stylesheet" type="text/css" href="../resources/psstyle.css" />
+    <meta name="description" content="Install AWS.Tools modules.">
+    <title>AWS.Tools.Installer: Install-AWSToolsModule Cmdlet | AWS Tools for PowerShell</title>
+    <script src="https://a0.awsstatic.com/s_code/js/1.0/awshome_s_code.js"></script>
+    <link rel="canonical"
+        href="http://docs.aws.amazon.com/powershell/latest/reference/index.html?page=Install-AWSToolsModule.html&tocid=Install-AWSToolsModule" />
+</head>
+
+<body>
+    <div id="product_name">AWS Tools for Windows PowerShell</div>
+    <div id="guide_name">Command Reference</div>
+    <!--REGION_DISCLAIMER_DO_NOT_REMOVE-->
+    <!-- BEGIN-SECTION -->
+    <div id="regionDisclaimer">
+        <p>AWS services or capabilities described in AWS Documentation may vary by region/location. Click <a
+                href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/services.html">Getting Started with Amazon
+                AWS</a> to see specific differences applicable to the China (Beijing) Region.</p>
+    </div>
+    <!-- END-SECTION -->
+    <div id="pageHeader">
+        <div id="titles">
+            <h1>Install-AWSToolsModule Cmdlet</h1>
+            <h2>
+                <div>Available in <a
+                        href="https://www.powershellgallery.com/packages/AWS.Tools.Installer/"
+                        target="_blank">AWS.Tools.Installer</a></div>
+            </h2>
+        </div>
+    </div>
+    <div id="pageToolbar">
+        <!-- BEGIN-SECTION -->
+        <div id="search">
+            <form action="/search/doc-search.html" target="_blank" onsubmit="return AWSHelpObj.searchFormSubmit(this);"
+                method="get">
+                <div id="sfrm">
+                    <span id="lbl">
+                        <label>Search: </label>
+                    </span>
+                    <select name="searchPath" id="sel">
+                        <option value="all">Entire Site</option>
+                        <option value="articles">Articles &amp; Tutorials</option>
+                        <option value="documentation">Documentation</option>
+                        <option value="documentation-product">Documentation - This Product</option>
+                        <option selected="" value="documentation-guide">Documentation - This Guide</option>
+                        <option value="releasenotes">Release Notes</option>
+                        <option value="code">Sample Code &amp; Libraries</option>
+                    </select>
+                    <input type="text" name="searchQuery" id="sq">
+                    <input type="image" alt="Go" src="../resources/search-button.png" id="sb">
+                </div>
+                <input id="this_doc_product" type="hidden" value="AWS Tools for Windows PowerShell"
+                    name="this_doc_product">
+                <input id="this_doc_guide" type="hidden" value="Command Reference" name="this_doc_guide">
+                <input type="hidden" value="en_us" name="doc_locale">
+            </form>
+        </div>
+        <!-- END-SECTION -->
+    </div>
+    <div id="pageContent">
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="synopsis" class="title">Synopsis</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="synopsis">Installs AWS.Tools modules.</div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="syntax" class="title">Syntax</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="syntax">
+                    <pre><div class="syntaxblock"><div class="cmdlet">Install-AWSToolsModule</div><div class="paramlist"><div class="wrappedParam">-Name &lt;String&gt;</div><div class="wrappedParam">-RequiredVersion &lt;System.Version&gt;</div><div class="wrappedParam">-CleanUp &lt;SwitchParameter&gt;</div><div class="wrappedParam">-SkipUpdate &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Scope &lt;String&gt;</div><div class="wrappedParam">-AllowClobber &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Proxy &lt;System.Uri&gt;</div><div class="wrappedParam">-ProxyCredential &lt;PSCredential&gt;</div><div class="wrappedParam">-Force &lt;SwitchParameter&gt;</div><div class="wrappedParam">-WhatIf &lt;SwitchParameter&gt;</div><div class="wrappedParam">-Confirm &lt;SwitchParameter&gt;</div></div></div></pre>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="description" class="title">Description</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="description">This cmdlet uses Instal-Module to install AWS.Tools modules. Unless -SkipUpdate
+                    is specified, this cmdlet also updates all other currently installed AWS.Tools modules to the
+                    version being installed.</div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="collapsibleSection">
+                    <h2 id="parameters" class="title">Parameters</h2>
+                </div>
+            </div>
+            <div class="sectionbody">
+                <div class="parameters">
+                    <div class="parameter">
+                        <div class="parameterName">-Name &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                target="_blank">String[]</a>&gt;</div>
+                        <div class="parameterDescription">Specifies names of the AWS.Tools modules to install. The names can be listed either with or without the "AWS.Tools." prefix (i.e. "AWS.Tools.Common" or simply "Common").</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">True</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">1</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByValue, ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-RequiredVersion &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                target="_blank">Version</a>&gt;</div>
+                        <div class="parameterDescription">Specifies exact version number of the module to install.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">2</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-MaximumVersion &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.version"
+                                target="_blank">Version</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the maximum version of the modules to install.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-CleanUp &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Specifies that, after a successful install, all other versions
+                            of the AWS Tools modules should be uninstalled.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-SkipUpdate &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Install-AWSToolsModule by default also updates all currently
+                            installed AWS.Tools modules. -SkipUpdate disables the update.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Scope &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                target="_blank">String</a>&gt;</div>
+                        <div class="parameterDescription">Specifies the installation scope of the module. The acceptable
+                            values for this parameter are AllUsers and CurrentUser. The AllUsers scope installs modules
+                            in a location that is accessible to all users of the computer:
+                            $env:ProgramFiles\PowerShell\Modules The CurrentUser installs modules in a location that is
+                            accessible only to the current user of the computer: $home\Documents\PowerShell\Modules When
+                            no Scope is defined, the default is CurrentUser.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-AllowClobber &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Overrides warning messages about installation conflicts about
+                            existing commands on a computer.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Proxy &lt;<a
+                                href="https://docs.microsoft.com/en-us/dotnet/api/system.uri"
+                                target="_blank">URI</a>&gt;</div>
+                        <div class="parameterDescription">Specifies a proxy server for the request, rather than
+                            connecting directly to an internet resource.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-ProxyCredential &lt;PSCredential&gt;</div>
+                        <div class="parameterDescription">Specifies a user account that has permission to use the proxy
+                            server specified by the Proxy parameter.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="parameter">
+                        <div class="parameterName">-Force &lt;SwitchParameter&gt;</div>
+                        <div class="parameterDescription">Forces an install of each specified module without a prompt to
+                            request confirmation.</div>
+                        <div class="parameterAttributes">
+                            <table>
+                                <tr>
+                                    <td class="col1">Required?</td>
+                                    <td class="col2">False</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Position?</td>
+                                    <td class="col2">Named</td>
+                                </tr>
+                                <tr>
+                                    <td class="col1">Accept pipeline input?</td>
+                                    <td class="col2">True (ByPropertyName)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <div class="collapsibleSection">
+                            <h2 id="inputs" class="title">Inputs</h2>
+                        </div>
+                    </div>
+                    <div class="sectionbody">
+                        <div class="inputs">
+                            <div class="inputType"><a href="https://docs.microsoft.com/en-us/dotnet/api/system.string"
+                                    target="_blank">System.String</a></div>
+                            <div class="inputDescription">You can pipe a String object to this cmdlet for the Name
+                                parameter.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="description" class="title">Notes</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="description">This cmdlet uses the PSRepository named PSGallery as source.<br />
+                        Use 'Get-PSRepository -Name PSGallery' for information on the PSRepository used by Update-AWSToolsModule.<br />
+                        This cmdlet downloads all modules from https://www.powershellgallery.com/api/v2/package/ and considers it a trusted source.</div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="examples" class="title">Examples</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="examples">
+                        <h4>Example 1</h4><pre class="example"><div class="code">Install-AWSToolsModule EC2,S3 -RequiredVersion 4.0.0.0</div><div class="description">This example installs version 4.0.0.0 of AWS.Tools.EC2, AWS.Tools.S3 and their dependencies.</div></pre>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="related links" class="title">Related Links</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="related">
+                        <div class="relatedLink"><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/"
+                                target=_blank>Service User Guide</a></div>
+                        <div class="relatedLink"><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/"
+                                target=_blank>Service API Reference</a></div>
+                        <div class="relatedLink"><a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/"
+                                target=_blank>Microsoft Windows Guide</a></div>
+                        <div class="relatedLink"><a href="http://docs.aws.amazon.com/powershell/latest/userguide/"
+                                target=_blank>AWS Tools for PowerShell User Guide</a></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="collapsibleSection">
+                        <h2 id="supported version" class="title">Supported Version</h2>
+                    </div>
+                </div>
+                <div class="sectionbody">
+                    <div class="versioninfo">
+                        <p><strong>AWS Tools for PowerShell: </strong><span id="assemblyVersion">2.x.y.z</span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="pageFooter">
+                <div id="copyright"></div>
+                <span class="newline linkto"><a href="javascript:void(0)"
+                        onclick="AWSHelpObj.displayLink('Install-AWSToolsModule.html', 'Install-AWSToolsModule')">Link
+                        to this page</a></span>
+                <span class="divider">&nbsp;</span>
+                <!-- BEGIN-FEEDBACK-SECTION --><span class="feedback"><span class="feedbackLinks">
+                        <!-- BEGIN-FEEDBACK-SECTION -->Did this page help you?&nbsp;&nbsp;<a
+                            href="http://docs.aws.amazon.com/powershell/latest/reference/feedbackyes.html?topic_id=Install-AWSToolsModule"
+                            target="_blank">Yes</a>&nbsp;&nbsp;<a
+                            href="http://docs.aws.amazon.com/powershell/latest/reference/feedbackno.html?topic_id=Install-AWSToolsModule"
+                            target="_blank">No</a>&nbsp;&nbsp;&nbsp;<a
+                            href="https://docs.aws.amazon.com/forms/aws-doc-feedback?service_name=PowerShell-Ref&amp;topic_url=https://docs.aws.amazon.com/powershell/latest/reference/items/Install-AWSToolsModule.html"
+                            target="_blank">Tell us about it...</a><!-- END-FEEDBACK-SECTION --></span></span>
+                <!-- END-FEEDBACK-SECTION -->
+            </div>
+<script type="text/javascript" src="../resources/jquery.min.js"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script type="text/javascript" src="../resources/parseuri.js"></script>
+<script type="text/javascript" src="../resources/pagescript.js"></script>
+<!-- BEGIN-SECTION -->
+<script type="text/javascript">
+jQuery(function ($) {
+var host = parseUri($(window.parent.location).attr('href')).host;
+if (AWSHelpObj.showRegionalDisclaimer(host)) {
+$("div#regionDisclaimer").css("display", "block");
+} else {
+$("div#regionDisclaimer").remove();
+}
+AWSHelpObj.setAssemblyVersion();
+AWSHelpObj.setCopyrightText();
+});
+</script>
+<!-- END-SECTION -->
+<script type="text/javascript" src="../resources/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../resources/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../resources/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../resources/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all()</script>
+<!-- SiteCatalyst code version: H.25.1. Copyright 1996-2012 Adobe, Inc. All Rights Reserved -->
+<script>
+  <!--
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+        var s_code = s.t(); if (s_code) document.write(s_code)//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+  <!--
+        if (navigator.appVersion.indexOf('MSIE') >= 0) document.write(unescape('%3C') + '\!-' + '-')
+//-->
+</script>
+<noscript>
+  <img src="//amazonwebservices.d2.sc.omtrdc.net/b/ss/awsamazonalldev2/1/H.25.1--NS/0" height="1" width="1" border="0" alt="" />
+</noscript>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.1. -->
+
+<script src="/SdkStatic/sdk-priv.js" async="true"></script>
+</body>
+</html>

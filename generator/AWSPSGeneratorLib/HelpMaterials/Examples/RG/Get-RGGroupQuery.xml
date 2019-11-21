@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-RGGroupQuery -GroupName auto-no | Select-Object -ExpandProperty ResourceQuery
+
+Query                                                                                        Type
+-----                                                                                        ----
+{"ResourceTypeFilters":["AWS::EC2::Instance"],"TagFilters":[{"Key":"auto","Values":["no"]}]} TAG_FILTERS_1_0</code>
+    <description>This example fetches the resource query for the given resource group</description>
+  </example>
+</examples>

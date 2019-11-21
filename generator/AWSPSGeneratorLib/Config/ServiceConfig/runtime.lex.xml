@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>runtime.lex</C2jFilename>
+    <AssemblyName>Lex</AssemblyName>
+    <ServiceNounPrefix>LEX</ServiceNounPrefix>
+    <ServiceName>Amazon Lex</ServiceName>
+    <ServiceClientInterface>IAmazonLex</ServiceClientInterface>
+    <ServiceClient>AmazonLexClient</ServiceClient>
+    <ServiceModuleGuid>bbaff62c-acc4-4a3e-9120-16e473928191</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteSession" OutputProperty="*" Verb="Remove" Noun="Session" ShouldProcessTarget="BotName" PipelineParameter="BotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSession" OutputProperty="*" Verb="Get" Noun="Session" PipelineParameter="BotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PostContent" OutputProperty="*" Verb="Send" Noun="Content" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PostText" OutputProperty="*" Verb="Send" Noun="Text" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="InputText" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSession" OutputProperty="*" Verb="Write" Noun="Session" ShouldProcessTarget="BotName" PipelineParameter="BotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>elasticloadbalancingv2</C2jFilename>
+    <AssemblyName>ElasticLoadBalancingV2</AssemblyName>
+    <ServiceNounPrefix>ELB2</ServiceNounPrefix>
+    <ServiceName>Elastic Load Balancing V2</ServiceName>
+    <ServiceClientInterface>IAmazonElasticLoadBalancingV2</ServiceClientInterface>
+    <ServiceClient>AmazonElasticLoadBalancingV2Client</ServiceClient>
+    <ServiceModuleGuid>12372622-7a71-48fa-a18a-e8c2f374bba8</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" />
+    <VerbMappings>
+        <Map From="Modify" To="Edit" />
+        <Map From="Deregister" To="Unregister" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Tags" To="Tag" />
+        <Map From="Rules" To="Rule" />
+        <Map From="Targets" To="Target" />
+        <Map From="Listeners" To="Listener" />
+        <Map From="Subnets" To="Subnet" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddListenerCertificates" OutputProperty="Certificates" Verb="Add" Noun="ListenerCertificate" ShouldProcessTarget="ListenerArn" PipelineParameter="Certificates" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="Tag" ShouldProcessTarget="ResourceArns" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateListener" OutputProperty="Listeners" Verb="New" Noun="Listener" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoadBalancer" OutputProperty="LoadBalancers" Verb="New" Noun="LoadBalancer" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRule" OutputProperty="Rules" Verb="New" Noun="Rule" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTargetGroup" OutputProperty="TargetGroups" Verb="New" Noun="TargetGroup" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteListener" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoadBalancer" Verb="Remove" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRule" Verb="Remove" Noun="Rule" ShouldProcessTarget="RuleArn" PipelineParameter="RuleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTargetGroup" Verb="Remove" Noun="TargetGroup" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterTargets" Verb="Unregister" Noun="Target" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeListenerCertificates" OutputProperty="Certificates" Verb="Get" Noun="ListenerCertificate" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeListeners" OutputProperty="Listeners" Verb="Get" Noun="Listener" PipelineParameter="ListenerArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancerAttributes" OutputProperty="Attributes" Verb="Get" Noun="LoadBalancerAttribute" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSSLPolicies" OutputProperty="SslPolicies" Verb="Get" Noun="SSLPolicy" PipelineParameter="Names" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="TagDescriptions" Verb="Get" Noun="Tag" PipelineParameter="ResourceArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTargetGroupAttributes" OutputProperty="Attributes" Verb="Get" Noun="TargetGroupAttribute" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTargetGroups" OutputProperty="TargetGroups" Verb="Get" Noun="TargetGroup" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTargetHealth" OutputProperty="TargetHealthDescriptions" Verb="Get" Noun="TargetHealth" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyListener" OutputProperty="Listeners" Verb="Edit" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyLoadBalancerAttributes" OutputProperty="Attributes" Verb="Edit" Noun="LoadBalancerAttribute" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyRule" OutputProperty="Rules" Verb="Edit" Noun="Rule" ShouldProcessTarget="RuleArn" PipelineParameter="RuleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTargetGroup" OutputProperty="TargetGroups" Verb="Edit" Noun="TargetGroup" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTargetGroupAttributes" OutputProperty="Attributes" Verb="Edit" Noun="TargetGroupAttribute" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterTargets" Verb="Register" Noun="Target" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveListenerCertificates" Verb="Remove" Noun="ListenerCertificate" ShouldProcessTarget="ListenerArn" PipelineParameter="Certificates" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceArns" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetIpAddressType" OutputProperty="IpAddressType" Verb="Set" Noun="IpAddressType" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetRulePriorities" OutputProperty="Rules" Verb="Set" Noun="RulePriority" ShouldProcessTarget="RulePriorities" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetSecurityGroups" OutputProperty="SecurityGroupIds" Verb="Set" Noun="SecurityGroup" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetSubnets" OutputProperty="AvailabilityZones" Verb="Set" Noun="Subnet" ShouldProcessTarget="LoadBalancerArn" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.ElasticLoadBalancingV2.Model.Certificate</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

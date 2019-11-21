@@ -1,0 +1,3 @@
+﻿# PinpointEmail
+
+Export-ModuleMember -Alias *

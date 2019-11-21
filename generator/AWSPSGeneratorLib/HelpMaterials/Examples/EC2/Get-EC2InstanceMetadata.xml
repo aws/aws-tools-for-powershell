@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> Get-EC2InstanceMetadata -ListCategory
+
+AmiId
+LaunchIndex
+ManifestPath
+AncestorAmiId
+BlockDeviceMapping
+InstanceId
+InstanceType
+LocalHostname
+LocalIpv4
+KernelId
+AvailabilityZone
+ProductCode
+PublicHostname
+PublicIpv4
+PublicKey
+RamdiskId
+Region
+ReservationId
+SecurityGroup
+UserData
+InstanceMonitoring
+IdentityDocument
+IdentitySignature
+IdentityPkcs7
+    </code>
+    <description>Lists the available categories of instance metadata that can be queried.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> Get-EC2InstanceMetadata -Category AmiId
+
+ami-b2e756ca
+    </code>
+    <description>Returns the id of the Amazon Machine Image (AMI) that was used to launch the instance.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> Get-EC2InstanceMetadata -Category IdentityDocument
+{
+  "availabilityZone" : "us-west-2a",
+  "devpayProductCodes" : null,
+  "marketplaceProductCodes" : null,
+  "version" : "2017-09-30",
+  "instanceId" : "i-01ed50f7e2607f09e",
+  "billingProducts" : [ "bp-6ba54002" ],
+  "instanceType" : "t2.small",
+  "pendingTime" : "2018-03-07T16:26:04Z",
+  "imageId" : "ami-b2e756ca",
+  "privateIp" : "10.0.0.171",
+  "accountId" : "111122223333",
+  "architecture" : "x86_64",
+  "kernelId" : null,
+  "ramdiskId" : null,
+  "region" : "us-west-2"
+}
+    </code>
+    <description>This example queries the JSON-formatted identity document for the instance.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> Get-EC2InstanceMetadata -Path "/network/interfaces/macs"
+
+02:80:7f:ef:4c:e0/
+    </code>
+    <description>This example uses a path query to obtain the network interface macs for the instance.</description>
+  </example>
+  <example>
+    <code>
+PS C:\> Get-EC2InstanceMetadata -Path "/iam/info"
+
+{
+  "Code" : "Success",
+  "LastUpdated" : "2018-03-08T03:38:40Z",
+  "InstanceProfileArn" : "arn:aws:iam::111122223333:instance-profile/MyLaunchRole_Profile",
+  "InstanceProfileId" : "AIPAI4...WVK2RW"
+}
+    </code>
+    <description>If there is an IAM role associated with the instance, returns information about the last time the instance profile was updated, including the instance's LastUpdated date, InstanceProfileArn, and InstanceProfileId.</description>
+  </example>
+</examples>
+

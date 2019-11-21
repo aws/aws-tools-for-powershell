@@ -1,0 +1,3 @@
+﻿# ServiceDiscovery
+
+Export-ModuleMember -Alias *

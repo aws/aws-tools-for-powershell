@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sts</C2jFilename>
+    <AssemblyName>SecurityToken</AssemblyName>
+    <ServiceNounPrefix>STS</ServiceNounPrefix>
+    <ServiceName>AWS Security Token Service (STS)</ServiceName>
+    <ServiceClientInterface>IAmazonSecurityTokenService</ServiceClientInterface>
+    <ServiceClient>AmazonSecurityTokenServiceClient</ServiceClient>
+    <ServiceModuleGuid>b760f2e8-291f-4df4-bd69-3a615b47c8d4</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings>
+        <Map From="Decode" To="Convert" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases>
+        <AliasSet Cmdlet="Use-STSRole">Assume-STSRole</AliasSet>
+        <AliasSet Cmdlet="Use-STSWebIdentityRole">Assume-STSWebIdentityRole</AliasSet>
+    </CustomAliases>
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssumeRole" OutputProperty="*" Verb="Use" Noun="Role" ShouldProcessTarget="RoleArn" PositionalParameters="RoleSessionName;Policy;DurationSeconds;ExternalId" PipelineParameter="RoleArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DurationSeconds" NewName="DurationInSeconds" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssumeRoleWithSAML" Verb="Use" Noun="" Exclude="true" ShouldProcessTarget="" PositionalParameters="PrincipalArn;SAMLAssertion;Policy;DurationSeconds" PipelineParameter="RoleArn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DurationSeconds" NewName="DurationInSeconds" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssumeRoleWithWebIdentity" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DecodeAuthorizationMessage" OutputProperty="DecodedMessage" Verb="Convert" Noun="AuthorizationMessage" ShouldProcessTarget="EncodedMessage" PipelineParameter="EncodedMessage" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessKeyInfo" OutputProperty="Account" Verb="Get" Noun="AccessKeyInfo" PipelineParameter="AccessKeyId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="AccessKeyId" NewName="IdOfAccessKey" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCallerIdentity" OutputProperty="*" Verb="Get" Noun="CallerIdentity" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFederationToken" OutputProperty="*" Verb="Get" Noun="FederationToken" PositionalParameters="Policy;DurationSeconds" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DurationSeconds" NewName="DurationInSeconds" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSessionToken" OutputProperty="Credentials" Verb="Get" Noun="SessionToken" PositionalParameters="SerialNumber;TokenCode" PipelineParameter="DurationSeconds" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DurationSeconds" NewName="DurationInSeconds" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

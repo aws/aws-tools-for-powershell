@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>xray</C2jFilename>
+    <AssemblyName>XRay</AssemblyName>
+    <ServiceNounPrefix>XR</ServiceNounPrefix>
+    <ServiceName>AWS X-Ray</ServiceName>
+    <ServiceClientInterface>IAmazonXRay</ServiceClientInterface>
+    <ServiceClient>AmazonXRayClient</ServiceClient>
+    <ServiceModuleGuid>7224bea4-48c7-4386-8622-0721759df461</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetTraces" OutputProperty="*" Verb="Get" Noun="TraceBatch" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSamplingRule" OutputProperty="SamplingRuleRecord" Verb="New" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupARN" PipelineParameter="GroupARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSamplingRule" OutputProperty="SamplingRuleRecord" Verb="Remove" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="RuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEncryptionConfig" OutputProperty="EncryptionConfig" Verb="Get" Noun="EncryptionConfig" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroups" OutputProperty="Groups" Verb="Get" Noun="GroupSummary" PipelineParameter="NextToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSamplingRules" OutputProperty="SamplingRuleRecords" Verb="Get" Noun="SamplingRule" PipelineParameter="NextToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSamplingStatisticSummaries" OutputProperty="SamplingStatisticSummaries" Verb="Get" Noun="SamplingStatisticSummary" PipelineParameter="NextToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSamplingTargets" OutputProperty="*" Verb="Get" Noun="SamplingTarget" PipelineParameter="SamplingStatisticsDocuments" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceGraph" OutputProperty="*" Verb="Get" Noun="ServiceGraph" PipelineParameter="StartTime" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTimeSeriesServiceStatistics" OutputProperty="TimeSeriesServiceStatistics" Verb="Get" Noun="TimeSeriesServiceStatistic" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTraceGraph" OutputProperty="Services" Verb="Get" Noun="TraceGraph" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTraceSummaries" OutputProperty="*" Verb="Get" Noun="TraceSummary" PipelineParameter="StartTime" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEncryptionConfig" OutputProperty="EncryptionConfig" Verb="Write" Noun="EncryptionConfig" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTelemetryRecords" Verb="Write" Noun="TelemetryRecord" ShouldProcessTarget="EC2InstanceId" PipelineParameter="EC2InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTraceSegments" OutputProperty="UnprocessedTraceSegments" Verb="Write" Noun="TraceSegment" ShouldProcessTarget="TraceSegmentDocuments" PipelineParameter="TraceSegmentDocuments" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupARN" PipelineParameter="GroupARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSamplingRule" OutputProperty="SamplingRuleRecord" Verb="Update" Noun="SamplingRule" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

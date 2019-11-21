@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> Get-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:MyFunction"
+
+Key        Value
+---        -----
+California Sacramento
+Oregon     Salem
+Washington Olympia
+    </code>
+    <description>Retrieves the tags and their values currently set on the specified function.</description>
+  </example>
+</examples>

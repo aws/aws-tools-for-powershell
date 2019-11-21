@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-EC2VpnConnection -Type ipsec.1 -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId vgw-1a2b3c4d
+
+CustomerGatewayConfiguration : [XML document]
+CustomerGatewayId            : cgw-1a2b3c4d
+Options                      :
+Routes                       : {}
+State                        : pending
+Tags                         : {}
+Type                         :
+VgwTelemetry                 : {}
+VpnConnectionId              : vpn-12345678
+VpnGatewayId                 : vgw-1a2b3c4d</code>
+    <description>This example creates a VPN connection between the specified virtual private gateway and the specified customer gateway. The output includes the configuration information that your network administrator needs, in XML format.</description>
+  </example>
+  <example>
+    <code>PS C:\> (New-EC2VpnConnection -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId vgw-1a2b3c4d).CustomerGatewayConfiguration | Out-File C:\path\vpn-configuration.xml</code>
+    <description>This example creates the VPN connection and captures the configuration in a file with the specified name.</description>
+  </example>
+  <example>
+    <code>PS C:\> New-EC2VpnConnection -Type ipsec.1 -CustomerGatewayId cgw-1a2b3c4d -VpnGatewayId vgw-1a2b3c4d -Options_StaticRoutesOnly $true</code>
+    <description>This example creates a VPN connection, with static routing, between the specified virtual private gateway and the specified customer gateway.</description>
+  </example>
+</examples>

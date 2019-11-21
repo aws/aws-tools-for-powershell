@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>dynamodb</C2jFilename>
+    <AssemblyName>DynamoDBv2</AssemblyName>
+    <ServiceNounPrefix>DDB</ServiceNounPrefix>
+    <ServiceName>Amazon DynamoDB</ServiceName>
+    <ServiceClientInterface>IAmazonDynamoDB</ServiceClientInterface>
+    <ServiceClient>AmazonDynamoDBClient</ServiceClient>
+    <ServiceModuleGuid>1c067622-6b74-4730-b4df-1c316ae12135</ServiceModuleGuid>
+    <PipelineParameter>TableName</PipelineParameter>
+    <AutoIterate Start="ExclusiveStartTableName" Next="LastEvaluatedTableName" EmitLimit="Limit" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Get-DDBBackupList">Get-DDBBackupsList</AliasSet>
+        <AliasSet Cmdlet="Get-GlobalTableList">Get-GlobalTablesList</AliasSet>
+    </LegacyAliases>
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>ExclusiveStartTableName</Property>
+        <Property>LastEvaluatedTableName</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetItem" Verb="Get" Noun="BatchItem" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchWriteItem" Verb="Write" Noun="BatchItem" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackup" OutputProperty="BackupDetails" Verb="New" Noun="Backup" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlobalTable" OutputProperty="GlobalTableDescription" Verb="New" Noun="GlobalTable" ShouldProcessTarget="GlobalTableName" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTable" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackup" OutputProperty="BackupDescription" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupArn" PipelineParameter="BackupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteItem" Verb="" Noun="" Exclude="true" ShouldProcessTarget="Key" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTable" OutputProperty="TableDescription" Verb="Remove" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBackup" OutputProperty="BackupDescription" Verb="Get" Noun="Backup" PipelineParameter="BackupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContinuousBackups" OutputProperty="ContinuousBackupsDescription" Verb="Get" Noun="ContinuousBackup" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGlobalTable" OutputProperty="GlobalTableDescription" Verb="Get" Noun="GlobalTable" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGlobalTableSettings" OutputProperty="*" Verb="Get" Noun="GlobalTableSetting" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLimits" OutputProperty="*" Verb="Get" Noun="ProvisionLimit" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTable" OutputProperty="Table" Verb="Get" Noun="Table" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTimeToLive" OutputProperty="TimeToLiveDescription" Verb="Get" Noun="TimeToLive" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetItem" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackups" OutputProperty="BackupSummaries" Verb="Get" Noun="BackupList" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="ExclusiveStartBackupArn" Next="LastEvaluatedBackupArn" EmitLimit="Limit" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGlobalTables" OutputProperty="GlobalTables" Verb="Get" Noun="GlobalTableList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <AutoIterate Start="ExclusiveStartGlobalTableName" Next="LastEvaluatedGlobalTableName" EmitLimit="Limit" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTables" OutputProperty="TableNames" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-DDBTables">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsOfResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutItem" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Query" Verb="Select" Noun="Data" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreTableFromBackup" OutputProperty="TableDescription" Verb="Restore" Noun="TableFromBackup" ShouldProcessTarget="TargetTableName" PipelineParameter="TargetTableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreTableToPointInTime" OutputProperty="TableDescription" Verb="Restore" Noun="TableToPointInTime" ShouldProcessTarget="TargetTableName" PipelineParameter="TargetTableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Scan" Verb="Read" Noun="Table" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TransactGetItems" OutputProperty="*" Verb="Get" Noun="ItemTransactionally" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TransactWriteItems" OutputProperty="*" Verb="Write" Noun="ItemTransactionally" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContinuousBackups" OutputProperty="ContinuousBackupsDescription" Verb="Update" Noun="ContinuousBackup" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlobalTable" OutputProperty="GlobalTableDescription" Verb="Update" Noun="GlobalTable" ShouldProcessTarget="GlobalTableName" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlobalTableSettings" OutputProperty="*" Verb="Update" Noun="GlobalTableSetting" ShouldProcessTarget="GlobalTableName" PipelineParameter="GlobalTableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateItem" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTable" OutputProperty="TableDescription" Verb="Update" Noun="Table" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ProvisionedThroughput_ReadCapacityUnits" NewName="ReadCapacity" />
+                <Param Name="ProvisionedThroughput_WriteCapacityUnits" NewName="WriteCapacity" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTimeToLive" OutputProperty="TimeToLiveSpecification" Verb="Update" Noun="TimeToLive" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.DynamoDBv2.Model.AutoScalingSettingsUpdate</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-EC2HostReservationOffering -Filter @{Name="instance-family";Values="m4"} | Where-Object PaymentOption -eq NoUpfront
+
+
+CurrencyCode   :
+Duration       : 94608000
+HourlyPrice    : 1.307
+InstanceFamily : m4
+OfferingId     : hro-0c1f234567890d9ab
+PaymentOption  : NoUpfront
+UpfrontPrice   : 0.000
+
+CurrencyCode   :
+Duration       : 31536000
+HourlyPrice    : 1.830
+InstanceFamily : m4
+OfferingId     : hro-04ad12aaaf34b5a67
+PaymentOption  : NoUpfront
+UpfrontPrice   : 0.000</code>
+    <description>This example describes the Dedicated Host reservations that are available to purchase for the given filter 'instance-family' where PaymentOption is 'NoUpfront'</description>
+  </example>
+</examples>

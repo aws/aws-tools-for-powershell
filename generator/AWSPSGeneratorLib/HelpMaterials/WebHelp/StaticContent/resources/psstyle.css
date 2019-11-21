@@ -1,0 +1,177 @@
+﻿/* PowerShell docset style overrides and extensions  */
+
+.topictitle {
+    border-top: none !important;    
+}
+
+.synopsis:first-child, 
+.description:first-child, 
+.syntax:first-child {
+    margin-left: 15px;
+}
+
+.syntax {
+}
+
+.syntax .paramsetname {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.syntax h4 {
+    color: #666;
+    font-size: 1.2em;
+}
+
+.syntaxblock {
+    font-family: Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    border: lightgray 1px solid;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    font-weight: normal;
+}
+
+.syntaxblock .cmdlet {
+     display: inline;
+}
+
+.syntaxblock .paramlist {
+	display: inline;
+    white-space: pre-wrap;
+    word-break: normal;  
+}
+
+.syntaxblock .inlineParam {
+    margin-left: 5px;
+    display: inline-block;
+}
+.syntaxblock .wrappedParam {
+    margin-left: 80px;
+}
+
+.examples h4 {
+    color: #666;
+    margin-left: 15px;
+    font-size: 1.2em;
+}
+
+.example {
+    margin-left: 35px;
+    padding: 15px 15px 15px 20px;
+    white-space: pre-wrap;
+    border: lightgray 1px solid;
+}
+
+.example > .code {
+    font-family: Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    font-weight: bolder;
+    padding-bottom: 5px;
+}
+
+.example > .description {
+    font-family: "Segoe UI","Lucida Grande",Verdana,Arial,Helvetica,sans-serif;
+    padding-top: 10px;
+    font-weight: normal;
+}
+
+.parameters {
+}
+
+.parameters .parameter:nth-child(n+2) {
+    margin-top: 20px;    
+}
+
+.parameter .parameterName {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.parameter .parameterDescription {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.parameter .parameterAttributes {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.parameterAttributes table {
+    border-collapse: collapse;
+    border: none !important;
+    width: auto;
+}
+
+.parameterAttributes td {
+    padding: 2px;
+    border: none !important;
+}
+
+.parameterAttributes td.col1 {
+    width: auto;
+}
+.parameterAttributes td.col2 {
+    width: auto;
+}
+
+.commonparameters {
+
+}
+
+.inputs {
+}
+
+.inputs .inputType, .inputDescription {
+    margin-left: 15px;
+}
+
+.inputs .inputType {
+    font-weight: bold;    
+}
+
+.inputs .inputDescription {
+    margin-top: 10px;
+}
+
+.outputs {
+}
+
+.outputs .output:nth-child(n+2) {
+    margin-top: 10px;    
+}
+
+.output .outputType, 
+.output .outputDescription {
+    margin-left: 15px;
+}
+
+.output .outputType {
+    font-weight: bold;    
+}
+
+.output .outputDescription {
+    margin-top: 10px;
+}
+
+.notes {
+}
+
+.related .relatedLink {
+    margin-left: 15px;
+}
+
+.aliases {
+    
+}
+
+.aliases thead td {
+    background-color: silver;
+    /* width just gives consistent column alignment */
+    width: 25%;
+}
+
+.versioninfo {
+    
+}

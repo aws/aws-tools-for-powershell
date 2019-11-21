@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iam</C2jFilename>
+    <AssemblyName>IdentityManagement</AssemblyName>
+    <ServiceNounPrefix>IAM</ServiceNounPrefix>
+    <ServiceName>AWS Identity and Access Management</ServiceName>
+    <ServiceClientInterface>IAmazonIdentityManagementService</ServiceClientInterface>
+    <ServiceClient>AmazonIdentityManagementServiceClient</ServiceClient>
+    <ServiceModuleGuid>1748b4bc-1117-4cfb-9b5e-b80026f1b165</ServiceModuleGuid>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter>UserName</PipelineParameter>
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated" />
+    <VerbMappings>
+        <Map From="Change" To="Edit" />
+        <Map From="List" To="Get" />
+        <Map From="Upload" To="Publish" />
+        <Map From="Resync" To="Sync" />
+        <Map From="Attach" To="Register" />
+        <Map From="Detach" To="Unregister" />
+        <Map From="Simulate" To="Test" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="AccessKeys" To="AccessKey" />
+        <Map From="AccountAliases" To="AccountAlias" />
+        <Map From="GroupsForUser" To="GroupForUser" />
+        <Map From="InstanceProfilesForRole" To="InstanceProfileForRole" />
+        <Map From="MFADevices" To="MFADevice" />
+        <Map From="SigningCertificates" To="SigningCertificate" />
+        <Map From="VirtualMFADevices" To="VirtualMFADevice" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddClientIDToOpenIDConnectProvider" Verb="Add" Noun="ClientIDToOpenIDConnectProvider" ShouldProcessTarget="OpenIDConnectProviderArn" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddRoleToInstanceProfile" Verb="Add" Noun="RoleToInstanceProfile" ShouldProcessTarget="InstanceProfileName" PositionalParameters="RoleName" PipelineParameter="InstanceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddUserToGroup" Verb="Add" Noun="UserToGroup" ShouldProcessTarget="GroupName" PositionalParameters="UserName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachGroupPolicy" Verb="Register" Noun="GroupPolicy" ShouldProcessTarget="GroupName" PositionalParameters="PolicyArn" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachRolePolicy" Verb="Register" Noun="RolePolicy" ShouldProcessTarget="RoleName" PositionalParameters="PolicyArn" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachUserPolicy" Verb="Register" Noun="UserPolicy" ShouldProcessTarget="UserName" PositionalParameters="PolicyArn" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ChangePassword" Verb="Edit" Noun="Password" ShouldProcessTarget="OldPassword" PositionalParameters="NewPassword" PipelineParameter="OldPassword" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessKey" OutputProperty="AccessKey" Verb="New" Noun="AccessKey" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccountAlias" Verb="New" Noun="AccountAlias" ShouldProcessTarget="AccountAlias" PipelineParameter="AccountAlias" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PositionalParameters="GroupName" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstanceProfile" OutputProperty="InstanceProfile" Verb="New" Noun="InstanceProfile" ShouldProcessTarget="InstanceProfileName" PositionalParameters="Path" PipelineParameter="InstanceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoginProfile" OutputProperty="LoginProfile" Verb="New" Noun="LoginProfile" ShouldProcessTarget="UserName" PositionalParameters="Password" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOpenIDConnectProvider" OutputProperty="OpenIDConnectProviderArn" Verb="New" Noun="OpenIDConnectProvider" ShouldProcessTarget="Url" PipelineParameter="Url" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicy" OutputProperty="Policy" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyDocument" PipelineParameter="PolicyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePolicyVersion" OutputProperty="PolicyVersion" Verb="New" Noun="PolicyVersion" ShouldProcessTarget="PolicyArn" PositionalParameters="PolicyDocument" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRole" OutputProperty="Role" Verb="New" Noun="Role" ShouldProcessTarget="RoleName" PositionalParameters="RoleName;AssumeRolePolicyDocument" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSAMLProvider" OutputProperty="SAMLProviderArn" Verb="New" Noun="SAMLProvider" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceLinkedRole" OutputProperty="Role" Verb="New" Noun="ServiceLinkedRole" ShouldProcessTarget="AWSServiceName" PipelineParameter="AWSServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceSpecificCredential" OutputProperty="ServiceSpecificCredential" Verb="New" Noun="ServiceSpecificCredential" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUser" OutputProperty="User" Verb="New" Noun="User" ShouldProcessTarget="UserName" PositionalParameters="UserName" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVirtualMFADevice" OutputProperty="VirtualMFADevice" Verb="New" Noun="VirtualMFADevice" ShouldProcessTarget="VirtualMFADeviceName" PositionalParameters="VirtualMFADeviceName" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeactivateMFADevice" Verb="Disable" Noun="MFADevice" ShouldProcessTarget="UserName" PositionalParameters="SerialNumber" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessKey" Verb="Remove" Noun="AccessKey" ShouldProcessTarget="AccessKeyId" PositionalParameters="AccessKeyId" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccountAlias" Verb="Remove" Noun="AccountAlias" ShouldProcessTarget="AccountAlias" PipelineParameter="AccountAlias" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccountPasswordPolicy" Verb="Remove" Noun="AccountPasswordPolicy" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroupPolicy" Verb="Remove" Noun="GroupPolicy" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInstanceProfile" Verb="Remove" Noun="InstanceProfile" ShouldProcessTarget="InstanceProfileName" PipelineParameter="InstanceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoginProfile" Verb="Remove" Noun="LoginProfile" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOpenIDConnectProvider" Verb="Remove" Noun="OpenIDConnectProvider" ShouldProcessTarget="OpenIDConnectProviderArn" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicy" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyArn" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicyVersion" Verb="Remove" Noun="PolicyVersion" ShouldProcessTarget="VersionId" PipelineParameter="VersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRole" Verb="Remove" Noun="Role" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRolePermissionsBoundary" Verb="Remove" Noun="RolePermissionsBoundary" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRolePolicy" Verb="Remove" Noun="RolePolicy" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSAMLProvider" Verb="Remove" Noun="SAMLProvider" ShouldProcessTarget="SAMLProviderArn" PipelineParameter="SAMLProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServerCertificate" Verb="Remove" Noun="ServerCertificate" ShouldProcessTarget="ServerCertificateName" PipelineParameter="ServerCertificateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceLinkedRole" OutputProperty="DeletionTaskId" Verb="Remove" Noun="ServiceLinkedRole" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceSpecificCredential" Verb="Remove" Noun="ServiceSpecificCredential" ShouldProcessTarget="ServiceSpecificCredentialId" PositionalParameters="UserName" PipelineParameter="ServiceSpecificCredentialId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSigningCertificate" Verb="Remove" Noun="SigningCertificate" ShouldProcessTarget="CertificateId" PositionalParameters="CertificateId" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSSHPublicKey" Verb="Remove" Noun="SSHPublicKey" ShouldProcessTarget="SSHPublicKeyId" PositionalParameters="UserName" PipelineParameter="SSHPublicKeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserPermissionsBoundary" Verb="Remove" Noun="UserPermissionsBoundary" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserPolicy" Verb="Remove" Noun="UserPolicy" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVirtualMFADevice" Verb="Remove" Noun="VirtualMFADevice" ShouldProcessTarget="SerialNumber" PipelineParameter="SerialNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachGroupPolicy" Verb="Unregister" Noun="GroupPolicy" ShouldProcessTarget="GroupName" PositionalParameters="PolicyArn" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachRolePolicy" Verb="Unregister" Noun="RolePolicy" ShouldProcessTarget="RoleName" PositionalParameters="PolicyArn" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachUserPolicy" Verb="Unregister" Noun="UserPolicy" ShouldProcessTarget="UserName" PositionalParameters="PolicyArn" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableMFADevice" Verb="Enable" Noun="MFADevice" ShouldProcessTarget="UserName" PositionalParameters="SerialNumber;AuthenticationCode1;AuthenticationCode2" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateCredentialReport" OutputProperty="*" Verb="Request" Noun="CredentialReport" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateOrganizationsAccessReport" OutputProperty="JobId" Verb="New" Noun="OrganizationsAccessReport" ShouldProcessTarget="EntityPath" PipelineParameter="EntityPath" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateServiceLastAccessedDetails" OutputProperty="JobId" Verb="Request" Noun="ServiceLastAccessedDetail" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccessKeyLastUsed" OutputProperty="*" Verb="Get" Noun="AccessKeyLastUsed" PipelineParameter="AccessKeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountAuthorizationDetails" OutputProperty="*" Verb="Get" Noun="AccountAuthorizationDetail" PipelineParameter="Filter" NoPipelineParameter="false" DisableLegacyPagination="true" LegacyAlias="Get-IAMAccountAuthorizationDetails">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountPasswordPolicy" OutputProperty="PasswordPolicy" Verb="Get" Noun="AccountPasswordPolicy" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountSummary" OutputProperty="SummaryMap" Verb="Get" Noun="AccountSummary" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContextKeysForCustomPolicy" OutputProperty="ContextKeyNames" Verb="Get" Noun="ContextKeysForCustomPolicy" PipelineParameter="PolicyInputList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContextKeysForPrincipalPolicy" OutputProperty="ContextKeyNames" Verb="Get" Noun="ContextKeysForPrincipalPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCredentialReport" OutputProperty="*" Verb="Get" Noun="CredentialReport" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupPolicy" OutputProperty="*" Verb="Get" Noun="GroupPolicy" PositionalParameters="PolicyName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceProfile" OutputProperty="InstanceProfile" Verb="Get" Noun="InstanceProfile" PipelineParameter="InstanceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLoginProfile" OutputProperty="LoginProfile" Verb="Get" Noun="LoginProfile" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOpenIDConnectProvider" OutputProperty="*" Verb="Get" Noun="OpenIDConnectProvider" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOrganizationsAccessReport" OutputProperty="*" Verb="Get" Noun="OrganizationsAccessReport" PipelineParameter="JobId" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="Policy" Verb="Get" Noun="Policy" PipelineParameter="PolicyArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicyVersion" OutputProperty="PolicyVersion" Verb="Get" Noun="PolicyVersion" PositionalParameters="PolicyArn;VersionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRole" OutputProperty="Role" Verb="Get" Noun="Role" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRolePolicy" OutputProperty="*" Verb="Get" Noun="RolePolicy" PositionalParameters="PolicyName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSAMLProvider" OutputProperty="*" Verb="Get" Noun="SAMLProvider" PipelineParameter="SAMLProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServerCertificate" OutputProperty="ServerCertificate" Verb="Get" Noun="ServerCertificate" PipelineParameter="ServerCertificateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceLastAccessedDetails" OutputProperty="*" Verb="Get" Noun="ServiceLastAccessedDetail" PipelineParameter="JobId" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceLastAccessedDetailsWithEntities" OutputProperty="*" Verb="Get" Noun="ServiceLastAccessedDetailWithEntity" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceLinkedRoleDeletionStatus" OutputProperty="*" Verb="Get" Noun="ServiceLinkedRoleDeletionStatus" PipelineParameter="DeletionTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSSHPublicKey" OutputProperty="SSHPublicKey" Verb="Get" Noun="SSHPublicKey" PositionalParameters="UserName" PipelineParameter="SSHPublicKeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUser" OutputProperty="User" Verb="Get" Noun="User" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserPolicy" OutputProperty="*" Verb="Get" Noun="UserPolicy" PositionalParameters="PolicyName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessKeys" OutputProperty="AccessKeyMetadata" Verb="Get" Noun="AccessKey" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountAliases" OutputProperty="AccountAliases" Verb="Get" Noun="AccountAlias" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachedGroupPolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedGroupPolicyList" PositionalParameters="GroupName" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-IAMAttachedGroupPolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachedRolePolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedRolePolicyList" PositionalParameters="RoleName" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-IAMAttachedRolePolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachedUserPolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedUserPolicyList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyAlias="Get-IAMAttachedUserPolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEntitiesForPolicy" OutputProperty="*" Verb="Get" Noun="EntitiesForPolicy" PositionalParameters="PolicyArn" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="GroupPolicyList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyAlias="Get-IAMGroupPolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMGroups">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupsForUser" OutputProperty="Groups" Verb="Get" Noun="GroupForUser" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstanceProfiles" OutputProperty="InstanceProfiles" Verb="Get" Noun="InstanceProfileList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMInstanceProfiles">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstanceProfilesForRole" OutputProperty="InstanceProfiles" Verb="Get" Noun="InstanceProfileForRole" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMFADevices" OutputProperty="MFADevices" Verb="Get" Noun="MFADevice" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOpenIDConnectProviders" OutputProperty="OpenIDConnectProviderList" Verb="Get" Noun="OpenIDConnectProviderList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-IAMOpenIDConnectProviders">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-IAMPolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPoliciesGrantingServiceAccess" OutputProperty="PoliciesGrantingServiceAccess" Verb="Get" Noun="PolicyGrantingServiceAccessList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyVersions" OutputProperty="Versions" Verb="Get" Noun="PolicyVersionList" PipelineParameter="PolicyArn" NoPipelineParameter="false" LegacyAlias="Get-IAMPolicyVersions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRolePolicies" OutputProperty="PolicyNames" Verb="Get" Noun="RolePolicyList" PipelineParameter="RoleName" NoPipelineParameter="false" LegacyAlias="Get-IAMRolePolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoles" OutputProperty="Roles" Verb="Get" Noun="RoleList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMRoles">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoleTags" OutputProperty="Tags" Verb="Get" Noun="RoleTagList" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSAMLProviders" OutputProperty="SAMLProviderList" Verb="Get" Noun="SAMLProviderList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-IAMSAMLProviders">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServerCertificates" OutputProperty="ServerCertificateMetadataList" Verb="Get" Noun="ServerCertificateList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMServerCertificates">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceSpecificCredentials" OutputProperty="ServiceSpecificCredentials" Verb="Get" Noun="ServiceSpecificCredentialList" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSigningCertificates" OutputProperty="Certificates" Verb="Get" Noun="SigningCertificate" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSSHPublicKeys" OutputProperty="SSHPublicKeys" Verb="Get" Noun="SSHPublicKeyList" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="UserPolicyList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyAlias="Get-IAMUserPolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMUsers">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserTags" OutputProperty="Tags" Verb="Get" Noun="UserTagList" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVirtualMFADevices" OutputProperty="VirtualMFADevices" Verb="Get" Noun="VirtualMFADevice" PipelineParameter="AssignmentStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutGroupPolicy" Verb="Write" Noun="GroupPolicy" ShouldProcessTarget="GroupName" PositionalParameters="PolicyName;PolicyDocument" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRolePermissionsBoundary" Verb="Set" Noun="RolePermissionsBoundary" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRolePolicy" Verb="Write" Noun="RolePolicy" ShouldProcessTarget="RoleName" PositionalParameters="PolicyName;PolicyDocument" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutUserPermissionsBoundary" Verb="Set" Noun="UserPermissionsBoundary" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutUserPolicy" Verb="Write" Noun="UserPolicy" ShouldProcessTarget="UserName" PositionalParameters="PolicyName;PolicyDocument" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveClientIDFromOpenIDConnectProvider" Verb="Remove" Noun="ClientIDFromOpenIDConnectProvider" ShouldProcessTarget="ClientID" PipelineParameter="ClientID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveRoleFromInstanceProfile" Verb="Remove" Noun="RoleFromInstanceProfile" ShouldProcessTarget="RoleName" PositionalParameters="RoleName" PipelineParameter="InstanceProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveUserFromGroup" Verb="Remove" Noun="UserFromGroup" ShouldProcessTarget="UserName" PositionalParameters="UserName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetServiceSpecificCredential" OutputProperty="ServiceSpecificCredential" Verb="Reset" Noun="ServiceSpecificCredential" ShouldProcessTarget="ServiceSpecificCredentialId" PositionalParameters="UserName" PipelineParameter="ServiceSpecificCredentialId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResyncMFADevice" Verb="Sync" Noun="MFADevice" ShouldProcessTarget="UserName" PositionalParameters="SerialNumber;AuthenticationCode1;AuthenticationCode2" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetDefaultPolicyVersion" Verb="Set" Noun="DefaultPolicyVersion" AnonymousShouldProcessTarget="true" PositionalParameters="PolicyArn;VersionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetSecurityTokenServicePreferences" Verb="Set" Noun="SecurityTokenServicePreference" ShouldProcessTarget="GlobalEndpointTokenVersion" PipelineParameter="GlobalEndpointTokenVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SimulateCustomPolicy" OutputProperty="EvaluationResults" Verb="Test" Noun="CustomPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SimulatePrincipalPolicy" OutputProperty="EvaluationResults" Verb="Test" Noun="PrincipalPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagRole" Verb="Add" Noun="RoleTag" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagUser" Verb="Add" Noun="UserTag" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagRole" Verb="Remove" Noun="RoleTag" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagUser" Verb="Remove" Noun="UserTag" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessKey" Verb="Update" Noun="AccessKey" ShouldProcessTarget="UserName" PositionalParameters="AccessKeyId;Status" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountPasswordPolicy" Verb="Update" Noun="AccountPasswordPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssumeRolePolicy" Verb="Update" Noun="AssumeRolePolicy" ShouldProcessTarget="RoleName" PositionalParameters="PolicyDocument" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroup" Verb="Update" Noun="Group" ShouldProcessTarget="GroupName" PositionalParameters="NewPath;NewGroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLoginProfile" Verb="Update" Noun="LoginProfile" ShouldProcessTarget="UserName" PositionalParameters="Password" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOpenIDConnectProviderThumbprint" Verb="Update" Noun="OpenIDConnectProviderThumbprint" ShouldProcessTarget="OpenIDConnectProviderArn" PipelineParameter="OpenIDConnectProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRole" Verb="Update" Noun="Role" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoleDescription" OutputProperty="Role" Verb="Update" Noun="RoleDescription" ShouldProcessTarget="RoleName" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSAMLProvider" OutputProperty="SAMLProviderArn" Verb="Update" Noun="SAMLProvider" ShouldProcessTarget="SAMLProviderArn" PipelineParameter="SAMLProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServerCertificate" Verb="Update" Noun="ServerCertificate" ShouldProcessTarget="ServerCertificateName" PositionalParameters="NewPath;NewServerCertificateName" PipelineParameter="ServerCertificateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceSpecificCredential" Verb="Update" Noun="ServiceSpecificCredential" ShouldProcessTarget="ServiceSpecificCredentialId" PositionalParameters="UserName" PipelineParameter="ServiceSpecificCredentialId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSigningCertificate" Verb="Update" Noun="SigningCertificate" ShouldProcessTarget="UserName" PositionalParameters="CertificateId;Status" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSSHPublicKey" Verb="Update" Noun="SSHPublicKey" ShouldProcessTarget="SSHPublicKeyId" PositionalParameters="UserName" PipelineParameter="SSHPublicKeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUser" Verb="Update" Noun="User" ShouldProcessTarget="UserName" PositionalParameters="NewPath;NewUserName" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UploadServerCertificate" OutputProperty="ServerCertificateMetadata" Verb="Publish" Noun="ServerCertificate" ShouldProcessTarget="ServerCertificateName" PositionalParameters="ServerCertificateName;CertificateBody;PrivateKey;CertificateChain" PipelineParameter="Path" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UploadSigningCertificate" OutputProperty="Certificate" Verb="Publish" Noun="SigningCertificate" ShouldProcessTarget="UserName" PositionalParameters="CertificateBody" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UploadSSHPublicKey" OutputProperty="SSHPublicKey" Verb="Publish" Noun="SSHPublicKey" ShouldProcessTarget="UserName" PositionalParameters="UserName" PipelineParameter="SSHPublicKeyBody" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

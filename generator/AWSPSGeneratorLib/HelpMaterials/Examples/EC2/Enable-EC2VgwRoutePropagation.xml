@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Enable-EC2VgwRoutePropagation -RouteTableId rtb-12345678 -GatewayId vgw-1a2b3c4d</code>
+    <description>This example enables the specified VGW to propagate routes automatically to the specified routing table.</description>
+  </example>
+</examples>

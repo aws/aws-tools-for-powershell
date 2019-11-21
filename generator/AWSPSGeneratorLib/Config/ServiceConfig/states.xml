@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>states</C2jFilename>
+    <AssemblyName>StepFunctions</AssemblyName>
+    <ServiceNounPrefix>SFN</ServiceNounPrefix>
+    <ServiceName>AWS Step Functions</ServiceName>
+    <ServiceClientInterface>IAmazonStepFunctions</ServiceClientInterface>
+    <ServiceClient>AmazonStepFunctionsClient</ServiceClient>
+    <ServiceModuleGuid>29491b9d-2ca3-4c90-87e6-4c9892e95657</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateActivity" OutputProperty="*" Verb="New" Noun="Activity" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStateMachine" OutputProperty="*" Verb="New" Noun="StateMachine" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteActivity" Verb="Remove" Noun="Activity" ShouldProcessTarget="ActivityArn" PipelineParameter="ActivityArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStateMachine" Verb="Remove" Noun="StateMachine" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeActivity" OutputProperty="*" Verb="Get" Noun="Activity" PipelineParameter="ActivityArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExecution" OutputProperty="*" Verb="Get" Noun="Execution" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStateMachine" OutputProperty="*" Verb="Get" Noun="StateMachine" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStateMachineForExecution" OutputProperty="*" Verb="Get" Noun="StateMachineForExecution" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetActivityTask" OutputProperty="*" Verb="Get" Noun="ActivityTask" PipelineParameter="ActivityArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExecutionHistory" OutputProperty="Events" Verb="Get" Noun="ExecutionHistory" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActivities" OutputProperty="Activities" Verb="Get" Noun="ActivityList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStateMachines" OutputProperty="StateMachines" Verb="Get" Noun="StateMachineList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendTaskFailure" Verb="Send" Noun="TaskFailure" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendTaskHeartbeat" Verb="Send" Noun="TaskHeartbeat" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendTaskSuccess" Verb="Send" Noun="TaskSuccess" ShouldProcessTarget="TaskToken" PipelineParameter="TaskToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExecution" OutputProperty="*" Verb="Start" Noun="Execution" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopExecution" OutputProperty="StopDate" Verb="Stop" Noun="Execution" ShouldProcessTarget="ExecutionArn" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStateMachine" OutputProperty="UpdateDate" Verb="Update" Noun="StateMachine" ShouldProcessTarget="StateMachineArn" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-CDDeployment -ApplicationName MyNewApplication -S3Location_Bucket MyBucket -S3Location_BundleType zip -DeploymentConfigName CodeDeployDefault.OneAtATime -DeploymentGroupName MyNewDeploymentGroup -IgnoreApplicationStopFailures $True -S3Location_Key aws-codedeploy_linux-master.zip -RevisionType S3
+
+d-ZHROG7UEX</code>
+	<description>This example creates a new deployment for the specified application and deployment group with the specified deployment configuration and application revision.</description>
+  </example>
+  <example>
+    <code>PS C:\> New-CDDeployment -ApplicationName MyNewApplication -S3Location_Bucket MyBucket -S3Location_BundleType zip -DeploymentConfigName CodeDeployDefault.OneAtATime -DeploymentGroupName MyNewDeploymentGroup -IgnoreApplicationStopFailures $True -S3Location_Key aws-codedeploy_linux-master.zip -RevisionType S3 -Ec2TagSetList @(@{Key="key1";Type="KEY_ONLY"},@{Key="Key2";Type="KEY_AND_VALUE";Value="Value2"}),@(@{Key="Key3";Type="VALUE_ONLY";Value="Value3"})
+
+d-ZHROG7UEX</code>
+	<description>This example shows how to specify groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment.</description>
+  </example>
+</examples>

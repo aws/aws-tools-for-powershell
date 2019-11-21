@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\> $change1 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change1.Action = "CREATE"
+PS C:\> $change1.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change1.ResourceRecordSet.Name = "www.example.com"
+PS C:\> $change1.ResourceRecordSet.Type = "TXT"
+PS C:\> $change1.ResourceRecordSet.TTL = 600
+PS C:\> $change1.ResourceRecordSet.ResourceRecords.Add(@{Value="item 1 item 2 item 3"})
+
+PS C:\> $change2 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change2.Action = "DELETE"
+PS C:\> $change2.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change2.ResourceRecordSet.Name = "test.example.com"
+PS C:\> $change2.ResourceRecordSet.Type = "A"
+PS C:\> $change2.ResourceRecordSet.TTL = 600
+PS C:\> $change2.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.3"})
+
+PS C:\> $change3 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change3.Action = "CREATE"
+PS C:\> $change3.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change3.ResourceRecordSet.Name = "test.example.com"
+PS C:\> $change3.ResourceRecordSet.Type = "A"
+PS C:\> $change3.ResourceRecordSet.TTL = 600
+PS C:\> $change3.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.1"})
+
+PS C:\> $params = @{
+    HostedZoneId="Z1PA6795UKMFR9"
+	ChangeBatch_Comment="This change batch creates a TXT record for www.example.com. and changes the A record for test.example.com. from 192.0.2.3 to 192.0.2.1."
+	ChangeBatch_Change=$change1,$change2,$change3
+}
+
+PS C:\> Edit-R53ResourceRecordSet @params
+        </code>
+        <description>This example creates an A record for www.example.com and changes the A record for test.example.com from 192.0.2.3 to 192.0.2.1. 
+		Note that values for changes TXT-type records must be in double quotes.<br/><br/>See the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/api-change-resource-record-sets-example-basic.html">Amazon Route 53</a> documentation for more details. You can use the Get-R53Change cmdlet to poll to determine when the changes are complete.</description>
+    </example>
+	<example>
+		<code>
+PS C:\> $change1 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change1.Action = "CREATE"
+PS C:\> $change1.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change1.ResourceRecordSet.Name = "example.com"
+PS C:\> $change1.ResourceRecordSet.Type = "A"
+PS C:\> $change1.ResourceRecordSet.AliasTarget = New-Object Amazon.Route53.Model.AliasTarget
+PS C:\> $change1.ResourceRecordSet.AliasTarget.HostedZoneId = "Z1111111111111"
+PS C:\> $change1.ResourceRecordSet.AliasTarget.DNSName = "example-load-balancer-1111111111.us-east-1.elb.amazonaws.com."
+PS C:\> $change1.ResourceRecordSet.AliasTarget.EvaluateTargetHealth = $true
+
+PS C:\> $change2 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change2.Action = "CREATE"
+PS C:\> $change2.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change1.ResourceRecordSet.Name = "www.example.com"
+PS C:\> $change1.ResourceRecordSet.Type = "A"
+PS C:\> $change1.ResourceRecordSet.AliasTarget = New-Object Amazon.Route53.Model.AliasTarget
+PS C:\> $change1.ResourceRecordSet.AliasTarget.HostedZoneId = "Z1111111111111"
+PS C:\> $change1.ResourceRecordSet.AliasTarget.DNSName = "example-load-balancer-1111111111.us-east-1.elb.amazonaws.com."
+PS C:\> $change1.ResourceRecordSet.AliasTarget.EvaluateTargetHealth = $false
+
+PS C:\> $params = @{
+    HostedZoneId="Z222222222"
+	ChangeBatch_Comment="This change batch creates two alias resource record sets, one for the zone apex, example.com, and one for www.example.com, that both point to example-load-balancer-1111111111.us-east-1.elb.amazonaws.com."
+	ChangeBatch_Change=$change1,$change2
+}
+
+PS C:\> Edit-R53ResourceRecordSet @params
+		</code>
+		<description>This example shows how to create alias resource record sets. 'Z222222222' is the ID of the Amazon Route 53 hosted zone in which you're creating the alias resource record set. 'example.com' is the zone apex for which you want to create an alias and 'www.example.com' is a subdomain for which you also want to create an alias. 'Z1111111111111' is an example of a hosted zone ID for the load balancer and 'example-load-balancer-1111111111.us-east-1.elb.amazonaws.com' is an example of a load balancer domain name with which Amazon Route 53 responds to queries for example.com and www.example.com.<br/><br/>See the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/CreateAliasRRSAPI.html">Amazon Route 53</a> documentation for more details. You can use the Get-R53Change cmdlet to poll to determine when the changes are complete.</description>
+	</example>
+	<example>
+		<code>
+PS C:\> $change1 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change1.Action = "CREATE"
+PS C:\> $change1.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change1.ResourceRecordSet.Name = "www.example.com"
+PS C:\> $change1.ResourceRecordSet.Type = "A"
+PS C:\> $change1.ResourceRecordSet.SetIdentifier = "Rack 2, Positions 4 and 5"
+PS C:\> $change1.ResourceRecordSet.Weight = 1
+PS C:\> $change1.ResourceRecordSet.TTL = 600
+PS C:\> $change1.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.9"})
+PS C:\> $change1.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.10"})
+
+PS C:\> $change2 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change2.Action = "CREATE"
+PS C:\> $change2.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change2.ResourceRecordSet.Name = "www.example.com"
+PS C:\> $change2.ResourceRecordSet.Type = "A"
+PS C:\> $change2.ResourceRecordSet.SetIdentifier = "Rack 5, Positions 1 and 2"
+PS C:\> $change2.ResourceRecordSet.Weight = 3
+PS C:\> $change2.ResourceRecordSet.TTL = 600
+PS C:\> $change2.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.11"})
+PS C:\> $change2.ResourceRecordSet.ResourceRecords.Add(@{Value="192.0.2.12"})
+
+PS C:\> $params = @{
+    HostedZoneId="Z1PA6795UKMFR9"
+    ChangeBatch_Comment="This change creates two weighted resource record sets, each of which has two values."
+    ChangeBatch_Change=$change1,$change2
+}
+
+PS C:\> Edit-R53ResourceRecordSet @params
+        </code>
+        <description>This example creates two A records for www.example.com. One-fourth of the time (1/(1+3)), Amazon Route 53 responds to queries for www.example.com with the two values for the first resource record set (192.0.2.9 and 192.0.2.10). Three-fourths of the time (3/(1+3)) Amazon Route 53 responds to queries for www.example.com with the two values for the second resource record set (192.0.2.11 and 192.0.2.12).<br/><br/>See the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets_Examples.html">Amazon Route 53</a> documentation for more details. You can use the Get-R53Change cmdlet to poll to determine when the changes are complete.</description>
+	</example>
+	<example>
+		<code>
+PS C:\> $change1 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change1.Action = "CREATE"
+PS C:\> $change1.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change1.ResourceRecordSet.Name = "example.com"
+PS C:\> $change1.ResourceRecordSet.Type = "A"
+PS C:\> $change1.ResourceRecordSet.SetIdentifier = "1"
+PS C:\> $change1.ResourceRecordSet.Weight = 3
+PS C:\> $change1.ResourceRecordSet.AliasTarget = New-Object Amazon.Route53.Model.AliasTarget
+PS C:\> $change1.ResourceRecordSet.AliasTarget.HostedZoneId = "Z1111111111111"
+PS C:\> $change1.ResourceRecordSet.AliasTarget.DNSName = "example-load-balancer-2222222222.us-east-1.elb.amazonaws.com."
+PS C:\> $change1.ResourceRecordSet.AliasTarget.EvaluateTargetHealth = $true
+
+PS C:\> $change2 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change2.Action = "CREATE"
+PS C:\> $change2.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change2.ResourceRecordSet.Name = "example.com"
+PS C:\> $change2.ResourceRecordSet.Type = "A"
+PS C:\> $change2.ResourceRecordSet.SetIdentifier = "2"
+PS C:\> $change2.ResourceRecordSet.Weight = 1
+PS C:\> $change2.ResourceRecordSet.AliasTarget = New-Object Amazon.Route53.Model.AliasTarget
+PS C:\> $change2.ResourceRecordSet.AliasTarget.HostedZoneId = "Z3333333333333"
+PS C:\> $change2.ResourceRecordSet.AliasTarget.DNSName = "example-load-balancer-4444444444.us-east-1.elb.amazonaws.com."
+PS C:\> $change2.ResourceRecordSet.AliasTarget.EvaluateTargetHealth = $false
+
+PS C:\> $params = @{
+    HostedZoneId="Z5555555555"
+    ChangeBatch_Comment="This change batch creates two weighted alias resource record sets. Amazon Route 53 responds to queries for example.com with the first ELB domain 3/4ths of the times and the second one 1/4th of the time."
+    ChangeBatch_Change=$change1,$change2
+}
+
+PS C:\> Edit-R53ResourceRecordSet @params
+		</code>
+		<description>This example shows how to create weighted alias resource record sets assuming that example.com is the domain for which you want to create weighted alias resource record sets. SetIdentifier differentiates the two weighted alias resource record sets from one another. This element is required because the Name and Type elements have the same values for both resource record sets. Z1111111111111 and Z3333333333333 are examples of hosted zone IDs for the ELB load balancer specified by the value of DNSName. example-load-balancer-2222222222.us-east-1.elb.amazonaws.com and example-load-balancer-4444444444.us-east-1.elb.amazonaws.com are examples of Elastic Load Balancing domains from which Amazon Route 53 responds to queries for example.com.<br/><br/>See the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/CreateWeightedAliasRRSAPI.html">Amazon Route 53</a> documentation for more details. You can use the Get-R53Change cmdlet to poll to determine when the changes are complete.</description>
+	</example>
+	<example>
+		<code>
+PS C:\> $change1 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change1.Action = "CREATE"
+PS C:\> $change1.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change1.ResourceRecordSet.Name = "example.com"
+PS C:\> $change1.ResourceRecordSet.Type = "A"
+PS C:\> $change1.ResourceRecordSet.SetIdentifier = "Oregon load balancer 1"
+PS C:\> $change1.ResourceRecordSet.Region = us-west-2
+PS C:\> $change1.ResourceRecordSet.AliasTarget = New-Object Amazon.Route53.Model.AliasTarget
+PS C:\> $change1.ResourceRecordSet.AliasTarget.HostedZoneId = "Z1111111111111"
+PS C:\> $change1.ResourceRecordSet.AliasTarget.DNSName = "example-load-balancer-2222222222.us-west-2.elb.amazonaws.com"
+PS C:\> $change1.ResourceRecordSet.AliasTarget.EvaluateTargetHealth = $true
+
+PS C:\> $change2 = New-Object Amazon.Route53.Model.Change
+PS C:\> $change2.Action = "CREATE"
+PS C:\> $change2.ResourceRecordSet = New-Object Amazon.Route53.Model.ResourceRecordSet
+PS C:\> $change2.ResourceRecordSet.Name = "example.com"
+PS C:\> $change2.ResourceRecordSet.Type = "A"
+PS C:\> $change2.ResourceRecordSet.SetIdentifier = "Singapore load balancer 1"
+PS C:\> $change2.ResourceRecordSet.Region = ap-southeast-1
+PS C:\> $change2.ResourceRecordSet.AliasTarget = New-Object Amazon.Route53.Model.AliasTarget
+PS C:\> $change2.ResourceRecordSet.AliasTarget.HostedZoneId = "Z2222222222222"
+PS C:\> $change2.ResourceRecordSet.AliasTarget.DNSName = "example-load-balancer-1111111111.ap-southeast-1.elb.amazonaws.com"
+PS C:\> $change2.ResourceRecordSet.AliasTarget.EvaluateTargetHealth = $true
+
+PS C:\> $params = @{
+    HostedZoneId="Z5555555555"
+    ChangeBatch_Comment="This change batch creates two latency resource record sets, one for the US West (Oregon) region and one for the Asia Pacific (Singapore) region."
+    ChangeBatch_Change=$change1,$change2
+}
+
+PS C:\> Edit-R53ResourceRecordSet @params
+		</code>
+		<description>This example creates two latency alias resource record sets, one for an ELB load balancer in the US West (Oregon) region (us-west-2), and another for a load balancer in the Asia Pacific (Singapore) region (ap-southeast-1).<br/><br/>See the <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/CreateLatencyRRSAPI.html">Amazon Route 53</a> documentation for more details. You can use the Get-R53Change cmdlet to poll to determine when the changes are complete.</description>
+	</example>
+</examples>

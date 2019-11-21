@@ -1,0 +1,3 @@
+﻿# WorkDocs
+
+Export-ModuleMember -Alias *

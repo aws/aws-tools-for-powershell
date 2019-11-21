@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>marketplacecommerceanalytics</C2jFilename>
+    <AssemblyName>AWSMarketplaceCommerceAnalytics</AssemblyName>
+    <ServiceNounPrefix>MCA</ServiceNounPrefix>
+    <ServiceName>AWS Marketplace Commerce Analytics</ServiceName>
+    <ServiceClientInterface>IAmazonAWSMarketplaceCommerceAnalytics</ServiceClientInterface>
+    <ServiceClient>AmazonAWSMarketplaceCommerceAnalyticsClient</ServiceClient>
+    <ServiceModuleGuid>eb37640a-321a-435b-9fee-4f54780b26c9</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GenerateDataSet" OutputProperty="DataSetRequestId" Verb="New" Noun="DataSet" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PositionalParameters="DestinationS3BucketName;RoleNameArn;SnsTopicArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSupportDataExport" OutputProperty="DataSetRequestId" Verb="Start" Noun="SupportDataExport" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

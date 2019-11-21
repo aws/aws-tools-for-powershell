@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\ Update-IAMAssumeRolePolicy -RoleName ClientRole -PolicyDocument (Get-Content -raw ClientRolePolicy.json)</code>
+    <description>This example updates the IAM role named <code>ClientRole</code> with a new trust policy, the contents of which come from the file <code>ClientRolePolicy.json</code>. Note that you must use the <code>-Raw</code> switch parameter to successfully process the contents of the JSON file.</description>
+  </example>
+</examples>

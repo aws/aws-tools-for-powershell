@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> New-SSMDocument -Content (Get-Content -Raw "c:\temp\RunShellScript.json") -Name "RunShellScript" -DocumentType "Command"
+
+CreatedDate     : 3/1/2017 1:21:33 AM
+DefaultVersion  : 1
+Description     : Run an updated script
+DocumentType    : Command
+DocumentVersion : 1
+Hash            : 1d5ce820e999ff051eb4841ed887593daf77120fd76cae0d18a53cc42e4e22c1
+HashType        : Sha256
+LatestVersion   : 1
+Name            : RunShellScript
+Owner           : 809632081692
+Parameters      : {commands}
+PlatformTypes   : {Linux}
+SchemaVersion   : 2.0
+Sha1            :
+Status          : Creating</code>
+        <description>This example creates a document in your account. The document must be in JSON format. For more information about writing a configuration document, see Configuration Document in the SSM API Reference.</description>
+    </example>
+</examples>

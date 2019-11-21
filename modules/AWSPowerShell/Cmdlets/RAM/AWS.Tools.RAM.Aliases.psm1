@@ -1,0 +1,3 @@
+﻿# RAM
+
+Export-ModuleMember -Alias *

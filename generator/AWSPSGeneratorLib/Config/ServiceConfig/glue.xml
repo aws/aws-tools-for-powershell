@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>glue</C2jFilename>
+    <AssemblyName>Glue</AssemblyName>
+    <ServiceNounPrefix>GLUE</ServiceNounPrefix>
+    <ServiceName>AWS Glue</ServiceName>
+    <ServiceClientInterface>IAmazonGlue</ServiceClientInterface>
+    <ServiceClient>AmazonGlueClient</ServiceClient>
+    <ServiceModuleGuid>4c852a13-4bb9-4d9b-891e-10d7c65b8922</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Get-GLUECrawlerMetricList">Get-GLUECrawlerMetricsList</AliasSet>
+    </LegacyAliases>
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchCreatePartition" OutputProperty="Errors" Verb="New" Noun="PartitionBatch" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteConnection" OutputProperty="*" Verb="Remove" Noun="ConnectionBatch" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionNameList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeletePartition" OutputProperty="Errors" Verb="Remove" Noun="PartitionBatch" ShouldProcessTarget="TableName" PipelineParameter="PartitionsToDelete" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteTable" OutputProperty="Errors" Verb="Remove" Noun="TableBatch" ShouldProcessTarget="DatabaseName" PipelineParameter="TablesToDelete" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteTableVersion" OutputProperty="Errors" Verb="Remove" Noun="TableVersionBatch" ShouldProcessTarget="TableName" PipelineParameter="VersionIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetCrawlers" OutputProperty="*" Verb="Get" Noun="CrawlerBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDevEndpoints" OutputProperty="*" Verb="Get" Noun="DevEndpointBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetJobs" OutputProperty="*" Verb="Get" Noun="JobBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetPartition" OutputProperty="*" Verb="Get" Noun="PartitionBatch" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetTriggers" OutputProperty="*" Verb="Get" Noun="TriggerBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetWorkflows" OutputProperty="*" Verb="Get" Noun="WorkflowBatch" PipelineParameter="Names" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchStopJobRun" OutputProperty="*" Verb="Stop" Noun="JobRunBatch" ShouldProcessTarget="JobName" PipelineParameter="JobRunIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelMLTaskRun" OutputProperty="*" Verb="Stop" Noun="MLTaskRun" ShouldProcessTarget="TaskRunId" PipelineParameter="TaskRunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateClassifier" Verb="New" Noun="Classifier" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnection" Verb="New" Noun="Connection" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCrawler" Verb="New" Noun="Crawler" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDatabase" Verb="New" Noun="Database" AnonymousShouldProcessTarget="true" PipelineParameter="DatabaseInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDevEndpoint" OutputProperty="*" Verb="New" Noun="DevEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="PublicKey" NoPipelineParameter="false">
+            <Params>
+                <Param Name="PublicKeys" NewName="PublicKeyList" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateJob" OutputProperty="Name" Verb="New" Noun="Job" ShouldProcessTarget="Name" PipelineParameter="Command" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMLTransform" OutputProperty="TransformId" Verb="New" Noun="MLTransform" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePartition" Verb="New" Noun="Partition" ShouldProcessTarget="TableName" PipelineParameter="PartitionInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateScript" OutputProperty="*" Verb="New" Noun="Script" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityConfiguration" OutputProperty="*" Verb="New" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTable" Verb="New" Noun="Table" ShouldProcessTarget="DatabaseName" PipelineParameter="TableInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrigger" OutputProperty="Name" Verb="New" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserDefinedFunction" Verb="New" Noun="UserDefinedFunction" ShouldProcessTarget="DatabaseName" PipelineParameter="FunctionInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkflow" OutputProperty="Name" Verb="New" Noun="Workflow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClassifier" Verb="Remove" Noun="Classifier" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionName" PipelineParameter="ConnectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCrawler" Verb="Remove" Noun="Crawler" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatabase" Verb="Remove" Noun="Database" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDevEndpoint" Verb="Remove" Noun="DevEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteJob" OutputProperty="JobName" Verb="Remove" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMLTransform" OutputProperty="TransformId" Verb="Remove" Noun="MLTransform" ShouldProcessTarget="TransformId" PipelineParameter="TransformId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePartition" Verb="Remove" Noun="Partition" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="PolicyHashCondition" PipelineParameter="PolicyHashCondition" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecurityConfiguration" Verb="Remove" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTable" Verb="Remove" Noun="Table" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTableVersion" Verb="Remove" Noun="TableVersion" ShouldProcessTarget="TableName" PipelineParameter="VersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrigger" OutputProperty="Name" Verb="Remove" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserDefinedFunction" Verb="Remove" Noun="UserDefinedFunction" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkflow" OutputProperty="Name" Verb="Remove" Noun="Workflow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCatalogImportStatus" OutputProperty="ImportStatus" Verb="Get" Noun="CatalogImportStatus" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetClassifier" OutputProperty="Classifier" Verb="Get" Noun="Classifier" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetClassifiers" OutputProperty="Classifiers" Verb="Get" Noun="ClassifierList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnection" OutputProperty="Connection" Verb="Get" Noun="Connection" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnections" OutputProperty="ConnectionList" Verb="Get" Noun="ConnectionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCrawler" OutputProperty="Crawler" Verb="Get" Noun="Crawler" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCrawlerMetrics" OutputProperty="CrawlerMetricsList" Verb="Get" Noun="CrawlerMetricList" PipelineParameter="CrawlerNameList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCrawlers" OutputProperty="Crawlers" Verb="Get" Noun="CrawlerList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDatabase" OutputProperty="Database" Verb="Get" Noun="Database" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDatabases" OutputProperty="DatabaseList" Verb="Get" Noun="DatabaseList" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataCatalogEncryptionSettings" OutputProperty="DataCatalogEncryptionSettings" Verb="Get" Noun="DataCatalogEncryptionSetting" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataflowGraph" OutputProperty="*" Verb="Get" Noun="DataflowGraph" PipelineParameter="PythonScript" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDevEndpoint" OutputProperty="DevEndpoint" Verb="Get" Noun="DevEndpoint" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDevEndpoints" OutputProperty="DevEndpoints" Verb="Get" Noun="DevEndpointList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJob" OutputProperty="Job" Verb="Get" Noun="Job" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJobBookmark" OutputProperty="JobBookmarkEntry" Verb="Get" Noun="JobBookmark" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJobRun" OutputProperty="JobRun" Verb="Get" Noun="JobRun" PipelineParameter="RunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMapping" OutputProperty="Mapping" Verb="Get" Noun="Mapping" PipelineParameter="Source" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMLTaskRun" OutputProperty="*" Verb="Get" Noun="MLTaskRun" PipelineParameter="TaskRunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMLTaskRuns" OutputProperty="TaskRuns" Verb="Get" Noun="MLTaskRunList" PipelineParameter="TransformId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMLTransform" OutputProperty="*" Verb="Get" Noun="MLTransform" PipelineParameter="TransformId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMLTransforms" OutputProperty="Transforms" Verb="Get" Noun="MLTransformList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPartition" OutputProperty="Partition" Verb="Get" Noun="Partition" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPartitions" OutputProperty="Partitions" Verb="Get" Noun="PartitionList" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPlan" OutputProperty="*" Verb="Get" Noun="Plan" PipelineParameter="Source" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSecurityConfiguration" OutputProperty="SecurityConfiguration" Verb="Get" Noun="SecurityConfiguration" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTable" OutputProperty="Table" Verb="Get" Noun="Table" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTables" OutputProperty="TableList" Verb="Get" Noun="TableList" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTableVersion" OutputProperty="TableVersion" Verb="Get" Noun="TableVersion" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTableVersions" OutputProperty="TableVersions" Verb="Get" Noun="TableVersionList" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrigger" OutputProperty="Trigger" Verb="Get" Noun="Trigger" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTriggers" OutputProperty="Triggers" Verb="Get" Noun="TriggerList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserDefinedFunction" OutputProperty="UserDefinedFunction" Verb="Get" Noun="UserDefinedFunction" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserDefinedFunctions" OutputProperty="UserDefinedFunctions" Verb="Get" Noun="UserDefinedFunctionList" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflow" OutputProperty="Workflow" Verb="Get" Noun="Workflow" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowRun" OutputProperty="Run" Verb="Get" Noun="WorkflowRun" PipelineParameter="RunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowRunProperties" OutputProperty="RunProperties" Verb="Get" Noun="WorkflowRunProperty" PipelineParameter="RunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorkflowRuns" OutputProperty="Runs" Verb="Get" Noun="WorkflowRunList" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportCatalogToGlue" Verb="Import" Noun="Catalog" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCrawlers" OutputProperty="CrawlerNames" Verb="Get" Noun="CrawlerNameList" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDevEndpoints" OutputProperty="DevEndpointNames" Verb="Get" Noun="DevEndpointNameList" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobNames" Verb="Get" Noun="JobNameList" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTriggers" OutputProperty="TriggerNames" Verb="Get" Noun="TriggerNameList" PipelineParameter="DependentJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Workflows" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDataCatalogEncryptionSettings" Verb="Set" Noun="DataCatalogEncryptionSetting" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="PolicyHash" Verb="Set" Noun="ResourcePolicy" AnonymousShouldProcessTarget="true" PipelineParameter="PolicyInJson" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutWorkflowRunProperties" Verb="Write" Noun="WorkflowRunProperty" ShouldProcessTarget="RunId" PipelineParameter="RunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetJobBookmark" OutputProperty="JobBookmarkEntry" Verb="Reset" Noun="JobBookmark" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchTables" OutputProperty="TableList" Verb="Find" Noun="Table" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCrawler" Verb="Start" Noun="Crawler" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCrawlerSchedule" Verb="Start" Noun="CrawlerSchedule" ShouldProcessTarget="CrawlerName" PipelineParameter="CrawlerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExportLabelsTaskRun" OutputProperty="TaskRunId" Verb="Start" Noun="ExportLabelsTaskRun" ShouldProcessTarget="TransformId" PipelineParameter="TransformId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartImportLabelsTaskRun" OutputProperty="TaskRunId" Verb="Start" Noun="ImportLabelsTaskRun" ShouldProcessTarget="TransformId" PipelineParameter="TransformId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartJobRun" OutputProperty="JobRunId" Verb="Start" Noun="JobRun" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMLEvaluationTaskRun" OutputProperty="TaskRunId" Verb="Start" Noun="MLEvaluationTaskRun" ShouldProcessTarget="TransformId" PipelineParameter="TransformId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMLLabelingSetGenerationTaskRun" OutputProperty="TaskRunId" Verb="Start" Noun="MLLabelingSetGenerationTaskRun" ShouldProcessTarget="TransformId" PipelineParameter="TransformId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTrigger" OutputProperty="Name" Verb="Start" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartWorkflowRun" OutputProperty="RunId" Verb="Start" Noun="WorkflowRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopCrawler" Verb="Stop" Noun="Crawler" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopCrawlerSchedule" Verb="Stop" Noun="CrawlerSchedule" ShouldProcessTarget="CrawlerName" PipelineParameter="CrawlerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTrigger" OutputProperty="Name" Verb="Stop" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateClassifier" Verb="Update" Noun="Classifier" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnection" Verb="Update" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="ConnectionInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCrawler" Verb="Update" Noun="Crawler" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCrawlerSchedule" Verb="Update" Noun="CrawlerSchedule" ShouldProcessTarget="CrawlerName" PipelineParameter="Schedule" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDatabase" Verb="Update" Noun="Database" ShouldProcessTarget="Name" PipelineParameter="DatabaseInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDevEndpoint" Verb="Update" Noun="DevEndpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateJob" OutputProperty="JobName" Verb="Update" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="JobUpdate" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMLTransform" OutputProperty="TransformId" Verb="Update" Noun="MLTransform" ShouldProcessTarget="TransformId" PipelineParameter="TransformId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePartition" Verb="Update" Noun="Partition" ShouldProcessTarget="TableName" PipelineParameter="PartitionInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTable" Verb="Update" Noun="Table" ShouldProcessTarget="DatabaseName" PipelineParameter="TableInput" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrigger" OutputProperty="Trigger" Verb="Update" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="TriggerUpdate" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserDefinedFunction" Verb="Update" Noun="UserDefinedFunction" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkflow" OutputProperty="Name" Verb="Update" Noun="Workflow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.Glue.Model.CatalogEntry</Type>
+        <Type>Amazon.Glue.Model.ConnectionInput</Type>
+        <Type>Amazon.Glue.Model.CrawlerTargets</Type>
+        <Type>Amazon.Glue.Model.CreateGrokClassifierRequest</Type>
+        <Type>Amazon.Glue.Model.CreateXMLClassifierRequest</Type>
+        <Type>Amazon.Glue.Model.DatabaseInput</Type>
+        <Type>Amazon.Glue.Model.DevEndpointCustomLibraries</Type>
+        <Type>Amazon.Glue.Model.GetConnectionsFilter</Type>
+        <Type>Amazon.Glue.Model.GrokClassifier</Type>
+        <Type>Amazon.Glue.Model.JobCommand</Type>
+        <Type>Amazon.Glue.Model.JobUpdate</Type>
+        <Type>Amazon.Glue.Model.Location</Type>
+        <Type>Amazon.Glue.Model.PartitionInput</Type>
+        <Type>Amazon.Glue.Model.Predicate</Type>
+        <Type>Amazon.Glue.Model.SchemaChangePolicy</Type>
+        <Type>Amazon.Glue.Model.Segment</Type>
+        <Type>Amazon.Glue.Model.TableInput</Type>
+        <Type>Amazon.Glue.Model.TriggerUpdate</Type>
+        <Type>Amazon.Glue.Model.UpdateGrokClassifierRequest</Type>
+        <Type>Amazon.Glue.Model.UpdateXMLClassifierRequest</Type>
+        <Type>Amazon.Glue.Model.UserDefinedFunctionInput</Type>
+        <Type>Amazon.Glue.Model.XMLClassifier</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

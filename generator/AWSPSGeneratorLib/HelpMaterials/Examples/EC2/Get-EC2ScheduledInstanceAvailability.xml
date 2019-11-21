@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2ScheduledInstanceAvailability -Recurrence_Frequency Weekly -Recurrence_Interval 1 -Recurrence_OccurrenceDay 1 -FirstSlotStartTimeRange_EarliestTime 2016-01-31T00:00:00Z -FirstSlotStartTimeRange_LatestTime 2016-01-31T04:00:00Z
+    
+AvailabilityZone            : us-west-2b
+AvailableInstanceCount      : 20
+FirstSlotStartTime          : 1/31/2016 8:00:00 AM
+HourlyPrice                 : 0.095
+InstanceType                : c4.large
+MaxTermDurationInDays       : 366
+MinTermDurationInDays       : 366
+NetworkPlatform             : EC2-VPC
+Platform                    : Linux/UNIX
+PurchaseToken               : eyJ2IjoiMSIsInMiOjEsImMiOi...
+Recurrence                  : Amazon.EC2.Model.ScheduledInstanceRecurrence
+SlotDurationInHours         : 23
+TotalScheduledInstanceHours : 1219
+
+...</code>
+    <description>This example describes a schedule that occurs every week on Sunday, starting on the specified date.</description>
+  </example>
+  <example>
+    <code>-Filter @{ Name="platform";Value="Linux/UNIX" },@{ Name="network-platform";Value="EC2-VPC" },@{ Name="instance-type";Value="c4.large" }</code>
+    <description>To narrow the results, you can add filters for criteria such as operating system, network, and instance type.</description>
+  </example>
+</examples>

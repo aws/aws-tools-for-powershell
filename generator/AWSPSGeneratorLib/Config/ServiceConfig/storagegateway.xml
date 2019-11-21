@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>storagegateway</C2jFilename>
+    <AssemblyName>StorageGateway</AssemblyName>
+    <ServiceNounPrefix>SG</ServiceNounPrefix>
+    <ServiceName>AWS Storage Gateway</ServiceName>
+    <ServiceClientInterface>IAmazonStorageGateway</ServiceClientInterface>
+    <ServiceClient>AmazonStorageGatewayClient</ServiceClient>
+    <ServiceModuleGuid>d286e57e-c129-44c1-918b-041ba56c2a44</ServiceModuleGuid>
+    <PipelineParameter>GatewayARN</PipelineParameter>
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="Limit" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+        <Map From="Activate" To="Enable" />
+        <Map From="Shutdown" To="Stop" />
+        <Map From="Retrieve" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="CachediSCSIVolumes" To="CachediSCSIVolume" />
+        <Map From="Gateways" To="Gateway" />
+        <Map From="LocalDisks" To="LocalDisk" />
+        <Map From="StorediSCSIVolumes" To="StorediSCSIVolume" />
+        <Map From="VolumeRecoveryPoints" To="VolumeRecoveryPoint" />
+        <Map From="Volumes" To="Volume" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases>
+        <AliasSet Cmdlet="Enable-SGGateway">Activate-SGGateway</AliasSet>
+        <AliasSet Cmdlet="Stop-SGGateway">Shutdown-SGGateway</AliasSet>
+    </CustomAliases>
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ActivateGateway" OutputProperty="GatewayARN" Verb="Enable" Noun="Gateway" ShouldProcessTarget="GatewayName" PositionalParameters="GatewayName;GatewayTimezone;GatewayRegion;GatewayType" PipelineParameter="ActivationKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddCache" OutputProperty="GatewayARN" Verb="Add" Noun="Cache" ShouldProcessTarget="DiskIds" PositionalParameters="DiskIds" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddTagsToResource" OutputProperty="ResourceARN" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddUploadBuffer" OutputProperty="GatewayARN" Verb="Add" Noun="UploadBuffer" ShouldProcessTarget="DiskIds" PositionalParameters="DiskIds" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddWorkingStorage" OutputProperty="GatewayARN" Verb="Add" Noun="WorkingStorage" ShouldProcessTarget="DiskIds" PositionalParameters="DiskIds" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssignTapePool" OutputProperty="TapeARN" Verb="Add" Noun="TapeToTapePool" ShouldProcessTarget="TapeARN" PipelineParameter="TapeARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachVolume" OutputProperty="*" Verb="Mount" Noun="Volume" ShouldProcessTarget="VolumeARN" PositionalParameters="GatewayARN" PipelineParameter="VolumeARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelArchival" OutputProperty="TapeARN" Verb="Stop" Noun="Archival" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelRetrieval" OutputProperty="TapeARN" Verb="Stop" Noun="Retrieval" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCachediSCSIVolume" OutputProperty="*" Verb="New" Noun="CachediSCSIVolume" ShouldProcessTarget="GatewayARN" PositionalParameters="SnapshotId;TargetName;NetworkInterfaceId;ClientToken" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params>
+                <Param Name="VolumeSizeInBytes" AutoRename="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNFSFileShare" OutputProperty="FileShareARN" Verb="New" Noun="NFSFileShare" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSMBFileShare" OutputProperty="FileShareARN" Verb="New" Noun="SMBFileShare" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="*" Verb="New" Noun="Snapshot" ShouldProcessTarget="VolumeARN" PositionalParameters="SnapshotDescription" PipelineParameter="VolumeARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshotFromVolumeRecoveryPoint" OutputProperty="*" Verb="New" Noun="SnapshotFromVolumeRecoveryPoint" ShouldProcessTarget="VolumeARN" PositionalParameters="SnapshotDescription" PipelineParameter="VolumeARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStorediSCSIVolume" OutputProperty="*" Verb="New" Noun="StorediSCSIVolume" ShouldProcessTarget="GatewayARN" PositionalParameters="SnapshotId;TargetName;NetworkInterfaceId" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTapes" OutputProperty="TapeARNs" Verb="New" Noun="Tape" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyAlias="New-SGTapes">
+            <Params>
+                <Param Name="TapeSizeInBytes" AutoRename="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTapeWithBarcode" OutputProperty="TapeARN" Verb="New" Noun="TapeWithBarcode" ShouldProcessTarget="GatewayARN" PositionalParameters="TapeBarcode" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBandwidthRateLimit" OutputProperty="GatewayARN" Verb="Remove" Noun="BandwidthRateLimit" ShouldProcessTarget="BandwidthType" PositionalParameters="BandwidthType" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChapCredentials" OutputProperty="*" Verb="Remove" Noun="ChapCredential" ShouldProcessTarget="InitiatorName" PositionalParameters="InitiatorName" PipelineParameter="TargetARN" NoPipelineParameter="false" LegacyAlias="Remove-SGChapCredentials">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFileShare" OutputProperty="FileShareARN" Verb="Remove" Noun="FileShare" ShouldProcessTarget="FileShareARN" PipelineParameter="FileShareARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGateway" OutputProperty="GatewayARN" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapshotSchedule" OutputProperty="VolumeARN" Verb="Remove" Noun="SnapshotSchedule" ShouldProcessTarget="VolumeARN" PipelineParameter="VolumeARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTape" OutputProperty="TapeARN" Verb="Remove" Noun="Tape" ShouldProcessTarget="TapeARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTapeArchive" OutputProperty="TapeARN" Verb="Remove" Noun="TapeArchive" ShouldProcessTarget="TapeARN" PipelineParameter="TapeARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVolume" OutputProperty="VolumeARN" Verb="Remove" Noun="Volume" ShouldProcessTarget="VolumeARN" PipelineParameter="VolumeARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBandwidthRateLimit" OutputProperty="*" Verb="Get" Noun="BandwidthRateLimit" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCache" OutputProperty="*" Verb="Get" Noun="Cache" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCachediSCSIVolumes" OutputProperty="CachediSCSIVolumes" Verb="Get" Noun="CachediSCSIVolume" PipelineParameter="VolumeARNs" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChapCredentials" OutputProperty="ChapCredentials" Verb="Get" Noun="ChapCredential" PipelineParameter="TargetARN" NoPipelineParameter="false" LegacyAlias="Get-SGChapCredentials">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGatewayInformation" OutputProperty="*" Verb="Get" Noun="GatewayInformation" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMaintenanceStartTime" OutputProperty="*" Verb="Get" Noun="MaintenanceStartTime" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNFSFileShares" OutputProperty="NFSFileShareInfoList" Verb="Get" Noun="NFSFileShareList" PipelineParameter="FileShareARNList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSMBFileShares" OutputProperty="SMBFileShareInfoList" Verb="Get" Noun="SMBFileShare" PipelineParameter="FileShareARNList" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSMBSettings" OutputProperty="*" Verb="Get" Noun="SMBSetting" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshotSchedule" OutputProperty="*" Verb="Get" Noun="SnapshotSchedule" PipelineParameter="VolumeARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStorediSCSIVolumes" OutputProperty="StorediSCSIVolumes" Verb="Get" Noun="StorediSCSIVolume" PipelineParameter="VolumeARNs" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTapeArchives" OutputProperty="TapeArchives" Verb="Get" Noun="TapeArchiveList" PipelineParameter="TapeARNs" NoPipelineParameter="false" LegacyAlias="Get-SGTapeArchives">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTapeRecoveryPoints" OutputProperty="TapeRecoveryPointInfos" Verb="Get" Noun="TapeRecoveryPointList" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyAlias="Get-SGTapeRecoveryPoints">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTapes" OutputProperty="Tapes" Verb="Get" Noun="TapeList" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyAlias="Get-SGTapes">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUploadBuffer" OutputProperty="*" Verb="Get" Noun="UploadBuffer" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVTLDevices" OutputProperty="VTLDevices" Verb="Get" Noun="VTLDevice" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyAlias="Get-SGVTLDevices">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkingStorage" OutputProperty="*" Verb="Get" Noun="WorkingStorage" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachVolume" OutputProperty="VolumeARN" Verb="Dismount" Noun="Volume" ShouldProcessTarget="VolumeARN" PipelineParameter="VolumeARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableGateway" OutputProperty="GatewayARN" Verb="Disable" Noun="Gateway" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="JoinDomain" OutputProperty="GatewayARN" Verb="Join" Noun="Domain" ShouldProcessTarget="DomainName" PositionalParameters="GatewayARN" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFileShares" OutputProperty="FileShareInfoList" Verb="Get" Noun="FileShareList" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="Gateway" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLocalDisks" OutputProperty="*" Verb="Get" Noun="LocalDisk" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyAlias="Get-SGResourceTags">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTapes" OutputProperty="TapeInfos" Verb="Get" Noun="Tape" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVolumeInitiators" OutputProperty="Initiators" Verb="Get" Noun="VolumeInitiatorList" PipelineParameter="VolumeARN" NoPipelineParameter="false" LegacyAlias="Get-SGVolumeInitiators">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVolumeRecoveryPoints" OutputProperty="*" Verb="Get" Noun="VolumeRecoveryPoint" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVolumes" OutputProperty="VolumeInfos" Verb="Get" Noun="Volume" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyWhenUploaded" OutputProperty="*" Verb="Send" Noun="UploadedNotification" ShouldProcessTarget="FileShareARN" PipelineParameter="FileShareARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RefreshCache" OutputProperty="*" Verb="Invoke" Noun="CacheRefresh" ShouldProcessTarget="FileShareARN" PipelineParameter="FileShareARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromResource" OutputProperty="ResourceARN" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetCache" OutputProperty="*" Verb="Reset" Noun="Cache" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveTapeArchive" OutputProperty="TapeARN" Verb="Get" Noun="TapeArchive" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveTapeRecoveryPoint" OutputProperty="TapeARN" Verb="Get" Noun="TapeRecoveryPoint" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetLocalConsolePassword" OutputProperty="GatewayARN" Verb="Set" Noun="LocalConsolePassword" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetSMBGuestPassword" OutputProperty="GatewayARN" Verb="Set" Noun="SMBGuestPassword" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ShutdownGateway" OutputProperty="GatewayARN" Verb="Stop" Noun="Gateway" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartGateway" OutputProperty="GatewayARN" Verb="Start" Noun="Gateway" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBandwidthRateLimit" OutputProperty="GatewayARN" Verb="Update" Noun="BandwidthRateLimit" ShouldProcessTarget="GatewayARN" PositionalParameters="AverageUploadRateLimitInBitsPerSec;AverageDownloadRateLimitInBitsPerSec" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChapCredentials" OutputProperty="*" Verb="Update" Noun="ChapCredential" ShouldProcessTarget="InitiatorName" PositionalParameters="SecretToAuthenticateInitiator;InitiatorName;SecretToAuthenticateTarget" PipelineParameter="TargetARN" NoPipelineParameter="false" LegacyAlias="Update-SGChapCredentials">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewayInformation" OutputProperty="*" Verb="Update" Noun="GatewayInformation" ShouldProcessTarget="GatewayName" PositionalParameters="GatewayName;GatewayTimezone" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewaySoftwareNow" OutputProperty="GatewayARN" Verb="Update" Noun="GatewaySoftwareNow" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMaintenanceStartTime" OutputProperty="GatewayARN" Verb="Update" Noun="MaintenanceStartTime" ShouldProcessTarget="GatewayARN" PositionalParameters="HourOfDay;MinuteOfHour;DayOfWeek" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNFSFileShare" OutputProperty="FileShareARN" Verb="Update" Noun="NFSFileShare" ShouldProcessTarget="FileShareARN" PipelineParameter="FileShareARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSMBFileShare" OutputProperty="FileShareARN" Verb="Update" Noun="SMBFileShare" ShouldProcessTarget="FileShareARN" PipelineParameter="FileShareARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSMBSecurityStrategy" OutputProperty="GatewayARN" Verb="Update" Noun="SMBSecurityStrategy" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSnapshotSchedule" OutputProperty="VolumeARN" Verb="Update" Noun="SnapshotSchedule" ShouldProcessTarget="VolumeARN" PositionalParameters="StartAt;RecurrenceInHours;Description" PipelineParameter="VolumeARN" NoPipelineParameter="false">
+            <Params>
+                <Param Name="RecurrenceInHours" AutoRename="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVTLDeviceType" OutputProperty="*" Verb="Update" Noun="VTLDeviceType" ShouldProcessTarget="VTLDeviceARN" PipelineParameter="VTLDeviceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

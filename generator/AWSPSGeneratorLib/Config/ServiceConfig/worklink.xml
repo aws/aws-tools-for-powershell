@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>worklink</C2jFilename>
+    <AssemblyName>WorkLink</AssemblyName>
+    <ServiceNounPrefix>WL</ServiceNounPrefix>
+    <ServiceName>Amazon WorkLink</ServiceName>
+    <ServiceClientInterface>IAmazonWorkLink</ServiceClientInterface>
+    <ServiceClient>AmazonWorkLinkClient</ServiceClient>
+    <ServiceModuleGuid>2df4f089-9e90-464d-8dd9-c7e17ba85504</ServiceModuleGuid>
+    <PipelineParameter>FleetArn</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateDomain" Verb="Register" Noun="Domain" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateWebsiteAuthorizationProvider" OutputProperty="AuthorizationProviderId" Verb="Add" Noun="WebsiteAuthorizationProviderToFleet" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateWebsiteCertificateAuthority" OutputProperty="WebsiteCaId" Verb="Register" Noun="WebsiteCertificateAuthority" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFleet" OutputProperty="FleetArn" Verb="New" Noun="Fleet" ShouldProcessTarget="FleetName" PipelineParameter="FleetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAuditStreamConfiguration" OutputProperty="AuditStreamArn" Verb="Get" Noun="AuditStreamConfiguration" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCompanyNetworkConfiguration" OutputProperty="*" Verb="Get" Noun="CompanyNetworkConfiguration" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDevice" OutputProperty="*" Verb="Get" Noun="Device" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDevicePolicyConfiguration" OutputProperty="DeviceCaCertificate" Verb="Get" Noun="DevicePolicyConfiguration" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetMetadata" OutputProperty="*" Verb="Get" Noun="FleetMetadata" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityProviderConfiguration" OutputProperty="*" Verb="Get" Noun="IdentityProviderConfiguration" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWebsiteCertificateAuthority" OutputProperty="*" Verb="Get" Noun="WebsiteCertificateAuthority" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDomain" Verb="Unregister" Noun="Domain" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWebsiteAuthorizationProvider" Verb="Remove" Noun="WebsiteAuthorizationProviderFromFleet" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWebsiteCertificateAuthority" Verb="Unregister" Noun="WebsiteCertificateAuthority" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetSummaryList" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWebsiteAuthorizationProviders" OutputProperty="WebsiteAuthorizationProviders" Verb="Get" Noun="WebsiteAuthorizationProviderList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWebsiteCertificateAuthorities" OutputProperty="WebsiteCertificateAuthorities" Verb="Get" Noun="WebsiteCertificateAuthorityList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreDomainAccess" Verb="Restore" Noun="DomainAccess" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeDomainAccess" Verb="Revoke" Noun="DomainAccess" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SignOutUser" Verb="Disconnect" Noun="User" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAuditStreamConfiguration" Verb="Update" Noun="AuditStreamConfiguration" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCompanyNetworkConfiguration" Verb="Update" Noun="CompanyNetworkConfiguration" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDevicePolicyConfiguration" Verb="Update" Noun="DevicePolicyConfiguration" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainMetadata" Verb="Update" Noun="DomainMetadata" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFleetMetadata" Verb="Update" Noun="FleetMetadata" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIdentityProviderConfiguration" Verb="Update" Noun="IdentityProviderConfiguration" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

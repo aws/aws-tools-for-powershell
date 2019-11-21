@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>ram</C2jFilename>
+    <AssemblyName>RAM</AssemblyName>
+    <ServiceNounPrefix>RAM</ServiceNounPrefix>
+    <ServiceName>AWS Resource Access Manager (RAM)</ServiceName>
+    <ServiceClientInterface>IAmazonRAM</ServiceClientInterface>
+    <ServiceClient>AmazonRAMClient</ServiceClient>
+    <ServiceModuleGuid>0f1f334d-da23-4a69-80c2-93ee833ebdb0</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="500" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>ClientToken</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptResourceShareInvitation" OutputProperty="ResourceShareInvitation" Verb="Confirm" Noun="ResourceShareInvitation" ShouldProcessTarget="ResourceShareInvitationArn" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateResourceShare" OutputProperty="ResourceShareAssociations" Verb="Connect" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceShare" OutputProperty="ResourceShare" Verb="New" Noun="ResourceShare" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceShare" OutputProperty="ReturnValue" Verb="Remove" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResourceShare" OutputProperty="ResourceShareAssociations" Verb="Disconnect" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableSharingWithAwsOrganization" OutputProperty="ReturnValue" Verb="Enable" Noun="SharingWithAwsOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicies" OutputProperty="Policies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceShareAssociations" OutputProperty="ResourceShareAssociations" Verb="Get" Noun="ResourceShareAssociation" PipelineParameter="AssociationType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceShareInvitations" OutputProperty="ResourceShareInvitations" Verb="Get" Noun="ResourceShareInvitation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceShares" OutputProperty="ResourceShares" Verb="Get" Noun="ResourceShare" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPendingInvitationResources" OutputProperty="Resources" Verb="Get" Noun="PendingInvitationResourceList" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPrincipals" OutputProperty="Principals" Verb="Get" Noun="PrincipalList" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectResourceShareInvitation" OutputProperty="ResourceShareInvitation" Verb="Deny" Noun="ResourceShareInvitation" ShouldProcessTarget="ResourceShareInvitationArn" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceShare" OutputProperty="ResourceShare" Verb="Update" Noun="ResourceShare" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cloudfront</C2jFilename>
+    <AssemblyName>CloudFront</AssemblyName>
+    <ServiceNounPrefix>CF</ServiceNounPrefix>
+    <ServiceName>Amazon CloudFront</ServiceName>
+    <ServiceClientInterface>IAmazonCloudFront</ServiceClientInterface>
+    <ServiceClient>AmazonCloudFrontClient</ServiceClient>
+    <ServiceModuleGuid>ff551d47-e813-4ce6-b82a-d605816d6632</ServiceModuleGuid>
+    <PipelineParameter>Id</PipelineParameter>
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>ETag</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateCloudFrontOriginAccessIdentity" OutputProperty="*" Verb="New" Noun="CloudFrontOriginAccessIdentity" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDistribution" OutputProperty="*" Verb="New" Noun="Distribution" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDistributionWithTags" OutputProperty="*" Verb="New" Noun="DistributionWithTag" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFieldLevelEncryptionConfig" OutputProperty="*" Verb="New" Noun="FieldLevelEncryptionConfig" AnonymousShouldProcessTarget="true" PipelineParameter="FieldLevelEncryptionConfig" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFieldLevelEncryptionProfile" OutputProperty="*" Verb="New" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="FieldLevelEncryptionProfileConfig_Name" PipelineParameter="FieldLevelEncryptionProfileConfig_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInvalidation" OutputProperty="*" Verb="New" Noun="Invalidation" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePublicKey" OutputProperty="*" Verb="New" Noun="PublicKey" ShouldProcessTarget="PublicKeyConfig_Name" PipelineParameter="PublicKeyConfig_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStreamingDistribution" OutputProperty="*" Verb="New" Noun="StreamingDistribution" ShouldProcessTarget="StreamingDistributionConfig_S3Origin_DomainName" PipelineParameter="StreamingDistributionConfig_S3Origin_DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStreamingDistributionWithTags" OutputProperty="*" Verb="New" Noun="StreamingDistributionWithTag" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCloudFrontOriginAccessIdentity" Verb="Remove" Noun="CloudFrontOriginAccessIdentity" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDistribution" Verb="Remove" Noun="Distribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFieldLevelEncryptionConfig" Verb="Remove" Noun="FieldLevelEncryptionConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFieldLevelEncryptionProfile" Verb="Remove" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePublicKey" Verb="Remove" Noun="PublicKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStreamingDistribution" Verb="Remove" Noun="StreamingDistribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudFrontOriginAccessIdentity" OutputProperty="CloudFrontOriginAccessIdentity" Verb="Get" Noun="CloudFrontOriginAccessIdentity" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudFrontOriginAccessIdentityConfig" OutputProperty="CloudFrontOriginAccessIdentityConfig" Verb="Get" Noun="CloudFrontOriginAccessIdentityConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDistribution" OutputProperty="Distribution" Verb="Get" Noun="Distribution" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDistributionConfig" OutputProperty="DistributionConfig" Verb="Get" Noun="DistributionConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFieldLevelEncryption" OutputProperty="FieldLevelEncryption" Verb="Get" Noun="FieldLevelEncryption" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFieldLevelEncryptionConfig" OutputProperty="FieldLevelEncryptionConfig" Verb="Get" Noun="FieldLevelEncryptionConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFieldLevelEncryptionProfile" OutputProperty="FieldLevelEncryptionProfile" Verb="Get" Noun="FieldLevelEncryptionProfile" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFieldLevelEncryptionProfileConfig" OutputProperty="FieldLevelEncryptionProfileConfig" Verb="Get" Noun="FieldLevelEncryptionProfileConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInvalidation" OutputProperty="Invalidation" Verb="Get" Noun="Invalidation" PositionalParameters="Id" PipelineParameter="DistributionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPublicKey" OutputProperty="PublicKey" Verb="Get" Noun="PublicKey" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPublicKeyConfig" OutputProperty="PublicKeyConfig" Verb="Get" Noun="PublicKeyConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStreamingDistribution" OutputProperty="StreamingDistribution" Verb="Get" Noun="StreamingDistribution" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStreamingDistributionConfig" OutputProperty="StreamingDistributionConfig" Verb="Get" Noun="StreamingDistributionConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities" OutputProperty="CloudFrontOriginAccessIdentityList.Items" OutputWrapper="CloudFrontOriginAccessIdentityList" Verb="Get" Noun="CloudFrontOriginAccessIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFCloudFrontOriginAccessIdentities">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributions" OutputProperty="DistributionList.Items" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFDistributions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionsByWebACLId" OutputProperty="DistributionList.Items" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionListByWebACLId" PipelineParameter="WebACLId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFieldLevelEncryptionConfigs" OutputProperty="FieldLevelEncryptionList.Items" OutputWrapper="FieldLevelEncryptionList" Verb="Get" Noun="FieldLevelEncryptionConfigList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFieldLevelEncryptionProfiles" OutputProperty="FieldLevelEncryptionProfileList.Items" OutputWrapper="FieldLevelEncryptionProfileList" Verb="Get" Noun="FieldLevelEncryptionProfileList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInvalidations" OutputProperty="InvalidationList.Items" OutputWrapper="InvalidationList" Verb="Get" Noun="InvalidationList" PipelineParameter="DistributionId" NoPipelineParameter="false" LegacyAlias="Get-CFInvalidations">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeyList.Items" OutputWrapper="PublicKeyList" Verb="Get" Noun="PublicKeyList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreamingDistributions" OutputProperty="StreamingDistributionList.Items" OutputWrapper="StreamingDistributionList" Verb="Get" Noun="StreamingDistributionList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFStreamingDistributions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Tags_Items" NewName="Tag" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params>
+                <Param Name="TagKeys_Items" NewName="TagKey" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCloudFrontOriginAccessIdentity" OutputProperty="CloudFrontOriginAccessIdentity" Verb="Update" Noun="CloudFrontOriginAccessIdentity" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDistribution" OutputProperty="Distribution" Verb="Update" Noun="Distribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFieldLevelEncryptionConfig" OutputProperty="FieldLevelEncryption" Verb="Update" Noun="FieldLevelEncryptionConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFieldLevelEncryptionProfile" OutputProperty="FieldLevelEncryptionProfile" Verb="Update" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePublicKey" OutputProperty="PublicKey" Verb="Update" Noun="PublicKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStreamingDistribution" OutputProperty="StreamingDistribution" Verb="Update" Noun="StreamingDistribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.CloudFront.Model.FieldLevelEncryptionConfig</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

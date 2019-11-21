@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> Get-GLCJob -VaultName myvault -JobId "op1x...JSbthM"
+
+
+Action                       : ArchiveRetrieval
+ArchiveId                    : o9O9j...X-TpIhQJw
+ArchiveSHA256TreeHash        : 79f3ea754c02f58...dc57bf4395b
+ArchiveSizeInBytes           : 38034480
+Completed                    : False
+CompletionDate               : 1/1/0001 12:00:00 AM
+CreationDate                 : 12/13/2018 11:00:14 AM
+InventoryRetrievalParameters :
+InventorySizeInBytes         : 0
+JobDescription               :
+JobId                        : op1x...JSbthM
+JobOutputPath                :
+OutputLocation               :
+RetrievalByteRange           : 0-38034479
+SelectParameters             :
+SHA256TreeHash               : 79f3ea754c02f58...dc57bf4395b
+SNSTopic                     :
+StatusCode                   : InProgress
+StatusMessage                :
+Tier                         : Standard
+VaultARN                     : arn:aws:glacier:us-west-2:012345678912:vaults/test
+    </code>
+    <description>Returns details of the specified job. When the job completes successfully the Read-GCJobOutput cmdlet can be used to retrieve the contents of the job (an archive or inventory list) to the local file system.</description>
+  </example>
+</examples>

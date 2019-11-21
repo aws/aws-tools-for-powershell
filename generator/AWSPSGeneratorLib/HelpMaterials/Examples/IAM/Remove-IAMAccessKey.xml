@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Remove-IAMAccessKey -AccessKeyId AKIAIOSFODNN7EXAMPLE -UserName Bob -Force</code>
+    <description>This example deletes the AWS access key pair with the key ID <code>AKIAIOSFODNN7EXAMPLE</code> from the user named <code>Bob</code>.</description>
+  </example>
+</examples>

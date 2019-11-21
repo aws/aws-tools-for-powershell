@@ -1,0 +1,3 @@
+﻿# ResourceGroupsTaggingAPI
+
+Export-ModuleMember -Alias *

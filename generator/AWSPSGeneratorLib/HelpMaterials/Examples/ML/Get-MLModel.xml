@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Get-MLModel -ModelId ID</code>
+        <description>Returns the detail metadata, status, schema, and data file information for a MLModel with id ID.</description>
+    </example>
+</examples>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>budgets</C2jFilename>
+    <AssemblyName>Budgets</AssemblyName>
+    <ServiceNounPrefix>BGT</ServiceNounPrefix>
+    <ServiceName>AWS Budgets</ServiceName>
+    <ServiceClientInterface>IAmazonBudgets</ServiceClientInterface>
+    <ServiceClient>AmazonBudgetsClient</ServiceClient>
+    <ServiceModuleGuid>81ec3b32-a972-46fd-b982-b7efd006fbee</ServiceModuleGuid>
+    <PipelineParameter>BudgetName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateBudget" Verb="New" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotification" Verb="New" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscriber" Verb="New" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBudget" Verb="Remove" Noun="Budget" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotification" Verb="Remove" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscriber" Verb="Remove" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBudget" OutputProperty="Budget" Verb="Get" Noun="Budget" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" OutputProperty="BudgetPerformanceHistory" Verb="Get" Noun="BudgetPerformanceHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBudgets" OutputProperty="Budgets" Verb="Get" Noun="BudgetList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotificationsForBudget" OutputProperty="Notifications" Verb="Get" Noun="NotificationsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSubscribersForNotification" OutputProperty="Subscribers" Verb="Get" Noun="SubscribersForNotification" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateBudget" Verb="Update" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotification" Verb="Update" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscriber" Verb="Update" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

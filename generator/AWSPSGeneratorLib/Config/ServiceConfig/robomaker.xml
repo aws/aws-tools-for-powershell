@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>robomaker</C2jFilename>
+    <AssemblyName>RoboMaker</AssemblyName>
+    <ServiceNounPrefix>ROBO</ServiceNounPrefix>
+    <ServiceName>AWS RoboMaker</ServiceName>
+    <ServiceClientInterface>IAmazonRoboMaker</ServiceClientInterface>
+    <ServiceClient>AmazonRoboMakerClient</ServiceClient>
+    <ServiceModuleGuid>a5bf9a7f-7981-4b46-919c-536aae36c26f</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchDescribeSimulationJob" OutputProperty="*" Verb="Get" Noun="SimulationJobList" PipelineParameter="Jobs" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelDeploymentJob" Verb="Stop" Noun="DeploymentJob" ShouldProcessTarget="Job" PipelineParameter="Job" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelSimulationJob" Verb="Stop" Noun="SimulationJob" ShouldProcessTarget="Job" PipelineParameter="Job" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeploymentJob" OutputProperty="*" Verb="New" Noun="DeploymentJob" ShouldProcessTarget="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFleet" OutputProperty="*" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRobot" OutputProperty="*" Verb="New" Noun="Robot" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRobotApplication" OutputProperty="*" Verb="New" Noun="RobotApplication" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRobotApplicationVersion" OutputProperty="*" Verb="New" Noun="RobotApplicationVersion" ShouldProcessTarget="CurrentRevisionId" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSimulationApplication" OutputProperty="*" Verb="New" Noun="SimulationApplication" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSimulationApplicationVersion" OutputProperty="*" Verb="New" Noun="SimulationApplicationVersion" ShouldProcessTarget="CurrentRevisionId" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSimulationJob" OutputProperty="*" Verb="New" Noun="SimulationJob" ShouldProcessTarget="IamRole" PipelineParameter="IamRole" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRobot" Verb="Remove" Noun="Robot" ShouldProcessTarget="Robot" PipelineParameter="Robot" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRobotApplication" Verb="Remove" Noun="RobotApplication" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSimulationApplication" Verb="Remove" Noun="SimulationApplication" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterRobot" OutputProperty="*" Verb="Unregister" Noun="Robot" ShouldProcessTarget="Robot" PipelineParameter="Robot" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeploymentJob" OutputProperty="*" Verb="Get" Noun="DeploymentJob" PipelineParameter="Job" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleet" OutputProperty="*" Verb="Get" Noun="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRobot" OutputProperty="*" Verb="Get" Noun="Robot" PipelineParameter="Robot" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRobotApplication" OutputProperty="*" Verb="Get" Noun="RobotApplication" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSimulationApplication" OutputProperty="*" Verb="Get" Noun="SimulationApplication" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSimulationJob" OutputProperty="*" Verb="Get" Noun="SimulationJob" PipelineParameter="Job" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeploymentJobs" OutputProperty="DeploymentJobs" Verb="Get" Noun="DeploymentJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetDetails" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRobotApplications" OutputProperty="RobotApplicationSummaries" Verb="Get" Noun="RobotApplicationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRobots" OutputProperty="Robots" Verb="Get" Noun="RobotList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSimulationApplications" OutputProperty="SimulationApplicationSummaries" Verb="Get" Noun="SimulationApplicationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSimulationJobs" OutputProperty="SimulationJobSummaries" Verb="Get" Noun="SimulationJobSummary" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterRobot" OutputProperty="*" Verb="Register" Noun="Robot" ShouldProcessTarget="Robot" PipelineParameter="Robot" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestartSimulationJob" Verb="Restart" Noun="SimulationJob" ShouldProcessTarget="Job" PipelineParameter="Job" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SyncDeploymentJob" OutputProperty="*" Verb="Sync" Noun="DeploymentJob" ShouldProcessTarget="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRobotApplication" OutputProperty="*" Verb="Update" Noun="RobotApplication" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSimulationApplication" OutputProperty="*" Verb="Update" Noun="SimulationApplication" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.RoboMaker.Model.DeploymentConfig</Type>
+        <Type>Amazon.RoboMaker.Model.RobotSoftwareSuite</Type>
+        <Type>Amazon.RoboMaker.Model.SimulationSoftwareSuite</Type>
+        <Type>Amazon.RoboMaker.Model.OutputLocation</Type>
+        <Type>Amazon.RoboMaker.Model.VPCConfig</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

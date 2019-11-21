@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Enable-EC2VolumeIO -VolumeId vol-12345678</code>
+    <description>This example enables I/O operations for the specified volume, if I/O operations were disabled.</description>
+  </example>
+</examples>

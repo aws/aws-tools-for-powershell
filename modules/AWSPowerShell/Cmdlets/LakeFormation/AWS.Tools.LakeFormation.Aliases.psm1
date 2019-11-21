@@ -1,0 +1,3 @@
+﻿# LakeFormation
+
+Export-ModuleMember -Alias *

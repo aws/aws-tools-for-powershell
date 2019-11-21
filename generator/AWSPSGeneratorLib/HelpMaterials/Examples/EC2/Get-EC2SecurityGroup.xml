@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2SecurityGroup -GroupId sg-12345678
+    
+Description         : default VPC security group
+GroupId             : sg-12345678
+GroupName           : default
+IpPermissions       : {Amazon.EC2.Model.IpPermission}
+IpPermissionsEgress : {Amazon.EC2.Model.IpPermission}
+OwnerId             : 123456789012
+Tags                : {}
+VpcId               : vpc-12345678</code>
+    <description>This example describes the specified security group for a VPC. When working with security groups belonging to a VPC you must use the security group ID (-GroupId parameter), not name (-GroupName parameter), to reference the group.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2SecurityGroup -GroupName my-security-group
+    
+Description         : my security group
+GroupId             : sg-45678901
+GroupName           : my-security-group
+IpPermissions       : {Amazon.EC2.Model.IpPermission, Amazon.EC2.Model.IpPermission}
+IpPermissionsEgress : {}
+OwnerId             : 123456789012
+Tags                : {}
+VpcId               :</code>
+    <description>This example describes the specified security group for EC2-Classic. When working with security groups for EC2-Classic you may use either the group name (-GroupName parameter) or group ID (-GroupId parameter) to reference the security group.</description>
+  </example>
+  <example>
+    <code>Get-EC2SecurityGroup -Filter @{Name="vpc-id";Values="vpc-0fc1ff23456b789eb"}</code>
+    <description>This example retrieves all the security groups for the vpc-0fc1ff23456b789eb</description>
+  </example>
+</examples>

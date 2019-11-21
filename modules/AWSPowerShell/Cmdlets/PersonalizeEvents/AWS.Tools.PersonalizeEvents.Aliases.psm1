@@ -1,0 +1,3 @@
+﻿# PersonalizeEvents
+
+Export-ModuleMember -Alias *

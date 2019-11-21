@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="Developer Resources">https://aws.amazon.com/glue/developer-resources/</link>
+	<link name="Developer Guide">https://docs.aws.amazon.com/glue/latest/dg/</link>
+    <link name="Service API Reference">https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api.html</link>
+  </set>
+</links>

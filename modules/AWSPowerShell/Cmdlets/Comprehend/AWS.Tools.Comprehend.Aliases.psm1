@@ -1,0 +1,3 @@
+﻿# Comprehend
+
+Export-ModuleMember -Alias *

@@ -1,0 +1,685 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ConfigService;
+using Amazon.ConfigService.Model;
+
+namespace Amazon.PowerShell.Cmdlets.CFG
+{
+    /// <summary>
+    /// Adds or updates organization config rule for your entire organization evaluating whether
+    /// your AWS resources comply with your desired configurations. Only a master account
+    /// can create or update an organization config rule.
+    /// 
+    ///  
+    /// <para>
+    /// This API enables organization service access through the <code>EnableAWSServiceAccess</code>
+    /// action and creates a service linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code>
+    /// in the master account of your organization. The service linked role is created only
+    /// when the role does not exist in the master account. AWS Config verifies the existence
+    /// of role with <code>GetRole</code> action.
+    /// </para><para>
+    /// You can use this action to create both custom AWS Config rules and AWS managed Config
+    /// rules. If you are adding a new custom AWS Config rule, you must first create AWS Lambda
+    /// function in the master account that the rule invokes to evaluate your resources. When
+    /// you use the <code>PutOrganizationConfigRule</code> action to add the rule to AWS Config,
+    /// you must specify the Amazon Resource Name (ARN) that AWS Lambda assigns to the function.
+    /// If you are adding an AWS managed Config rule, specify the rule's identifier for the
+    /// <code>RuleIdentifier</code> key.
+    /// </para><para>
+    /// The maximum number of organization config rules that AWS Config supports is 150.
+    /// </para><note><para>
+    /// Specify either <code>OrganizationCustomRuleMetadata</code> or <code>OrganizationManagedRuleMetadata</code>.
+    /// </para></note>
+    /// </summary>
+    [Cmdlet("Write", "CFGOrganizationConfigRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Config PutOrganizationConfigRule API operation.", Operation = new[] {"PutOrganizationConfigRule"}, SelectReturnType = typeof(Amazon.ConfigService.Model.PutOrganizationConfigRuleResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ConfigService.Model.PutOrganizationConfigRuleResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.ConfigService.Model.PutOrganizationConfigRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class WriteCFGOrganizationConfigRuleCmdlet : AmazonConfigServiceClientCmdlet, IExecutor
+    {
+        
+        #region Parameter OrganizationCustomRuleMetadata_Description
+        /// <summary>
+        /// <para>
+        /// <para>The description that you provide for organization config rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomRuleMetadata_Description { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationManagedRuleMetadata_Description
+        /// <summary>
+        /// <para>
+        /// <para>The description that you provide for organization config rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationManagedRuleMetadata_Description { get; set; }
+        #endregion
+        
+        #region Parameter ExcludedAccount
+        /// <summary>
+        /// <para>
+        /// <para>A comma-separated list of accounts that you want to exclude from an organization config
+        /// rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExcludedAccounts")]
+        public System.String[] ExcludedAccount { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomRuleMetadata_InputParameter
+        /// <summary>
+        /// <para>
+        /// <para>A string, in JSON format, that is passed to organization config rule Lambda function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationCustomRuleMetadata_InputParameters")]
+        public System.String OrganizationCustomRuleMetadata_InputParameter { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationManagedRuleMetadata_InputParameter
+        /// <summary>
+        /// <para>
+        /// <para>A string, in JSON format, that is passed to organization config rule Lambda function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationManagedRuleMetadata_InputParameters")]
+        public System.String OrganizationManagedRuleMetadata_InputParameter { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomRuleMetadata_LambdaFunctionArn
+        /// <summary>
+        /// <para>
+        /// <para>The lambda function ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomRuleMetadata_LambdaFunctionArn { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomRuleMetadata_MaximumExecutionFrequency
+        /// <summary>
+        /// <para>
+        /// <para>The maximum frequency with which AWS Config runs evaluations for a rule. Your custom
+        /// rule is triggered when AWS Config delivers the configuration snapshot. For more information,
+        /// see <a>ConfigSnapshotDeliveryProperties</a>.</para><note><para>By default, rules with a periodic trigger are evaluated every 24 hours. To change
+        /// the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code>
+        /// parameter.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConfigService.MaximumExecutionFrequency")]
+        public Amazon.ConfigService.MaximumExecutionFrequency OrganizationCustomRuleMetadata_MaximumExecutionFrequency { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationManagedRuleMetadata_MaximumExecutionFrequency
+        /// <summary>
+        /// <para>
+        /// <para>The maximum frequency with which AWS Config runs evaluations for a rule. You are using
+        /// an AWS managed rule that is triggered at a periodic frequency.</para><note><para>By default, rules with a periodic trigger are evaluated every 24 hours. To change
+        /// the frequency, specify a valid value for the <code>MaximumExecutionFrequency</code>
+        /// parameter.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ConfigService.MaximumExecutionFrequency")]
+        public Amazon.ConfigService.MaximumExecutionFrequency OrganizationManagedRuleMetadata_MaximumExecutionFrequency { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationConfigRuleName
+        /// <summary>
+        /// <para>
+        /// <para>The name that you assign to an organization config rule.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OrganizationConfigRuleName { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType
+        /// <summary>
+        /// <para>
+        /// <para>The type of notification that triggers AWS Config to run an evaluation for a rule.
+        /// You can specify the following notification types:</para><ul><li><para><code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when AWS
+        /// Config delivers a configuration item as a result of a resource change.</para></li><li><para><code>OversizedConfigurationItemChangeNotification</code> - Triggers an evaluation
+        /// when AWS Config delivers an oversized configuration item. AWS Config may generate
+        /// this notification type when a resource changes and the notification exceeds the maximum
+        /// size allowed by Amazon SNS.</para></li><li><para><code>ScheduledNotification</code> - Triggers a periodic evaluation at the frequency
+        /// specified for <code>MaximumExecutionFrequency</code>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerTypes")]
+        public System.String[] OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomRuleMetadata_ResourceIdScope
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS resource that was evaluated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomRuleMetadata_ResourceIdScope { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationManagedRuleMetadata_ResourceIdScope
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the AWS resource that was evaluated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationManagedRuleMetadata_ResourceIdScope { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomRuleMetadata_ResourceTypesScope
+        /// <summary>
+        /// <para>
+        /// <para>The type of the AWS resource that was evaluated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OrganizationCustomRuleMetadata_ResourceTypesScope { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationManagedRuleMetadata_ResourceTypesScope
+        /// <summary>
+        /// <para>
+        /// <para>The type of the AWS resource that was evaluated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] OrganizationManagedRuleMetadata_ResourceTypesScope { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationManagedRuleMetadata_RuleIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>For organization config managed rules, a predefined identifier from a list. For example,
+        /// <code>IAM_PASSWORD_POLICY</code> is a managed rule. To reference a managed rule, see
+        /// <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using
+        /// AWS Managed Config Rules</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationManagedRuleMetadata_RuleIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomRuleMetadata_TagKeyScope
+        /// <summary>
+        /// <para>
+        /// <para>One part of a key-value pair that make up a tag. A key is a general label that acts
+        /// like a category for more specific tag values. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomRuleMetadata_TagKeyScope { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationManagedRuleMetadata_TagKeyScope
+        /// <summary>
+        /// <para>
+        /// <para>One part of a key-value pair that make up a tag. A key is a general label that acts
+        /// like a category for more specific tag values. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationManagedRuleMetadata_TagKeyScope { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationCustomRuleMetadata_TagValueScope
+        /// <summary>
+        /// <para>
+        /// <para>The optional part of a key-value pair that make up a tag. A value acts as a descriptor
+        /// within a tag category (key). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationCustomRuleMetadata_TagValueScope { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationManagedRuleMetadata_TagValueScope
+        /// <summary>
+        /// <para>
+        /// <para>The optional part of a key-value pair that make up a tag. A value acts as a descriptor
+        /// within a tag category (key).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationManagedRuleMetadata_TagValueScope { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OrganizationConfigRuleArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConfigService.Model.PutOrganizationConfigRuleResponse).
+        /// Specifying the name of a property of type Amazon.ConfigService.Model.PutOrganizationConfigRuleResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "OrganizationConfigRuleArn";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the OrganizationConfigRuleName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OrganizationConfigRuleName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OrganizationConfigRuleName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OrganizationConfigRuleName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CFGOrganizationConfigRule (PutOrganizationConfigRule)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.ConfigService.Model.PutOrganizationConfigRuleResponse, WriteCFGOrganizationConfigRuleCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.OrganizationConfigRuleName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ExcludedAccount != null)
+            {
+                context.ExcludedAccount = new List<System.String>(this.ExcludedAccount);
+            }
+            context.OrganizationConfigRuleName = this.OrganizationConfigRuleName;
+            #if MODULAR
+            if (this.OrganizationConfigRuleName == null && ParameterWasBound(nameof(this.OrganizationConfigRuleName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OrganizationConfigRuleName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.OrganizationCustomRuleMetadata_Description = this.OrganizationCustomRuleMetadata_Description;
+            context.OrganizationCustomRuleMetadata_InputParameter = this.OrganizationCustomRuleMetadata_InputParameter;
+            context.OrganizationCustomRuleMetadata_LambdaFunctionArn = this.OrganizationCustomRuleMetadata_LambdaFunctionArn;
+            context.OrganizationCustomRuleMetadata_MaximumExecutionFrequency = this.OrganizationCustomRuleMetadata_MaximumExecutionFrequency;
+            if (this.OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType != null)
+            {
+                context.OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType = new List<System.String>(this.OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType);
+            }
+            context.OrganizationCustomRuleMetadata_ResourceIdScope = this.OrganizationCustomRuleMetadata_ResourceIdScope;
+            if (this.OrganizationCustomRuleMetadata_ResourceTypesScope != null)
+            {
+                context.OrganizationCustomRuleMetadata_ResourceTypesScope = new List<System.String>(this.OrganizationCustomRuleMetadata_ResourceTypesScope);
+            }
+            context.OrganizationCustomRuleMetadata_TagKeyScope = this.OrganizationCustomRuleMetadata_TagKeyScope;
+            context.OrganizationCustomRuleMetadata_TagValueScope = this.OrganizationCustomRuleMetadata_TagValueScope;
+            context.OrganizationManagedRuleMetadata_Description = this.OrganizationManagedRuleMetadata_Description;
+            context.OrganizationManagedRuleMetadata_InputParameter = this.OrganizationManagedRuleMetadata_InputParameter;
+            context.OrganizationManagedRuleMetadata_MaximumExecutionFrequency = this.OrganizationManagedRuleMetadata_MaximumExecutionFrequency;
+            context.OrganizationManagedRuleMetadata_ResourceIdScope = this.OrganizationManagedRuleMetadata_ResourceIdScope;
+            if (this.OrganizationManagedRuleMetadata_ResourceTypesScope != null)
+            {
+                context.OrganizationManagedRuleMetadata_ResourceTypesScope = new List<System.String>(this.OrganizationManagedRuleMetadata_ResourceTypesScope);
+            }
+            context.OrganizationManagedRuleMetadata_RuleIdentifier = this.OrganizationManagedRuleMetadata_RuleIdentifier;
+            context.OrganizationManagedRuleMetadata_TagKeyScope = this.OrganizationManagedRuleMetadata_TagKeyScope;
+            context.OrganizationManagedRuleMetadata_TagValueScope = this.OrganizationManagedRuleMetadata_TagValueScope;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.ConfigService.Model.PutOrganizationConfigRuleRequest();
+            
+            if (cmdletContext.ExcludedAccount != null)
+            {
+                request.ExcludedAccounts = cmdletContext.ExcludedAccount;
+            }
+            if (cmdletContext.OrganizationConfigRuleName != null)
+            {
+                request.OrganizationConfigRuleName = cmdletContext.OrganizationConfigRuleName;
+            }
+            
+             // populate OrganizationCustomRuleMetadata
+            var requestOrganizationCustomRuleMetadataIsNull = true;
+            request.OrganizationCustomRuleMetadata = new Amazon.ConfigService.Model.OrganizationCustomRuleMetadata();
+            System.String requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_Description = null;
+            if (cmdletContext.OrganizationCustomRuleMetadata_Description != null)
+            {
+                requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_Description = cmdletContext.OrganizationCustomRuleMetadata_Description;
+            }
+            if (requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_Description != null)
+            {
+                request.OrganizationCustomRuleMetadata.Description = requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_Description;
+                requestOrganizationCustomRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_InputParameter = null;
+            if (cmdletContext.OrganizationCustomRuleMetadata_InputParameter != null)
+            {
+                requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_InputParameter = cmdletContext.OrganizationCustomRuleMetadata_InputParameter;
+            }
+            if (requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_InputParameter != null)
+            {
+                request.OrganizationCustomRuleMetadata.InputParameters = requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_InputParameter;
+                requestOrganizationCustomRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_LambdaFunctionArn = null;
+            if (cmdletContext.OrganizationCustomRuleMetadata_LambdaFunctionArn != null)
+            {
+                requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_LambdaFunctionArn = cmdletContext.OrganizationCustomRuleMetadata_LambdaFunctionArn;
+            }
+            if (requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_LambdaFunctionArn != null)
+            {
+                request.OrganizationCustomRuleMetadata.LambdaFunctionArn = requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_LambdaFunctionArn;
+                requestOrganizationCustomRuleMetadataIsNull = false;
+            }
+            Amazon.ConfigService.MaximumExecutionFrequency requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_MaximumExecutionFrequency = null;
+            if (cmdletContext.OrganizationCustomRuleMetadata_MaximumExecutionFrequency != null)
+            {
+                requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_MaximumExecutionFrequency = cmdletContext.OrganizationCustomRuleMetadata_MaximumExecutionFrequency;
+            }
+            if (requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_MaximumExecutionFrequency != null)
+            {
+                request.OrganizationCustomRuleMetadata.MaximumExecutionFrequency = requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_MaximumExecutionFrequency;
+                requestOrganizationCustomRuleMetadataIsNull = false;
+            }
+            List<System.String> requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_OrganizationConfigRuleTriggerType = null;
+            if (cmdletContext.OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType != null)
+            {
+                requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_OrganizationConfigRuleTriggerType = cmdletContext.OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType;
+            }
+            if (requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_OrganizationConfigRuleTriggerType != null)
+            {
+                request.OrganizationCustomRuleMetadata.OrganizationConfigRuleTriggerTypes = requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_OrganizationConfigRuleTriggerType;
+                requestOrganizationCustomRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_ResourceIdScope = null;
+            if (cmdletContext.OrganizationCustomRuleMetadata_ResourceIdScope != null)
+            {
+                requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_ResourceIdScope = cmdletContext.OrganizationCustomRuleMetadata_ResourceIdScope;
+            }
+            if (requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_ResourceIdScope != null)
+            {
+                request.OrganizationCustomRuleMetadata.ResourceIdScope = requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_ResourceIdScope;
+                requestOrganizationCustomRuleMetadataIsNull = false;
+            }
+            List<System.String> requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_ResourceTypesScope = null;
+            if (cmdletContext.OrganizationCustomRuleMetadata_ResourceTypesScope != null)
+            {
+                requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_ResourceTypesScope = cmdletContext.OrganizationCustomRuleMetadata_ResourceTypesScope;
+            }
+            if (requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_ResourceTypesScope != null)
+            {
+                request.OrganizationCustomRuleMetadata.ResourceTypesScope = requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_ResourceTypesScope;
+                requestOrganizationCustomRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_TagKeyScope = null;
+            if (cmdletContext.OrganizationCustomRuleMetadata_TagKeyScope != null)
+            {
+                requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_TagKeyScope = cmdletContext.OrganizationCustomRuleMetadata_TagKeyScope;
+            }
+            if (requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_TagKeyScope != null)
+            {
+                request.OrganizationCustomRuleMetadata.TagKeyScope = requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_TagKeyScope;
+                requestOrganizationCustomRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_TagValueScope = null;
+            if (cmdletContext.OrganizationCustomRuleMetadata_TagValueScope != null)
+            {
+                requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_TagValueScope = cmdletContext.OrganizationCustomRuleMetadata_TagValueScope;
+            }
+            if (requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_TagValueScope != null)
+            {
+                request.OrganizationCustomRuleMetadata.TagValueScope = requestOrganizationCustomRuleMetadata_organizationCustomRuleMetadata_TagValueScope;
+                requestOrganizationCustomRuleMetadataIsNull = false;
+            }
+             // determine if request.OrganizationCustomRuleMetadata should be set to null
+            if (requestOrganizationCustomRuleMetadataIsNull)
+            {
+                request.OrganizationCustomRuleMetadata = null;
+            }
+            
+             // populate OrganizationManagedRuleMetadata
+            var requestOrganizationManagedRuleMetadataIsNull = true;
+            request.OrganizationManagedRuleMetadata = new Amazon.ConfigService.Model.OrganizationManagedRuleMetadata();
+            System.String requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_Description = null;
+            if (cmdletContext.OrganizationManagedRuleMetadata_Description != null)
+            {
+                requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_Description = cmdletContext.OrganizationManagedRuleMetadata_Description;
+            }
+            if (requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_Description != null)
+            {
+                request.OrganizationManagedRuleMetadata.Description = requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_Description;
+                requestOrganizationManagedRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_InputParameter = null;
+            if (cmdletContext.OrganizationManagedRuleMetadata_InputParameter != null)
+            {
+                requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_InputParameter = cmdletContext.OrganizationManagedRuleMetadata_InputParameter;
+            }
+            if (requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_InputParameter != null)
+            {
+                request.OrganizationManagedRuleMetadata.InputParameters = requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_InputParameter;
+                requestOrganizationManagedRuleMetadataIsNull = false;
+            }
+            Amazon.ConfigService.MaximumExecutionFrequency requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_MaximumExecutionFrequency = null;
+            if (cmdletContext.OrganizationManagedRuleMetadata_MaximumExecutionFrequency != null)
+            {
+                requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_MaximumExecutionFrequency = cmdletContext.OrganizationManagedRuleMetadata_MaximumExecutionFrequency;
+            }
+            if (requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_MaximumExecutionFrequency != null)
+            {
+                request.OrganizationManagedRuleMetadata.MaximumExecutionFrequency = requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_MaximumExecutionFrequency;
+                requestOrganizationManagedRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_ResourceIdScope = null;
+            if (cmdletContext.OrganizationManagedRuleMetadata_ResourceIdScope != null)
+            {
+                requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_ResourceIdScope = cmdletContext.OrganizationManagedRuleMetadata_ResourceIdScope;
+            }
+            if (requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_ResourceIdScope != null)
+            {
+                request.OrganizationManagedRuleMetadata.ResourceIdScope = requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_ResourceIdScope;
+                requestOrganizationManagedRuleMetadataIsNull = false;
+            }
+            List<System.String> requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_ResourceTypesScope = null;
+            if (cmdletContext.OrganizationManagedRuleMetadata_ResourceTypesScope != null)
+            {
+                requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_ResourceTypesScope = cmdletContext.OrganizationManagedRuleMetadata_ResourceTypesScope;
+            }
+            if (requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_ResourceTypesScope != null)
+            {
+                request.OrganizationManagedRuleMetadata.ResourceTypesScope = requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_ResourceTypesScope;
+                requestOrganizationManagedRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_RuleIdentifier = null;
+            if (cmdletContext.OrganizationManagedRuleMetadata_RuleIdentifier != null)
+            {
+                requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_RuleIdentifier = cmdletContext.OrganizationManagedRuleMetadata_RuleIdentifier;
+            }
+            if (requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_RuleIdentifier != null)
+            {
+                request.OrganizationManagedRuleMetadata.RuleIdentifier = requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_RuleIdentifier;
+                requestOrganizationManagedRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_TagKeyScope = null;
+            if (cmdletContext.OrganizationManagedRuleMetadata_TagKeyScope != null)
+            {
+                requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_TagKeyScope = cmdletContext.OrganizationManagedRuleMetadata_TagKeyScope;
+            }
+            if (requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_TagKeyScope != null)
+            {
+                request.OrganizationManagedRuleMetadata.TagKeyScope = requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_TagKeyScope;
+                requestOrganizationManagedRuleMetadataIsNull = false;
+            }
+            System.String requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_TagValueScope = null;
+            if (cmdletContext.OrganizationManagedRuleMetadata_TagValueScope != null)
+            {
+                requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_TagValueScope = cmdletContext.OrganizationManagedRuleMetadata_TagValueScope;
+            }
+            if (requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_TagValueScope != null)
+            {
+                request.OrganizationManagedRuleMetadata.TagValueScope = requestOrganizationManagedRuleMetadata_organizationManagedRuleMetadata_TagValueScope;
+                requestOrganizationManagedRuleMetadataIsNull = false;
+            }
+             // determine if request.OrganizationManagedRuleMetadata should be set to null
+            if (requestOrganizationManagedRuleMetadataIsNull)
+            {
+                request.OrganizationManagedRuleMetadata = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.ConfigService.Model.PutOrganizationConfigRuleResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.PutOrganizationConfigRuleRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "PutOrganizationConfigRule");
+            try
+            {
+                #if DESKTOP
+                return client.PutOrganizationConfigRule(request);
+                #elif CORECLR
+                return client.PutOrganizationConfigRuleAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public List<System.String> ExcludedAccount { get; set; }
+            public System.String OrganizationConfigRuleName { get; set; }
+            public System.String OrganizationCustomRuleMetadata_Description { get; set; }
+            public System.String OrganizationCustomRuleMetadata_InputParameter { get; set; }
+            public System.String OrganizationCustomRuleMetadata_LambdaFunctionArn { get; set; }
+            public Amazon.ConfigService.MaximumExecutionFrequency OrganizationCustomRuleMetadata_MaximumExecutionFrequency { get; set; }
+            public List<System.String> OrganizationCustomRuleMetadata_OrganizationConfigRuleTriggerType { get; set; }
+            public System.String OrganizationCustomRuleMetadata_ResourceIdScope { get; set; }
+            public List<System.String> OrganizationCustomRuleMetadata_ResourceTypesScope { get; set; }
+            public System.String OrganizationCustomRuleMetadata_TagKeyScope { get; set; }
+            public System.String OrganizationCustomRuleMetadata_TagValueScope { get; set; }
+            public System.String OrganizationManagedRuleMetadata_Description { get; set; }
+            public System.String OrganizationManagedRuleMetadata_InputParameter { get; set; }
+            public Amazon.ConfigService.MaximumExecutionFrequency OrganizationManagedRuleMetadata_MaximumExecutionFrequency { get; set; }
+            public System.String OrganizationManagedRuleMetadata_ResourceIdScope { get; set; }
+            public List<System.String> OrganizationManagedRuleMetadata_ResourceTypesScope { get; set; }
+            public System.String OrganizationManagedRuleMetadata_RuleIdentifier { get; set; }
+            public System.String OrganizationManagedRuleMetadata_TagKeyScope { get; set; }
+            public System.String OrganizationManagedRuleMetadata_TagValueScope { get; set; }
+            public System.Func<Amazon.ConfigService.Model.PutOrganizationConfigRuleResponse, WriteCFGOrganizationConfigRuleCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OrganizationConfigRuleArn;
+        }
+        
+    }
+}

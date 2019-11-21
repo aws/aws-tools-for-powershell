@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+    <link name="Administrator Guide">https://docs.aws.amazon.com/workdocs/latest/adminguide/</link>
+    <link name="Developer Guide">https://docs.aws.amazon.com/workdocs/latest/developerguide/</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/workdocs/latest/APIReference/</link>
+    <link name="User Guide">https://docs.aws.amazon.com/workdocs/latest/userguide/</link>
+  </set>
+</links>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iotevents-data</C2jFilename>
+    <AssemblyName>IoTEventsData</AssemblyName>
+    <ServiceNounPrefix>IOTED</ServiceNounPrefix>
+    <ServiceName>AWS IoT Events Data</ServiceName>
+    <ServiceClientInterface>IAmazonIoTEventsData</ServiceClientInterface>
+    <ServiceClient>AmazonIoTEventsDataClient</ServiceClient>
+    <ServiceModuleGuid>9e43d95a-4831-4ad6-8cc6-dbb6d0636c04</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchPutMessage" OutputProperty="BatchPutMessageErrorEntries" Verb="Send" Noun="MessageBatch" ShouldProcessTarget="Messages" PipelineParameter="Messages" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateDetector" OutputProperty="BatchUpdateDetectorErrorEntries" Verb="Update" Noun="DetectorBatch" ShouldProcessTarget="Detectors" PipelineParameter="Detectors" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDetector" OutputProperty="Detector" Verb="Get" Noun="Detector" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDetectors" OutputProperty="DetectorSummaries" Verb="Get" Noun="DetectorList" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

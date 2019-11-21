@@ -1,0 +1,3 @@
+﻿# WAF
+
+Export-ModuleMember -Alias *

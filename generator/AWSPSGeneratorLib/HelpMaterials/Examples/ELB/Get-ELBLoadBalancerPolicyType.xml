@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-ELBLoadBalancerPolicyType
+
+Description                             PolicyAttributeTypeDescriptions         PolicyTypeName
+-----------                             -------------------------------         --------------
+Stickiness policy with session lifet... {CookieExpirationPeriod}                LBCookieStickinessPolicyType
+Policy that controls authentication ... {PublicKeyPolicyName}                   BackendServerAuthenticationPolicyType
+Listener policy that defines the cip... {Protocol-SSLv2, Protocol-TLSv1, Pro... SSLNegotiationPolicyType
+Policy containing a list of public k... {PublicKey}                             PublicKeyPolicyType
+Stickiness policy with session lifet... {CookieName}                            AppCookieStickinessPolicyType
+Policy that controls whether to incl... {ProxyProtocol}                         ProxyProtocolPolicyType</code>
+    <description>This example gets the policy types supported by Elastic Load Balancing.</description>
+  </example>
+  <example>
+    <code> PS C:\> Get-ELBLoadBalancerPolicyType -PolicyTypeName ProxyProtocolPolicyType
+    
+Description                             PolicyAttributeTypeDescriptions         PolicyTypeName
+-----------                             -------------------------------         --------------
+Policy that controls whether to incl... {ProxyProtocol}                         ProxyProtocolPolicyType</code>
+    <description>This example describes the specified policy type.</description>
+  </example>
+  <example>
+    <code>PS C:\> (Get-ELBLoadBalancerPolicyType -PolicyTypeName).Description
+    
+Policy that controls whether to include the IP address and port of the originating request for TCP messages. 
+This policy operates on TCP/SSL listeners only</code>
+    <description>This example displays the complete description of the specified policy type.</description>
+  </example>
+</examples>

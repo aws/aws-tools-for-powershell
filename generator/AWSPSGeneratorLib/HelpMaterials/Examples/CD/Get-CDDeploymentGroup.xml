@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-CDDeploymentGroup -ApplicationName CodeDeployDemoApplication -DeploymentGroupName CodeDeployDemoFleet
+
+ApplicationName              : CodeDeployDemoApplication
+AutoScalingGroups            : {}
+DeploymentConfigName         : CodeDeployDefault.OneAtATime
+DeploymentGroupId            : 7d7c098a-b444-4b27-96ef-22791EXAMPLE
+DeploymentGroupName          : CodeDeployDemoFleet
+Ec2TagFilters                : {Name}
+OnPremisesInstanceTagFilters : {}
+ServiceRoleArn               : arn:aws:iam::80398EXAMPLE:role/CodeDeploySampleStack-4ph6EX-CodeDeployTrustRole-O9MWP7XTL8EX
+TargetRevision               : Amazon.CodeDeploy.Model.RevisionLocation</code>
+	<description>This example gets information about the specified deployment group.</description>
+  </example>
+</examples>

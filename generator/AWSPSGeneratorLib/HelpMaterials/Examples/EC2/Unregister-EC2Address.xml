@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Unregister-EC2Address -AssociationId eipassoc-12345678</code>
+    <description>This example disassociates the specified Elastic IP address from the specified instance in a VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> Unregister-EC2Address -PublicIp 203.0.113.17</code>
+    <description>This example disassociates the specified Elastic IP address from the specified instance in EC2-Classic.</description>
+  </example>
+</examples>

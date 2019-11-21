@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>$results = Get-IAMRolePolicy -RoleName lambda_exec_role -PolicyName oneClick_lambda_exec_role_policy
+PS C:\>$results
+     
+PolicyDocument                                            PolicyName                           UserName
+--------------                                            ----------                           --------
+%7B%0A%20%20%22Version%22%3A%20%222012-10-17%22%2C%...    oneClick_lambda_exec_role_policy     lambda_exec_role
+
+PS C:\>[System.Reflection.Assembly]::LoadWithPartialName("System.Web.HttpUtility")
+PS C:\>[System.Web.HttpUtility]::UrlDecode($results.PolicyDocument)
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:*"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::*"
+      ]
+    }
+  ]
+}</code>
+    <description>This example returns the permissions policy document for the policy named <code>oneClick_lambda_exec_role_policy</code> that is embedded in the IAM role <code>lamda_exec_role</code>. The resulting policy document is URL encoded. It is decoded in this example with the <code>UrlDecode</code> .NET method.</description>
+  </example>
+</examples>

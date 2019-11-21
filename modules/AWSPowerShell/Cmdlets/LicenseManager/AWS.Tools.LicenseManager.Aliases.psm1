@@ -1,0 +1,3 @@
+﻿# LicenseManager
+
+Export-ModuleMember -Alias *

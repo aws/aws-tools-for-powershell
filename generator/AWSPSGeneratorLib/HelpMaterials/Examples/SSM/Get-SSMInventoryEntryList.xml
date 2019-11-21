@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-SSMInventoryEntryList -InstanceId mi-088dcb0ecea37b076 -TypeName AWS:Network | Select-Object -ExpandProperty Entries
+
+Key        Value
+---        -----
+DHCPServer 172.31.11.2
+DNSServer  172.31.0.1
+Gateway    172.31.11.2
+IPV4       172.31.11.222
+IPV6       fe12::3456:7da8:901a:12a3
+MacAddress 1A:23:4E:5B:FB:67
+Name       Amazon Elastic Network Adapter
+SubnetMask 255.255.240.0</code>
+    <description>This example retrieves AWS:Network type inventory entries for the instance.</description>
+  </example>
+</examples>

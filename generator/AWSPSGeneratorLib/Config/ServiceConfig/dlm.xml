@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>dlm</C2jFilename>
+    <AssemblyName>DLM</AssemblyName>
+    <ServiceNounPrefix>DLM</ServiceNounPrefix>
+    <ServiceName>Amazon Data Lifecycle Manager</ServiceName>
+    <ServiceClientInterface>IAmazonDLM</ServiceClientInterface>
+    <ServiceClient>AmazonDLMClient</ServiceClient>
+    <ServiceModuleGuid>a4948657-e00d-4307-a541-4bd757cd4154</ServiceModuleGuid>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateLifecyclePolicy" OutputProperty="PolicyId" Verb="New" Noun="LifecyclePolicy" ShouldProcessTarget="ExecutionRoleArn" PipelineParameter="ExecutionRoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLifecyclePolicy" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLifecyclePolicies" OutputProperty="Policies" Verb="Get" Noun="LifecyclePolicySummary" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLifecyclePolicy" OutputProperty="Policy" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="PolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLifecyclePolicy" Verb="Update" Noun="LifecyclePolicy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

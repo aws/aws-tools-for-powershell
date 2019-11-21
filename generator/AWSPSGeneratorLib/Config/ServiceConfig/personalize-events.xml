@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>personalize-events</C2jFilename>
+    <AssemblyName>PersonalizeEvents</AssemblyName>
+    <ServiceNounPrefix>PERSE</ServiceNounPrefix>
+    <ServiceName>Amazon Personalize Events</ServiceName>
+    <ServiceClientInterface>IAmazonPersonalizeEvents</ServiceClientInterface>
+    <ServiceClient>AmazonPersonalizeEventsClient</ServiceClient>
+    <ServiceModuleGuid>74e173c8-d188-4c30-9cde-19ae205b910c</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="PutEvents" Verb="Write" Noun="Event" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

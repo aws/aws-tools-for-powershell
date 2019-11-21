@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Disable-ASMetricsCollection -AutoScalingGroupName my-asg -Metric @("GroupMinSize", "GroupMaxSize")</code>
+    <description>This example disables monitoring of the specified metrics for the specified Auto Scaling group.</description>
+  </example>
+  <example>
+    <code>PS C:\> Disable-ASMetricsCollection -AutoScalingGroupName my-asg</code>
+    <description>This example disables monitoring of all metrics for the specified Auto Scaling group.</description>
+  </example>
+</examples>

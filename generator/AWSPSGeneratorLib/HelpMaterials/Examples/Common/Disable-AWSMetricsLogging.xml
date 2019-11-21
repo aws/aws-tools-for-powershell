@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Disable-AWSMetricsLogging</code>
+    <description>Turns off logging of performance metrics for service calls.</description>
+  </example>
+</examples>

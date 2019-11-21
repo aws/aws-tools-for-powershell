@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5
+
+AssociationId                        Content
+-------------                        -------
+d8617c07-2079-4c18-9847-1655fc2698b0 {...</code>
+        <description>This example describes the effective associations for an instance.</description>
+    </example>
+	<example>
+	<code>PS C:\> (Get-SSMEffectiveInstanceAssociationList -InstanceId "i-0000293ffd8c57862" -MaxResult 5).Content
+	
+{
+    "schemaVersion": "1.2",
+    "description": "Update the Amazon SSM Agent to the latest version or specified version.",
+    "parameters": {
+        "version": {
+            "default": "",
+            "description": "(Optional) A specific version of the Amazon SSM Agent to install. If not specified, the agen
+t will be updated to the latest version.",
+            "type": "String"
+        },
+        "allowDowngrade": {
+            "default": "false",
+            "description": "(Optional) Allow the Amazon SSM Agent service to be downgraded to an earlier version. If set
+ to false, the service can be upgraded to newer versions only (default). If set to true, specify the earlier version.",
+            "type": "String",
+            "allowedValues": [
+                "true",
+                "false"
+            ]
+        }
+    },
+    "runtimeConfig": {
+        "aws:updateSsmAgent": {
+            "properties": [
+                {
+                "agentName": "amazon-ssm-agent",
+                "source": "https://s3.{Region}.amazonaws.com/amazon-ssm-{Region}/ssm-agent-manifest.json",
+                "allowDowngrade": "{{ allowDowngrade }}",
+                "targetVersion": "{{ version }}"
+                }
+            ]
+        }
+    }
+}</code>
+<description>This example displays the contents of the effective associations for an instance.</description>
+	</example>
+</examples>

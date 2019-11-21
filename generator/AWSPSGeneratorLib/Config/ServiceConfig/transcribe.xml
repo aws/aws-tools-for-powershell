@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>transcribe</C2jFilename>
+    <AssemblyName>TranscribeService</AssemblyName>
+    <ServiceNounPrefix>TRS</ServiceNounPrefix>
+    <ServiceName>Amazon Transcribe Service</ServiceName>
+    <ServiceClientInterface>IAmazonTranscribeService</ServiceClientInterface>
+    <ServiceClient>AmazonTranscribeServiceClient</ServiceClient>
+    <ServiceModuleGuid>9b04a56a-915a-4590-964e-a3c22c408427</ServiceModuleGuid>
+    <PipelineParameter>TranscriptionJobName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>Status</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateVocabulary" OutputProperty="*" Verb="New" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTranscriptionJob" Verb="Remove" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVocabulary" Verb="Remove" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTranscriptionJob" OutputProperty="TranscriptionJob" Verb="Get" Noun="TranscriptionJob" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVocabulary" OutputProperty="*" Verb="Get" Noun="Vocabulary" PipelineParameter="VocabularyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTranscriptionJobs" OutputProperty="TranscriptionJobSummaries" Verb="Get" Noun="TranscriptionJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVocabularies" OutputProperty="Vocabularies" Verb="Get" Noun="VocabularyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTranscriptionJob" OutputProperty="TranscriptionJob" Verb="Start" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVocabulary" OutputProperty="*" Verb="Update" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

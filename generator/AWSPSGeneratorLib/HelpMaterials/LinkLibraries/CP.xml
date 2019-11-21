@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="User Guide">https://docs.aws.amazon.com/codepipeline/latest/userguide/</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/codepipeline/latest/APIReference/</link>
+  </set>
+</links>

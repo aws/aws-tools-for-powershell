@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Set-IAMDefaultPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -VersionId v2</code>
+    <description>This example sets the <code>v2</code> version of the policy whose ARN is <code>arn:aws:iam::123456789012:policy/MyPolicy</code> as the default active version.</description>
+  </example>
+</examples>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-SQSQueueAttribute -AttributeName All -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+	
+VisibilityTimeout                     : 30
+DelaySeconds                          : 0
+MaximumMessageSize                    : 262144
+MessageRetentionPeriod                : 345600
+ApproximateNumberOfMessages           : 0
+ApproximateNumberOfMessagesNotVisible : 0
+ApproximateNumberOfMessagesDelayed    : 0
+CreatedTimestamp                      : 2/11/2015 5:53:35 PM
+LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
+QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
+Policy                                : {"Version":"2008-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+                                        495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
+                                        398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
+                                        "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
+                                        arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue"}]}
+Attributes                            : {[QueueArn, arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue], [ApproximateNumberOfMessages, 0], 
+                                        [ApproximateNumberOfMessagesNotVisible, 0], [ApproximateNumberOfMessagesDelayed, 0]...}</code>
+    <description>This example lists all attributes for the specified queue.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-SQSQueueAttribute -AttributeName MaximumMessageSize, VisibilityTimeout -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue 
+	
+VisibilityTimeout                     : 30
+DelaySeconds                          : 0
+MaximumMessageSize                    : 262144
+MessageRetentionPeriod                : 345600
+ApproximateNumberOfMessages           : 0
+ApproximateNumberOfMessagesNotVisible : 0
+ApproximateNumberOfMessagesDelayed    : 0
+CreatedTimestamp                      : 2/11/2015 5:53:35 PM
+LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
+QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
+Policy                                : {"Version":"2008-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+                                        495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
+                                        398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
+                                        "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
+                                        arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue"}]}
+Attributes                            : {[MaximumMessageSize, 262144], [VisibilityTimeout, 30]}</code>
+    <description>This example lists separately only the specified attributes for the specified queue.</description>
+  </example>
+</examples>

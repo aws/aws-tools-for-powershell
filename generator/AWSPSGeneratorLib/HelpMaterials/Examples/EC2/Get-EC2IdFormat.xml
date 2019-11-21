@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2IdFormat -Resource instance
+    
+Resource       UseLongIds
+--------       ----------
+instance       False</code>
+    <description>This example describes the ID format for the specified resource type.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2IdFormat
+    
+Resource       UseLongIds
+--------       ----------
+reservation    False
+instance       False</code>
+    <description>This example describes the ID formats for all resource types that support longer IDs.</description>
+  </example>
+</examples>

@@ -1,0 +1,8 @@
+{
+  "awspowershell.netcore": {
+    "latest": "0.0.0.0"
+  },
+  "awspowershell": {
+    "latest": "0.0.0.0"
+  }
+}

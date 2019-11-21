@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated | Group-Object ComplianceType
+
+Count Name                      Group
+----- ----                      -----
+    2 COMPLIANT                 {Amazon.ConfigService.Model.EvaluationResult, Amazon.ConfigService.Model.EvaluationResult}
+    5 NON_COMPLIANT             {Amazon.ConfigService.Model.EvaluationResult, Amazon.ConfigService.Model.EvaluationResult, Amazon.ConfigService.Model.EvaluationRes...</code>
+    <description>This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type</description>
+  </example>
+  <example>
+    <code>Get-CFGComplianceDetailsByConfigRule -ConfigRuleName access-keys-rotated -ComplianceType COMPLIANT | ForEach-Object {$_.EvaluationResultIdentifier.EvaluationResultQualifier}
+
+ConfigRuleName      ResourceId            ResourceType
+--------------      ----------            ------------
+access-keys-rotated BCAB1CDJ2LITAPVEW3JAH AWS::IAM::User
+access-keys-rotated BCAB1CDJ2LITL3EHREM4Q AWS::IAM::User</code>
+    <description>This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.</description>
+  </example>
+</examples>

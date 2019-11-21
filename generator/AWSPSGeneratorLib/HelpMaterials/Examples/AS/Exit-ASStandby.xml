@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Exit-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg
+    
+ActivityId           : 1833d3e8-e32f-454e-b731-0670ad4c6934
+AutoScalingGroupName : my-asg
+Cause                : At 2015-11-22T15:51:21Z instance i-95b8484f was moved out of standby in response to a user 
+                       request, increasing the capacity from 1 to 2.
+Description          : Moving EC2 instance out of Standby: i-95b8484f
+Details              : {"Availability Zone":"us-west-2b","Subnet ID":"subnet-5264e837"}
+EndTime              : 
+Progress             : 30
+StartTime            : 11/22/2015 7:51:21 AM
+StatusCode           : PreInService
+StatusMessage        :</code>
+  	<description>This example moves the specified instance out of standby mode.</description>
+  </example>
+</examples>

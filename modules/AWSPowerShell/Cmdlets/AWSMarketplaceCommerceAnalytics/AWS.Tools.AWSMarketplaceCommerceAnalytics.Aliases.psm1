@@ -1,0 +1,3 @@
+﻿# AWSMarketplaceCommerceAnalytics
+
+Export-ModuleMember -Alias *

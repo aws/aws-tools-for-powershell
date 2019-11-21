@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="Developer Guide">https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference</link>
+  </set>
+</links>

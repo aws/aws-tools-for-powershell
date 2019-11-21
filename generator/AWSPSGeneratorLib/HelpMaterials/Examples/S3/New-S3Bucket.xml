@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>New-S3Bucket -BucketName sample-bucket</code>
+    <description>This command creates a new private bucket named "sample-bucket".</description>
+  </example>
+  <example>
+    <code>New-S3Bucket -BucketName sample-bucket -PublicReadWrite</code>
+    <description>This command creates a new bucket named "sample-bucket" with read-write permissions.</description>
+  </example>
+  <example>
+    <code>New-S3Bucket -BucketName sample-bucket -PublicReadOnly</code>
+    <description>This command creates a new bucket named "sample-bucket" with read-only permissions.</description>
+  </example>
+</examples>

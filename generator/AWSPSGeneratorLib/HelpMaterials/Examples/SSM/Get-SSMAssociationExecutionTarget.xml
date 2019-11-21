@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-SSMAssociationExecutionTarget -AssociationId 123a45a0-c678-9012-3456-78901234db5e -ExecutionId 123a45a0-c678-9012-3456-78901234db5e | Select-Object ResourceId, Status
+
+ResourceId           Status
+----------           ------
+i-0b1b2a3456f7a890b  Success
+i-01c12a45d6fc7a89f  Success
+i-0a1caf234f56d7dc8  Success
+i-012a3fd45af6dbcfe  Failed
+i-0ddc1df23c4a5fb67  Success</code>
+    <description>This example displays the resource ID and its execution status that are part of the the association execution targets</description>
+  </example>
+  <example>
+    <code>$AssociationExecution= Get-SSMAssociationExecutionTarget -AssociationId 1c234567-890f-1aca-a234-5a678d901cb0 -ExecutionId 12345ca12-3456-2345-2b45-23456789012 | 
+    Where-Object {$_.LastExecutionDate -gt (Get-Date -Hour 00 -Minute 00).AddDays(-1)} 
+
+foreach ($execution in $AssociationExecution) {
+    if($execution.Status -ne 'Success'){
+        Write-Output "There was an issue executing the association $($execution.AssociationId) on $($execution.ResourceId)"
+        Get-SSMCommandInvocation -CommandId $execution.OutputSource.OutputSourceId -Detail:$true | Select-Object -ExpandProperty CommandPlugins
+    }
+}
+There was an issue executing the association 1c234567-890f-1aca-a234-5a678d901cb0 on i-0a1caf234f56d7dc8
+
+
+Name                   : aws:runPowerShellScript
+Output                 : 
+                         ----------ERROR-------
+                         failed to run commands: exit status 1
+OutputS3BucketName     : 
+OutputS3KeyPrefix      : 
+OutputS3Region         : eu-west-1
+ResponseCode           : 1
+ResponseFinishDateTime : 5/29/2019 11:04:49 AM
+ResponseStartDateTime  : 5/29/2019 11:04:49 AM
+StandardErrorUrl       : 
+StandardOutputUrl      : 
+Status                 : Failed
+StatusDetails          : Failed</code>
+    <description>This command checks the particular execution of a particular automation since yesterday, where a command document is associated. It further checkes if the association execution failed, and if so, it will display the command invocation details for the execution along with the instance id</description>
+  </example>
+</examples>

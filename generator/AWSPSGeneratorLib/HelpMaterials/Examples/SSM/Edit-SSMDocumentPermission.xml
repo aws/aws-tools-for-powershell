@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Edit-SSMDocumentPermission -Name "RunShellScript" -PermissionType "Share" -AccountIdsToAdd all</code>
+        <description>This example adds "share" permissions to all accounts for a document. There is no output if the command succeeds.</description>
+    </example>
+	<example>
+        <code>PS C:\> Edit-SSMDocumentPermission -Name "RunShellScriptNew" -PermissionType "Share" -AccountIdsToAdd "123456789012"</code>
+        <description>This example adds "share" permissions to a specific account for a document. There is no output if the command succeeds.</description>
+    </example>
+</examples>

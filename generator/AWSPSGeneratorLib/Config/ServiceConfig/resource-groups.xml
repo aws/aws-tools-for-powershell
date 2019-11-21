@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>resource-groups</C2jFilename>
+    <AssemblyName>ResourceGroups</AssemblyName>
+    <ServiceNounPrefix>RG</ServiceNounPrefix>
+    <ServiceName>AWS Resource Groups</ServiceName>
+    <ServiceClientInterface>IAmazonResourceGroups</ServiceClientInterface>
+    <ServiceClient>AmazonResourceGroupsClient</ServiceClient>
+    <ServiceModuleGuid>e9d86626-d3f7-4f93-af97-f45f5a5f67bd</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="50" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="*" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="ResourceQuery" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroup" OutputProperty="Group" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="GroupName" Alias="Name" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="GroupName" Alias="Name" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupQuery" OutputProperty="GroupQuery" Verb="Get" Noun="GroupQuery" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="GroupName" Alias="Name" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupResources" OutputProperty="*" Verb="Get" Noun="GroupResourceList" PipelineParameter="GroupName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params>
+                <Param Name="GroupName" Alias="Name" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroups" OutputProperty="GroupIdentifiers" Verb="Get" Noun="GroupList" PipelineParameter="Filters" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchResources" OutputProperty="*" Verb="Find" Noun="Resource" PipelineParameter="ResourceQuery" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Tag" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Untag" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Keys" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="Description" NoPipelineParameter="false">
+            <Params>
+                <Param Name="GroupName" Alias="Name" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroupQuery" OutputProperty="GroupQuery" Verb="Update" Noun="GroupQuery" ShouldProcessTarget="GroupName" PipelineParameter="ResourceQuery" NoPipelineParameter="false">
+            <Params>
+                <Param Name="GroupName" Alias="Name" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.ResourceGroups.Model.ResourceQuery</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

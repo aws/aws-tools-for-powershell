@@ -1,0 +1,3 @@
+﻿# ForecastQueryService
+
+Export-ModuleMember -Alias *

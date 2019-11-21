@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>monitoring</C2jFilename>
+    <AssemblyName>CloudWatch</AssemblyName>
+    <ServiceNounPrefix>CW</ServiceNounPrefix>
+    <ServiceName>Amazon CloudWatch</ServiceName>
+    <ServiceClientInterface>IAmazonCloudWatch</ServiceClientInterface>
+    <ServiceClient>AmazonCloudWatchClient</ServiceClient>
+    <ServiceModuleGuid>3dd3fb56-d302-44bc-a9a1-f752327a21cf</ServiceModuleGuid>
+    <PipelineParameter>AlarmNames</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="AlarmActions" To="AlarmAction" />
+        <Map From="Alarms" To="Alarm" />
+        <Map From="AlarmsForMetric" To="AlarmForMetric" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteAlarms" Verb="Remove" Noun="Alarm" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAnomalyDetector" Verb="Remove" Noun="AnomalyDetector" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDashboards" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardNames" PipelineParameter="DashboardNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlarmHistory" OutputProperty="AlarmHistoryItems" Verb="Get" Noun="AlarmHistory" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="EndDateUtc" NewName="UtcEndDate" AutoApplyAlias="false" />
+                <Param Name="EndDate" ExclusiveParameters="UtcEndDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndDate instead." />
+                <Param Name="StartDateUtc" NewName="UtcStartDate" AutoApplyAlias="false" />
+                <Param Name="StartDate" ExclusiveParameters="UtcStartDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartDate instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlarms" OutputProperty="MetricAlarms" Verb="Get" Noun="Alarm" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlarmsForMetric" OutputProperty="MetricAlarms" Verb="Get" Noun="AlarmForMetric" PositionalParameters="Namespace;Statistic" PipelineParameter="MetricName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAnomalyDetectors" OutputProperty="AnomalyDetectors" Verb="Get" Noun="AnomalyDetector" PipelineParameter="MetricName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableAlarmActions" Verb="Disable" Noun="AlarmAction" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableAlarmActions" Verb="Enable" Noun="AlarmAction" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMetricData" OutputProperty="*" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params>
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMetricStatistics" OutputProperty="*" Verb="Get" Noun="MetricStatistic" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetricStatistics">
+            <Params>
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMetricWidgetImage" OutputProperty="MetricWidgetImage" Verb="Get" Noun="MetricWidgetImage" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardEntries" Verb="Get" Noun="DashboardList" PipelineParameter="DashboardNamePrefix" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMetrics" OutputProperty="Metrics" Verb="Get" Noun="MetricList" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetrics">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAnomalyDetector" Verb="Write" Noun="AnomalyDetector" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDashboard" OutputProperty="DashboardValidationMessages" Verb="Write" Noun="Dashboard" ShouldProcessTarget="DashboardName" PipelineParameter="DashboardBody" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutMetricAlarm" Verb="Write" Noun="MetricAlarm" ShouldProcessTarget="AlarmName" PositionalParameters="AlarmDescription" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutMetricData" Verb="Write" Noun="MetricData" ShouldProcessTarget="Namespace" PositionalParameters="MetricData" PipelineParameter="Namespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetAlarmState" Verb="Set" Noun="AlarmState" ShouldProcessTarget="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

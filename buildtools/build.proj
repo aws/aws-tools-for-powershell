@@ -1,0 +1,291 @@
+<Project ToolsVersion="4.0" DefaultTargets="full-build" 
+    xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <InternalBuildTools Condition="'$(InternalBuildTools)'==''">../../AWSDotNetBuildTools</InternalBuildTools>
+    </PropertyGroup>
+
+    <Import Project="$(InternalBuildTools)/references.targets" Condition="Exists('$(InternalBuildTools)/references.targets')" />
+    <Import Project="$(InternalBuildTools)/common.targets" Condition="Exists('$(InternalBuildTools)/common.targets')" />
+
+    <PropertyGroup>
+        <!-- perform a release build by default -->
+        <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
+
+        <!-- deletes the Include/sdk/NuGet and Include/sdk/ExtractedNuGet folders; set to false if the content of these folders is pre-filled in with the packages to be used by the build -->
+        <CleanSdkReferences Condition="'$(CleanSdkReferences)'==''">true</CleanSdkReferences>
+
+        <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
+        <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)/..</RootPath>
+
+        <!-- the relative location (to the project file) of the generator executable -->
+        <GeneratorPath>$(RootPath)/generator/AWSPSGenerator/bin/$(Configuration)/netcoreapp2.1</GeneratorPath>
+        <Generator>AWSPSGenerator.dll</Generator>
+
+        <!-- expected location of SDK assemblies to be consumed by generator; these should have been fetched via
+             the get-references (=> get-reference-sdk) target
+        -->
+        <SDKNuGetFolder Condition="'$(SDKNuGetFolder)'==''">$(RootPath)/Include/sdk/nuget</SDKNuGetFolder>
+
+        <!-- the domain in which the China (Beijing), cn-north-1, doc assets are hosted (injected into docs) -->
+        <CNNorth1RegionDocsDomain Condition="'$(CNNorth1RegionDocsDomain)'==''">docs.amazonaws.cn</CNNorth1RegionDocsDomain>
+
+        <!-- build log containing results of generator analysis of service operations -->
+        <CmdletAnalysisLog Condition="'$(CmdletAnalysisLog)'==''">$(RootPath)/logs/CmdletAnalysis.log</CmdletAnalysisLog>
+
+        <!-- if true (default), the generator will attempt to generate cmdlets for new operations found in the SDK. Set false to perform emergency maintenance releases without needing to configure new service operations changes first. -->
+        <CreateNewCmdlets Condition="'$(CreateNewCmdlets)' == ''">true</CreateNewCmdlets>
+
+        <!-- set to true to build without reflecting over the service client to generate cmdlets, aliases and completers. If set to true the generator will only download the nupkg files and unzip the SDK dlls -->
+        <SkipCmdletGeneration Condition="'$(SkipCmdletGeneration)'==''">false</SkipCmdletGeneration>
+
+        <!-- set to true to fail the build if new operations are present in the SDK, this can be used during release builds when all configurations are expected to be already committed -->
+        <BreakOnNewOperations Condition="'$(BreakOnNewOperations)'==''">false</BreakOnNewOperations>
+        
+        <!-- set to false to skip generating the release notes draft -->
+        <DraftReleaseNotes Condition="'$(DraftReleaseNotes)'==''">true</DraftReleaseNotes>
+
+        <!-- the four-components version number e.g. 4.0.0.0. -->
+        <PatchNumber Condition="'$(PatchNumber)'==''">0.0.0.0</PatchNumber>
+
+        <!-- default location for artifacts consolidation -->
+        <Deployment Condition="'$(Deployment)'==''">$(RootPath)/Deployment</Deployment>
+        <DesktopDeploymentArtifacts>$(Deployment)/AWSPowerShell/</DesktopDeploymentArtifacts>
+        <NetCoreDeploymentArtifacts>$(Deployment)/AWSPowerShell.NetCore/</NetCoreDeploymentArtifacts>
+        <ModularDeploymentArtifacts>$(Deployment)/AWS.Tools/</ModularDeploymentArtifacts>
+        <AWSPowerShellSourceFolder>$(RootPath)/modules/AWSPowerShell</AWSPowerShellSourceFolder>
+        <DesktopBuildFolder>$(AWSPowerShellSourceFolder)/bin/$(Configuration)/net35/</DesktopBuildFolder>
+        <NetCoreBuildFolder>$(AWSPowerShellSourceFolder)/bin/$(Configuration)/netstandard2.0/</NetCoreBuildFolder>
+
+        <DocDeployment Condition="'$(DocDeployment)'==''">$(RootPath)/DocDeployment</DocDeployment>
+
+        <RunTests Condition="'$(RunTests)'==''">false</RunTests>
+        <RunKeyScan Condition="'$(RunKeyScan)'==''">true</RunKeyScan>
+
+        <SignModule Condition="'$(SignModule)'==''">false</SignModule>
+    </PropertyGroup>
+
+    <Target Name="full-build" DependsOnTargets="clean-deployment;clean-sdk-references;build-generator;create-cmdlets;build-modules;copy-coreclr-artifacts;draft-release-notes;copy-desktop-artifacts;copy-modular-artifacts;copy-tests;copy-postbuild-scripts;create-help;keyscan;sign-script-artifacts;run-tests;save-build">
+        <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
+    </Target>
+    
+    <Target Name="preview-build" DependsOnTargets="clean-deployment;build-generator;create-cmdlets;build-netcore-module;copy-coreclr-artifacts;draft-release-notes;create-pshelp">
+        <Message Text="Generates all cmdlets and then builds AWSPowerShell.NetCore deployment artifacts and powershell help files."/>
+    </Target>
+
+    <Target Name="clean-deployment">
+		<RemoveDir Directories="$(RootPath)\TestResults" />
+		<RemoveDir Directories="$(Deployment)" />
+		<MakeDir Directories="$(Deployment)" />
+    </Target>
+
+    <Target Name="clean-sdk-references" Condition="'$(CleanSdkReferences)'">
+        <RemoveDir Directories="$(SDKNuGetFolder)/../ExtractedNuGet" />
+        <ItemGroup>
+            <FilesToClean Include="$(SDKNuGetFolder)/**/*"/>
+        </ItemGroup>
+        <Delete Files="@(FilesToClean)" />
+    
+        <MakeDir Directories="$(SDKNuGetFolder)"/>
+    </Target>
+    
+    <Target Name="build-generator">
+        <Message Text="Building AWS PowerShell generator"/>
+        <Exec Command="dotnet build -c $(Configuration) --force --no-incremental ../solutions/AWSPowerShellGenerator.sln"/>    
+    </Target>
+
+    <Target Name="create-cmdlets" DependsOnTargets="build-generator">
+        <Message Text="Generating cmdlets for all services"/>
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(PatchNumber)" />
+    </Target>
+
+    <Target Name="build-modules" DependsOnTargets="build-netcore-module;build-desktop-module;build-modular-modules" />
+
+    <Target Name="build-desktop-module" DependsOnTargets="create-cmdlets;build-netcore-module">
+        <Message Text="Building AWSPowerShell desktop module edition"/>
+        <Exec Command="dotnet build -c $(Configuration) -f net35 --force --no-incremental ../solutions/AWSPowerShell.sln"/>   
+    </Target>
+
+    <Target Name="build-netcore-module" DependsOnTargets="create-cmdlets">
+        <Message Text="Building AWSPowerShell netcore module edition"/>
+        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental ../solutions/AWSPowerShell.sln"/>   
+
+        <Message Text="Generating custom view formats ps1xml file"/>
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t formats -e coreclr" />
+    </Target>
+
+    <Target Name="build-modular-modules" DependsOnTargets="create-cmdlets">
+        <Message Text="Building AWSPowerShell modular edition"/>
+        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental ../solutions/ModularAWSPowerShell.sln"/>
+    </Target>
+
+    <Target Name="create-help" DependsOnTargets="create-pshelp;create-webhelp" />
+
+    <Target Name="create-pshelp" DependsOnTargets="build-netcore-module">
+        <Message Text="Generating native PowerShell help file"/>
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t pshelp -e coreclr" />
+
+        <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.dll-Help.xml" DestinationFiles="$(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll-Help.xml" />
+        <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.dll-Help.xml" DestinationFiles="$(DesktopDeploymentArtifacts)/AWSPowerShell.dll-Help.xml" />
+    </Target>
+
+    <Target Name="create-webhelp" DependsOnTargets="build-netcore-module">
+        <Message Text="Generating web cmdlet reference"/>
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t webhelp -e coreclr" />
+
+        <CallTarget Targets="package-webhelp"/>
+    </Target>
+
+    <Target Name="package-webhelp" Condition="Exists('$(InternalBuildTools)/references.targets')">
+        <CreateSitemapTask SourceFolder="$(DocDeployment)/docs" BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/" OutputFile="$(DocDeployment)/docs/sitemap.xml" WaitForDebugger="false" />
+
+        <ItemGroup>
+            <FilesToZip Include="$(DocDeployment)/docs/**" />
+        </ItemGroup>
+        <Zip InputDirectory="$(DocDeployment)/docs" OutputFileName="$(DocDeployment)/help.zip" />
+    </Target>
+
+    <Target Name="run-tests" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts" Condition="'$(RunTests)'">
+        <Message Text="Running tests"/>
+
+        <RemoveDir Directories="$(RootPath)/tests/results" />
+        <MakeDir Directories="$(RootPath)/tests/results" />
+        <Exec Command="pwsh -NoProfile -Command Invoke-Pester -EnableExit -OutputFile results/PesterResults.xml -OutputFormat NUnitXML -ExcludeTag Disabled" WorkingDirectory="$(RootPath)/tests" />
+
+        <ItemGroup>
+            <TestResults Include="$(RootPath)/test/results/*.*"/>
+        </ItemGroup>
+        <Copy SourceFiles="@(TestResults)" DestinationFolder="$(Deployment)" />
+    </Target>
+
+    <Target Name="copy-desktop-artifacts" DependsOnTargets="build-netcore-module;build-desktop-module">
+        <Message Text="Consolidating Desktop edition artifacts from $(DesktopBuildFolder) to $(DesktopDeploymentArtifacts)"/>
+       
+        <ItemGroup>
+            <SDKAssemblies Include="$(SDKNuGetFolder)/../ExtractedNuGet/net35/AWSSDK.*.dll" />
+        </ItemGroup>
+        <Copy SourceFiles="@(SDKAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShell.psd1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShell.TypeExtensions.ps1xml" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSAliases.ps1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/ImportGuard.ps1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShellCompleters.psm1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShellLegacyAliases.psm1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+
+        <Copy SourceFiles="$(DesktopBuildFolder)/AWSPowerShell.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(DesktopBuildFolder)/AWSPowerShell.xml" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <!-- clone the generated file from coreclr -->
+        <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFiles="$(DesktopDeploymentArtifacts)/AWSPowerShell.Format.ps1xml" />
+
+        <Copy SourceFiles="$(RootPath)/ThirdParty/log4net.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(DesktopDeploymentArtifacts)/CHANGELOG.txt"/>
+    </Target>
+
+    <Target Name="copy-coreclr-artifacts" DependsOnTargets="build-netcore-module">
+        <Message Text="Consolidating CoreCLR edition artifacts from $(NetCoreBuildFolder) to $(NetCoreDeploymentArtifacts)"/>
+
+        <ItemGroup>
+            <NetCoreSDKAssemblies Include="$(SDKNuGetFolder)/../ExtractedNuGet/netstandard2.0/AWSSDK.*.dll" />
+        </ItemGroup>
+        <Copy SourceFiles="@(NetCoreSDKAssemblies)" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShell.NetCore.psd1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShell.TypeExtensions.ps1xml" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSAliases.ps1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/ImportGuard.ps1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShellCompleters.psm1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShellLegacyAliases.psm1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+
+        <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.xml" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFolder="$(NetCoreDeploymentArtifacts)" />
+        
+        <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(NetCoreDeploymentArtifacts)/CHANGELOG.txt"/>
+    </Target>
+
+    <Target Name="copy-modular-artifacts" DependsOnTargets="build-modular-modules">
+        <Exec Command="pwsh $(RootPath)/buildtools/CopyModularAWSPowerShell.ps1 $(RootPath) $(Configuration)"/>   
+    </Target>
+
+    <Target Name="copy-tests">
+        <PropertyGroup>
+            <TestSourceFolder>$(RootPath)/Tests</TestSourceFolder>
+        </PropertyGroup>
+
+        <ItemGroup>
+            <TestFiles Include="$(TestSourceFolder)/**/*.*" />
+        </ItemGroup>
+
+        <Copy SourceFiles="@(TestFiles)" DestinationFolder="$(RootPath)/Deployment/Tests/%(RecursiveDir)" />
+    </Target>
+
+    <Target Name="copy-postbuild-scripts">
+        <ItemGroup>
+            <PostBuildScripts Include="$(RootPath)/buildtools/Confirm-StagedArtifact.ps1" />
+            <PostBuildScripts Include="$(RootPath)/buildtools/Publish-StagedArtifact.ps1" />
+        </ItemGroup>
+
+        <Copy SourceFiles="@(PostBuildScripts)" DestinationFolder="$(RootPath)/Deployment" />
+
+        <!-- emit the version data into a json file that gets uploaded to S3. EC2 then
+             reads this to know if it needs to update EC2 images during image prep. -->
+        <Copy SourceFiles="$(AWSPowerShellSourceFolder)/awspowershell_versioninfo.json" DestinationFolder="$(RootPath)/Deployment" />
+    </Target>
+  
+    <Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
+        <PropertyGroup>
+            <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)/BuildScripts/Set-AuthenticodeSignature.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
+        </PropertyGroup>
+
+        <Message Text="Authenticode signing module and script artifacts for Desktop edition" />
+        <Exec LogStandardErrorAsError="true" Command="$(powershell) $(SigningScriptArgs) -Path $(DesktopDeploymentArtifacts)" />
+
+        <Message Text="Authenticode signing module and script artifacts for NetCore edition" />
+        <Exec LogStandardErrorAsError="true" Command="$(powershell) $(SigningScriptArgs) -Path $(NetCoreDeploymentArtifacts)" />
+
+        <Message Text="Authenticode signing module and script artifacts for modular edition" />
+        <!-- TODO add a -Recurse option to Set-AuthenticodeSignature.ps1 -->
+        <Exec LogStandardErrorAsError="true" Command="$(powershell) -ExecutionPolicy Unrestricted -NoProfile -Command foreach ($dir in (Get-ChildItem $(ModularDeploymentArtifacts) -Directory)) { $(InternalBuildTools)/BuildScripts/Set-AuthenticodeSignature.ps1 -Filter '*.ps1','*.psm1','*.psd1','*.ps1xml' -Path $dir.FullName }" />
+    </Target>
+
+    <Target Name="keyscan" DependsOnTargets="build-tools" Condition="$(RunKeyScan) And Exists('$(InternalBuildTools)/references.targets')">
+        <!-- note that paths to files for the scanner should be relative to build root -->
+        <ItemGroup>
+            <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\EC2\New-EC2KeyPair.xml" />
+            <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMServerCertificate.xml" />
+            <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMSigningCertificate.xml" />
+            <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Publish-IAMSigningCertificate.xml" />
+            <PrivateKeyException Include="Deployment\AWSPowerShell\AWSPowerShell.dll-Help.xml" />
+            <PrivateKeyException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.NetCore.dll-Help.xml" />
+            <PrivateKeyException Include="Deployment\AWS.Tools\AWS.Tools.EC2\AWS.Tools.EC2.dll-Help.xml" />
+            <PrivateKeyException Include="Deployment\AWS.Tools\AWS.Tools.IdentityManagement\AWS.Tools.IdentityManagement.dll-Help.xml" />
+            <PrivateKeyException Include="DocDeployment\docs\items\New-EC2KeyPair.html" />
+            <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMServerCertificate.html" />
+            <PrivateKeyException Include="DocDeployment\docs\items\Get-IAMSigningCertificate.html" />
+            <PrivateKeyException Include="DocDeployment\docs\items\Publish-IAMSigningCertificate.html" />
+        </ItemGroup>
+
+        <ItemGroup>
+            <FileException Include="test/temp/test-credentials-correct" />
+
+            <FileException Include="Include/sdk/Models/elasticbeanstalk.examples.json" />
+            <FileException Include="Include/sdk/Models/elasticbeanstalk.customizations.json" />
+        </ItemGroup>
+
+        <ItemGroup>
+            <FolderException Include="Include/sdk/models"/>
+        </ItemGroup>
+
+        <KeyScannerTask Folder="$(MSBuildProjectDirectory)/.." FilePattern="**" PrivateKeyExceptions="@(PrivateKeyException)" FileExceptions="@(FileException)" FolderExceptions="@(FolderException)" ParallelScan="true" />
+    </Target>
+
+    <Target Name="save-build" DependsOnTargets="build-tools" Condition="Exists('$(InternalBuildTools)/references.targets')">
+        <SaveBuildArtifactTask RepositoryRoot="$(MSBuildProjectDirectory)/.." BuildArtifactType="powershell" GitBranch="$(SaveReferenceGitBranch)" LocalArchiveRootFolder="$(LocalArchiveRootFolder)" />
+    </Target>
+   
+    <Target Name="draft-release-notes" Condition="$(DraftReleaseNotes)">
+        <Exec Command="dotnet build -c Release --no-incremental ../solutions/ReleaseNotesGenerator.sln"/>
+        <Exec Command="dotnet $(MSBuildProjectDirectory)/../ReleaseNotesGenerator/bin/Release/netcoreapp2.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json > ../ReleaseNotesDraft.txt"/>
+    </Target>
+</Project>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>lambda</C2jFilename>
+    <AssemblyName>Lambda</AssemblyName>
+    <ServiceNounPrefix>LM</ServiceNounPrefix>
+    <ServiceName>AWS Lambda</ServiceName>
+    <ServiceClientInterface>IAmazonLambda</ServiceClientInterface>
+    <ServiceClient>AmazonLambdaClient</ServiceClient>
+    <ServiceModuleGuid>240bbccc-f270-44af-8e80-bb4ebe8614ab</ServiceModuleGuid>
+    <PipelineParameter>FunctionName</PipelineParameter>
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" />
+    <VerbMappings>
+        <Map From="Upload" To="Publish" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddLayerVersionPermission" OutputProperty="*" Verb="Add" Noun="LayerVersionPermission" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddPermission" OutputProperty="Statement" Verb="Add" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAlias" OutputProperty="*" Verb="New" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventSourceMapping" OutputProperty="*" Verb="New" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFunction" OutputProperty="*" Verb="Publish" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Code_ZipFile;Handler;Runtime;Role" PipelineParameter="FunctionName" NoPipelineParameter="false" DefaultParameterSet="FromMemoryStream">
+            <Params>
+                <Param Name="FunctionName" Mandatory="true" />
+                <Param Name="Code_S3Bucket" Alias="S3Bucket;FunctionCode_S3Bucket;BucketName" ParameterSetName="FromS3Object" Mandatory="true" />
+                <Param Name="Code_S3Key" Alias="S3Key;FunctionCode_S3Key;Key" ParameterSetName="FromS3Object" Mandatory="true" />
+                <Param Name="Code_S3ObjectVersion" Alias="S3ObjectVersion;FunctionCode_S3ObjectVersion;VersionId" ParameterSetName="FromS3Object" />
+                <Param Name="Code_ZipFile" Alias="ZipFileContent;ZipContent" ParameterSetName="FromMemoryStream" Mandatory="true" />
+                <Param Name="Handler" Mandatory="true" />
+                <Param Name="Role" Mandatory="true" />
+                <Param Name="Publish" NewName="PublishVersion" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAlias" Verb="Remove" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventSourceMapping" OutputProperty="*" Verb="Remove" Noun="EventSourceMapping" ShouldProcessTarget="UUID" PipelineParameter="UUID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFunction" Verb="Remove" Noun="Function" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFunctionConcurrency" Verb="Remove" Noun="FunctionConcurrency" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLayerVersion" Verb="Remove" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="*" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAlias" OutputProperty="*" Verb="Get" Noun="Alias" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventSourceMapping" OutputProperty="*" Verb="Get" Noun="EventSourceMapping" PipelineParameter="UUID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFunction" OutputProperty="*" Verb="Get" Noun="Function" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFunctionConfiguration" OutputProperty="*" Verb="Get" Noun="FunctionConfiguration" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLayerVersion" OutputProperty="*" Verb="Get" Noun="LayerVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLayerVersionByArn" OutputProperty="*" Verb="Get" Noun="LayerVersionByArn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLayerVersionPolicy" OutputProperty="*" Verb="Get" Noun="LayerVersionPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Invoke" OutputProperty="*" Verb="Invoke" Noun="Function" ShouldProcessTarget="FunctionName" PositionalParameters="Payload;ClientContext;InvocationType;LogType" PipelineParameter="FunctionName" NoPipelineParameter="false" ConfirmImpact="Low">
+            <Params>
+                <Param Name="Payload" DefaultValue="{}" />
+                <Param Name="ClientContext" DefaultValue="{}" />
+                <Param Name="ClientContextBase64" AutoConvert="ToBase64" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeAsync" OutputProperty="Status" Verb="Invoke" Noun="FunctionAsync" ShouldProcessTarget="FunctionName" PositionalParameters="InvokeArgs" PipelineParameter="FunctionName" NoPipelineParameter="false" ReplacementObsoleteMessage="This Cmdlet is deprecated. We recommend to use the Invoke-LMFunction Cmdlet instead." ConfirmImpact="Low">
+            <Params>
+                <Param Name="InvokeArgs" DefaultValue="{}" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventSourceMappings" OutputProperty="EventSourceMappings" Verb="Get" Noun="EventSourceMappingList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyAlias="Get-LMEventSourceMappings">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-LMFunctions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLayers" OutputProperty="Layers" Verb="Get" Noun="LayerList" PipelineParameter="CompatibleRuntime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLayerVersions" OutputProperty="LayerVersions" Verb="Get" Noun="LayerVersionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVersionsByFunction" OutputProperty="Versions" Verb="Get" Noun="VersionsByFunction" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PublishLayerVersion" OutputProperty="*" Verb="Publish" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PublishVersion" OutputProperty="*" Verb="Publish" Noun="Version" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutFunctionConcurrency" OutputProperty="ReservedConcurrentExecutions" Verb="Write" Noun="FunctionConcurrency" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveLayerVersionPermission" Verb="Remove" Noun="LayerVersionPermission" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemovePermission" Verb="Remove" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="TagKeys" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAlias" OutputProperty="*" Verb="Update" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventSourceMapping" OutputProperty="*" Verb="Update" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFunctionCode" OutputProperty="*" Verb="Update" Noun="FunctionCode" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false" DefaultParameterSet="FromMemoryStream">
+            <Params>
+                <Param Name="FunctionName" Mandatory="true" />
+                <Param Name="S3Bucket" Alias="FunctionCode_S3Bucket;BucketName" ParameterSetName="FromS3Object" Mandatory="true" />
+                <Param Name="S3Key" Alias="FunctionCode_S3Key;Key" ParameterSetName="FromS3Object" Mandatory="true" />
+                <Param Name="S3ObjectVersion" Alias="FunctionCode_S3ObjectVersion;VersionId" ParameterSetName="FromS3Object" />
+                <Param Name="ZipFile" Alias="ZipFileContent;ZipContent" ParameterSetName="FromMemoryStream" Mandatory="true" />
+                <Param Name="Publish" NewName="PublishVersion" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFunctionConfiguration" OutputProperty="*" Verb="Update" Noun="FunctionConfiguration" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

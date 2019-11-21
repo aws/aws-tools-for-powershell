@@ -1,0 +1,3 @@
+﻿# GlobalAccelerator
+
+Export-ModuleMember -Alias *

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\> New-EFSFileSystem
+
+CreationTime         : 5/26/2015 4:02:38 PM
+CreationToken        : 1a2bff54-85e0-4747-bd95-7bc172c4f555
+FileSystemId         : fs-1a2b3c4d
+LifeCycleState       : creating
+Name                 :
+NumberOfMountTargets : 0
+OwnerId              : 123456789012
+SizeInBytes          : Amazon.ElasticFileSystem.Model.FileSystemSize
+        </code>
+        <description>Creates a new, empty file system. The token used to ensure idempotent creation will be generated automatically and can be accessed from the <code>CreationToken</code> member of the returned object.</description>
+    </example>
+    <example>
+        <code>New-EFSFileSystem -CreationToken "MyUniqueToken"</code>
+        <description>Creates a new, empty file system using a custom token to ensure idempotent creation.</description>
+    </example>
+</examples>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency TwentyFour_Hours -DeliveryChannelName default -DeliveryChannel_S3BucketName config-bucket-NA -DeliveryChannel_S3KeyPrefix my</code>
+    <description>This example changes the deliveryFrequency property of an existing delivery channel.</description>
+  </example>
+</examples>

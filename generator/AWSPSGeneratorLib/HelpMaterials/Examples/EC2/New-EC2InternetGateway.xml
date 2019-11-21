@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> New-EC2InternetGateway
+
+Attachments    InternetGatewayId    Tags
+-----------    -----------------    ----
+{}             igw-1a2b3c4d         {}</code>
+    <description>This example creates an Internet gateway.</description>
+  </example>
+</examples>

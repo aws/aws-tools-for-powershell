@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>dms</C2jFilename>
+    <AssemblyName>DatabaseMigrationService</AssemblyName>
+    <ServiceNounPrefix>DMS</ServiceNounPrefix>
+    <ServiceName>AWS Database Migration Service</ServiceName>
+    <ServiceClientInterface>IAmazonDatabaseMigrationService</ServiceClientInterface>
+    <ServiceClient>AmazonDatabaseMigrationServiceClient</ServiceClient>
+    <ServiceModuleGuid>0d978e1b-dcd2-4c89-8bf3-aae5b490f22b</ServiceModuleGuid>
+    <PipelineParameter>EndpointArn</PipelineParameter>
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="100" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings>
+        <Map From="Certificates" To="Certificate" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTagsToResource" Verb="Set" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceActions" Verb="Complete" Noun="PendingMaintenanceAction" ShouldProcessTarget="ReplicationInstanceArn" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEndpoint" OutputProperty="Endpoint" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointIdentifier" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventSubscription" OutputProperty="EventSubscription" Verb="New" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationInstance" OutputProperty="ReplicationInstance" Verb="New" Noun="ReplicationInstance" ShouldProcessTarget="ReplicationInstanceIdentifier" PipelineParameter="ReplicationInstanceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationSubnetGroup" OutputProperty="ReplicationSubnetGroup" Verb="New" Noun="ReplicationSubnetGroup" ShouldProcessTarget="ReplicationSubnetGroupIdentifier" PipelineParameter="ReplicationSubnetGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationTask" OutputProperty="ReplicationTask" Verb="New" Noun="ReplicationTask" ShouldProcessTarget="ReplicationInstanceArn" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCertificate" OutputProperty="Certificate" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnection" OutputProperty="Connection" Verb="Remove" Noun="Connection" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpoint" OutputProperty="Endpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventSubscription" OutputProperty="EventSubscription" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationInstance" OutputProperty="ReplicationInstance" Verb="Remove" Noun="ReplicationInstance" ShouldProcessTarget="ReplicationInstanceArn" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationSubnetGroup" Verb="Remove" Noun="ReplicationSubnetGroup" ShouldProcessTarget="ReplicationSubnetGroupIdentifier" PipelineParameter="ReplicationSubnetGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationTask" OutputProperty="ReplicationTask" Verb="Remove" Noun="ReplicationTask" ShouldProcessTarget="ReplicationTaskArn" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="*" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="Filters" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnections" OutputProperty="Connections" Verb="Get" Noun="Connection" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpointTypes" OutputProperty="SupportedEndpointTypes" Verb="Get" Noun="EndpointType" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventCategories" OutputProperty="EventCategoryGroupList" Verb="Get" Noun="EventCategory" PipelineParameter="SourceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrderableReplicationInstances" OutputProperty="OrderableReplicationInstances" Verb="Get" Noun="OrderableReplicationInstance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePendingMaintenanceActions" OutputProperty="PendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRefreshSchemasStatus" OutputProperty="RefreshSchemasStatus" Verb="Get" Noun="RefreshSchemasStatus" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationInstances" OutputProperty="ReplicationInstances" Verb="Get" Noun="ReplicationInstance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationInstanceTaskLogs" OutputProperty="ReplicationInstanceTaskLogs" Verb="Get" Noun="ReplicationInstanceTaskLog" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationSubnetGroups" OutputProperty="ReplicationSubnetGroups" Verb="Get" Noun="ReplicationSubnetGroup" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationTaskAssessmentResults" OutputProperty="*" Verb="Get" Noun="ReplicationTaskAssessmentResult" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationTasks" OutputProperty="ReplicationTasks" Verb="Get" Noun="ReplicationTask" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSchemas" OutputProperty="Schemas" Verb="Get" Noun="Schema" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTableStatistics" OutputProperty="*" Verb="Get" Noun="TableStatistic" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportCertificate" OutputProperty="Certificate" Verb="Import" Noun="Certificate" ShouldProcessTarget="CertificateIdentifier" PipelineParameter="CertificatePem" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyEndpoint" OutputProperty="Endpoint" Verb="Edit" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyEventSubscription" OutputProperty="EventSubscription" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReplicationInstance" OutputProperty="ReplicationInstance" Verb="Edit" Noun="ReplicationInstance" ShouldProcessTarget="ReplicationInstanceArn" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReplicationSubnetGroup" OutputProperty="ReplicationSubnetGroup" Verb="Edit" Noun="ReplicationSubnetGroup" ShouldProcessTarget="ReplicationSubnetGroupIdentifier" PipelineParameter="ReplicationSubnetGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReplicationTask" OutputProperty="ReplicationTask" Verb="Edit" Noun="ReplicationTask" ShouldProcessTarget="ReplicationTaskArn" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootReplicationInstance" OutputProperty="ReplicationInstance" Verb="Restart" Noun="ReplicationInstance" ShouldProcessTarget="ReplicationInstanceArn" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RefreshSchemas" OutputProperty="RefreshSchemasStatus" Verb="Invoke" Noun="SchemaRefresh" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReloadTables" OutputProperty="ReplicationTaskArn" Verb="Restore" Noun="Table" ShouldProcessTarget="ReplicationTaskArn" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartReplicationTask" OutputProperty="ReplicationTask" Verb="Start" Noun="ReplicationTask" ShouldProcessTarget="ReplicationTaskArn" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartReplicationTaskAssessment" OutputProperty="ReplicationTask" Verb="Start" Noun="ReplicationTaskAssessment" ShouldProcessTarget="ReplicationTaskArn" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopReplicationTask" OutputProperty="ReplicationTask" Verb="Stop" Noun="ReplicationTask" ShouldProcessTarget="ReplicationTaskArn" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestConnection" OutputProperty="Connection" Verb="Test" Noun="Connection" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

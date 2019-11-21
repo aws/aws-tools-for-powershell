@@ -1,0 +1,3 @@
+﻿# DocDB
+
+Export-ModuleMember -Alias *

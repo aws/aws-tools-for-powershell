@@ -1,0 +1,1659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>ec2</C2jFilename>
+    <AssemblyName>EC2</AssemblyName>
+    <ServiceNounPrefix>EC2</ServiceNounPrefix>
+    <ServiceName>Amazon Elastic Compute Cloud (EC2)</ServiceName>
+    <ServiceClientInterface>IAmazonEC2</ServiceClientInterface>
+    <ServiceClient>AmazonEC2Client</ServiceClient>
+    <ServiceModuleGuid>beb2445c-fd90-4fda-adf1-f8c955ce16dc</ServiceModuleGuid>
+    <PipelineParameter>InstanceId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings>
+        <Map From="Associate" To="Register" />
+        <Map From="Disassociate" To="Unregister" />
+        <Map From="Replace" To="Set" />
+        <Map From="Report" To="Send" />
+        <Map From="Authorize" To="Grant" />
+        <Map From="Assign" To="Register" />
+        <Map From="Unassign" To="Unregister" />
+        <Map From="Deregister" To="Unregister" />
+        <Map From="Reboot" To="Restart" />
+        <Map From="Release" To="Remove" />
+        <Map From="Run" To="New" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Addresses" To="Address" />
+        <Map From="AvailabilityZones" To="AvailabilityZone" />
+        <Map From="BundleTasks" To="BundleTask" />
+        <Map From="CustomerGateways" To="CustomerGateway" />
+        <Map From="DhcpOptions" To="DhcpOption" />
+        <Map From="Images" To="Image" />
+        <Map From="Instances" To="Instance" />
+        <Map From="InternetGateways" To="InternetGateway" />
+        <Map From="KeyPairs" To="KeyPair" />
+        <Map From="Licenses" To="License" />
+        <Map From="NetworkAcls" To="NetworkAcl" />
+        <Map From="NetworkInterfaces" To="NetworkInterface" />
+        <Map From="PlacementGroups" To="PlacementGroup" />
+        <Map From="PrivateIpAddresses" To="PrivateIpAddress" />
+        <Map From="Regions" To="Region" />
+        <Map From="ReservedInstances" To="ReservedInstance" />
+        <Map From="ReservedInstancesListings" To="ReservedInstancesListing" />
+        <Map From="ReservedInstancesOfferings" To="ReservedInstancesOffering" />
+        <Map From="RouteTables" To="RouteTable" />
+        <Map From="SecurityGroups" To="SecurityGroup" />
+        <Map From="Snapshots" To="Snapshot" />
+        <Map From="SpotInstances" To="SpotInstance" />
+        <Map From="SpotInstanceRequests" To="SpotInstanceRequest" />
+        <Map From="Subnets" To="Subnet" />
+        <Map From="Tags" To="Tag" />
+        <Map From="Volumes" To="Volume" />
+        <Map From="Vpcs" To="Vpc" />
+        <Map From="VpnConnections" To="VpnConnection" />
+        <Map From="VpnGateways" To="VpnGateway" />
+    </NounMappings>
+    <Params>
+        <Param Name="DryRun" Exclude="true" />
+    </Params>
+    <AdditionalNamespaces />
+    <CustomAliases>
+        <AliasSet Cmdlet="Stop-EC2Instance">EC2-StopInstance</AliasSet>
+    </CustomAliases>
+    <LegacyAliases />
+    <ParamEmitters>
+        <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;" ParamName="InstanceIds" EmitterType="Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" Exclude="" />
+    </ParamEmitters>
+    <MetadataProperties>
+        <Property>SpotFleetRequestId</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" OutputProperty="ExchangeId" Verb="Confirm" Noun="ReservedInstancesExchangeQuote" ShouldProcessTarget="ReservedInstanceIds" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcceptTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Confirm" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcceptVpcEndpointConnections" OutputProperty="Unsuccessful" Verb="Confirm" Noun="EndpointConnection" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcceptVpcPeeringConnection" OutputProperty="VpcPeeringConnection" Verb="Approve" Noun="VpcPeeringConnection" ShouldProcessTarget="VpcPeeringConnectionId" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdvertiseByoipCidr" OutputProperty="ByoipCidr" Verb="Start" Noun="ByoipCidrAdvertisement" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AllocateAddress" OutputProperty="*" Verb="New" Noun="Address" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AllocateHosts" OutputProperty="HostIds" Verb="New" Noun="Host" ShouldProcessTarget="InstanceType" PipelineParameter="InstanceType" NoPipelineParameter="false" LegacyAlias="New-EC2Hosts">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ApplySecurityGroupsToClientVpnTargetNetwork" OutputProperty="SecurityGroupIds" Verb="Add" Noun="SecurityGroupToClientVpnTargetNetwork" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssignIpv6Addresses" OutputProperty="*" Verb="Register" Noun="Ipv6AddressList" ShouldProcessTarget="NetworkInterfaceId" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssignPrivateIpAddresses" OutputProperty="AssignedPrivateIpAddresses" Verb="Register" Noun="PrivateIpAddress" ShouldProcessTarget="NetworkInterfaceId" PositionalParameters="SecondaryPrivateIpAddressCount;AllowReassignment;PrivateIpAddresses" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateAddress" OutputProperty="AssociationId" Verb="Register" Noun="Address" ShouldProcessTarget="InstanceId" PositionalParameters="PublicIp;AllocationId;NetworkInterfaceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateClientVpnTargetNetwork" OutputProperty="*" Verb="Register" Noun="ClientVpnTargetNetwork" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDhcpOptions" Verb="Register" Noun="DhcpOption" ShouldProcessTarget="VpcId" PositionalParameters="DhcpOptionsId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateIamInstanceProfile" OutputProperty="IamInstanceProfileAssociation" Verb="Register" Noun="IamInstanceProfile" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateRouteTable" OutputProperty="AssociationId" Verb="Register" Noun="RouteTable" ShouldProcessTarget="RouteTableId" PositionalParameters="SubnetId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSubnetCidrBlock" OutputProperty="*" Verb="Register" Noun="SubnetCidrBlock" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateTransitGatewayRouteTable" OutputProperty="Association" Verb="Register" Noun="TransitGatewayRouteTable" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateVpcCidrBlock" OutputProperty="*" Verb="Register" Noun="VpcCidrBlock" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachClassicLinkVpc" OutputProperty="Return" Verb="Add" Noun="ClassicLinkVpc" ShouldProcessTarget="VpcId" PositionalParameters="InstanceId;Groups" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachInternetGateway" Verb="Add" Noun="InternetGateway" ShouldProcessTarget="VpcId" PositionalParameters="InternetGatewayId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachNetworkInterface" OutputProperty="AttachmentId" Verb="Add" Noun="NetworkInterface" ShouldProcessTarget="InstanceId" PositionalParameters="NetworkInterfaceId;DeviceIndex" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachVolume" OutputProperty="Attachment" Verb="Add" Noun="Volume" ShouldProcessTarget="InstanceId" PositionalParameters="VolumeId;Device" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachVpnGateway" OutputProperty="VpcAttachment" Verb="Add" Noun="VpnGateway" ShouldProcessTarget="VpcId" PositionalParameters="VpnGatewayId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeClientVpnIngress" OutputProperty="Status" Verb="Grant" Noun="ClientVpnIngress" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeSecurityGroupEgress" Verb="Grant" Noun="SecurityGroupEgress" ShouldProcessTarget="GroupId" PositionalParameters="IpPermissions" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeSecurityGroupIngress" Verb="Grant" Noun="SecurityGroupIngress" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BundleInstance" OutputProperty="BundleTask" Verb="New" Noun="InstanceBundle" ShouldProcessTarget="InstanceId" PositionalParameters="Storage_S3_Bucket;Storage_S3_Prefix" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelBundleTask" OutputProperty="BundleTask" Verb="Stop" Noun="BundleTask" ShouldProcessTarget="BundleId" PipelineParameter="BundleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelCapacityReservation" OutputProperty="Return" Verb="Remove" Noun="CapacityReservation" ShouldProcessTarget="CapacityReservationId" PipelineParameter="CapacityReservationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelConversionTask" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelExportTask" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="ExportTaskId" PipelineParameter="ExportTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelImportTask" OutputProperty="*" Verb="Stop" Noun="ImportTask" ShouldProcessTarget="ImportTaskId" PipelineParameter="ImportTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelReservedInstancesListing" OutputProperty="ReservedInstancesListings" Verb="Stop" Noun="ReservedInstancesListing" ShouldProcessTarget="ReservedInstancesListingId" PipelineParameter="ReservedInstancesListingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelSpotFleetRequests" OutputProperty="*" Verb="Stop" Noun="SpotFleetRequest" ShouldProcessTarget="SpotFleetRequestIds" PipelineParameter="SpotFleetRequestIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelSpotInstanceRequests" OutputProperty="CancelledSpotInstanceRequests" Verb="Stop" Noun="SpotInstanceRequest" ShouldProcessTarget="SpotInstanceRequestIds" PipelineParameter="SpotInstanceRequestIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmProductInstance" OutputProperty="*" Verb="Confirm" Noun="ProductInstance" ShouldProcessTarget="InstanceId" PositionalParameters="ProductCode" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyFpgaImage" OutputProperty="FpgaImageId" Verb="Copy" Noun="FpgaImage" ShouldProcessTarget="SourceFpgaImageId" PipelineParameter="SourceFpgaImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyImage" OutputProperty="ImageId" Verb="Copy" Noun="Image" ShouldProcessTarget="SourceImageId" PositionalParameters="SourceRegion;Description;Name;ClientToken" PipelineParameter="SourceImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopySnapshot" OutputProperty="SnapshotId" Verb="Copy" Noun="Snapshot" ShouldProcessTarget="SourceSnapshotId" PositionalParameters="SourceRegion;Description" PipelineParameter="SourceSnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCapacityReservation" OutputProperty="CapacityReservation" Verb="Add" Noun="CapacityReservation" ShouldProcessTarget="InstanceType" PipelineParameter="InstanceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateClientVpnEndpoint" OutputProperty="*" Verb="New" Noun="ClientVpnEndpoint" ShouldProcessTarget="ServerCertificateArn" PipelineParameter="ServerCertificateArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateClientVpnRoute" OutputProperty="Status" Verb="New" Noun="ClientVpnRoute" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomerGateway" OutputProperty="CustomerGateway" Verb="New" Noun="CustomerGateway" ShouldProcessTarget="Type" PositionalParameters="PublicIp;BgpAsn" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params>
+                <Param Name="PublicIp" Alias="IpAddress" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDefaultSubnet" OutputProperty="Subnet" Verb="New" Noun="DefaultSubnet" ShouldProcessTarget="AvailabilityZone" PipelineParameter="AvailabilityZone" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDefaultVpc" OutputProperty="Vpc" Verb="New" Noun="DefaultVpc" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDhcpOptions" OutputProperty="DhcpOptions" Verb="New" Noun="DhcpOption" ShouldProcessTarget="DhcpConfigurations" PipelineParameter="DhcpConfigurations" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEgressOnlyInternetGateway" OutputProperty="*" Verb="New" Noun="EgressOnlyInternetGateway" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFleet" OutputProperty="*" Verb="New" Noun="Fleet" ShouldProcessTarget="LaunchTemplateConfigs" PipelineParameter="LaunchTemplateConfigs" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ValidFromUtc" NewName="UtcValidFrom" AutoApplyAlias="false" />
+                <Param Name="ValidFrom" ExclusiveParameters="UtcValidFrom" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidFrom instead." />
+                <Param Name="ValidUntilUtc" NewName="UtcValidUntil" AutoApplyAlias="false" />
+                <Param Name="ValidUntil" ExclusiveParameters="UtcValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidUntil instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFlowLogs" OutputProperty="*" Verb="New" Noun="FlowLog" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyAlias="New-EC2FlowLogs">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFpgaImage" OutputProperty="*" Verb="New" Noun="FpgaImage" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateImage" OutputProperty="ImageId" Verb="New" Noun="Image" ShouldProcessTarget="InstanceId" PositionalParameters="Name;Description;NoReboot;BlockDeviceMappings" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstanceExportTask" OutputProperty="ExportTask" Verb="New" Noun="InstanceExportTask" ShouldProcessTarget="InstanceId" PositionalParameters="TargetEnvironment;Description" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInternetGateway" OutputProperty="InternetGateway" Verb="New" Noun="InternetGateway" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateKeyPair" OutputProperty="KeyPair" Verb="New" Noun="KeyPair" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLaunchTemplate" OutputProperty="LaunchTemplate" Verb="New" Noun="LaunchTemplate" ShouldProcessTarget="LaunchTemplateName" PipelineParameter="LaunchTemplateData" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLaunchTemplateVersion" OutputProperty="LaunchTemplateVersion" Verb="New" Noun="LaunchTemplateVersion" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="LaunchTemplateData" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNatGateway" OutputProperty="*" Verb="New" Noun="NatGateway" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkAcl" OutputProperty="NetworkAcl" Verb="New" Noun="NetworkAcl" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkAclEntry" Verb="New" Noun="NetworkAclEntry" ShouldProcessTarget="NetworkAclId" PipelineParameter="NetworkAclId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkInterface" OutputProperty="NetworkInterface" Verb="New" Noun="NetworkInterface" ShouldProcessTarget="SubnetId" PositionalParameters="Description;PrivateIpAddress;Groups" PipelineParameter="SubnetId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="PrivateIpAddresses" NewName="PrivateIpAddressSet" />
+                <Param Name="Groups" NewName="Group" Alias="GroupId" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkInterfacePermission" OutputProperty="InterfacePermission" Verb="New" Noun="NetworkInterfacePermission" ShouldProcessTarget="NetworkInterfaceId" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlacementGroup" Verb="New" Noun="PlacementGroup" ShouldProcessTarget="GroupName" PositionalParameters="Strategy" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReservedInstancesListing" OutputProperty="ReservedInstancesListings" Verb="New" Noun="ReservedInstancesListing" ShouldProcessTarget="ReservedInstancesId" PositionalParameters="InstanceCount;PriceSchedules;ClientToken" PipelineParameter="ReservedInstancesId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="PriceSchedules" NewName="PriceSchedule" Alias="PricingSchedules" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRoute" OutputProperty="Return" Verb="New" Noun="Route" ShouldProcessTarget="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRouteTable" OutputProperty="RouteTable" Verb="New" Noun="RouteTable" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityGroup" OutputProperty="GroupId" Verb="New" Noun="SecurityGroup" ShouldProcessTarget="GroupName" PositionalParameters="Description;VpcId" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Description" Alias="GroupDescription" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="VolumeId" PositionalParameters="Description" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshots" OutputProperty="Snapshots" Verb="New" Noun="SnapshotBatch" ShouldProcessTarget="InstanceSpecification_InstanceId" PipelineParameter="InstanceSpecification_InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSpotDatafeedSubscription" OutputProperty="SpotDatafeedSubscription" Verb="New" Noun="SpotDatafeedSubscription" ShouldProcessTarget="Bucket" PositionalParameters="Prefix" PipelineParameter="Bucket" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubnet" OutputProperty="Subnet" Verb="New" Noun="Subnet" ShouldProcessTarget="VpcId" PositionalParameters="CidrBlock;AvailabilityZone" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="Resources" PositionalParameters="Tags" PipelineParameter="Resources" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Resources" NewName="Resource" Alias="ResourceId" />
+            </Params>
+            <PassThru>
+                <Expression>context.Tag</Expression>
+                <Documentation>Returns the collection of Tag objects that were created</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrafficMirrorFilter" OutputProperty="TrafficMirrorFilter" Verb="New" Noun="TrafficMirrorFilter" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrafficMirrorFilterRule" OutputProperty="TrafficMirrorFilterRule" Verb="New" Noun="TrafficMirrorFilterRule" ShouldProcessTarget="TrafficMirrorFilterId" PipelineParameter="TrafficMirrorFilterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrafficMirrorSession" OutputProperty="TrafficMirrorSession" Verb="New" Noun="TrafficMirrorSession" ShouldProcessTarget="TrafficMirrorFilterId" PipelineParameter="TrafficMirrorFilterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrafficMirrorTarget" OutputProperty="TrafficMirrorTarget" Verb="New" Noun="TrafficMirrorTarget" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGateway" OutputProperty="TransitGateway" Verb="New" Noun="TransitGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayRoute" OutputProperty="Route" Verb="New" Noun="TransitGatewayRoute" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayRouteTable" OutputProperty="TransitGatewayRouteTable" Verb="New" Noun="TransitGatewayRouteTable" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="New" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayId" ShouldProcessMsgNoun="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVolume" OutputProperty="Volume" Verb="New" Noun="Volume" ShouldProcessTarget="SnapshotId" PositionalParameters="Size;AvailabilityZone;VolumeType;Encrypted" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpc" OutputProperty="Vpc" Verb="New" Noun="Vpc" ShouldProcessTarget="CidrBlock" PositionalParameters="InstanceTenancy" PipelineParameter="CidrBlock" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEndpoint" OutputProperty="*" Verb="New" Noun="VpcEndpoint" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEndpointConnectionNotification" OutputProperty="*" Verb="New" Noun="VpcEndpointConnectionNotification" ShouldProcessTarget="ConnectionNotificationArn" PipelineParameter="ConnectionNotificationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEndpointServiceConfiguration" OutputProperty="*" Verb="New" Noun="VpcEndpointServiceConfiguration" ShouldProcessTarget="NetworkLoadBalancerArns" PipelineParameter="NetworkLoadBalancerArns" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcPeeringConnection" OutputProperty="VpcPeeringConnection" Verb="New" Noun="VpcPeeringConnection" ShouldProcessTarget="VpcId" PositionalParameters="PeerVpcId;PeerOwnerId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpnConnection" OutputProperty="VpnConnection" Verb="New" Noun="VpnConnection" ShouldProcessTarget="VpnGatewayId" PositionalParameters="CustomerGatewayId;VpnGatewayId;Options_StaticRoutesOnly" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Options_StaticRoutesOnly" Alias="StaticRoutesOnly" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpnConnectionRoute" Verb="New" Noun="VpnConnectionRoute" ShouldProcessTarget="VpnConnectionId" PositionalParameters="DestinationCidrBlock" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpnGateway" OutputProperty="VpnGateway" Verb="New" Noun="VpnGateway" ShouldProcessTarget="Type" PositionalParameters="AvailabilityZone" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClientVpnEndpoint" OutputProperty="Status" Verb="Remove" Noun="ClientVpnEndpoint" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteClientVpnRoute" OutputProperty="Status" Verb="Remove" Noun="ClientVpnRoute" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomerGateway" Verb="Remove" Noun="CustomerGateway" ShouldProcessTarget="CustomerGatewayId" ShouldProcessMsgNoun="Customer Gateway" PipelineParameter="CustomerGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDhcpOptions" Verb="Remove" Noun="DhcpOption" ShouldProcessTarget="DhcpOptionsId" PipelineParameter="DhcpOptionsId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEgressOnlyInternetGateway" OutputProperty="ReturnCode" Verb="Remove" Noun="EgressOnlyInternetGateway" ShouldProcessTarget="EgressOnlyInternetGatewayId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFleets" OutputProperty="*" Verb="Remove" Noun="Fleet" ShouldProcessTarget="FleetIds" PipelineParameter="FleetIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFlowLogs" OutputProperty="Unsuccessful" Verb="Remove" Noun="FlowLog" ShouldProcessTarget="FlowLogIds" PipelineParameter="FlowLogIds" NoPipelineParameter="false" LegacyAlias="Remove-EC2FlowLogs">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFpgaImage" OutputProperty="Return" Verb="Remove" Noun="FpgaImage" ShouldProcessTarget="FpgaImageId" PipelineParameter="FpgaImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInternetGateway" Verb="Remove" Noun="InternetGateway" ShouldProcessTarget="InternetGatewayId" ShouldProcessMsgNoun="Internet Gateway" PipelineParameter="InternetGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKeyPair" Verb="Remove" Noun="KeyPair" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchTemplate" OutputProperty="LaunchTemplate" Verb="Remove" Noun="LaunchTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchTemplateVersions" OutputProperty="*" Verb="Remove" Noun="TemplateVersion" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNatGateway" OutputProperty="NatGatewayId" Verb="Remove" Noun="NatGateway" ShouldProcessTarget="NatGatewayId" PipelineParameter="NatGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkAcl" Verb="Remove" Noun="NetworkAcl" ShouldProcessTarget="NetworkAclId" ShouldProcessMsgNoun="Network ACL" PipelineParameter="NetworkAclId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkAclEntry" Verb="Remove" Noun="NetworkAclEntry" ShouldProcessTarget="NetworkAclId" ShouldProcessMsgNoun="Network ACL Entry" PositionalParameters="RuleNumber;Egress" PipelineParameter="NetworkAclId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkInterface" Verb="Remove" Noun="NetworkInterface" ShouldProcessTarget="NetworkInterfaceId" ShouldProcessMsgNoun="Network Interface" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkInterfacePermission" OutputProperty="Return" Verb="Remove" Noun="NetworkInterfacePermission" ShouldProcessTarget="NetworkInterfacePermissionId" PipelineParameter="NetworkInterfacePermissionId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="IgnoreAttachedStatus" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePlacementGroup" Verb="Remove" Noun="PlacementGroup" ShouldProcessTarget="GroupName" ShouldProcessMsgNoun="Placement Group" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQueuedReservedInstances" OutputProperty="*" Verb="Remove" Noun="QueuedReservedInstance" ShouldProcessTarget="ReservedInstancesIds" PipelineParameter="ReservedInstancesIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoute" Verb="Remove" Noun="Route" ShouldProcessTarget="RouteTableId" PositionalParameters="DestinationCidrBlock" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouteTable" Verb="Remove" Noun="RouteTable" ShouldProcessTarget="RouteTableId" ShouldProcessMsgNoun="Route Table" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecurityGroup" Verb="Remove" Noun="SecurityGroup" ShouldProcessTarget="GroupId" ShouldProcessMsgNoun="Security Group" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapshot" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSpotDatafeedSubscription" Verb="Remove" Noun="SpotDatafeedSubscription" ShouldProcessMsgNoun="Spot Datafeed Subscription" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubnet" Verb="Remove" Noun="Subnet" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="Resources" PositionalParameters="Tags" PipelineParameter="Resources" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Resources" NewName="Resource" Alias="ResourceId" />
+            </Params>
+            <PassThru>
+                <Expression>context.Tag</Expression>
+                <Documentation>Returns the collection of Tag objects that were deleted</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrafficMirrorFilter" OutputProperty="TrafficMirrorFilterId" Verb="Remove" Noun="TrafficMirrorFilter" ShouldProcessTarget="TrafficMirrorFilterId" PipelineParameter="TrafficMirrorFilterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrafficMirrorFilterRule" OutputProperty="TrafficMirrorFilterRuleId" Verb="Remove" Noun="TrafficMirrorFilterRule" ShouldProcessTarget="TrafficMirrorFilterRuleId" PipelineParameter="TrafficMirrorFilterRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrafficMirrorSession" OutputProperty="TrafficMirrorSessionId" Verb="Remove" Noun="TrafficMirrorSession" ShouldProcessTarget="TrafficMirrorSessionId" PipelineParameter="TrafficMirrorSessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrafficMirrorTarget" OutputProperty="TrafficMirrorTargetId" Verb="Remove" Noun="TrafficMirrorTarget" ShouldProcessTarget="TrafficMirrorTargetId" PipelineParameter="TrafficMirrorTargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGateway" OutputProperty="TransitGateway" Verb="Remove" Noun="TransitGateway" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayRoute" OutputProperty="Route" Verb="Remove" Noun="TransitGatewayRoute" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayRouteTable" OutputProperty="TransitGatewayRouteTable" Verb="Remove" Noun="TransitGatewayRouteTable" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Remove" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVolume" Verb="Remove" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpc" Verb="Remove" Noun="Vpc" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEndpointConnectionNotifications" OutputProperty="Unsuccessful" Verb="Remove" Noun="EndpointConnectionNotification" ShouldProcessTarget="ConnectionNotificationIds" PipelineParameter="ConnectionNotificationIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEndpoints" OutputProperty="Unsuccessful" Verb="Remove" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointIds" PipelineParameter="VpcEndpointIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEndpointServiceConfigurations" OutputProperty="Unsuccessful" Verb="Remove" Noun="EndpointServiceConfiguration" ShouldProcessTarget="ServiceIds" PipelineParameter="ServiceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcPeeringConnection" Verb="Remove" Noun="VpcPeeringConnection" ShouldProcessTarget="VpcPeeringConnectionId" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpnConnection" Verb="Remove" Noun="VpnConnection" ShouldProcessTarget="VpnConnectionId" ShouldProcessMsgNoun="VPN Connection" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpnConnectionRoute" Verb="Remove" Noun="VpnConnectionRoute" ShouldProcessTarget="VpnConnectionId" ShouldProcessMsgNoun="VPN Connection Route" PositionalParameters="DestinationCidrBlock" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpnGateway" Verb="Remove" Noun="VpnGateway" ShouldProcessTarget="VpnGatewayId" ShouldProcessMsgNoun="VPN Gateway" PipelineParameter="VpnGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeprovisionByoipCidr" OutputProperty="ByoipCidr" Verb="Unregister" Noun="ByoipCidr" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterImage" Verb="Unregister" Noun="Image" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="AccountAttributes" Verb="Get" Noun="AccountAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false" LegacyAlias="Get-EC2AccountAttributes">
+            <Params>
+                <Param Name="AttributeNames" NewName="AttributeName" Alias="AccountAttributeNames" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAddresses" OutputProperty="Addresses" Verb="Get" Noun="Address" PositionalParameters="AllocationIds;Filters" PipelineParameter="PublicIps" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAggregateIdFormat" OutputProperty="*" Verb="Get" Noun="AggregateIdFormat" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAvailabilityZones" OutputProperty="AvailabilityZones" Verb="Get" Noun="AvailabilityZone" PositionalParameters="Filters" PipelineParameter="ZoneNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBundleTasks" OutputProperty="BundleTasks" Verb="Get" Noun="BundleTask" PositionalParameters="Filters" PipelineParameter="BundleIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeByoipCidrs" OutputProperty="ByoipCidrs" Verb="Get" Noun="ByoipCidr" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityReservations" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClassicLinkInstances" OutputProperty="Instances" Verb="Get" Noun="ClassicLinkInstance" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClientVpnAuthorizationRules" OutputProperty="AuthorizationRules" Verb="Get" Noun="ClientVpnAuthorizationRule" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClientVpnConnections" OutputProperty="Connections" Verb="Get" Noun="ClientVpnConnection" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClientVpnEndpoints" OutputProperty="ClientVpnEndpoints" Verb="Get" Noun="ClientVpnEndpoint" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClientVpnRoutes" OutputProperty="Routes" Verb="Get" Noun="ClientVpnRoute" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClientVpnTargetNetworks" OutputProperty="ClientVpnTargetNetworks" Verb="Get" Noun="ClientVpnTargetNetwork" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConversionTasks" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomerGateways" OutputProperty="CustomerGateways" Verb="Get" Noun="CustomerGateway" PositionalParameters="Filters" PipelineParameter="CustomerGatewayIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDhcpOptions" OutputProperty="DhcpOptions" Verb="Get" Noun="DhcpOption" PositionalParameters="Filters" PipelineParameter="DhcpOptionsIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" OutputProperty="EgressOnlyInternetGateways" Verb="Get" Noun="EgressOnlyInternetGatewayList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeElasticGpus" OutputProperty="ElasticGpuSet" Verb="Get" Noun="ElasticGpu" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExportImageTasks" OutputProperty="ExportImageTasks" Verb="Get" Noun="ExportImageTask" PipelineParameter="ExportImageTaskIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="ExportTaskIds" NoPipelineParameter="false" LegacyAlias="Get-EC2ExportTasks">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetHistory" OutputProperty="HistoryRecords" Verb="Get" Noun="FleetHistory" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleetInstances" OutputProperty="ActiveInstances" Verb="Get" Noun="FleetInstanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFleets" OutputProperty="Fleets" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlowLogs" OutputProperty="FlowLogs" Verb="Get" Noun="FlowLog" PipelineParameter="FlowLogIds" NoPipelineParameter="false" LegacyAlias="Get-EC2FlowLogs">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFpgaImageAttribute" OutputProperty="FpgaImageAttribute" Verb="Get" Noun="FpgaImageAttribute" PipelineParameter="Attribute" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFpgaImages" OutputProperty="FpgaImages" Verb="Get" Noun="FpgaImage" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHostReservationOfferings" OutputProperty="OfferingSet" Verb="Get" Noun="HostReservationOffering" PipelineParameter="OfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHostReservations" OutputProperty="HostReservationSet" Verb="Get" Noun="HostReservation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHosts" OutputProperty="Hosts" Verb="Get" Noun="Host" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyAlias="Get-EC2Hosts">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" OutputProperty="IamInstanceProfileAssociations" Verb="Get" Noun="IamInstanceProfileAssociation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityIdFormat" OutputProperty="Statuses" Verb="Get" Noun="IdentityIdFormat" PositionalParameters="Resource" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdFormat" OutputProperty="Statuses" Verb="Get" Noun="IdFormat" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImageAttribute" OutputProperty="ImageAttribute" Verb="Get" Noun="ImageAttribute" PositionalParameters="Attribute" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImages" OutputProperty="Images" Verb="Get" Noun="Image" PositionalParameters="Owners;ExecutableUsers;Filters" PipelineParameter="ImageIds" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ExecutableUsers" NewName="ExecutableUser" Alias="ExecutableBy" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImportImageTasks" OutputProperty="ImportImageTasks" Verb="Get" Noun="ImportImageTask" PipelineParameter="ImportTaskIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImportSnapshotTasks" OutputProperty="ImportSnapshotTasks" Verb="Get" Noun="ImportSnapshotTask" PipelineParameter="ImportTaskIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceAttribute" OutputProperty="InstanceAttribute" Verb="Get" Noun="InstanceAttribute" PositionalParameters="Attribute" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceCreditSpecifications" OutputProperty="InstanceCreditSpecifications" Verb="Get" Noun="CreditSpecification" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstances" OutputProperty="Reservations" Verb="Get" Noun="Instance" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceStatus" OutputProperty="InstanceStatuses" Verb="Get" Noun="InstanceStatus" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInternetGateways" OutputProperty="InternetGateways" Verb="Get" Noun="InternetGateway" PositionalParameters="Filters" PipelineParameter="InternetGatewayIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKeyPairs" OutputProperty="KeyPairs" Verb="Get" Noun="KeyPair" PositionalParameters="Filters" PipelineParameter="KeyNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLaunchTemplates" OutputProperty="LaunchTemplates" Verb="Get" Noun="Template" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLaunchTemplateVersions" OutputProperty="LaunchTemplateVersions" Verb="Get" Noun="TemplateVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMovingAddresses" OutputProperty="MovingAddressStatuses" Verb="Get" Noun="MovingAddress" PositionalParameters="Filters" PipelineParameter="PublicIps" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNatGateways" OutputProperty="NatGateways" Verb="Get" Noun="NatGateway" PipelineParameter="NatGatewayIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkAcls" OutputProperty="NetworkAcls" Verb="Get" Noun="NetworkAcl" PositionalParameters="Filters" PipelineParameter="NetworkAclIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInterfaceAttribute" OutputProperty="*" Verb="Get" Noun="NetworkInterfaceAttribute" PositionalParameters="Attribute" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" OutputProperty="NetworkInterfacePermissions" Verb="Get" Noun="NetworkInterfacePermission" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInterfaces" OutputProperty="NetworkInterfaces" Verb="Get" Noun="NetworkInterface" PositionalParameters="Filters" PipelineParameter="NetworkInterfaceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePlacementGroups" OutputProperty="PlacementGroups" Verb="Get" Noun="PlacementGroup" PositionalParameters="Filters" PipelineParameter="GroupNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="PrefixList" PositionalParameters="Filters" PipelineParameter="PrefixListIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePrincipalIdFormat" OutputProperty="Principals" Verb="Get" Noun="PrincipalIdFormat" PipelineParameter="Resources" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePublicIpv4Pools" OutputProperty="PublicIpv4Pools" Verb="Get" Noun="PublicIpv4Pool" PipelineParameter="PoolIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegions" OutputProperty="Regions" Verb="Get" Noun="Region" PositionalParameters="Filters" PipelineParameter="RegionNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstances" OutputProperty="ReservedInstances" Verb="Get" Noun="ReservedInstance" PositionalParameters="Filters;OfferingType" PipelineParameter="ReservedInstancesIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstancesListings" OutputProperty="ReservedInstancesListings" Verb="Get" Noun="ReservedInstancesListing" PositionalParameters="ReservedInstancesId;Filters" PipelineParameter="ReservedInstancesListingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstancesModifications" OutputProperty="ReservedInstancesModifications" Verb="Get" Noun="ReservedInstancesModification" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-EC2ReservedInstancesModifications">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstancesOfferings" OutputProperty="ReservedInstancesOfferings" Verb="Get" Noun="ReservedInstancesOffering" PositionalParameters="InstanceType;AvailabilityZone" PipelineParameter="ReservedInstancesOfferingIds" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ReservedInstancesOfferingIds" NewName="ReservedInstancesOfferingId" Alias="ReservedInstancesId" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRouteTables" OutputProperty="RouteTables" Verb="Get" Noun="RouteTable" PositionalParameters="Filters" PipelineParameter="RouteTableIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" OutputProperty="ScheduledInstanceAvailabilitySet" Verb="Get" Noun="ScheduledInstanceAvailability" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="FirstSlotStartTimeRange_EarliestTimeUtc" NewName="FirstSlotStartTimeRange_UtcEarliestTime" AutoApplyAlias="false" />
+                <Param Name="FirstSlotStartTimeRange_EarliestTime" ExclusiveParameters="FirstSlotStartTimeRange_UtcEarliestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use FirstSlotStartTimeRange_UtcEarliestTime instead." />
+                <Param Name="FirstSlotStartTimeRange_LatestTimeUtc" NewName="FirstSlotStartTimeRange_UtcLatestTime" AutoApplyAlias="false" />
+                <Param Name="FirstSlotStartTimeRange_LatestTime" ExclusiveParameters="FirstSlotStartTimeRange_UtcLatestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use FirstSlotStartTimeRange_UtcLatestTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledInstances" OutputProperty="ScheduledInstanceSet" Verb="Get" Noun="ScheduledInstance" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="SlotStartTimeRange_EarliestTimeUtc" NewName="SlotStartTimeRange_UtcEarliestTime" AutoApplyAlias="false" />
+                <Param Name="SlotStartTimeRange_EarliestTime" ExclusiveParameters="SlotStartTimeRange_UtcEarliestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SlotStartTimeRange_UtcEarliestTime instead." />
+                <Param Name="SlotStartTimeRange_LatestTimeUtc" NewName="SlotStartTimeRange_UtcLatestTime" AutoApplyAlias="false" />
+                <Param Name="SlotStartTimeRange_LatestTime" ExclusiveParameters="SlotStartTimeRange_UtcLatestTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SlotStartTimeRange_UtcLatestTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecurityGroupReferences" OutputProperty="SecurityGroupReferenceSet" Verb="Get" Noun="SecurityGroupReference" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecurityGroups" OutputProperty="SecurityGroups" Verb="Get" Noun="SecurityGroup" PositionalParameters="Filters" PipelineParameter="GroupIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshotAttribute" OutputProperty="*" Verb="Get" Noun="SnapshotAttribute" PositionalParameters="Attribute" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PositionalParameters="OwnerIds;RestorableByUserIds;Filters" PipelineParameter="SnapshotIds" NoPipelineParameter="false" LegacyAlias="Get-EC2Snapshots" DefaultParameterSet="ByFilter">
+            <Params>
+                <Param Name="Filters" ParameterSetName="ByFilter" />
+                <Param Name="OwnerIds" ParameterSetName="ByFilter" />
+                <Param Name="RestorableByUserIds" ParameterSetName="ByFilter" />
+                <Param Name="SnapshotIds" ParameterSetName="ByID" />
+                <Param Name="MaxResults" ParameterSetName="ByFilter" />
+                <Param Name="NextToken" ParameterSetName="ByFilter" />
+            </Params>
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="1000" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotDatafeedSubscription" OutputProperty="SpotDatafeedSubscription" Verb="Get" Noun="SpotDatafeedSubscription" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotFleetInstances" OutputProperty="ActiveInstances" Verb="Get" Noun="SpotFleetInstance" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotFleetRequestHistory" OutputProperty="*" Verb="Get" Noun="SpotFleetRequestHistory" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params>
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotFleetRequests" OutputProperty="SpotFleetRequestConfigs" Verb="Get" Noun="SpotFleetRequest" PipelineParameter="SpotFleetRequestIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotInstanceRequests" OutputProperty="SpotInstanceRequests" Verb="Get" Noun="SpotInstanceRequest" PositionalParameters="Filters" PipelineParameter="SpotInstanceRequestIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotPriceHistory" OutputProperty="SpotPriceHistory" Verb="Get" Noun="SpotPriceHistory" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStaleSecurityGroups" OutputProperty="StaleSecurityGroupSet" Verb="Get" Noun="StaleSecurityGroup" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSubnets" OutputProperty="Subnets" Verb="Get" Noun="Subnet" PositionalParameters="Filters" PipelineParameter="SubnetIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="Filters" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrafficMirrorFilters" OutputProperty="TrafficMirrorFilters" Verb="Get" Noun="TrafficMirrorFilter" PipelineParameter="TrafficMirrorFilterIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrafficMirrorSessions" OutputProperty="TrafficMirrorSessions" Verb="Get" Noun="TrafficMirrorSession" PipelineParameter="TrafficMirrorSessionIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrafficMirrorTargets" OutputProperty="TrafficMirrorTargets" Verb="Get" Noun="TrafficMirrorTarget" PipelineParameter="TrafficMirrorTargetIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayAttachments" OutputProperty="TransitGatewayAttachments" Verb="Get" Noun="TransitGatewayAttachment" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayRouteTables" OutputProperty="TransitGatewayRouteTables" Verb="Get" Noun="TransitGatewayRouteTable" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGateways" OutputProperty="TransitGateways" Verb="Get" Noun="TransitGateway" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayVpcAttachments" OutputProperty="TransitGatewayVpcAttachments" Verb="Get" Noun="TransitGatewayVpcAttachment" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVolumeAttribute" OutputProperty="*" Verb="Get" Noun="VolumeAttribute" PositionalParameters="Attribute" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVolumes" OutputProperty="Volumes" Verb="Get" Noun="Volume" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" DefaultParameterSet="ByFilter">
+            <Params>
+                <Param Name="Filters" ParameterSetName="ByFilter" />
+                <Param Name="VolumeIds" ParameterSetName="ByID" />
+                <Param Name="MaxResults" ParameterSetName="ByFilter" />
+                <Param Name="NextToken" ParameterSetName="ByFilter" />
+            </Params>
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="500" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVolumesModifications" OutputProperty="VolumesModifications" Verb="Get" Noun="VolumeModification" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVolumeStatus" OutputProperty="VolumeStatuses" Verb="Get" Noun="VolumeStatus" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcAttribute" OutputProperty="*" Verb="Get" Noun="VpcAttribute" PositionalParameters="Attribute" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcClassicLink" OutputProperty="Vpcs" Verb="Get" Noun="VpcClassicLink" PipelineParameter="VpcIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" OutputProperty="Vpcs" Verb="Get" Noun="VpcClassicLinkDnsSupport" PipelineParameter="VpcIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointConnectionNotifications" OutputProperty="ConnectionNotificationSet" Verb="Get" Noun="EndpointConnectionNotification" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointConnections" OutputProperty="VpcEndpointConnections" Verb="Get" Noun="EndpointConnection" PipelineParameter="Filters" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpoints" OutputProperty="VpcEndpoints" Verb="Get" Noun="VpcEndpoint" PositionalParameters="Filters" PipelineParameter="VpcEndpointIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointServiceConfigurations" OutputProperty="ServiceConfigurations" Verb="Get" Noun="EndpointServiceConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointServicePermissions" OutputProperty="AllowedPrincipals" Verb="Get" Noun="EndpointServicePermission" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointServices" OutputProperty="*" Verb="Get" Noun="VpcEndpointService" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcPeeringConnections" OutputProperty="VpcPeeringConnections" Verb="Get" Noun="VpcPeeringConnection" PositionalParameters="Filters" PipelineParameter="VpcPeeringConnectionIds" NoPipelineParameter="false" LegacyAlias="Get-EC2VpcPeeringConnections">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcs" OutputProperty="Vpcs" Verb="Get" Noun="Vpc" PositionalParameters="Filters" PipelineParameter="VpcIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpnConnections" OutputProperty="VpnConnections" Verb="Get" Noun="VpnConnection" PositionalParameters="Filters" PipelineParameter="VpnConnectionIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpnGateways" OutputProperty="VpnGateways" Verb="Get" Noun="VpnGateway" PositionalParameters="Filters" PipelineParameter="VpnGatewayIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachClassicLinkVpc" OutputProperty="Return" Verb="Dismount" Noun="ClassicLinkVpc" ShouldProcessTarget="VpcId" PositionalParameters="InstanceId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachInternetGateway" Verb="Dismount" Noun="InternetGateway" ShouldProcessTarget="VpcId" PositionalParameters="InternetGatewayId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachNetworkInterface" Verb="Dismount" Noun="NetworkInterface" ShouldProcessTarget="AttachmentId" PipelineParameter="AttachmentId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="ForceDismount" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachVolume" OutputProperty="Attachment" Verb="Dismount" Noun="Volume" ShouldProcessTarget="InstanceId" PositionalParameters="VolumeId;Device" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="ForceDismount" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachVpnGateway" Verb="Dismount" Noun="VpnGateway" ShouldProcessTarget="VpcId" PositionalParameters="VpnGatewayId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Disable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableTransitGatewayRouteTablePropagation" OutputProperty="Propagation" Verb="Disable" Noun="TransitGatewayRouteTablePropagation" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableVgwRoutePropagation" Verb="Disable" Noun="VgwRoutePropagation" ShouldProcessTarget="RouteTableId" PositionalParameters="GatewayId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableVpcClassicLink" OutputProperty="Return" Verb="Disable" Noun="VpcClassicLink" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableVpcClassicLinkDnsSupport" OutputProperty="Return" Verb="Disable" Noun="VpcClassicLinkDnsSupport" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAddress" Verb="Unregister" Noun="Address" ShouldProcessTarget="AssociationId" PositionalParameters="AssociationId" PipelineParameter="PublicIp" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateClientVpnTargetNetwork" OutputProperty="*" Verb="Unregister" Noun="ClientVpnTargetNetwork" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateIamInstanceProfile" OutputProperty="IamInstanceProfileAssociation" Verb="Unregister" Noun="IamInstanceProfile" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateRouteTable" Verb="Unregister" Noun="RouteTable" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSubnetCidrBlock" OutputProperty="*" Verb="Unregister" Noun="SubnetCidrBlock" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateTransitGatewayRouteTable" OutputProperty="Association" Verb="Unregister" Noun="TransitGatewayRouteTable" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateVpcCidrBlock" OutputProperty="*" Verb="Unregister" Noun="VpcCidrBlock" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Enable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableTransitGatewayRouteTablePropagation" OutputProperty="Propagation" Verb="Enable" Noun="TransitGatewayRouteTablePropagation" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableVgwRoutePropagation" Verb="Enable" Noun="VgwRoutePropagation" ShouldProcessTarget="RouteTableId" PositionalParameters="GatewayId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableVolumeIO" Verb="Enable" Noun="VolumeIO" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableVpcClassicLink" OutputProperty="Return" Verb="Enable" Noun="VpcClassicLink" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableVpcClassicLinkDnsSupport" OutputProperty="Return" Verb="Enable" Noun="VpcClassicLinkDnsSupport" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportClientVpnClientCertificateRevocationList" OutputProperty="*" Verb="Export" Noun="ClientVpnClientCertificateRevocationList" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportClientVpnClientConfiguration" OutputProperty="ClientConfiguration" Verb="Export" Noun="ClientVpnClientConfiguration" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportImage" OutputProperty="*" Verb="Export" Noun="Image" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportTransitGatewayRoutes" OutputProperty="S3Location" Verb="Export" Noun="TransitGatewayRoute" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityReservationUsage" OutputProperty="*" Verb="Get" Noun="CapacityReservationUsage" PipelineParameter="CapacityReservationId" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConsoleOutput" OutputProperty="*" Verb="Get" Noun="ConsoleOutput" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConsoleScreenshot" OutputProperty="*" Verb="Get" Noun="ConsoleScreenshot" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Get" Noun="EbsDefaultKmsKeyId" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Get" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHostReservationPurchasePreview" OutputProperty="*" Verb="Get" Noun="HostReservationPurchasePreview" PipelineParameter="OfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLaunchTemplateData" OutputProperty="LaunchTemplateData" Verb="Get" Noun="LaunchTemplateData" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPasswordData" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReservedInstancesExchangeQuote" OutputProperty="*" Verb="Get" Noun="ReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayAttachmentPropagations" OutputProperty="TransitGatewayAttachmentPropagations" Verb="Get" Noun="TransitGatewayAttachmentPropagation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayRouteTableAssociations" OutputProperty="Associations" Verb="Get" Noun="TransitGatewayRouteTableAssociation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayRouteTablePropagations" OutputProperty="TransitGatewayRouteTablePropagations" Verb="Get" Noun="TransitGatewayRouteTablePropagation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportClientVpnClientCertificateRevocationList" OutputProperty="Return" Verb="Import" Noun="ClientVpnClientCertificateRevocationList" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportImage" OutputProperty="*" Verb="Import" Noun="Image" ShouldProcessTarget="RoleName" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="ClientData_UploadEndUtc" NewName="ClientData_UtcUploadEnd" AutoApplyAlias="false" />
+                <Param Name="ClientData_UploadEnd" ExclusiveParameters="ClientData_UtcUploadEnd" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadEnd instead." />
+                <Param Name="ClientData_UploadStartUtc" NewName="ClientData_UtcUploadStart" AutoApplyAlias="false" />
+                <Param Name="ClientData_UploadStart" ExclusiveParameters="ClientData_UtcUploadStart" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadStart instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportInstance" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportKeyPair" OutputProperty="*" Verb="Import" Noun="KeyPair" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false" DefaultParameterSet="PreEncodedToBase64">
+            <Params>
+                <Param Name="PublicKeyMaterial" NewName="PublicKey" AutoApplyAlias="false" AutoConvert="ToBase64" ParameterSetName="AutoEncodedToBase64" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportSnapshot" OutputProperty="*" Verb="Import" Noun="Snapshot" ShouldProcessTarget="RoleName" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="DiskContainer_UserBucket_S3Bucket" NewName="DiskContainer_S3Bucket" />
+                <Param Name="DiskContainer_UserBucket_S3Key" NewName="DiskContainer_S3Key" />
+                <Param Name="ClientData_UploadEndUtc" NewName="ClientData_UtcUploadEnd" AutoApplyAlias="false" />
+                <Param Name="ClientData_UploadEnd" ExclusiveParameters="ClientData_UtcUploadEnd" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadEnd instead." />
+                <Param Name="ClientData_UploadStartUtc" NewName="ClientData_UtcUploadStart" AutoApplyAlias="false" />
+                <Param Name="ClientData_UploadStart" ExclusiveParameters="ClientData_UtcUploadStart" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use ClientData_UtcUploadStart instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportVolume" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyCapacityReservation" OutputProperty="Return" Verb="Edit" Noun="CapacityReservation" ShouldProcessTarget="CapacityReservationId" PipelineParameter="CapacityReservationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyClientVpnEndpoint" OutputProperty="Return" Verb="Edit" Noun="ClientVpnEndpoint" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Edit" Noun="EbsDefaultKmsKeyId" ShouldProcessTarget="KmsKeyId" PipelineParameter="KmsKeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyFleet" OutputProperty="Return" Verb="Edit" Noun="Fleet" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyFpgaImageAttribute" OutputProperty="FpgaImageAttribute" Verb="Edit" Noun="FpgaImageAttribute" ShouldProcessTarget="Attribute" PipelineParameter="Attribute" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyHosts" OutputProperty="*" Verb="Edit" Noun="Host" ShouldProcessTarget="HostIds" PositionalParameters="AutoPlacement" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyAlias="Edit-EC2Hosts">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIdentityIdFormat" Verb="Edit" Noun="IdentityIdFormat" ShouldProcessTarget="PrincipalArn" PositionalParameters="Resource" PipelineParameter="PrincipalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIdFormat" Verb="Edit" Noun="IdFormat" ShouldProcessTarget="UseLongIds" PipelineParameter="Resource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyImageAttribute" Verb="Edit" Noun="ImageAttribute" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceAttribute" Verb="Edit" Noun="InstanceAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Groups" NewName="Group" Alias="GroupId" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceCapacityReservationAttributes" OutputProperty="Return" Verb="Edit" Noun="InstanceCapacityReservationAttribute" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceCreditSpecification" OutputProperty="*" Verb="Edit" Noun="InstanceCreditSpecification" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceEventStartTime" OutputProperty="Event" Verb="Edit" Noun="InstanceEventStartTime" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstancePlacement" OutputProperty="Return" Verb="Edit" Noun="InstancePlacement" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyLaunchTemplate" OutputProperty="LaunchTemplate" Verb="Edit" Noun="LaunchTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyNetworkInterfaceAttribute" Verb="Edit" Noun="NetworkInterfaceAttribute" ShouldProcessTarget="NetworkInterfaceId" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Groups" NewName="Group" Alias="GroupId" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReservedInstances" OutputProperty="ReservedInstancesModificationId" Verb="Edit" Noun="ReservedInstance" ShouldProcessTarget="ReservedInstancesIds" PipelineParameter="ReservedInstancesIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifySnapshotAttribute" Verb="Edit" Noun="SnapshotAttribute" ShouldProcessTarget="SnapshotId" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="GroupNames" NewName="GroupName" Alias="UserGroup" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifySpotFleetRequest" OutputProperty="Return" Verb="Edit" Noun="SpotFleetRequest" ShouldProcessTarget="SpotFleetRequestId" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifySubnetAttribute" Verb="Edit" Noun="SubnetAttribute" ShouldProcessTarget="SubnetId" PositionalParameters="MapPublicIpOnLaunch" PipelineParameter="SubnetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTrafficMirrorFilterNetworkServices" OutputProperty="TrafficMirrorFilter" Verb="Edit" Noun="TrafficMirrorFilterNetworkService" ShouldProcessTarget="TrafficMirrorFilterId" PipelineParameter="TrafficMirrorFilterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTrafficMirrorFilterRule" OutputProperty="TrafficMirrorFilterRule" Verb="Edit" Noun="TrafficMirrorFilterRule" ShouldProcessTarget="TrafficMirrorFilterRuleId" PipelineParameter="TrafficMirrorFilterRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTrafficMirrorSession" OutputProperty="TrafficMirrorSession" Verb="Edit" Noun="TrafficMirrorSession" ShouldProcessTarget="TrafficMirrorSessionId" PipelineParameter="TrafficMirrorSessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Edit" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVolume" OutputProperty="VolumeModification" Verb="Edit" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVolumeAttribute" Verb="Edit" Noun="VolumeAttribute" ShouldProcessTarget="VolumeId" PositionalParameters="AutoEnableIO" PipelineParameter="VolumeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcAttribute" Verb="Edit" Noun="VpcAttribute" ShouldProcessTarget="VpcId" PositionalParameters="EnableDnsSupport" PipelineParameter="VpcId" NoPipelineParameter="false" DefaultParameterSet="DnsSupport">
+            <Params>
+                <Param Name="VpcId" Mandatory="true" />
+                <Param Name="EnableDnsSupport" ParameterSetName="DnsSupport" Mandatory="true" />
+                <Param Name="EnableDnsHostnames" ParameterSetName="DnsHostnames" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEndpoint" Verb="Edit" Noun="VpcEndpoint" ShouldProcessTarget="VpcEndpointId" PipelineParameter="VpcEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEndpointConnectionNotification" OutputProperty="ReturnValue" Verb="Edit" Noun="VpcEndpointConnectionNotification" ShouldProcessTarget="ConnectionNotificationId" PipelineParameter="ConnectionNotificationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEndpointServiceConfiguration" OutputProperty="Return" Verb="Edit" Noun="VpcEndpointServiceConfiguration" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEndpointServicePermissions" OutputProperty="ReturnValue" Verb="Edit" Noun="EndpointServicePermission" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcPeeringConnectionOptions" OutputProperty="*" Verb="Edit" Noun="VpcPeeringConnectionOption" ShouldProcessTarget="VpcPeeringConnectionId" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcTenancy" OutputProperty="ReturnValue" Verb="Edit" Noun="VpcTenancy" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpnConnection" OutputProperty="VpnConnection" Verb="Edit" Noun="VpnConnection" ShouldProcessTarget="VpnConnectionId" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpnTunnelCertificate" OutputProperty="VpnConnection" Verb="Edit" Noun="VpnTunnelCertificate" ShouldProcessTarget="VpnConnectionId" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpnTunnelOptions" OutputProperty="VpnConnection" Verb="Edit" Noun="VpnTunnelOption" ShouldProcessTarget="VpnConnectionId" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="MonitorInstances" OutputProperty="InstanceMonitorings" Verb="Start" Noun="InstanceMonitoring" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="MoveAddressToVpc" OutputProperty="*" Verb="Move" Noun="AddressToVpc" ShouldProcessTarget="PublicIp" PipelineParameter="PublicIp" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ProvisionByoipCidr" OutputProperty="ByoipCidr" Verb="Register" Noun="ByoipCidr" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseHostReservation" OutputProperty="*" Verb="New" Noun="HostReservation" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseReservedInstancesOffering" OutputProperty="ReservedInstancesId" Verb="New" Noun="ReservedInstance" ShouldProcessTarget="ReservedInstancesOfferingId" PositionalParameters="InstanceCount;LimitPrice_Amount;LimitPrice_CurrencyCode" PipelineParameter="ReservedInstancesOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseScheduledInstances" OutputProperty="ScheduledInstanceSet" Verb="New" Noun="ScheduledInstancePurchase" ShouldProcessTarget="PurchaseRequests" PipelineParameter="PurchaseRequests" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootInstances" Verb="Restart" Noun="Instance" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterImage" OutputProperty="ImageId" Verb="Register" Noun="Image" ShouldProcessTarget="ImageLocation" PositionalParameters="Name;Description" PipelineParameter="ImageLocation" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Deny" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectVpcEndpointConnections" OutputProperty="Unsuccessful" Verb="Deny" Noun="EndpointConnection" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectVpcPeeringConnection" Verb="Deny" Noun="VpcPeeringConnection" ShouldProcessTarget="VpcPeeringConnectionId" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReleaseAddress" Verb="Remove" Noun="Address" ShouldProcessTarget="PublicIp" PositionalParameters="AllocationId" PipelineParameter="PublicIp" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReleaseHosts" OutputProperty="*" Verb="Remove" Noun="Host" ShouldProcessTarget="HostIds" PipelineParameter="HostIds" NoPipelineParameter="false" LegacyAlias="ReleaseHosts">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceIamInstanceProfileAssociation" OutputProperty="IamInstanceProfileAssociation" Verb="Set" Noun="IamInstanceProfileAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceNetworkAclAssociation" OutputProperty="NewAssociationId" Verb="Set" Noun="NetworkAclAssociation" ShouldProcessTarget="AssociationId" PositionalParameters="NetworkAclId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceNetworkAclEntry" Verb="Set" Noun="NetworkAclEntry" ShouldProcessTarget="NetworkAclId" PipelineParameter="NetworkAclId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="IcmpTypeCode_Code" Alias="Icmp_Code" />
+                <Param Name="IcmpTypeCode_Type" Alias="Icmp_Type" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceRoute" Verb="Set" Noun="Route" ShouldProcessTarget="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId" PipelineParameter="RouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceRouteTableAssociation" OutputProperty="NewAssociationId" Verb="Set" Noun="RouteTableAssociation" ShouldProcessTarget="AssociationId" PositionalParameters="RouteTableId" PipelineParameter="AssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceTransitGatewayRoute" OutputProperty="Route" Verb="Set" Noun="TransitGatewayRoute" ShouldProcessTarget="TransitGatewayRouteTableId" ShouldProcessMsgNoun="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReportInstanceStatus" Verb="Send" Noun="InstanceStatus" ShouldProcessTarget="Instances" PositionalParameters="StartTime;EndTime;ReasonCodes;Description" PipelineParameter="Instances" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Instances" NewName="Instance" Alias="InstanceId" />
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestSpotFleet" OutputProperty="*" Verb="Request" Noun="SpotFleet" ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice" PipelineParameter="SpotFleetRequestConfig_SpotPrice" NoPipelineParameter="false">
+            <Params>
+                <Param Name="SpotFleetRequestConfig_ValidFromUtc" NewName="SpotFleetRequestConfig_UtcValidFrom" AutoApplyAlias="false" />
+                <Param Name="SpotFleetRequestConfig_ValidFrom" ExclusiveParameters="SpotFleetRequestConfig_UtcValidFrom" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SpotFleetRequestConfig_UtcValidFrom instead." />
+                <Param Name="SpotFleetRequestConfig_ValidUntilUtc" NewName="SpotFleetRequestConfig_UtcValidUntil" AutoApplyAlias="false" />
+                <Param Name="SpotFleetRequestConfig_ValidUntil" ExclusiveParameters="SpotFleetRequestConfig_UtcValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use SpotFleetRequestConfig_UtcValidUntil instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestSpotInstances" OutputProperty="SpotInstanceRequests" Verb="Request" Noun="SpotInstance" ShouldProcessTarget="SpotPrice" PipelineParameter="SpotPrice" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ValidFromUtc" NewName="UtcValidFrom" AutoApplyAlias="false" />
+                <Param Name="ValidFrom" ExclusiveParameters="UtcValidFrom" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidFrom instead." />
+                <Param Name="ValidUntilUtc" NewName="UtcValidUntil" AutoApplyAlias="false" />
+                <Param Name="ValidUntil" ExclusiveParameters="UtcValidUntil" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcValidUntil instead." />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetEbsDefaultKmsKeyId" OutputProperty="KmsKeyId" Verb="Reset" Noun="EbsDefaultKmsKeyId" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetFpgaImageAttribute" OutputProperty="Return" Verb="Reset" Noun="FpgaImageAttribute" ShouldProcessTarget="FpgaImageId" PipelineParameter="Attribute" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetImageAttribute" Verb="Reset" Noun="ImageAttribute" ShouldProcessTarget="ImageId" PositionalParameters="Attribute" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetInstanceAttribute" Verb="Reset" Noun="InstanceAttribute" ShouldProcessTarget="InstanceId" PositionalParameters="Attribute" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetNetworkInterfaceAttribute" Verb="Reset" Noun="NetworkInterfaceAttribute" ShouldProcessTarget="NetworkInterfaceId" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetSnapshotAttribute" Verb="Reset" Noun="SnapshotAttribute" ShouldProcessTarget="SnapshotId" PositionalParameters="Attribute" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreAddressToClassic" OutputProperty="*" Verb="Restore" Noun="AddressToClassic" ShouldProcessTarget="PublicIp" PipelineParameter="PublicIp" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeClientVpnIngress" OutputProperty="Status" Verb="Revoke" Noun="ClientVpnIngress" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeSecurityGroupEgress" Verb="Revoke" Noun="SecurityGroupEgress" ShouldProcessTarget="GroupId" PositionalParameters="IpPermissions" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeSecurityGroupIngress" Verb="Revoke" Noun="SecurityGroupIngress" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RunInstances" OutputProperty="Reservation" Verb="New" Noun="Instance" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="MinCount" DefaultValue="1" />
+                <Param Name="MaxCount" DefaultValue="1" />
+                <Param Name="Placement_Affinity" Alias="Affinity" />
+                <Param Name="Placement_AvailabilityZone" Alias="AvailabilityZone" />
+                <Param Name="Placement_GroupName" Alias="PlacementGroup" />
+                <Param Name="Placement_HostId" Alias="HostId;Placement_Host" />
+                <Param Name="Placement_Tenancy" Alias="Tenancy" />
+                <Param Name="CreditSpecification_CpuCredits" Alias="CpuCredit" />
+                <Param Name="IamInstanceProfile_Arn" Alias="InstanceProfile_Arn" />
+                <Param Name="IamInstanceProfile_Name" Alias="InstanceProfile_Name;InstanceProfile_Id" />
+                <Param Name="Monitoring" Alias="Monitoring_Enabled" />
+                <Param Name="NetworkInterfaces" Alias="NetworkInterfaceSet" />
+                <Param Name="UserData" ParameterReplacementDocumentation="The base64-encoded MIME user data for the instances. If the -EncodeUserData switch is also set, the value for this parameter can be supplied as normal ASCII text and will be base64-encoded by the cmdlet." />
+            </Params>
+            <TypesNotToFlatten>
+                <Type>Amazon.EC2.Model.CpuOptionsRequest</Type>
+                <Type>Amazon.EC2.Model.CpuOptionsRequest</Type>
+                <Type>Amazon.EC2.Model.InstanceMarketOptionsRequest</Type>
+                <Type>Amazon.EC2.Model.LaunchTemplateSpecification</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="RunScheduledInstances" OutputProperty="InstanceIdSet" Verb="New" Noun="ScheduledInstance" ShouldProcessTarget="ScheduledInstanceId" PipelineParameter="ScheduledInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchTransitGatewayRoutes" OutputProperty="*" Verb="Search" Noun="TransitGatewayRoute" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendDiagnosticInterrupt" Verb="Send" Noun="DiagnosticInterrupt" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartInstances" OutputProperty="StartingInstances" Verb="Start" Noun="Instance" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params>
+                <Param Name="InstanceIds" NewName="InstanceId" Alias="Instance" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopInstances" OutputProperty="StoppingInstances" Verb="Stop" Noun="Instance" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateClientVpnConnections" OutputProperty="*" Verb="Stop" Noun="ClientVpnConnection" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateInstances" OutputProperty="TerminatingInstances" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnassignIpv6Addresses" OutputProperty="*" Verb="Unregister" Noun="Ipv6AddressList" ShouldProcessTarget="NetworkInterfaceId" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnassignPrivateIpAddresses" Verb="Unregister" Noun="PrivateIpAddress" ShouldProcessTarget="NetworkInterfaceId" PositionalParameters="PrivateIpAddresses" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <PassThru>
+                <Expression>context.PrivateIpAddress</Expression>
+                <Documentation>Returns the secondary private IP addresses</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnmonitorInstances" OutputProperty="InstanceMonitorings" Verb="Stop" Noun="InstanceMonitoring" ShouldProcessTarget="InstanceIds" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityGroupRuleDescriptionsEgress" OutputProperty="Return" Verb="Update" Noun="SecurityGroupRuleEgressDescription" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityGroupRuleDescriptionsIngress" OutputProperty="Return" Verb="Update" Noun="SecurityGroupRuleIngressDescription" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="WithdrawByoipCidr" OutputProperty="ByoipCidr" Verb="Stop" Noun="ByoipCidrAdvertisement" ShouldProcessTarget="Cidr" PipelineParameter="Cidr" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.EC2.Model.RequestLaunchTemplateData</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

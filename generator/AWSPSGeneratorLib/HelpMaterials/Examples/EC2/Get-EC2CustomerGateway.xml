@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2CustomerGateway -CustomerGatewayId cgw-1a2b3c4d
+    
+BgpAsn            : 65534
+CustomerGatewayId : cgw-1a2b3c4d
+IpAddress         : 203.0.113.12
+State             : available
+Tags              : {}
+Type              : ipsec.1</code>
+    <description>This example describes the specified customer gateway.</description>
+  </example>
+  <example>
+    <code>PS C:\>$filter = New-Object Amazon.EC2.Model.Filter
+PS C:\> $filter.Name = "state"
+PS C:\> $filter.Values = @( "pending", "available" )
+
+PS C:\> Get-EC2CustomerGateway -Filter $filter</code>
+    <description>This example describes any customer gateway whose state is either pending or available.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2CustomerGateway</code>
+    <description>This example describes all your customer gateways.</description>
+  </example>
+</examples>

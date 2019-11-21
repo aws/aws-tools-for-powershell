@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\> Get-EFSTag -FileSystemId fs-1a2b3c4d
+
+Key         Value
+---         -----
+Name        My File System
+tagkey1     tagvalue1
+tagkey2     tagvalue2
+        </code>
+        <description>Returns the collection of tags currently associated with the specified file system.</description>
+    </example>
+</examples>

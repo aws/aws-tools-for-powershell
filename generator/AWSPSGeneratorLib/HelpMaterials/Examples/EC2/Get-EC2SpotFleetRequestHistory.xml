@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2SpotFleetRequestHistory -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -StartTime 2015-12-26T00:00:00Z
+
+HistoryRecords     : {Amazon.EC2.Model.HistoryRecord, Amazon.EC2.Model.HistoryRecord...}
+LastEvaluatedTime  : 12/26/2015 8:29:11 AM
+NextToken          :
+SpotFleetRequestId : sfr-088bc5f1-7e7b-451a-bd13-757f10672b93
+StartTime          : 12/25/2015 8:00:00 AM
+    
+PS C:\> (Get-EC2SpotFleetRequestHistory -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -StartTime 2015-12-26T00:00:00Z).HistoryRecords
+    
+EventInformation                     EventType             Timestamp
+----------------                     ---------             ---------
+Amazon.EC2.Model.EventInformation    fleetRequestChange    12/26/2015 8:23:33 AM
+Amazon.EC2.Model.EventInformation    fleetRequestChange    12/26/2015 8:23:33 AM
+Amazon.EC2.Model.EventInformation    fleetRequestChange    12/26/2015 8:23:33 AM
+Amazon.EC2.Model.EventInformation    launched              12/26/2015 8:25:34 AM
+Amazon.EC2.Model.EventInformation    launched              12/26/2015 8:25:05 AM</code>
+    <description>This example describes the history of the specified Spot fleet request.</description>
+  </example>
+</examples>

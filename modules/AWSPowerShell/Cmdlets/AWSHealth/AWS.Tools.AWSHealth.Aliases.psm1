@@ -1,0 +1,3 @@
+﻿# AWSHealth
+
+Export-ModuleMember -Alias *

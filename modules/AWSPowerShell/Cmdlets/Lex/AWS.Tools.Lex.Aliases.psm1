@@ -1,0 +1,3 @@
+﻿# Lex
+
+Export-ModuleMember -Alias *

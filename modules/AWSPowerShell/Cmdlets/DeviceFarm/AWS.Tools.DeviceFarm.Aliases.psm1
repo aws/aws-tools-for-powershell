@@ -1,0 +1,3 @@
+﻿# DeviceFarm
+
+Export-ModuleMember -Alias *

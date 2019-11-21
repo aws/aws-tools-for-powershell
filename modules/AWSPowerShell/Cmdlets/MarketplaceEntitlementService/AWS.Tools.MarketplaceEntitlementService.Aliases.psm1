@@ -1,0 +1,3 @@
+﻿# MarketplaceEntitlementService
+
+Export-ModuleMember -Alias *

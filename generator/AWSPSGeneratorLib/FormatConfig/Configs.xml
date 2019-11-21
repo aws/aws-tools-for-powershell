@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModelCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- custom namespaces to exclude from typescan. ThirdParty.* classes are excluded by default, as are all
+       non-public members.
+  -->
+  <NamespacesToExclude>
+    <Namespace>ThirdParty.*</Namespace>
+    <Namespace>\.Internal\.</Namespace>
+  </NamespacesToExclude>
+
+  <TypesToInclude>
+    <Type>Amazon.PowerShell.Provider.Navigation.Node</Type>
+    <Type>Amazon.PowerShell.Provider.Wrappers.S3BucketNode</Type>
+    <Type>Amazon.PowerShell.Provider.Wrappers.S3ObjectNode</Type>
+  </TypesToInclude>
+
+  <TypesToExclude>
+    <Type>Amazon.PowerShell.Common.ExecutorContext</Type>
+    <Type>Amazon.PowerShell.Utils.ProgressTracker</Type>
+    <Type>Amazon.PowerShell.Common.HistoryBuffer`1</Type>
+    <Type>Amazon.PowerShell.Common.AWSCmdletAttribute</Type>
+    <Type>Amazon.PowerShell.Common.AWSCmdletOutputAttribute</Type>
+    <Type>Amazon.PowerShell.Common.AWSClientCmdletAttribute</Type>
+    <Type>Amazon.PowerShell.Common.CmdletOutput</Type>
+    <Type>Amazon.PowerShell.Utils.Lazy2`1</Type>
+    <Type>Amazon.PowerShell.Utils.ProgressRunner</Type>
+  </TypesToExclude>
+  
+  <Configs>
+    <PropertiesType>Amazon.S3.Model.S3Object</PropertiesType>
+    <Columns>
+      <ColumnConfig HeaderLabel="Owner" ScriptBlock="$_.Owner.DisplayName" />
+    </Columns>
+  </Configs>
+
+  <Configs>
+    <PropertiesType>Amazon.PowerShell.Provider.Wrappers.S3BucketNode</PropertiesType>
+    <SkipProperties>
+      <Property>CurrentNode</Property>
+    </SkipProperties>
+  </Configs>
+  
+  <Configs>
+    <ApplicableTypes>
+      <Type>Amazon.PowerShell.Provider.Wrappers.S3FolderNode</Type>
+      <Type>Amazon.PowerShell.Provider.Wrappers.S3ObjectNode</Type>
+    </ApplicableTypes>
+    <PropertiesType>Amazon.PowerShell.Provider.Wrappers.S3ObjectNode</PropertiesType>
+    <SkipProperties>
+      <Property>CurrentNode</Property>
+    </SkipProperties>
+  </Configs>
+
+</ConfigModelCollection>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+      <code>PS C:\> Get-CPPipelineState -Name CodePipelineDemo
+
+Created         : 8/13/2015 10:17:54 PM
+PipelineName    : CodePipelineDemo
+PipelineVersion : 1
+StageStates     : {Source, Build, Beta, TestStage}
+Updated         : 8/13/2015 10:17:54 PM</code>
+      <description>This example gets general information about the stages for the specified pipeline.</description>
+    </example>
+	<example>
+      <code>-----
+Input:
+-----
+
+ForEach ($stageState in (Get-CPPipelineState -Name $arg).StageStates) {
+  Write-Output ("For " + $stageState.StageName + ":")
+  Write-Output ("  InboundTransitionState:")
+  Write-Output ("    DisabledReason = " + $stageState.InboundTransitionState.DisabledReason)
+  Write-Output ("    Enabled = " + $stageState.InboundTransitionState.Enabled)
+  Write-Output ("    LastChangedAt = " + $stageState.InboundTransitionState.LastChangedAt)
+  Write-Output ("    LastChangedBy = " + $stageState.InboundTransitionState.LastChangedBy)
+  Write-Output ("  ActionStates:")
+  ForEach ($actionState in $stageState.ActionStates) {
+    Write-Output ("    For " + $actionState.ActionName + ":")
+	Write-Output ("      CurrentRevision:")
+    Write-Output ("        Created = " + $actionState.CurrentRevision.Created)
+	Write-Output ("        RevisionChangeId = " + $actionState.CurrentRevision.RevisionChangeId)
+	Write-Output ("        RevisionId = " + $actionState.CurrentRevision.RevisionId)
+	Write-Output ("      EntityUrl = " + $actionState.EntityUrl)
+	Write-Output ("      LatestExecution:")
+    Write-Output ("        ErrorDetails:")
+    Write-Output ("          Code = " + $actionState.LatestExecution.ErrorDetails.Code)
+	Write-Output ("          Message = " + $actionState.LatestExecution.ErrorDetails.Message)
+	Write-Output ("        ExternalExecutionId = " + $actionState.LatestExecution.ExternalExecutionId)
+	Write-Output ("        ExternalExecutionUrl = " + $actionState.LatestExecution.ExternalExecutionUrl)
+	Write-Output ("        LastStatusChange	= " + $actionState.LatestExecution.LastStatusChange)
+	Write-Output ("        PercentComplete = " + $actionState.LatestExecution.PercentComplete)
+	Write-Output ("        Status = " + $actionState.LatestExecution.Status)
+	Write-Output ("        Summary = " + $actionState.LatestExecution.Summary)
+	Write-Output ("      RevisionUrl = " + $actionState.RevisionUrl)
+  }
+}
+
+------
+Output:
+------
+
+For Source:
+  InboundTransitionState:
+    DisabledReason =
+    Enabled =
+    LastChangedAt =
+    LastChangedBy =
+  ActionStates:
+    For Source:
+      CurrentRevision:
+        Created =
+        RevisionChangeId =
+        RevisionId =
+      EntityUrl = https://github.com/my-user-name/MyRepoName/tree/master
+      LatestExecution:
+        ErrorDetails:
+          Code =
+          Message =
+        ExternalExecutionId =
+        ExternalExecutionUrl =
+        LastStatusChange = 07/20/2015 23:28:45
+        PercentComplete = 0
+        Status = Succeeded
+        Summary =
+      RevisionUrl =
+For Build:
+  InboundTransitionState:
+    DisabledReason =
+    Enabled = True
+    LastChangedAt = 01/01/0001 00:00:00
+    LastChangedBy =
+  ActionStates:
+    For Build:
+      CurrentRevision:
+        Created =
+        RevisionChangeId =
+        RevisionId =
+      EntityUrl = http://54.174.131.1EX/job/MyJenkinsDemo
+      LatestExecution:
+        ErrorDetails:
+          Code = TimeoutError
+          Message = The action failed because a job worker exceeded its time limit. If this is a custom action, make sure that the job worker is configured correctly.
+        ExternalExecutionId =
+        ExternalExecutionUrl =
+        LastStatusChange = 07/21/2015 00:29:29
+        PercentComplete = 0
+        Status = Failed
+        Summary =
+      RevisionUrl =
+For Beta:
+  InboundTransitionState:
+    DisabledReason =
+    Enabled = True
+    LastChangedAt = 01/01/0001 00:00:00
+    LastChangedBy =
+  ActionStates:
+    For CodePipelineDemoFleet:
+      CurrentRevision:
+        Created =
+        RevisionChangeId =
+        RevisionId =
+      EntityUrl = https://console.aws.amazon.com/codedeploy/home?#/applications/CodePipelineDemoApplication/deployment-groups/CodePipelineDemoFleet
+      LatestExecution:
+        ErrorDetails:
+          Code =
+          Message =
+        ExternalExecutionId = d-D5LTCZXEX
+        ExternalExecutionUrl = https://console.aws.amazon.com/codedeploy/home?#/deployments/d-D5LTCZXEX
+        LastStatusChange = 07/08/2015 22:07:42
+        PercentComplete = 0
+        Status = Succeeded
+        Summary = Deployment Succeeded
+      RevisionUrl =
+For TestStage:
+  InboundTransitionState:
+    DisabledReason =
+    Enabled = True
+    LastChangedAt = 01/01/0001 00:00:00
+    LastChangedBy =
+  ActionStates:
+    For MyJenkinsTestAction25:
+      CurrentRevision:
+        Created =
+        RevisionChangeId =
+        RevisionId =
+      EntityUrl = http://54.174.131.1EX/job/MyJenkinsDemo
+      LatestExecution:
+        ErrorDetails:
+          Code =
+          Message =
+        ExternalExecutionId = 5
+        ExternalExecutionUrl = http://54.174.131.1EX/job/MyJenkinsDemo/5
+        LastStatusChange = 07/08/2015 22:09:03
+        PercentComplete = 0
+        Status = Succeeded
+        Summary = Finished
+      RevisionUrl =</code>
+      <description>This example gets detailed information about the state of the specified pipeline.</description>
+    </example>
+</examples>

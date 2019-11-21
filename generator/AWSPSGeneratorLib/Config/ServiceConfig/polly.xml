@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>polly</C2jFilename>
+    <AssemblyName>Polly</AssemblyName>
+    <ServiceNounPrefix>POL</ServiceNounPrefix>
+    <ServiceName>Amazon Polly</ServiceName>
+    <ServiceClientInterface>IAmazonPolly</ServiceClientInterface>
+    <ServiceClient>AmazonPollyClient</ServiceClient>
+    <ServiceModuleGuid>606621af-f4dd-40bc-9ed1-9ac056238301</ServiceModuleGuid>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteLexicon" Verb="Remove" Noun="Lexicon" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVoices" OutputProperty="Voices" Verb="Get" Noun="Voice" PipelineParameter="LanguageCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLexicon" OutputProperty="*" Verb="Get" Noun="Lexicon" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSpeechSynthesisTask" OutputProperty="SynthesisTask" Verb="Get" Noun="SpeechSynthesisTask" PipelineParameter="TaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLexicons" OutputProperty="Lexicons" Verb="Get" Noun="LexiconList" PipelineParameter="NextToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSpeechSynthesisTasks" OutputProperty="SynthesisTasks" Verb="Get" Noun="SpeechSynthesisTaskList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLexicon" Verb="Write" Noun="Lexicon" ShouldProcessTarget="Name" PipelineParameter="Content" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSpeechSynthesisTask" OutputProperty="SynthesisTask" Verb="Start" Noun="SpeechSynthesisTask" AnonymousShouldProcessTarget="true" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SynthesizeSpeech" OutputProperty="*" Verb="Get" Noun="Speech" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

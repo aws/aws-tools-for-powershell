@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-DDBTableList</code>
+    <description>Returns details of all tables, automatically iterating until the service indicates no further tables exist.</description>
+  </example>
+  <example>
+    <code>
+$nextToken = $null
+do {
+  Get-DDBTableList -ExclusiveStartTableName $nextToken -Limit 10
+  $nextToken = $AWSHistory.LastServiceResponse.LastEvaluatedTableName
+} while ($nextToken -ne $null)
+    </code>
+    <description>Manually iterates for details of all tables, returning up to 10 tables per call until the service indicates no further tables exist.</description>
+  </example>
+</examples>

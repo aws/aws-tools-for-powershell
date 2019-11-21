@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>pi</C2jFilename>
+    <AssemblyName>PI</AssemblyName>
+    <ServiceNounPrefix>PI</ServiceNounPrefix>
+    <ServiceName>AWS Performance Insights</ServiceName>
+    <ServiceClientInterface>IAmazonPI</ServiceClientInterface>
+    <ServiceClient>AmazonPIClient</ServiceClient>
+    <ServiceModuleGuid>4cbb6d83-f887-4e13-9c2c-f97ed82eb269</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DescribeDimensionKeys" OutputProperty="*" Verb="Get" Noun="DimensionKey" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceMetrics" OutputProperty="*" Verb="Get" Noun="ResourceMetric" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

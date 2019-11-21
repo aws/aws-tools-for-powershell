@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMAutomationExecution -AutomationExecutionId "4105a4fc-f944-11e6-9d32-8fb2db27a909"
+
+AutomationExecutionId     : 4105a4fc-f944-11e6-9d32-8fb2db27a909
+AutomationExecutionStatus : Failed
+DocumentName              : AWS-UpdateLinuxAmi
+DocumentVersion           : 1
+ExecutionEndTime          : 2/22/2017 9:17:08 PM
+ExecutionStartTime        : 2/22/2017 9:17:02 PM
+FailureMessage            : Step launchInstance failed maximum allowed times. You are not authorized to perform this operation. Encoded
+                            authorization failure message: B_V2QyyN7NhSZQYpmVzpEc4oSnj2GLTNYnXUHsTbqJkNMoDgubmbtthLmZyaiUYekORIrA42-fv1x-04q5Fjff6glh
+                            Yb6TI5b0GQeeNrpwNvpDzmO-PSR1swlAbg9fdM9BcNjyrznspUkWpuKu9EC1Ou6v3OXU1KC9nZ7mPlWMFZNkSioQqpwWEvMw-GZktsQzm67qOhUhBNOLWYhbS
+                            pkfiqzY-5nw3S0obx30fhd3EJa5O_-GjV_a0nFXQJa70ik40bFOrEh3MtCSbrQT6--DvFy_FQ8TKvkIXadyVskeJI84XOF5WmA60f1pi5GI08i-nRfZS6oDeU
+                            gELBjjoFKD8s3L2aI0B6umWVxnQOjqhQRxwJ53b54sZJ2PW3v_mtg9-q0CK0ezS3xfh_y0ilaUGOAZG-xjQFuvU_JZedWpla3xi-MZsmblAifBI
+                            (Service: AmazonEC2; Status Code: 403; Error Code: UnauthorizedOperation; Request ID:
+                            6a002f94-ba37-43fd-99e6-39517715fce5)
+Outputs                   : {[createImage.ImageId, Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}
+Parameters                : {[AutomationAssumeRole, Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]], [InstanceIamRole,
+                            Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]], [SourceAmiId,
+                            Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}
+StepExecutions            : {launchInstance, updateOSSoftware, stopInstance, createImage...}</code>
+        <description>This example displays the details of an Automation Execution.</description>
+    </example>
+  <example>
+    <code>Get-SSMAutomationExecution -AutomationExecutionId e1d2bad3-4567-8901-ae23-456c7c8901be | Select-Object -ExpandProperty StepExecutions | Select-Object StepName, Action, StepStatus, ValidNextSteps
+
+StepName                  Action                  StepStatus ValidNextSteps
+--------                  ------                  ---------- --------------
+LaunchInstance            aws:runInstances        Success    {OSCompatibilityCheck}
+OSCompatibilityCheck      aws:runCommand          Success    {RunPreUpdateScript}
+RunPreUpdateScript        aws:runCommand          Success    {UpdateEC2Config}
+UpdateEC2Config           aws:runCommand          Cancelled  {}
+UpdateSSMAgent            aws:runCommand          Pending    {}
+UpdateAWSPVDriver         aws:runCommand          Pending    {}
+UpdateAWSEnaNetworkDriver aws:runCommand          Pending    {}
+UpdateAWSNVMe             aws:runCommand          Pending    {}
+InstallWindowsUpdates     aws:runCommand          Pending    {}
+RunPostUpdateScript       aws:runCommand          Pending    {}
+RunSysprepGeneralize      aws:runCommand          Pending    {}
+StopInstance              aws:changeInstanceState Pending    {}
+CreateImage               aws:createImage         Pending    {}
+TerminateInstance         aws:changeInstanceState Pending    {}</code>
+    <description>This example lists step details for the given automation execution id</description>
+  </example>
+</examples>

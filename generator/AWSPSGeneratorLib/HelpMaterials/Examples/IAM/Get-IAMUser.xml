@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMUser -UserName David
+      
+Arn              : arn:aws:iam::123456789012:user/David
+CreateDate       : 12/10/2014 3:39:27 PM
+PasswordLastUsed : 3/19/2015 8:44:04 AM
+Path             : /
+UserId           : Y4FKWQCXTA52QEXAMPLE1
+UserName         : David</code>
+    <description>This example retrieves details about the user named <code>David</code>.</description>
+  </example>
+  <example>
+    <code>PS C:\>Get-IAMUser
+      
+Arn              : arn:aws:iam::123456789012:user/Bob
+CreateDate       : 10/16/2014 9:03:09 AM
+PasswordLastUsed : 3/4/2015 12:12:33 PM
+Path             : /
+UserId           : 7K3GJEANSKZF2EXAMPLE2
+UserName         : Bob</code>
+    <description>This example retrieves details about the currently signed-in IAM user.</description>
+  </example>
+</examples>

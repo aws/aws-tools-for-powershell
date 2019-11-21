@@ -1,0 +1,3 @@
+﻿# MediaTailor
+
+Export-ModuleMember -Alias *

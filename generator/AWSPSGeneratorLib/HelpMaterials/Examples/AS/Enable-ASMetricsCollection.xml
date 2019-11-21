@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Enable-ASMetricsCollection  -Metric @("GroupMinSize", "GroupMaxSize") -AutoScalingGroupName my-asg -Granularity 1Minute</code>
+    <description>This example enables monitoring of the specified metrics for the specified Auto Scaling group.</description>
+  </example>
+  <example>
+    <code>PS C:\> Enable-ASMetricsCollection -AutoScalingGroupName my-asg -Granularity 1Minute</code>
+    <description>This example enables monitoring of all metrics for the specified Auto Scaling group.</description>
+  </example>
+</examples>

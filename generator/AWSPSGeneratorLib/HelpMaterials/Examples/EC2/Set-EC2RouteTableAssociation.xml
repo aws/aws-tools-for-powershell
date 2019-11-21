@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Set-EC2RouteTableAssociation -RouteTableId rtb-1a2b3c4d -AssociationId rtbassoc-12345678
+    
+rtbassoc-87654321</code>
+    <description>This example associates the specified route table with the subnet for the specified route table association.</description>
+  </example>
+</examples>

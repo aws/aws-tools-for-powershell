@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>lex-models</C2jFilename>
+    <AssemblyName>LexModelBuildingService</AssemblyName>
+    <ServiceNounPrefix>LMB</ServiceNounPrefix>
+    <ServiceName>Amazon Lex Model Building Service</ServiceName>
+    <ServiceClientInterface>IAmazonLexModelBuildingService</ServiceClientInterface>
+    <ServiceClient>AmazonLexModelBuildingServiceClient</ServiceClient>
+    <ServiceModuleGuid>db17eb56-7963-42a3-ae3c-5f448e449ca6</ServiceModuleGuid>
+    <PipelineParameter>Name</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateBotVersion" OutputProperty="*" Verb="New" Noun="BotVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIntentVersion" OutputProperty="*" Verb="New" Noun="IntentVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSlotTypeVersion" OutputProperty="*" Verb="New" Noun="SlotTypeVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBot" Verb="Remove" Noun="Bot" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBotAlias" Verb="Remove" Noun="BotAlias" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBotChannelAssociation" Verb="Remove" Noun="BotChannelAssociation" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBotVersion" Verb="Remove" Noun="BotVersion" ShouldProcessTarget="Name" PipelineParameter="Version" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntent" Verb="Remove" Noun="Intent" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIntentVersion" Verb="Remove" Noun="IntentVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSlotType" Verb="Remove" Noun="SlotType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSlotTypeVersion" Verb="Remove" Noun="SlotTypeVersion" ShouldProcessTarget="Name" PipelineParameter="Version" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUtterances" Verb="Remove" Noun="Utterance" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBot" OutputProperty="*" Verb="Get" Noun="Bot" PipelineParameter="VersionOrAlias" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBotAlias" OutputProperty="*" Verb="Get" Noun="BotAlias" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBotAliases" OutputProperty="BotAliases" Verb="Get" Noun="BotAliasList" PipelineParameter="BotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBotChannelAssociation" OutputProperty="*" Verb="Get" Noun="BotChannelAssociation" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBotChannelAssociations" OutputProperty="BotChannelAssociations" Verb="Get" Noun="BotChannelAssociationList" PipelineParameter="BotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBotVersions" OutputProperty="Bots" Verb="Get" Noun="BotVersionList" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBuiltinIntent" OutputProperty="*" Verb="Get" Noun="BuiltinIntent" PipelineParameter="Signature" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBuiltinIntents" OutputProperty="Intents" Verb="Get" Noun="BuiltinIntentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBuiltinSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="BuiltinSlotType" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExport" OutputProperty="*" Verb="Get" Noun="Export" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetImport" OutputProperty="*" Verb="Get" Noun="Import" PipelineParameter="ImportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIntent" OutputProperty="*" Verb="Get" Noun="Intent" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIntents" OutputProperty="Intents" Verb="Get" Noun="IntentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIntentVersions" OutputProperty="Intents" Verb="Get" Noun="IntentVersion" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSlotType" OutputProperty="*" Verb="Get" Noun="SlotType" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSlotTypeVersions" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeVersionList" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUtterancesView" OutputProperty="*" Verb="Get" Noun="UtterancesView" PipelineParameter="BotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBot" OutputProperty="*" Verb="Write" Noun="Bot" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBotAlias" OutputProperty="*" Verb="Write" Noun="BotAlias" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutIntent" OutputProperty="*" Verb="Write" Noun="Intent" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSlotType" OutputProperty="*" Verb="Write" Noun="SlotType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartImport" OutputProperty="*" Verb="Start" Noun="Import" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.LexModelBuildingService.Model.Statement</Type>
+        <Type>Amazon.LexModelBuildingService.Model.Slot</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

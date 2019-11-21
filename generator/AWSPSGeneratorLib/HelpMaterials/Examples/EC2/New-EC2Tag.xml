@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+  <example>
+    <code>PS C:\> New-EC2Tag -Resource i-12345678 -Tag @{ Key="myTag"; Value="myTagValue" }</code>
+    <description>This example adds a single tag to the specified resource. The tag key is 'myTag' and the tag value is 'myTagValue'. The syntax used by this example requires PowerShell version 3 or higher.</description>
+  </example>
+  <example>
+    <code>PS C:\> New-EC2Tag -Resource i-12345678 -Tag @( @{ Key="myTag"; Value="newTagValue" }, @{ Key="test"; Value="anotherTagValue" } )</code>
+    <description>This example updates or adds the specified tags to the specified resource. The syntax used by this example requires PowerShell version 3 or higher.</description>
+  </example>
+    <code>PS C:\>$tag = New-Object Amazon.EC2.Model.Tag
+PS C:\>$tag.Key = "myTag"
+PS C:\>$tag.Value = "myTagValue"
+
+PS C:\>New-EC2Tag -Resource i-12345678 -Tag $tag
+    </code>
+    <description>With PowerShell version 2, you must use New-Object to create the tag for the Tag parameter.</description>
+  </example>
+</examples>

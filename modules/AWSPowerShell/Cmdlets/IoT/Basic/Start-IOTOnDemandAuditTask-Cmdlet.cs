@@ -1,0 +1,222 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.IoT;
+using Amazon.IoT.Model;
+
+namespace Amazon.PowerShell.Cmdlets.IOT
+{
+    /// <summary>
+    /// Starts an on-demand Device Defender audit.
+    /// </summary>
+    [Cmdlet("Start", "IOTOnDemandAuditTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS IoT StartOnDemandAuditTask API operation.", Operation = new[] {"StartOnDemandAuditTask"}, SelectReturnType = typeof(Amazon.IoT.Model.StartOnDemandAuditTaskResponse))]
+    [AWSCmdletOutput("System.String or Amazon.IoT.Model.StartOnDemandAuditTaskResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.IoT.Model.StartOnDemandAuditTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class StartIOTOnDemandAuditTaskCmdlet : AmazonIoTClientCmdlet, IExecutor
+    {
+        
+        #region Parameter TargetCheckName
+        /// <summary>
+        /// <para>
+        /// <para>Which checks are performed during the audit. The checks you specify must be enabled
+        /// for your account or an exception occurs. Use <code>DescribeAccountAuditConfiguration</code>
+        /// to see the list of all checks, including those that are enabled or <code>UpdateAccountAuditConfiguration</code>
+        /// to select which checks are enabled.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("TargetCheckNames")]
+        public System.String[] TargetCheckName { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TaskId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.StartOnDemandAuditTaskResponse).
+        /// Specifying the name of a property of type Amazon.IoT.Model.StartOnDemandAuditTaskResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "TaskId";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the TargetCheckName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TargetCheckName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TargetCheckName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TargetCheckName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-IOTOnDemandAuditTask (StartOnDemandAuditTask)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.IoT.Model.StartOnDemandAuditTaskResponse, StartIOTOnDemandAuditTaskCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.TargetCheckName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.TargetCheckName != null)
+            {
+                context.TargetCheckName = new List<System.String>(this.TargetCheckName);
+            }
+            #if MODULAR
+            if (this.TargetCheckName == null && ParameterWasBound(nameof(this.TargetCheckName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TargetCheckName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.IoT.Model.StartOnDemandAuditTaskRequest();
+            
+            if (cmdletContext.TargetCheckName != null)
+            {
+                request.TargetCheckNames = cmdletContext.TargetCheckName;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.IoT.Model.StartOnDemandAuditTaskResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.StartOnDemandAuditTaskRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "StartOnDemandAuditTask");
+            try
+            {
+                #if DESKTOP
+                return client.StartOnDemandAuditTask(request);
+                #elif CORECLR
+                return client.StartOnDemandAuditTaskAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public List<System.String> TargetCheckName { get; set; }
+            public System.Func<Amazon.IoT.Model.StartOnDemandAuditTaskResponse, StartIOTOnDemandAuditTaskCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TaskId;
+        }
+        
+    }
+}

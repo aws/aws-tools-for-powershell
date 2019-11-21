@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2Address -AllocationId eipalloc-12345678
+    
+AllocationId            : eipalloc-12345678
+AssociationId           : eipassoc-12345678
+Domain                  : vpc
+InstanceId              : i-87654321
+NetworkInterfaceId      : eni-12345678
+NetworkInterfaceOwnerId : 12345678
+PrivateIpAddress        : 10.0.2.172
+PublicIp                : 198.51.100.2</code>
+    <description>This example describes the specified Elastic IP address for instances in EC2-Classic.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Address -Filter @{ Name="domain";Value="vpc" }</code>
+    <description>This example describes your Elastic IP addresses for instances in a VPC. This syntax requires PowerShell version 3 or later.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Address -PublicIp 203.0.113.17
+    
+AllocationId            :
+AssociationId           :
+Domain                  : standard
+InstanceId              : i-12345678
+NetworkInterfaceId      :
+NetworkInterfaceOwnerId :
+PrivateIpAddress        :
+PublicIp                : 203.0.113.17</code>
+    <description>This example describes the specified Elastic IP address for instances in EC2-Classic.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Address -Filter @{ Name="domain";Value="standard" }</code>
+    <description>This example describes your Elastic IP addresses for instances in EC2-Classic. This syntax requires PowerShell version 3 or later.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Address</code>
+    <description>This example describes all your Elastic IP addresses.</description>
+  </example>
+  <example>
+    <code>Get-EC2Address -Region eu-west-1 -Filter @{Name="instance-id";Values="i-0c12d3f4f567ffb89"} | Select-Object PrivateIpAddress, PublicIp
+
+PrivateIpAddress PublicIp
+---------------- --------
+10.0.0.99        63.36.5.227</code>
+    <description>This example returns the public and private IP for the instance id provided in filter</description>
+  </example>
+  <example>
+    <code>Get-EC2Address -Region eu-west-1 | Select-Object InstanceId, AssociationId, AllocationId, PublicIp
+
+InstanceId          AssociationId              AllocationId               PublicIp
+----------          -------------              ------------               --------
+                                               eipalloc-012e3b456789e1fad 17.212.120.178
+i-0c123dfd3415bac67 eipassoc-0e123456bb7890bdb eipalloc-01cd23ebf45f7890c 17.212.124.77
+                                               eipalloc-012345678eeabcfad 17.212.225.7
+i-0123d405c67e89a0c eipassoc-0c123b456783966ba eipalloc-0123cdd456a8f7892 37.216.52.173
+i-0f1bf2f34c5678d09 eipassoc-0e12934568a952d96 eipalloc-0e1c23e4d5e6789e4 37.218.222.278
+i-012e3cb4df567e8aa eipassoc-0d1b2fa4d67d03810 eipalloc-0123f456f78a01b58 37.210.82.27
+i-0123bcf4b567890e1 eipassoc-01d2345f678903fb1 eipalloc-0e1db23cfef5c45c7 37.215.222.270</code>
+    <description>This example retrieves all the Elastic IPs with its allocation id, association id and instance ids</description>
+  </example>
+</examples>

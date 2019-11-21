@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Remove-ASTag -Tag @( @{ResourceType="auto-scaling-group"; ResourceId="my-asg"; Key="myTag" } )
+    
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Remove-ASTag (DeleteTags)" on target "Amazon.AutoScaling.Model.Tag".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):</code>
+    <description>This example removes the specified tag from the specified Auto Scaling group. You are prompted for confirmation before the operation proceeds. The syntax used by this example requires PowerShell version 3 or later.</description>
+  </example>
+  <example>
+    <code>PS C:\> Remove-ASTag -Tag @( @{ResourceType="auto-scaling-group"; ResourceId="my-asg"; Key="myTag" } ) -Force</code>
+    <description>If you specify the Force parameter, you are not prompted for confirmation before the operation proceeds.</description>
+  </example>
+  <example>
+    <code>PS C:\> $tag = New-Object Amazon.AutoScaling.Model.Tag
+PS C:\> $tag.ResourceType = "auto-scaling-group"
+PS C:\> $tag.ResourceId = "my-asg"
+PS C:\> $tag.Key = "myTag"
+PS C:\> Remove-ASTag -Tag $tag -Force</code>
+    <description>With Powershell version 2, you must use New-Object to create the tag for the Tag parameter.</description>
+  </example>
+</examples>

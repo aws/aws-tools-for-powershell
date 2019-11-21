@@ -1,0 +1,3 @@
+﻿# WorkMail
+
+Export-ModuleMember -Alias *

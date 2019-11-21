@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Disable-EC2VpcClassicLinkDnsSupport -VpcId vpc-0b12d3456a7e8910d</code>
+    <description>This example disables ClassicLink DNS support for the vpc-0b12d3456a7e8910d</description>
+  </example>
+</examples>

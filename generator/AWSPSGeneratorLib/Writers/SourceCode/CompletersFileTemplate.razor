@@ -1,0 +1,160 @@
+@inherits AWSPowerShellGenerator.Writers.SourceCode.CompletersFileTemplate
+@using System
+@using System.Linq
+@using System.Collections.Generic
+# Argument completions for service @ServiceConfig.ServiceName
+
+@if (ServiceConfig.ArgumentCompleters.ReferencedClasses.Any())
+{
+<text>
+$@(ServiceConfig.ServiceNounPrefix)_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+@{
+    // Used to re-order the final map that we register, alpha order by parameter name.
+    // We could do this with a second iteration of the registered completers by type,
+    // but we'd still need to reorder by parameter so easier to process as we go.
+    var param2CmdletsMap = new SortedDictionary<string, List<string>>();
+    foreach (var rc in ServiceConfig.ArgumentCompleters.ReferencedClasses)
+    {
+        var usage = ServiceConfig.ArgumentCompleters.GetReferencesFor(rc);
+@:        # @rc
+        // a ConstantClass-type can be referenced by multiple cmdlets using multiple
+        //  parameter names. In this scenario we need to wrap the 'case' clause inside
+        //  the switch in an expression.
+        var matchExpressions = new List<string>();
+        foreach (var p in usage.ParameterNames)
+        {
+            var cmdlets = usage.GetCmdletReferences(p);
+            foreach (var c in cmdlets)
+            {
+                matchExpressions.Add($"{c}/{p}");
+            }
+
+            if (!param2CmdletsMap.TryGetValue(p, out var param2Cmdlets))
+            {
+                param2CmdletsMap.Add(p,
+                    param2Cmdlets = new List<string>());
+            }
+            param2Cmdlets.AddRange(cmdlets);
+        }
+
+        if (matchExpressions.Count > 1)
+        {
+@:        {
+            for (var i = 0; i < matchExpressions.Count; i++)
+            {
+@:            ($_ -eq "@(matchExpressions[i])")@(i + 1 < matchExpressions.Count ? " -Or" : "")
+            }
+@:        }
+        }
+        else
+        {
+@:        "@(matchExpressions[0])"
+        }
+<text>        {
+            $v = @(string.Join(',', 
+                      ServiceConfig.ArgumentCompleters.GetConstantClassMembers(rc)
+                          .Select(member => $"\"{member}\"")))
+            break
+        }
+
+</text>
+    }
+<text>
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+@* the single-arg ctor doesn't give us the pop-up list behavior we want, so we have to use the
+   4 item ctor - it in turn doesn't work unless we provide values for all 4 args (giving an empty
+   string for tooltip also doesn't seem to work) *@
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+@* output the call to the registration function of all parameter names and
+   owning cmdlets that will use this completer, by iterating again over the
+   reference data *@
+$@(ServiceConfig.ServiceNounPrefix)_map = @@{
+</text>
+    foreach (var param2Cmdlets in param2CmdletsMap)
+    {
+@:    "@param2Cmdlets.Key"=@@(@(string.Join(',',
+                                    param2Cmdlets.Value
+                                        .OrderBy(cmdlet => cmdlet)
+                                        .Select(cmdlet => $"\"{cmdlet}\""))))
+    }
+}
+}
+
+_awsArgumentCompleterRegistration $@(ServiceConfig.ServiceNounPrefix)_Completers $@(ServiceConfig.ServiceNounPrefix)_map
+</text>
+}
+
+$@(ServiceConfig.ServiceNounPrefix)_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+@*Reflect on the cmdlet class to find the API return type*@
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.@(ServiceConfig.ServiceNounPrefix).$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+@*We don't want to return the whole tree of properties which may be huge, so we use what the user has typed in to filter only the
+  current level of properties to suggest*@
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+@*If the property type is an enumerable but not a string, we should consider the generic parameter type instead, this makes the
+  -Select behavior coherent with how PowerShell implements the '.' operator for collections.*@
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+@*Always provide '*' (the whole API return value) as an option*@
+    $v = @@( '*' )
+@*Add the output properties at the $prefix level*@
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+@*Add the cmdlet parameters*@
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$@(ServiceConfig.ServiceNounPrefix)_SelectMap = @@{
+    "Select"=@@(@string.Join($",{Environment.NewLine}               ",
+                    ServiceConfig.ServiceOperations.Values
+                    .Where(operation => operation.Exclude == false)
+                    .Select(operation => $"\"{operation.SelectedVerb}-{operation.SelectedNoun}\"")
+                    .Concat(ServiceConfig.AdvancedCmdlets.Keys
+                        .Select(name => $"\"{name}\""))))
+}
+
+_awsArgumentCompleterRegistration $@(ServiceConfig.ServiceNounPrefix)_SelectCompleters $@(ServiceConfig.ServiceNounPrefix)_SelectMap

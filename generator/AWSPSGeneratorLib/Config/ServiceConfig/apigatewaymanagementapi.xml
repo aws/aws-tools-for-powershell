@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>apigatewaymanagementapi</C2jFilename>
+    <AssemblyName>ApiGatewayManagementApi</AssemblyName>
+    <ServiceNounPrefix>AGM</ServiceNounPrefix>
+    <ServiceName>Amazon API Gateway Management API</ServiceName>
+    <ServiceClientInterface>IAmazonApiGatewayManagementApi</ServiceClientInterface>
+    <ServiceClient>AmazonApiGatewayManagementApiClient</ServiceClient>
+    <ServiceModuleGuid>806df5e2-5984-4207-a814-933147bfbd72</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteConnection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnection" OutputProperty="*" Verb="Get" Noun="Connection" PipelineParameter="ConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PostToConnection" Verb="Send" Noun="DataToConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="Data" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xsd:element name="Overrides">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element maxOccurs="unbounded" name="Service">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="SkipCmdletGeneration" type="xsd:boolean" />
+              <xsd:element name="C2jFilename" type="xsd:string" />
+              <xsd:element name="AssemblyName" type="xsd:string" />
+              <xsd:element name="ServiceNounPrefix" type="xsd:string" />
+              <xsd:element name="ServiceName" type="xsd:string" />
+              <xsd:element name="ServiceClientInterface" type="xsd:string" />
+              <xsd:element name="ServiceClient" type="xsd:string" />
+              <xsd:element name="ServiceModuleGuid" type="xsd:string" />
+              <xsd:element minOccurs="0" name="DefaultRegion" type="xsd:string" />
+              <xsd:element name="PipelineParameter" type="xsd:string" />
+              <xsd:element minOccurs="0" name="AutoIterate">
+                <xsd:complexType>
+                  <xsd:attribute name="Start" type="xsd:string" use="required" />
+                  <xsd:attribute name="Next" type="xsd:string" use="required" />
+                  <xsd:attribute name="EmitLimit" type="xsd:string" use="optional" />
+                  <xsd:attribute name="ServicePageSize" type="xsd:int" use="optional" />
+                  <xsd:attribute name="Exclusions" type="xsd:string" use="optional" />
+                  <xsd:attribute name="TruncatedFlag" type="xsd:string" use="optional" />
+                  <xsd:attribute name="PageSizeIsRequired" type="xsd:boolean" use="optional" />
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="VerbMappings">
+                <xsd:complexType>
+                  <xsd:sequence minOccurs="0">
+                    <xsd:element maxOccurs="unbounded" name="Map">
+                      <xsd:complexType>
+                        <xsd:attribute name="From" type="xsd:string" use="required" />
+                        <xsd:attribute name="To" type="xsd:string" use="required" />
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="NounMappings">
+                <xsd:complexType>
+                  <xsd:sequence minOccurs="0">
+                    <xsd:element maxOccurs="unbounded" name="Map">
+                      <xsd:complexType>
+                        <xsd:attribute name="From" type="xsd:string" use="required" />
+                        <xsd:attribute name="To" type="xsd:string" use="required" />
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="Params">
+                <xsd:complexType>
+                  <xsd:sequence minOccurs="0">
+                    <xsd:element name="Param">
+                      <xsd:complexType>
+                        <xsd:attribute name="Name" type="xsd:string" use="required" />
+                        <xsd:attribute name="Exclude" type="xsd:boolean" use="optional" />
+                        <xsd:attribute name="DefaultValue" type="xsd:string" use="optional" />
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="AdditionalNamespaces" />
+              <xsd:element name="CustomAliases">
+                <xsd:complexType>
+                  <xsd:sequence minOccurs="0">
+                    <xsd:element maxOccurs="unbounded" name="AliasSet">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:string">
+                            <xsd:attribute name="Cmdlet" type="xsd:string" use="required" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="LegacyAliases">
+                <xsd:complexType>
+                  <xsd:sequence minOccurs="0">
+                    <xsd:element maxOccurs="unbounded" name="AliasSet">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:string">
+                            <xsd:attribute name="Cmdlet" type="xsd:string" use="required" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="ParamEmitters">
+                <xsd:complexType>
+                  <xsd:sequence minOccurs="0">
+                    <xsd:element maxOccurs="unbounded" name="ParamEmitter">
+                      <xsd:complexType>
+                        <xsd:attribute name="ParamType" type="xsd:string" use="required" />
+                        <xsd:attribute name="ParamName" type="xsd:string" use="required" />
+                        <xsd:attribute name="EmitterType" type="xsd:string" use="required" />
+                        <xsd:attribute name="Exclude" type="xsd:string" use="required" />
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="MetadataProperties">
+                <xsd:complexType>
+                  <xsd:sequence minOccurs="0">
+                    <xsd:element maxOccurs="unbounded" name="Property" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="ServiceOperations">
+                <xsd:complexType>
+                  <xsd:sequence minOccurs="0">
+                    <xsd:element maxOccurs="unbounded" name="ServiceOperation">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="Params">
+                            <xsd:complexType>
+                              <xsd:sequence minOccurs="0">
+                                <xsd:element maxOccurs="unbounded" name="Param">
+                                  <xsd:complexType>
+                                    <xsd:attribute name="Name" type="xsd:string" use="required" />
+                                    <xsd:attribute name="NewName" type="xsd:string" use="optional" />
+                                    <xsd:attribute name="AutoApplyAlias" type="xsd:boolean" use="optional" />
+                                    <xsd:attribute name="Alias" type="xsd:string" use="optional" />
+                                    <xsd:attribute name="ExclusiveParameters" type="xsd:string" use="optional" />
+                                    <xsd:attribute name="ReplacementObsoleteMessage" type="xsd:string" use="optional" />
+                                    <xsd:attribute name="AutoRename" type="xsd:boolean" use="optional" />
+                                    <xsd:attribute name="AutoConvert" type="xsd:string" use="optional" />
+                                    <xsd:attribute name="DefaultValue" type="xsd:string" use="optional" />
+                                    <xsd:attribute name="Exclude" type="xsd:boolean" use="optional" />
+                                    <xsd:attribute name="ParameterReplacementDocumentation" type="xsd:string" use="optional" />
+                                  </xsd:complexType>
+                                </xsd:element>
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element minOccurs="0" name="PassThru">
+                            <xsd:complexType>
+                              <xsd:sequence>
+                                <xsd:element name="Expression" type="xsd:string" />
+                                <xsd:element minOccurs="0" name="Type" type="xsd:string" />
+                                <xsd:element name="Documentation" type="xsd:string" />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element minOccurs="0" name="AutoIterate">
+                            <xsd:complexType>
+                              <xsd:attribute name="Start" type="xsd:string" use="optional" />
+                              <xsd:attribute name="Next" type="xsd:string" use="optional" />
+                              <xsd:attribute name="EmitLimit" type="xsd:string" use="optional" />
+                              <xsd:attribute name="ServicePageSize" type="xsd:short" use="optional" />
+                              <xsd:attribute name="TruncatedFlag" type="xsd:string" use="optional" />
+                              <xsd:attribute name="PageSizeIsRequired" type="xsd:boolean" use="optional" />
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:element name="TypesNotToFlatten">
+                            <xsd:complexType>
+                              <xsd:sequence minOccurs="0">
+                                <xsd:element maxOccurs="unbounded" name="Type" type="xsd:string" />
+                              </xsd:sequence>
+                            </xsd:complexType>
+                          </xsd:element>
+                        </xsd:sequence>
+                        <xsd:attribute name="MethodName" type="xsd:string" use="required" />
+                        <xsd:attribute name="OutputProperty" type="xsd:string" use="optional" />
+                        <xsd:attribute name="Verb" type="xsd:string" use="required" />
+                        <xsd:attribute name="Noun" type="xsd:string" use="required" />
+                        <xsd:attribute name="ShouldProcessTarget" type="xsd:string" use="optional" />
+                        <xsd:attribute name="PositionalParameters" type="xsd:string" use="optional" />
+                        <xsd:attribute name="PipelineParameter" type="xsd:string" use="required" />
+                        <xsd:attribute name="NoPipelineParameter" type="xsd:boolean" use="required" />
+                        <xsd:attribute name="AnonymousShouldProcessTarget" type="xsd:boolean" use="optional" />
+                        <xsd:attribute name="RemapMemoryStreamParameters" type="xsd:boolean" use="optional" />
+                        <xsd:attribute name="Exclude" type="xsd:boolean" use="optional" />
+                        <xsd:attribute name="LegacyAlias" type="xsd:string" use="optional" />
+                        <xsd:attribute name="OutputWrapper" type="xsd:string" use="optional" />
+                        <xsd:attribute name="AnonymousAuthentication" type="xsd:string" use="optional" />
+                        <xsd:attribute name="ShouldProcessMsgNoun" type="xsd:string" use="optional" />
+                        <xsd:attribute name="IgnoreSupportsShouldProcess" type="xsd:boolean" use="optional" />
+                        <xsd:attribute name="DisableLegacyPagination" type="xsd:boolean" use="optional" />
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="InputObjectMappingRules" />
+              <xsd:element name="SupportsShouldProcessVerbs" />
+              <xsd:element name="TypesNotToFlatten">
+                <xsd:complexType>
+                  <xsd:sequence minOccurs="0">
+                    <xsd:element maxOccurs="unbounded" name="Type" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xs:schema>

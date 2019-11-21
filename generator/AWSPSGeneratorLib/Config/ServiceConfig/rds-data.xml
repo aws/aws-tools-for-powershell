@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>rds-data</C2jFilename>
+    <AssemblyName>RDSDataService</AssemblyName>
+    <ServiceNounPrefix>RDSD</ServiceNounPrefix>
+    <ServiceName>AWS RDS DataService</ServiceName>
+    <ServiceClientInterface>IAmazonRDSDataService</ServiceClientInterface>
+    <ServiceClient>AmazonRDSDataServiceClient</ServiceClient>
+    <ServiceModuleGuid>f08062ce-5259-4953-9e95-82e7409718c1</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchExecuteStatement" OutputProperty="UpdateResults" Verb="Invoke" Noun="StatementBatch" ShouldProcessTarget="ResourceArn" PipelineParameter="Sql" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BeginTransaction" OutputProperty="TransactionId" Verb="Start" Noun="Transaction" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyAlias="Begin-RDSDTransaction">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CommitTransaction" OutputProperty="TransactionStatus" Verb="Confirm" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyAlias="Commit-RDSDTransaction">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteSql" OutputProperty="SqlStatementResults" Verb="Invoke" Noun="SqlStatement" AnonymousShouldProcessTarget="true" PipelineParameter="SqlStatements" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteStatement" OutputProperty="*" Verb="Invoke" Noun="Statement" ShouldProcessTarget="ResourceArn" PipelineParameter="Sql" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RollbackTransaction" OutputProperty="TransactionStatus" Verb="Reset" Noun="Transaction" ShouldProcessTarget="TransactionId" PipelineParameter="TransactionId" NoPipelineParameter="false" LegacyAlias="Rollback-RDSDTransaction">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

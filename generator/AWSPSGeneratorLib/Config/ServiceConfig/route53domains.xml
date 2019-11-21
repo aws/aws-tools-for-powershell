@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>route53domains</C2jFilename>
+    <AssemblyName>Route53Domains</AssemblyName>
+    <ServiceNounPrefix>R53D</ServiceNounPrefix>
+    <ServiceName>Amazon Route 53 Domains</ServiceName>
+    <ServiceClientInterface>IAmazonRoute53Domains</ServiceClientInterface>
+    <ServiceClient>AmazonRoute53DomainsClient</ServiceClient>
+    <ServiceModuleGuid>c0474a09-7b41-457a-8291-e1cb9b87b7b3</ServiceModuleGuid>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter>DomainName</PipelineParameter>
+    <AutoIterate Start="Marker" Next="NextPageMarker" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>Marker</Property>
+        <Property>NextPageMarker</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="CheckDomainAvailability" OutputProperty="Availability" Verb="Test" Noun="DomainAvailability" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-R53DDomainAvailability">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CheckDomainTransferability" OutputProperty="Transferability" Verb="Test" Noun="DomainTransferability" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTagsForDomain" Verb="Remove" Noun="TagsForDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableDomainAutoRenew" Verb="Disable" Noun="DomainAutoRenew" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableDomainTransferLock" OutputProperty="OperationId" Verb="Disable" Noun="DomainTransferLock" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableDomainAutoRenew" Verb="Enable" Noun="DomainAutoRenew" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableDomainTransferLock" OutputProperty="OperationId" Verb="Enable" Noun="DomainTransferLock" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContactReachabilityStatus" OutputProperty="*" Verb="Get" Noun="ContactReachabilityStatus" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainDetail" OutputProperty="*" Verb="Get" Noun="DomainDetail" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainSuggestions" OutputProperty="SuggestionsList" Verb="Get" Noun="DomainSuggestion" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOperationDetail" OutputProperty="*" Verb="Get" Noun="OperationDetail" PipelineParameter="OperationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyAlias="Get-R53DDomains">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOperations" OutputProperty="Operations" Verb="Get" Noun="OperationList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyAlias="Get-R53DOperations">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForDomain" OutputProperty="TagList" Verb="Get" Noun="TagsForDomain" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterDomain" OutputProperty="OperationId" Verb="Register" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DurationInYears" AutoRename="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RenewDomain" OutputProperty="OperationId" Verb="Update" Noun="DomainRenewal" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResendContactReachabilityEmail" OutputProperty="*" Verb="Send" Noun="ContactReachabilityEmail" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveDomainAuthCode" OutputProperty="AuthCode" Verb="Get" Noun="DomainAuthCode" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TransferDomain" OutputProperty="OperationId" Verb="Invoke" Noun="DomainTransfer" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DurationInYears" AutoRename="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainContact" OutputProperty="OperationId" Verb="Update" Noun="DomainContact" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainContactPrivacy" OutputProperty="OperationId" Verb="Update" Noun="DomainContactPrivacy" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainNameservers" OutputProperty="OperationId" Verb="Update" Noun="DomainNameserver" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-R53DDomainNameservers">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTagsForDomain" Verb="Update" Noun="TagsForDomain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ViewBilling" OutputProperty="BillingRecords" Verb="Get" Noun="BillingRecord" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <AutoIterate Start="Marker" Next="NextPageMarker" EmitLimit="MaxItems" ServicePageSize="20" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

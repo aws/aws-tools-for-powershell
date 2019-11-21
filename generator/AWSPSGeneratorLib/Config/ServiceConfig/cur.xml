@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cur</C2jFilename>
+    <AssemblyName>CostAndUsageReport</AssemblyName>
+    <ServiceNounPrefix>CUR</ServiceNounPrefix>
+    <ServiceName>AWS Cost and Usage Report</ServiceName>
+    <ServiceClientInterface>IAmazonCostAndUsageReport</ServiceClientInterface>
+    <ServiceClient>AmazonCostAndUsageReportClient</ServiceClient>
+    <ServiceModuleGuid>51565218-c4ab-440e-9c0f-b77d410603c6</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteReportDefinition" OutputProperty="ResponseMessage" Verb="Remove" Noun="ReportDefinition" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinition" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CURReportDefinitions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReportDefinition" Verb="Edit" Noun="ReportDefinition" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutReportDefinition" Verb="Write" Noun="ReportDefinition" ShouldProcessTarget="ReportDefinition_ReportName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

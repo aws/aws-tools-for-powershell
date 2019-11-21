@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>application-autoscaling</C2jFilename>
+    <AssemblyName>ApplicationAutoScaling</AssemblyName>
+    <ServiceNounPrefix>AAS</ServiceNounPrefix>
+    <ServiceName>Application Auto Scaling</ServiceName>
+    <ServiceClientInterface>IAmazonApplicationAutoScaling</ServiceClientInterface>
+    <ServiceClient>AmazonApplicationAutoScalingClient</ServiceClient>
+    <ServiceModuleGuid>750bb30a-c605-4ada-8b29-8d954e103134</ServiceModuleGuid>
+    <PipelineParameter>ServiceNamespace</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteScalingPolicy" Verb="Remove" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScheduledAction" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterScalableTarget" Verb="Remove" Noun="ScalableTarget" ShouldProcessTarget="ResourceId" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalableTargets" OutputProperty="ScalableTargets" Verb="Get" Noun="ScalableTarget" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="ScalingActivities" Verb="Get" Noun="ScalingActivity" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutScalingPolicy" OutputProperty="*" Verb="Set" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyAlias="Write-AASScalingPolicy">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutScheduledAction" Verb="Set" Noun="ScheduledAction" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterScalableTarget" Verb="Add" Noun="ScalableTarget" ShouldProcessTarget="ResourceId" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

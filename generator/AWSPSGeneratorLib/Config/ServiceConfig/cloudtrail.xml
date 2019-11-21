@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cloudtrail</C2jFilename>
+    <AssemblyName>CloudTrail</AssemblyName>
+    <ServiceNounPrefix>CT</ServiceNounPrefix>
+    <ServiceName>AWS CloudTrail</ServiceName>
+    <ServiceClientInterface>IAmazonCloudTrail</ServiceClientInterface>
+    <ServiceClient>AmazonCloudTrailClient</ServiceClient>
+    <ServiceModuleGuid>dec9d75f-5a99-409f-bd26-21e27062c908</ServiceModuleGuid>
+    <PipelineParameter>Name</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Trails" To="Trail" />
+        <Map From="Tags" To="Tag" />
+        <Map From="PublicKeys" To="PublicKey" />
+    </NounMappings>
+    <Params>
+        <Param Name="Trail_" Exclude="true" />
+    </Params>
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-CTTag">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrail" OutputProperty="*" Verb="New" Noun="Trail" ShouldProcessTarget="Name" PositionalParameters="S3BucketName;S3KeyPrefix" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrail" Verb="Remove" Noun="Trail" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrails" OutputProperty="TrailList" Verb="Get" Noun="Trail" PositionalParameters="IncludeShadowTrails" PipelineParameter="TrailNameList" NoPipelineParameter="false">
+            <Params>
+                <Param Name="TrailNameList" Alias="Name" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventSelectors" OutputProperty="*" Verb="Get" Noun="EventSelector" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyAlias="Get-CTEventSelectors">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrailStatus" OutputProperty="*" Verb="Get" Noun="TrailStatus" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeyList" Verb="Get" Noun="PublicKey" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" OutputProperty="ResourceTagList" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CTTag">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="LookupEvents" OutputProperty="Events" Verb="Find" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Find-CTEvents">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEventSelectors" OutputProperty="*" Verb="Write" Noun="EventSelector" ShouldProcessTarget="TrailName" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyAlias="Write-CTEventSelectors">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-CTTag">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartLogging" Verb="Start" Noun="Logging" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopLogging" Verb="Stop" Noun="Logging" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrail" OutputProperty="*" Verb="Update" Noun="Trail" ShouldProcessTarget="Name" PositionalParameters="S3BucketName;S3KeyPrefix" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

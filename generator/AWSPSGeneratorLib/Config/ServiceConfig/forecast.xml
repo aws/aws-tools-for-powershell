@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>forecast</C2jFilename>
+    <AssemblyName>ForecastService</AssemblyName>
+    <ServiceNounPrefix>FRC</ServiceNounPrefix>
+    <ServiceName>Amazon Forecast Service</ServiceName>
+    <ServiceClientInterface>IAmazonForecastService</ServiceClientInterface>
+    <ServiceClient>AmazonForecastServiceClient</ServiceClient>
+    <ServiceModuleGuid>ca176a00-3267-42cc-8159-f2f2bbe1d784</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDataset" OutputProperty="DatasetArn" Verb="New" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDatasetGroup" OutputProperty="DatasetGroupArn" Verb="New" Noun="DatasetGroup" ShouldProcessTarget="DatasetGroupName" PipelineParameter="DatasetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDatasetImportJob" OutputProperty="DatasetImportJobArn" Verb="New" Noun="DatasetImportJob" ShouldProcessTarget="DatasetImportJobName" PipelineParameter="DatasetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateForecast" OutputProperty="ForecastArn" Verb="New" Noun="Forecast" ShouldProcessTarget="ForecastName" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateForecastExportJob" OutputProperty="ForecastExportJobArn" Verb="New" Noun="ForecastExportJob" ShouldProcessTarget="ForecastExportJobName" PipelineParameter="ForecastArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePredictor" OutputProperty="PredictorArn" Verb="New" Noun="Predictor" ShouldProcessTarget="PredictorName" PipelineParameter="PredictorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetArn" PipelineParameter="DatasetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatasetGroup" Verb="Remove" Noun="DatasetGroup" ShouldProcessTarget="DatasetGroupArn" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDatasetImportJob" Verb="Remove" Noun="DatasetImportJob" ShouldProcessTarget="DatasetImportJobArn" PipelineParameter="DatasetImportJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteForecast" Verb="Remove" Noun="Forecast" ShouldProcessTarget="ForecastArn" PipelineParameter="ForecastArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteForecastExportJob" Verb="Remove" Noun="ForecastExportJob" ShouldProcessTarget="ForecastExportJobArn" PipelineParameter="ForecastExportJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePredictor" Verb="Remove" Noun="Predictor" ShouldProcessTarget="PredictorArn" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="*" Verb="Get" Noun="Dataset" PipelineParameter="DatasetArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDatasetGroup" OutputProperty="*" Verb="Get" Noun="DatasetGroup" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDatasetImportJob" OutputProperty="*" Verb="Get" Noun="DatasetImportJob" PipelineParameter="DatasetImportJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeForecast" OutputProperty="*" Verb="Get" Noun="Forecast" PipelineParameter="ForecastArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeForecastExportJob" OutputProperty="*" Verb="Get" Noun="ForecastExportJob" PipelineParameter="ForecastExportJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePredictor" OutputProperty="*" Verb="Get" Noun="Predictor" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccuracyMetrics" OutputProperty="PredictorEvaluationResults" Verb="Get" Noun="AccuracyMetric" PipelineParameter="PredictorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListForecastExportJobs" OutputProperty="ForecastExportJobs" Verb="Get" Noun="ForecastExportJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListForecasts" OutputProperty="Forecasts" Verb="Get" Noun="ForecastList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPredictors" OutputProperty="Predictors" Verb="Get" Noun="PredictorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDatasetGroup" Verb="Update" Noun="DatasetGroup" ShouldProcessTarget="DatasetGroupArn" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

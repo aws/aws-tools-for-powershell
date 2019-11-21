@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-S3Bucket</code>
+    <description>This command returns all S3 buckets.</description>
+  </example>
+  <example>
+    <code>Get-S3Bucket -BucketName test-files</code>
+    <description>This command returns bucket named "test-files"</description>
+  </example>
+</examples>

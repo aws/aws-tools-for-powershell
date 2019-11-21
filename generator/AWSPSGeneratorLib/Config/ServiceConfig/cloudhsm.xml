@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cloudhsm</C2jFilename>
+    <AssemblyName>CloudHSM</AssemblyName>
+    <ServiceNounPrefix>HSM</ServiceNounPrefix>
+    <ServiceName>AWS CloudHSM</ServiceName>
+    <ServiceClientInterface>IAmazonCloudHSM</ServiceClientInterface>
+    <ServiceClient>AmazonCloudHSMClient</ServiceClient>
+    <ServiceModuleGuid />
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings>
+        <Map From="Delete" To="Remove" />
+        <Map From="Describe" To="Get" />
+        <Map From="List" To="Get" />
+        <Map From="Modify" To="Update" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Hsm" To="Item" />
+        <Map From="Hapg" To="PartitionGroup" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTagsToResource" OutputProperty="Status" Verb="Set" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateHapg" OutputProperty="HapgArn" Verb="New" Noun="PartitionGroup" ShouldProcessTarget="Label" PipelineParameter="Label" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateHsm" OutputProperty="HsmArn" Verb="New" Noun="Item" AnonymousShouldProcessTarget="true" PipelineParameter="IamRoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLunaClient" OutputProperty="ClientArn" Verb="New" Noun="LunaClient" ShouldProcessTarget="Certificate" PipelineParameter="Certificate" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHapg" OutputProperty="Status" Verb="Remove" Noun="PartitionGroup" ShouldProcessTarget="HapgArn" PipelineParameter="HapgArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHsm" OutputProperty="Status" Verb="Remove" Noun="Item" ShouldProcessTarget="HsmArn" PipelineParameter="HsmArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLunaClient" OutputProperty="Status" Verb="Remove" Noun="LunaClient" ShouldProcessTarget="ClientArn" PipelineParameter="ClientArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHapg" OutputProperty="*" Verb="Get" Noun="PartitionGroup" PipelineParameter="HapgArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHsm" OutputProperty="*" Verb="Get" Noun="Item" PipelineParameter="HsmArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLunaClient" OutputProperty="*" Verb="Get" Noun="LunaClient" PipelineParameter="ClientArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfig" OutputProperty="*" Verb="Get" Noun="Config" PipelineParameter="ClientArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableZones" OutputProperty="AZList" Verb="Get" Noun="AvailableZone" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-HSMAvailableZones">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHapgs" OutputProperty="HapgList" Verb="Get" Noun="PartitionGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHsms" OutputProperty="HsmList" Verb="Get" Noun="ItemList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLunaClients" OutputProperty="ClientList" Verb="Get" Noun="LunaClientList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyHapg" OutputProperty="HapgArn" Verb="Edit" Noun="PartitionGroup" ShouldProcessTarget="HapgArn" PipelineParameter="HapgArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyHsm" OutputProperty="HsmArn" Verb="Edit" Noun="Item" ShouldProcessTarget="HsmArn" PipelineParameter="HsmArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyLunaClient" OutputProperty="ClientArn" Verb="Edit" Noun="LunaClient" ShouldProcessTarget="ClientArn" PipelineParameter="ClientArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromResource" OutputProperty="Status" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

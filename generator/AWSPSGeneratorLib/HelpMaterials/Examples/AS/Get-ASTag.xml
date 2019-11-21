@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-ASTag -Filter @( @{ Name="key"; Values=@("myTag", "myTag2") } )
+    
+Key               : myTag2
+PropagateAtLaunch : True
+ResourceId        : my-asg
+ResourceType      : auto-scaling-group
+Value             : myTagValue2
+
+Key               : myTag
+PropagateAtLaunch : True
+ResourceId        : my-asg
+ResourceType      : auto-scaling-group
+Value             : myTagValue</code>
+    <description>This example describes the tags with a key value of either 'myTag' or 'myTag2'. The possible values for the filter name are 'auto-scaling-group', 'key', 'value', and 'propagate-at-launch'. The syntax used by this example requires PowerShell version 3 or later.</description>
+  </example>
+  <example>
+    <code>PS C:\> $keys = New-Object string[] 2
+PS C:\> $keys[0] = "myTag"
+PS C:\> $keys[1] = "myTag2"
+PS C:\> $filter = New-Object Amazon.AutoScaling.Model.Filter
+PS C:\> $filter.Name = "key"
+PS C:\> $filter.Values = $keys
+PS C:\> Get-ASTag -Filter @( $filter )</code>
+    <description>With PowerShell version 2, you must use New-Object to create the filter for the Filter parameter.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-ASTag</code>
+    <description>This example describes all tags for all your Auto Scaling groups.</description>
+  </example>
+</examples>

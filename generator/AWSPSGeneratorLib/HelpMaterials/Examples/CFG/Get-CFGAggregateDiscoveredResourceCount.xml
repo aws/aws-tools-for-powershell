@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGAggregateDiscoveredResourceCount -ConfigurationAggregatorName Master -Filters_Region us-east-1
+
+GroupByKey GroupedResourceCounts NextToken TotalDiscoveredResources
+---------- --------------------- --------- ------------------------
+           {}                              455</code>
+    <description>This example returns the resource count for the given aggregator filtered for region us-east-1.</description>
+  </example>
+  <example>
+    <code>Get-CFGAggregateDiscoveredResourceCount -ConfigurationAggregatorName Master -Filters_Region us-east-1 -GroupByKey RESOURCE_TYPE | 
+			Select-Object -ExpandProperty GroupedResourceCounts
+
+GroupName                          ResourceCount
+---------                          -------------
+AWS::CloudFormation::Stack         12
+AWS::CloudFront::Distribution      1
+AWS::CloudTrail::Trail             1
+AWS::DynamoDB::Table               1
+AWS::EC2::EIP                      2
+AWS::EC2::FlowLog                  2
+AWS::EC2::InternetGateway          4
+AWS::EC2::NatGateway               2
+AWS::EC2::NetworkAcl               4
+AWS::EC2::NetworkInterface         12
+AWS::EC2::RouteTable               13
+AWS::EC2::SecurityGroup            18
+AWS::EC2::Subnet                   16
+AWS::EC2::VPC                      4
+AWS::EC2::VPCEndpoint              2
+AWS::EC2::VPCPeeringConnection     1
+AWS::IAM::Group                    2
+AWS::IAM::Policy                   51
+AWS::IAM::Role                     78
+AWS::IAM::User                     7
+AWS::Lambda::Function              3
+AWS::RDS::DBSecurityGroup          1
+AWS::S3::Bucket                    3
+AWS::SSM::AssociationCompliance    107
+AWS::SSM::ManagedInstanceInventory 108</code>
+    <description>This example returns the resource count grouped by RESOURCE_TYPE for the filtered region for the given aggregator.</description>
+  </example>
+</examples>

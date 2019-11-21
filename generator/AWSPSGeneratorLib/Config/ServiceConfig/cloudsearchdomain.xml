@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>true</SkipCmdletGeneration>
+    <C2jFilename>cloudsearchdomain</C2jFilename>
+    <AssemblyName>CloudSearchDomain</AssemblyName>
+    <ServiceNounPrefix>CSD</ServiceNounPrefix>
+    <ServiceName>Amazon CloudSearch Domain</ServiceName>
+    <ServiceClientInterface>IAmazonCloudSearchDomain</ServiceClientInterface>
+    <ServiceClient>AmazonCloudSearchDomainClient</ServiceClient>
+    <ServiceModuleGuid>c8d22a9d-2c78-4461-8e65-822c9eb73db2</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Get-CSDSuggestion">Get-CSDSuggestions</AliasSet>
+        <AliasSet Cmdlet="Search-CSDDocument">Search-CSDDocuments</AliasSet>
+        <AliasSet Cmdlet="Write-CSDDocument">Write-CSDDocuments</AliasSet>
+    </LegacyAliases>
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="Search" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Suggest" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UploadDocuments" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

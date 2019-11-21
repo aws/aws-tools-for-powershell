@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="Service API Reference">https://docs.aws.amazon.com/datasync/latest/userguide/API_Reference.html</link>
+    <link name="User Guide">https://docs.aws.amazon.com/datasync/latest/userguide/</link>
+  </set>
+</links>

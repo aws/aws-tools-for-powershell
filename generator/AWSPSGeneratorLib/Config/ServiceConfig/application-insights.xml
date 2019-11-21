@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>application-insights</C2jFilename>
+    <AssemblyName>ApplicationInsights</AssemblyName>
+    <ServiceNounPrefix>CWAI</ServiceNounPrefix>
+    <ServiceName>Amazon CloudWatch Application Insights</ServiceName>
+    <ServiceClientInterface>IAmazonApplicationInsights</ServiceClientInterface>
+    <ServiceClient>AmazonApplicationInsightsClient</ServiceClient>
+    <ServiceModuleGuid>1b8bd5bf-4b4d-4799-b066-30b7657de720</ServiceModuleGuid>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationInfo" Verb="New" Noun="Application" ShouldProcessTarget="ResourceGroupName" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateComponent" Verb="New" Noun="Component" ShouldProcessTarget="ComponentName" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ResourceGroupName" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteComponent" Verb="Remove" Noun="Component" ShouldProcessTarget="ComponentName" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplication" OutputProperty="ApplicationInfo" Verb="Get" Noun="Application" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComponent" OutputProperty="*" Verb="Get" Noun="Component" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComponentConfiguration" OutputProperty="*" Verb="Get" Noun="ComponentConfiguration" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComponentConfigurationRecommendation" OutputProperty="ComponentConfiguration" Verb="Get" Noun="ComponentConfigurationRecommendation" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeObservation" OutputProperty="Observation" Verb="Get" Noun="Observation" PipelineParameter="ObservationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProblem" OutputProperty="Problem" Verb="Get" Noun="Problem" PipelineParameter="ProblemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProblemObservations" OutputProperty="RelatedObservations" Verb="Get" Noun="ProblemObservation" PipelineParameter="ProblemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationInfoList" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComponents" OutputProperty="ApplicationComponentList" Verb="Get" Noun="ComponentList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProblems" OutputProperty="ProblemList" Verb="Get" Noun="ProblemList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="ApplicationInfo" Verb="Update" Noun="Application" ShouldProcessTarget="ResourceGroupName" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateComponent" Verb="Update" Noun="Component" ShouldProcessTarget="ComponentName" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateComponentConfiguration" Verb="Update" Noun="ComponentConfiguration" ShouldProcessTarget="ComponentName" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

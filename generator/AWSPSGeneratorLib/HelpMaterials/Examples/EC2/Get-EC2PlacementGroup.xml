@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2PlacementGroup -GroupName my-placement-group
+    
+GroupName             State        Strategy
+---------             -----        --------
+my-placement-group    available    cluster</code>
+    <description>This example describes the specified placement group.</description>
+  </example>
+</examples>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>logs</C2jFilename>
+    <AssemblyName>CloudWatchLogs</AssemblyName>
+    <ServiceNounPrefix>CWL</ServiceNounPrefix>
+    <ServiceName>Amazon CloudWatch Logs</ServiceName>
+    <ServiceClientInterface>IAmazonCloudWatchLogs</ServiceClientInterface>
+    <ServiceClient>AmazonCloudWatchLogsClient</ServiceClient>
+    <ServiceModuleGuid>32feef3c-061d-4e8c-84a7-9e28fd2a7f3c</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>RejectedLogEventsInfo</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateKmsKey" Verb="Register" Noun="KmsKey" ShouldProcessTarget="KmsKeyId" PipelineParameter="KmsKeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelExportTask" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateExportTask" OutputProperty="TaskId" Verb="New" Noun="ExportTask" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLogGroup" Verb="New" Noun="LogGroup" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLogStream" Verb="New" Noun="LogStream" ShouldProcessTarget="LogStreamName" PositionalParameters="LogStreamName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDestination" Verb="Remove" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLogGroup" Verb="Remove" Noun="LogGroup" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLogStream" Verb="Remove" Noun="LogStream" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMetricFilter" Verb="Remove" Noun="MetricFilter" ShouldProcessTarget="FilterName" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourcePolicy" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRetentionPolicy" Verb="Remove" Noun="RetentionPolicy" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscriptionFilter" Verb="Remove" Noun="SubscriptionFilter" ShouldProcessTarget="FilterName" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDestinations" OutputProperty="Destinations" Verb="Get" Noun="Destination" PipelineParameter="DestinationNamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyAlias="Get-CWLExportTasks">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLogGroups" OutputProperty="LogGroups" Verb="Get" Noun="LogGroup" PipelineParameter="LogGroupNamePrefix" NoPipelineParameter="false" LegacyAlias="Get-CWLLogGroups">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLogStreams" OutputProperty="LogStreams" Verb="Get" Noun="LogStream" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogStreams">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetricFilters" OutputProperty="MetricFilters" Verb="Get" Noun="MetricFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyAlias="Get-CWLMetricFilters">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQueries" OutputProperty="Queries" Verb="Get" Noun="Query" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourcePolicies" OutputProperty="ResourcePolicies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSubscriptionFilters" OutputProperty="SubscriptionFilters" Verb="Get" Noun="SubscriptionFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyAlias="Get-CWLSubscriptionFilters">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateKmsKey" Verb="Unregister" Noun="KmsKey" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="FilterLogEvents" OutputProperty="*" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLogEvents" OutputProperty="*" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogEvents">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLogGroupFields" OutputProperty="LogGroupFields" Verb="Get" Noun="LogGroupField" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLogRecord" OutputProperty="LogRecord" Verb="Get" Noun="LogRecord" PipelineParameter="LogRecordPointer" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueryResults" OutputProperty="*" Verb="Get" Noun="QueryResult" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsLogGroup" OutputProperty="Tags" Verb="Get" Noun="LogGroupTag" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDestination" OutputProperty="Destination" Verb="Write" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDestinationPolicy" Verb="Write" Noun="DestinationPolicy" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLogEvents" OutputProperty="NextSequenceToken" Verb="Write" Noun="LogEvent" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName;LogStreamName" PipelineParameter="SequenceToken" NoPipelineParameter="false" LegacyAlias="Write-CWLLogEvents">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutMetricFilter" Verb="Write" Noun="MetricFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourcePolicy" OutputProperty="ResourcePolicy" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRetentionPolicy" Verb="Write" Noun="RetentionPolicy" ShouldProcessTarget="LogGroupName" PositionalParameters="RetentionInDays" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="RetentionInDays" AutoRename="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSubscriptionFilter" Verb="Write" Noun="SubscriptionFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartQuery" OutputProperty="QueryId" Verb="Start" Noun="Query" ShouldProcessTarget="LogGroupName" PipelineParameter="QueryString" NoPipelineParameter="false">
+            <Params>
+                <Param Name="LogGroupNames" NewName="LogGroupNameList" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopQuery" OutputProperty="Success" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagLogGroup" Verb="Add" Noun="LogGroupTag" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestMetricFilter" OutputProperty="Matches" Verb="Test" Noun="MetricFilter" PositionalParameters="LogEventMessages" PipelineParameter="FilterPattern" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagLogGroup" Verb="Remove" Noun="LogGroupTag" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

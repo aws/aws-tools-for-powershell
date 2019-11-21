@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Get-SSMMaintenanceWindowList
+
+Cutoff   : 1
+Duration : 4
+Enabled  : True
+Name     : My-First-Maintenance-Window
+WindowId : mw-06d59c1a07c022145</code>
+        <description>This example lists all maintenance windows on your account.</description>
+    </example>
+</examples>

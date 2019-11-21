@@ -1,0 +1,122 @@
+﻿@inherits AWSPowerShellGenerator.Writers.SourceCode.ManifestFileTemplate
+@using System
+@using System.Linq
+#
+# Module manifest for module '@Name'
+#
+
+@@{
+@if (RootModule != null)
+{
+@:    # Script module or binary module file associated with this manifest
+@:    @(CompatiblePowerShellVersion > 2 ? "RootModule" : "ModuleToProcess") = '@RootModule'
+@:
+}
+    # @(RequiresPS51OrGreater ? "Supported PSEditions" : "We are not including CompatiblePSEditions because it is not compatible with older PowerShell versions")
+    @(RequiresPS51OrGreater ? "" : "# ")CompatiblePSEditions = @@(@(NetStandard ? "'Core', " : "")'Desktop')
+
+    # Version number of this module.
+    ModuleVersion = '@Version'
+
+    # ID used to uniquely identify this module
+    GUID = '@Guid'
+
+    # Author of this module
+    Author = 'Amazon.com, Inc'
+
+    # Company or vendor of this module
+    CompanyName = 'Amazon.com, Inc'
+
+    # Copyright statement for this module
+    Copyright = 'Copyright 2012-@DateTime.UtcNow.Year Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+
+    # Description of the functionality provided by this module
+    Description = '@Description'
+
+    # Minimum version of the PowerShell engine required by this module
+    PowerShellVersion = '@(CompatiblePowerShellVersion).@(CompatiblePowerShellMinorVersion)'
+
+    # Name of the PowerShell host required by this module
+    PowerShellHostName = ''
+
+    # Minimum version of the PowerShell host required by this module
+    PowerShellHostVersion = ''
+
+    # Minimum version of the .NET Framework required by this module
+    DotNetFrameworkVersion = '@CompatibleFrameworkVersion'
+
+    # Minimum version of the common language runtime (CLR) required by this module
+    CLRVersion = ''
+
+    # Processor architecture (None, X86, Amd64, IA64) required by this module
+    ProcessorArchitecture = ''
+
+    # Modules that must be imported into the global environment prior to importing this module
+    RequiredModules = @@(
+@(string.Join("," + Environment.NewLine, RequiredModules.Select(module => "        @{"
+                                                 + Environment.NewLine + $"            ModuleName = '{module.Name}';"
+                                                 + Environment.NewLine + $"            RequiredVersion = '{Version}';"
+                                                 + Environment.NewLine + $"            Guid = '{module.Guid}' }}")))
+    )
+
+    # Assemblies that must be loaded prior to importing this module.
+    RequiredAssemblies = @@(
+@(string.Join("," + Environment.NewLine, Assemblies.Select(assembly => $"        '{assembly}.dll'")))
+    )
+
+    # Script files (.ps1) that are run in the caller's environment prior to importing this module
+    ScriptsToProcess = @@(
+@(string.Join(", " + Environment.NewLine, ScriptsToProcess.Select(file => $"        '{file}'")))
+    )
+
+    # Type files (.ps1xml) to be loaded when importing this module
+    TypesToProcess = @@(
+@(string.Join("," + Environment.NewLine, TypesToProcessFiles.Select(file => $"        '{file}'")))
+    )
+
+    # Format files (.ps1xml) to be loaded when importing this module
+    FormatsToProcess = @@(
+@(string.Join("," + Environment.NewLine, FormatsToProcessFiles.Select(file => $"        '{file}'")))
+    )
+
+    # Modules to import as nested modules of the module specified in ModuleToProcess
+    NestedModules = @@(
+@(string.Join("," + Environment.NewLine, NestedModulesFiles.Select(file => $"        '{file}'")))
+    )
+
+    # Functions to export from this module
+    FunctionsToExport = ''
+
+    # Cmdlets to export from this module
+    CmdletsToExport = @(CmdletsToExport == null ? "'*-*'" : $"@({string.Join(", ", CmdletsToExport.Select(cmdlet => $"{Environment.NewLine}        '{cmdlet}'"))})")
+
+    # Variables to export from this module
+    VariablesToExport = '*'
+
+    # Aliases to export from this module
+    AliasesToExport = @(AliasesToExport == null ? "'*'" : $"@({string.Join(", ", AliasesToExport.Select(alias => $"{Environment.NewLine}        '{alias}'"))})")
+
+    # List of all modules packaged with this module
+    ModuleList = @@()
+
+    # List of all files packaged with this module
+    FileList = @@(
+@(string.Join(", " + Environment.NewLine, FileList.Select(file => $"        '{file}'")))
+    )
+
+    # Private data to pass to the module specified in ModuleToProcess
+    PrivateData = @@{
+
+        PSData = @@{
+            Tags = @@('AWS', 'cloud', 'Windows', 'PSEdition_Desktop'@(NetStandard ? ", 'PSEdition_Core', 'Linux', 'MacOS'" : ""))
+            LicenseUri = 'https://aws.amazon.com/apache-2-0/'
+            ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
+            IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
+            ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md'
+@if (!string.IsNullOrWhiteSpace(PrereleaseTag))
+{
+@:            Prerelease = '@PrereleaseTag'
+}
+        }
+    }
+}

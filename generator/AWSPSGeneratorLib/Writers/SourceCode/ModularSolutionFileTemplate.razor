@@ -1,0 +1,53 @@
+﻿@inherits AWSPowerShellGenerator.Writers.SourceCode.ModularSolutionFileTemplate
+@using System
+@using System.Collections.Generic
+@using System.Linq
+@*The solution file must have TABs, not spaces, as whitespace!*@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.Common", "..\modules\ModularAWSPowerShell\AWS.Tools.Common.csproj", "{67C8317D-6BBF-4CE7-AACC-61F79A428C67}"
+EndProject
+@{
+    var Ids = new List<string>();
+    var projects = Services.Where(service => !string.IsNullOrWhiteSpace(service.ServiceModuleGuid));
+}
+@foreach (var project in projects)
+{
+@:Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWS.Tools.@project.AssemblyName", "..\modules\AWSPowerShell\Cmdlets\@project.AssemblyName\AWS.Tools.@(project.AssemblyName).csproj", "{@project.ServiceModuleGuid.ToString().ToUpper()}"
+@:EndProject
+}
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{899FAE76-60BB-4E45-B106-4B2FACE6FC3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67C8317D-6BBF-4CE7-AACC-61F79A428C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C8317D-6BBF-4CE7-AACC-61F79A428C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67C8317D-6BBF-4CE7-AACC-61F79A428C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67C8317D-6BBF-4CE7-AACC-61F79A428C67}.Release|Any CPU.Build.0 = Release|Any CPU
+@foreach (var project in projects)
+{
+@:		{@project.ServiceModuleGuid.ToString().ToUpper()}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+@:		{@project.ServiceModuleGuid.ToString().ToUpper()}.Debug|Any CPU.Build.0 = Debug|Any CPU
+@:		{@project.ServiceModuleGuid.ToString().ToUpper()}.Release|Any CPU.ActiveCfg = Release|Any CPU
+@:		{@project.ServiceModuleGuid.ToString().ToUpper()}.Release|Any CPU.Build.0 = Release|Any CPU
+}
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+@foreach (var project in projects)
+{
+@:		{@project.ServiceModuleGuid.ToString().ToUpper()} = {899FAE76-60BB-4E45-B106-4B2FACE6FC3A}
+}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0754704F-F973-49C7-A434-E9EF5AA05FE0}
+	EndGlobalSection
+EndGlobal

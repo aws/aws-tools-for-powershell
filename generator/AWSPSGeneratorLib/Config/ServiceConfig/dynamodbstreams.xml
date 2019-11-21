@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>dynamodbstreams</C2jFilename>
+    <AssemblyName>DynamoDBv2</AssemblyName>
+    <ServiceNounPrefix>DDB</ServiceNounPrefix>
+    <ServiceName>Amazon DynamoDB</ServiceName>
+    <ServiceClientInterface>IAmazonDynamoDBStreams</ServiceClientInterface>
+    <ServiceClient>AmazonDynamoDBStreamsClient</ServiceClient>
+    <ServiceModuleGuid />
+    <PipelineParameter>TableName</PipelineParameter>
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DescribeStream" OutputProperty="StreamDescription" Verb="Get" Noun="Stream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecords" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetShardIterator" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStreams" OutputProperty="*" Verb="Get" Noun="StreamList" PositionalParameters="Limit" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

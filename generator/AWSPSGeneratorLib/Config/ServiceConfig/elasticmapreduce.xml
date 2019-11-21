@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>elasticmapreduce</C2jFilename>
+    <AssemblyName>ElasticMapReduce</AssemblyName>
+    <ServiceNounPrefix>EMR</ServiceNounPrefix>
+    <ServiceName>Amazon Elastic MapReduce</ServiceName>
+    <ServiceClientInterface>IAmazonElasticMapReduce</ServiceClientInterface>
+    <ServiceClient>AmazonElasticMapReduceClient</ServiceClient>
+    <ServiceModuleGuid>e71a10ed-46ba-4050-b857-6f0e396a0c0f</ServiceModuleGuid>
+    <PipelineParameter>JobFlowId</PipelineParameter>
+    <AutoIterate Start="Marker" Next="Marker" />
+    <VerbMappings>
+        <Map From="Run" To="Start" />
+        <Map From="Terminate" To="Stop" />
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="InstanceGroups" To="InstanceGroup" />
+        <Map From="JobFlowSteps" To="JobFlowStep" />
+        <Map From="JobFlows" To="JobFlow" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddInstanceFleet" OutputProperty="*" Verb="Add" Noun="InstanceFleet" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddInstanceGroups" OutputProperty="*" Verb="Add" Noun="InstanceGroup" ShouldProcessTarget="JobFlowId" PositionalParameters="InstanceGroups" PipelineParameter="JobFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddJobFlowSteps" OutputProperty="StepIds" Verb="Add" Noun="JobFlowStep" ShouldProcessTarget="JobFlowId" PositionalParameters="Steps" PipelineParameter="JobFlowId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PositionalParameters="Tags" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-EMRTag">
+            <Params />
+            <PassThru>
+                <Expression>context.Tag</Expression>
+                <Documentation>Returns the collection of Tag objects that were added</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelSteps" OutputProperty="CancelStepsInfoList" Verb="Stop" Noun="Step" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Stop-EMRSteps">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityConfiguration" OutputProperty="*" Verb="New" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="SecurityConfiguration" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecurityConfiguration" Verb="Remove" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJobFlows" OutputProperty="JobFlows" Verb="Get" Noun="JobFlow" PipelineParameter="JobFlowIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecurityConfiguration" OutputProperty="*" Verb="Get" Noun="SecurityConfiguration" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStep" OutputProperty="Step" Verb="Get" Noun="Step" PositionalParameters="ClusterId" PipelineParameter="StepId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBlockPublicAccessConfiguration" OutputProperty="*" Verb="Get" Noun="BlockPublicAccessConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBootstrapActions" OutputProperty="BootstrapActions" Verb="Get" Noun="BootstrapActionList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRBootstrapActions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-EMRClusters">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstanceFleets" OutputProperty="InstanceFleets" Verb="Get" Noun="InstanceFleetList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstanceFleets">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstanceGroups" OutputProperty="InstanceGroups" Verb="Get" Noun="InstanceGroupList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstanceGroups">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PositionalParameters="ClusterId;InstanceGroupTypes" PipelineParameter="InstanceGroupId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstances">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSteps" OutputProperty="Steps" Verb="Get" Noun="StepList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRSteps">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceFleet" Verb="Edit" Noun="InstanceFleet" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceGroups" Verb="Edit" Noun="InstanceGroup" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAutoScalingPolicy" OutputProperty="*" Verb="Write" Noun="AutoScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutBlockPublicAccessConfiguration" Verb="Write" Noun="BlockPublicAccessConfiguration" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveAutoScalingPolicy" Verb="Remove" Noun="AutoScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="TagKeys" PositionalParameters="TagKeys" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-EMRTag">
+            <Params />
+            <PassThru>
+                <Expression>context.TagKey</Expression>
+                <Documentation>Returns the collection of Tag keys that were removed</Documentation>
+            </PassThru>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RunJobFlow" OutputProperty="JobFlowId" Verb="Start" Noun="JobFlow" ShouldProcessTarget="Name" PositionalParameters="LogUri" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Instances_Placement_AvailabilityZone" AutoRename="false" />
+                <Param Name="Instances_Placement_AvailabilityZones" AutoRename="false" />
+                <Param Name="Instances_Ec2SubnetId" AutoRename="false" />
+                <Param Name="Instances_Ec2SubnetIds" AutoRename="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetTerminationProtection" Verb="Set" Noun="TerminationProtection" ShouldProcessTarget="JobFlowIds" PositionalParameters="TerminationProtected" PipelineParameter="JobFlowIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetVisibleToAllUsers" Verb="Set" Noun="VisibleToAllUser" ShouldProcessTarget="JobFlowIds" PositionalParameters="VisibleToAllUsers" PipelineParameter="JobFlowIds" NoPipelineParameter="false" LegacyAlias="Set-EMRVisibleToAllUsers">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateJobFlows" Verb="Stop" Noun="JobFlow" ShouldProcessTarget="JobFlowIds" PipelineParameter="JobFlowIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

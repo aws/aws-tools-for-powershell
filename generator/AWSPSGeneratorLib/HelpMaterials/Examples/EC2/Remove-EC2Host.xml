@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-EC2Host -HostId h-0badafd1dcb2f3456
+
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Remove-EC2Host (ReleaseHosts)" on target "h-0badafd1dcb2f3456".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
+
+Successful            Unsuccessful
+----------            ------------
+{h-0badafd1dcb2f3456} {}</code>
+    <description>This example releases the given host ID h-0badafd1dcb2f3456</description>
+  </example>
+</examples>

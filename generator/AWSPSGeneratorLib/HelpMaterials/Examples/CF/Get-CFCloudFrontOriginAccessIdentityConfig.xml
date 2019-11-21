@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-CFCloudFrontOriginAccessIdentityConfig -Id E3XXXXXXXXXXRT
+      
+      CallerReference                                             Comment
+      ---------------                                             -------
+      mycallerreference: 2/1/2011 1:16:32 PM                      Caller reference: 2/1/2011 1:16:32 PM</code>
+    <description>This example returns configuration information about a single Amazon CloudFront origin access identity, specified by the -Id parameter. Errors occur if no -Id parameter is specified..</description>
+  </example>
+</examples>

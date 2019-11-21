@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>
+$topic =  [Amazon.S3.Model.TopicConfiguration] @{
+  Id = "delete-event"
+  Topic = "arn:aws:sns:eu-west-1:123456789012:topic-1"
+  Event = [Amazon.S3.EventType]::ObjectRemovedDelete
+}
+
+Write-S3BucketNotification -BucketName kt-tools -TopicConfiguration $topic</code>
+    <description>This example configures the SNS topic configuration for the S3 event ObjectRemovedDelete and enables notification for the given s3 bucket</description>
+  </example>
+  <example>
+    <code>
+
+$lambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
+  Events = "s3:ObjectCreated:*"
+  FunctionArn = "arn:aws:lambda:eu-west-1:123456789012:function:rdplock"
+  Id = "ObjectCreated-Lambda"
+  Filter = @{
+    S3KeyFilter = @{
+      FilterRules = @(
+        @{Name="Prefix";Value="dada"}
+        @{Name="Suffix";Value=".pem"}
+      )
+    }
+  }
+}
+
+Write-S3BucketNotification -BucketName ssm-editor -LambdaFunctionConfiguration $lambdaConfig</code>
+    <description>This example enables notifications of ObjectCreatedAll for the given bucket sending it to Lambda function.</description>
+  </example>
+  <example>
+    <code>#Lambda Config 1
+
+$firstLambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
+  Events = "s3:ObjectCreated:*"
+  FunctionArn = "arn:aws:lambda:eu-west-1:123456789012:function:verifynet"
+  Id = "ObjectCreated-dada-ps1"
+  Filter = @{
+    S3KeyFilter = @{
+      FilterRules = @(
+        @{Name="Prefix";Value="dada"}
+        @{Name="Suffix";Value=".ps1"}
+      )
+    }
+  }
+}
+
+#Lambda Config 2
+
+$secondlambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
+  Events = [Amazon.S3.EventType]::ObjectCreatedAll
+  FunctionArn = "arn:aws:lambda:eu-west-1:123456789012:function:verifyssm"
+  Id = "ObjectCreated-dada-json"
+  Filter = @{
+    S3KeyFilter = @{
+      FilterRules = @(
+        @{Name="Prefix";Value="dada"}
+        @{Name="Suffix";Value=".json"}
+      )
+    }
+  }
+}
+
+Write-S3BucketNotification -BucketName ssm-editor -LambdaFunctionConfiguration $firstLambdaConfig,$secondlambdaConfig</code>
+    <description>This example creates 2 different Lambda configuration on the basis of different key-suffix and configured both in a single command. </description>
+  </example>
+</examples>

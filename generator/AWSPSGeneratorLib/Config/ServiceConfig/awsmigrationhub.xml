@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>awsmigrationhub</C2jFilename>
+    <AssemblyName>MigrationHub</AssemblyName>
+    <ServiceNounPrefix>MH</ServiceNounPrefix>
+    <ServiceName>AWS Migration Hub</ServiceName>
+    <ServiceClientInterface>IAmazonMigrationHub</ServiceClientInterface>
+    <ServiceClient>AmazonMigrationHubClient</ServiceClient>
+    <ServiceModuleGuid>6afb95f9-8cf4-476e-84a7-52f051d59eea</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateCreatedArtifact" Verb="Add" Noun="CreatedArtifact" ShouldProcessTarget="MigrationTaskName" PipelineParameter="CreatedArtifact" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDiscoveredResource" Verb="Add" Noun="DiscoveredResource" ShouldProcessTarget="MigrationTaskName" PipelineParameter="DiscoveredResource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProgressUpdateStream" Verb="New" Noun="ProgressUpdateStream" ShouldProcessTarget="ProgressUpdateStreamName" PipelineParameter="ProgressUpdateStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProgressUpdateStream" Verb="Remove" Noun="ProgressUpdateStream" ShouldProcessTarget="ProgressUpdateStreamName" PipelineParameter="ProgressUpdateStreamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationState" OutputProperty="*" Verb="Get" Noun="ApplicationState" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMigrationTask" OutputProperty="MigrationTask" Verb="Get" Noun="MigrationTask" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateCreatedArtifact" Verb="Remove" Noun="CreatedArtifact" ShouldProcessTarget="CreatedArtifactName" PipelineParameter="CreatedArtifactName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDiscoveredResource" Verb="Remove" Noun="DiscoveredResource" ShouldProcessTarget="ConfigurationId" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportMigrationTask" Verb="Import" Noun="MigrationTask" ShouldProcessTarget="MigrationTaskName" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCreatedArtifacts" OutputProperty="CreatedArtifactList" Verb="Get" Noun="CreatedArtifactList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="DiscoveredResourceList" Verb="Get" Noun="DiscoveredResourceList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMigrationTasks" OutputProperty="MigrationTaskSummaryList" Verb="Get" Noun="MigrationTaskList" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProgressUpdateStreams" OutputProperty="ProgressUpdateStreamSummaryList" Verb="Get" Noun="ProgressUpdateStream" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyApplicationState" Verb="Send" Noun="ApplicationStateNotification" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyMigrationTaskState" Verb="Send" Noun="MigrationTaskStateNotification" ShouldProcessTarget="MigrationTaskName" PipelineParameter="Task" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourceAttributes" Verb="Set" Noun="ResourceAttribute" ShouldProcessTarget="MigrationTaskName" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.MigrationHub.Model.CreatedArtifact</Type>
+        <Type>Amazon.MigrationHub.Model.DiscoveredResource</Type>
+        <Type>Amazon.MigrationHub.Model.MigrationTask</Type>
+        <Type>Amazon.MigrationHub.Model.Task</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

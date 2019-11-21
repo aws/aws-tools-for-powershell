@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> $revision = Get-CDApplicationRevision -ApplicationName CodeDeployDemoApplication -S3Location_Bucket MyBucket -Revision_RevisionType S3 -S3Location_Key 5xd27EX.zip -S3Location_BundleType zip -S3Location_ETag 4565c1ac97187f190c1a90265EXAMPLE
+PS C:\> Write-Output ("Description = " + $revision.RevisionInfo.Description + ", RegisterTime = " + $revision.RevisionInfo.RegisterTime)
+
+Description = Application revision registered by Deployment ID: d-CX9CHN3EX, RegisterTime = 07/20/2015 23:46:42</code>
+	<description>This example gets information about the specified application revision.</description>
+  </example>
+</examples>

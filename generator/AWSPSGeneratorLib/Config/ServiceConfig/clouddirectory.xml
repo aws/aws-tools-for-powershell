@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>clouddirectory</C2jFilename>
+    <AssemblyName>CloudDirectory</AssemblyName>
+    <ServiceNounPrefix>CDIR</ServiceNounPrefix>
+    <ServiceName>Amazon Cloud Directory</ServiceName>
+    <ServiceClientInterface>IAmazonCloudDirectory</ServiceClientInterface>
+    <ServiceClient>AmazonCloudDirectoryClient</ServiceClient>
+    <ServiceModuleGuid>a1f4e1ff-371a-4ca4-ad09-4084353353c7</ServiceModuleGuid>
+    <PipelineParameter>DirectoryArn</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddFacetToObject" Verb="Add" Noun="FacetToObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ApplySchema" OutputProperty="*" Verb="Add" Noun="Schema" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachObject" OutputProperty="AttachedObjectIdentifier" Verb="Connect" Noun="Object" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachPolicy" Verb="Mount" Noun="Policy" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachToIndex" OutputProperty="AttachedObjectIdentifier" Verb="Mount" Noun="ObjectToIndex" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachTypedLink" OutputProperty="TypedLinkSpecifier" Verb="Mount" Noun="TypedLink" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchRead" OutputProperty="Responses" Verb="Read" Noun="DirectoryBatch" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchWrite" OutputProperty="Responses" Verb="Write" Noun="DirectoryBatch" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDirectory" OutputProperty="*" Verb="New" Noun="Directory" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFacet" Verb="New" Noun="Facet" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIndex" OutputProperty="ObjectIdentifier" Verb="New" Noun="Index" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateObject" OutputProperty="ObjectIdentifier" Verb="New" Noun="DirectoryObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSchema" OutputProperty="SchemaArn" Verb="New" Noun="Schema" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTypedLinkFacet" Verb="New" Noun="TypedLinkFacet" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDirectory" OutputProperty="DirectoryArn" Verb="Remove" Noun="Directory" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFacet" Verb="Remove" Noun="Facet" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteObject" Verb="Remove" Noun="DirectoryObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSchema" OutputProperty="SchemaArn" Verb="Remove" Noun="Schema" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTypedLinkFacet" Verb="Remove" Noun="TypedLinkFacet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachFromIndex" OutputProperty="DetachedObjectIdentifier" Verb="Dismount" Noun="ObjectFromIndex" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachObject" OutputProperty="DetachedObjectIdentifier" Verb="Disconnect" Noun="Object" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachPolicy" Verb="Dismount" Noun="PolicyFromObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachTypedLink" Verb="Dismount" Noun="TypedLink" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableDirectory" OutputProperty="DirectoryArn" Verb="Disable" Noun="Directory" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableDirectory" OutputProperty="DirectoryArn" Verb="Enable" Noun="Directory" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAppliedSchemaVersion" OutputProperty="AppliedSchemaArn" Verb="Get" Noun="AppliedSchemaVersion" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDirectory" OutputProperty="Directory" Verb="Get" Noun="DirectoryMetadata" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFacet" OutputProperty="Facet" Verb="Get" Noun="Facet" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLinkAttributes" OutputProperty="Attributes" Verb="Get" Noun="LinkAttribute" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetObjectAttributes" OutputProperty="Attributes" Verb="Get" Noun="ObjectAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetObjectInformation" OutputProperty="*" Verb="Get" Noun="ObjectInformation" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSchemaAsJson" OutputProperty="*" Verb="Get" Noun="SchemaAsJson" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTypedLinkFacetInformation" OutputProperty="IdentityAttributeOrder" Verb="Get" Noun="TypedLinkFacetInformation" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppliedSchemaArns" OutputProperty="SchemaArns" Verb="Get" Noun="AppliedSchemaArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAttachedIndices" OutputProperty="IndexAttachments" Verb="Get" Noun="ObjectIndex" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDevelopmentSchemaArns" OutputProperty="SchemaArns" Verb="Get" Noun="DevelopmentSchemaArn" PipelineParameter="MaxResults" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDirectories" OutputProperty="Directories" Verb="Get" Noun="Directory" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFacetAttributes" OutputProperty="Attributes" Verb="Get" Noun="FacetAttribute" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFacetNames" OutputProperty="FacetNames" Verb="Get" Noun="FacetName" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIncomingTypedLinks" OutputProperty="LinkSpecifiers" Verb="Get" Noun="IncomingTypedLink" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIndex" OutputProperty="IndexAttachments" Verb="Get" Noun="Index" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListManagedSchemaArns" OutputProperty="SchemaArns" Verb="Get" Noun="ManagedSchemaArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListObjectAttributes" OutputProperty="Attributes" Verb="Get" Noun="ObjectAttributeList" PipelineParameter="ObjectReference_Selector" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListObjectChildren" OutputProperty="Children" Verb="Get" Noun="ObjectChild" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListObjectParentPaths" OutputProperty="PathToObjectIdentifiersList" Verb="Get" Noun="ObjectParentPath" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListObjectParents" OutputProperty="*" Verb="Get" Noun="ObjectParent" PipelineParameter="DirectoryArn" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListObjectPolicies" OutputProperty="AttachedPolicyIds" Verb="Get" Noun="ObjectPolicy" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOutgoingTypedLinks" OutputProperty="TypedLinkSpecifiers" Verb="Get" Noun="OutgoingTypedLink" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyAttachments" OutputProperty="ObjectIdentifiers" Verb="Get" Noun="PolicyAttachment" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPublishedSchemaArns" OutputProperty="SchemaArns" Verb="Get" Noun="PublishedSchemaArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTypedLinkFacetAttributes" OutputProperty="Attributes" Verb="Get" Noun="TypedLinkFacetAttribute" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTypedLinkFacetNames" OutputProperty="FacetNames" Verb="Get" Noun="TypedLinkFacetName" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="LookupPolicy" OutputProperty="PolicyToPathList" Verb="Get" Noun="DirectoryPolicy" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PublishSchema" OutputProperty="PublishedSchemaArn" Verb="Publish" Noun="Schema" ShouldProcessTarget="DevelopmentSchemaArn" PipelineParameter="DevelopmentSchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutSchemaFromJson" OutputProperty="Arn" Verb="Write" Noun="SchemaFromJson" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveFacetFromObject" Verb="Remove" Noun="FacetFromObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFacet" Verb="Update" Noun="Facet" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLinkAttributes" Verb="Update" Noun="LinkAttribute" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateObjectAttributes" OutputProperty="ObjectIdentifier" Verb="Update" Noun="ObjectAttribute" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSchema" OutputProperty="SchemaArn" Verb="Update" Noun="Schema" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTypedLinkFacet" Verb="Update" Noun="TypedLinkFacet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpgradeAppliedSchema" OutputProperty="*" Verb="Update" Noun="AppliedSchema" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpgradePublishedSchema" OutputProperty="UpgradedSchemaArn" Verb="Update" Noun="PublishedSchema" ShouldProcessTarget="DevelopmentSchemaArn" PipelineParameter="DevelopmentSchemaArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

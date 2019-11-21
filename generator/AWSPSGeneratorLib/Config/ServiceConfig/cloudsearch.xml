@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cloudsearch</C2jFilename>
+    <AssemblyName>CloudSearch</AssemblyName>
+    <ServiceNounPrefix>CS</ServiceNounPrefix>
+    <ServiceName>Amazon CloudSearch</ServiceName>
+    <ServiceClientInterface>IAmazonCloudSearch</ServiceClientInterface>
+    <ServiceClient>AmazonCloudSearchClient</ServiceClient>
+    <ServiceModuleGuid>2313ff27-1227-4cbd-821c-c1c5f8644995</ServiceModuleGuid>
+    <PipelineParameter>DomainName</PipelineParameter>
+    <VerbMappings>
+        <Map From="Define" To="Set" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="AnalysisSchemes" To="AnalysisScheme" />
+        <Map From="AvailabilityOptions" To="AvailabilityOption" />
+        <Map From="Domains" To="Domain" />
+        <Map From="DomainNames" To="DomainName" />
+        <Map From="Expressions" To="Expression" />
+        <Map From="IndexFields" To="IndexField" />
+        <Map From="ScalingParameters" To="ScalingParameter" />
+        <Map From="ServiceAccessPolicies" To="ServiceAccessPolicy" />
+        <Map From="Suggesters" To="Suggester" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases>
+        <AliasSet Cmdlet="Set-CSIndexField">Define-CSIndexField</AliasSet>
+        <AliasSet Cmdlet="Start-CSIndex">Index-CSDocuments</AliasSet>
+    </CustomAliases>
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BuildSuggesters" OutputProperty="FieldNames" Verb="Start" Noun="SuggestersBuild" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="DomainStatus" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DefineAnalysisScheme" OutputProperty="AnalysisScheme" Verb="Set" Noun="AnalysisScheme" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DefineExpression" OutputProperty="Expression" Verb="Set" Noun="Expression" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DefineIndexField" OutputProperty="IndexField" Verb="Set" Noun="IndexField" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DefineSuggester" OutputProperty="Suggester" Verb="Set" Noun="Suggester" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAnalysisScheme" OutputProperty="AnalysisScheme" Verb="Remove" Noun="AnalysisScheme" ShouldProcessTarget="AnalysisSchemeName" PositionalParameters="AnalysisSchemeName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomain" OutputProperty="DomainStatus" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExpression" OutputProperty="Expression" Verb="Remove" Noun="Expression" ShouldProcessTarget="ExpressionName" PositionalParameters="ExpressionName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIndexField" OutputProperty="IndexField" Verb="Remove" Noun="IndexField" ShouldProcessTarget="IndexFieldName" PositionalParameters="IndexFieldName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSuggester" OutputProperty="Suggester" Verb="Remove" Noun="Suggester" ShouldProcessTarget="SuggesterName" PositionalParameters="SuggesterName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAnalysisSchemes" OutputProperty="AnalysisSchemes" Verb="Get" Noun="AnalysisScheme" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSAnalysisSchemes">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAvailabilityOptions" OutputProperty="AvailabilityOptions" Verb="Get" Noun="AvailabilityOption" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSAvailabilityOptions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomains" OutputProperty="DomainStatusList" Verb="Get" Noun="Domain" PipelineParameter="DomainNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExpressions" OutputProperty="Expressions" Verb="Get" Noun="Expression" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIndexFields" OutputProperty="IndexFields" Verb="Get" Noun="IndexField" PositionalParameters="FieldNames" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSIndexFields">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingParameters" OutputProperty="ScalingParameters" Verb="Get" Noun="ScalingParameter" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSScalingParameters">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServiceAccessPolicies" OutputProperty="AccessPolicies" Verb="Get" Noun="ServiceAccessPolicy" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSServiceAccessPolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSuggesters" OutputProperty="Suggesters" Verb="Get" Noun="Suggester" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IndexDocuments" OutputProperty="FieldNames" Verb="Start" Noun="Index" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainNames" OutputProperty="DomainNames" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CSListDomainNames">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAvailabilityOptions" OutputProperty="AvailabilityOptions" Verb="Update" Noun="AvailabilityOption" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSAvailabilityOptions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScalingParameters" OutputProperty="ScalingParameters" Verb="Update" Noun="ScalingParameter" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSScalingParameters">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceAccessPolicies" OutputProperty="AccessPolicies" Verb="Update" Noun="ServiceAccessPolicy" ShouldProcessTarget="DomainName" PositionalParameters="AccessPolicies" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSServiceAccessPolicies">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

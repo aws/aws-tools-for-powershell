@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMRolePolicyList -RoleName lambda_exec_role
+
+oneClick_lambda_exec_role_policy</code>
+    <description>This example returns the list of names of inline policies that are embedded in the IAM role <code>lamda_exec_role</code>. To see the details of an inline policy, use the command <code>Get-IAMRolePolicy</code>.</description>
+  </example>
+</examples>

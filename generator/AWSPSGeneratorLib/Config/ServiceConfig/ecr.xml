@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>ecr</C2jFilename>
+    <AssemblyName>ECR</AssemblyName>
+    <ServiceNounPrefix>ECR</ServiceNounPrefix>
+    <ServiceName>Amazon EC2 Container Registry</ServiceName>
+    <ServiceClientInterface>IAmazonECR</ServiceClientInterface>
+    <ServiceClient>AmazonECRClient</ServiceClient>
+    <ServiceModuleGuid>58bb5011-59c3-41ea-ba12-45c3813db939</ServiceModuleGuid>
+    <PipelineParameter>RepositoryName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchCheckLayerAvailability" OutputProperty="*" Verb="Get" Noun="LayerAvailabilityBatch" PipelineParameter="LayerDigests" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteImage" OutputProperty="*" Verb="Remove" Noun="ImageBatch" ShouldProcessTarget="ImageIds" PipelineParameter="ImageIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetImage" OutputProperty="*" Verb="Get" Noun="ImageBatch" PipelineParameter="ImageIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CompleteLayerUpload" OutputProperty="*" Verb="Complete" Noun="LayerUpload" ShouldProcessTarget="UploadId" PipelineParameter="LayerDigests" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRepository" OutputProperty="Repository" Verb="New" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLifecyclePolicy" OutputProperty="*" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRepository" OutputProperty="Repository" Verb="Remove" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="IgnoreExistingImages" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRepositoryPolicy" OutputProperty="*" Verb="Remove" Noun="RepositoryPolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImages" OutputProperty="ImageDetails" Verb="Get" Noun="ImageMetadata" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImageScanFindings" OutputProperty="*" Verb="Get" Noun="ImageScanFinding" PipelineParameter="RepositoryName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRepositories" OutputProperty="Repositories" Verb="Get" Noun="Repository" PipelineParameter="RepositoryNames" NoPipelineParameter="false">
+            <Params>
+                <Param Name="MaxResults" NewName="MaxResult" Alias="MaxItems" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAuthorizationToken" OutputProperty="AuthorizationData" Verb="Get" Noun="AuthorizationToken" PipelineParameter="RegistryIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDownloadUrlForLayer" OutputProperty="*" Verb="Get" Noun="DownloadUrlForLayer" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLifecyclePolicy" OutputProperty="*" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLifecyclePolicyPreview" OutputProperty="*" Verb="Get" Noun="LifecyclePolicyPreview" PipelineParameter="RepositoryName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRepositoryPolicy" OutputProperty="*" Verb="Get" Noun="RepositoryPolicy" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InitiateLayerUpload" OutputProperty="*" Verb="Start" Noun="LayerUpload" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImages" OutputProperty="ImageIds" Verb="Get" Noun="Image" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutImage" OutputProperty="Image" Verb="Write" Noun="Image" ShouldProcessTarget="RepositoryName" PipelineParameter="ImageManifest" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutImageScanningConfiguration" OutputProperty="*" Verb="Write" Noun="ImageScanningConfiguration" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutImageTagMutability" OutputProperty="*" Verb="Write" Noun="ImageTagMutability" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLifecyclePolicy" OutputProperty="*" Verb="Write" Noun="LifecyclePolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="LifecyclePolicyText" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetRepositoryPolicy" OutputProperty="*" Verb="Set" Noun="RepositoryPolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="PolicyText" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="OverridePolicy" AutoApplyAlias="false" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartImageScan" OutputProperty="*" Verb="Start" Noun="ImageScan" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartLifecyclePolicyPreview" OutputProperty="*" Verb="Start" Noun="LifecyclePolicyPreview" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UploadLayerPart" OutputProperty="*" Verb="Send" Noun="LayerPart" ShouldProcessTarget="RepositoryName" PipelineParameter="LayerPartBlob" NoPipelineParameter="false" DefaultParameterSet="FromBytes">
+            <Params>
+                <Param Name="LayerPartBlob" Alias="LayerPartBytes" AutoConvert="ToBase64" ParameterSetName="FromBytes" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

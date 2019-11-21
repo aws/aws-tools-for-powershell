@@ -1,0 +1,3 @@
+﻿# ApiGatewayManagementApi
+
+Export-ModuleMember -Alias *

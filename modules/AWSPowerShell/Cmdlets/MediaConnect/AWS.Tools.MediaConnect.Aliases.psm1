@@ -1,0 +1,3 @@
+﻿# MediaConnect
+
+Export-ModuleMember -Alias *

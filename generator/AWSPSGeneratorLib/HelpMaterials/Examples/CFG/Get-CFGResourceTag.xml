@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGResourceTag -ResourceArn $rules[0].ConfigRuleArn
+
+Key     Value
+---     -----
+Version 1.3</code>
+    <description>This example lists associated tags for the given resource</description>
+  </example>
+</examples>

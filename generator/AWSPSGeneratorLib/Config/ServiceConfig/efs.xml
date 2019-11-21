@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>elasticfilesystem</C2jFilename>
+    <AssemblyName>ElasticFileSystem</AssemblyName>
+    <ServiceNounPrefix>EFS</ServiceNounPrefix>
+    <ServiceName>Amazon Elastic File System</ServiceName>
+    <ServiceClientInterface>IAmazonElasticFileSystem</ServiceClientInterface>
+    <ServiceClient>AmazonElasticFileSystemClient</ServiceClient>
+    <ServiceModuleGuid>3fc11f1b-ce88-411b-81b7-bea376b050c7</ServiceModuleGuid>
+    <PipelineParameter>FileSystemId</PipelineParameter>
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" />
+    <VerbMappings />
+    <NounMappings>
+        <Map From="Tags" To="Tag" />
+        <Map From="FileSystems" To="FileSystem" />
+        <Map From="MountTargets" To="MountTarget" />
+        <Map From="MountTargetSecurityGroups" To="MountTargetSecurityGroup" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateFileSystem" OutputProperty="*" Verb="New" Noun="FileSystem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMountTarget" OutputProperty="*" Verb="New" Noun="MountTarget" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTags" Verb="New" Noun="Tag" ShouldProcessTarget="FileSystemId" PipelineParameter="Tags" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFileSystem" Verb="Remove" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMountTarget" Verb="Remove" Noun="MountTarget" ShouldProcessTarget="MountTargetId" PipelineParameter="MountTargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="Tag" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFileSystems" OutputProperty="FileSystems" Verb="Get" Noun="FileSystem" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLifecycleConfiguration" OutputProperty="LifecyclePolicies" Verb="Get" Noun="LifecycleConfiguration" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMountTargets" OutputProperty="MountTargets" Verb="Get" Noun="MountTarget" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMountTargetSecurityGroups" OutputProperty="SecurityGroups" Verb="Get" Noun="MountTargetSecurityGroup" PipelineParameter="MountTargetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyMountTargetSecurityGroups" Verb="Edit" Noun="MountTargetSecurityGroup" ShouldProcessTarget="MountTargetId" PipelineParameter="SecurityGroups" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLifecycleConfiguration" OutputProperty="LifecyclePolicies" Verb="Write" Noun="LifecycleConfiguration" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFileSystem" OutputProperty="*" Verb="Update" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

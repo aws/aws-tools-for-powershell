@@ -1,0 +1,3 @@
+﻿# SecretsManager
+
+Export-ModuleMember -Alias *

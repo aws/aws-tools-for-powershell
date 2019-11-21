@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> $options = @( @{Key="domain-name";Values=@("abc.local")}, @{Key="domain-name-servers";Values=@("10.0.0.101","10.0.0.102")})
+PS C:\> New-EC2DhcpOption -DhcpConfiguration $options
+    
+DhcpConfigurations                    DhcpOptionsId    Tags
+------------------                    -------------    ----
+{domain-name, domain-name-servers}    dopt-1a2b3c4d    {}</code>
+    <description>This example creates the specified set of DHCP options. The syntax used by this example requires PowerShell version 3 or later.</description>
+  </example>
+  <example>
+    <code>PS C:\> $option1 = New-Object Amazon.EC2.Model.DhcpConfiguration
+PS C:\> $option1.Key = "domain-name"
+PS C:\> $option1.Values = "abc.local"
+
+PS C:\> $option2 = New-Object Amazon.EC2.Model.DhcpConfiguration
+PS C:\> $option2.Key = "domain-name-servers"
+PS C:\> $option2.Values = @("10.0.0.101","10.0.0.102")
+
+PS C:\> New-EC2DhcpOption -DhcpConfiguration @($option1, $option2)
+    
+DhcpConfigurations                    DhcpOptionsId    Tags
+------------------                    -------------    ----
+{domain-name, domain-name-servers}    dopt-2a3b4c5d    {}</code>
+    <description>With PowerShell version 2, you must use New-Object to create each DHCP option.</description>
+  </example>
+</examples>

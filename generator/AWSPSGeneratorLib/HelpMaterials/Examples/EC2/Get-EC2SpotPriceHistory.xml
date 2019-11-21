@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2SpotPriceHistory -InstanceType c3.large -AvailabilityZone us-west-2a -MaxResult 10
+    
+AvailabilityZone   : us-west-2a
+InstanceType       : c3.large
+Price              : 0.017300
+ProductDescription : Linux/UNIX (Amazon VPC)
+Timestamp          : 12/25/2015 7:39:49 AM
+
+AvailabilityZone   : us-west-2a
+InstanceType       : c3.large
+Price              : 0.017200
+ProductDescription : Linux/UNIX (Amazon VPC)
+Timestamp          : 12/25/2015 7:38:29 AM
+
+AvailabilityZone   : us-west-2a
+InstanceType       : c3.large
+Price              : 0.017300
+ProductDescription : Linux/UNIX (Amazon VPC)
+Timestamp          : 12/25/2015 6:57:13 AM
+...</code>
+    <description>This example gets the last 10 entries in the Spot price history for the specified instance type and Availability Zone. Note that the value specified for the -AvailabilityZone parameter must be valid for the region value supplied to either the cmdlet's -Region parameter (not shown in the example) or set as default in the shell. This example command assumes a default region of 'us-west-2' has been set in the environment.</description>
+  </example>
+</examples>

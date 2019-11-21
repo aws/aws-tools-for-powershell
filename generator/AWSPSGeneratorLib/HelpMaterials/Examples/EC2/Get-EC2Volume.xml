@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2Volume -VolumeId vol-12345678
+
+Attachments      : {}
+AvailabilityZone : us-west-2c
+CreateTime       : 7/17/2015 4:35:19 PM
+Encrypted        : False
+Iops             : 90
+KmsKeyId         :
+Size             : 30
+SnapshotId       : snap-12345678
+State            : in-use
+Tags             : {}
+VolumeId         : vol-12345678
+VolumeType       : standard</code>
+    <description>This example describes the specified EBS volume.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Volume -Filter @{ Name="status"; Values="available" }
+
+Attachments      : {}
+AvailabilityZone : us-west-2c
+CreateTime       : 12/21/2015 2:31:29 PM
+Encrypted        : False
+Iops             : 60
+KmsKeyId         :
+Size             : 20
+SnapshotId       : snap-12345678
+State            : available
+Tags             : {}
+VolumeId         : vol-12345678
+VolumeType       : gp2
+...
+    </code>
+    <description>This example describes your EBS volumes that have the status 'available'.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Volume</code>
+    <description>This example describes all your EBS volumes.</description>
+  </example>
+</examples>

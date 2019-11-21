@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-ACMCertificate -CertificateArn "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"</code>
+    <description>This example shows how to return a certificate and its chain using the ARN of the certificate.</description>
+  </example>
+</examples>

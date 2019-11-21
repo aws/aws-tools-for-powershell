@@ -1,0 +1,3 @@
+﻿# EventBridge
+
+Export-ModuleMember -Alias *

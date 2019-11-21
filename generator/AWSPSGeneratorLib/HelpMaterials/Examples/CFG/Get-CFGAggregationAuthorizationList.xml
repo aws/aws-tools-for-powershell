@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGAggregationAuthorizationList
+
+AggregationAuthorizationArn                                                            AuthorizedAccountId AuthorizedAwsRegion CreationTime
+---------------------------                                                            ------------------- ------------------- ------------
+arn:aws:config:eu-west-1:123456789012:aggregation-authorization/123456789012/eu-west-1 123456789012        eu-west-1           8/26/2019 12:55:27 AM</code>
+    <description>This example retrieves authorizations granted to aggregators.</description>
+  </example>
+</examples>

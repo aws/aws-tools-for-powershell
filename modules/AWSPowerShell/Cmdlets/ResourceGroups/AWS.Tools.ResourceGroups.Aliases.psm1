@@ -1,0 +1,3 @@
+﻿# ResourceGroups
+
+Export-ModuleMember -Alias *

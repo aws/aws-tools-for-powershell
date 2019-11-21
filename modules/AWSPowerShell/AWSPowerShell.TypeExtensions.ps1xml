@@ -1,0 +1,538 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Types>
+  <!-- 
+  ********************************************************************
+  * Amazon EC2 model type extensions
+  ********************************************************************
+  -->
+  <Type>
+	<Name>Amazon.EC2.Model.AvailabilityZone</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Region</Name>
+        <ReferencedMemberName>RegionName</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.Image</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>ImageState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>BlockDeviceMapping</Name>
+        <ReferencedMemberName>BlockDeviceMappings</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.ImageAttribute</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>LaunchPermission</Name>
+        <ReferencedMemberName>LaunchPermissions</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>ProductCode</Name>
+        <ReferencedMemberName>ProductCodes</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>BlockDeviceMapping</Name>
+        <ReferencedMemberName>BlockDeviceMappings</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.Instance</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+    <Name>Amazon.EC2.Model.Region</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Region</Name>
+        <ReferencedMemberName>RegionName</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.Reservation</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>RunningInstance</Name>
+        <ReferencedMemberName>Instances</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.ReservedInstancesListing</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.ReservedInstancesOffering</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>IsMarketPlace</Name>
+        <ReferencedMemberName>Marketplace</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.RouteTable</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.SecurityGroup</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>GroupDescription</Name>
+        <ReferencedMemberName>Description</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>IpPermission</Name>
+        <ReferencedMemberName>IpPermissions</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.Snapshot</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Status</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.Subnet</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>SubnetState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.Volume</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Status</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Attachment</Name>
+        <ReferencedMemberName>Attachments</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.VolumeStatusInfo</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>VolumeStatusDetail</Name>
+        <ReferencedMemberName>Details</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.Vpc</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>VpcState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.VpcAttachment</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>VpcAttachmentState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.VpnConnection</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>VpnConnectionState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.VpnGateway</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>VpnGatewayState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>VpcAttachment</Name>
+        <ReferencedMemberName>VpcAttachments</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.InternetGateway</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.LaunchPermission</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>GroupName</Name>
+        <ReferencedMemberName>Group</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.Monitoring</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>MonitoringState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.NetworkInterface</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>TagSet</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.NetworkInterfacePrivateIpAddress</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>IpAddress</Name>
+        <ReferencedMemberName>PrivateIpAddress</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.NetworkAcl</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Default</Name>
+        <ReferencedMemberName>IsDefault</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.LaunchSpecification</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>BlockDeviceMapping</Name>
+        <ReferencedMemberName>BlockDeviceMappings</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>NetworkInterfaceSet</Name>
+        <ReferencedMemberName>NetworkInterfaces</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>InstanceProfile</Name>
+        <ReferencedMemberName>IamInstanceProfile</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.IpPermission</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>UserIdGroupPair</Name>
+        <ReferencedMemberName>UserIdGroupPairs</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>IpRange</Name>
+        <ReferencedMemberName>IpRanges</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.InstanceStatus</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>InstanceStatusEvent</Name>
+        <ReferencedMemberName>Events</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.InstancePrivateIpAddress</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>IpAddress</Name>
+        <ReferencedMemberName>PrivateIpAddress</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <Type>
+	<Name>Amazon.EC2.Model.CustomerGateway</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>CustomerGatewayState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.DhcpConfiguration</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Value</Name>
+        <ReferencedMemberName>Values</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.DhcpOptions</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Tag</Name>
+        <ReferencedMemberName>Tags</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Configuration</Name>
+        <ReferencedMemberName>DhcpConfigurations</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.Filter</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Value</Name>
+        <ReferencedMemberName>Values</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.BundleTask</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>BundleState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.AvailabilityZone</Name>
+    <Members>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>ZoneState</Name>
+        <ReferencedMemberName>State</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Message</Name>
+        <ReferencedMemberName>Messages</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+  
+  <Type>
+	<Name>Amazon.EC2.Model.S3Storage</Name>
+    <Members>
+      <AliasProperty>
+        <Name>BucketName</Name>
+        <ReferencedMemberName>Bucket</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+        <Name>KeyPrefix</Name>
+        <ReferencedMemberName>Prefix</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <!-- 
+  ********************************************************************
+  * AWS CloudFormation model type extensions
+  ********************************************************************
+  -->
+  <Type>
+    <Name>Amazon.CloudFormation.Model.Parameter</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Key</Name>
+        <ReferencedMemberName>ParameterKey</ReferencedMemberName>
+      </AliasProperty>            
+      <AliasProperty>
+        <Name>Value</Name>
+        <ReferencedMemberName>ParameterValue</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+  <!-- 
+  ********************************************************************
+  * Auto Scaling model type extensions
+  ********************************************************************
+  -->
+  <Type>
+    <Name>Amazon.AutoScaling.Model.Filter</Name>
+    <Members>
+      <AliasProperty>
+        <Name>Key</Name>
+        <ReferencedMemberName>Name</ReferencedMemberName>
+      </AliasProperty>
+      <AliasProperty>
+		<!-- for compatibility with v1.x releases -->
+        <Name>Value</Name>
+        <ReferencedMemberName>Values</ReferencedMemberName>
+      </AliasProperty>            
+    </Members>
+  </Type>
+
+</Types>

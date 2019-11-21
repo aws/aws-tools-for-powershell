@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>PS C:\> Update-SSMPatchBaseline -BaselineId "pb-03da896ca3b68b639" -RejectedPatch "KB2032276","MS10-048" -ApprovedPatch "KB2124261"
+
+ApprovalRules   : Amazon.SimpleSystemsManagement.Model.PatchRuleGroup
+ApprovedPatches : {KB2124261}
+BaselineId      : pb-03da896ca3b68b639
+CreatedDate     : 3/3/2017 5:02:19 PM
+Description     : Baseline containing all updates approved for production systems
+GlobalFilters   : Amazon.SimpleSystemsManagement.Model.PatchFilterGroup
+ModifiedDate    : 3/3/2017 5:22:10 PM
+Name            : Production-Baseline
+RejectedPatches : {KB2032276, MS10-048}</code>
+        <description>This example adds two patches as rejected and one patch as approved to an existing patch baseline.</description>
+    </example>
+</examples>

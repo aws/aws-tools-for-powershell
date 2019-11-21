@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-EC2Snapshot -SnapshotId snap-12345678
+    
+DataEncryptionKeyId :
+Description         : Created by CreateImage(i-1a2b3c4d) for ami-12345678 from vol-12345678
+Encrypted           : False
+KmsKeyId            :
+OwnerAlias          :
+OwnerId             : 123456789012
+Progress            : 100%
+SnapshotId          : snap-12345678
+StartTime           : 10/23/2014 6:01:28 AM
+State               : completed
+StateMessage        :
+Tags                : {}
+VolumeId            : vol-12345678
+VolumeSize          : 8</code>
+    <description>This example describes the specified snapshot.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Snapshot | ? { $_.Tags.Count -gt 0 -and $_.Tags.Key -eq "Name" }</code>
+    <description>This example describes the snapshots that have a 'Name' tag.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Snapshot | ? { $_.Tags.Count -gt 0 -and $_.Tags.Key -eq "Name" -and $_.Tags.Value -eq "TestValue" }</code>
+    <description>This example describes the snapshots that have a 'Name' tag with the value 'TestValue'.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-EC2Snapshot -Owner self</code>
+    <description>This example describes all your snapshots.</description>
+  </example>
+</examples>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cognito-idp</C2jFilename>
+    <AssemblyName>CognitoIdentityProvider</AssemblyName>
+    <ServiceNounPrefix>CGIP</ServiceNounPrefix>
+    <ServiceName>Amazon Cognito Identity Provider</ServiceName>
+    <ServiceClientInterface>IAmazonCognitoIdentityProvider</ServiceClientInterface>
+    <ServiceClient>AmazonCognitoIdentityProviderClient</ServiceClient>
+    <ServiceModuleGuid>33933d0d-16f2-4659-8dae-d93fc7aa6b6a</ServiceModuleGuid>
+    <DefaultRegion />
+    <PipelineParameter>UserPoolId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="50" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>PaginationToken</Property>
+        <Property>NextToken</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddCustomAttributes" Verb="Add" Noun="CustomAttribute" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminAddUserToGroup" Verb="Add" Noun="UserToGroupAdmin" ShouldProcessTarget="GroupName" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminConfirmSignUp" Verb="Confirm" Noun="UserRegistrationAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminCreateUser" OutputProperty="User" Verb="New" Noun="UserAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminDeleteUser" Verb="Remove" Noun="UserAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminDeleteUserAttributes" Verb="Remove" Noun="UserAttributeAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminDisableProviderForUser" Verb="Disable" Noun="ProviderForUserAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminDisableUser" Verb="Disable" Noun="UserAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminEnableUser" Verb="Enable" Noun="UserAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminForgetDevice" Verb="Stop" Noun="DeviceTrackingAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="DeviceKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminGetDevice" OutputProperty="Device" Verb="Get" Noun="DeviceAdmin" PipelineParameter="DeviceKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminGetUser" OutputProperty="*" Verb="Get" Noun="UserAdmin" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminInitiateAuth" OutputProperty="*" Verb="Start" Noun="AuthAdmin" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminLinkProviderForUser" Verb="Connect" Noun="ProviderForUserAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceListAdmin" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminListGroupsForUser" OutputProperty="Groups" Verb="Get" Noun="GroupsForUserAdmin" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminListUserAuthEvents" OutputProperty="AuthEvents" Verb="Get" Noun="UserAuthEventListAdmin" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminRemoveUserFromGroup" Verb="Remove" Noun="UserFromGroupAdmin" ShouldProcessTarget="Username" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminResetUserPassword" Verb="Reset" Noun="UserPasswordAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminRespondToAuthChallenge" OutputProperty="*" Verb="Send" Noun="AuthChallengeResponseAdmin" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminSetUserMFAPreference" Verb="Set" Noun="UserMFAPreferenceAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminSetUserPassword" Verb="Set" Noun="UserPasswordAdmin" ShouldProcessTarget="Username" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminSetUserSettings" Verb="Set" Noun="UserSettingAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminUpdateAuthEventFeedback" Verb="Update" Noun="AuthEventFeedbackAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminUpdateDeviceStatus" Verb="Edit" Noun="DeviceStatusAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="DeviceKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminUpdateUserAttributes" Verb="Update" Noun="UserAttributeAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminUserGlobalSignOut" Verb="Disconnect" Noun="UserGlobalAdmin" ShouldProcessTarget="UserPoolId" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSoftwareToken" OutputProperty="*" Verb="Add" Noun="SoftwareToken" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ChangePassword" Verb="Update" Noun="Password" ShouldProcessTarget="AccessToken" AnonymousAuthentication="Always" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmDevice" OutputProperty="UserConfirmationNecessary" Verb="Approve" Noun="Device" ShouldProcessTarget="DeviceName" PipelineParameter="DeviceKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmForgotPassword" Verb="Confirm" Noun="ForgotPassword" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmSignUp" Verb="Confirm" Noun="UserRegistration" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIdentityProvider" OutputProperty="IdentityProvider" Verb="New" Noun="IdentityProvider" ShouldProcessTarget="ProviderName" PipelineParameter="ProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceServer" OutputProperty="ResourceServer" Verb="New" Noun="ResourceServer" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserImportJob" OutputProperty="UserImportJob" Verb="New" Noun="UserImportJob" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserPool" OutputProperty="UserPool" Verb="New" Noun="UserPool" ShouldProcessTarget="PoolName" PipelineParameter="PoolName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserPoolClient" OutputProperty="UserPoolClient" Verb="New" Noun="UserPoolClient" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserPoolDomain" OutputProperty="CloudFrontDomain" Verb="New" Noun="UserPoolDomain" ShouldProcessTarget="Domain" PipelineParameter="Domain" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroup" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdentityProvider" Verb="Remove" Noun="IdentityProvider" ShouldProcessTarget="ProviderName" PipelineParameter="ProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceServer" Verb="Remove" Noun="ResourceServer" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUser" Verb="Remove" Noun="User" ShouldProcessTarget="AccessToken" AnonymousAuthentication="Always" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserAttributes" Verb="Remove" Noun="UserAttribute" ShouldProcessTarget="UserAttributeNames" AnonymousAuthentication="Always" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserPool" Verb="Remove" Noun="UserPool" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserPoolClient" Verb="Remove" Noun="UserPoolClient" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserPoolDomain" Verb="Remove" Noun="UserPoolDomain" ShouldProcessTarget="UserPoolId" PipelineParameter="Domain" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityProvider" OutputProperty="IdentityProvider" Verb="Get" Noun="IdentityProvider" PipelineParameter="ProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourceServer" OutputProperty="ResourceServer" Verb="Get" Noun="ResourceServer" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRiskConfiguration" OutputProperty="RiskConfiguration" Verb="Get" Noun="RiskConfiguration" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserImportJob" OutputProperty="UserImportJob" Verb="Get" Noun="UserImportJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserPool" OutputProperty="UserPool" Verb="Get" Noun="UserPool" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserPoolClient" OutputProperty="UserPoolClient" Verb="Get" Noun="UserPoolClient" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserPoolDomain" OutputProperty="DomainDescription" Verb="Get" Noun="UserPoolDomain" PipelineParameter="Domain" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ForgetDevice" Verb="Stop" Noun="DeviceTracking" ShouldProcessTarget="DeviceKey" PipelineParameter="DeviceKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ForgotPassword" OutputProperty="CodeDeliveryDetails" Verb="Reset" Noun="ForgottenPassword" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCSVHeader" OutputProperty="*" Verb="Get" Noun="CSVHeader" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDevice" OutputProperty="Device" Verb="Get" Noun="Device" PipelineParameter="DeviceKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityProviderByIdentifier" OutputProperty="IdentityProvider" Verb="Get" Noun="IdentityProviderByIdentifier" PipelineParameter="IdpIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSigningCertificate" OutputProperty="Certificate" Verb="Get" Noun="SigningCertificate" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUICustomization" OutputProperty="UICustomization" Verb="Get" Noun="UICustomization" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUser" OutputProperty="*" Verb="Get" Noun="User" AnonymousAuthentication="Always" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserAttributeVerificationCode" OutputProperty="CodeDeliveryDetails" Verb="Get" Noun="UserAttributeVerificationCode" AnonymousAuthentication="Always" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserPoolMfaConfig" OutputProperty="*" Verb="Get" Noun="UserPoolMfaConfig" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GlobalSignOut" Verb="Disconnect" Noun="DeviceGlobal" ShouldProcessTarget="AccessToken" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InitiateAuth" OutputProperty="*" Verb="Start" Noun="Auth" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="Providers" Verb="Get" Noun="IdentityProviderList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceServers" OutputProperty="ResourceServers" Verb="Get" Noun="ResourceServerList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserImportJobs" OutputProperty="UserImportJobs" Verb="Get" Noun="UserImportJobList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="MaxResults" ServicePageSize="60" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserPoolClients" OutputProperty="UserPoolClients" Verb="Get" Noun="UserPoolClientList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserPools" OutputProperty="UserPools" Verb="Get" Noun="UserPoolList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUsersInGroup" OutputProperty="Users" Verb="Get" Noun="UsersInGroup" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResendConfirmationCode" OutputProperty="CodeDeliveryDetails" Verb="Send" Noun="ConfirmationCode" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RespondToAuthChallenge" OutputProperty="*" Verb="Send" Noun="AuthChallengeResponse" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetRiskConfiguration" OutputProperty="RiskConfiguration" Verb="Set" Noun="RiskConfiguration" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetUICustomization" OutputProperty="UICustomization" Verb="Set" Noun="UICustomization" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetUserMFAPreference" Verb="Set" Noun="UserMFAPreference" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetUserPoolMfaConfig" OutputProperty="*" Verb="Set" Noun="UserPoolMfaConfig" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetUserSettings" Verb="Set" Noun="UserSetting" ShouldProcessTarget="AccessToken" AnonymousAuthentication="Always" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SignUp" OutputProperty="*" Verb="Register" Noun="UserInPool" ShouldProcessTarget="Username" AnonymousAuthentication="Always" PipelineParameter="Username" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartUserImportJob" OutputProperty="UserImportJob" Verb="Start" Noun="UserImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopUserImportJob" OutputProperty="UserImportJob" Verb="Stop" Noun="UserImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAuthEventFeedback" Verb="Update" Noun="AuthEventFeedback" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeviceStatus" Verb="Edit" Noun="DeviceStatus" ShouldProcessTarget="DeviceKey" PipelineParameter="DeviceKey" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIdentityProvider" OutputProperty="IdentityProvider" Verb="Update" Noun="IdentityProvider" ShouldProcessTarget="ProviderName" PipelineParameter="ProviderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceServer" OutputProperty="ResourceServer" Verb="Update" Noun="ResourceServer" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserAttributes" OutputProperty="CodeDeliveryDetailsList" Verb="Update" Noun="UserAttribute" ShouldProcessTarget="AccessToken" AnonymousAuthentication="Always" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserPool" Verb="Update" Noun="UserPool" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserPoolClient" OutputProperty="UserPoolClient" Verb="Update" Noun="UserPoolClient" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserPoolDomain" OutputProperty="CloudFrontDomain" Verb="Update" Noun="UserPoolDomain" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifySoftwareToken" OutputProperty="*" Verb="Test" Noun="SoftwareToken" PipelineParameter="UserCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyUserAttribute" Verb="Test" Noun="UserAttribute" AnonymousAuthentication="Always" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.CognitoIdentityProvider.Model.SMSMfaSettingsType</Type>
+        <Type>Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaSettingsType</Type>
+        <Type>Amazon.CognitoIdentityProvider.Model.SmsMfaConfigType</Type>
+        <Type>Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaConfigType</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

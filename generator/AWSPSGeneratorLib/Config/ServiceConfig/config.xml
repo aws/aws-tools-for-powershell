@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>config</C2jFilename>
+    <AssemblyName>ConfigService</AssemblyName>
+    <ServiceNounPrefix>CFG</ServiceNounPrefix>
+    <ServiceName>AWS Config</ServiceName>
+    <ServiceClientInterface>IAmazonConfigService</ServiceClientInterface>
+    <ServiceClient>AmazonConfigServiceClient</ServiceClient>
+    <ServiceModuleGuid>37355e41-9861-4ed3-ba56-b71575ac6444</ServiceModuleGuid>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter>DeliveryChannelName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>TotalDiscoveredResources</Property>
+    </MetadataProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetAggregateResourceConfig" OutputProperty="*" Verb="Get" Noun="AggregateResourceConfigBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetResourceConfig" OutputProperty="*" Verb="Get" Noun="GetResourceConfigBatch" PipelineParameter="ResourceKeys" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAggregationAuthorization" Verb="Remove" Noun="AggregationAuthorization" ShouldProcessTarget="AuthorizedAccountId" PipelineParameter="AuthorizedAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigRule" Verb="Remove" Noun="ConfigRule" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationAggregator" Verb="Remove" Noun="ConfigurationAggregator" ShouldProcessTarget="ConfigurationAggregatorName" PipelineParameter="ConfigurationAggregatorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationRecorder" Verb="Remove" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorderName" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeliveryChannel" Verb="Remove" Noun="DeliveryChannel" ShouldProcessTarget="DeliveryChannelName" PipelineParameter="DeliveryChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEvaluationResults" Verb="Remove" Noun="EvaluationResult" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOrganizationConfigRule" Verb="Remove" Noun="OrganizationConfigRule" ShouldProcessTarget="OrganizationConfigRuleName" PipelineParameter="OrganizationConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePendingAggregationRequest" Verb="Remove" Noun="PendingAggregationRequest" ShouldProcessTarget="RequesterAccountId" PipelineParameter="RequesterAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRemediationConfiguration" Verb="Remove" Noun="RemediationConfiguration" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRemediationExceptions" OutputProperty="FailedBatches" Verb="Remove" Noun="RemediationException" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRetentionConfiguration" Verb="Remove" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionConfigurationName" PipelineParameter="RetentionConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeliverConfigSnapshot" OutputProperty="ConfigSnapshotId" Verb="Submit" Noun="ConfigSnapshotDelivery" ShouldProcessTarget="DeliveryChannelName" PipelineParameter="DeliveryChannelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAggregateComplianceByConfigRules" OutputProperty="AggregateComplianceByConfigRules" Verb="Get" Noun="AggregateComplianceByConfigRuleList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAggregationAuthorizations" OutputProperty="AggregationAuthorizations" Verb="Get" Noun="AggregationAuthorizationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComplianceByConfigRule" OutputProperty="ComplianceByConfigRules" Verb="Get" Noun="ComplianceByConfigRule" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComplianceByResource" OutputProperty="ComplianceByResources" Verb="Get" Noun="ComplianceByResource" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus" OutputProperty="ConfigRulesEvaluationStatus" Verb="Get" Noun="ConfigRuleEvaluationStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigRules" OutputProperty="ConfigRules" Verb="Get" Noun="ConfigRule" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CFGConfigRules">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationAggregators" OutputProperty="ConfigurationAggregators" Verb="Get" Noun="ConfigurationAggregatorList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationAggregatorSourcesStatus" OutputProperty="AggregatedSourceStatusList" Verb="Get" Noun="ConfigurationAggregatorSourcesStatus" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationRecorders" OutputProperty="ConfigurationRecorders" Verb="Get" Noun="ConfigurationRecorder" PipelineParameter="ConfigurationRecorderNames" NoPipelineParameter="false" LegacyAlias="Get-CFGConfigurationRecorders">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationRecorderStatus" OutputProperty="ConfigurationRecordersStatus" Verb="Get" Noun="ConfigurationRecorderStatus" PipelineParameter="ConfigurationRecorderNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeliveryChannels" OutputProperty="DeliveryChannels" Verb="Get" Noun="DeliveryChannel" PipelineParameter="DeliveryChannelNames" NoPipelineParameter="false" LegacyAlias="Get-CFGDeliveryChannels">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeliveryChannelStatus" OutputProperty="DeliveryChannelsStatus" Verb="Get" Noun="DeliveryChannelStatus" PipelineParameter="DeliveryChannelNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrganizationConfigRules" OutputProperty="OrganizationConfigRules" Verb="Get" Noun="OrganizationConfigRule" PipelineParameter="OrganizationConfigRuleNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrganizationConfigRuleStatuses" OutputProperty="OrganizationConfigRuleStatuses" Verb="Get" Noun="OrganizationConfigRuleStatus" PipelineParameter="OrganizationConfigRuleNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePendingAggregationRequests" OutputProperty="PendingAggregationRequests" Verb="Get" Noun="PendingAggregationRequestList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRemediationConfigurations" OutputProperty="RemediationConfigurations" Verb="Get" Noun="RemediationConfiguration" PipelineParameter="ConfigRuleNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRemediationExceptions" OutputProperty="RemediationExceptions" Verb="Get" Noun="RemediationException" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRemediationExecutionStatus" OutputProperty="RemediationExecutionStatuses" Verb="Get" Noun="RemediationExecutionStatus" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRetentionConfigurations" OutputProperty="RetentionConfigurations" Verb="Get" Noun="RetentionConfiguration" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAggregateComplianceDetailsByConfigRule" OutputProperty="AggregateEvaluationResults" Verb="Get" Noun="AggregateComplianceDetailsByConfigRule" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAggregateConfigRuleComplianceSummary" OutputProperty="*" Verb="Get" Noun="AggregateConfigRuleComplianceSummary" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAggregateDiscoveredResourceCounts" OutputProperty="*" Verb="Get" Noun="AggregateDiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAggregateResourceConfig" OutputProperty="ConfigurationItem" Verb="Get" Noun="AggregateResourceConfig" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComplianceDetailsByConfigRule" OutputProperty="EvaluationResults" Verb="Get" Noun="ComplianceDetailsByConfigRule" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComplianceDetailsByResource" OutputProperty="EvaluationResults" Verb="Get" Noun="ComplianceDetailsByResource" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComplianceSummaryByConfigRule" OutputProperty="ComplianceSummary" Verb="Get" Noun="ComplianceSummaryByConfigRule" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComplianceSummaryByResourceType" OutputProperty="ComplianceSummariesByResourceType" Verb="Get" Noun="ComplianceSummaryByResourceType" PipelineParameter="ResourceTypes" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDiscoveredResourceCounts" OutputProperty="ResourceCounts" Verb="Get" Noun="DiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOrganizationConfigRuleDetailedStatus" OutputProperty="OrganizationConfigRuleDetailedStatus" Verb="Get" Noun="OrganizationConfigRuleDetailedStatus" PipelineParameter="OrganizationConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceConfigHistory" OutputProperty="ConfigurationItems" Verb="Get" Noun="ResourceConfigHistory" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAggregateDiscoveredResources" OutputProperty="ResourceIdentifiers" Verb="Get" Noun="AggregateDiscoveredResourceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="ResourceIdentifiers" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAggregationAuthorization" OutputProperty="AggregationAuthorization" Verb="Write" Noun="AggregationAuthorization" ShouldProcessTarget="AuthorizedAccountId" PipelineParameter="AuthorizedAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigRule" Verb="Write" Noun="ConfigRule" ShouldProcessTarget="ConfigRule_ConfigRuleName" PipelineParameter="ConfigRule_ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigurationAggregator" OutputProperty="ConfigurationAggregator" Verb="Write" Noun="ConfigurationAggregator" ShouldProcessTarget="ConfigurationAggregatorName" PipelineParameter="ConfigurationAggregatorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigurationRecorder" Verb="Write" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorder_Name" PipelineParameter="ConfigurationRecorder_Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="ConfigurationRecorder_Name" NewName="ConfigurationRecorderName" Alias="ConfigurationRecorder_Name" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDeliveryChannel" Verb="Write" Noun="DeliveryChannel" ShouldProcessTarget="DeliveryChannel_Name" PipelineParameter="DeliveryChannel_Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="DeliveryChannel_Name" NewName="DeliveryChannelName" Alias="DeliveryChannel_Name" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEvaluations" OutputProperty="FailedEvaluations" Verb="Write" Noun="Evaluation" ShouldProcessTarget="Evaluations" PipelineParameter="Evaluations" NoPipelineParameter="false" LegacyAlias="Write-CFGEvaluations">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutOrganizationConfigRule" OutputProperty="OrganizationConfigRuleArn" Verb="Write" Noun="OrganizationConfigRule" ShouldProcessTarget="OrganizationConfigRuleName" PipelineParameter="OrganizationConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRemediationConfigurations" OutputProperty="FailedBatches" Verb="Write" Noun="RemediationConfiguration" ShouldProcessTarget="RemediationConfigurations" PipelineParameter="RemediationConfigurations" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRemediationExceptions" OutputProperty="FailedBatches" Verb="Write" Noun="RemediationException" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRetentionConfiguration" OutputProperty="RetentionConfiguration" Verb="Write" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionPeriodInDays" PipelineParameter="RetentionPeriodInDays" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SelectResourceConfig" OutputProperty="Results" Verb="Select" Noun="ResourceConfig" ShouldProcessTarget="Expression" PipelineParameter="Expression" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartConfigRulesEvaluation" Verb="Start" Noun="ConfigRulesEvaluation" ShouldProcessTarget="ConfigRuleNames" PipelineParameter="ConfigRuleNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartConfigurationRecorder" Verb="Start" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorderName" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRemediationExecution" OutputProperty="*" Verb="Start" Noun="RemediationExecution" ShouldProcessTarget="ResourceKeys" PipelineParameter="ResourceKeys" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopConfigurationRecorder" Verb="Stop" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorderName" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

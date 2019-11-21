@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="Administration Guide">https://docs.aws.amazon.com/directoryservice/latest/admin-guide</link>
+	<link name="Developer Guide">https://docs.aws.amazon.com/directoryservice/latest/devguide/</link>
+  </set>
+</links>

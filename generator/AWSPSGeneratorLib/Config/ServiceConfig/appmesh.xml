@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>appmesh</C2jFilename>
+    <AssemblyName>AppMesh</AssemblyName>
+    <ServiceNounPrefix>AMSH</ServiceNounPrefix>
+    <ServiceName>AWS App Mesh</ServiceName>
+    <ServiceClientInterface>IAmazonAppMesh</ServiceClientInterface>
+    <ServiceClient>AmazonAppMeshClient</ServiceClient>
+    <ServiceModuleGuid>bd5c87ef-3baf-4309-bd29-6dc70327ebfd</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="50" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateMesh" OutputProperty="Mesh" Verb="New" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRoute" OutputProperty="Route" Verb="New" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Spec_HttpRoute_Action_WeightedTargets" NewName="Spec_HttpRoute_Action_WeightedTarget" Alias="Action_WeightedTarget" />
+                <Param Name="Spec_TcpRoute_Action_WeightedTargets" NewName="Spec_TcpRoute_Action_WeightedTarget" />
+                <Param Name="Spec_GrpcRoute_Action_WeightedTargets" NewName="Spec_GrpcRoute_Action_WeightedTarget" />
+                <Param Name="Spec_Http2Route_Action_WeightedTargets" NewName="Spec_Http2Route_Action_WeightedTarget" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_HttpRetryEvents" NewName="Spec_GrpcRoute_RetryPolicy_HttpRetryEvent" />
+                <Param Name="Spec_Http2Route_RetryPolicy_HttpRetryEvents" NewName="Spec_Http2Route_RetryPolicy_HttpRetryEvent" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_HttpRetryEvents" NewName="Spec_HttpRoute_RetryPolicy_HttpRetryEvent" Alias="RetryPolicy_HttpRetryEvent" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_MaxRetries" NewName="Spec_GrpcRoute_RetryPolicy_MaxRetry" />
+                <Param Name="Spec_Http2Route_RetryPolicy_MaxRetries" NewName="Spec_Http2Route_RetryPolicy_MaxRetry" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_MaxRetries" NewName="Spec_HttpRoute_RetryPolicy_MaxRetry" Alias="RetryPolicy_MaxRetry" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit" NewName="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit" />
+                <Param Name="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit" NewName="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit" NewName="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit" Alias="PerRetryTimeout_Unit" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_TcpRetryEvents" NewName="Spec_GrpcRoute_RetryPolicy_TcpRetryEvent" />
+                <Param Name="Spec_Http2Route_RetryPolicy_TcpRetryEvents" NewName="Spec_Http2Route_RetryPolicy_TcpRetryEvent" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_TcpRetryEvents" NewName="Spec_HttpRoute_RetryPolicy_TcpRetryEvent" Alias="RetryPolicy_TcpRetryEvent" />
+                <Param Name="Spec_Http2Route_Match_Headers" NewName="Spec_Http2Route_Match_Header" />
+                <Param Name="Spec_HttpRoute_Match_Headers" NewName="Spec_HttpRoute_Match_Header" Alias="Match_Header" />
+                <Param Name="Spec_GrpcRoute_Match_MethodName" NewName="Spec_GrpcRoute_Match_MethodName" />
+                <Param Name="Spec_Http2Route_Match_Method" NewName="Spec_Http2Route_Match_Method" />
+                <Param Name="Spec_HttpRoute_Match_Method" NewName="Spec_HttpRoute_Match_Method" Alias="Match_Method" />
+                <Param Name="Spec_Http2Route_Match_Prefix" NewName="Spec_Http2Route_Match_Prefix" />
+                <Param Name="Spec_HttpRoute_Match_Prefix" NewName="Spec_HttpRoute_Match_Prefix" Alias="Match_Prefix" />
+                <Param Name="Spec_Http2Route_Match_Scheme" NewName="Spec_Http2Route_Match_Scheme" />
+                <Param Name="Spec_HttpRoute_Match_Scheme" NewName="Spec_HttpRoute_Match_Scheme" Alias="Match_Scheme" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value" />
+                <Param Name="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value" Alias="PerRetryTimeout_Value" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVirtualNode" OutputProperty="VirtualNode" Verb="New" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVirtualRouter" OutputProperty="VirtualRouter" Verb="New" Noun="VirtualRouter" ShouldProcessTarget="VirtualRouterName" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVirtualService" OutputProperty="VirtualService" Verb="New" Noun="VirtualService" ShouldProcessTarget="VirtualServiceName" PipelineParameter="VirtualServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMesh" OutputProperty="Mesh" Verb="Remove" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoute" OutputProperty="Route" Verb="Remove" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVirtualNode" OutputProperty="VirtualNode" Verb="Remove" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVirtualRouter" OutputProperty="VirtualRouter" Verb="Remove" Noun="VirtualRouter" ShouldProcessTarget="VirtualRouterName" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVirtualService" OutputProperty="VirtualService" Verb="Remove" Noun="VirtualService" ShouldProcessTarget="VirtualServiceName" PipelineParameter="VirtualServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMesh" OutputProperty="Mesh" Verb="Get" Noun="Mesh" PipelineParameter="MeshName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRoute" OutputProperty="Route" Verb="Get" Noun="Route" PipelineParameter="RouteName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVirtualNode" OutputProperty="VirtualNode" Verb="Get" Noun="VirtualNode" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVirtualRouter" OutputProperty="VirtualRouter" Verb="Get" Noun="VirtualRouter" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVirtualService" OutputProperty="VirtualService" Verb="Get" Noun="VirtualService" PipelineParameter="VirtualServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMeshes" OutputProperty="Meshes" Verb="Get" Noun="MeshList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoutes" OutputProperty="Routes" Verb="Get" Noun="RouteList" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVirtualNodes" OutputProperty="VirtualNodes" Verb="Get" Noun="VirtualNodeList" PipelineParameter="MeshName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVirtualRouters" OutputProperty="VirtualRouters" Verb="Get" Noun="VirtualRouterList" PipelineParameter="MeshName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVirtualServices" OutputProperty="VirtualServices" Verb="Get" Noun="VirtualServiceList" PipelineParameter="MeshName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMesh" OutputProperty="Mesh" Verb="Update" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoute" OutputProperty="Route" Verb="Update" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Spec_HttpRoute_Action_WeightedTargets" NewName="Spec_HttpRoute_Action_WeightedTarget" Alias="Action_WeightedTarget" />
+                <Param Name="Spec_TcpRoute_Action_WeightedTargets" NewName="Spec_TcpRoute_Action_WeightedTarget" />
+                <Param Name="Spec_GrpcRoute_Action_WeightedTargets" NewName="Spec_GrpcRoute_Action_WeightedTarget" />
+                <Param Name="Spec_Http2Route_Action_WeightedTargets" NewName="Spec_Http2Route_Action_WeightedTarget" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_HttpRetryEvents" NewName="Spec_GrpcRoute_RetryPolicy_HttpRetryEvent" />
+                <Param Name="Spec_Http2Route_RetryPolicy_HttpRetryEvents" NewName="Spec_Http2Route_RetryPolicy_HttpRetryEvent" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_HttpRetryEvents" NewName="Spec_HttpRoute_RetryPolicy_HttpRetryEvent" Alias="RetryPolicy_HttpRetryEvent" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_MaxRetries" NewName="Spec_GrpcRoute_RetryPolicy_MaxRetry" />
+                <Param Name="Spec_Http2Route_RetryPolicy_MaxRetries" NewName="Spec_Http2Route_RetryPolicy_MaxRetry" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_MaxRetries" NewName="Spec_HttpRoute_RetryPolicy_MaxRetry" Alias="RetryPolicy_MaxRetry" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit" NewName="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit" />
+                <Param Name="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit" NewName="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit" NewName="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit" Alias="PerRetryTimeout_Unit" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_TcpRetryEvents" NewName="Spec_GrpcRoute_RetryPolicy_TcpRetryEvent" />
+                <Param Name="Spec_Http2Route_RetryPolicy_TcpRetryEvents" NewName="Spec_Http2Route_RetryPolicy_TcpRetryEvent" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_TcpRetryEvents" NewName="Spec_HttpRoute_RetryPolicy_TcpRetryEvent" Alias="RetryPolicy_TcpRetryEvent" />
+                <Param Name="Spec_Http2Route_Match_Headers" NewName="Spec_Http2Route_Match_Header" />
+                <Param Name="Spec_HttpRoute_Match_Headers" NewName="Spec_HttpRoute_Match_Header" Alias="Match_Header" />
+                <Param Name="Spec_GrpcRoute_Match_MethodName" NewName="Spec_GrpcRoute_Match_MethodName" />
+                <Param Name="Spec_Http2Route_Match_Method" NewName="Spec_Http2Route_Match_Method" />
+                <Param Name="Spec_HttpRoute_Match_Method" NewName="Spec_HttpRoute_Match_Method" Alias="Match_Method" />
+                <Param Name="Spec_Http2Route_Match_Prefix" NewName="Spec_Http2Route_Match_Prefix" />
+                <Param Name="Spec_HttpRoute_Match_Prefix" NewName="Spec_HttpRoute_Match_Prefix" Alias="Match_Prefix" />
+                <Param Name="Spec_Http2Route_Match_Scheme" NewName="Spec_Http2Route_Match_Scheme" />
+                <Param Name="Spec_HttpRoute_Match_Scheme" NewName="Spec_HttpRoute_Match_Scheme" Alias="Match_Scheme" />
+                <Param Name="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value" />
+                <Param Name="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value" />
+                <Param Name="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value" Alias="PerRetryTimeout_Value" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVirtualNode" OutputProperty="VirtualNode" Verb="Update" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVirtualRouter" OutputProperty="VirtualRouter" Verb="Update" Noun="VirtualRouter" ShouldProcessTarget="VirtualRouterName" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVirtualService" OutputProperty="VirtualService" Verb="Update" Noun="VirtualService" ShouldProcessTarget="VirtualServiceName" PipelineParameter="VirtualServiceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

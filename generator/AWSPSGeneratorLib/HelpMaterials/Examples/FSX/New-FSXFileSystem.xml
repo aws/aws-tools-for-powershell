@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+	
+PS C:\> New-FSXFileSystem -FileSystemType WINDOWS -StorageCapacity 300 -SubnetId subnet-1a2b3c4d5e6f -WindowsConfiguration @{ThroughputCapacity=8;ActiveDirectoryId='d-1a2b3c4d'}
+
+CreationTime         : 12/10/2018 6:06:59 PM
+DNSName              : fs-abcdef01234567890.example.com
+FailureDetails       :
+FileSystemId         : fs-abcdef01234567890
+FileSystemType       : WINDOWS
+KmsKeyId             : arn:aws:kms:us-west-2:123456789012:key/a1234567-252c-45e9-afaa-123456789abc
+Lifecycle            : CREATING
+LustreConfiguration  :
+NetworkInterfaceIds  : {}
+OwnerId              : 123456789012
+ResourceARN          : arn:aws:fsx:us-west-2:123456789012:file-system/fs-abcdef01234567890
+StorageCapacity      : 300
+SubnetIds            : {subnet-1a2b3c4d5e6f}
+Tags                 : {}
+VpcId                : vpc-1a2b3c4d5e6f
+WindowsConfiguration : Amazon.FSx.Model.WindowsFileSystemConfiguration
+	</code>
+    <description>This example creates a new 300GB Windows file system, permitting access from the specified subnet, that supports throughput up to 8 megabytes per second. The new file system is automatically joined to the specified Microsoft Active Directory.</description>
+  </example>
+</examples>

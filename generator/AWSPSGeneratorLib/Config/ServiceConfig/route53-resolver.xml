@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>route53-resolver</C2jFilename>
+    <AssemblyName>Route53Resolver</AssemblyName>
+    <ServiceNounPrefix>R53R</ServiceNounPrefix>
+    <ServiceName>Amazon Route 53 Resolver</ServiceName>
+    <ServiceClientInterface>IAmazonRoute53Resolver</ServiceClientInterface>
+    <ServiceClient>AmazonRoute53ResolverClient</ServiceClient>
+    <ServiceModuleGuid>f660ee15-58dd-45a7-ad54-3eaac2ad7e46</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateResolverEndpointIpAddress" OutputProperty="ResolverEndpoint" Verb="Add" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateResolverRule" OutputProperty="ResolverRuleAssociation" Verb="Add" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="New" Noun="ResolverEndpoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResolverRule" OutputProperty="ResolverRule" Verb="New" Noun="ResolverRule" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Remove" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResolverRule" OutputProperty="ResolverRule" Verb="Remove" Noun="ResolverRule" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResolverEndpointIpAddress" OutputProperty="ResolverEndpoint" Verb="Remove" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResolverRule" OutputProperty="ResolverRuleAssociation" Verb="Remove" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Get" Noun="ResolverEndpoint" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverRule" OutputProperty="ResolverRule" Verb="Get" Noun="ResolverRule" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverRuleAssociation" OutputProperty="ResolverRuleAssociation" Verb="Get" Noun="ResolverRuleAssociation" PipelineParameter="ResolverRuleAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverRulePolicy" OutputProperty="ResolverRulePolicy" Verb="Get" Noun="ResolverRulePolicy" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverEndpointIpAddresses" OutputProperty="IpAddresses" Verb="Get" Noun="ResolverEndpointIpAddressList" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverEndpoints" OutputProperty="ResolverEndpoints" Verb="Get" Noun="ResolverEndpointList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverRuleAssociations" OutputProperty="ResolverRuleAssociations" Verb="Get" Noun="ResolverRuleAssociationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverRules" OutputProperty="ResolverRules" Verb="Get" Noun="ResolverRuleList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResolverRulePolicy" OutputProperty="ReturnValue" Verb="Set" Noun="ResolverRulePolicy" ShouldProcessTarget="Arn" PipelineParameter="ResolverRulePolicy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Update" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResolverRule" OutputProperty="ResolverRule" Verb="Update" Noun="ResolverRule" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.Route53Resolver.Model.IpAddressUpdate</Type>
+        <Type>Amazon.Route53Resolver.Model.ResolverRuleConfig</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

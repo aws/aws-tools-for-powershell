@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>codepipeline</C2jFilename>
+    <AssemblyName>CodePipeline</AssemblyName>
+    <ServiceNounPrefix>CP</ServiceNounPrefix>
+    <ServiceName>AWS CodePipeline</ServiceName>
+    <ServiceClientInterface>IAmazonCodePipeline</ServiceClientInterface>
+    <ServiceClient>AmazonCodePipelineClient</ServiceClient>
+    <ServiceModuleGuid>90380fd4-40d6-4cfc-9f1c-49ff46f210be</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcknowledgeJob" OutputProperty="Status" Verb="Confirm" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcknowledgeThirdPartyJob" OutputProperty="Status" Verb="Confirm" Noun="ThirdPartyJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomActionType" OutputProperty="ActionType" Verb="New" Noun="CustomActionType" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePipeline" OutputProperty="Pipeline" Verb="New" Noun="Pipeline" ShouldProcessTarget="Pipeline" PipelineParameter="Pipeline" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomActionType" Verb="Remove" Noun="CustomActionType" ShouldProcessTarget="Category" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePipeline" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWebhook" Verb="Remove" Noun="Webhook" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterWebhookWithThirdParty" Verb="Unregister" Noun="WebhookWithThirdParty" ShouldProcessTarget="WebhookName" PipelineParameter="WebhookName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableStageTransition" Verb="Disable" Noun="StageTransition" ShouldProcessTarget="PipelineName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableStageTransition" Verb="Enable" Noun="StageTransition" ShouldProcessTarget="PipelineName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJobDetails" OutputProperty="JobDetails" Verb="Get" Noun="JobDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyAlias="Get-CPJobDetails">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPipeline" OutputProperty="*" Verb="Get" Noun="Pipeline" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPipelineExecution" OutputProperty="PipelineExecution" Verb="Get" Noun="PipelineExecution" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPipelineState" OutputProperty="*" Verb="Get" Noun="PipelineState" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetThirdPartyJobDetails" OutputProperty="JobDetails" Verb="Get" Noun="ThirdPartyJobDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyAlias="Get-CPThirdPartyJobDetails">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActionExecutions" OutputProperty="ActionExecutionDetails" Verb="Get" Noun="ActionExecutionList" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActionTypes" OutputProperty="ActionTypes" Verb="Get" Noun="ActionType" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionSummary" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelines" OutputProperty="Pipelines" Verb="Get" Noun="PipelineList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWebhooks" OutputProperty="Webhooks" Verb="Get" Noun="WebhookList" PipelineParameter="MaxResults" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PollForJobs" OutputProperty="Jobs" Verb="Get" Noun="ActionableJobList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CPActionableJobs">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PollForThirdPartyJobs" OutputProperty="Jobs" Verb="Get" Noun="ActionableThirdPartyJobList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CPActionableThirdPartyJobs">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutActionRevision" OutputProperty="*" Verb="Write" Noun="ActionRevision" ShouldProcessTarget="ActionName" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutApprovalResult" OutputProperty="ApprovedAt" Verb="Write" Noun="ApprovalResult" ShouldProcessTarget="ActionName" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutJobFailureResult" Verb="Write" Noun="JobFailureResult" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutJobSuccessResult" Verb="Write" Noun="JobSuccessResult" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutThirdPartyJobFailureResult" Verb="Write" Noun="ThirdPartyJobFailureResult" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutThirdPartyJobSuccessResult" Verb="Write" Noun="ThirdPartyJobSuccessResult" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutWebhook" OutputProperty="Webhook" Verb="Write" Noun="Webhook" ShouldProcessTarget="Webhook_Name" PipelineParameter="Webhook_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterWebhookWithThirdParty" Verb="Register" Noun="WebhookWithThirdParty" ShouldProcessTarget="WebhookName" PipelineParameter="WebhookName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetryStageExecution" OutputProperty="PipelineExecutionId" Verb="Redo" Noun="StageExecution" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPipelineExecution" OutputProperty="PipelineExecutionId" Verb="Start" Noun="PipelineExecution" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipeline" OutputProperty="Pipeline" Verb="Update" Noun="Pipeline" ShouldProcessTarget="Pipeline" PipelineParameter="Pipeline" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.CodePipeline.Model.PipelineDeclaration</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

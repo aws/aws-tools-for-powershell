@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>meteringmarketplace</C2jFilename>
+    <AssemblyName>AWSMarketplaceMetering</AssemblyName>
+    <ServiceNounPrefix>MM</ServiceNounPrefix>
+    <ServiceName>AWS Marketplace Metering</ServiceName>
+    <ServiceClientInterface>IAmazonAWSMarketplaceMetering</ServiceClientInterface>
+    <ServiceClient>AmazonAWSMarketplaceMeteringClient</ServiceClient>
+    <ServiceModuleGuid>63524666-c942-4281-95a3-c162cf1569bb</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchMeterUsage" OutputProperty="*" Verb="Send" Noun="MeteringDataBatch" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="MeterUsage" OutputProperty="MeteringRecordId" Verb="Send" Noun="MeteringData" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterUsage" OutputProperty="*" Verb="Register" Noun="Usage" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResolveCustomer" OutputProperty="*" Verb="Get" Noun="CustomerMetadata" PipelineParameter="RegistrationToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

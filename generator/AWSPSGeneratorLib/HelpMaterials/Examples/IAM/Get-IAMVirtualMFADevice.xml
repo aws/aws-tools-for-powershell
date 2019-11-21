@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMVirtualMFADevice -AssignmentStatus Assigned
+
+Base32StringSeed : 
+EnableDate       : 4/13/2015 12:03:42 PM
+QRCodePNG        : 
+SerialNumber     : arn:aws:iam::123456789012:mfa/David
+User             : Amazon.IdentityManagement.Model.User
+
+Base32StringSeed : 
+EnableDate       : 4/13/2015 12:06:41 PM
+QRCodePNG        : 
+SerialNumber     : arn:aws:iam::123456789012:mfa/root-account-mfa-device
+User             : Amazon.IdentityManagement.Model.User</code>
+    <description>This example retrieves a collection of the virtual MFA devices that are assigned to users in the AWS account. The <code>User</code> property of each is an object with details of the IAM user to which the device is assigned.</description>
+  </example>
+</examples>

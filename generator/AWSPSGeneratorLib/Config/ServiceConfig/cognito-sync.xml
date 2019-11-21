@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>cognito-sync</C2jFilename>
+    <AssemblyName>CognitoSync</AssemblyName>
+    <ServiceNounPrefix>CGIS</ServiceNounPrefix>
+    <ServiceName>Amazon Cognito Sync</ServiceName>
+    <ServiceClientInterface>IAmazonCognitoSync</ServiceClientInterface>
+    <ServiceClient>AmazonCognitoSyncClient</ServiceClient>
+    <ServiceModuleGuid>f3444381-3b25-4d07-b51f-151a23444d0f</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BulkPublish" OutputProperty="IdentityPoolId" Verb="Publish" Noun="BulkDataset" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataset" OutputProperty="Dataset" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataset" OutputProperty="Dataset" Verb="Get" Noun="Dataset" PipelineParameter="DatasetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityPoolUsage" OutputProperty="IdentityPoolUsage" Verb="Get" Noun="IdentityPoolUsage" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityUsage" OutputProperty="IdentityUsage" Verb="Get" Noun="IdentityUsage" PipelineParameter="IdentityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBulkPublishDetails" OutputProperty="*" Verb="Get" Noun="BulkPublishDetail" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCognitoEvents" OutputProperty="Events" Verb="Get" Noun="CognitoEvent" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityPoolConfiguration" OutputProperty="*" Verb="Get" Noun="IdentityPoolConfiguration" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="IdentityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentityPoolUsage" OutputProperty="IdentityPoolUsages" Verb="Get" Noun="IdentityPoolUsageList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecords" OutputProperty="*" Verb="Get" Noun="RecordList" PipelineParameter="DatasetName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterDevice" OutputProperty="DeviceId" Verb="Register" Noun="Device" ShouldProcessTarget="IdentityId" PipelineParameter="IdentityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetCognitoEvents" Verb="Set" Noun="CognitoEventLambdaFunction" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetIdentityPoolConfiguration" OutputProperty="*" Verb="Set" Noun="IdentityPoolConfiguration" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubscribeToDataset" Verb="Add" Noun="DatasetSubscription" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnsubscribeFromDataset" Verb="Remove" Noun="DatasetSubscription" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecords" OutputProperty="Records" Verb="Update" Noun="Record" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.CognitoSync.Model.CognitoStreams</Type>
+        <Type>Amazon.CognitoSync.Model.PushSync</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

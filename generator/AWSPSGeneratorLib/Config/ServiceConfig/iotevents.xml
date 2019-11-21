@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iotevents</C2jFilename>
+    <AssemblyName>IoTEvents</AssemblyName>
+    <ServiceNounPrefix>IOTE</ServiceNounPrefix>
+    <ServiceName>AWS IoT Events</ServiceName>
+    <ServiceClientInterface>IAmazonIoTEvents</ServiceClientInterface>
+    <ServiceClient>AmazonIoTEventsClient</ServiceClient>
+    <ServiceModuleGuid>225dc48c-601f-4f7d-8285-380d612be47b</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDetectorModel" OutputProperty="DetectorModelConfiguration" Verb="New" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInput" OutputProperty="InputConfiguration" Verb="New" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDetectorModel" Verb="Remove" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInput" Verb="Remove" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDetectorModel" OutputProperty="DetectorModel" Verb="Get" Noun="DetectorModel" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInput" OutputProperty="Input" Verb="Get" Noun="Input" PipelineParameter="InputName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoggingOptions" OutputProperty="LoggingOptions" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDetectorModels" OutputProperty="DetectorModelSummaries" Verb="Get" Noun="DetectorModelList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDetectorModelVersions" OutputProperty="DetectorModelVersionSummaries" Verb="Get" Noun="DetectorModelVersionList" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInputs" OutputProperty="InputSummaries" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLoggingOptions" Verb="Write" Noun="LoggingOption" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDetectorModel" OutputProperty="DetectorModelConfiguration" Verb="Update" Noun="DetectorModel" ShouldProcessTarget="DetectorModelName" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInput" OutputProperty="InputConfiguration" Verb="Update" Noun="Input" ShouldProcessTarget="InputName" PipelineParameter="InputName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>
