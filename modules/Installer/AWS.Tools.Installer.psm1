@@ -410,7 +410,7 @@ function Save-AWSToolsModule {
     Install AWS.Tools modules.
 
 .Description
-    This cmdlet uses Instal-Module to install AWS.Tools modules.
+    This cmdlet uses Install-Module to install AWS.Tools modules.
     Unless -SkipUpdate is specified, this cmdlet also updates all other currently installed AWS.Tools modules to the version being installed.
 
 .Notes
@@ -616,7 +616,7 @@ function Install-AWSToolsModule {
     Updates all currently installed AWS.Tools modules.
 
 .Description
-    This cmdlet uses Instal-Module to update all AWS.Tools modules.
+    This cmdlet uses Install-Module to update all AWS.Tools modules.
 
 .Notes
     This cmdlet uses the PSRepository named PSGallery as source.

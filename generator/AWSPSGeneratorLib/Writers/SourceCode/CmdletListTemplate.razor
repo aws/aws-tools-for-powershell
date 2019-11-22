@@ -22,7 +22,7 @@
         {
             @if (!operation.Exclude)
             {
-        <Cmdlet Name="@operation.SelectedVerb-@(mainModule.ServiceNounPrefix)@operation.SelectedNoun" Operations="@operation.MethodName" />
+        <Cmdlet Name="@operation.SelectedVerb-@operation.SelectedNoun" Operations="@operation.MethodName" />
             }
         }
         @foreach (var cmdlet in module.SelectMany(config => config.AdvancedCmdlets))
