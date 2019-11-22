@@ -42,7 +42,19 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter UseDualstackEndpoint { get; set; }
-        
+
+        #endregion
+
+        #region Parameter ForcePathStyleAddressing
+        /// <summary>
+        /// S3 requests can be performed using one of two URI styles: Virtual or Path.
+        /// When using Virtual style, the bucket is included as part of the hostname. 
+        /// When using Path style the bucket is included as part of the URI path.
+        /// The default value is $true when the EndpointUrl parameter is specified, $false otherwise.
+        /// </summary>
+        [Parameter(ValueFromPipelineByPropertyName = true)]
+        public bool? ForcePathStyleAddressing { get; set; }
+
         #endregion
 
         protected override void CustomizeClientConfig(ClientConfig config)
@@ -63,8 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             // github issue #670 request - like the aws cli, if a specific endpoint is
             // given then switch to path style addressing
-            if (ParameterWasBound(nameof(EndpointUrl)))
-                s3Config.ForcePathStyle = true;
+            s3Config.ForcePathStyle = ForcePathStyleAddressing ?? ParameterWasBound(nameof(EndpointUrl));
         }
     }
 }
