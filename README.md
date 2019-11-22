@@ -1,12 +1,12 @@
-## AWS Tools for Powershell
+## AWS Tools for PowerShell
 
 The _AWS Tools for PowerShell_ lets developers and administrators manage their AWS services from the PowerShell scripting environment.
 
-This repository is meant to be used as a way to collect feedback from users of the _AWS Tools for Powershell_ modules. You are invited to create GitHub issues to report bugs or make feature requests.
+This repository is meant to be used as a way to collect feedback from users of the _AWS Tools for PowerShell_ modules. You are invited to create GitHub issues to report bugs or make feature requests.
 
-## AWS Tools for Powershell Modules
+## AWS Tools for PowerShell Modules
 
-The _AWS Tools for Powershell_ modules [AWS.Tools](https://www.powershellgallery.com/packages/AWS.Tools.Common), [AWSPowerShell.NetCore](https://www.powershellgallery.com/packages/AWSPowerShell.NetCore) and [AWSPowerShell](https://www.powershellgallery.com/packages/AWSPowerShell) are available from [PowerShell Gallery](https://www.powershellgallery.com/).
+The _AWS Tools for PowerShell_ modules [AWS.Tools](https://www.powershellgallery.com/packages/AWS.Tools.Common), [AWSPowerShell.NetCore](https://www.powershellgallery.com/packages/AWSPowerShell.NetCore) and [AWSPowerShell](https://www.powershellgallery.com/packages/AWSPowerShell) are available from [PowerShell Gallery](https://www.powershellgallery.com/).
 
 
 | Module | **Compatible PowerShell Versions** |  |
@@ -29,21 +29,21 @@ The AWS Tools for PowerShell depends on the [AWS SDK for .NET](https://github.co
 
 ## Additional Resources
 
-[AWS Tools for Powershell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html)
+[AWS Tools for PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-welcome.html)
 
 Check out this user guide to get started quickly.
 
-[AWS Tools for Powershell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/Index.html)
+[AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/Index.html)
 
-Take a look at this reference for more in-depth documentation for each Powershell Cmdlet.
+Take a look at this reference for more in-depth documentation for each PowerShell cmdlet.
 
 [AWS Developer Blog](https://aws.amazon.com/blogs/developer/category/programing-language/dot-net/)
 
-Come see what .NET and Powershell developers at AWS are up to! Learn about new software announcements, guides, and how-to's.
+Come see what .NET and PowerShell developers at AWS are up to! Learn about new software announcements, guides, and how-to's.
 
 [@awsfornet](https://twitter.com/awsfornet)
 
-Follow us on twitter!
+Follow us on Twitter!
 
 ## License
 
