@@ -247,7 +247,7 @@ function Get-AvailableModuleVersion {
                 Repository      = 'PSGallery'
                 ErrorAction     = 'Stop'
             }
-            $savedModules = $Name | ForEach-Object { Find-Module -Name $_ $findModuleParams @proxyParams }
+            $savedModules = $Name | ForEach-Object { Find-Module -Name $_ @findModuleParams @proxyParams }
         }
         
         $versionToInstall
