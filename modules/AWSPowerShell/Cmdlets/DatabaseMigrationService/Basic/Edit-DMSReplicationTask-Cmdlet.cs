@@ -54,7 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Indicates when you want a change data capture (CDC) operation to start. Use either
         /// CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start.
-        /// Specifying both values results in an error.</para><para> The value can be in date, checkpoint, or LSN/SCN format.</para><para>Date Example: --cdc-start-position “2018-03-08T12:12:12”</para><para>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</para><para>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</para>
+        /// Specifying both values results in an error.</para><para> The value can be in date, checkpoint, or LSN/SCN format.</para><para>Date Example: --cdc-start-position “2018-03-08T12:12:12”</para><para>Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"</para><para>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</para><note><para>When you use this task setting with a source PostgreSQL database, a logical replication
+        /// slot should already be created and associated with the source endpoint. You can verify
+        /// this by setting the <code>slotName</code> extra connection attribute to the name of
+        /// this logical replication slot. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra
+        /// Connection Attributes When Using PostgreSQL as a Source for AWS DMS</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

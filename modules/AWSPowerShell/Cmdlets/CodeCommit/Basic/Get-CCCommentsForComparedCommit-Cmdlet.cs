@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter AfterCommitId
         /// <summary>
         /// <para>
-        /// <para>To establish the directionality of the comparison, the full commit ID of the 'after'
+        /// <para>To establish the directionality of the comparison, the full commit ID of the after
         /// commit.</para>
         /// </para>
         /// </summary>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter BeforeCommitId
         /// <summary>
         /// <para>
-        /// <para>To establish the directionality of the comparison, the full commit ID of the 'before'
+        /// <para>To establish the directionality of the comparison, the full commit ID of the before
         /// commit.</para>
         /// </para>
         /// </summary>
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>A non-negative integer used to limit the number of returned results. The default is
-        /// 100 comments, and is configurable up to 500.</para>
+        /// <para>A non-zero, non-negative integer used to limit the number of returned results. The
+        /// default is 100 comments, but you can configure up to 500.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

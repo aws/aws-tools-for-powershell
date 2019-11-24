@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Adds an inventory configuration (identified by the inventory ID) from the bucket.
+    /// Amazon.S3.IAmazonS3.PutBucketInventoryConfiguration
     /// </summary>
     [Cmdlet("Write", "S3BucketInventoryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

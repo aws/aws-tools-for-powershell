@@ -32,8 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// relationship between two or more DynamoDB tables with the same table name in the provided
     /// Regions. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+    /// 2017.11.29</a> of global tables.
+    /// </para></note><para>
     /// If you want to add a new replica table to a global table, each of the following conditions
     /// must be true:
     /// </para><ul><li><para>

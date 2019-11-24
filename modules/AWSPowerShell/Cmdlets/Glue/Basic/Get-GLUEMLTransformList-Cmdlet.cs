@@ -76,6 +76,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.DateTime? Filter_CreatedBefore { get; set; }
         #endregion
         
+        #region Parameter Filter_GlueVersion
+        /// <summary>
+        /// <para>
+        /// <para>This value determines which version of AWS Glue this machine learning transform is
+        /// compatible with. Glue 1.0 is recommended for most customers. If the value is not set,
+        /// the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS
+        /// Glue Versions</a> in the developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filter_GlueVersion { get; set; }
+        #endregion
+        
         #region Parameter Filter_LastModifiedAfter
         /// <summary>
         /// <para>
@@ -223,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.Filter_CreatedAfter = this.Filter_CreatedAfter;
             context.Filter_CreatedBefore = this.Filter_CreatedBefore;
+            context.Filter_GlueVersion = this.Filter_GlueVersion;
             context.Filter_LastModifiedAfter = this.Filter_LastModifiedAfter;
             context.Filter_LastModifiedBefore = this.Filter_LastModifiedBefore;
             context.Filter_Name = this.Filter_Name;
@@ -286,6 +300,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestFilter_filter_CreatedBefore != null)
             {
                 request.Filter.CreatedBefore = requestFilter_filter_CreatedBefore.Value;
+                requestFilterIsNull = false;
+            }
+            System.String requestFilter_filter_GlueVersion = null;
+            if (cmdletContext.Filter_GlueVersion != null)
+            {
+                requestFilter_filter_GlueVersion = cmdletContext.Filter_GlueVersion;
+            }
+            if (requestFilter_filter_GlueVersion != null)
+            {
+                request.Filter.GlueVersion = requestFilter_filter_GlueVersion;
                 requestFilterIsNull = false;
             }
             System.DateTime? requestFilter_filter_LastModifiedAfter = null;
@@ -463,6 +487,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestFilter_filter_CreatedBefore != null)
             {
                 request.Filter.CreatedBefore = requestFilter_filter_CreatedBefore.Value;
+                requestFilterIsNull = false;
+            }
+            System.String requestFilter_filter_GlueVersion = null;
+            if (cmdletContext.Filter_GlueVersion != null)
+            {
+                requestFilter_filter_GlueVersion = cmdletContext.Filter_GlueVersion;
+            }
+            if (requestFilter_filter_GlueVersion != null)
+            {
+                request.Filter.GlueVersion = requestFilter_filter_GlueVersion;
                 requestFilterIsNull = false;
             }
             System.DateTime? requestFilter_filter_LastModifiedAfter = null;
@@ -680,6 +714,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.DateTime? Filter_CreatedAfter { get; set; }
             public System.DateTime? Filter_CreatedBefore { get; set; }
+            public System.String Filter_GlueVersion { get; set; }
             public System.DateTime? Filter_LastModifiedAfter { get; set; }
             public System.DateTime? Filter_LastModifiedBefore { get; set; }
             public System.String Filter_Name { get; set; }

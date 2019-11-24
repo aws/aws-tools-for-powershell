@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// details, and quality. The response also returns information about the face in the
     /// source image, including the bounding box of the face and confidence value.
     /// </para><para>
+    /// The <code>QualityFilter</code> input parameter allows you to filter out detected faces
+    /// that don’t meet a required quality bar. The quality bar is based on a variety of common
+    /// use cases. By default, <code>CompareFaces</code> chooses the quality bar that's used
+    /// to filter faces. You can also explicitly choose the quality bar. Use <code>QualityFilter</code>,
+    /// to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>.
+    /// If you do not want to filter detected faces, specify <code>NONE</code>. 
+    /// </para><note><para>
+    /// To use quality filtering, you need a collection associated with version 3 of the face
+    /// model or higher. To get the version of the face model associated with a collection,
+    /// call <a>DescribeCollection</a>. 
+    /// </para></note><para>
     /// If the image doesn't contain Exif metadata, <code>CompareFaces</code> returns orientation
     /// information for the source and target images. Use these values to display the images
     /// with the correct image orientation.
@@ -145,6 +156,26 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String TargetImageName { get; set; }
         #endregion
         
+        #region Parameter QualityFilter
+        /// <summary>
+        /// <para>
+        /// <para>A filter that specifies a quality bar for how much filtering is done to identify faces.
+        /// Filtered faces aren't compared. If you specify <code>AUTO</code>, Amazon Rekognition
+        /// chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or
+        /// <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality
+        /// bar. The default value is <code>AUTO</code>. The quality bar is based on a variety
+        /// of common use cases. Low-quality detections can occur for a number of reasons. Some
+        /// examples are an object that's misidentified as a face, a face that's too blurry, or
+        /// a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no
+        /// filtering is performed. </para><para>To use quality filtering, the collection you are using must be associated with version
+        /// 3 of the face model or higher.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Rekognition.QualityFilter")]
+        public Amazon.Rekognition.QualityFilter QualityFilter { get; set; }
+        #endregion
+        
         #region Parameter SimilarityThreshold
         /// <summary>
         /// <para>
@@ -217,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.CompareFacesResponse, CompareREKFaceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.QualityFilter = this.QualityFilter;
             context.SimilarityThreshold = this.SimilarityThreshold;
             context.SourceImageContent = this.SourceImageContent;
             context.SourceImageBucket = this.SourceImageBucket;
@@ -247,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 // create request
                 var request = new Amazon.Rekognition.Model.CompareFacesRequest();
                 
+                if (cmdletContext.QualityFilter != null)
+                {
+                    request.QualityFilter = cmdletContext.QualityFilter;
+                }
                 if (cmdletContext.SimilarityThreshold != null)
                 {
                     request.SimilarityThreshold = cmdletContext.SimilarityThreshold.Value;
@@ -454,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Rekognition.QualityFilter QualityFilter { get; set; }
             public System.Single? SimilarityThreshold { get; set; }
             public byte[] SourceImageContent { get; set; }
             public System.String SourceImageBucket { get; set; }

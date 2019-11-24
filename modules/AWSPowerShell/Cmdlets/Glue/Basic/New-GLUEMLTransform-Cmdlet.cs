@@ -100,6 +100,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Boolean? FindMatchesParameters_EnforceProvidedLabel { get; set; }
         #endregion
         
+        #region Parameter GlueVersion
+        /// <summary>
+        /// <para>
+        /// <para>This value determines which version of AWS Glue this machine learning transform is
+        /// compatible with. Glue 1.0 is recommended for most customers. If the value is not set,
+        /// the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS
+        /// Glue Versions</a> in the developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GlueVersion { get; set; }
+        #endregion
+        
         #region Parameter InputRecordTable
         /// <summary>
         /// <para>
@@ -125,7 +138,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU
         /// is a relative measure of processing power that consists of 4 vCPUs of compute capacity
         /// and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
-        /// Glue pricing page</a>. </para><para>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>,
+        /// Glue pricing page</a>. </para><para><code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code>
+        /// and <code>WorkerType</code>.</para><ul><li><para>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code>
+        /// cannot be set.</para></li><li><para>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code>
+        /// can be set.</para></li><li><para>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and
+        /// vice versa).</para></li><li><para><code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</para></li></ul><para>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>,
+        /// the <code>MaxCapacity</code> field is set automatically and becomes read-only.</para><para>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>,
         /// the <code>MaxCapacity</code> field is set automatically and becomes read-only.</para>
         /// </para>
         /// </summary>
@@ -165,7 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The number of workers of a defined <code>workerType</code> that are allocated when
-        /// this task runs.</para>
+        /// this task runs.</para><para>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and
+        /// vice versa).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,9 +225,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions.
-        /// Ensure that this role has permission to your Amazon Simple Storage Service (Amazon
-        /// S3) sources, targets, temporary directory, scripts, and any libraries that are used
-        /// by the task run for this transform.</para>
+        /// The required permissions include both AWS Glue service role permissions to AWS Glue
+        /// resources, and Amazon S3 permissions required by the transform. </para><ul><li><para>This role needs AWS Glue service role permissions to allow access to resources in
+        /// AWS Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach
+        /// a Policy to IAM Users That Access AWS Glue</a>.</para></li><li><para>This role needs permission to your Amazon Simple Storage Service (Amazon S3) sources,
+        /// targets, temporary directory, scripts, and any libraries used by the task run for
+        /// this transform.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -259,7 +281,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// of Standard, G.1X, or G.2X.</para><ul><li><para>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory
         /// and a 50GB disk, and 2 executors per worker.</para></li><li><para>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory
         /// and a 64GB disk, and 1 executor per worker.</para></li><li><para>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory
-        /// and a 128GB disk, and 1 executor per worker.</para></li></ul>
+        /// and a 128GB disk, and 1 executor per worker.</para></li></ul><para><code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code>
+        /// and <code>WorkerType</code>.</para><ul><li><para>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code>
+        /// cannot be set.</para></li><li><para>If <code>MaxCapacity</code> is set then neither <code>NumberOfWorkers</code> or <code>WorkerType</code>
+        /// can be set.</para></li><li><para>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and
+        /// vice versa).</para></li><li><para><code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.GlueVersion = this.GlueVersion;
             if (this.InputRecordTable != null)
             {
                 context.InputRecordTable = new List<Amazon.Glue.Model.GlueTable>(this.InputRecordTable);
@@ -388,6 +415,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.GlueVersion != null)
+            {
+                request.GlueVersion = cmdletContext.GlueVersion;
             }
             if (cmdletContext.InputRecordTable != null)
             {
@@ -557,6 +588,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String GlueVersion { get; set; }
             public List<Amazon.Glue.Model.GlueTable> InputRecordTable { get; set; }
             public System.Double? MaxCapacity { get; set; }
             public System.Int32? MaxRetry { get; set; }

@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Marks specified Amazon GuardDuty findings as useful or not useful.
+    /// Marks the specified GuardDuty findings as useful or not useful.
     /// </summary>
     [Cmdlet("Update", "GDFindingFeedback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector that specifies the GuardDuty service whose findings you want
-        /// to mark as useful or not useful.</para>
+        /// <para>The ID of the detector associated with the findings to update feedback for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Feedback
         /// <summary>
         /// <para>
-        /// <para>Valid values: USEFUL | NOT_USEFUL</para>
+        /// <para>The feedback for the finding.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

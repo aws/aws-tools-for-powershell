@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>A non-negative integer used to limit the number of returned results.</para>
+        /// <para>A non-zero, non-negative integer used to limit the number of returned results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An enumeration token that when provided in a request, returns the next batch of the
+        /// <para>An enumeration token that, when provided in a request, returns the next batch of the
         /// results.</para>
         /// </para>
         /// <para>

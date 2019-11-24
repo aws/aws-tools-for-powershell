@@ -28,7 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the events for the specified EC2 Fleet during the specified time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the events for the specified EC2 Fleet during the specified time.
+    /// 
+    ///  
+    /// <para>
+    /// EC2 Fleet events are delayed by up to 30 seconds before they can be described. This
+    /// ensures that you can query by the last evaluated time and not miss a recorded event.
+    /// EC2 Fleet events are available for 48 hours.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2FleetHistory")]
     [OutputType("Amazon.EC2.Model.HistoryRecordEntry")]

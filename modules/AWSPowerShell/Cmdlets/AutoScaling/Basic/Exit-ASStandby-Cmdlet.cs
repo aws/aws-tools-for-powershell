@@ -32,6 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
+    /// After you put the instances back in service, the desired capacity is incremented.
+    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily
     /// Removing Instances from Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling
     /// User Guide</i>.

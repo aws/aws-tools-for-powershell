@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter Title
         /// <summary>
         /// <para>
-        /// <para>The updated title of the pull request. This will replace the existing title.</para>
+        /// <para>The updated title of the pull request. This replaces the existing title.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

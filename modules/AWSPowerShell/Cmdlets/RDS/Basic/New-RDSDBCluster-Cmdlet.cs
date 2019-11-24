@@ -154,7 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The name of the DB cluster parameter group to associate with this DB cluster. If
-        /// this argument is omitted, <code>default.aurora5.6</code> is used. </para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB cluster parameter group.</para></li></ul>
+        /// you do not specify a value, then the default DB cluster parameter group for the specified
+        /// DB engine and version is used. </para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DB cluster parameter group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,10 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The AWS KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are creating a DB cluster with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
-        /// of the ARN for the KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>:</para><ul><li><para>If <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then Amazon
+        /// of the ARN for the KMS encryption key.</para><para>If an encryption key isn't specified in <code>KmsKeyId</code>:</para><ul><li><para>If <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then Amazon
         /// RDS will use the encryption key used to encrypt the source. Otherwise, Amazon RDS
         /// will use your default encryption key. </para></li><li><para>If the <code>StorageEncrypted</code> parameter is enabled and <code>ReplicationSourceIdentifier</code>
-        /// is not specified, then Amazon RDS will use your default encryption key.</para></li></ul><para>AWS KMS creates the default encryption key for your AWS account. Your AWS account
+        /// isn't specified, then Amazon RDS will use your default encryption key.</para></li></ul><para>AWS KMS creates the default encryption key for your AWS account. Your AWS account
         /// has a different default encryption key for each AWS Region.</para><para>If you create a Read Replica of an encrypted DB cluster in another AWS Region, you
         /// must set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS
         /// Region. This key is used to encrypt the Read Replica in that AWS Region.</para>
@@ -320,8 +321,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
-        /// mode.</para><para>Valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>,
-        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
+        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
+        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
+        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
+        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,8 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The minimum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
-        /// mode.</para><para>Valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>,
-        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
+        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
+        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
+        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
+        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -411,7 +416,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// would look like Example: <code>arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
         /// Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
         /// <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-        /// Signature Version 4 Signing Process</a>.</para>
+        /// Signature Version 4 Signing Process</a>.</para><note><para>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code>
+        /// (or <code>--source-region</code> for the AWS CLI) instead of specifying <code>PreSignedUrl</code>
+        /// manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that
+        /// is a valid request for the operation that can be executed in the source AWS Region.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -480,7 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code>
         /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code> sets the capacity to the specified value as
         /// soon as possible.</para><para><code>RollbackCapacityChange</code>, the default, ignores the capacity change if
-        /// a scaling point is not found in the timeout period.</para><important><para>If you specify <code>ForceApplyCapacityChange</code>, connections that prevent Aurora
+        /// a scaling point isn't found in the timeout period.</para><important><para>If you specify <code>ForceApplyCapacityChange</code>, connections that prevent Aurora
         /// Serverless from finding a scaling point might be dropped.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
         /// Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>

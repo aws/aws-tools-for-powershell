@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackendEnvironment" OutputProperty="BackendEnvironment" Verb="New" Noun="BackendEnvironment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBranch" OutputProperty="Branch" Verb="New" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -40,6 +44,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteApp" OutputProperty="App" Verb="Remove" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackendEnvironment" OutputProperty="BackendEnvironment" Verb="Remove" Noun="BackendEnvironment" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -71,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBackendEnvironment" OutputProperty="BackendEnvironment" Verb="Get" Noun="BackendEnvironment" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetBranch" OutputProperty="Branch" Verb="Get" Noun="Branch" PipelineParameter="BranchName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="ArtifactList" PipelineParameter="AppId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackendEnvironments" OutputProperty="BackendEnvironments" Verb="Get" Noun="BackendEnvironmentList" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// To update an Auto Scaling group, specify the name of the group and the parameter that
     /// you want to change. Any parameters that you don't specify are not changed by this
     /// update request. The new settings take effect on any scaling activities after this
-    /// call returns. Scaling activities that are currently in progress aren't affected.
+    /// call returns. 
     /// </para><para>
     /// If you associate a new launch configuration or template with an Auto Scaling group,
     /// all new instances will get the updated configuration. Existing instances continue
@@ -166,10 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The name of the launch configuration. If you specify <code>LaunchConfigurationName</code>
-        /// in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</para><important><para>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code>
-        /// set to <code>false</code>, you must first disable the collection of group metrics.
-        /// Otherwise, you get an error. If you have previously enabled the collection of group
-        /// metrics, you can disable it using <a>DisableMetricsCollection</a>.</para></important>
+        /// in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -196,6 +193,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LaunchTemplate_LaunchTemplateName { get; set; }
+        #endregion
+        
+        #region Parameter MaxInstanceLifetime
+        /// <summary>
+        /// <para>
+        /// <para>The maximum amount of time, in seconds, that an instance can be in service.</para><para>Valid Range: Minimum value of 604800.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxInstanceLifetime { get; set; }
         #endregion
         
         #region Parameter MaxSize
@@ -390,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.LaunchTemplate_LaunchTemplateId = this.LaunchTemplate_LaunchTemplateId;
             context.LaunchTemplate_LaunchTemplateName = this.LaunchTemplate_LaunchTemplateName;
             context.LaunchTemplate_Version = this.LaunchTemplate_Version;
+            context.MaxInstanceLifetime = this.MaxInstanceLifetime;
             context.MaxSize = this.MaxSize;
             context.MinSize = this.MinSize;
             context.MixedInstancesPolicy = this.MixedInstancesPolicy;
@@ -483,6 +491,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (requestLaunchTemplateIsNull)
             {
                 request.LaunchTemplate = null;
+            }
+            if (cmdletContext.MaxInstanceLifetime != null)
+            {
+                request.MaxInstanceLifetime = cmdletContext.MaxInstanceLifetime.Value;
             }
             if (cmdletContext.MaxSize != null)
             {
@@ -587,6 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String LaunchTemplate_LaunchTemplateId { get; set; }
             public System.String LaunchTemplate_LaunchTemplateName { get; set; }
             public System.String LaunchTemplate_Version { get; set; }
+            public System.Int32? MaxInstanceLifetime { get; set; }
             public System.Int32? MaxSize { get; set; }
             public System.Int32? MinSize { get; set; }
             public Amazon.AutoScaling.Model.MixedInstancesPolicy MixedInstancesPolicy { get; set; }

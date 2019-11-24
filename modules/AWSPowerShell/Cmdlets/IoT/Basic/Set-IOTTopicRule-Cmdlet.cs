@@ -128,6 +128,22 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String IotAnalytics_ChannelName { get; set; }
         #endregion
         
+        #region Parameter Http_ConfirmationUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL to which AWS IoT sends a confirmation message. The value of the confirmation
+        /// URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL
+        /// AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates
+        /// in the confirmationUrl, you must create and enable topic rule destinations that match
+        /// each possible value of the substituion template before traffic is allowed to your
+        /// endpoint URL.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Http_ConfirmationUrl")]
+        public System.String Http_ConfirmationUrl { get; set; }
+        #endregion
+        
         #region Parameter Firehose_DeliveryStreamName
         /// <summary>
         /// <para>
@@ -216,6 +232,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_DynamoDB_HashKeyValue")]
         public System.String DynamoDB_HashKeyValue { get; set; }
+        #endregion
+        
+        #region Parameter Http_Header
+        /// <summary>
+        /// <para>
+        /// <para>The HTTP headers to send with the message data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Http_Headers")]
+        public Amazon.IoT.Model.HttpActionHeader[] Http_Header { get; set; }
         #endregion
         
         #region Parameter Elasticsearch_Id
@@ -385,7 +412,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Republish_Qo
         /// <summary>
         /// <para>
-        /// <para>The Quality of Service (QoS) level to use when republishing messages.</para>
+        /// <para>The Quality of Service (QoS) level to use when republishing messages. The default
+        /// value is 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -502,6 +530,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Firehose_RoleArn")]
         public System.String Firehose_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Sigv4_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the signing role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Http_Auth_Sigv4_RoleArn")]
+        public System.String Sigv4_RoleArn { get; set; }
         #endregion
         
         #region Parameter IotAnalytics_RoleArn
@@ -635,6 +674,28 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Firehose_Separator { get; set; }
         #endregion
         
+        #region Parameter Sigv4_ServiceName
+        /// <summary>
+        /// <para>
+        /// <para>The service name to use while signing with Sig V4.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Http_Auth_Sigv4_ServiceName")]
+        public System.String Sigv4_ServiceName { get; set; }
+        #endregion
+        
+        #region Parameter Sigv4_SigningRegion
+        /// <summary>
+        /// <para>
+        /// <para>The signing region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Http_Auth_Sigv4_SigningRegion")]
+        public System.String Sigv4_SigningRegion { get; set; }
+        #endregion
+        
         #region Parameter TopicRulePayload_Sql
         /// <summary>
         /// <para>
@@ -763,6 +824,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Elasticsearch_Type")]
         public System.String Elasticsearch_Type { get; set; }
+        #endregion
+        
+        #region Parameter Http_Url
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint URL. If substitution templates are used in the URL, you must also specify
+        /// a <code>confirmationUrl</code>. If this is a new destination, a new <code>TopicRuleDestination</code>
+        /// is created if possible.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Http_Url")]
+        public System.String Http_Url { get; set; }
         #endregion
         
         #region Parameter Salesforce_Url
@@ -897,6 +971,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.Firehose_DeliveryStreamName = this.Firehose_DeliveryStreamName;
             context.Firehose_RoleArn = this.Firehose_RoleArn;
             context.Firehose_Separator = this.Firehose_Separator;
+            context.Sigv4_RoleArn = this.Sigv4_RoleArn;
+            context.Sigv4_ServiceName = this.Sigv4_ServiceName;
+            context.Sigv4_SigningRegion = this.Sigv4_SigningRegion;
+            context.Http_ConfirmationUrl = this.Http_ConfirmationUrl;
+            if (this.Http_Header != null)
+            {
+                context.Http_Header = new List<Amazon.IoT.Model.HttpActionHeader>(this.Http_Header);
+            }
+            context.Http_Url = this.Http_Url;
             context.IotAnalytics_ChannelArn = this.IotAnalytics_ChannelArn;
             context.IotAnalytics_ChannelName = this.IotAnalytics_ChannelName;
             context.IotAnalytics_RoleArn = this.IotAnalytics_RoleArn;
@@ -1537,6 +1620,111 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestTopicRulePayload_topicRulePayload_ErrorAction.CloudwatchAlarm = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchAlarm;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
+            Amazon.IoT.Model.HttpAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http = null;
+            
+             // populate Http
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_HttpIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http = new Amazon.IoT.Model.HttpAction();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_ConfirmationUrl = null;
+            if (cmdletContext.Http_ConfirmationUrl != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_ConfirmationUrl = cmdletContext.Http_ConfirmationUrl;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_ConfirmationUrl != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http.ConfirmationUrl = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_ConfirmationUrl;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_HttpIsNull = false;
+            }
+            List<Amazon.IoT.Model.HttpActionHeader> requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_Header = null;
+            if (cmdletContext.Http_Header != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_Header = cmdletContext.Http_Header;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_Header != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http.Headers = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_Header;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_HttpIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_Url = null;
+            if (cmdletContext.Http_Url != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_Url = cmdletContext.Http_Url;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_Url != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http.Url = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_http_Url;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_HttpIsNull = false;
+            }
+            Amazon.IoT.Model.HttpAuthorization requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth = null;
+            
+             // populate Auth
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_AuthIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth = new Amazon.IoT.Model.HttpAuthorization();
+            Amazon.IoT.Model.SigV4Authorization requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4 = null;
+            
+             // populate Sigv4
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4IsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4 = new Amazon.IoT.Model.SigV4Authorization();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_RoleArn = null;
+            if (cmdletContext.Sigv4_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_RoleArn = cmdletContext.Sigv4_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4IsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_ServiceName = null;
+            if (cmdletContext.Sigv4_ServiceName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_ServiceName = cmdletContext.Sigv4_ServiceName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_ServiceName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4.ServiceName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_ServiceName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4IsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_SigningRegion = null;
+            if (cmdletContext.Sigv4_SigningRegion != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_SigningRegion = cmdletContext.Sigv4_SigningRegion;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_SigningRegion != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4.SigningRegion = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4_sigv4_SigningRegion;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4IsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4 should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4IsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4 = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4 != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth.Sigv4 = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth_topicRulePayload_ErrorAction_Http_Auth_Sigv4;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_AuthIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_AuthIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http.Auth = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http_topicRulePayload_ErrorAction_Http_Auth;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_HttpIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_HttpIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.Http = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Http;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
             Amazon.IoT.Model.S3Action requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_S3 = null;
             
              // populate S3
@@ -1957,6 +2145,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String Firehose_DeliveryStreamName { get; set; }
             public System.String Firehose_RoleArn { get; set; }
             public System.String Firehose_Separator { get; set; }
+            public System.String Sigv4_RoleArn { get; set; }
+            public System.String Sigv4_ServiceName { get; set; }
+            public System.String Sigv4_SigningRegion { get; set; }
+            public System.String Http_ConfirmationUrl { get; set; }
+            public List<Amazon.IoT.Model.HttpActionHeader> Http_Header { get; set; }
+            public System.String Http_Url { get; set; }
             public System.String IotAnalytics_ChannelArn { get; set; }
             public System.String IotAnalytics_ChannelName { get; set; }
             public System.String IotAnalytics_RoleArn { get; set; }

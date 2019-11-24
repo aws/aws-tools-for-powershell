@@ -86,7 +86,7 @@ $BGT_Completers = {
             ($_ -eq "Update-BGTBudget/NewBudget_BudgetType")
         }
         {
-            $v = "COST","RI_COVERAGE","RI_UTILIZATION","USAGE"
+            $v = "COST","RI_COVERAGE","RI_UTILIZATION","SAVINGS_PLANS_COVERAGE","SAVINGS_PLANS_UTILIZATION","USAGE"
             break
         }
 

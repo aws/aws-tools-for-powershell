@@ -32,6 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
+    /// If you choose to decrement the desired capacity of the Auto Scaling group, the instances
+    /// can enter standby as long as the desired capacity of the Auto Scaling group after
+    /// the instances are placed into standby is equal to or greater than the minimum capacity
+    /// of the group.
+    /// </para><para>
+    /// If you choose not to decrement the desired capacity of the Auto Scaling group, the
+    /// Auto Scaling group launches new instances to replace the instances on standby.
+    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily
     /// Removing Instances from Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling
     /// User Guide</i>.

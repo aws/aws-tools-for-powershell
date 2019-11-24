@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter AuthorName
         /// <summary>
         /// <para>
-        /// <para>The name of the author who created the commit. This information will be used as both
-        /// the author and committer for the commit.</para>
+        /// <para>The name of the author who created the commit. This information is used as both the
+        /// author and committer for the commit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
-        /// which will return a not mergeable result if the same file has differences in both
-        /// branches. If LINE_LEVEL is specified, a conflict will be considered not mergeable
-        /// if the same file in both branches has differences on the same line.</para>
+        /// which returns a not-mergeable result if the same file has differences in both branches.
+        /// If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file
+        /// in both branches has differences on the same line.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>Specifies which branch to use when resolving conflicts, or whether to attempt automatically
         /// merging two versions of a file. The default is NONE, which requires any conflicts
-        /// to be resolved manually before the merge operation will be successful.</para>
+        /// to be resolved manually before the merge operation is successful.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ConflictResolution_DeleteFile
         /// <summary>
         /// <para>
-        /// <para>Files that will be deleted as part of the merge conflict resolution.</para>
+        /// <para>Files to be deleted as part of the merge conflict resolution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter Email
         /// <summary>
         /// <para>
-        /// <para>The email address of the person merging the branches. This information will be used
-        /// in the commit information for the merge.</para>
+        /// <para>The email address of the person merging the branches. This information is used in
+        /// the commit information for the merge.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>If the commit contains deletions, whether to keep a folder or folder structure if
-        /// the changes leave the folders empty. If this is specified as true, a .gitkeep file
-        /// will be created for empty folders. The default is false.</para>
+        /// the changes leave the folders empty. If true, a .gitkeep file is created for empty
+        /// folders. The default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ConflictResolution_ReplaceContent
         /// <summary>
         /// <para>
-        /// <para>Files that will have content replaced as part of the merge conflict resolution.</para>
+        /// <para>Files to have content replaced as part of the merge conflict resolution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ConflictResolution_SetFileMode
         /// <summary>
         /// <para>
-        /// <para>File modes that will be set as part of the merge conflict resolution.</para>
+        /// <para>File modes that are set as part of the merge conflict resolution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

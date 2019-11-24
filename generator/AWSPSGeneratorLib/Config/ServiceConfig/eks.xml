@@ -23,11 +23,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateNodegroup" OutputProperty="Nodegroup" Verb="New" Noun="Nodegroup" ShouldProcessTarget="NodegroupName" PipelineParameter="NodegroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNodegroup" OutputProperty="Nodegroup" Verb="Remove" Noun="Nodegroup" ShouldProcessTarget="NodegroupName" PipelineParameter="NodegroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNodegroup" OutputProperty="Nodegroup" Verb="Get" Noun="Nodegroup" PipelineParameter="NodegroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -36,6 +48,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNodegroups" OutputProperty="Nodegroups" Verb="Get" Noun="NodegroupList" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -61,6 +77,16 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterVersion" OutputProperty="Update" Verb="Update" Noun="ClusterVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNodegroupConfig" OutputProperty="Update" Verb="Update" Noun="NodegroupConfig" ShouldProcessTarget="NodegroupName" PipelineParameter="NodegroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNodegroupVersion" OutputProperty="Update" Verb="Update" Noun="NodegroupVersion" ShouldProcessTarget="NodegroupName" PipelineParameter="NodegroupName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

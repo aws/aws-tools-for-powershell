@@ -81,6 +81,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterType" Verb="Unregister" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="AccountLimits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFNAccountLimits">
             <Params />
             <TypesNotToFlatten />
@@ -125,11 +129,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeType" OutputProperty="*" Verb="Get" Noun="Type" PipelineParameter="TypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTypeRegistration" OutputProperty="*" Verb="Get" Noun="TypeRegistration" PipelineParameter="RegistrationToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DetectStackDrift" OutputProperty="StackDriftDetectionId" Verb="Start" Noun="StackDriftDetection" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetectStackResourceDrift" OutputProperty="StackResourceDrift" Verb="Get" Noun="StackResourceDrift" PipelineParameter="StackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectStackSetDrift" OutputProperty="OperationId" Verb="Start" Noun="StackSetDriftDetection" ShouldProcessTarget="StackSetName" PipelineParameter="StackSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -193,7 +209,31 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTypeRegistrations" OutputProperty="RegistrationTokenList" Verb="Get" Noun="TypeRegistrationList" PipelineParameter="TypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTypes" OutputProperty="TypeSummaries" Verb="Get" Noun="TypeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTypeVersions" OutputProperty="TypeVersionSummaries" Verb="Get" Noun="TypeVersion" PipelineParameter="TypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RecordHandlerProgress" Verb="Write" Noun="HandlerProgress" ShouldProcessTarget="OperationStatus" PipelineParameter="OperationStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterType" OutputProperty="RegistrationToken" Verb="Register" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetStackPolicy" Verb="Set" Noun="StackPolicy" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetTypeDefaultVersion" Verb="Set" Noun="TypeDefaultVersion" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

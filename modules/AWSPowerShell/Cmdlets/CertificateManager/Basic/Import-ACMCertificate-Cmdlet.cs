@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// The OCSP authority URL, if present, must not exceed 1000 characters.
     /// </para></li><li><para>
     /// To import a new certificate, omit the <code>CertificateArn</code> argument. Include
-    /// this argument only when you want to replace a previously imported certificate.
+    /// this argument only when you want to replace a previously imported certifica
     /// </para></li><li><para>
     /// When you import a certificate by using the CLI, you must specify the certificate,
     /// the certificate chain, and the private key by their file names preceded by <code>file://</code>.
@@ -74,6 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// When you import a certificate by using an SDK, you must specify the certificate, the
     /// certificate chain, and the private key files in the manner required by the programming
     /// language you're using. 
+    /// </para></li><li><para>
+    /// The cryptographic algorithm of an imported certificate must match the algorithm of
+    /// the signing CA. For example, if the signing CA key type is RSA, then the certificate
+    /// key type must also be RSA.
     /// </para></li></ul><para>
     /// This operation returns the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
     /// Resource Name (ARN)</a> of the imported certificate.
@@ -147,6 +151,17 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] PrivateKey { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more resource tags to associate with the imported certificate. </para><para>Note: You cannot apply tags when reimporting a certificate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.CertificateManager.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -226,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 WriteWarning("You are passing $null as a value for parameter PrivateKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.CertificateManager.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -266,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 {
                     _PrivateKeyStream = new System.IO.MemoryStream(cmdletContext.PrivateKey);
                     request.PrivateKey = _PrivateKeyStream;
+                }
+                if (cmdletContext.Tag != null)
+                {
+                    request.Tags = cmdletContext.Tag;
                 }
                 
                 CmdletOutput output;
@@ -348,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public System.String CertificateArn { get; set; }
             public byte[] CertificateChain { get; set; }
             public byte[] PrivateKey { get; set; }
+            public List<Amazon.CertificateManager.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.CertificateManager.Model.ImportCertificateResponse, ImportACMCertificateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CertificateArn;
         }

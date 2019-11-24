@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Describes the available installation media for on-premises, bring your own media (BYOM)
-    /// DB engines, such as Microsoft SQL Server.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the available installation media for a DB engine that requires an on-premises
+    /// customer provided license, such as Microsoft SQL Server.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSInstallationMedia")]
     [OutputType("Amazon.RDS.Model.InstallationMedia")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter InstallationMediaId
         /// <summary>
         /// <para>
-        /// <para>The installation media ID.</para>
+        /// <para>The installation medium ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

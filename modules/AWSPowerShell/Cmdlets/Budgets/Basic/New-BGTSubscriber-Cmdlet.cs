@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Subscriber_Address
         /// <summary>
         /// <para>
-        /// <para>The address that AWS sends budget notifications to, either an SNS topic or an email.</para><para>AWS validates the address for a <code>CreateSubscriber</code> request with the <code>.*</code>
-        /// regex.</para>
+        /// <para>The address that AWS sends budget notifications to, either an SNS topic or an email.</para><para>When you create a subscriber, the value of <code>Address</code> can't contain line
+        /// breaks.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

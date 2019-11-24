@@ -95,6 +95,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.CodeDeploy.dll',
         'AWSSDK.CodePipeline.dll',
         'AWSSDK.CodeStar.dll',
+        'AWSSDK.CodeStarNotifications.dll',
         'AWSSDK.CognitoIdentity.dll',
         'AWSSDK.CognitoIdentityProvider.dll',
         'AWSSDK.CognitoSync.dll',
@@ -102,10 +103,12 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ComprehendMedical.dll',
         'AWSSDK.ConfigService.dll',
         'AWSSDK.Connect.dll',
+        'AWSSDK.ConnectParticipant.dll',
         'AWSSDK.Core.dll',
         'AWSSDK.CostAndUsageReport.dll',
         'AWSSDK.CostExplorer.dll',
         'AWSSDK.DatabaseMigrationService.dll',
+        'AWSSDK.DataExchange.dll',
         'AWSSDK.DataPipeline.dll',
         'AWSSDK.DataSync.dll',
         'AWSSDK.DAX.dll',
@@ -164,6 +167,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.MachineLearning.dll',
         'AWSSDK.Macie.dll',
         'AWSSDK.ManagedBlockchain.dll',
+        'AWSSDK.MarketplaceCatalog.dll',
         'AWSSDK.MarketplaceEntitlementService.dll',
         'AWSSDK.MediaConnect.dll',
         'AWSSDK.MediaConvert.dll',
@@ -174,6 +178,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.MediaStoreData.dll',
         'AWSSDK.MediaTailor.dll',
         'AWSSDK.MigrationHub.dll',
+        'AWSSDK.MigrationHubConfig.dll',
         'AWSSDK.Mobile.dll',
         'AWSSDK.MQ.dll',
         'AWSSDK.MTurk.dll',
@@ -207,6 +212,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.S3Control.dll',
         'AWSSDK.SageMaker.dll',
         'AWSSDK.SageMakerRuntime.dll',
+        'AWSSDK.SavingsPlans.dll',
         'AWSSDK.SecretsManager.dll',
         'AWSSDK.SecurityHub.dll',
         'AWSSDK.SecurityToken.dll',
@@ -217,11 +223,14 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ServiceQuotas.dll',
         'AWSSDK.Shield.dll',
         'AWSSDK.SimpleEmail.dll',
+        'AWSSDK.SimpleEmailV2.dll',
         'AWSSDK.SimpleNotificationService.dll',
         'AWSSDK.SimpleSystemsManagement.dll',
         'AWSSDK.SimpleWorkflow.dll',
         'AWSSDK.Snowball.dll',
         'AWSSDK.SQS.dll',
+        'AWSSDK.SSO.dll',
+        'AWSSDK.SSOOIDC.dll',
         'AWSSDK.StepFunctions.dll',
         'AWSSDK.StorageGateway.dll',
         'AWSSDK.Textract.dll',
@@ -284,7 +293,7 @@ This product provides support for all AWS services in a single module. As an alt
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

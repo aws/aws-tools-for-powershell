@@ -28,7 +28,32 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Lists the metrics configurations for the bucket.
+    /// Lists the metrics configurations for the bucket. The metrics configurations are only
+    /// for the request metrics of the bucket and do not provide information on daily storage
+    /// metrics. You can have up to 1,000 configurations per bucket.
+    /// 
+    ///  
+    /// <para>
+    /// This operation supports list pagination and does not return more than 100 configurations
+    /// at a time. Always check the <code>IsTruncated</code> element in the response. If there
+    /// are no more configurations to list, <code>IsTruncated</code> is set to false. If there
+    /// are more configurations to list, <code>IsTruncated</code> is set to true, and there
+    /// is a value in <code>NextContinuationToken</code>. You use the <code>NextContinuationToken</code>
+    /// value to continue the pagination of the list by passing the value in <code>continuation-token</code>
+    /// in the request to <code>GET</code> the next page.
+    /// </para><para>
+    /// To use this operation, you must have permissions to perform the <code>s3:GetMetricsConfiguration</code>
+    /// action. The bucket owner has this permission by default. The bucket owner can grant
+    /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// </para><para>
+    /// For more information about metrics configurations and CloudWatch request metrics,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
+    /// Metrics with Amazon CloudWatch</a>.
+    /// </para><para>
+    /// The following operations are related to <code>ListBucketMetricsConfigurations</code>:
+    /// </para><ul><li><para><a>PutBucketMetricsConfiguration</a></para></li><li><para><a>GetBucketMetricsConfiguration</a></para></li><li><para><a>DeleteBucketMetricsConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketMetricsConfigurationList")]
     [OutputType("Amazon.S3.Model.ListBucketMetricsConfigurationsResponse")]

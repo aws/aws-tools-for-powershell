@@ -80,6 +80,56 @@ $QS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.QuickSight.AssignmentStatus
+        {
+            ($_ -eq "Get-QSIAMPolicyAssignmentList/AssignmentStatus") -Or
+            ($_ -eq "New-QSIAMPolicyAssignment/AssignmentStatus") -Or
+            ($_ -eq "Update-QSIAMPolicyAssignment/AssignmentStatus")
+        }
+        {
+            $v = "DISABLED","DRAFT","ENABLED"
+            break
+        }
+
+        # Amazon.QuickSight.DashboardBehavior
+        {
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.QuickSight.DashboardUIState
+        {
+            ($_ -eq "New-QSDashboard/DashboardPublishOptions_SheetControlsOption_VisibilityState") -Or
+            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_SheetControlsOption_VisibilityState")
+        }
+        {
+            $v = "COLLAPSED","EXPANDED"
+            break
+        }
+
+        # Amazon.QuickSight.DataSetImportMode
+        {
+            ($_ -eq "New-QSDataSet/ImportMode") -Or
+            ($_ -eq "Update-QSDataSet/ImportMode")
+        }
+        {
+            $v = "DIRECT_QUERY","SPICE"
+            break
+        }
+
+        # Amazon.QuickSight.DataSourceType
+        "New-QSDataSource/Type"
+        {
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","GITHUB","JIRA","MARIADB","MYSQL","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TWITTER"
+            break
+        }
+
         # Amazon.QuickSight.IdentityType
         {
             ($_ -eq "Get-QSDashboardEmbedUrl/IdentityType") -Or
@@ -87,6 +137,16 @@ $QS_Completers = {
         }
         {
             $v = "IAM","QUICKSIGHT"
+            break
+        }
+
+        # Amazon.QuickSight.RowLevelPermissionPolicy
+        {
+            ($_ -eq "New-QSDataSet/RowLevelPermissionDataSet_PermissionPolicy") -Or
+            ($_ -eq "Update-QSDataSet/RowLevelPermissionDataSet_PermissionPolicy")
+        }
+        {
+            $v = "DENY_ACCESS","GRANT_ACCESS"
             break
         }
 
@@ -109,8 +169,15 @@ $QS_Completers = {
 }
 
 $QS_map = @{
+    "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
+    "DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DashboardPublishOptions_SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
+    "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
     "Role"=@("Update-QSUser")
+    "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
+    "Type"=@("New-QSDataSource")
     "UserRole"=@("Register-QSUser")
 }
 
@@ -164,21 +231,70 @@ $QS_SelectCompleters = {
 }
 
 $QS_SelectMap = @{
-    "Select"=@("New-QSGroup",
+    "Select"=@("Stop-QSIngestion",
+               "New-QSDashboard",
+               "New-QSDataSet",
+               "New-QSDataSource",
+               "New-QSGroup",
                "New-QSGroupMembership",
+               "New-QSIAMPolicyAssignment",
+               "New-QSIngestion",
+               "New-QSTemplate",
+               "New-QSTemplateAlias",
+               "Remove-QSDashboard",
+               "Remove-QSDataSet",
+               "Remove-QSDataSource",
                "Remove-QSGroup",
                "Remove-QSGroupMembership",
+               "Remove-QSIAMPolicyAssignment",
+               "Remove-QSTemplate",
+               "Remove-QSTemplateAlias",
                "Remove-QSUser",
                "Remove-QSUserByPrincipalId",
+               "Get-QSDashboard",
+               "Get-QSDashboardPermission",
+               "Get-QSDataSet",
+               "Get-QSDataSetPermission",
+               "Get-QSDataSource",
+               "Get-QSDataSourcePermission",
                "Get-QSGroup",
+               "Get-QSIAMPolicyAssignment",
+               "Get-QSIngestion",
+               "Get-QSTemplate",
+               "Get-QSTemplateAlias",
+               "Get-QSTemplatePermission",
                "Get-QSUser",
                "Get-QSDashboardEmbedUrl",
+               "Get-QSDashboardList",
+               "Get-QSDashboardVersionList",
+               "Get-QSDataSetList",
+               "Get-QSDataSourceList",
                "Get-QSGroupMembershipList",
                "Get-QSGroupList",
+               "Get-QSIAMPolicyAssignmentList",
+               "Get-QSIAMPolicyAssignmentsForUserList",
+               "Get-QSIngestionList",
+               "Get-QSResourceTag",
+               "Get-QSTemplateAliasList",
+               "Get-QSTemplateList",
+               "Get-QSTemplateVersionList",
                "Get-QSUserGroupList",
                "Get-QSUserList",
                "Register-QSUser",
+               "Add-QSResourceTag",
+               "Remove-QSResourceTag",
+               "Update-QSDashboard",
+               "Update-QSDashboardPermission",
+               "Update-QSDashboardPublishedVersion",
+               "Update-QSDataSet",
+               "Update-QSDataSetPermission",
+               "Update-QSDataSource",
+               "Update-QSDataSourcePermission",
                "Update-QSGroup",
+               "Update-QSIAMPolicyAssignment",
+               "Update-QSTemplate",
+               "Update-QSTemplateAlias",
+               "Update-QSTemplatePermission",
                "Update-QSUser")
 }
 

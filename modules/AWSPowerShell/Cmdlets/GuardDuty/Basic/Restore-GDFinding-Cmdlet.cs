@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Unarchives Amazon GuardDuty findings specified by the list of finding IDs.
+    /// Unarchives GuardDuty findings specified by the <code>findingIds</code>.
     /// </summary>
     [Cmdlet("Restore", "GDFinding", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector that specifies the GuardDuty service whose findings you want
-        /// to unarchive.</para>
+        /// <para>The ID of the detector associated with the findings to unarchive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingId
         /// <summary>
         /// <para>
-        /// <para>IDs of the findings that you want to unarchive.</para>
+        /// <para>IDs of the findings to unarchive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

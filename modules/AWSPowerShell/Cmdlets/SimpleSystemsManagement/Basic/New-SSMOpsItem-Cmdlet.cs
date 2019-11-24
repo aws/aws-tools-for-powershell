@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMOpsItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter Category
+        /// <summary>
+        /// <para>
+        /// <para>Specify a category to assign to an OpsItem. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Category { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -123,6 +133,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RelatedOpsItems")]
         public Amazon.SimpleSystemsManagement.Model.RelatedOpsItem[] RelatedOpsItem { get; set; }
+        #endregion
+        
+        #region Parameter Severity
+        /// <summary>
+        /// <para>
+        /// <para>Specify a severity to assign to an OpsItem.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Severity { get; set; }
         #endregion
         
         #region Parameter Source
@@ -233,6 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.Title;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Category = this.Category;
             context.Description = this.Description;
             #if MODULAR
             if (this.Description == null && ParameterWasBound(nameof(this.Description)))
@@ -257,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.RelatedOpsItem = new List<Amazon.SimpleSystemsManagement.Model.RelatedOpsItem>(this.RelatedOpsItem);
             }
+            context.Severity = this.Severity;
             context.Source = this.Source;
             #if MODULAR
             if (this.Source == null && ParameterWasBound(nameof(this.Source)))
@@ -291,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.CreateOpsItemRequest();
             
+            if (cmdletContext.Category != null)
+            {
+                request.Category = cmdletContext.Category;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -310,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.RelatedOpsItem != null)
             {
                 request.RelatedOpsItems = cmdletContext.RelatedOpsItem;
+            }
+            if (cmdletContext.Severity != null)
+            {
+                request.Severity = cmdletContext.Severity;
             }
             if (cmdletContext.Source != null)
             {
@@ -384,11 +414,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Category { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.OpsItemNotification> Notification { get; set; }
             public Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.OpsItemDataValue> OperationalData { get; set; }
             public System.Int32? Priority { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.RelatedOpsItem> RelatedOpsItem { get; set; }
+            public System.String Severity { get; set; }
             public System.String Source { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }
             public System.String Title { get; set; }

@@ -155,6 +155,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String[] SecurityProfileId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Username
         /// <summary>
         /// <para>
@@ -270,6 +281,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter SecurityProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.Username = this.Username;
             #if MODULAR
             if (this.Username == null && ParameterWasBound(nameof(this.Username)))
@@ -324,6 +343,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.SecurityProfileId != null)
             {
                 request.SecurityProfileIds = cmdletContext.SecurityProfileId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.Username != null)
             {
@@ -398,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public Amazon.Connect.Model.UserPhoneConfig PhoneConfig { get; set; }
             public System.String RoutingProfileId { get; set; }
             public List<System.String> SecurityProfileId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Username { get; set; }
             public System.Func<Amazon.Connect.Model.CreateUserResponse, NewCONNUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

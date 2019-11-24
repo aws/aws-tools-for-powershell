@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class UpdateSSMOpsItemCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter Category
+        /// <summary>
+        /// <para>
+        /// <para>Specify a new category for an OpsItem.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Category { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -147,6 +157,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.Model.RelatedOpsItem[] RelatedOpsItem { get; set; }
         #endregion
         
+        #region Parameter Severity
+        /// <summary>
+        /// <para>
+        /// <para>Specify a new severity for an OpsItem.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Severity { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -230,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.OpsItemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Category = this.Category;
             context.Description = this.Description;
             if (this.Notification != null)
             {
@@ -259,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.RelatedOpsItem = new List<Amazon.SimpleSystemsManagement.Model.RelatedOpsItem>(this.RelatedOpsItem);
             }
+            context.Severity = this.Severity;
             context.Status = this.Status;
             context.Title = this.Title;
             
@@ -277,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.UpdateOpsItemRequest();
             
+            if (cmdletContext.Category != null)
+            {
+                request.Category = cmdletContext.Category;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -304,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.RelatedOpsItem != null)
             {
                 request.RelatedOpsItems = cmdletContext.RelatedOpsItem;
+            }
+            if (cmdletContext.Severity != null)
+            {
+                request.Severity = cmdletContext.Severity;
             }
             if (cmdletContext.Status != null)
             {
@@ -374,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Category { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.OpsItemNotification> Notification { get; set; }
             public Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.OpsItemDataValue> OperationalData { get; set; }
@@ -381,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String OpsItemId { get; set; }
             public System.Int32? Priority { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.RelatedOpsItem> RelatedOpsItem { get; set; }
+            public System.String Severity { get; set; }
             public Amazon.SimpleSystemsManagement.OpsItemStatus Status { get; set; }
             public System.String Title { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.UpdateOpsItemResponse, UpdateSSMOpsItemCmdlet, object> Select { get; set; } =

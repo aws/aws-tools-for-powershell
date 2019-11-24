@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter CommitSpecifier
         /// <summary>
         /// <para>
-        /// <para>The fully-quaified reference that identifies the commit that contains the file. For
-        /// example, you could specify a full commit ID, a tag, a branch name, or a reference
-        /// such as refs/heads/master. If none is provided, then the head commit will be used.</para>
+        /// <para>The fully quaified reference that identifies the commit that contains the file. For
+        /// example, you can specify a full commit ID, a tag, a branch name, or a reference such
+        /// as refs/heads/master. If none is provided, the head commit is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter FilePath
         /// <summary>
         /// <para>
-        /// <para>The fully-qualified path to the file, including the full name and extension of the
-        /// file. For example, /examples/file.md is the fully-qualified path to a file named file.md
+        /// <para>The fully qualified path to the file, including the full name and extension of the
+        /// file. For example, /examples/file.md is the fully qualified path to a file named file.md
         /// in a folder named examples.</para>
         /// </para>
         /// </summary>

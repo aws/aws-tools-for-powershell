@@ -46,14 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>Optional aggregators that return counts of OpsItems based on one or more expressions.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Aggregators")]
         public Amazon.SimpleSystemsManagement.Model.OpsAggregator[] Aggregator { get; set; }
         #endregion
@@ -67,6 +60,27 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters")]
         public Amazon.SimpleSystemsManagement.Model.OpsFilter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter ResultAttribute
+        /// <summary>
+        /// <para>
+        /// <para>The OpsItem data type to return.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResultAttributes")]
+        public Amazon.SimpleSystemsManagement.Model.OpsResultAttribute[] ResultAttribute { get; set; }
+        #endregion
+        
+        #region Parameter SyncName
+        /// <summary>
+        /// <para>
+        /// <para>Specify the name of a resource data sync to get.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SyncName { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -160,12 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.Aggregator = new List<Amazon.SimpleSystemsManagement.Model.OpsAggregator>(this.Aggregator);
             }
-            #if MODULAR
-            if (this.Aggregator == null && ParameterWasBound(nameof(this.Aggregator)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Aggregator which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.SimpleSystemsManagement.Model.OpsFilter>(this.Filter);
@@ -191,6 +199,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             #endif
             context.NextToken = this.NextToken;
+            if (this.ResultAttribute != null)
+            {
+                context.ResultAttribute = new List<Amazon.SimpleSystemsManagement.Model.OpsResultAttribute>(this.ResultAttribute);
+            }
+            context.SyncName = this.SyncName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -223,6 +236,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ResultAttribute != null)
+            {
+                request.ResultAttributes = cmdletContext.ResultAttribute;
+            }
+            if (cmdletContext.SyncName != null)
+            {
+                request.SyncName = cmdletContext.SyncName;
             }
             
             // Initialize loop variant and commence piping
@@ -286,6 +307,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.ResultAttribute != null)
+            {
+                request.ResultAttributes = cmdletContext.ResultAttribute;
+            }
+            if (cmdletContext.SyncName != null)
+            {
+                request.SyncName = cmdletContext.SyncName;
             }
             
             // Initialize loop variants and commence piping
@@ -414,6 +443,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<Amazon.SimpleSystemsManagement.Model.OpsFilter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.OpsResultAttribute> ResultAttribute { get; set; }
+            public System.String SyncName { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.GetOpsSummaryResponse, GetSSMOpsSummaryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Entities;
         }

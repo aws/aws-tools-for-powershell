@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Disable-SGGateway', 
         'Dismount-SGVolume', 
         'Enable-SGGateway', 
+        'Get-SGAvailabilityMonitorTest', 
         'Get-SGBandwidthRateLimit', 
         'Get-SGCache', 
         'Get-SGCachediSCSIVolume', 
@@ -145,6 +146,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Send-SGUploadedNotification', 
         'Set-SGLocalConsolePassword', 
         'Set-SGSMBGuestPassword', 
+        'Start-SGAvailabilityMonitorTest', 
         'Start-SGGateway', 
         'Stop-SGArchival', 
         'Stop-SGGateway', 
@@ -188,7 +190,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

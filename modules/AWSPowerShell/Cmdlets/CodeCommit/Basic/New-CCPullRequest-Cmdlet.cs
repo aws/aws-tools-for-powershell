@@ -43,11 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique, client-generated idempotency token that when provided in a request, ensures
+        /// <para>A unique, client-generated idempotency token that, when provided in a request, ensures
         /// the request cannot be repeated with a changed parameter. If a request is received
-        /// with the same parameters and a token is included, the request will return information
-        /// about the initial request that used that token.</para><note><para>The AWS SDKs prepopulate client request tokens. If using an AWS SDK, you do not have
-        /// to generate an idempotency token, as this will be done for you.</para></note>
+        /// with the same parameters and a token is included, the request returns information
+        /// about the initial request that used that token.</para><note><para>The AWS SDKs prepopulate client request tokens. If you are using an AWS SDK, an idempotency
+        /// token is created for you.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The targets for the pull request, including the source of the code to be reviewed
-        /// (the source branch), and the destination where the creator of the pull request intends
+        /// (the source branch) and the destination where the creator of the pull request intends
         /// the code to be merged after the pull request is closed (the destination branch).</para>
         /// </para>
         /// </summary>
@@ -87,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter Title
         /// <summary>
         /// <para>
-        /// <para>The title of the pull request. This title will be used to identify the pull request
-        /// to other users in the repository.</para>
+        /// <para>The title of the pull request. This title is used to identify the pull request to
+        /// other users in the repository.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

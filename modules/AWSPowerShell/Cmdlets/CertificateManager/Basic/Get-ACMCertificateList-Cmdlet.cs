@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// <summary>
     /// Retrieves a list of certificate ARNs and domain names. You can request that only certificates
     /// that match a specific status be listed. You can also filter by specific attributes
-    /// of the certificate.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// of the certificate. Default filtering returns only <code>RSA_2048</code> certificates.
+    /// For more information, see <a>Filters</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ACMCertificateList")]
     [OutputType("Amazon.CertificateManager.Model.CertificateSummary")]
@@ -66,7 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter Includes_KeyType
         /// <summary>
         /// <para>
-        /// <para>Specify one or more algorithms that can be used to generate key pairs.</para>
+        /// <para>Specify one or more algorithms that can be used to generate key pairs.</para><para>Default filtering returns only <code>RSA_2048</code> certificates. To return other
+        /// certificate types, provide the desired type signatures in a comma-separated list.
+        /// For example, <code>"keyTypes": ["RSA_2048,RSA_4096"]</code> returns both <code>RSA_2048</code>
+        /// and <code>RSA_4096</code> certificates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

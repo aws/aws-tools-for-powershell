@@ -185,6 +185,9 @@
     <Reference Include="AWSSDK.CodeStar">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.CodeStar.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CodeStarNotifications">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.CodeStarNotifications.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
@@ -206,6 +209,9 @@
     <Reference Include="AWSSDK.Connect">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Connect.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ConnectParticipant">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ConnectParticipant.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Core">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Core.dll</HintPath>
     </Reference>
@@ -217,6 +223,9 @@
     </Reference>
     <Reference Include="AWSSDK.DatabaseMigrationService">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.DatabaseMigrationService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DataExchange">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.DataExchange.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DataPipeline">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.DataPipeline.dll</HintPath>
@@ -392,6 +401,9 @@
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ManagedBlockchain.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MarketplaceCatalog">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.MarketplaceCatalog.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.MarketplaceEntitlementService.dll</HintPath>
     </Reference>
@@ -421,6 +433,9 @@
     </Reference>
     <Reference Include="AWSSDK.MigrationHub">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.MigrationHub.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MigrationHubConfig">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.MigrationHubConfig.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Mobile">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Mobile.dll</HintPath>
@@ -521,6 +536,9 @@
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.SageMakerRuntime.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SavingsPlans">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.SavingsPlans.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SecretsManager">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
@@ -551,6 +569,9 @@
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SimpleEmailV2">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.SimpleEmailV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.SimpleNotificationService.dll</HintPath>
     </Reference>
@@ -565,6 +586,12 @@
     </Reference>
     <Reference Include="AWSSDK.SQS">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.SQS.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SSO">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.SSO.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SSOOIDC">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.SSOOIDC.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StepFunctions">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.StepFunctions.dll</HintPath>
@@ -736,6 +763,9 @@
     <Reference Include="AWSSDK.CodeStar">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.CodeStar.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CodeStarNotifications">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.CodeStarNotifications.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.CognitoIdentity.dll</HintPath>
     </Reference>
@@ -757,6 +787,9 @@
     <Reference Include="AWSSDK.Connect">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Connect.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ConnectParticipant">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ConnectParticipant.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Core">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Core.dll</HintPath>
     </Reference>
@@ -768,6 +801,9 @@
     </Reference>
     <Reference Include="AWSSDK.DatabaseMigrationService">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.DatabaseMigrationService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DataExchange">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.DataExchange.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DataPipeline">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.DataPipeline.dll</HintPath>
@@ -943,6 +979,9 @@
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ManagedBlockchain.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MarketplaceCatalog">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.MarketplaceCatalog.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.MarketplaceEntitlementService.dll</HintPath>
     </Reference>
@@ -972,6 +1011,9 @@
     </Reference>
     <Reference Include="AWSSDK.MigrationHub">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.MigrationHub.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MigrationHubConfig">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.MigrationHubConfig.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Mobile">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Mobile.dll</HintPath>
@@ -1072,6 +1114,9 @@
     <Reference Include="AWSSDK.SageMakerRuntime">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.SageMakerRuntime.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SavingsPlans">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.SavingsPlans.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SecretsManager">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.SecretsManager.dll</HintPath>
     </Reference>
@@ -1102,6 +1147,9 @@
     <Reference Include="AWSSDK.SimpleEmail">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SimpleEmailV2">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.SimpleEmailV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.SimpleNotificationService.dll</HintPath>
     </Reference>
@@ -1116,6 +1164,12 @@
     </Reference>
     <Reference Include="AWSSDK.SQS">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.SQS.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SSO">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.SSO.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SSOOIDC">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.SSOOIDC.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StepFunctions">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.StepFunctions.dll</HintPath>

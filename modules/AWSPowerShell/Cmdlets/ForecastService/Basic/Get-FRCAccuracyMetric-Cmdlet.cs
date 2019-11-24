@@ -30,20 +30,25 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// <summary>
     /// Provides metrics on the accuracy of the models that were trained by the <a>CreatePredictor</a>
     /// operation. Use metrics to see how well the model performed and to decide whether to
-    /// use the predictor to generate a forecast.
+    /// use the predictor to generate a forecast. For more information, see <a>metrics</a>.
     /// 
     ///  
     /// <para>
-    /// Metrics are generated for each backtest window evaluated. For more information, see
-    /// <a>EvaluationParameters</a>.
+    /// This operation generates metrics for each backtest window that was evaluated. The
+    /// number of backtest windows (<code>NumberOfBacktestWindows</code>) is specified using
+    /// the <a>EvaluationParameters</a> object, which is optionally included in the <code>CreatePredictor</code>
+    /// request. If <code>NumberOfBacktestWindows</code> isn't specified, the number defaults
+    /// to one.
     /// </para><para>
     /// The parameters of the <code>filling</code> method determine which items contribute
-    /// to the metrics. If <code>zero</code> is specified, all items contribute. If <code>nan</code>
-    /// is specified, only those items that have complete data in the range being evaluated
-    /// contribute. For more information, see <a>FeaturizationMethod</a>.
-    /// </para><para>
-    /// For an example of how to train a model and review metrics, see <a>getting-started</a>.
-    /// </para>
+    /// to the metrics. If you want all items to contribute, specify <code>zero</code>. If
+    /// you want only those items that have complete data in the range being evaluated to
+    /// contribute, specify <code>nan</code>. For more information, see <a>FeaturizationMethod</a>.
+    /// </para><note><para>
+    /// Before you can get accuracy metrics, the <code>Status</code> of the predictor must
+    /// be <code>ACTIVE</code>, signifying that training has completed. To get the status,
+    /// use the <a>DescribePredictor</a> operation.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "FRCAccuracyMetric")]
     [OutputType("Amazon.ForecastService.Model.EvaluationResult")]

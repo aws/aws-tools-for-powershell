@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is enabled for hibernation. </para></li><li><para><code>host-id</code> - The ID of the Dedicated Host on which the instance is running,
         /// if applicable.</para></li><li><para><code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> |
         /// <code>xen</code>).</para></li><li><para><code>iam-instance-profile.arn</code> - The instance profile associated with the
-        /// instance. Specified as an ARN.</para></li><li><para><code>image-id</code> - The ID of the image used to launch the instance.</para></li><li><para><code>instance-id</code> - The ID of the instance.</para></li><li><para><code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or a
+        /// instance. Specified as an ARN. <code>image-id</code> - The ID of the image used to
+        /// launch the instance.</para></li><li><para><code>instance-id</code> - The ID of the instance.</para></li><li><para><code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or a
         /// Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</para></li><li><para><code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned
         /// integer. The high byte is used for internal purposes and should be ignored. The low
         /// byte is set based on the state represented. The valid values are: 0 (pending), 16
@@ -82,7 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>running</code> | <code>shutting-down</code> | <code>terminated</code> | <code>stopping</code>
         /// | <code>stopped</code>).</para></li><li><para><code>instance-type</code> - The type of instance (for example, <code>t2.micro</code>).</para></li><li><para><code>instance.group-id</code> - The ID of the security group for the instance. </para></li><li><para><code>instance.group-name</code> - The name of the security group for the instance.
         /// </para></li><li><para><code>ip-address</code> - The public IPv4 address of the instance.</para></li><li><para><code>kernel-id</code> - The kernel ID.</para></li><li><para><code>key-name</code> - The name of the key pair used when the instance was launched.</para></li><li><para><code>launch-index</code> - When launching multiple instances, this is the index
-        /// for the instance in the launch group (for example, 0, 1, 2, and so on). </para></li><li><para><code>launch-time</code> - The time when the instance was launched.</para></li><li><para><code>monitoring-state</code> - Indicates whether detailed monitoring is enabled
+        /// for the instance in the launch group (for example, 0, 1, 2, and so on). </para></li><li><para><code>launch-time</code> - The time when the instance was launched.</para></li><li><para><code>metadata-http-tokens</code> - The metadata request authorization state (<code>optional</code>
+        /// | <code>required</code>)</para></li><li><para><code>metadata-http-put-response-hop-limit</code> - The http metadata request put
+        /// response hop limit (integer, possible values <code>1</code> to <code>64</code>)</para></li><li><para><code>metadata-http-endpoint</code> - Enable or disable metadata access on http endpoint
+        /// (<code>enabled</code> | <code>disabled</code>)</para></li><li><para><code>monitoring-state</code> - Indicates whether detailed monitoring is enabled
         /// (<code>disabled</code> | <code>enabled</code>).</para></li><li><para><code>network-interface.addresses.private-ip-address</code> - The private IPv4 address
         /// associated with the network interface.</para></li><li><para><code>network-interface.addresses.primary</code> - Specifies whether the IPv4 address
         /// of the network interface is the primary private IPv4 address.</para></li><li><para><code>network-interface.addresses.association.public-ip</code> - The ID of the association

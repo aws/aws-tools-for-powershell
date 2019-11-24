@@ -38,28 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// Management (IAM) role that Amazon Forecast can assume to access the data. For more
     /// information, see <a>aws-forecast-iam-roles</a>.
     /// </para><para>
-    /// Two properties of the training data are optionally specified:
-    /// </para><ul><li><para>
-    /// The delimiter that separates the data fields.
+    /// The training data must be in CSV format. The delimiter must be a comma (,).
     /// </para><para>
-    /// The default delimiter is a comma (,), which is the only supported delimiter in this
-    /// release.
-    /// </para></li><li><para>
-    /// The format of timestamps.
+    /// You can specify the path to a specific CSV file, the S3 bucket, or to a folder in
+    /// the S3 bucket. For the latter two cases, Amazon Forecast imports all files up to the
+    /// limit of 10,000 files.
     /// </para><para>
-    /// If the format is not specified, Amazon Forecast expects the format to be "yyyy-MM-dd
-    /// HH:mm:ss".
-    /// </para></li></ul><para>
-    /// When Amazon Forecast uploads your training data, it verifies that the data was collected
-    /// at the <code>DataFrequency</code> specified when the target dataset was created. For
-    /// more information, see <a>CreateDataset</a> and <a>howitworks-datasets-groups</a>.
-    /// Amazon Forecast also verifies the delimiter and timestamp format.
-    /// </para><para>
-    /// You can use the <a>ListDatasetImportJobs</a> operation to get a list of all your dataset
-    /// import jobs, filtered by specified criteria.
-    /// </para><para>
-    /// To get a list of all your dataset import jobs, filtered by the specified criteria,
-    /// use the <a>ListDatasetGroups</a> operation.
+    /// To get a list of all your dataset import jobs, filtered by specified criteria, use
+    /// the <a>ListDatasetImportJobs</a> operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "FRCDatasetImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -93,9 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter DatasetImportJobName
         /// <summary>
         /// <para>
-        /// <para>The name for the dataset import job. It is recommended to include the current timestamp
-        /// in the name to guard against getting a <code>ResourceAlreadyExistsException</code>
-        /// exception, for example, <code>20190721DatasetImport</code>.</para>
+        /// <para>The name for the dataset import job. We recommend including the current timestamp
+        /// in the name, for example, <code>20190721DatasetImport</code>. This can help you avoid
+        /// getting a <code>ResourceAlreadyExistsException</code> exception.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,8 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast
-        /// can assume to access the Amazon S3 bucket or file(s).</para><para>Cross-account pass role is not allowed. If you pass a role that doesn't belong to
-        /// your account, an <code>InvalidInputException</code> is thrown.</para>
+        /// can assume to access the Amazon S3 bucket or files. If you provide a value for the
+        /// <code>KMSKeyArn</code> key, the role must allow access to the key.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
+        /// your account, you get an <code>InvalidInputException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -162,9 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter TimestampFormat
         /// <summary>
         /// <para>
-        /// <para>The format of timestamps in the dataset. Two formats are supported, dependent on the
-        /// <code>DataFrequency</code> specified when the dataset was created.</para><ul><li><para>"yyyy-MM-dd"</para><para>For data frequencies: Y, M, W, and D</para></li><li><para>"yyyy-MM-dd HH:mm:ss"</para><para>For data frequencies: H, 30min, 15min, and 1min; and optionally, for: Y, M, W, and
-        /// D</para></li></ul>
+        /// <para>The format of timestamps in the dataset. The format that you specify depends on the
+        /// <code>DataFrequency</code> specified when the dataset was created. The following formats
+        /// are supported</para><ul><li><para>"yyyy-MM-dd"</para><para>For the following data frequencies: Y, M, W, and D</para></li><li><para>"yyyy-MM-dd HH:mm:ss"</para><para>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for:
+        /// Y, M, W, and D</para></li></ul><para>If the format isn't specified, Amazon Forecast expects the format to be "yyyy-MM-dd
+        /// HH:mm:ss".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,15 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// and Access Management (IAM) identity or role specified in the request. 
     /// 
     ///  
-    /// <para>
-    /// The permission resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>&lt;user-name&gt;</i></code>.
-    /// </para><para>
-    /// The condition resource is the Amazon Resource Name (ARN) for the IAM user or role,
-    /// and the session name. 
-    /// </para><para>
-    /// The condition keys are <code>quicksight:IamArn</code> and <code>quicksight:SessionName</code>.
-    /// 
-    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight register-user -\-aws-account-id=111122223333 -\-namespace=default
+    /// <para><b>CLI Sample:</b></para><para><code>aws quicksight register-user -\-aws-account-id=111122223333 -\-namespace=default
     /// -\-email=pat@example.com -\-identity-type=IAM -\-user-role=AUTHOR -\-iam-arn=arn:aws:iam::111122223333:user/Pat
     /// </code></para>
     /// </summary>
@@ -141,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// IAM role. You don't need to provide the session name for other scenarios, for example
         /// when you are registering an IAM user or an Amazon QuickSight user. You can register
         /// multiple users using the same IAM role if each user has a different session name.
-        /// For more information on assuming IAM roles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html"><code>assume-role</code></a> in the <i>AWS CLI Reference.</i></para>
+        /// For more information on assuming IAM roles, see <a href="https://docs.aws.example.com/cli/latest/reference/sts/assume-role.html"><code>assume-role</code></a> in the <i>AWS CLI Reference.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,9 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserRole
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight role of the user. The user role can be one of the following:</para><ul><li><para><code>READER</code>: A user who has read-only access to dashboards.</para></li><li><para><code>AUTHOR</code>: A user who can create data sources, data sets, analyses, and
+        /// <para>The Amazon QuickSight role for the user. The user role can be one of the following:</para><ul><li><para><code>READER</code>: A user who has read-only access to dashboards.</para></li><li><para><code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
         /// dashboards.</para></li><li><para><code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
-        /// settings.</para></li></ul>
+        /// settings.</para></li><li><para><code>RESTRICTED_READER</code>: This role isn't currently available for use.</para></li><li><para><code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

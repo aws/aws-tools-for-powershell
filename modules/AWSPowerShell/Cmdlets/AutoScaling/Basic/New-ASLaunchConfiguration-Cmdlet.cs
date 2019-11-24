@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more
         /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
-        /// EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>This parameter can only be used if you are launching EC2-Classic instances. </para>
+        /// EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>This parameter can only be used if you are launching EC2-Classic instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
         /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
         /// EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>If you specify the <code>ClassicLinkVPCId</code> parameter, you must specify this
-        /// parameter. </para>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// optimization is not available with all instance types. Additional fees are incurred
         /// when you enable EBS optimization for an instance type that is not EBS-optimized by
         /// default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon
-        /// EBS-Optimized Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>The default value is <code>false</code>. </para>
+        /// EBS-Optimized Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The name or the Amazon Resource Name (ARN) of the instance profile associated with
-        /// the IAM role for the instance. The instance profile contains the IAM role. </para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">IAM
+        /// the IAM role for the instance. The instance profile contains the IAM role.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">IAM
         /// Role for Applications That Run on Amazon EC2 Instances</a> in the <i>Amazon EC2 Auto
         /// Scaling User Guide</i>.</para>
         /// </para>
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// tenancy attribute set to <code>default</code>), you must set the value of this parameter
         /// to <code>dedicated</code>.</para><para>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet
         /// for <code>VPCZoneIdentifier</code> when you create your group.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-vpc-tenancy">Instance
-        /// Placement Tenancy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
+        /// Placement Tenancy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Valid Values: <code>default</code> | <code>dedicated</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -272,13 +272,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
         /// request. Spot Instances are launched when the price you specify exceeds the current
-        /// Spot market price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching
+        /// Spot price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching
         /// Spot Instances in Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
-        /// Guide</i>.</para><para>If a Spot price is set, then the Auto Scaling group will only launch instances when
-        /// the Spot price has been met, regardless of the setting in the Auto Scaling group's
-        /// <code>DesiredCapacity</code>. </para><note><para>When you change your Spot price by creating a new launch configuration, running instances
-        /// will continue to run as long as the Spot price for those running instances is higher
-        /// than the current Spot market price. </para></note>
+        /// Guide</i>.</para><note><para>When you change your maximum price by creating a new launch configuration, running
+        /// instances will continue to run as long as the maximum price for those running instances
+        /// is higher than the current Spot price.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

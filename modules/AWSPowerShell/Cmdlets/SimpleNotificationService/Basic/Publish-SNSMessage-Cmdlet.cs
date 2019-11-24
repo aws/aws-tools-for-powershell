@@ -62,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Message
         /// <summary>
         /// <para>
-        /// <para>The message you want to send.</para><important><para>The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code>
-        /// to <code>json</code>, you must string-encode the <code>Message</code> parameter.</para></important><para>If you are publishing to a topic and you want to send the same message to all transport
+        /// <para>The message you want to send.</para><para>If you are publishing to a topic and you want to send the same message to all transport
         /// protocols, include the text of the message as a String value. If you want to send
         /// different messages for each transport protocol, set the value of the <code>MessageStructure</code>
         /// parameter to <code>json</code> and use a JSON object for the <code>Message</code>
@@ -109,10 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// message to your SMS subscribers and a longer message to your email subscribers. If
         /// you set <code>MessageStructure</code> to <code>json</code>, the value of the <code>Message</code>
         /// parameter must: </para><ul><li><para>be a syntactically valid JSON object; and</para></li><li><para>contain at least a top-level JSON key of "default" with a value that is a string.</para></li></ul><para>You can define other top-level keys that define the message you want to send to a
-        /// specific transport protocol (e.g., "http").</para><para>For information about sending different messages for each protocol using the AWS Management
-        /// Console, go to <a href="https://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol">Create
-        /// Different Messages for Each Protocol</a> in the <i>Amazon Simple Notification Service
-        /// Getting Started Guide</i>. </para><para>Valid value: <code>json</code></para>
+        /// specific transport protocol (e.g., "http").</para><para>Valid value: <code>json</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

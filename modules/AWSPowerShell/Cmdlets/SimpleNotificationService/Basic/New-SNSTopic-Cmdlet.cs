@@ -81,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The list of tags to add to a new topic.</para>
+        /// <para>The list of tags to add to a new topic.</para><note><para>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code>
+        /// and <code>sns:TagResource</code> permissions.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

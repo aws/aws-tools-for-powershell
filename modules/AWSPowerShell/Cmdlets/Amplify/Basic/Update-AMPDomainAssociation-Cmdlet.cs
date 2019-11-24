@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnableAutoSubDomain
         /// <summary>
         /// <para>
-        /// <para> Enables automated creation of Subdomains for branches. </para>
+        /// <para> Enables automated creation of Subdomains for branches. (Currently not supported)
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

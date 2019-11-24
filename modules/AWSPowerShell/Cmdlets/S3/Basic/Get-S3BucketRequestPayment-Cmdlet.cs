@@ -28,7 +28,14 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns the request payment configuration of a bucket.
+    /// Returns the request payment configuration of a bucket. To use this version of the
+    /// operation, you must be the bucket owner. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester
+    /// Pays Buckets</a>.
+    /// 
+    ///  
+    /// <para>
+    /// The following operations are related to <code>GetBucketRequestPayment</code>:
+    /// </para><ul><li><para><a>ListObjects</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketRequestPayment")]
     [OutputType("System.String")]

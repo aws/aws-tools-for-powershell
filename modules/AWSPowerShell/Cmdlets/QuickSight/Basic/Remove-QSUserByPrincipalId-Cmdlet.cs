@@ -31,10 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// Deletes a user identified by its principal ID. 
     /// 
     ///  
-    /// <para>
-    /// The permission resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>&lt;user-name&gt;
-    /// </i></code>.
-    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight delete-user-by-principal-id --aws-account-id=111122223333 --namespace=default
+    /// <para><b>CLI Sample:</b></para><para><code>aws quicksight delete-user-by-principal-id --aws-account-id=111122223333 --namespace=default
     /// --principal-id=ABCDEFJA26JLI7EUUOEHS </code></para>
     /// </summary>
     [Cmdlet("Remove", "QSUserByPrincipalId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

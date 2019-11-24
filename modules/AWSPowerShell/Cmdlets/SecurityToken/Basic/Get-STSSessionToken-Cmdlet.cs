@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// the AWS STS API operations</a> in the <i>IAM User Guide</i>.
     /// 
     ///  
-    /// <para>
+    /// <para><b>Session Duration</b></para><para>
     /// The <code>GetSessionToken</code> operation must be called by using the long-term AWS
     /// security credentials of the AWS account root user or an IAM user. Credentials that
     /// are created by IAM users are valid for the duration that you specify. This duration
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// with a default of 43,200 seconds (12 hours). Credentials based on account credentials
     /// can range from 900 seconds (15 minutes) up to 3,600 seconds (1 hour), with a default
     /// of 1 hour. 
-    /// </para><para>
+    /// </para><para><b>Permissions</b></para><para>
     /// The temporary security credentials created by <code>GetSessionToken</code> can be
     /// used to make API calls to any AWS service with the following exceptions:
     /// </para><ul><li><para>

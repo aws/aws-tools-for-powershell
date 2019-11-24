@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
     /// Deletes a specified file from a specified branch. A commit is created on the branch
-    /// that contains the revision. The file will still exist in the commits prior to the
-    /// commit that contains the deletion.
+    /// that contains the revision. The file still exists in the commits earlier to the commit
+    /// that contains the deletion.
     /// </summary>
     [Cmdlet("Remove", "CCFile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CodeCommit.Model.DeleteFileResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para>The name of the branch where the commit will be made deleting the file.</para>
+        /// <para>The name of the branch where the commit that deletes the file is made.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The commit message you want to include as part of deleting the file. Commit messages
-        /// are limited to 256 KB. If no message is specified, a default message will be used.</para>
+        /// are limited to 256 KB. If no message is specified, a default message is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The email address for the commit that deletes the file. If no email address is specified,
-        /// the email address will be left blank.</para>
+        /// the email address is left blank.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter FilePath
         /// <summary>
         /// <para>
-        /// <para>The fully-qualified path to the file that will be deleted, including the full name
-        /// and extension of that file. For example, /examples/file.md is a fully qualified path
-        /// to a file named file.md in a folder named examples.</para>
+        /// <para>The fully qualified path to the file that to be deleted, including the full name and
+        /// extension of that file. For example, /examples/file.md is a fully qualified path to
+        /// a file named file.md in a folder named examples.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,12 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter KeepEmptyFolder
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to delete the folder or directory that contains the file you want
-        /// to delete if that file is the only object in the folder or directory. By default,
-        /// empty folders will be deleted. This includes empty folders that are part of the directory
-        /// structure. For example, if the path to a file is dir1/dir2/dir3/dir4, and dir2 and
-        /// dir3 are empty, deleting the last file in dir4 will also delete the empty folders
-        /// dir4, dir3, and dir2.</para>
+        /// <para>If a file is the only object in the folder or directory, specifies whether to delete
+        /// the folder or directory that contains the file. By default, empty folders are deleted.
+        /// This includes empty folders that are part of the directory structure. For example,
+        /// if the path to a file is dir1/dir2/dir3/dir4, and dir2 and dir3 are empty, deleting
+        /// the last file in dir4 also deletes the empty folders dir4, dir3, and dir2.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The name of the author of the commit that deletes the file. If no name is specified,
-        /// the user's ARN will be used as the author name and committer name.</para>
+        /// the user's ARN is used as the author name and committer name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -130,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The ID of the commit that is the tip of the branch where you want to create the commit
-        /// that will delete the file. This must be the HEAD commit for the branch. The commit
-        /// that deletes the file will be created from this commit ID.</para>
+        /// that deletes the file. This must be the HEAD commit for the branch. The commit that
+        /// deletes the file is created from this commit ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

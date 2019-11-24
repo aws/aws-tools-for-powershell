@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Deletes the tags from the bucket.
+    /// 
+    ///  
+    /// <para>
+    /// To use this operation, you must have permission to perform the <code>s3:PutBucketTagging</code>
+    /// action. By default, the bucket owner has this permission and can grant this permission
+    /// to others. 
+    /// </para><para>
+    /// The following operations are related to <code>DeleteBucketTagging</code></para><ul><li><para><a>GetBucketTagging</a></para></li><li><para><a>PutBucketTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

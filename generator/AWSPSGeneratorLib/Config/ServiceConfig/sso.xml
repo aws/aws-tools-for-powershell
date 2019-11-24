@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sso</C2jFilename>
+    <AssemblyName>SSO</AssemblyName>
+    <ServiceNounPrefix>SSO</ServiceNounPrefix>
+    <ServiceName>AWS Single Sign-On</ServiceName>
+    <ServiceClientInterface>IAmazonSSO</ServiceClientInterface>
+    <ServiceClient>AmazonSSOClient</ServiceClient>
+    <ServiceModuleGuid>a7450d54-1f40-4592-a7d4-048ee06291b8</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetRoleCredentials" OutputProperty="RoleCredentials" Verb="Get" Noun="RoleCredential" PipelineParameter="RoleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountRoles" OutputProperty="RoleList" Verb="Get" Noun="AccountRoleList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccounts" OutputProperty="AccountList" Verb="Get" Noun="AccountList" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Logout" Verb="Close" Noun="Session" ShouldProcessTarget="AccessToken" PipelineParameter="AccessToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

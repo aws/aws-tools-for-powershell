@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
         /// target. For Application Load Balancers, the range is 5 to 300 seconds. For Network
-        /// Load Balancers, the supported values are 10 or 30 seconds.</para><para>If the protocol of the target group is TCP, you can't modify this setting.</para>
+        /// Load Balancers, the supported values are 10 or 30 seconds.</para><para>With Network Load Balancers, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>The protocol the load balancer uses when performing health checks on targets. The
         /// TCP protocol is supported for health checks only if the protocol of the target group
         /// is TCP, TLS, UDP, or TCP_UDP. The TLS, UDP, and TCP_UDP protocols are not supported
-        /// for health checks.</para><para>If the protocol of the target group is TCP, you can't modify this setting.</para>
+        /// for health checks.</para><para>With Network Load Balancers, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>[HTTP/HTTPS health checks] The amount of time, in seconds, during which no response
-        /// means a failed health check.</para><para>If the protocol of the target group is TCP, you can't modify this setting.</para>
+        /// means a failed health check.</para><para>With Network Load Balancers, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// you can filter the cases by date by setting values for the <code>afterTime</code>
     /// and <code>beforeTime</code> request parameters. You can set values for the <code>includeResolvedCases</code>
     /// and <code>includeCommunications</code> request parameters to control how much information
-    /// is returned. 
+    /// is returned.
     /// 
     ///  
     /// <para>
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </para><para>
     /// The response returns the following in JSON format:
     /// </para><ul><li><para>
-    /// One or more <a>CaseDetails</a> data types. 
+    /// One or more <a>CaseDetails</a> data types.
     /// </para></li><li><para>
     /// One or more <code>nextToken</code> values, which specify where to paginate the returned
     /// records represented by the <code>CaseDetails</code> objects.

@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Not all DB instance classes are available in all AWS Regions, or for all database
         /// engines. For the full list of DB instance classes, and availability for your engine,
         /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
-        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para><para>Importing from Amazon S3 is not supported on the db.t2.micro DB instance class. </para>
+        /// Instance Class</a> in the <i>Amazon RDS User Guide.</i></para><para>Importing from Amazon S3 isn't supported on the db.t2.micro DB instance class. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -456,9 +456,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the DB instance is publicly accessible. When the DB
         /// instance is publicly accessible, it is an Internet-facing instance with a publicly
-        /// resolvable DNS name, which resolves to a public IP address. When the DB instance is
-        /// not publicly accessible, it is an internal instance with a DNS name that resolves
-        /// to a private IP address. For more information, see <a>CreateDBInstance</a>.</para>
+        /// resolvable DNS name, which resolves to a public IP address. When the DB instance isn't
+        /// publicly accessible, it is an internal instance with a DNS name that resolves to a
+        /// private IP address. For more information, see <a>CreateDBInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Applies a Legal Hold configuration to the specified object.
+    /// Amazon.S3.IAmazonS3.PutObjectLegalHold
     /// </summary>
     [Cmdlet("Write", "S3ObjectLegalHold", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]

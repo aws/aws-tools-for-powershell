@@ -28,8 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon
-    /// S3 bucket.
+    /// Amazon.S3.IAmazonS3.PutPublicAccessBlock
     /// </summary>
     [Cmdlet("Add", "S3PublicAccessBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

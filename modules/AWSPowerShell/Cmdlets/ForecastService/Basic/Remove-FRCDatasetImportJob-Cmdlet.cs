@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Deletes a dataset import job created using the <a>CreateDatasetImportJob</a> operation.
-    /// To be deleted, the import job must have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
-    /// Use the <a>DescribeDatasetImportJob</a> operation to get the status.
+    /// You can delete only dataset import jobs that have a status of <code>ACTIVE</code>
+    /// or <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeDatasetImportJob</a>
+    /// operation.
     /// </summary>
     [Cmdlet("Remove", "FRCDatasetImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

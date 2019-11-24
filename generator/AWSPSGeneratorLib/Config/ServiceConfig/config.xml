@@ -46,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConformancePack" Verb="Remove" Noun="ConformancePack" ShouldProcessTarget="ConformancePackName" PipelineParameter="ConformancePackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDeliveryChannel" Verb="Remove" Noun="DeliveryChannel" ShouldProcessTarget="DeliveryChannelName" PipelineParameter="DeliveryChannelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -58,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOrganizationConformancePack" Verb="Remove" Noun="OrganizationConformancePack" ShouldProcessTarget="OrganizationConformancePackName" PipelineParameter="OrganizationConformancePackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePendingAggregationRequest" Verb="Remove" Noun="PendingAggregationRequest" ShouldProcessTarget="RequesterAccountId" PipelineParameter="RequesterAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -67,6 +75,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRemediationExceptions" OutputProperty="FailedBatches" Verb="Remove" Noun="RemediationException" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceConfig" Verb="Remove" Noun="ResourceConfig" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -118,6 +130,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConformancePackCompliance" OutputProperty="ConformancePackRuleComplianceList" Verb="Get" Noun="ConformancePackCompliance" PipelineParameter="ConformancePackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConformancePacks" OutputProperty="ConformancePackDetails" Verb="Get" Noun="ConformancePack" PipelineParameter="ConformancePackNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConformancePackStatus" OutputProperty="ConformancePackStatusDetails" Verb="Get" Noun="ConformancePackStatus" PipelineParameter="ConformancePackNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDeliveryChannels" OutputProperty="DeliveryChannels" Verb="Get" Noun="DeliveryChannel" PipelineParameter="DeliveryChannelNames" NoPipelineParameter="false" LegacyAlias="Get-CFGDeliveryChannels">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +155,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeOrganizationConfigRuleStatuses" OutputProperty="OrganizationConfigRuleStatuses" Verb="Get" Noun="OrganizationConfigRuleStatus" PipelineParameter="OrganizationConfigRuleNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrganizationConformancePacks" OutputProperty="OrganizationConformancePacks" Verb="Get" Noun="OrganizationConformancePack" PipelineParameter="OrganizationConformancePackNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrganizationConformancePackStatuses" OutputProperty="OrganizationConformancePackStatuses" Verb="Get" Noun="OrganizationConformancePackStatus" PipelineParameter="OrganizationConformancePackNames" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -186,11 +218,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetConformancePackComplianceDetails" OutputProperty="ConformancePackRuleEvaluationResults" Verb="Get" Noun="ConformancePackComplianceDetail" PipelineParameter="ConformancePackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConformancePackComplianceSummary" OutputProperty="ConformancePackComplianceSummaryList" Verb="Get" Noun="ConformancePackComplianceSummary" PipelineParameter="ConformancePackNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDiscoveredResourceCounts" OutputProperty="ResourceCounts" Verb="Get" Noun="DiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetOrganizationConfigRuleDetailedStatus" OutputProperty="OrganizationConfigRuleDetailedStatus" Verb="Get" Noun="OrganizationConfigRuleDetailedStatus" PipelineParameter="OrganizationConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOrganizationConformancePackDetailedStatus" OutputProperty="OrganizationConformancePackDetailedStatuses" Verb="Get" Noun="OrganizationConformancePackDetailedStatus" PipelineParameter="OrganizationConformancePackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -228,6 +272,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutConformancePack" OutputProperty="ConformancePackArn" Verb="Write" Noun="ConformancePack" ShouldProcessTarget="ConformancePackName" PipelineParameter="ConformancePackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutDeliveryChannel" Verb="Write" Noun="DeliveryChannel" ShouldProcessTarget="DeliveryChannel_Name" PipelineParameter="DeliveryChannel_Name" NoPipelineParameter="false">
             <Params>
                 <Param Name="DeliveryChannel_Name" NewName="DeliveryChannelName" Alias="DeliveryChannel_Name" />
@@ -242,11 +290,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutOrganizationConformancePack" OutputProperty="OrganizationConformancePackArn" Verb="Write" Noun="OrganizationConformancePack" ShouldProcessTarget="OrganizationConformancePackName" PipelineParameter="OrganizationConformancePackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutRemediationConfigurations" OutputProperty="FailedBatches" Verb="Write" Noun="RemediationConfiguration" ShouldProcessTarget="RemediationConfigurations" PipelineParameter="RemediationConfigurations" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRemediationExceptions" OutputProperty="FailedBatches" Verb="Write" Noun="RemediationException" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourceConfig" Verb="Write" Noun="ResourceConfig" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

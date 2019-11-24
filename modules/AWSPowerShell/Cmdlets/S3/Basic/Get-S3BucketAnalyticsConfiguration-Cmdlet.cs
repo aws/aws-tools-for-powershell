@@ -28,8 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Gets an analytics configuration for the bucket (specified by the analytics configuration
-    /// ID).
+    /// Amazon.S3.IAmazonS3.GetBucketAnalyticsConfiguration
     /// </summary>
     [Cmdlet("Get", "S3BucketAnalyticsConfiguration")]
     [OutputType("Amazon.S3.Model.AnalyticsConfiguration")]

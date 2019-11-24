@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated content of the description for the pull request. This content will replace
+        /// <para>The updated content of the description for the pull request. This content replaces
         /// the existing description.</para>
         /// </para>
         /// </summary>

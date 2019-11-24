@@ -28,7 +28,9 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Describes the specified user account.
+    /// Describes the specified user account. You can find the instance ID in the console
+    /// (it’s the final part of the ARN). The console does not display the user IDs. Instead,
+    /// list the users and note the IDs provided in the output.
     /// </summary>
     [Cmdlet("Get", "CONNUser")]
     [OutputType("Amazon.Connect.Model.User")]

@@ -107,6 +107,16 @@ $KINF_Completers = {
             break
         }
 
+        # Amazon.KinesisFirehose.KeyType
+        {
+            ($_ -eq "New-KINFDeliveryStream/DeliveryStreamEncryptionConfigurationInput_KeyType") -Or
+            ($_ -eq "Start-KINFDeliveryStreamEncryption/DeliveryStreamEncryptionConfigurationInput_KeyType")
+        }
+        {
+            $v = "AWS_OWNED_CMK","CUSTOMER_MANAGED_CMK"
+            break
+        }
+
 
     }
 
@@ -116,6 +126,7 @@ $KINF_Completers = {
 }
 
 $KINF_map = @{
+    "DeliveryStreamEncryptionConfigurationInput_KeyType"=@("New-KINFDeliveryStream","Start-KINFDeliveryStreamEncryption")
     "DeliveryStreamType"=@("Get-KINFDeliveryStreamList","New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")

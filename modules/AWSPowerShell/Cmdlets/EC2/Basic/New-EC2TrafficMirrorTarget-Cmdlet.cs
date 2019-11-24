@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// A Traffic Mirror target can be a network interface, or a Network Load Balancer.
     /// </para><para>
-    /// To use the target in a Traffic Mirror session, use <a>CreateTrafficMirrorSession</a>.
+    /// To use the target in a Traffic Mirror session, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2TrafficMirrorTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

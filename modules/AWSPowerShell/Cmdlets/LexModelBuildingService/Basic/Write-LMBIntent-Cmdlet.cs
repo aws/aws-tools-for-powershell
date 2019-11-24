@@ -115,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter CreateVersion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>When set to <code>true</code> a new numbered version of the intent is created. This
+        /// is the same as calling the <code>CreateIntentVersion</code> operation. If you do not
+        /// specify <code>createVersion</code>, the default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

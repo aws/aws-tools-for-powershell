@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Returns a list of forecasts created using the <a>CreateForecast</a> operation. For
-    /// each forecast, a summary of its properties, including its Amazon Resource Name (ARN),
-    /// is returned. You can retrieve the complete set of properties by using the ARN with
-    /// the <a>DescribeForecast</a> operation. The list can be filtered using an array of
-    /// <a>Filter</a> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// each forecast, this operation returns a summary of its properties, including its Amazon
+    /// Resource Name (ARN). To retrieve the complete set of properties, specify the ARN with
+    /// the <a>DescribeForecast</a> operation. You can filter the list using an array of <a>Filter</a>
+    /// objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FRCForecastList")]
     [OutputType("Amazon.ForecastService.Model.ForecastSummary")]
@@ -49,9 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>An array of filters. For each filter, you provide a condition and a match statement.
         /// The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether
-        /// to include or exclude, respectively, from the list, the predictors that match the
-        /// statement. The match statement consists of a key and a value. In this release, <code>Name</code>
-        /// is the only valid key, which filters on the <code>ForecastName</code> property.</para><ul><li><para><code>Condition</code> - <code>IS</code> or <code>IS_NOT</code></para></li><li><para><code>Key</code> - <code>Name</code></para></li><li><para><code>Value</code> - the value to match</para></li></ul><para>For example, to list all forecasts named <i>my_forecast</i>, you would specify:</para><para><code>"Filters": [ { "Condition": "IS", "Key": "Name", "Value": "my_forecast" } ]</code></para>
+        /// to include or exclude the forecasts that match the statement from the list, respectively.
+        /// The match statement consists of a key and a value.</para><para><b>Filter properties</b></para><ul><li><para><code>Condition</code> - The condition to apply. Valid values are <code>IS</code>
+        /// and <code>IS_NOT</code>. To include the forecasts that match the statement, specify
+        /// <code>IS</code>. To exclude matching forecasts, specify <code>IS_NOT</code>.</para></li><li><para><code>Key</code> - The name of the parameter to filter on. Valid values are <code>DatasetGroupArn</code>,
+        /// <code>PredictorArn</code>, and <code>Status</code>.</para></li><li><para><code>Value</code> - The value to match.</para></li></ul><para>For example, to list all forecasts whose status is not ACTIVE, you would specify:</para><para><code>"Filters": [ { "Condition": "IS_NOT", "Key": "Status", "Value": "ACTIVE" }
+        /// ]</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

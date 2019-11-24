@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>This parameter is not currently supported.</para>
+        /// <para>This parameter isn't currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified MaxRecords value, a pagination token called a marker is included in
-        /// the response so that you can retrieve the remaining results.</para>
+        /// the response so you can retrieve the remaining results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

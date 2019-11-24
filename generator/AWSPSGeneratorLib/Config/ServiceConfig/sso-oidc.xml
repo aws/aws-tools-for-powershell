@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sso-oidc</C2jFilename>
+    <AssemblyName>SSOOIDC</AssemblyName>
+    <ServiceNounPrefix>SSOOIDC</ServiceNounPrefix>
+    <ServiceName>AWS Single Sign-On OIDC</ServiceName>
+    <ServiceClientInterface>IAmazonSSOOIDC</ServiceClientInterface>
+    <ServiceClient>AmazonSSOOIDCClient</ServiceClient>
+    <ServiceModuleGuid>ad21d26b-a385-4b15-a72e-0e9ea39fa597</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateToken" OutputProperty="*" Verb="New" Noun="Token" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterClient" OutputProperty="*" Verb="Register" Noun="Client" ShouldProcessTarget="ClientName" PipelineParameter="ClientName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDeviceAuthorization" OutputProperty="*" Verb="Start" Noun="DeviceAuthorization" ShouldProcessTarget="ClientId" PipelineParameter="ClientId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

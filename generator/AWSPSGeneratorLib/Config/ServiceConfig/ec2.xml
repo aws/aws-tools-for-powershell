@@ -713,6 +713,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFastSnapshotRestores" OutputProperty="FastSnapshotRestores" Verb="Get" Noun="FastSnapshotRestore" PipelineParameter="Filters" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetHistory" OutputProperty="HistoryRecords" Verb="Get" Noun="FleetHistory" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
@@ -795,6 +799,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceStatus" OutputProperty="InstanceStatuses" Verb="Get" Noun="InstanceStatus" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceTypeOfferings" OutputProperty="InstanceTypeOfferings" Verb="Get" Noun="InstanceTypeOffering" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceType" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1096,6 +1108,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableFastSnapshotRestores" OutputProperty="*" Verb="Disable" Noun="FastSnapshotRestore" ShouldProcessTarget="SourceSnapshotIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableTransitGatewayRouteTablePropagation" OutputProperty="Propagation" Verb="Disable" Noun="TransitGatewayRouteTablePropagation" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1141,6 +1157,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableEbsEncryptionByDefault" OutputProperty="EbsEncryptionByDefault" Verb="Enable" Noun="EbsEncryptionByDefault" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableFastSnapshotRestores" OutputProperty="*" Verb="Enable" Noun="FastSnapshotRestore" ShouldProcessTarget="SourceSnapshotIds" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1317,6 +1337,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstanceEventStartTime" OutputProperty="Event" Verb="Edit" Noun="InstanceEventStartTime" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceMetadataOptions" OutputProperty="*" Verb="Edit" Noun="InstanceMetadataOption" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

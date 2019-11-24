@@ -87,7 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// For example: <code>/Dev/DBServer/MySQL/db-string13</code></para><para>Naming Constraints:</para><ul><li><para>Parameter names are case sensitive.</para></li><li><para>A parameter name must be unique within an AWS Region</para></li><li><para>A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).</para></li><li><para>Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code></para></li><li><para>A parameter name can't include spaces.</para></li><li><para>Parameter hierarchies are limited to a maximum depth of fifteen levels.</para></li></ul><para>For additional information about valid values for parameter names, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements
         /// and Constraints for Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.</para><note><para>The maximum length constraint listed below includes capacity for additional system
         /// attributes that are not part of the name. The maximum length for the fully qualified
-        /// parameter name is 1011 characters. </para></note>
+        /// parameter name is 1011 characters, including the full length of the parameter ARN.
+        /// For example, the following fully qualified parameter name is 65 characters, not 20
+        /// characters:</para><para><code>arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName</code></para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

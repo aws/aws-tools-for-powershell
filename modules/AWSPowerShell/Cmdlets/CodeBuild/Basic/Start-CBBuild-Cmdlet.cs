@@ -434,7 +434,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> Set to true to report to your source provider the status of a build's start and completion.
         /// If you use this option with a source provider other than GitHub, GitHub Enterprise,
-        /// or Bitbucket, an invalidInputException is thrown. </para>
+        /// or Bitbucket, an invalidInputException is thrown. </para><note><para> The status of a build triggered by a webhook is always reported to your source provider.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -589,7 +590,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project has build output generated through AWS
-        /// CodePipeline.</para></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon Simple Storage Service
+        /// CodePipeline. </para><note><para>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</para></note></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon Simple Storage Service
         /// (Amazon S3).</para></li></ul>
         /// </para>
         /// </summary>

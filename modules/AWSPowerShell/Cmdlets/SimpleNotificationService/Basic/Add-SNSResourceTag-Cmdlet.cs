@@ -44,13 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// A new tag with a key identical to that of an existing tag overwrites the existing
     /// tag.
     /// </para></li><li><para>
-    /// Tagging actions are limited to 10 TPS per AWS account. If your application requires
-    /// a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical
+    /// Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your application
+    /// requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical
     /// support request</a>.
-    /// </para></li></ul><para>
-    /// For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-limits.html#limits-topics">Limits
-    /// Related to Topics</a> in the <i>Amazon SNS Developer Guide</i>.
-    /// </para>
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Add", "SNSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

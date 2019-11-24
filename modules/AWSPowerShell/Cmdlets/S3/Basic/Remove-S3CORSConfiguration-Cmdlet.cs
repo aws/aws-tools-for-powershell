@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Deletes the CORS configuration information set for the bucket.
+    /// Amazon.S3.IAmazonS3.DeleteCORSConfiguration
     /// </summary>
     [Cmdlet("Remove", "S3CORSConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

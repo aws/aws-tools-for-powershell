@@ -28,7 +28,34 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns the lifecycle configuration information set on the bucket.
+    /// <note><para>
+    /// Bucket lifecycle configuration now supports specifying a lifecycle rule using an object
+    /// key name prefix, one or more object tags, or a combination of both. Accordingly, this
+    /// section describes the latest API. The response describes the new filter element that
+    /// you can use to specify a filter to select a subset of objects to which the rule applies.
+    /// If you are still using previous version of the lifecycle configuration, it works.
+    /// For the earlier API description, see <a>GetBucketLifecycle</a>.
+    /// </para></note><para>
+    /// Returns the lifecycle configuration information set on the bucket. For information
+    /// about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object
+    /// Lifecycle Management</a>.
+    /// </para><para>
+    /// To use this operation, you must have permission to perform the <code>s3:GetLifecycleConfiguration</code>
+    /// action. The bucket owner has this permission, by default. The bucket owner can grant
+    /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// </para><para><code>GetBucketLifecycleConfiguration</code> has the following special error:
+    /// </para><ul><li><para>
+    /// Error code: <code>NoSuchLifecycleConfiguration</code></para><ul><li><para>
+    /// Description: The lifecycle configuration does not exist.
+    /// </para></li><li><para>
+    /// HTTP Status Code: 404 Not Found
+    /// </para></li><li><para>
+    /// SOAP Fault Code Prefix: Client
+    /// </para></li></ul></li></ul><para>
+    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:
+    /// </para><ul><li><para><a>GetBucketLifecycle</a></para></li><li><para><a>PutBucketLifecycle</a></para></li><li><para><a>DeleteBucketLifecycle</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3LifecycleConfiguration")]
     [OutputType("Amazon.S3.Model.LifecycleConfiguration")]

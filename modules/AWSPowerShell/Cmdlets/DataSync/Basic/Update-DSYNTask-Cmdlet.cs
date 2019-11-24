@@ -84,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public Amazon.DataSync.Model.Options Option { get; set; }
         #endregion
         
+        #region Parameter Schedule_ScheduleExpression
+        /// <summary>
+        /// <para>
+        /// <para>A cron expression that specifies when AWS DataSync initiates a scheduled transfer
+        /// from a source to a destination location. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Schedule_ScheduleExpression { get; set; }
+        #endregion
+        
         #region Parameter TaskArn
         /// <summary>
         /// <para>
@@ -168,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             }
             context.Name = this.Name;
             context.Option = this.Option;
+            context.Schedule_ScheduleExpression = this.Schedule_ScheduleExpression;
             context.TaskArn = this.TaskArn;
             #if MODULAR
             if (this.TaskArn == null && ParameterWasBound(nameof(this.TaskArn)))
@@ -206,6 +218,25 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (cmdletContext.Option != null)
             {
                 request.Options = cmdletContext.Option;
+            }
+            
+             // populate Schedule
+            var requestScheduleIsNull = true;
+            request.Schedule = new Amazon.DataSync.Model.TaskSchedule();
+            System.String requestSchedule_schedule_ScheduleExpression = null;
+            if (cmdletContext.Schedule_ScheduleExpression != null)
+            {
+                requestSchedule_schedule_ScheduleExpression = cmdletContext.Schedule_ScheduleExpression;
+            }
+            if (requestSchedule_schedule_ScheduleExpression != null)
+            {
+                request.Schedule.ScheduleExpression = requestSchedule_schedule_ScheduleExpression;
+                requestScheduleIsNull = false;
+            }
+             // determine if request.Schedule should be set to null
+            if (requestScheduleIsNull)
+            {
+                request.Schedule = null;
             }
             if (cmdletContext.TaskArn != null)
             {
@@ -276,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public List<Amazon.DataSync.Model.FilterRule> Exclude { get; set; }
             public System.String Name { get; set; }
             public Amazon.DataSync.Model.Options Option { get; set; }
+            public System.String Schedule_ScheduleExpression { get; set; }
             public System.String TaskArn { get; set; }
             public System.Func<Amazon.DataSync.Model.UpdateTaskResponse, UpdateDSYNTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>connectparticipant</C2jFilename>
+    <AssemblyName>ConnectParticipant</AssemblyName>
+    <ServiceNounPrefix>CONNP</ServiceNounPrefix>
+    <ServiceName>Amazon Connect Participant Service</ServiceName>
+    <ServiceClientInterface>IAmazonConnectParticipant</ServiceClientInterface>
+    <ServiceClient>AmazonConnectParticipantClient</ServiceClient>
+    <ServiceModuleGuid>2bdd1b59-f7d7-4363-95aa-d23a68c0d092</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateParticipantConnection" OutputProperty="*" Verb="New" Noun="ParticipantConnection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ParticipantToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisconnectParticipant" Verb="Disconnect" Noun="Participant" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTranscript" OutputProperty="*" Verb="Get" Noun="Transcript" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendEvent" OutputProperty="*" Verb="Send" Noun="Event" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendMessage" OutputProperty="*" Verb="Send" Noun="Message" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Content" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

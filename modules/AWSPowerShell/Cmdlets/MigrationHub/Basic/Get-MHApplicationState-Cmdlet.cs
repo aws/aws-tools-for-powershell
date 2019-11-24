@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The configurationId in ADS that uniquely identifies the grouped application.</para>
+        /// <para>The configurationId in Application Discovery Service that uniquely identifies the
+        /// grouped application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

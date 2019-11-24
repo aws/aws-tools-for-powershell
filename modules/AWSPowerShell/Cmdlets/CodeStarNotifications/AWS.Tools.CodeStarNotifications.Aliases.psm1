@@ -1,0 +1,3 @@
+﻿# CodeStarNotifications
+
+Export-ModuleMember -Alias *

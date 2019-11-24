@@ -28,14 +28,19 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Modifies the specified properties of the specified listener.
+    /// Replaces the specified properties of the specified listener. Any properties that you
+    /// do not specify remain unchanged.
     /// 
     ///  
     /// <para>
-    /// Any properties that you do not specify retain their current values. However, changing
-    /// the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security policy and
-    /// default certificate properties. If you change the protocol from HTTP to HTTPS, or
-    /// from TCP to TLS, you must add the security policy and default certificate properties.
+    /// Changing the protocol from HTTPS to HTTP, or from TLS to TCP, removes the security
+    /// policy and default certificate properties. If you change the protocol from HTTP to
+    /// HTTPS, or from TCP to TLS, you must add the security policy and default certificate
+    /// properties.
+    /// </para><para>
+    /// To add an item to a list, remove an item from a list, or update an item in a list,
+    /// you must provide the entire list. For example, to add an action, specify a list with
+    /// the current actions plus the new action.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "ELB2Listener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,9 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The actions for the default rule. The rule must include one forward action or one
-        /// or more fixed-response actions.</para><para>If the action type is <code>forward</code>, you specify a target group. The protocol
-        /// of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol
-        /// of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</para><para>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate
+        /// or more fixed-response actions.</para><para>If the action type is <code>forward</code>, you specify one or more target groups.
+        /// The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer.
+        /// The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
+        /// Balancer.</para><para>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate
         /// users through an identity provider that is OpenID Connect (OIDC) compliant.</para><para>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate
         /// users through the user pools supported by Amazon Cognito.</para><para>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect
         /// specified client requests from one URL to another.</para><para>[Application Load Balancer] If the action type is <code>fixed-response</code>, you

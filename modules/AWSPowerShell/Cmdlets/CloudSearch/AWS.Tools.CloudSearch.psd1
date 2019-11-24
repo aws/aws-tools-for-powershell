@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CSAnalysisScheme', 
         'Get-CSAvailabilityOption', 
         'Get-CSDomain', 
+        'Get-CSDomainEndpointOption', 
         'Get-CSDomainNameList', 
         'Get-CSExpression', 
         'Get-CSIndexField', 
@@ -108,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-CSIndex', 
         'Start-CSSuggestersBuild', 
         'Update-CSAvailabilityOption', 
+        'Update-CSDomainEndpointOption', 
         'Update-CSScalingParameter', 
         'Update-CSServiceAccessPolicy')
 
@@ -138,7 +140,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

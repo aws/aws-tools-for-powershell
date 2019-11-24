@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ScheduledUpdateGroupAction
         /// <summary>
         /// <para>
-        /// <para>One or more scheduled actions. The maximum number allowed is 50. </para>
+        /// <para>One or more scheduled actions. The maximum number allowed is 50.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

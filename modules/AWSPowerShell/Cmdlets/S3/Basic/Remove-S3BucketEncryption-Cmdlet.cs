@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Deletes the server-side encryption configuration from the bucket.
+    /// Amazon.S3.IAmazonS3.DeleteBucketEncryption
     /// </summary>
     [Cmdlet("Remove", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

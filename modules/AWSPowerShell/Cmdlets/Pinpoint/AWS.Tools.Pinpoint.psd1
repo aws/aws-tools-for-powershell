@@ -114,6 +114,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PINGcmChannel', 
         'Get-PINImportJob', 
         'Get-PINImportJobList', 
+        'Get-PINJourney', 
+        'Get-PINJourneyDateRangeKpi', 
+        'Get-PINJourneyExecutionActivityMetric', 
+        'Get-PINJourneyExecutionMetric', 
+        'Get-PINJourneyList', 
         'Get-PINPushTemplate', 
         'Get-PINResourceTag', 
         'Get-PINSegment', 
@@ -127,14 +132,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PINTemplateList', 
         'Get-PINUserEndpoint', 
         'Get-PINVoiceChannel', 
+        'Get-PINVoiceTemplate', 
         'New-PINApp', 
         'New-PINCampaign', 
         'New-PINEmailTemplate', 
         'New-PINExportJob', 
         'New-PINImportJob', 
+        'New-PINJourney', 
         'New-PINPushTemplate', 
         'New-PINSegment', 
         'New-PINSmsTemplate', 
+        'New-PINVoiceTemplate', 
         'Remove-PINAdmChannel', 
         'Remove-PINApnsChannel', 
         'Remove-PINApnsSandboxChannel', 
@@ -149,6 +157,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-PINEndpoint', 
         'Remove-PINEventStream', 
         'Remove-PINGcmChannel', 
+        'Remove-PINJourney', 
         'Remove-PINPushTemplate', 
         'Remove-PINResourceTag', 
         'Remove-PINSegment', 
@@ -156,6 +165,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-PINSmsTemplate', 
         'Remove-PINUserEndpoint', 
         'Remove-PINVoiceChannel', 
+        'Remove-PINVoiceTemplate', 
         'Send-PINMessage', 
         'Send-PINUserMessageBatch', 
         'Update-PINAdmChannel', 
@@ -171,11 +181,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-PINEndpoint', 
         'Update-PINEndpointsBatch', 
         'Update-PINGcmChannel', 
+        'Update-PINJourney', 
+        'Update-PINJourneyState', 
         'Update-PINPushTemplate', 
         'Update-PINSegment', 
         'Update-PINSmsChannel', 
         'Update-PINSmsTemplate', 
         'Update-PINVoiceChannel', 
+        'Update-PINVoiceTemplate', 
         'Write-PINEvent', 
         'Write-PINEventStream')
 
@@ -197,7 +210,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

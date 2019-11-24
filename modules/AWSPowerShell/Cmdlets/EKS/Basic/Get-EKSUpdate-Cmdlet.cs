@@ -28,7 +28,8 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Returns descriptive information about an update against your Amazon EKS cluster.
+    /// Returns descriptive information about an update against your Amazon EKS cluster or
+    /// associated managed node group.
     /// 
     ///  
     /// <para>
@@ -50,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon EKS cluster to update.</para>
+        /// <para>The name of the Amazon EKS cluster associated with the update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter NodegroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon EKS node group associated with the update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NodegroupName { get; set; }
         #endregion
         
         #region Parameter UpdateId
@@ -133,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NodegroupName = this.NodegroupName;
             context.UpdateId = this.UpdateId;
             #if MODULAR
             if (this.UpdateId == null && ParameterWasBound(nameof(this.UpdateId)))
@@ -159,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NodegroupName != null)
+            {
+                request.NodegroupName = cmdletContext.NodegroupName;
             }
             if (cmdletContext.UpdateId != null)
             {
@@ -226,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public System.String NodegroupName { get; set; }
             public System.String UpdateId { get; set; }
             public System.Func<Amazon.EKS.Model.DescribeUpdateResponse, GetEKSUpdateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Update;

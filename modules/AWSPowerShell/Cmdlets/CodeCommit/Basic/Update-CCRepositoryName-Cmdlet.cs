@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
     /// Renames a repository. The repository name must be unique across the calling AWS account.
-    /// In addition, repository names are limited to 100 alphanumeric, dash, and underscore
-    /// characters, and cannot include certain characters. The suffix ".git" is prohibited.
-    /// For a full description of the limits on repository names, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+    /// Repository names are limited to 100 alphanumeric, dash, and underscore characters,
+    /// and cannot include certain characters. The suffix .git is prohibited. For more information
+    /// about the limits on repository names, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
     /// in the AWS CodeCommit User Guide.
     /// </summary>
     [Cmdlet("Update", "CCRepositoryName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter OldName
         /// <summary>
         /// <para>
-        /// <para>The existing name of the repository.</para>
+        /// <para>The current name of the repository.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

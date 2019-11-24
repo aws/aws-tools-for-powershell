@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The name of the branch where you want to add or update the file. If this is an empty
-        /// repository, this branch will be created.</para>
+        /// repository, this branch is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter CommitMessage
         /// <summary>
         /// <para>
-        /// <para>A message about why this file was added or updated. While optional, adding a message
-        /// is strongly encouraged in order to provide a more useful commit history for your repository.</para>
+        /// <para>A message about why this file was added or updated. Although it is optional, a message
+        /// makes the commit history for your repository more useful.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter FileMode
         /// <summary>
         /// <para>
-        /// <para>The file mode permissions of the blob. Valid file mode permissions are listed below.</para>
+        /// <para>The file mode permissions of the blob. Valid file mode permissions are listed here.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The name of the file you want to add or update, including the relative path to the
-        /// file in the repository.</para><note><para>If the path does not currently exist in the repository, the path will be created as
-        /// part of adding the file.</para></note>
+        /// file in the repository.</para><note><para>If the path does not currently exist in the repository, the path is created as part
+        /// of adding the file.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the person adding or updating the file. While optional, adding a name
-        /// is strongly encouraged in order to provide a more useful commit history for your repository.</para>
+        /// <para>The name of the person adding or updating the file. Although it is optional, a name
+        /// makes the commit history for your repository more useful.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>The full commit ID of the head commit in the branch where you want to add or update
         /// the file. If this is an empty repository, no commit ID is required. If this is not
-        /// an empty repository, a commit ID is required. </para><para>The commit ID must match the ID of the head commit at the time of the operation, or
-        /// an error will occur, and the file will not be added or updated.</para>
+        /// an empty repository, a commit ID is required. </para><para>The commit ID must match the ID of the head commit at the time of the operation. Otherwise,
+        /// an error occurs, and the file is not added or updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

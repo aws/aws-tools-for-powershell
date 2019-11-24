@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes the installation media for an on-premises, bring your own media (BYOM) DB
-    /// engine, such as Microsoft SQL Server.
+    /// Deletes the installation medium for a DB engine that requires an on-premises customer
+    /// provided license, such as Microsoft SQL Server.
     /// </summary>
     [Cmdlet("Remove", "RDSInstallationMedia", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DeleteInstallationMediaResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter InstallationMediaId
         /// <summary>
         /// <para>
-        /// <para>The installation media ID.</para>
+        /// <para>The installation medium ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

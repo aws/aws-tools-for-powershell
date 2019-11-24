@@ -57,11 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// for the <code>GetDimensionValues</code> operation includes a unit attribute. Examples
         /// include GB and Hrs.</para></li><li><para>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch
         /// – Alarms. The response for this operation includes a unit attribute.</para></li><li><para>RECORD_TYPE - The different types of charges such as RI fees, usage costs, tax refunds,
-        /// and credits.</para></li></ul><para>If you set the context to <code>RESERVATIONS</code>, you can use the following dimensions
+        /// and credits.</para></li><li><para>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in feature
+        /// only available for last 14 days for EC2-Compute Service.</para></li></ul><para>If you set the context to <code>RESERVATIONS</code>, you can use the following dimensions
         /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</para></li><li><para>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</para></li><li><para>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid
         /// values are <code>SingleAZ</code> and <code>MultiAZ</code>.</para></li><li><para>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
         /// of the member account. The value field contains the AWS ID of the member account.</para></li><li><para>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</para></li><li><para>REGION - The AWS Region.</para></li><li><para>SCOPE (Utilization only) - The scope of a Reserved Instance (RI). Values are regional
-        /// or a single Availability Zone.</para></li><li><para>TAG (Coverage only) - The tags that are associated with a Reserved Instance (RI).</para></li><li><para>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</para></li></ul>
+        /// or a single Availability Zone.</para></li><li><para>TAG (Coverage only) - The tags that are associated with a Reserved Instance (RI).</para></li><li><para>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</para></li></ul><para>If you set the context to <code>SAVINGS_PLANS</code>, you can use the following dimensions
+        /// for searching:</para><ul><li><para>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute)</para></li><li><para>PAYMENT_OPTION - Payment option for the given Savings Plans (for example, All Upfront)</para></li><li><para>REGION - The AWS Region.</para></li><li><para>INSTANCE_TYPE_FAMILY - The family of instances (For example, <code>m5</code>)</para></li><li><para>LINKED_ACCOUNT - The description in the attribute map that includes the full name
+        /// of the member account. The value field contains the AWS ID of the member account.</para></li><li><para>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>The name of the dimension. Each <code>Dimension</code> is available for a different
-        /// <code>Context</code>. For more information, see <code>Context</code>.</para>
+        /// <code>Context</code>. For more information, see <code>Context</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

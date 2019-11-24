@@ -87,6 +87,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-ASYNResourceTag', 
+        'Clear-ASYNApiCache', 
+        'Get-ASYNApiCache', 
         'Get-ASYNApiKeyList', 
         'Get-ASYNDataSource', 
         'Get-ASYNDataSourceList', 
@@ -102,12 +104,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ASYNSchemaCreationStatus', 
         'Get-ASYNType', 
         'Get-ASYNTypeList', 
+        'New-ASYNApiCache', 
         'New-ASYNApiKey', 
         'New-ASYNDataSource', 
         'New-ASYNFunction', 
         'New-ASYNGraphqlApi', 
         'New-ASYNResolver', 
         'New-ASYNType', 
+        'Remove-ASYNApiCache', 
         'Remove-ASYNApiKey', 
         'Remove-ASYNDataSource', 
         'Remove-ASYNFunction', 
@@ -116,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ASYNResourceTag', 
         'Remove-ASYNType', 
         'Start-ASYNSchemaCreation', 
+        'Update-ASYNApiCache', 
         'Update-ASYNApiKey', 
         'Update-ASYNDataSource', 
         'Update-ASYNFunction', 
@@ -141,7 +146,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

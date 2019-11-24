@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
     /// Deletes a repository. If a specified repository was already deleted, a null repository
-    /// ID will be returned.
+    /// ID is returned.
     /// 
     ///  <important><para>
     /// Deleting a repository also deletes all associated objects and metadata. After a repository
-    /// is deleted, all future push calls to the deleted repository will fail.
+    /// is deleted, all future push calls to the deleted repository fail.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "CCRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

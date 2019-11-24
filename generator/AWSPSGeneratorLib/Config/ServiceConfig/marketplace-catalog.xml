@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>marketplace-catalog</C2jFilename>
+    <AssemblyName>MarketplaceCatalog</AssemblyName>
+    <ServiceNounPrefix>MCAT</ServiceNounPrefix>
+    <ServiceName>AWS Marketplace Catalog Service</ServiceName>
+    <ServiceClientInterface>IAmazonMarketplaceCatalog</ServiceClientInterface>
+    <ServiceClient>AmazonMarketplaceCatalogClient</ServiceClient>
+    <ServiceModuleGuid>449701db-4ac6-4251-adbc-c514ac49d0a4</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelChangeSet" OutputProperty="*" Verb="Stop" Noun="ChangeSet" ShouldProcessTarget="ChangeSetId" PipelineParameter="ChangeSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChangeSet" OutputProperty="*" Verb="Get" Noun="ChangeSet" PipelineParameter="ChangeSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEntity" OutputProperty="*" Verb="Get" Noun="Entity" PipelineParameter="EntityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChangeSets" OutputProperty="ChangeSetSummaryList" Verb="Get" Noun="ChangeSetList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEntities" OutputProperty="EntitySummaryList" Verb="Get" Noun="EntityList" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartChangeSet" OutputProperty="*" Verb="Start" Noun="ChangeSet" ShouldProcessTarget="ChangeSetName" PipelineParameter="Catalog" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

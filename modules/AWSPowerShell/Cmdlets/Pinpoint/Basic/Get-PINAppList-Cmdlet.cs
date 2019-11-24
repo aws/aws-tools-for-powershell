@@ -40,18 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class GetPINAppListCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to include in each page of a paginated response. This
-        /// parameter is currently not supported by the Application Metrics and Campaign Metrics
-        /// resources.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PageSize { get; set; }
-        #endregion
-        
         #region Parameter Token
         /// <summary>
         /// <para>
@@ -61,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Token { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to include in each page of a paginated response. This
+        /// parameter is currently not supported for application, campaign, and journey metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PageSize { get; set; }
         #endregion
         
         #region Parameter Select

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// In addition to listing the properties provided by the user in the <code>CreateDatasetGroup</code>
+    /// In addition to listing the parameters provided in the <code>CreateDatasetGroup</code>
     /// request, this operation includes the following properties:
     /// </para><ul><li><para><code>DatasetArns</code> - The datasets belonging to the group.
     /// </para></li><li><para><code>CreationTime</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Status</code></para></li></ul>

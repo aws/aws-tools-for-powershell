@@ -138,6 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter LicenseSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The ARNs of the license configurations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LicenseSpecifications")]
+        public Amazon.EC2.Model.ImportImageLicenseConfigurationRequest[] LicenseSpecification { get; set; }
+        #endregion
+        
         #region Parameter LicenseType
         /// <summary>
         /// <para>
@@ -298,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Encrypted = this.Encrypted;
             context.Hypervisor = this.Hypervisor;
             context.KmsKeyId = this.KmsKeyId;
+            if (this.LicenseSpecification != null)
+            {
+                context.LicenseSpecification = new List<Amazon.EC2.Model.ImportImageLicenseConfigurationRequest>(this.LicenseSpecification);
+            }
             context.LicenseType = this.LicenseType;
             context.Platform = this.Platform;
             context.RoleName = this.RoleName;
@@ -426,6 +441,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
             }
+            if (cmdletContext.LicenseSpecification != null)
+            {
+                request.LicenseSpecifications = cmdletContext.LicenseSpecification;
+            }
             if (cmdletContext.LicenseType != null)
             {
                 request.LicenseType = cmdletContext.LicenseType;
@@ -514,6 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? Encrypted { get; set; }
             public System.String Hypervisor { get; set; }
             public System.String KmsKeyId { get; set; }
+            public List<Amazon.EC2.Model.ImportImageLicenseConfigurationRequest> LicenseSpecification { get; set; }
             public System.String LicenseType { get; set; }
             public System.String Platform { get; set; }
             public System.String RoleName { get; set; }

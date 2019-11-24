@@ -28,9 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Disables GuardDuty from monitoring findings of the member accounts specified by the
-    /// account IDs. After running this command, a master GuardDuty account can run StartMonitoringMembers
-    /// to re-enable GuardDuty to monitor these members’ findings.
+    /// Stops GuardDuty monitoring for the specified member accounnts. Use the <code>StartMonitoringMembers</code>
+    /// to restart monitoring for those accounts.
     /// </summary>
     [Cmdlet("Stop", "GDMonitoringMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GuardDuty.Model.UnprocessedAccount")]

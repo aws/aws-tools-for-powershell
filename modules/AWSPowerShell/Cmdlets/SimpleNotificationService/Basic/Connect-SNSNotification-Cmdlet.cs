@@ -56,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// deliveries to HTTP/S endpoints.</para></li><li><para><code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive
         /// only a subset of messages, rather than receiving every message published to the topic.</para></li><li><para><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message
         /// delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints
-        /// to process JSON formatting, which is otherwise created for Amazon SNS metadata.</para></li></ul>
+        /// to process JSON formatting, which is otherwise created for Amazon SNS metadata.</para></li><li><para><code>RedrivePolicy</code> – When specified, sends undeliverable messages to the
+        /// specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client
+        /// errors (for example, when the subscribed endpoint is unreachable) or server errors
+        /// (for example, when the service that powers the subscribed endpoint becomes unavailable)
+        /// are held in the dead-letter queue for further analysis or reprocessing.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,9 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Endpoint
         /// <summary>
         /// <para>
-        /// <para>The endpoint that you want to receive notifications. Endpoints vary by protocol:</para><ul><li><para>For the <code>http</code> protocol, the endpoint is an URL beginning with "https://"</para></li><li><para>For the <code>https</code> protocol, the endpoint is a URL beginning with "https://"</para></li><li><para>For the <code>email</code> protocol, the endpoint is an email address</para></li><li><para>For the <code>email-json</code> protocol, the endpoint is an email address</para></li><li><para>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled
+        /// <para>The endpoint that you want to receive notifications. Endpoints vary by protocol:</para><ul><li><para>For the <code>http</code> protocol, the endpoint is an URL beginning with <code>http://</code></para></li><li><para>For the <code>https</code> protocol, the endpoint is a URL beginning with <code>https://</code></para></li><li><para>For the <code>email</code> protocol, the endpoint is an email address</para></li><li><para>For the <code>email-json</code> protocol, the endpoint is an email address</para></li><li><para>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled
         /// device</para></li><li><para>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS queue</para></li><li><para>For the <code>application</code> protocol, the endpoint is the EndpointArn of a mobile
-        /// app and device.</para></li><li><para>For the <code>lambda</code> protocol, the endpoint is the ARN of an AWS Lambda function.</para></li></ul>
+        /// app and device.</para></li><li><para>For the <code>lambda</code> protocol, the endpoint is the ARN of an Amazon Lambda
+        /// function.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -80,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The protocol you want to use. Supported protocols include:</para><ul><li><para><code>http</code> – delivery of JSON-encoded message via HTTP POST</para></li><li><para><code>https</code> – delivery of JSON-encoded message via HTTPS POST</para></li><li><para><code>email</code> – delivery of message via SMTP</para></li><li><para><code>email-json</code> – delivery of JSON-encoded message via SMTP</para></li><li><para><code>sms</code> – delivery of message via SMS</para></li><li><para><code>sqs</code> – delivery of JSON-encoded message to an Amazon SQS queue</para></li><li><para><code>application</code> – delivery of JSON-encoded message to an EndpointArn for
-        /// a mobile app and device.</para></li><li><para><code>lambda</code> – delivery of JSON-encoded message to an AWS Lambda function.</para></li></ul>
+        /// a mobile app and device.</para></li><li><para><code>lambda</code> – delivery of JSON-encoded message to an Amazon Lambda function.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,11 +103,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>Sets whether the response from the <code>Subscribe</code> request includes the subscription
-        /// ARN, even if the subscription is not yet confirmed.</para><para>If you set this parameter to <code>false</code>, the response includes the ARN for
-        /// confirmed subscriptions, but it includes an ARN value of "pending subscription" for
-        /// subscriptions that are not yet confirmed. A subscription becomes confirmed when the
-        /// subscriber calls the <code>ConfirmSubscription</code> action with a confirmation token.</para><para>If you set this parameter to <code>true</code>, the response includes the ARN in all
-        /// cases, even if the subscription is not yet confirmed.</para><para>The default value is <code>false</code>.</para>
+        /// ARN, even if the subscription is not yet confirmed.</para><ul><li><para>If you have the subscription ARN returned, the response includes the ARN in all cases,
+        /// even if the subscription is not yet confirmed.</para></li><li><para>If you don't have the subscription ARN returned, in addition to the ARN for confirmed
+        /// subscriptions, the response also includes the <code>pending subscription</code> ARN
+        /// value for subscriptions that aren't yet confirmed. A subscription becomes confirmed
+        /// when the subscriber calls the <code>ConfirmSubscription</code> action with a confirmation
+        /// token.</para></li></ul><para>If you set this parameter to <code>true</code>, .</para><para>The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

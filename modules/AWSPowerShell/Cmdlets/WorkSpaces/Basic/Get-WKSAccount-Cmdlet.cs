@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Retrieves a list that describes the configuration of bring your own license (BYOL)
+    /// Retrieves a list that describes the configuration of Bring Your Own License (BYOL)
     /// for the specified account.
     /// </summary>
     [Cmdlet("Get", "WKSAccount")]

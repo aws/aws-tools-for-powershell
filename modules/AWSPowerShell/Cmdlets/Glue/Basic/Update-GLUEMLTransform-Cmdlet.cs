@@ -93,6 +93,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Boolean? FindMatchesParameters_EnforceProvidedLabel { get; set; }
         #endregion
         
+        #region Parameter GlueVersion
+        /// <summary>
+        /// <para>
+        /// <para>This value determines which version of AWS Glue this machine learning transform is
+        /// compatible with. Glue 1.0 is recommended for most customers. If the value is not set,
+        /// the Glue compatibility defaults to Glue 0.9. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS
+        /// Glue Versions</a> in the developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GlueVersion { get; set; }
+        #endregion
+        
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
@@ -298,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.GlueVersion = this.GlueVersion;
             context.MaxCapacity = this.MaxCapacity;
             context.MaxRetry = this.MaxRetry;
             context.Name = this.Name;
@@ -336,6 +350,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.GlueVersion != null)
+            {
+                request.GlueVersion = cmdletContext.GlueVersion;
             }
             if (cmdletContext.MaxCapacity != null)
             {
@@ -505,6 +523,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String GlueVersion { get; set; }
             public System.Double? MaxCapacity { get; set; }
             public System.Int32? MaxRetry { get; set; }
             public System.String Name { get; set; }

@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified
-    /// iSCSI target and initiator pair.
+    /// iSCSI target and initiator pair. This operation is supported in volume and tape gateway
+    /// types.
     /// </summary>
     [Cmdlet("Remove", "SGChapCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.StorageGateway.Model.DeleteChapCredentialsResponse")]

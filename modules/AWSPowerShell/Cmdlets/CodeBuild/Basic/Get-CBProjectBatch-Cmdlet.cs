@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Gets information about build projects.
+    /// Gets information about one or more build projects.
     /// </summary>
     [Cmdlet("Get", "CBProjectBatch")]
     [OutputType("Amazon.CodeBuild.Model.BatchGetProjectsResponse")]

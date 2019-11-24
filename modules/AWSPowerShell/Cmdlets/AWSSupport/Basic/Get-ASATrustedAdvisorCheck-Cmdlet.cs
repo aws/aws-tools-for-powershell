@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// Returns information about all available Trusted Advisor checks, including name, ID,
     /// category, description, and metadata. You must specify a language code; English ("en")
     /// and Japanese ("ja") are currently supported. The response contains a <a>TrustedAdvisorCheckDescription</a>
-    /// for each check.
+    /// for each check. The region must be set to us-east-1.
     /// </summary>
     [Cmdlet("Get", "ASATrustedAdvisorCheck")]
     [OutputType("Amazon.AWSSupport.Model.TrustedAdvisorCheckDescription")]

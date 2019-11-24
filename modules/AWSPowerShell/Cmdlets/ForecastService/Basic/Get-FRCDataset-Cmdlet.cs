@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// In addition to listing the properties provided by the user in the <code>CreateDataset</code>
-    /// request, this operation includes the following properties:
+    /// In addition to listing the parameters specified in the <code>CreateDataset</code>
+    /// request, this operation includes the following dataset properties:
     /// </para><ul><li><para><code>CreationTime</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Status</code></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "FRCDataset")]

@@ -28,7 +28,19 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Removes the tag-set from an existing object.
+    /// Removes the entire tag set from the specified object. For more information about managing
+    /// object tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#MultiFactorAuthenticationDelete">
+    /// Object Tagging</a>.
+    /// 
+    ///  
+    /// <para>
+    /// To use this operation, you must have permission to perform the s3:DeleteObjectTagging
+    /// action.
+    /// </para><para>
+    /// To delete tags of a specific object version, add the versionId query parameter in
+    /// the request. You will need permission for the s3:DeleteObjectVersionTagging action.
+    /// </para><para>
+    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code></para><ul><li><para><a>PutObjectTagging</a></para></li><li><para><a>GetObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

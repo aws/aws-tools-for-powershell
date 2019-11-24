@@ -80,6 +80,21 @@ $WKS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WorkSpaces.AccessPropertyValue
+        {
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeAndroid") -Or
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeChromeOs") -Or
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeIos") -Or
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeOsx") -Or
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWeb") -Or
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeWindows") -Or
+            ($_ -eq "Edit-WKSWorkspaceAccessProperty/WorkspaceAccessProperties_DeviceTypeZeroClient")
+        }
+        {
+            $v = "ALLOW","DENY"
+            break
+        }
+
         # Amazon.WorkSpaces.Compute
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName"
         {
@@ -95,7 +110,14 @@ $WKS_Completers = {
         }
 
         # Amazon.WorkSpaces.ReconnectEnum
-        "Edit-WKSClientProperty/ClientProperties_ReconnectEnabled"
+        {
+            ($_ -eq "Edit-WKSClientProperty/ClientProperties_ReconnectEnabled") -Or
+            ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_ChangeComputeType") -Or
+            ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_IncreaseVolumeSize") -Or
+            ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_RebuildWorkspace") -Or
+            ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_RestartWorkspace") -Or
+            ($_ -eq "Edit-WKSSelfservicePermission/SelfservicePermissions_SwitchRunningMode")
+        }
         {
             $v = "DISABLED","ENABLED"
             break
@@ -112,6 +134,13 @@ $WKS_Completers = {
         "Edit-WKSWorkspaceState/WorkspaceState"
         {
             $v = "ADMIN_MAINTENANCE","AVAILABLE"
+            break
+        }
+
+        # Amazon.WorkSpaces.Tenancy
+        "Register-WKSWorkspaceDirectory/Tenancy"
+        {
+            $v = "DEDICATED","SHARED"
             break
         }
 
@@ -134,6 +163,19 @@ $WKS_map = @{
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
+    "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
+    "SelfservicePermissions_IncreaseVolumeSize"=@("Edit-WKSSelfservicePermission")
+    "SelfservicePermissions_RebuildWorkspace"=@("Edit-WKSSelfservicePermission")
+    "SelfservicePermissions_RestartWorkspace"=@("Edit-WKSSelfservicePermission")
+    "SelfservicePermissions_SwitchRunningMode"=@("Edit-WKSSelfservicePermission")
+    "Tenancy"=@("Register-WKSWorkspaceDirectory")
+    "WorkspaceAccessProperties_DeviceTypeAndroid"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceAccessProperties_DeviceTypeChromeOs"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceAccessProperties_DeviceTypeIos"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceAccessProperties_DeviceTypeOsx"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceAccessProperties_DeviceTypeWeb"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceAccessProperties_DeviceTypeWindows"=@("Edit-WKSWorkspaceAccessProperty")
+    "WorkspaceAccessProperties_DeviceTypeZeroClient"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceProperties_ComputeTypeName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_RunningMode"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceState"=@("Edit-WKSWorkspaceState")
@@ -198,6 +240,7 @@ $WKS_SelectMap = @{
                "Remove-WKSIpGroup",
                "Remove-WKSTag",
                "Remove-WKSWorkspaceImage",
+               "Unregister-WKSWorkspaceDirectory",
                "Get-WKSAccount",
                "Get-WKSAccountModification",
                "Get-WKSClientProperty",
@@ -214,10 +257,14 @@ $WKS_SelectMap = @{
                "Get-WKSAvailableManagementCidrRangeList",
                "Edit-WKSAccount",
                "Edit-WKSClientProperty",
+               "Edit-WKSSelfservicePermission",
+               "Edit-WKSWorkspaceAccessProperty",
+               "Edit-WKSWorkspaceCreationProperty",
                "Edit-WKSWorkspaceProperty",
                "Edit-WKSWorkspaceState",
                "Restart-WKSWorkspace",
                "Reset-WKSWorkspace",
+               "Register-WKSWorkspaceDirectory",
                "Restore-WKSWorkspace",
                "Revoke-WKSIpRule",
                "Start-WKSWorkspace",

@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <summary>
     /// Adds a streaming configuration for the specified Amazon Chime Voice Connector. The
     /// streaming configuration specifies whether media streaming is enabled for sending to
-    /// Amazon Kinesis, and sets the retention period for the Amazon Kinesis data, in hours.
+    /// Amazon Kinesis. It also sets the retention period, in hours, for the Amazon Kinesis
+    /// data.
     /// </summary>
     [Cmdlet("Write", "CHMVoiceConnectorStreamingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.StreamingConfiguration")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter StreamingConfiguration_DataRetentionInHour
         /// <summary>
         /// <para>
-        /// <para>The retention period for the Amazon Kinesis data, in hours.</para>
+        /// <para>The retention period, in hours, for the Amazon Kinesis data.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Sets the attributes of the platform application object for the supported push notification
-    /// services, such as APNS and GCM. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
+    /// services, such as APNS and FCM. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
     /// Amazon SNS Mobile Push Notifications</a>. For information on configuring attributes
     /// for message delivery status, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using
     /// Amazon SNS Application Attributes for Message Delivery Status</a>.
@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><code>PlatformCredential</code> – The credential received from the notification service.
-        /// For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential
+        /// For APNS/APNS_SANDBOX, PlatformCredential is private key. For FCM, PlatformCredential
         /// is "API key". For ADM, PlatformCredential is "client secret".</para></li><li><para><code>PlatformPrincipal</code> – The principal received from the notification service.
-        /// For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM, PlatformPrincipal
+        /// For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For FCM, PlatformPrincipal
         /// is not applicable. For ADM, PlatformPrincipal is "client id".</para></li><li><para><code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated event notifications
         /// should be sent.</para></li><li><para><code>EventEndpointDeleted</code> – Topic ARN to which EndpointDeleted event notifications
         /// should be sent.</para></li><li><para><code>EventEndpointUpdated</code> – Topic ARN to which EndpointUpdate event notifications

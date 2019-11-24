@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of a new VPN tunnel between the Amazon RDS website and the VMware vSphere
-        /// cluster.</para><para>Specify this parameter only if <code>ExistingVpnId</code> is not specified.</para>
+        /// cluster.</para><para>Specify this parameter only if <code>ExistingVpnId</code> isn't specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The IP address of network traffic from your on-premises data center. A custom AZ receives
-        /// the network traffic.</para><para>Specify this parameter only if <code>ExistingVpnId</code> is not specified.</para>
+        /// the network traffic.</para><para>Specify this parameter only if <code>ExistingVpnId</code> isn't specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

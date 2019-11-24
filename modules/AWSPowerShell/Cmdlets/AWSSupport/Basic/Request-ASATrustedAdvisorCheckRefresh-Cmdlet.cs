@@ -38,9 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </para></note><para>
     /// The response contains a <a>TrustedAdvisorCheckRefreshStatus</a> object, which contains
     /// these fields:
-    /// </para><ul><li><para><b>status.</b> The refresh status of the check: "none", "enqueued", "processing",
-    /// "success", or "abandoned".
-    /// </para></li><li><para><b>millisUntilNextRefreshable.</b> The amount of time, in milliseconds, until the
+    /// </para><ul><li><para><b>status.</b> The refresh status of the check: 
+    /// </para><ul><li><para><code>none:</code> The check is not refreshed or the non-success status exceeds the
+    /// timeout
+    /// </para></li><li><para><code>enqueued:</code> The check refresh requests has entered the refresh queue
+    /// </para></li><li><para><code>processing:</code> The check refresh request is picked up by the rule processing
+    /// engine
+    /// </para></li><li><para><code>success:</code> The check is successfully refreshed
+    /// </para></li><li><para><code>abandoned:</code> The check refresh has failed
+    /// </para></li></ul></li><li><para><b>millisUntilNextRefreshable.</b> The amount of time, in milliseconds, until the
     /// check is eligible for refresh.
     /// </para></li><li><para><b>checkId.</b> The unique identifier for the check.
     /// </para></li></ul>

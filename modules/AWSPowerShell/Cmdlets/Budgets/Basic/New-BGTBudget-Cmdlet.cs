@@ -122,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_BudgetType
         /// <summary>
         /// <para>
-        /// <para>Whether this budget tracks costs, usage, RI utilization, or RI coverage.</para>
+        /// <para>Whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans
+        /// utilization, or Savings Plans coverage.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -332,7 +333,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>The length of time until a budget resets the actual and forecasted spend. <code>DAILY</code>
-        /// is available only for <code>RI_UTILIZATION</code> and <code>RI_COVERAGE</code> budgets.</para>
+        /// is available only for <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>Savings_Plans_Utilization</code>,
+        /// and <code>Savings_Plans_Coverage</code> budgets.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

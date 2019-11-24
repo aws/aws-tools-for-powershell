@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         #region Parameter ExportId
         /// <summary>
         /// <para>
-        /// <para>A list of continuous export ids to search for.</para>
+        /// <para>A list of continuous export IDs to search for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

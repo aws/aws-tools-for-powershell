@@ -89,14 +89,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-EKSResourceTag', 
         'Get-EKSCluster', 
         'Get-EKSClusterList', 
+        'Get-EKSNodegroup', 
+        'Get-EKSNodegroupList', 
         'Get-EKSResourceTag', 
         'Get-EKSUpdate', 
         'Get-EKSUpdateList', 
         'New-EKSCluster', 
+        'New-EKSNodegroup', 
         'Remove-EKSCluster', 
+        'Remove-EKSNodegroup', 
         'Remove-EKSResourceTag', 
         'Update-EKSClusterConfig', 
-        'Update-EKSClusterVersion')
+        'Update-EKSClusterVersion', 
+        'Update-EKSNodegroupConfig', 
+        'Update-EKSNodegroupVersion')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -116,7 +122,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

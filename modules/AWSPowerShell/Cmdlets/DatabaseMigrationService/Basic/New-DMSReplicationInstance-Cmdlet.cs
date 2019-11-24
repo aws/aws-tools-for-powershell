@@ -29,6 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Creates the replication instance using the specified parameters.
+    /// 
+    ///  
+    /// <para>
+    /// AWS DMS requires that your account have certain roles with appropriate permissions
+    /// before you can create a replication instance. For information on the required roles,
+    /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.APIRole.html">Creating
+    /// the IAM Roles to Use With the AWS CLI and AWS DMS API</a>. For information on the
+    /// required permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.IAMPermissions.html">IAM
+    /// Permissions Needed to Use AWS DMS</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DMSReplicationInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationInstance")]

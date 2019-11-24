@@ -43,9 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zones (AZs) in which the cluster nodes will be created. All nodes
-        /// belonging to the cluster are placed in these Availability Zones. Use this parameter
-        /// if you want to distribute the nodes across multiple AZs.</para>
+        /// <para>The Availability Zones (AZs) in which the cluster nodes will reside after the cluster
+        /// has been created or updated. If provided, the length of this list must equal the <code>ReplicationFactor</code>
+        /// parameter. If you omit this parameter, DAX will spread the nodes across Availability
+        /// Zones for the highest availability.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,8 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// <para>
         /// <para>The number of nodes in the DAX cluster. A replication factor of 1 will create a single-node
         /// cluster, without any read replicas. For additional fault tolerance, you can create
-        /// a multiple node cluster with one or more read replicas. To do this, set <i>ReplicationFactor</i>
-        /// to 2 or more.</para><note><para>AWS recommends that you have at least two read replicas per cluster.</para></note>
+        /// a multiple node cluster with one or more read replicas. To do this, set <code>ReplicationFactor</code>
+        /// to a number between 3 (one primary and two read replicas) and 10 (one primary and
+        /// nine read replicas). <code>If the AvailabilityZones</code> parameter is provided,
+        /// its length must equal the <code>ReplicationFactor</code>.</para><note><para>AWS recommends that you have at least two read replicas per cluster.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

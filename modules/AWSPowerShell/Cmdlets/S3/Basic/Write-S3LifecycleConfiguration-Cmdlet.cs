@@ -28,8 +28,58 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Sets lifecycle configuration for your bucket. If a lifecycle configuration exists,
-    /// it replaces it.
+    /// Creates a new lifecycle configuration for the bucket or replaces an existing lifecycle
+    /// configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// 
+    ///  <note><para>
+    /// Bucket lifecycle configuration now supports specifying a lifecycle rule using an object
+    /// key name prefix, one or more object tags, or a combination of both. Accordingly, this
+    /// section describes the latest API. The previous version of the API supported filtering
+    /// based only on an object key name prefix, which is supported for backward compatibility.
+    /// For the related API description, see <a>PutBucketLifecycle</a>.
+    /// </para></note><para><b>Rules</b></para><para>
+    /// You specify the lifecycle configuration in your request body. The lifecycle configuration
+    /// is specified as XML consisting of one or more rules. Each rule consists of the following:
+    /// </para><ul><li><para>
+    /// Filter identifying a subset of objects to which the rule applies. The filter can be
+    /// based on a key name prefix, object tags, or a combination of both.
+    /// </para></li><li><para>
+    /// Status whether the rule is in effect.
+    /// </para></li><li><para>
+    /// One or more lifecycle transition and expiration actions that you want Amazon S3 to
+    /// perform on the objects identified by the filter. If the state of your bucket is versioning-enabled
+    /// or versioning-suspended, you can have many versions of the same object (one current
+    /// version and zero or more noncurrent versions). Amazon S3 provides predefined actions
+    /// that you can specify for current and noncurrent object versions.
+    /// </para></li></ul><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object
+    /// Lifecycle Management</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html">Lifecycle
+    /// Configuration Elements</a>.
+    /// </para><para><b>Permissions</b></para><para>
+    /// By default, all Amazon S3 resources are private, including buckets, objects, and related
+    /// subresources (for example, lifecycle configuration and website configuration). Only
+    /// the resource owner (that is, the AWS account that created it) can access the resource.
+    /// The resource owner can optionally grant access permissions to others by writing an
+    /// access policy. For this operation, a user must get the s3:PutLifecycleConfiguration
+    /// permission.
+    /// </para><para>
+    /// You can also explicitly deny permissions. Explicit deny also supersedes any other
+    /// permissions. If you want to block users or accounts from removing or deleting objects
+    /// from your bucket, you must deny them permissions for the following actions:
+    /// </para><ul><li><para>
+    /// s3:DeleteObject
+    /// </para></li><li><para>
+    /// s3:DeleteObjectVersion
+    /// </para></li><li><para>
+    /// s3:PutLifecycleConfiguration
+    /// </para></li></ul><para>
+    /// For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// </para><para>
+    /// The following are related to <code>PutBucketLifecycleConfiguration</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html">Examples
+    /// of Lifecycle Configuration</a></para></li><li><para><a>GetBucketLifecycleConfiguration</a></para></li><li><para><a>DeleteBucketLifecycle</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3LifecycleConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

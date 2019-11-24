@@ -84,7 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Environment_ComputeType
         /// <summary>
         /// <para>
-        /// <para>Information about the compute resources the build project uses. Available values include:</para><ul><li><para><code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_LARGE</code>: Use up to 15 GB memory and 8 vCPUs for builds.</para></li></ul>
+        /// <para>Information about the compute resources the build project uses. Available values include:</para><ul><li><para><code>BUILD_GENERAL1_SMALL</code>: Use up to 3 GB memory and 2 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_MEDIUM</code>: Use up to 7 GB memory and 4 vCPUs for builds.</para></li><li><para><code>BUILD_GENERAL1_LARGE</code>: Use up to 16 GB memory and 8 vCPUs for builds,
+        /// depending on your environment type.</para></li><li><para><code>BUILD_GENERAL1_2XLARGE</code>: Use up to 145 GB memory, 72 vCPUs, and 824 GB
+        /// of SSD storage for builds. This compute type supports Docker images up to 100 GB uncompressed.</para></li></ul><para> If you use <code>BUILD_GENERAL1_LARGE</code>: </para><ul><li><para> For environment type <code>LINUX_CONTAINER</code>, you can use up to 15 GB memory
+        /// and 8 vCPUs for builds. </para></li><li><para> For environment type <code>LINUX_GPU_CONTAINER</code>, you can use up to 255 GB memory,
+        /// 32 vCPUs, and 4 NVIDIA Tesla V100 GPUs for builds.</para></li><li><para> For environment type <code>ARM_CONTAINER</code>, you can use up to 16 GB memory and
+        /// 8 vCPUs on ARM-based processors for builds.</para></li></ul><para> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
+        /// Environment Compute Types</a> in the <i>AWS CodeBuild User Guide.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -470,7 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>Enables running the Docker daemon inside a Docker container. Set to true only if the
         /// build project is used to build Docker images. Otherwise, a build that attempts to
-        /// interact with the Docker daemon fails.</para><para>You can initialize the Docker daemon during the install phase of your build by adding
+        /// interact with the Docker daemon fails. The default setting is <code>false</code>.</para><para>You can initialize the Docker daemon during the install phase of your build by adding
         /// one of the following sets of commands to the install phase of your buildspec file:</para><para>If the operating system's base image is Ubuntu Linux:</para><para><code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
         /// --storage-driver=overlay&amp;</code></para><para><code>- timeout 15 sh -c "until docker info; do echo .; sleep 1; done"</code></para><para>If the operating system's base image is Alpine Linux and the previous command does
         /// not work, add the <code>-t</code> argument to <code>timeout</code>:</para><para><code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
@@ -498,7 +504,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para> Set to true to report the status of a build's start and finish to your source provider.
         /// This option is valid only when your source provider is GitHub, GitHub Enterprise,
         /// or Bitbucket. If this is set and you use a different source provider, an invalidInputException
-        /// is thrown. </para>
+        /// is thrown. </para><note><para> The status of a build triggered by a webhook is always reported to your source provider.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -687,7 +694,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project has build output generated through AWS
-        /// CodePipeline.</para></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon Simple Storage Service
+        /// CodePipeline. </para><note><para>The <code>CODEPIPELINE</code> type is not supported for <code>secondaryArtifacts</code>.</para></note></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon Simple Storage Service
         /// (Amazon S3).</para></li></ul>
         /// </para>
         /// </summary>
@@ -717,7 +724,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Environment_Type
         /// <summary>
         /// <para>
-        /// <para>The type of build environment to use for related builds.</para>
+        /// <para>The type of build environment to use for related builds.</para><ul><li><para>The environment type <code>ARM_CONTAINER</code> is available only in regions US East
+        /// (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai),
+        /// Asia Pacific (Tokyo), Asia Pacific (Sydney), and EU (Frankfurt).</para></li><li><para>The environment type <code>LINUX_CONTAINER</code> with compute type <code>build.general1.2xlarge</code>
+        /// is available only in regions US East (N. Virginia), US East (N. Virginia), US West
+        /// (Oregon), Canada (Central), EU (Ireland), EU (London), EU (Frankfurt), Asia Pacific
+        /// (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), China
+        /// (Beijing), and China (Ningxia).</para></li><li><para>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in regions
+        /// US East (N. Virginia), US East (N. Virginia), US West (Oregon), Canada (Central),
+        /// EU (Ireland), EU (London), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
+        /// Asia Pacific (Singapore), Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -748,7 +764,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The type of repository that contains the source code to be built. Valid values include:</para><ul><li><para><code>BITBUCKET</code>: The source code is in a Bitbucket repository.</para></li><li><para><code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</para></li><li><para><code>CODEPIPELINE</code>: The source code settings are specified in the source action
-        /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub repository.</para></li><li><para><code>NO_SOURCE</code>: The project does not have input source code.</para></li><li><para><code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3)
+        /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub repository.</para></li><li><para><code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise repository.</para></li><li><para><code>NO_SOURCE</code>: The project does not have input source code.</para></li><li><para><code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3)
         /// input bucket.</para></li></ul>
         /// </para>
         /// </summary>

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>One or more instance IDs where you want to add or update inventory items.</para>
+        /// <para>An instance ID where you want to add or update inventory items.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

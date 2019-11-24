@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The updated content with which you want to replace the existing content of the comment.</para>
+        /// <para>The updated content to replace the existing content of the comment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

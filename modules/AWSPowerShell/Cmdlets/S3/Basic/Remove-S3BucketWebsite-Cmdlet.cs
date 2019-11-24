@@ -28,7 +28,24 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// This operation removes the website configuration from the bucket.
+    /// This operation removes the website configuration for a bucket. Amazon S3 returns a
+    /// <code>200 OK</code> response upon successfully deleting a website configuration on
+    /// the specified bucket. You will get a <code>200 OK</code> response if the website configuration
+    /// you are trying to delete does not exist on the bucket. Amazon S3 returns a <code>404</code>
+    /// response if the bucket specified in the request does not exist.
+    /// 
+    ///  
+    /// <para>
+    /// This DELETE operation requires the <code>S3:DeleteBucketWebsite</code> permission.
+    /// By default, only the bucket owner can delete the website configuration attached to
+    /// a bucket. However, bucket owners can grant other users permission to delete the website
+    /// configuration by writing a bucket policy granting them the <code>S3:DeleteBucketWebsite</code>
+    /// permission. 
+    /// </para><para>
+    /// For more information about hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting
+    /// Websites on Amazon S3</a>. 
+    /// </para><para>
+    /// The following operations are related to <code>DeleteBucketWebsite</code></para><ul><li><para><a>GetBucketWebsite</a></para></li><li><para><a>PutBucketWebsite</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketWebsite", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

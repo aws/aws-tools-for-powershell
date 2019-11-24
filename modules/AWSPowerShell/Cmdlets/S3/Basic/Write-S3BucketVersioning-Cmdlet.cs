@@ -28,8 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Sets the versioning state of an existing bucket. To set the versioning state, you
-    /// must be the bucket owner.
+    /// Amazon.S3.IAmazonS3.PutBucketVersioning
     /// </summary>
     [Cmdlet("Write", "S3BucketVersioning", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

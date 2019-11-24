@@ -388,7 +388,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceDataSync" OutputProperty="ResourceDataSyncItems" Verb="Get" Noun="ResourceDataSync" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceDataSync" OutputProperty="ResourceDataSyncItems" Verb="Get" Noun="ResourceDataSync" PipelineParameter="SyncType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -505,6 +505,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePatchBaseline" OutputProperty="*" Verb="Update" Noun="PatchBaseline" ShouldProcessTarget="BaselineId" PipelineParameter="BaselineId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceDataSync" Verb="Update" Noun="ResourceDataSync" ShouldProcessTarget="SyncName" PipelineParameter="SyncName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

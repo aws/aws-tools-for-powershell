@@ -62,10 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Granularity
         /// <summary>
         /// <para>
-        /// <para>Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>. If <code>Granularity</code>
-        /// isn't set, the response object doesn't include the <code>Granularity</code>, either
-        /// <code>MONTHLY</code> or <code>DAILY</code>. </para><para>The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code>
-        /// and <code>MONTHLY</code> granularities.</para>
+        /// <para>Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>.
+        /// If <code>Granularity</code> isn't set, the response object doesn't include the <code>Granularity</code>,
+        /// either <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>You can group AWS costs using up to two different groups, either dimensions, tag keys,
         /// or both.</para><para>When you group by tag key, you get all tag values, including empty strings.</para><para>Valid values are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>,
         /// <code>LINKED_ACCOUNT</code>, <code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>,
-        /// <code>SERVICE</code>, <code>TAGS</code>, <code>TENANCY</code>, and <code>USAGE_TYPE</code>.</para>
+        /// <code>SERVICE</code>, <code>TAGS</code>, <code>TENANCY</code>, <code>RECORD_TYPE</code>,
+        /// and <code>USAGE_TYPE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

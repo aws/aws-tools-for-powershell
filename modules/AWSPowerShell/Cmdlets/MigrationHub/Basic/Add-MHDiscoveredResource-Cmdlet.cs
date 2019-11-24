@@ -28,8 +28,8 @@ using Amazon.MigrationHub.Model;
 namespace Amazon.PowerShell.Cmdlets.MH
 {
     /// <summary>
-    /// Associates a discovered resource ID from Application Discovery Service (ADS) with
-    /// a migration task.
+    /// Associates a discovered resource ID from Application Discovery Service with a migration
+    /// task.
     /// </summary>
     [Cmdlet("Add", "MHDiscoveredResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter MigrationTaskName
         /// <summary>
         /// <para>
-        /// <para>The identifier given to the MigrationTask.</para>
+        /// <para>The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR

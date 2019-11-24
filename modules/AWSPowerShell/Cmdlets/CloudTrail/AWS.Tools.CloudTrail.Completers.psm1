@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS CloudTrail
 
 
+$CT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CloudTrail.EventCategory
+        "Find-CTEvent/EventCategory"
+        {
+            $v = "insight"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CT_map = @{
+    "EventCategory"=@("Find-CTEvent")
+}
+
+_awsArgumentCompleterRegistration $CT_Completers $CT_map
+
 $CT_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -128,11 +154,15 @@ $CT_SelectMap = @{
                "Remove-CTTrail",
                "Get-CTTrail",
                "Get-CTEventSelector",
+               "Get-CTInsightSelector",
+               "Get-CTTrailByName",
                "Get-CTTrailStatus",
                "Get-CTPublicKey",
                "Get-CTResourceTag",
+               "Get-CTTrailSummary",
                "Find-CTEvent",
                "Write-CTEventSelector",
+               "Write-CTInsightSelector",
                "Remove-CTResourceTag",
                "Start-CTLogging",
                "Stop-CTLogging",

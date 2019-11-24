@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive.</para><para>Constraints: This identifier must match the identifier of an existing DB cluster.</para>
+        /// <para>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</para><para>Constraints: This identifier must match the identifier of an existing DB cluster.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -252,8 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The maximum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
-        /// mode.</para><para>Valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>,
-        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
+        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
+        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
+        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
+        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The maximum capacity must be greater than or equal to the minimum capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -264,8 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The minimum capacity for an Aurora DB cluster in <code>serverless</code> DB engine
-        /// mode.</para><para>Valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>,
-        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
+        /// mode.</para><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
+        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
+        /// and <code>256</code>.</para><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
+        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para><para>The minimum capacity must be less than or equal to the maximum capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -355,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code>
         /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code> sets the capacity to the specified value as
         /// soon as possible.</para><para><code>RollbackCapacityChange</code>, the default, ignores the capacity change if
-        /// a scaling point is not found in the timeout period.</para><important><para>If you specify <code>ForceApplyCapacityChange</code>, connections that prevent Aurora
+        /// a scaling point isn't found in the timeout period.</para><important><para>If you specify <code>ForceApplyCapacityChange</code>, connections that prevent Aurora
         /// Serverless from finding a scaling point might be dropped.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
         /// Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>

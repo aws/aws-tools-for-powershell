@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Updates the settings for a campaign.
+    /// Updates the configuration and other settings for a campaign.
     /// </summary>
     [Cmdlet("Update", "PINCampaign", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.CampaignResponse")]
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Dimensions_Attribute
         /// <summary>
         /// <para>
-        /// <para>One or more custom attributes that your app reports to Amazon Pinpoint. You can use
-        /// these attributes as selection criteria when you create an event filter.</para>
+        /// <para>One or more custom attributes that your application reports to Amazon Pinpoint. You
+        /// can use these attributes as selection criteria when you create an event filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EmailMessage_Body
         /// <summary>
         /// <para>
-        /// <para>The body of the email for recipients whose email clients don't support HTML content.</para>
+        /// <para>The body of the email for recipients whose email clients don't render HTML content.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter WriteCampaignRequest_Description
         /// <summary>
         /// <para>
-        /// <para>The custom description of the campaign.</para>
+        /// <para>A custom description of the campaign.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Schedule_EndTime
         /// <summary>
         /// <para>
-        /// <para>The scheduled time, in ISO 8601 format, for the campaign to end.</para>
+        /// <para>The scheduled time, in ISO 8601 format, when the campaign ended or will end.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -317,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends
         /// the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an
-        /// endpoint event (<link linkend="apps-application-id-events">Events</link> resource)
+        /// endpoint event (<link linkend="apps-application-id-events">Events resource</link>)
         /// occurs.</para>
         /// </para>
         /// </summary>
@@ -366,8 +366,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EmailMessage_HtmlBody
         /// <summary>
         /// <para>
-        /// <para>The body of the email, in HTML format, for recipients whose email clients support
-        /// HTML content.</para>
+        /// <para>The body of the email, in HTML format, for recipients whose email clients render HTML
+        /// content.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -738,8 +738,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Dimensions_Metric
         /// <summary>
         /// <para>
-        /// <para>One or more custom metrics that your app reports to Amazon Pinpoint. You can use these
-        /// metrics as selection criteria when you create an event filter.</para>
+        /// <para>One or more custom metrics that your application reports to Amazon Pinpoint. You can
+        /// use these metrics as selection criteria when you create an event filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -805,11 +805,23 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String SMSTemplate_Name { get; set; }
         #endregion
         
+        #region Parameter VoiceTemplate_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the message template to use for the message. If specified, this value
+        /// must match the name of an existing message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_TemplateConfiguration_VoiceTemplate_Name")]
+        public System.String VoiceTemplate_Name { get; set; }
+        #endregion
+        
         #region Parameter ADMMessage_RawContent
         /// <summary>
         /// <para>
         /// <para>The raw, JSON-formatted string to use as the payload for the notification message.
-        /// This value overrides other values for the message.</para>
+        /// If specified, this value overrides all other content for the message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -821,7 +833,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The raw, JSON-formatted string to use as the payload for the notification message.
-        /// This value overrides other values for the message.</para>
+        /// If specified, this value overrides all other content for the message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -833,7 +845,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The raw, JSON-formatted string to use as the payload for the notification message.
-        /// This value overrides other values for the message.</para>
+        /// If specified, this value overrides all other content for the message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -845,7 +857,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The raw, JSON-formatted string to use as the payload for the notification message.
-        /// This value overrides other values for the message.</para>
+        /// If specified, this value overrides all other content for the message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -857,7 +869,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The raw, JSON-formatted string to use as the payload for the notification message.
-        /// This value overrides other values for the message.</para>
+        /// If specified, this value overrides all other content for the message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -983,7 +995,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Schedule_StartTime
         /// <summary>
         /// <para>
-        /// <para>The scheduled time, in ISO 8601 format, for the campaign to begin.</para>
+        /// <para>The scheduled time, in ISO 8601 format, when the campaign began or will begin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1180,7 +1192,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter WriteCampaignRequest_TreatmentDescription
         /// <summary>
         /// <para>
-        /// <para>The custom description of a variation of the campaign to use for A/B testing.</para>
+        /// <para>A custom description of a variation of the campaign to use for A/B testing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1480,6 +1492,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.EmailTemplate_Name = this.EmailTemplate_Name;
             context.PushTemplate_Name = this.PushTemplate_Name;
             context.SMSTemplate_Name = this.SMSTemplate_Name;
+            context.VoiceTemplate_Name = this.VoiceTemplate_Name;
             context.WriteCampaignRequest_TreatmentDescription = this.WriteCampaignRequest_TreatmentDescription;
             context.WriteCampaignRequest_TreatmentName = this.WriteCampaignRequest_TreatmentName;
             
@@ -1655,6 +1668,61 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.WriteCampaignRequest.Hook = requestWriteCampaignRequest_writeCampaignRequest_Hook;
                 requestWriteCampaignRequestIsNull = false;
             }
+            Amazon.Pinpoint.Model.CampaignLimits requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
+            
+             // populate Limits
+            var requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_Limits = new Amazon.Pinpoint.Model.CampaignLimits();
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily = null;
+            if (cmdletContext.Limits_Daily != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily = cmdletContext.Limits_Daily.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.Daily = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = null;
+            if (cmdletContext.Limits_MaximumDuration != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = cmdletContext.Limits_MaximumDuration.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.MaximumDuration = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = null;
+            if (cmdletContext.Limits_MessagesPerSecond != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = cmdletContext.Limits_MessagesPerSecond.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.MessagesPerSecond = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total = null;
+            if (cmdletContext.Limits_Total != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total = cmdletContext.Limits_Total.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.Total = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_Limits should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits != null)
+            {
+                request.WriteCampaignRequest.Limits = requestWriteCampaignRequest_writeCampaignRequest_Limits;
+                requestWriteCampaignRequestIsNull = false;
+            }
             Amazon.Pinpoint.Model.TemplateConfiguration requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration = null;
             
              // populate TemplateConfiguration
@@ -1735,6 +1803,31 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration.SMSTemplate = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplate;
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfigurationIsNull = false;
             }
+            Amazon.Pinpoint.Model.Template requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate = null;
+            
+             // populate VoiceTemplate
+            var requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplateIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate = new Amazon.Pinpoint.Model.Template();
+            System.String requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Name = null;
+            if (cmdletContext.VoiceTemplate_Name != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Name = cmdletContext.VoiceTemplate_Name;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Name != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate.Name = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Name;
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplateIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplateIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration.VoiceTemplate = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate;
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfigurationIsNull = false;
+            }
              // determine if requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration should be set to null
             if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfigurationIsNull)
             {
@@ -1743,61 +1836,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration != null)
             {
                 request.WriteCampaignRequest.TemplateConfiguration = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration;
-                requestWriteCampaignRequestIsNull = false;
-            }
-            Amazon.Pinpoint.Model.CampaignLimits requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
-            
-             // populate Limits
-            var requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = true;
-            requestWriteCampaignRequest_writeCampaignRequest_Limits = new Amazon.Pinpoint.Model.CampaignLimits();
-            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily = null;
-            if (cmdletContext.Limits_Daily != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily = cmdletContext.Limits_Daily.Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits.Daily = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily.Value;
-                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
-            }
-            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = null;
-            if (cmdletContext.Limits_MaximumDuration != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = cmdletContext.Limits_MaximumDuration.Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits.MaximumDuration = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration.Value;
-                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
-            }
-            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = null;
-            if (cmdletContext.Limits_MessagesPerSecond != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = cmdletContext.Limits_MessagesPerSecond.Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits.MessagesPerSecond = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond.Value;
-                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
-            }
-            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total = null;
-            if (cmdletContext.Limits_Total != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total = cmdletContext.Limits_Total.Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits.Total = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total.Value;
-                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
-            }
-             // determine if requestWriteCampaignRequest_writeCampaignRequest_Limits should be set to null
-            if (requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Limits = null;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Limits != null)
-            {
-                request.WriteCampaignRequest.Limits = requestWriteCampaignRequest_writeCampaignRequest_Limits;
                 requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.MessageConfiguration requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration = null;
@@ -2950,6 +2988,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String EmailTemplate_Name { get; set; }
             public System.String PushTemplate_Name { get; set; }
             public System.String SMSTemplate_Name { get; set; }
+            public System.String VoiceTemplate_Name { get; set; }
             public System.String WriteCampaignRequest_TreatmentDescription { get; set; }
             public System.String WriteCampaignRequest_TreatmentName { get; set; }
             public System.Func<Amazon.Pinpoint.Model.UpdateCampaignResponse, UpdatePINCampaignCmdlet, object> Select { get; set; } =

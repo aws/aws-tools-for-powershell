@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// such as APNS and FCM, to which devices and mobile apps may register. You must specify
     /// PlatformPrincipal and PlatformCredential attributes when using the <code>CreatePlatformApplication</code>
     /// action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX,
-    /// PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable.
+    /// PlatformPrincipal is "SSL certificate". For FCM, PlatformPrincipal is not applicable.
     /// For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received
     /// from the notification service. For WNS, PlatformPrincipal is "Package Security Identifier".
     /// For MPNS, PlatformPrincipal is "TLS certificate". For Baidu, PlatformPrincipal is
@@ -40,21 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// 
     ///  
     /// <para>
-    /// For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential
+    /// For APNS/APNS_SANDBOX, PlatformCredential is "private key". For FCM, PlatformCredential
     /// is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential
     /// is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential
     /// is "secret key". The PlatformApplicationArn that is returned when using <code>CreatePlatformApplication</code>
-    /// is then used as an attribute for the <code>CreatePlatformEndpoint</code> action. For
-    /// more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
-    /// Amazon SNS Mobile Push Notifications</a>. For more information about obtaining the
-    /// PlatformPrincipal and PlatformCredential for each of the supported push notification
-    /// services, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html">Getting
-    /// Started with Apple Push Notification Service</a>, <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html">Getting
-    /// Started with Amazon Device Messaging</a>, <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html">Getting
-    /// Started with Baidu Cloud Push</a>, <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html">Getting
-    /// Started with Google Cloud Messaging for Android</a>, <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html">Getting
-    /// Started with MPNS</a>, or <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html">Getting
-    /// Started with WNS</a>. 
+    /// is then used as an attribute for the <code>CreatePlatformEndpoint</code> action.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SNSPlatformApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -107,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple
-        /// Push Notification Service), APNS_SANDBOX, and GCM (Google Cloud Messaging).</para>
+        /// Push Notification Service), APNS_SANDBOX, and FCM (Firebase Cloud Messaging).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

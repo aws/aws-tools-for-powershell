@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Sets the supplied tag-set to an object that already exists in a bucket
+    /// Amazon.S3.IAmazonS3.PutObjectTagging
     /// </summary>
     [Cmdlet("Write", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

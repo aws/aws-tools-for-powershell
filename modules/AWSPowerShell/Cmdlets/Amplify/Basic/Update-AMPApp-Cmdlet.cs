@@ -276,6 +276,16 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public Amazon.Amplify.Platform Platform { get; set; }
         #endregion
         
+        #region Parameter AutoBranchCreationConfig_PullRequestEnvironmentName
+        /// <summary>
+        /// <para>
+        /// <para> The Amplify Environment name for the pull request. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AutoBranchCreationConfig_PullRequestEnvironmentName { get; set; }
+        #endregion
+        
         #region Parameter Repository
         /// <summary>
         /// <para>
@@ -380,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 }
             }
             context.AutoBranchCreationConfig_Framework = this.AutoBranchCreationConfig_Framework;
+            context.AutoBranchCreationConfig_PullRequestEnvironmentName = this.AutoBranchCreationConfig_PullRequestEnvironmentName;
             context.AutoBranchCreationConfig_Stage = this.AutoBranchCreationConfig_Stage;
             if (this.AutoBranchCreationPattern != null)
             {
@@ -504,6 +515,16 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (requestAutoBranchCreationConfig_autoBranchCreationConfig_Framework != null)
             {
                 request.AutoBranchCreationConfig.Framework = requestAutoBranchCreationConfig_autoBranchCreationConfig_Framework;
+                requestAutoBranchCreationConfigIsNull = false;
+            }
+            System.String requestAutoBranchCreationConfig_autoBranchCreationConfig_PullRequestEnvironmentName = null;
+            if (cmdletContext.AutoBranchCreationConfig_PullRequestEnvironmentName != null)
+            {
+                requestAutoBranchCreationConfig_autoBranchCreationConfig_PullRequestEnvironmentName = cmdletContext.AutoBranchCreationConfig_PullRequestEnvironmentName;
+            }
+            if (requestAutoBranchCreationConfig_autoBranchCreationConfig_PullRequestEnvironmentName != null)
+            {
+                request.AutoBranchCreationConfig.PullRequestEnvironmentName = requestAutoBranchCreationConfig_autoBranchCreationConfig_PullRequestEnvironmentName;
                 requestAutoBranchCreationConfigIsNull = false;
             }
             Amazon.Amplify.Stage requestAutoBranchCreationConfig_autoBranchCreationConfig_Stage = null;
@@ -647,6 +668,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public System.Boolean? AutoBranchCreationConfig_EnablePullRequestPreview { get; set; }
             public Dictionary<System.String, System.String> AutoBranchCreationConfig_EnvironmentVariable { get; set; }
             public System.String AutoBranchCreationConfig_Framework { get; set; }
+            public System.String AutoBranchCreationConfig_PullRequestEnvironmentName { get; set; }
             public Amazon.Amplify.Stage AutoBranchCreationConfig_Stage { get; set; }
             public List<System.String> AutoBranchCreationPattern { get; set; }
             public System.String BasicAuthCredential { get; set; }

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// You can create up to 5000 log groups per account.
+    /// You can create up to 20,000 log groups per account.
     /// </para><para>
     /// You must use the following guidelines when naming a log group:
     /// </para><ul><li><para>
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Log group names can be between 1 and 512 characters long.
     /// </para></li><li><para>
     /// Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore),
-    /// '-' (hyphen), '/' (forward slash), and '.' (period).
+    /// '-' (hyphen), '/' (forward slash), '.' (period), and '#' (number sign)
     /// </para></li></ul><para>
     /// If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK)
     /// with the log group, ingested data is encrypted using the CMK. This association is

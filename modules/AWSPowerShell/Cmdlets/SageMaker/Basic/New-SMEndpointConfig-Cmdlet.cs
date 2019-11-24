@@ -83,13 +83,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker
         /// uses to encrypt data on the storage volume attached to the ML compute instance that
-        /// hosts the endpoint.</para><note><para>Nitro-based instances do not support encryption with AWS KMS. If any of the models
-        /// that you specify in the <code>ProductionVariants</code> parameter use nitro-based
-        /// instances, do not specify a value for the <code>KmsKeyId</code> parameter. If you
-        /// specify a value for <code>KmsKeyId</code> when using any nitro-based instances, the
-        /// call to <code>CreateEndpointConfig</code> fails.</para><para>For a list of nitro-based instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
-        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>.</para><para>For more information about storage volumes on nitro-based instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html">Amazon
-        /// EBS and NVMe on Linux Instances</a>.</para></note>
+        /// hosts the endpoint.</para><note><para>Certain Nitro-based instances include local storage, dependent on the instance type.
+        /// Local storage volumes are encrypted using a hardware module on the instance. You can't
+        /// request a <code>KmsKeyId</code> when using an instance type with local storage. If
+        /// any of the models that you specify in the <code>ProductionVariants</code> parameter
+        /// use nitro-based instances with local storage, do not specify a value for the <code>KmsKeyId</code>
+        /// parameter. If you specify a value for <code>KmsKeyId</code> when using any nitro-based
+        /// instances with local storage, the call to <code>CreateEndpointConfig</code> fails.</para><para>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance
+        /// Store Volumes</a>.</para><para>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
+        /// Instance Store Volumes</a>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// <summary>
     /// Creates an unreferenced commit that represents the result of merging two branches
     /// using a specified merge strategy. This can help you determine the outcome of a potential
-    /// merge. This API cannot be used with the fast-forward merge strategy, as that strategy
+    /// merge. This API cannot be used with the fast-forward merge strategy because that strategy
     /// does not create a merge commit.
     /// 
     ///  <note><para>
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter AuthorName
         /// <summary>
         /// <para>
-        /// <para>The name of the author who created the unreferenced commit. This information will
-        /// be used as both the author and committer for the commit.</para>
+        /// <para>The name of the author who created the unreferenced commit. This information is used
+        /// as both the author and committer for the commit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
-        /// which will return a not mergeable result if the same file has differences in both
-        /// branches. If LINE_LEVEL is specified, a conflict will be considered not mergeable
-        /// if the same file in both branches has differences on the same line.</para>
+        /// which returns a not-mergeable result if the same file has differences in both branches.
+        /// If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file
+        /// in both branches has differences on the same line.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>Specifies which branch to use when resolving conflicts, or whether to attempt automatically
         /// merging two versions of a file. The default is NONE, which requires any conflicts
-        /// to be resolved manually before the merge operation will be successful.</para>
+        /// to be resolved manually before the merge operation is successful.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ConflictResolution_DeleteFile
         /// <summary>
         /// <para>
-        /// <para>Files that will be deleted as part of the merge conflict resolution.</para>
+        /// <para>Files to be deleted as part of the merge conflict resolution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter DestinationCommitSpecifier
         /// <summary>
         /// <para>
-        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
-        /// For example, a branch name or a full commit ID.</para>
+        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+        /// (for example, a branch name or a full commit ID).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>If the commit contains deletions, whether to keep a folder or folder structure if
         /// the changes leave the folders empty. If this is specified as true, a .gitkeep file
-        /// will be created for empty folders. The default is false.</para>
+        /// is created for empty folders. The default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ConflictResolution_ReplaceContent
         /// <summary>
         /// <para>
-        /// <para>Files that will have content replaced as part of the merge conflict resolution.</para>
+        /// <para>Files to have content replaced as part of the merge conflict resolution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ConflictResolution_SetFileMode
         /// <summary>
         /// <para>
-        /// <para>File modes that will be set as part of the merge conflict resolution.</para>
+        /// <para>File modes that are set as part of the merge conflict resolution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter SourceCommitSpecifier
         /// <summary>
         /// <para>
-        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
-        /// For example, a branch name or a full commit ID.</para>
+        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+        /// (for example, a branch name or a full commit ID).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

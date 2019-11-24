@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Lists the tags that have been added to the specified resource. This operation is only
-    /// supported in the cached volume, stored volume and tape gateway type.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the tags that have been added to the specified resource. This operation is supported
+    /// in storage gateways of all types.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SGResourceTag")]
     [OutputType("Amazon.StorageGateway.Model.Tag")]

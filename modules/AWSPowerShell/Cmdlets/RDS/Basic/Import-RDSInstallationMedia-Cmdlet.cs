@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Imports the installation media for an on-premises, bring your own media (BYOM) DB
-    /// engine, such as SQL Server.
+    /// Imports the installation media for a DB engine that requires an on-premises customer
+    /// provided license, such as SQL Server.
     /// </summary>
     [Cmdlet("Import", "RDSInstallationMedia", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.ImportInstallationMediaResponse")]
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance. </para><para>The list only includes supported on-premises, bring your own media (BYOM) DB engines.
-        /// </para><para>Valid Values: </para><ul><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// <para>The name of the database engine to be used for this instance. </para><para>The list only includes supported DB engines that require an on-premises customer provided
+        /// license. </para><para>Valid Values: </para><ul><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineInstallationMediaPath
         /// <summary>
         /// <para>
-        /// <para>The path to the installation media for the specified DB engine.</para><para>Example: <code>SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso</code></para>
+        /// <para>The path to the installation medium for the specified DB engine.</para><para>Example: <code>SQLServerISO/en_sql_server_2016_enterprise_x64_dvd_8701793.iso</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The version number of the database engine to use.</para><para>For a list of valid engine versions, call <a>DescribeDBEngineVersions</a>.</para><para>The following are the database engines and links to information about the major and
-        /// minor versions. The list only includes supported on-premises, bring your own media
-        /// (BYOM) DB engines.</para><para><b>Microsoft SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport">Version
+        /// minor versions. The list only includes DB engines that require an on-premises customer
+        /// provided license.</para><para><b>Microsoft SQL Server</b></para><para>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.FeatureSupport">Version
         /// and Feature Support on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OSInstallationMediaPath
         /// <summary>
         /// <para>
-        /// <para>The path to the installation media for the operating system associated with the specified
+        /// <para>The path to the installation medium for the operating system associated with the specified
         /// DB engine.</para><para>Example: <code>WindowsISO/en_windows_server_2016_x64_dvd_9327751.iso</code></para>
         /// </para>
         /// </summary>

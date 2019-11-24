@@ -157,7 +157,8 @@ $PERS_SelectCompleters = {
 }
 
 $PERS_SelectMap = @{
-    "Select"=@("New-PERSCampaign",
+    "Select"=@("New-PERSBatchInferenceJob",
+               "New-PERSCampaign",
                "New-PERSDataset",
                "New-PERSDatasetGroup",
                "New-PERSDatasetImportJob",
@@ -172,6 +173,7 @@ $PERS_SelectMap = @{
                "Remove-PERSSchema",
                "Remove-PERSSolution",
                "Get-PERSAlgorithm",
+               "Get-PERSBatchInferenceJob",
                "Get-PERSCampaign",
                "Get-PERSDataset",
                "Get-PERSDatasetGroup",
@@ -183,6 +185,7 @@ $PERS_SelectMap = @{
                "Get-PERSSolution",
                "Get-PERSSolutionVersion",
                "Get-PERSSolutionMetric",
+               "Get-PERSBatchInferenceJobList",
                "Get-PERSCampaignList",
                "Get-PERSDatasetGroupList",
                "Get-PERSDatasetImportJobList",

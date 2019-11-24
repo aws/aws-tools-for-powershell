@@ -31,6 +31,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchCreateAttendee" OutputProperty="*" Verb="New" Noun="AttendeeBatch" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchCreateRoomMembership" OutputProperty="Errors" Verb="New" Noun="RoomMembershipBatch" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDeletePhoneNumber" OutputProperty="PhoneNumberErrors" Verb="Remove" Noun="PhoneNumberBatch" ShouldProcessTarget="PhoneNumberIds" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -55,11 +63,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateAttendee" OutputProperty="Attendee" Verb="New" Noun="Attendee" ShouldProcessTarget="ExternalUserId" PipelineParameter="ExternalUserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateBot" OutputProperty="Bot" Verb="New" Noun="Bot" ShouldProcessTarget="DisplayName" PipelineParameter="DisplayName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMeeting" OutputProperty="Meeting" Verb="New" Noun="Meeting" ShouldProcessTarget="MeetingHostId" PipelineParameter="MeetingHostId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePhoneNumberOrder" OutputProperty="PhoneNumberOrder" Verb="New" Noun="PhoneNumberOrder" ShouldProcessTarget="E164PhoneNumbers" PipelineParameter="E164PhoneNumbers" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRoom" OutputProperty="Room" Verb="New" Noun="Room" ShouldProcessTarget="Name" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRoomMembership" OutputProperty="RoomMembership" Verb="New" Noun="RoomMembership" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,11 +99,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAttendee" Verb="Remove" Noun="Attendee" ShouldProcessTarget="AttendeeId" PipelineParameter="AttendeeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEventsConfiguration" Verb="Remove" Noun="EventsConfiguration" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMeeting" Verb="Remove" Noun="Meeting" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePhoneNumber" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoom" Verb="Remove" Noun="Room" ShouldProcessTarget="RoomId" PipelineParameter="RoomId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoomMembership" Verb="Remove" Noun="RoomMembership" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,6 +167,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAttendee" OutputProperty="Attendee" Verb="Get" Noun="Attendee" PipelineParameter="AttendeeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetBot" OutputProperty="Bot" Verb="Get" Noun="Bot" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -139,6 +183,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMeeting" OutputProperty="Meeting" Verb="Get" Noun="Meeting" PipelineParameter="MeetingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPhoneNumber" OutputProperty="PhoneNumber" Verb="Get" Noun="PhoneNumber" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -148,6 +196,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPhoneNumberSettings" OutputProperty="*" Verb="Get" Noun="PhoneNumberSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRoom" OutputProperty="Room" Verb="Get" Noun="Room" PipelineParameter="RoomId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -195,7 +247,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAttendees" OutputProperty="Attendees" Verb="Get" Noun="AttendeeList" PipelineParameter="MeetingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMeetings" OutputProperty="Meetings" Verb="Get" Noun="MeetingList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -204,6 +264,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPhoneNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="PhoneNumberList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRoomMemberships" OutputProperty="RoomMemberships" Verb="Get" Noun="RoomMembershipList" PipelineParameter="RoomId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRooms" OutputProperty="Rooms" Verb="Get" Noun="RoomList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -290,6 +358,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePhoneNumberSettings" Verb="Update" Noun="PhoneNumberSetting" ShouldProcessTarget="CallingName" PipelineParameter="CallingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoom" OutputProperty="Room" Verb="Update" Noun="Room" ShouldProcessTarget="RoomId" PipelineParameter="RoomId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoomMembership" OutputProperty="RoomMembership" Verb="Update" Noun="RoomMembership" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

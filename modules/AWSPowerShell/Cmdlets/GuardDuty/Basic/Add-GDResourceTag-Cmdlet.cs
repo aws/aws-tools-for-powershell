@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the given GuardDuty resource </para>
+        /// <para>The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

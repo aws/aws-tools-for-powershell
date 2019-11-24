@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para> The DB cluster identifier for the global cluster being modified. This parameter is
-        /// not case-sensitive. </para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing global database cluster.</para></li></ul>
+        /// <para> The DB cluster identifier for the global cluster being modified. This parameter isn't
+        /// case-sensitive. </para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing global database cluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

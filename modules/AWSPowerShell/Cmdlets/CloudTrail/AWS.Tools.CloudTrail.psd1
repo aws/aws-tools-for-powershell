@@ -89,17 +89,21 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-CTResourceTag', 
         'Find-CTEvent', 
         'Get-CTEventSelector', 
+        'Get-CTInsightSelector', 
         'Get-CTPublicKey', 
         'Get-CTResourceTag', 
         'Get-CTTrail', 
+        'Get-CTTrailByName', 
         'Get-CTTrailStatus', 
+        'Get-CTTrailSummary', 
         'New-CTTrail', 
         'Remove-CTResourceTag', 
         'Remove-CTTrail', 
         'Start-CTLogging', 
         'Stop-CTLogging', 
         'Update-CTTrail', 
-        'Write-CTEventSelector')
+        'Write-CTEventSelector', 
+        'Write-CTInsightSelector')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -125,7 +129,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

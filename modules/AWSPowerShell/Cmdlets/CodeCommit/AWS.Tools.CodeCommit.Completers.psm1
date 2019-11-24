@@ -80,6 +80,13 @@ $CC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CodeCommit.ApprovalState
+        "Update-CCPullRequestApprovalState/ApprovalState"
+        {
+            $v = "APPROVE","REVOKE"
+            break
+        }
+
         # Amazon.CodeCommit.ConflictDetailLevelTypeEnum
         {
             ($_ -eq "Get-CCFileMergeConflict/ConflictDetailLevel") -Or
@@ -142,10 +149,17 @@ $CC_Completers = {
             break
         }
 
+        # Amazon.CodeCommit.OverrideStatus
+        "Skip-CCPullRequestApprovalRule/OverrideStatus"
+        {
+            $v = "OVERRIDE","REVOKE"
+            break
+        }
+
         # Amazon.CodeCommit.PullRequestEventType
         "Get-CCPullRequestEvent/PullRequestEventType"
         {
-            $v = "PULL_REQUEST_CREATED","PULL_REQUEST_MERGE_STATE_CHANGED","PULL_REQUEST_SOURCE_REFERENCE_UPDATED","PULL_REQUEST_STATUS_CHANGED"
+            $v = "PULL_REQUEST_APPROVAL_RULE_CREATED","PULL_REQUEST_APPROVAL_RULE_DELETED","PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN","PULL_REQUEST_APPROVAL_RULE_UPDATED","PULL_REQUEST_APPROVAL_STATE_CHANGED","PULL_REQUEST_CREATED","PULL_REQUEST_MERGE_STATE_CHANGED","PULL_REQUEST_SOURCE_REFERENCE_UPDATED","PULL_REQUEST_STATUS_CHANGED"
             break
         }
 
@@ -185,12 +199,14 @@ $CC_Completers = {
 }
 
 $CC_map = @{
+    "ApprovalState"=@("Update-CCPullRequestApprovalState")
     "ConflictDetailLevel"=@("Get-CCFileMergeConflict","Get-CCFileMergeConflictBatch","Get-CCMergeCommit","Get-CCMergeConflict","Get-CCMergeOption","Merge-CCBranchesBySquash","Merge-CCBranchesByThreeWay","Merge-CCPullRequestBySquash","Merge-CCPullRequestByThreeWay","New-CCUnreferencedMergeCommit")
     "ConflictResolutionStrategy"=@("Get-CCFileMergeConflict","Get-CCFileMergeConflictBatch","Get-CCMergeCommit","Get-CCMergeConflict","Get-CCMergeOption","Merge-CCBranchesBySquash","Merge-CCBranchesByThreeWay","Merge-CCPullRequestBySquash","Merge-CCPullRequestByThreeWay","New-CCUnreferencedMergeCommit")
     "FileMode"=@("Write-CCFile")
     "Location_RelativeFileVersion"=@("Send-CCCommentForComparedCommit","Send-CCCommentForPullRequest")
     "MergeOption"=@("Get-CCFileMergeConflict","Get-CCFileMergeConflictBatch","Get-CCMergeConflict","New-CCUnreferencedMergeCommit")
     "Order"=@("Get-CCRepositoryList")
+    "OverrideStatus"=@("Skip-CCPullRequestApprovalRule")
     "PullRequestEventType"=@("Get-CCPullRequestEvent")
     "PullRequestStatus"=@("Get-CCPullRequestList","Update-CCPullRequestStatus")
     "SortBy"=@("Get-CCRepositoryList")
@@ -246,20 +262,30 @@ $CC_SelectCompleters = {
 }
 
 $CC_SelectMap = @{
-    "Select"=@("Get-CCFileMergeConflictBatch",
+    "Select"=@("Add-CCApprovalRuleTemplateToRepository",
+               "Add-CCApprovalRuleTemplateToRepositoryBatch",
+               "Get-CCFileMergeConflictBatch",
+               "Remove-CCApprovalRuleTemplateFromRepositoryBatch",
                "Get-CCCommitBatch",
                "Get-CCRepositoryBatch",
+               "New-CCApprovalRuleTemplate",
                "New-CCBranch",
                "New-CCCommit",
                "New-CCPullRequest",
+               "New-CCPullRequestApprovalRule",
                "New-CCRepository",
                "New-CCUnreferencedMergeCommit",
+               "Remove-CCApprovalRuleTemplate",
                "Remove-CCBranch",
                "Remove-CCCommentContent",
                "Remove-CCFile",
+               "Remove-CCPullRequestApprovalRule",
                "Remove-CCRepository",
                "Get-CCFileMergeConflict",
                "Get-CCPullRequestEvent",
+               "Remove-CCApprovalRuleTemplateFromRepository",
+               "Invoke-CCPullRequestApprovalRule",
+               "Get-CCApprovalRuleTemplate",
                "Get-CCBlob",
                "Get-CCBranch",
                "Get-CCComment",
@@ -273,11 +299,16 @@ $CC_SelectMap = @{
                "Get-CCMergeConflict",
                "Get-CCMergeOption",
                "Get-CCPullRequest",
+               "Get-CCPullRequestApprovalState",
+               "Get-CCPullRequestOverrideState",
                "Get-CCRepository",
                "Get-CCRepositoryTrigger",
+               "Get-CCApprovalRuleTemplateList",
+               "Get-CCAssociatedApprovalRuleTemplatesForRepositoryList",
                "Get-CCBranchList",
                "Get-CCPullRequestList",
                "Get-CCRepositoryList",
+               "Get-CCRepositoriesForApprovalRuleTemplateList",
                "Get-CCResourceTag",
                "Merge-CCBranchesByFastForward",
                "Merge-CCBranchesBySquash",
@@ -285,6 +316,7 @@ $CC_SelectMap = @{
                "Merge-CCPullRequestByFastForward",
                "Merge-CCPullRequestBySquash",
                "Merge-CCPullRequestByThreeWay",
+               "Skip-CCPullRequestApprovalRule",
                "Send-CCCommentForComparedCommit",
                "Send-CCCommentForPullRequest",
                "Send-CCCommentReply",
@@ -293,8 +325,13 @@ $CC_SelectMap = @{
                "Add-CCResourceTag",
                "Test-CCRepositoryTrigger",
                "Remove-CCResourceTag",
+               "Update-CCApprovalRuleTemplateContent",
+               "Update-CCApprovalRuleTemplateDescription",
+               "Update-CCApprovalRuleTemplateName",
                "Update-CCComment",
                "Update-CCDefaultBranch",
+               "Update-CCPullRequestApprovalRuleContent",
+               "Update-CCPullRequestApprovalState",
                "Update-CCPullRequestDescription",
                "Update-CCPullRequestStatus",
                "Update-CCPullRequestTitle",

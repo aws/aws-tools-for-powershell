@@ -686,6 +686,7 @@ Scenario-4  Create            Create       The new create is added to the pendin
                             case "link":
                             case "filename":
                             case "replaceable":
+                            case "seealso":
                                 break;
 
                             default:
@@ -753,6 +754,7 @@ Scenario-4  Create            Create       The new create is added to the pendin
                             case "link":
                             case "filename":
                             case "replaceable":
+                            case "seealso":
                                 break;
 
                             default:

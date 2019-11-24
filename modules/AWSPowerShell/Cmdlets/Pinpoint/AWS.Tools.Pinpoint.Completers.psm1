@@ -229,6 +229,17 @@ $PIN_Completers = {
             break
         }
 
+        # Amazon.Pinpoint.State
+        {
+            ($_ -eq "Update-PINJourneyState/JourneyStateRequest_State") -Or
+            ($_ -eq "New-PINJourney/WriteJourneyRequest_State") -Or
+            ($_ -eq "Update-PINJourney/WriteJourneyRequest_State")
+        }
+        {
+            $v = "ACTIVE","CANCELLED","CLOSED","COMPLETED","DRAFT"
+            break
+        }
+
 
     }
 
@@ -240,6 +251,7 @@ $PIN_Completers = {
 $PIN_map = @{
     "EndpointRequest_ChannelType"=@("Update-PINEndpoint")
     "ImportJobRequest_Format"=@("New-PINImportJob")
+    "JourneyStateRequest_State"=@("Update-PINJourneyState")
     "MessageRequest_MessageConfiguration_ADMMessage_Action"=@("Send-PINMessage")
     "MessageRequest_MessageConfiguration_APNSMessage_Action"=@("Send-PINMessage")
     "MessageRequest_MessageConfiguration_BaiduMessage_Action"=@("Send-PINMessage")
@@ -268,6 +280,7 @@ $PIN_map = @{
     "WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_Schedule_EventFilter_FilterType"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_Schedule_Frequency"=@("New-PINCampaign","Update-PINCampaign")
+    "WriteJourneyRequest_State"=@("New-PINJourney","Update-PINJourney")
     "WriteSegmentRequest_Dimensions_Behavior_Recency_Duration"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType"=@("New-PINSegment","Update-PINSegment")
@@ -335,9 +348,11 @@ $PIN_SelectMap = @{
                "New-PINEmailTemplate",
                "New-PINExportJob",
                "New-PINImportJob",
+               "New-PINJourney",
                "New-PINPushTemplate",
                "New-PINSegment",
                "New-PINSmsTemplate",
+               "New-PINVoiceTemplate",
                "Remove-PINAdmChannel",
                "Remove-PINApnsChannel",
                "Remove-PINApnsSandboxChannel",
@@ -351,12 +366,14 @@ $PIN_SelectMap = @{
                "Remove-PINEndpoint",
                "Remove-PINEventStream",
                "Remove-PINGcmChannel",
+               "Remove-PINJourney",
                "Remove-PINPushTemplate",
                "Remove-PINSegment",
                "Remove-PINSmsChannel",
                "Remove-PINSmsTemplate",
                "Remove-PINUserEndpoint",
                "Remove-PINVoiceChannel",
+               "Remove-PINVoiceTemplate",
                "Get-PINAdmChannel",
                "Get-PINApnsChannel",
                "Get-PINApnsSandboxChannel",
@@ -383,6 +400,10 @@ $PIN_SelectMap = @{
                "Get-PINGcmChannel",
                "Get-PINImportJob",
                "Get-PINImportJobList",
+               "Get-PINJourney",
+               "Get-PINJourneyDateRangeKpi",
+               "Get-PINJourneyExecutionActivityMetric",
+               "Get-PINJourneyExecutionMetric",
                "Get-PINPushTemplate",
                "Get-PINSegment",
                "Get-PINSegmentExportJobList",
@@ -394,6 +415,8 @@ $PIN_SelectMap = @{
                "Get-PINSmsTemplate",
                "Get-PINUserEndpoint",
                "Get-PINVoiceChannel",
+               "Get-PINVoiceTemplate",
+               "Get-PINJourneyList",
                "Get-PINResourceTag",
                "Get-PINTemplateList",
                "Confirm-PINPhoneNumber",
@@ -417,11 +440,14 @@ $PIN_SelectMap = @{
                "Update-PINEndpoint",
                "Update-PINEndpointsBatch",
                "Update-PINGcmChannel",
+               "Update-PINJourney",
+               "Update-PINJourneyState",
                "Update-PINPushTemplate",
                "Update-PINSegment",
                "Update-PINSmsChannel",
                "Update-PINSmsTemplate",
-               "Update-PINVoiceChannel")
+               "Update-PINVoiceChannel",
+               "Update-PINVoiceTemplate")
 }
 
 _awsArgumentCompleterRegistration $PIN_SelectCompleters $PIN_SelectMap

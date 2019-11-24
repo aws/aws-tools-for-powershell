@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a Traffic Mirror rule. 
+    /// Creates a Traffic Mirror filter rule. 
     /// 
     ///  
     /// <para>

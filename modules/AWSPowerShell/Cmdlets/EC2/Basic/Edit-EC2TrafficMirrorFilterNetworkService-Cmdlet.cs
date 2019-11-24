@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// services, use <code>RemoveNetworkServices</code> to remove the network services from
     /// the Traffic Mirror filter. 
     /// </para><para>
-    /// FFor information about filter rule properties, see <a href="https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html#traffic-mirroring-network-services">Network
+    /// For information about filter rule properties, see <a href="https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html">Network
     /// Services</a> in the <i>Traffic Mirroring User Guide </i>.
     /// </para>
     /// </summary>

@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter MigrationTaskName
         /// <summary>
         /// <para>
-        /// <para>Unique identifier that references the migration task.</para>
+        /// <para>Unique identifier that references the migration task. <i>Do not store personal data
+        /// in this field.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -138,6 +138,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAvailabilityMonitorTest" OutputProperty="*" Verb="Get" Noun="AvailabilityMonitorTest" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeBandwidthRateLimit" OutputProperty="*" Verb="Get" Noun="BandwidthRateLimit" PipelineParameter="GatewayARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -284,6 +288,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ShutdownGateway" OutputProperty="GatewayARN" Verb="Stop" Noun="Gateway" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAvailabilityMonitorTest" OutputProperty="GatewayARN" Verb="Start" Noun="AvailabilityMonitorTest" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -80,9 +80,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// When switching from pay-per-request to provisioned capacity, initial provisioned capacity
         /// values must be set. The initial provisioned capacity values are estimated based on
         /// the consumed read and write capacity of your table and global secondary indexes over
-        /// the past 30 minutes.</para><ul><li><para><code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We
-        /// recommend using <code>PROVISIONED</code> for predictable workloads.</para></li><li><para><code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>.
-        /// We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. </para></li></ul>
+        /// the past 30 minutes.</para><ul><li><para><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable
+        /// workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned
+        /// Mode</a>.</para></li><li><para><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for
+        /// unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand
+        /// Mode</a>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>An array of one or more global secondary indexes for the table. For each index in
         /// the array, you can request one action:</para><ul><li><para><code>Create</code> - add a new global secondary index to the table.</para></li><li><para><code>Update</code> - modify the provisioned throughput settings of an existing global
-        /// secondary index.</para></li><li><para><code>Delete</code> - remove a global secondary index from the table.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
+        /// secondary index.</para></li><li><para><code>Delete</code> - remove a global secondary index from the table.</para></li></ul><para>You can create or delete only one global secondary index per <code>UpdateTable</code>
+        /// operation.</para><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing
         /// Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -120,10 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter SSESpecification_KMSMasterKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS Customer Master Key (CMK) which should be used for the KMS encryption. To
-        /// specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN.
-        /// Note that you should only provide this parameter if the key is different from the
-        /// default DynamoDB Customer Master Key alias/aws/dynamodb.</para>
+        /// <para>The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption.
+        /// To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+        /// ARN. Note that you should only provide this parameter if the key is different from
+        /// the default DynamoDB customer master key alias/aws/dynamodb.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,11 +146,23 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.Int64? ReadCapacity { get; set; }
         #endregion
         
+        #region Parameter ReplicaUpdate
+        /// <summary>
+        /// <para>
+        /// <para>A list of replica update actions (create, delete, or update) for the table.</para><note><para>This property only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+        /// 2019.11.21</a> of global tables.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReplicaUpdates")]
+        public Amazon.DynamoDBv2.Model.ReplicationGroupUpdate[] ReplicaUpdate { get; set; }
+        #endregion
+        
         #region Parameter SSESpecification_SSEType
         /// <summary>
         /// <para>
-        /// <para>Server-side encryption type. The only supported value is:</para><ul><li><para><code>KMS</code> - Server-side encryption which uses AWS Key Management Service.
-        /// Key is stored in your account and is managed by AWS KMS (KMS charges apply).</para></li></ul>
+        /// <para>Server-side encryption type. The only supported value is:</para><ul><li><para><code>KMS</code> - Server-side encryption that uses AWS Key Management Service. The
+        /// key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -284,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             context.ReadCapacity = this.ReadCapacity;
             context.WriteCapacity = this.WriteCapacity;
+            if (this.ReplicaUpdate != null)
+            {
+                context.ReplicaUpdate = new List<Amazon.DynamoDBv2.Model.ReplicationGroupUpdate>(this.ReplicaUpdate);
+            }
             context.SSESpecification_Enabled = this.SSESpecification_Enabled;
             context.SSESpecification_KMSMasterKeyId = this.SSESpecification_KMSMasterKeyId;
             context.SSESpecification_SSEType = this.SSESpecification_SSEType;
@@ -352,6 +371,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (requestProvisionedThroughputIsNull)
             {
                 request.ProvisionedThroughput = null;
+            }
+            if (cmdletContext.ReplicaUpdate != null)
+            {
+                request.ReplicaUpdates = cmdletContext.ReplicaUpdate;
             }
             
              // populate SSESpecification
@@ -491,6 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdate { get; set; }
             public System.Int64? ReadCapacity { get; set; }
             public System.Int64? WriteCapacity { get; set; }
+            public List<Amazon.DynamoDBv2.Model.ReplicationGroupUpdate> ReplicaUpdate { get; set; }
             public System.Boolean? SSESpecification_Enabled { get; set; }
             public System.String SSESpecification_KMSMasterKeyId { get; set; }
             public Amazon.DynamoDBv2.SSEType SSESpecification_SSEType { get; set; }

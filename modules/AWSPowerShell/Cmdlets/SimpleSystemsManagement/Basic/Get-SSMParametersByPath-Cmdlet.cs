@@ -28,12 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieve parameters in a specific hierarchy. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working
-    /// with Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>.
+    /// Retrieve information about one or more parameters in a specific hierarchy. 
     /// 
-    /// 
-    ///  
-    /// <para>
+    ///  <note><para>
     /// Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
     /// in the request, the response includes information up to the limit specified. The number
     /// of items returned, however, can be between zero and the value of <code>MaxResults</code>.
@@ -41,8 +38,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// operation and returns the matching values up to that point and a <code>NextToken</code>.
     /// You can specify the <code>NextToken</code> in a subsequent call to get the next set
     /// of results.
-    /// </para><note><para>
-    /// This API action doesn't support filtering by tags. 
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMParametersByPath")]
@@ -58,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ParameterFilter
         /// <summary>
         /// <para>
-        /// <para>Filters to limit the request results.</para><note><para>You can't filter using the parameter name.</para></note>
+        /// <para>Filters to limit the request results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -71,6 +71,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
         #endregion
         
+        #region Parameter Settings_MaxAlternative
+        /// <summary>
+        /// <para>
+        /// <para>The number of alternative transcriptions that the service should return. If you specify
+        /// the <code>MaxAlternatives</code> field, you must set the <code>ShowAlternatives</code>
+        /// field to true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_MaxAlternatives")]
+        public System.Int32? Settings_MaxAlternative { get; set; }
+        #endregion
+        
         #region Parameter Settings_MaxSpeakerLabel
         /// <summary>
         /// <para>
@@ -89,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The S3 location of the input media file. The URI must be in the same region as the
-        /// API endpoint that you are calling. The general form is:</para><para><code> https://s3-&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
-        /// </code></para><para>For example:</para><para><code>https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4</code></para><para><code>https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// API endpoint that you are calling. The general form is:</para><para><code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
+        /// </code></para><para>For example:</para><para><code>https://s3.us-east-1.amazonaws.com/examplebucket/example.mp4</code></para><para><code>https://s3.us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -130,8 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// the operation returns this location in the <code>TranscriptFileUri</code> field. The
         /// S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket.
         /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
-        /// Required for IAM User Roles</a>.</para><para>Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts
-        /// that are placed in your S3 bucket. You can't specify your own encryption key.</para><para>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a
+        /// Required for IAM User Roles</a>.</para><para>You can specify an AWS Key Management Service (KMS) key to encrypt the output of your
+        /// transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't
+        /// specify a KMS key, Amazon Transcribe uses the default Amazon S3 key for server-side
+        /// encryption of transcripts that are placed in your S3 bucket.</para><para>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a
         /// pre-signed URL, a shareable URL that provides secure access to your transcription,
         /// and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download
         /// the transcription.</para>
@@ -144,11 +159,29 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputEncryptionKMSKeyId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to
+        /// encrypt the output of the transcription job. The user calling the <code>StartTranscriptionJob</code>
+        /// operation must have permission to use the specified KMS key.</para><para>You can use either of the following to identify a KMS key in the current account:</para><ul><li><para>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>KMS Key Alias: "alias/ExampleAlias"</para></li></ul><para>You can use either of the following to identify a KMS key in the current account or
+        /// another account:</para><ul><li><para>Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</para></li><li><para>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</para></li></ul><para>If you don't specify an encryption key, the output of the transcription job is encrypted
+        /// with the default Amazon S3 key (SSE-S3). </para><para>If you specify a KMS key to encrypt your output, you must also specify an output location
+        /// in the <code>OutputBucketName</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutputEncryptionKMSKeyId { get; set; }
+        #endregion
+        
+        #region Parameter Settings_ShowAlternative
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether the transcription contains alternative transcriptions. If you set
+        /// the <code>ShowAlternatives</code> field to true, you must also set the maximum number
+        /// of alternatives to return in the <code>MaxAlternatives</code> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Settings_ShowAlternatives")]
+        public System.Boolean? Settings_ShowAlternative { get; set; }
         #endregion
         
         #region Parameter Settings_ShowSpeakerLabel
@@ -268,7 +301,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.OutputBucketName = this.OutputBucketName;
             context.OutputEncryptionKMSKeyId = this.OutputEncryptionKMSKeyId;
             context.Settings_ChannelIdentification = this.Settings_ChannelIdentification;
+            context.Settings_MaxAlternative = this.Settings_MaxAlternative;
             context.Settings_MaxSpeakerLabel = this.Settings_MaxSpeakerLabel;
+            context.Settings_ShowAlternative = this.Settings_ShowAlternative;
             context.Settings_ShowSpeakerLabel = this.Settings_ShowSpeakerLabel;
             context.Settings_VocabularyName = this.Settings_VocabularyName;
             context.TranscriptionJobName = this.TranscriptionJobName;
@@ -347,6 +382,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 request.Settings.ChannelIdentification = requestSettings_settings_ChannelIdentification.Value;
                 requestSettingsIsNull = false;
             }
+            System.Int32? requestSettings_settings_MaxAlternative = null;
+            if (cmdletContext.Settings_MaxAlternative != null)
+            {
+                requestSettings_settings_MaxAlternative = cmdletContext.Settings_MaxAlternative.Value;
+            }
+            if (requestSettings_settings_MaxAlternative != null)
+            {
+                request.Settings.MaxAlternatives = requestSettings_settings_MaxAlternative.Value;
+                requestSettingsIsNull = false;
+            }
             System.Int32? requestSettings_settings_MaxSpeakerLabel = null;
             if (cmdletContext.Settings_MaxSpeakerLabel != null)
             {
@@ -355,6 +400,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (requestSettings_settings_MaxSpeakerLabel != null)
             {
                 request.Settings.MaxSpeakerLabels = requestSettings_settings_MaxSpeakerLabel.Value;
+                requestSettingsIsNull = false;
+            }
+            System.Boolean? requestSettings_settings_ShowAlternative = null;
+            if (cmdletContext.Settings_ShowAlternative != null)
+            {
+                requestSettings_settings_ShowAlternative = cmdletContext.Settings_ShowAlternative.Value;
+            }
+            if (requestSettings_settings_ShowAlternative != null)
+            {
+                request.Settings.ShowAlternatives = requestSettings_settings_ShowAlternative.Value;
                 requestSettingsIsNull = false;
             }
             System.Boolean? requestSettings_settings_ShowSpeakerLabel = null;
@@ -454,7 +509,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String OutputBucketName { get; set; }
             public System.String OutputEncryptionKMSKeyId { get; set; }
             public System.Boolean? Settings_ChannelIdentification { get; set; }
+            public System.Int32? Settings_MaxAlternative { get; set; }
             public System.Int32? Settings_MaxSpeakerLabel { get; set; }
+            public System.Boolean? Settings_ShowAlternative { get; set; }
             public System.Boolean? Settings_ShowSpeakerLabel { get; set; }
             public System.String Settings_VocabularyName { get; set; }
             public System.String TranscriptionJobName { get; set; }

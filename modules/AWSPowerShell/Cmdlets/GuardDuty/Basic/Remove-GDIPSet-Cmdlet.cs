@@ -28,7 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Deletes the IPSet specified by the IPSet ID.
+    /// Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called Trusted
+    /// IP lists in the console user interface.
     /// </summary>
     [Cmdlet("Remove", "GDIPSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector the ipSet is associated with.</para>
+        /// <para>The unique ID of the detector associated with the IPSet.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter IpSetId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the ipSet you want to delete.</para>
+        /// <para>The unique ID of the IPSet to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

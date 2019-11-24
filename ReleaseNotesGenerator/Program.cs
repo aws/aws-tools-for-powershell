@@ -231,15 +231,15 @@ namespace PSReleaseNotesGenerator
                 }
             }
 
-            //var addedParameters = newCmdlet.Parameters
-            //    .Where(newParameter => oldCmdlet.Parameters.All(oldParameter => FindMatchingParameter(oldCmdlet.Parameters, newParameter) == null))
-            //    .Select(newParameter => newParameter.Name)
-            //    .OrderBy(newParameterName => newParameterName)
-            //    .ToArray();
-            //if (addedParameters.Length > 0)
-            //{
-            //    yield return ($"added parameter{(addedParameters.Length > 1 ? "s" : "")} {FormatCollection(addedParameters)}", false);
-            //}
+            var addedParameters = newCmdlet.Parameters
+                .Where(newParameter => oldCmdlet.Parameters.All(oldParameter => FindMatchingParameter(oldCmdlet.Parameters, newParameter) == null))
+                .Select(newParameter => newParameter.Name)
+                .OrderBy(newParameterName => newParameterName)
+                .ToArray();
+            if (addedParameters.Length > 0)
+            {
+                yield return ($"added parameter{(addedParameters.Length > 1 ? "s" : "")} {FormatCollection(addedParameters)}", false);
+            }
 
             foreach (var newParameter in newCmdlet.Parameters)
             {

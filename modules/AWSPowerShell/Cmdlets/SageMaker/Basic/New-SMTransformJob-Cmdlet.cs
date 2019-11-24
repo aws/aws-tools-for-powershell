@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para></li><li><para><code>TransformResources</code> - Identifies the ML compute instances for the transform
     /// job.
     /// </para></li></ul><para>
-    ///  For more information about how batch transformation works Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">How It
-    /// Works</a>. 
+    /// For more information about how batch transformation works, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch
+    /// Transform</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMTransformJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Specifies the number of records to include in a mini-batch for an HTTP inference request.
         /// A <i>record</i><i /> is a single unit of input data that inference can be made on.
-        /// For example, a single line in a CSV file is a record. </para><para>To enable the batch strategy, you must set <code>SplitType</code> to <code>Line</code>,
-        /// <code>RecordIO</code>, or <code>TFRecord</code>.</para><para>To use only one record when making an HTTP invocation request to a container, set
+        /// For example, a single line in a CSV file is a record. </para><para>To enable the batch strategy, you must set the <code>SplitType</code> property of
+        /// the <a>DataProcessing</a> object to <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</para><para>To use only one record when making an HTTP invocation request to a container, set
         /// <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code>
         /// to <code>Line</code>.</para><para>To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code>
         /// limit, set <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code>
@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies the source of the data to join with the transformed data. The valid values
-        /// are <code>None</code> and <code>Input</code> The default value is <code>None</code>
+        /// are <code>None</code> and <code>Input</code>. The default value is <code>None</code>,
         /// which specifies not to join the input with the transformed data. If you want the batch
         /// transform job to join the original input data with the transformed data, set <code>JoinSource</code>
         /// to <code>Input</code>. </para><para>For JSON or JSONLines objects, such as a JSON array, Amazon SageMaker adds the transformed
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// can be any of the following formats: </para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// KMS Key Alias</para><para><code>"alias/ExampleAlias"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key Alias</para><para><code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code></para></li></ul><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon
         /// S3 for your role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed
         /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KMS key policy must grant permission to the IAM role that you specify in your
-        /// <code>CreateTramsformJob</code> request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
+        /// <a>CreateModel</a> request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
         /// Key Policies in AWS KMS</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -353,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Depending on the value specified for the <code>S3DataType</code>, identifies either
         /// a key name prefix or a manifest. For example:</para><ul><li><para> A key name prefix might look like this: <code>s3://bucketname/exampleprefix</code>.
-        /// </para></li><li><para> A manifest might look like this: <code>s3://bucketname/example.manifest</code></para><para> The manifest is an S3 object which is a JSON file with the following format: </para><para><code>[</code></para><para><code> {"prefix": "s3://customer_bucket/some/prefix/"},</code></para><para><code> "relative/path/to/custdata-1",</code></para><para><code> "relative/path/custdata-2",</code></para><para><code> ...</code></para><para><code> ]</code></para><para> The preceding JSON matches the following <code>S3Uris</code>: </para><para><code>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</code></para><para><code>s3://customer_bucket/some/prefix/relative/path/custdata-1</code></para><para><code>...</code></para><para> The complete set of <code>S3Uris</code> in this manifest constitutes the input data
+        /// </para></li><li><para> A manifest might look like this: <code>s3://bucketname/example.manifest</code></para><para> The manifest is an S3 object which is a JSON file with the following format: </para><para><code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code></para><para><code>"relative/path/to/custdata-1",</code></para><para><code>"relative/path/custdata-2",</code></para><para><code>...</code></para><para><code>"relative/path/custdata-N"</code></para><para><code>]</code></para><para> The preceding JSON matches the following <code>s3Uris</code>: </para><para><code>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</code></para><para><code>s3://customer_bucket/some/prefix/relative/path/custdata-2</code></para><para><code>...</code></para><para><code>s3://customer_bucket/some/prefix/relative/path/custdata-N</code></para><para> The complete set of <code>S3Uris</code> in this manifest constitutes the input data
         /// for the channel for this datasource. The object that each <code>S3Uris</code> points
         /// to must be readable by the IAM role that Amazon SageMaker uses to perform tasks on
         /// your behalf.</para></li></ul>
@@ -388,9 +388,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// is <code>SingleRecord</code>, Amazon SageMaker sends individual records in each request.</para><note><para>Some data formats represent a record as a binary payload wrapped with extra padding
         /// bytes. When splitting is applied to a binary data format, padding is removed if the
         /// value of <code>BatchStrategy</code> is set to <code>SingleRecord</code>. Padding is
-        /// not removed if the value of <code>BatchStrategy</code> is set to <code>MultiRecord</code>.</para><para>For more information about the RecordIO, see <a href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data
-        /// Format</a> in the MXNet documentation. For more information about the TFRecord, see
-        /// <a href="https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data">Consuming
+        /// not removed if the value of <code>BatchStrategy</code> is set to <code>MultiRecord</code>.</para><para>For more information about <code>RecordIO</code>, see <a href="https://mxnet.apache.org/api/faq/recordio">Create
+        /// a Dataset Using RecordIO</a> in the MXNet documentation. For more information about
+        /// <code>TFRecord</code>, see <a href="https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data">Consuming
         /// TFRecord data</a> in the TensorFlow documentation.</para></note>
         /// </para>
         /// </summary>

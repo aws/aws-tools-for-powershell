@@ -123,9 +123,13 @@ $REK_Completers = {
         }
 
         # Amazon.Rekognition.QualityFilter
-        "Add-REKDetectedFacesToCollection/QualityFilter"
         {
-            $v = "AUTO","NONE"
+            ($_ -eq "Add-REKDetectedFacesToCollection/QualityFilter") -Or
+            ($_ -eq "Compare-REKFace/QualityFilter") -Or
+            ($_ -eq "Search-REKFacesByImage/QualityFilter")
+        }
+        {
+            $v = "AUTO","HIGH","LOW","MEDIUM","NONE"
             break
         }
 
@@ -139,7 +143,7 @@ $REK_Completers = {
 
 $REK_map = @{
     "FaceAttributes"=@("Start-REKFaceDetection")
-    "QualityFilter"=@("Add-REKDetectedFacesToCollection")
+    "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage")
     "SortBy"=@("Get-REKCelebrityRecognition","Get-REKContentModeration","Get-REKFaceSearch","Get-REKLabelDetection","Get-REKPersonTracking")
 }
 

@@ -138,7 +138,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBProject/Environment_ComputeType")
         }
         {
-            $v = "BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL"
+            $v = "BUILD_GENERAL1_2XLARGE","BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL"
             break
         }
 
@@ -160,7 +160,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/EnvironmentTypeOverride")
         }
         {
-            $v = "LINUX_CONTAINER","WINDOWS_CONTAINER"
+            $v = "ARM_CONTAINER","LINUX_CONTAINER","LINUX_GPU_CONTAINER","WINDOWS_CONTAINER"
             break
         }
 

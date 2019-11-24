@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Get information about a parameter.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
     /// Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
     /// in the request, the response includes information up to the limit specified. The number
     /// of items returned, however, can be between zero and the value of <code>MaxResults</code>.
@@ -39,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// operation and returns the matching values up to that point and a <code>NextToken</code>.
     /// You can specify the <code>NextToken</code> in a subsequent call to get the next set
     /// of results.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMParameterList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ParameterMetadata")]
@@ -54,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// <para>This data type is deprecated. Instead, use <code>ParameterFilters</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

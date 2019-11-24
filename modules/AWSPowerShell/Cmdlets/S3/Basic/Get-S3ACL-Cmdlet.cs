@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Gets the access control policy for the bucket.
+    /// Amazon.S3.IAmazonS3.GetACL
     /// </summary>
     [Cmdlet("Get", "S3ACL")]
     [OutputType("Amazon.S3.Model.S3AccessControlList")]

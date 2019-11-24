@@ -28,8 +28,8 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Lists the updates associated with an Amazon EKS cluster in your AWS account, in the
-    /// specified Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the updates associated with an Amazon EKS cluster or managed node group in your
+    /// AWS account, in the specified Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EKSUpdateList")]
     [OutputType("System.String")]
@@ -56,6 +56,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter NodegroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon EKS managed node group to list updates for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NodegroupName { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -181,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #endif
             context.NextToken = this.NextToken;
+            context.NodegroupName = this.NodegroupName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NodegroupName != null)
+            {
+                request.NodegroupName = cmdletContext.NodegroupName;
             }
             
             // Initialize loop variant and commence piping
@@ -268,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NodegroupName != null)
+            {
+                request.NodegroupName = cmdletContext.NodegroupName;
             }
             
             // Initialize loop variants and commence piping
@@ -395,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public int? MaxResult { get; set; }
             public System.String Name { get; set; }
             public System.String NextToken { get; set; }
+            public System.String NodegroupName { get; set; }
             public System.Func<Amazon.EKS.Model.ListUpdatesResponse, GetEKSUpdateListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UpdateIds;
         }

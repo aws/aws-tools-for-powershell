@@ -28,8 +28,8 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Retrieves a list that describes modifications to the configuration of bring your own
-    /// license (BYOL) for the specified account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list that describes modifications to the configuration of Bring Your Own
+    /// License (BYOL) for the specified account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WKSAccountModification")]
     [OutputType("Amazon.WorkSpaces.Model.AccountModification")]

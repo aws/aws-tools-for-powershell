@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <summary>
     /// Updates the bandwidth rate limits of a gateway. You can update both the upload and
     /// download bandwidth rate limit or specify only one of the two. If you don't set a bandwidth
-    /// rate limit, the existing rate limit remains.
+    /// rate limit, the existing rate limit remains. This operation is supported for the stored
+    /// volume, cached volume and tape gateway types.'
     /// 
     ///  
     /// <para>

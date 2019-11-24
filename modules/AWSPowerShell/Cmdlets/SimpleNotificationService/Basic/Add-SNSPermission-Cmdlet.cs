@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter ActionName
         /// <summary>
         /// <para>
-        /// <para>The action you want to allow for the specified principal(s).</para><para>Valid values: any Amazon SNS action name.</para>
+        /// <para>The action you want to allow for the specified principal(s).</para><para>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

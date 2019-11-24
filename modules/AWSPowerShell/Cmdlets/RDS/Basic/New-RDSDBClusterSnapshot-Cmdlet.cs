@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster to create a snapshot for. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBCluster.</para></li></ul><para>Example: <code>my-cluster1</code></para>
+        /// <para>The identifier of the DB cluster to create a snapshot for. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBCluster.</para></li></ul><para>Example: <code>my-cluster1</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

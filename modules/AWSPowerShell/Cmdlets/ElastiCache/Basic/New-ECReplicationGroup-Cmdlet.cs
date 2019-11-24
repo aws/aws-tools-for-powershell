@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para><code>AuthToken</code> can be specified only on replication groups where <code>TransitEncryptionEnabled</code>
         /// is <code>true</code>.</para><important><para>For HIPAA compliance, you must specify <code>TransitEncryptionEnabled</code> as <code>true</code>,
-        /// an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</para></important><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@'. </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
+        /// an <code>AuthToken</code>, and a <code>CacheSubnetGroup</code>.</para></important><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>The only permitted printable special characters are !, &amp;, #, $, ^, &lt;, &gt;,
+        /// and -. Other printable special characters cannot be used in the AUTH token.</para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
         /// at http://redis.io/commands/AUTH.</para>
         /// </para>
         /// </summary>

@@ -58,20 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public Amazon.CostExplorer.Model.Expression Filter { get; set; }
         #endregion
         
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The number of recommendations that you want returned in a single response object.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? PageSize { get; set; }
-        #endregion
-        
         #region Parameter Service
         /// <summary>
         /// <para>
-        /// <para>The specific service that you want recommendations for.</para>
+        /// <para>The specific service that you want recommendations for. The only valid value for <code>GetRightsizingRecommendation</code>
+        /// is "<code>AmazonEC2</code>".</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,6 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NextToken")]
         public System.String NextPageToken { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The number of recommendations that you want returned in a single response object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PageSize { get; set; }
         #endregion
         
         #region Parameter Select

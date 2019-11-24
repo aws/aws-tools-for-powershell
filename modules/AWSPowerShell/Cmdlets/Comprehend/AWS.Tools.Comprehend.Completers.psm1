@@ -102,7 +102,7 @@ $COMP_Completers = {
             ($_ -eq "Start-COMPSentimentDetectionJob/LanguageCode")
         }
         {
-            $v = "de","en","es","fr","it","pt"
+            $v = "ar","de","en","es","fr","hi","it","ja","ko","pt","zh","zh-TW"
             break
         }
 

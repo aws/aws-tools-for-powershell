@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Lists the platform application objects for the supported push notification services,
-    /// such as APNS and GCM. The results for <code>ListPlatformApplications</code> are paginated
+    /// such as APNS and FCM. The results for <code>ListPlatformApplications</code> are paginated
     /// and return a limited list of applications, up to 100. If additional records are available
     /// after the first page results, then a NextToken string will be returned. To receive
     /// the next page, you call <code>ListPlatformApplications</code> using the NextToken

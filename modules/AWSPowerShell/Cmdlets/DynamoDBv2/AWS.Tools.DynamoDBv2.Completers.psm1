@@ -90,6 +90,8 @@ $DDB_Completers = {
         # Amazon.DynamoDBv2.BillingMode
         {
             ($_ -eq "Update-DDBTable/BillingMode") -Or
+            ($_ -eq "Restore-DDBTableFromBackup/BillingModeOverride") -Or
+            ($_ -eq "Restore-DDBTableToPointInTime/BillingModeOverride") -Or
             ($_ -eq "Update-DDBGlobalTableSetting/GlobalTableBillingMode")
         }
         {
@@ -164,6 +166,7 @@ $DDB_Completers = {
 $DDB_map = @{
     "BackupType"=@("Get-DDBBackupList")
     "BillingMode"=@("Update-DDBTable")
+    "BillingModeOverride"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
     "KeyDataType"=@("Add-DDBKeySchema")
@@ -237,6 +240,7 @@ $DDB_SelectMap = @{
                "Get-DDBGlobalTableSetting",
                "Get-DDBProvisionLimit",
                "Get-DDBTable",
+               "Get-DDBTableReplicaAutoScaling",
                "Get-DDBTimeToLive",
                "Get-DDBBackupList",
                "Get-DDBGlobalTableList",
@@ -252,6 +256,7 @@ $DDB_SelectMap = @{
                "Update-DDBGlobalTable",
                "Update-DDBGlobalTableSetting",
                "Update-DDBTable",
+               "Update-DDBTableReplicaAutoScaling",
                "Update-DDBTimeToLive",
                "Add-DDBIndexSchema",
                "Add-DDBKeySchema",

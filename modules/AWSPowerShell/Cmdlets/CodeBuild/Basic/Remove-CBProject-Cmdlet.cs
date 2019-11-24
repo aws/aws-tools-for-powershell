@@ -28,7 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Deletes a build project.
+    /// Deletes a build project. When you delete a project, its builds are not deleted.
     /// </summary>
     [Cmdlet("Remove", "CBProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

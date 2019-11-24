@@ -39,6 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// an update, the cluster status moves to <code>UPDATING</code> (this status transition
     /// is eventually consistent). When the update is complete (either <code>Failed</code>
     /// or <code>Successful</code>), the cluster status moves to <code>Active</code>.
+    /// </para><para>
+    /// If your cluster has managed node groups attached to it, all of your node groups’ Kubernetes
+    /// versions must match the cluster’s Kubernetes version in order to update the cluster
+    /// to a new Kubernetes version.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "EKSClusterVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -111,6 +111,16 @@ $CFG_Completers = {
             break
         }
 
+        # Amazon.ConfigService.ConformancePackComplianceType
+        {
+            ($_ -eq "Get-CFGConformancePackCompliance/Filters_ComplianceType") -Or
+            ($_ -eq "Get-CFGConformancePackComplianceDetail/Filters_ComplianceType")
+        }
+        {
+            $v = "COMPLIANT","NON_COMPLIANT"
+            break
+        }
+
         # Amazon.ConfigService.MaximumExecutionFrequency
         {
             ($_ -eq "Write-CFGConfigRule/ConfigRule_MaximumExecutionFrequency") -Or
@@ -125,6 +135,13 @@ $CFG_Completers = {
 
         # Amazon.ConfigService.MemberAccountRuleStatus
         "Get-CFGOrganizationConfigRuleDetailedStatus/Filters_MemberAccountRuleStatus"
+        {
+            $v = "CREATE_FAILED","CREATE_IN_PROGRESS","CREATE_SUCCESSFUL","DELETE_FAILED","DELETE_IN_PROGRESS","DELETE_SUCCESSFUL","UPDATE_FAILED","UPDATE_IN_PROGRESS","UPDATE_SUCCESSFUL"
+            break
+        }
+
+        # Amazon.ConfigService.OrganizationResourceDetailedStatus
+        "Get-CFGOrganizationConformancePackDetailedStatus/Filters_Status"
         {
             $v = "CREATE_FAILED","CREATE_IN_PROGRESS","CREATE_SUCCESSFUL","DELETE_FAILED","DELETE_IN_PROGRESS","DELETE_SUCCESSFUL","UPDATE_FAILED","UPDATE_IN_PROGRESS","UPDATE_SUCCESSFUL"
             break
@@ -172,9 +189,10 @@ $CFG_map = @{
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
     "ConfigRule_Source_Owner"=@("Write-CFGConfigRule")
     "DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
-    "Filters_ComplianceType"=@("Get-CFGAggregateComplianceByConfigRuleList")
+    "Filters_ComplianceType"=@("Get-CFGAggregateComplianceByConfigRuleList","Get-CFGConformancePackCompliance","Get-CFGConformancePackComplianceDetail")
     "Filters_MemberAccountRuleStatus"=@("Get-CFGOrganizationConfigRuleDetailedStatus")
     "Filters_ResourceType"=@("Get-CFGAggregateDiscoveredResourceCount")
+    "Filters_Status"=@("Get-CFGOrganizationConformancePackDetailedStatus")
     "GroupByKey"=@("Get-CFGAggregateConfigRuleComplianceSummary","Get-CFGAggregateDiscoveredResourceCount")
     "OrganizationCustomRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
     "OrganizationManagedRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
@@ -238,12 +256,15 @@ $CFG_SelectMap = @{
                "Remove-CFGConfigRule",
                "Remove-CFGConfigurationAggregator",
                "Remove-CFGConfigurationRecorder",
+               "Remove-CFGConformancePack",
                "Remove-CFGDeliveryChannel",
                "Remove-CFGEvaluationResult",
                "Remove-CFGOrganizationConfigRule",
+               "Remove-CFGOrganizationConformancePack",
                "Remove-CFGPendingAggregationRequest",
                "Remove-CFGRemediationConfiguration",
                "Remove-CFGRemediationException",
+               "Remove-CFGResourceConfig",
                "Remove-CFGRetentionConfiguration",
                "Submit-CFGConfigSnapshotDelivery",
                "Get-CFGAggregateComplianceByConfigRuleList",
@@ -256,10 +277,15 @@ $CFG_SelectMap = @{
                "Get-CFGConfigurationAggregatorSourcesStatus",
                "Get-CFGConfigurationRecorder",
                "Get-CFGConfigurationRecorderStatus",
+               "Get-CFGConformancePackCompliance",
+               "Get-CFGConformancePack",
+               "Get-CFGConformancePackStatus",
                "Get-CFGDeliveryChannel",
                "Get-CFGDeliveryChannelStatus",
                "Get-CFGOrganizationConfigRule",
                "Get-CFGOrganizationConfigRuleStatus",
+               "Get-CFGOrganizationConformancePack",
+               "Get-CFGOrganizationConformancePackStatus",
                "Get-CFGPendingAggregationRequestList",
                "Get-CFGRemediationConfiguration",
                "Get-CFGRemediationException",
@@ -273,8 +299,11 @@ $CFG_SelectMap = @{
                "Get-CFGComplianceDetailsByResource",
                "Get-CFGComplianceSummaryByConfigRule",
                "Get-CFGComplianceSummaryByResourceType",
+               "Get-CFGConformancePackComplianceDetail",
+               "Get-CFGConformancePackComplianceSummary",
                "Get-CFGDiscoveredResourceCount",
                "Get-CFGOrganizationConfigRuleDetailedStatus",
+               "Get-CFGOrganizationConformancePackDetailedStatus",
                "Get-CFGResourceConfigHistory",
                "Get-CFGAggregateDiscoveredResourceList",
                "Get-CFGDiscoveredResource",
@@ -283,11 +312,14 @@ $CFG_SelectMap = @{
                "Write-CFGConfigRule",
                "Write-CFGConfigurationAggregator",
                "Write-CFGConfigurationRecorder",
+               "Write-CFGConformancePack",
                "Write-CFGDeliveryChannel",
                "Write-CFGEvaluation",
                "Write-CFGOrganizationConfigRule",
+               "Write-CFGOrganizationConformancePack",
                "Write-CFGRemediationConfiguration",
                "Write-CFGRemediationException",
+               "Write-CFGResourceConfig",
                "Write-CFGRetentionConfiguration",
                "Select-CFGResourceConfig",
                "Start-CFGConfigRulesEvaluation",

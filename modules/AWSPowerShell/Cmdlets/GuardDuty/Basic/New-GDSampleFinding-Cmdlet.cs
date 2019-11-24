@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Generates example findings of types specified by the list of finding types. If 'NULL'
-    /// is specified for findingTypes, the API generates example findings of all supported
-    /// finding types.
+    /// is specified for <code>findingTypes</code>, the API generates example findings of
+    /// all supported finding types.
     /// </summary>
     [Cmdlet("New", "GDSampleFinding", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingType
         /// <summary>
         /// <para>
-        /// <para>Types of sample findings that you want to generate.</para>
+        /// <para>Types of sample findings to generate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

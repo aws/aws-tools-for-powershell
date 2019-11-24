@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
     /// Returns information about the differences in a valid commit specifier (such as a branch,
-    /// tag, HEAD, commit ID or other fully qualified reference). Results can be limited to
-    /// a specified path.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// tag, HEAD, commit ID, or other fully qualified reference). Results can be limited
+    /// to a specified path.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CCDifferenceList")]
     [OutputType("Amazon.CodeCommit.Model.Difference")]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>The file path in which to check differences. Limits the results to this path. Can
         /// also be used to specify the changed name of a directory or folder, if it has changed.
-        /// If not specified, differences will be shown for all paths.</para>
+        /// If not specified, differences are shown for all paths.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter BeforeCommitSpecifier
         /// <summary>
         /// <para>
-        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
-        /// For example, the full commit ID. Optional. If not specified, all changes prior to
-        /// the <code>afterCommitSpecifier</code> value will be shown. If you do not use <code>beforeCommitSpecifier</code>
+        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+        /// (for example, the full commit ID). Optional. If not specified, all changes before
+        /// the <code>afterCommitSpecifier</code> value are shown. If you do not use <code>beforeCommitSpecifier</code>
         /// in your request, consider limiting the results with <code>maxResults</code>.</para>
         /// </para>
         /// </summary>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>The file path in which to check for differences. Limits the results to this path.
         /// Can also be used to specify the previous name of a directory or folder. If <code>beforePath</code>
-        /// and <code>afterPath</code> are not specified, differences will be shown for all paths.</para>
+        /// and <code>afterPath</code> are not specified, differences are shown for all paths.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>A non-negative integer used to limit the number of returned results.</para>
+        /// <para>A non-zero, non-negative integer used to limit the number of returned results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An enumeration token that when provided in a request, returns the next batch of the
+        /// <para>An enumeration token that, when provided in a request, returns the next batch of the
         /// results.</para>
         /// </para>
         /// <para>

@@ -78,6 +78,54 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String BackupArn { get; set; }
         #endregion
         
+        #region Parameter BillingModeOverride
+        /// <summary>
+        /// <para>
+        /// <para>The billing mode of the restored table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.BillingMode")]
+        public Amazon.DynamoDBv2.BillingMode BillingModeOverride { get; set; }
+        #endregion
+        
+        #region Parameter GlobalSecondaryIndexOverride
+        /// <summary>
+        /// <para>
+        /// <para>List of global secondary indexes for the restored table. The indexes provided should
+        /// match existing secondary indexes. You can choose to exclude some or all of the indexes
+        /// at the time of restore.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DynamoDBv2.Model.GlobalSecondaryIndex[] GlobalSecondaryIndexOverride { get; set; }
+        #endregion
+        
+        #region Parameter LocalSecondaryIndexOverride
+        /// <summary>
+        /// <para>
+        /// <para>List of local secondary indexes for the restored table. The indexes provided should
+        /// match existing secondary indexes. You can choose to exclude some or all of the indexes
+        /// at the time of restore.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.DynamoDBv2.Model.LocalSecondaryIndex[] LocalSecondaryIndexOverride { get; set; }
+        #endregion
+        
+        #region Parameter ProvisionedThroughputOverride_ReadCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of strongly consistent reads consumed per second before DynamoDB
+        /// returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProvisionedThroughputOverride_ReadCapacityUnits")]
+        public System.Int64? ProvisionedThroughputOverride_ReadCapacityUnit { get; set; }
+        #endregion
+        
         #region Parameter TargetTableName
         /// <summary>
         /// <para>
@@ -93,6 +141,19 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetTableName { get; set; }
+        #endregion
+        
+        #region Parameter ProvisionedThroughputOverride_WriteCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProvisionedThroughputOverride_WriteCapacityUnits")]
+        public System.Int64? ProvisionedThroughputOverride_WriteCapacityUnit { get; set; }
         #endregion
         
         #region Parameter Select
@@ -163,6 +224,17 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 WriteWarning("You are passing $null as a value for parameter BackupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.BillingModeOverride = this.BillingModeOverride;
+            if (this.GlobalSecondaryIndexOverride != null)
+            {
+                context.GlobalSecondaryIndexOverride = new List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndex>(this.GlobalSecondaryIndexOverride);
+            }
+            if (this.LocalSecondaryIndexOverride != null)
+            {
+                context.LocalSecondaryIndexOverride = new List<Amazon.DynamoDBv2.Model.LocalSecondaryIndex>(this.LocalSecondaryIndexOverride);
+            }
+            context.ProvisionedThroughputOverride_ReadCapacityUnit = this.ProvisionedThroughputOverride_ReadCapacityUnit;
+            context.ProvisionedThroughputOverride_WriteCapacityUnit = this.ProvisionedThroughputOverride_WriteCapacityUnit;
             context.TargetTableName = this.TargetTableName;
             #if MODULAR
             if (this.TargetTableName == null && ParameterWasBound(nameof(this.TargetTableName)))
@@ -189,6 +261,47 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.BackupArn != null)
             {
                 request.BackupArn = cmdletContext.BackupArn;
+            }
+            if (cmdletContext.BillingModeOverride != null)
+            {
+                request.BillingModeOverride = cmdletContext.BillingModeOverride;
+            }
+            if (cmdletContext.GlobalSecondaryIndexOverride != null)
+            {
+                request.GlobalSecondaryIndexOverride = cmdletContext.GlobalSecondaryIndexOverride;
+            }
+            if (cmdletContext.LocalSecondaryIndexOverride != null)
+            {
+                request.LocalSecondaryIndexOverride = cmdletContext.LocalSecondaryIndexOverride;
+            }
+            
+             // populate ProvisionedThroughputOverride
+            var requestProvisionedThroughputOverrideIsNull = true;
+            request.ProvisionedThroughputOverride = new Amazon.DynamoDBv2.Model.ProvisionedThroughput();
+            System.Int64? requestProvisionedThroughputOverride_provisionedThroughputOverride_ReadCapacityUnit = null;
+            if (cmdletContext.ProvisionedThroughputOverride_ReadCapacityUnit != null)
+            {
+                requestProvisionedThroughputOverride_provisionedThroughputOverride_ReadCapacityUnit = cmdletContext.ProvisionedThroughputOverride_ReadCapacityUnit.Value;
+            }
+            if (requestProvisionedThroughputOverride_provisionedThroughputOverride_ReadCapacityUnit != null)
+            {
+                request.ProvisionedThroughputOverride.ReadCapacityUnits = requestProvisionedThroughputOverride_provisionedThroughputOverride_ReadCapacityUnit.Value;
+                requestProvisionedThroughputOverrideIsNull = false;
+            }
+            System.Int64? requestProvisionedThroughputOverride_provisionedThroughputOverride_WriteCapacityUnit = null;
+            if (cmdletContext.ProvisionedThroughputOverride_WriteCapacityUnit != null)
+            {
+                requestProvisionedThroughputOverride_provisionedThroughputOverride_WriteCapacityUnit = cmdletContext.ProvisionedThroughputOverride_WriteCapacityUnit.Value;
+            }
+            if (requestProvisionedThroughputOverride_provisionedThroughputOverride_WriteCapacityUnit != null)
+            {
+                request.ProvisionedThroughputOverride.WriteCapacityUnits = requestProvisionedThroughputOverride_provisionedThroughputOverride_WriteCapacityUnit.Value;
+                requestProvisionedThroughputOverrideIsNull = false;
+            }
+             // determine if request.ProvisionedThroughputOverride should be set to null
+            if (requestProvisionedThroughputOverrideIsNull)
+            {
+                request.ProvisionedThroughputOverride = null;
             }
             if (cmdletContext.TargetTableName != null)
             {
@@ -256,6 +369,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BackupArn { get; set; }
+            public Amazon.DynamoDBv2.BillingMode BillingModeOverride { get; set; }
+            public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndex> GlobalSecondaryIndexOverride { get; set; }
+            public List<Amazon.DynamoDBv2.Model.LocalSecondaryIndex> LocalSecondaryIndexOverride { get; set; }
+            public System.Int64? ProvisionedThroughputOverride_ReadCapacityUnit { get; set; }
+            public System.Int64? ProvisionedThroughputOverride_WriteCapacityUnit { get; set; }
             public System.String TargetTableName { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.RestoreTableFromBackupResponse, RestoreDDBTableFromBackupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TableDescription;

@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// to retrieve data for. This value describes the associated metric and consists of two
         /// or more terms, which are comprised of lowercase alphanumeric characters, separated
         /// by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list
-        /// of valid values, see the <a href="developerguide.html">Amazon Pinpoint Developer Guide</a>.</para>
+        /// of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon
+        /// Pinpoint Developer Guide</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,18 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String KpiName { get; set; }
-        #endregion
-        
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to include in each page of a paginated response. This
-        /// parameter is currently not supported by the Application Metrics and Campaign Metrics
-        /// resources.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PageSize { get; set; }
         #endregion
         
         #region Parameter StartTime
@@ -120,13 +109,23 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The NextToken string that specifies which page of results to return in a paginated
-        /// response. This parameter is currently not supported by the Application Metrics and
-        /// Campaign Metrics resources.</para>
+        /// <para>The  string that specifies which page of results to return in a paginated response.
+        /// This parameter is currently not supported for application, campaign, and journey metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to include in each page of a paginated response. This
+        /// parameter is currently not supported for application, campaign, and journey metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PageSize { get; set; }
         #endregion
         
         #region Parameter Select

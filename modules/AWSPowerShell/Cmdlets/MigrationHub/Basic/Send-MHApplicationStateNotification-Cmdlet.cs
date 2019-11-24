@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The configurationId in ADS that uniquely identifies the grouped application.</para>
+        /// <para>The configurationId in Application Discovery Service that uniquely identifies the
+        /// grouped application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,6 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.MH
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.MigrationHub.ApplicationStatus")]
         public Amazon.MigrationHub.ApplicationStatus Status { get; set; }
+        #endregion
+        
+        #region Parameter UpdateDateTime
+        /// <summary>
+        /// <para>
+        /// <para>The timestamp when the application state changed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? UpdateDateTime { get; set; }
         #endregion
         
         #region Parameter Select
@@ -162,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
                 WriteWarning("You are passing $null as a value for parameter Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UpdateDateTime = this.UpdateDateTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.MH
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.UpdateDateTime != null)
+            {
+                request.UpdateDateTime = cmdletContext.UpdateDateTime.Value;
             }
             
             CmdletOutput output;
@@ -254,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
             public System.String ApplicationId { get; set; }
             public System.Boolean? DryRun { get; set; }
             public Amazon.MigrationHub.ApplicationStatus Status { get; set; }
+            public System.DateTime? UpdateDateTime { get; set; }
             public System.Func<Amazon.MigrationHub.Model.NotifyApplicationStateResponse, SendMHApplicationStateNotificationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

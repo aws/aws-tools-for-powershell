@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The metrics to retrieve. Specify the name and unit for each metric. The following
-        /// metrics are available:</para><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_AVAILABLE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ERROR</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ON_CALL</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ONLINE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_STAFFED</dt><dd><para>Unit: COUNT</para></dd><dt>CONTACTS_IN_QUEUE</dt><dd><para>Unit: COUNT</para></dd><dt>CONTACTS_SCHEDULED</dt><dd><para>Unit: COUNT</para></dd><dt>OLDEST_CONTACT_AGE</dt><dd><para>Unit: SECONDS</para></dd></dl>
+        /// metrics are available:</para><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_AVAILABLE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ERROR</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ON_CALL</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ON_CONTACT</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ONLINE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_STAFFED</dt><dd><para>Unit: COUNT</para></dd><dt>CONTACTS_IN_QUEUE</dt><dd><para>Unit: COUNT</para></dd><dt>CONTACTS_SCHEDULED</dt><dd><para>Unit: COUNT</para></dd><dt>OLDEST_CONTACT_AGE</dt><dd><para>Unit: SECONDS</para></dd><dt>SLOTS_ACTIVE</dt><dd><para>Unit: COUNT</para></dd><dt>SLOTS_AVAILABLE</dt><dd><para>Unit: COUNT</para></dd></dl>
         /// </para>
         /// </summary>
         #if !MODULAR

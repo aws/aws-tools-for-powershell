@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Retrieves the IPSet specified by the IPSet ID.
+    /// Retrieves the IPSet specified by the <code>ipSetId</code>.
     /// </summary>
     [Cmdlet("Get", "GDIPSet")]
     [OutputType("Amazon.GuardDuty.Model.GetIPSetResponse")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter IpSetId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the ipSet you want to get.</para>
+        /// <para>The unique ID of the IPSet to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

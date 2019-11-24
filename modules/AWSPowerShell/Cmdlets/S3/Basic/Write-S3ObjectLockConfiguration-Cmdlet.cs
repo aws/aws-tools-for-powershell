@@ -28,9 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Places an object lock configuration on the specified bucket. The rule specified in
-    /// the object lock configuration will be applied by default to every new object placed
-    /// in the specified bucket.
+    /// Amazon.S3.IAmazonS3.PutObjectLockConfiguration
     /// </summary>
     [Cmdlet("Write", "S3ObjectLockConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]

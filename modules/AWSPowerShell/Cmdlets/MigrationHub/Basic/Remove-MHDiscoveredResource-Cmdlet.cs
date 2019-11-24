@@ -28,7 +28,7 @@ using Amazon.MigrationHub.Model;
 namespace Amazon.PowerShell.Cmdlets.MH
 {
     /// <summary>
-    /// Disassociate an Application Discovery Service (ADS) discovered resource from a migration
+    /// Disassociate an Application Discovery Service discovered resource from a migration
     /// task.
     /// </summary>
     [Cmdlet("Remove", "MHDiscoveredResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter ConfigurationId
         /// <summary>
         /// <para>
-        /// <para>ConfigurationId of the ADS resource to be disassociated.</para>
+        /// <para>ConfigurationId of the Application Discovery Service resource to be disassociated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter MigrationTaskName
         /// <summary>
         /// <para>
-        /// <para>The identifier given to the MigrationTask.</para>
+        /// <para>The identifier given to the MigrationTask. <i>Do not store personal data in this field.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -66,7 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// refreshing the access token and ID token by supplying a valid refresh token.</para></li><li><para><code>CUSTOM_AUTH</code>: Custom authentication flow.</para></li><li><para><code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the
         /// USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</para></li><li><para><code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD
         /// are passed directly. If a user migration Lambda trigger is set, this flow will invoke
-        /// the user migration Lambda if the USERNAME is not found in the user pool. </para></li></ul>
+        /// the user migration Lambda if the USERNAME is not found in the user pool. </para></li><li><para><code>ADMIN_USER_PASSWORD_AUTH</code>: Admin-based user password authentication.
+        /// This replaces the <code>ADMIN_NO_SRP_AUTH</code> authentication flow. In this flow,
+        /// Cognito receives the password in the request instead of using the SRP process to verify
+        /// passwords.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

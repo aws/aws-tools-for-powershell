@@ -48,7 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// deliveries to HTTP/S endpoints.</para></li><li><para><code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive
         /// only a subset of messages, rather than receiving every message published to the topic.</para></li><li><para><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message
         /// delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints
-        /// to process JSON formatting, which is otherwise created for Amazon SNS metadata.</para></li></ul>
+        /// to process JSON formatting, which is otherwise created for Amazon SNS metadata.</para></li><li><para><code>RedrivePolicy</code> – When specified, sends undeliverable messages to the
+        /// specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client
+        /// errors (for example, when the subscribed endpoint is unreachable) or server errors
+        /// (for example, when the service that powers the subscribed endpoint becomes unavailable)
+        /// are held in the dead-letter queue for further analysis or reprocessing.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

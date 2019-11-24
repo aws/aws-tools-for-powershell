@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateBatchInferenceJob" OutputProperty="BatchInferenceJobArn" Verb="New" Noun="BatchInferenceJob" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCampaign" OutputProperty="CampaignArn" Verb="New" Noun="Campaign" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +83,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBatchInferenceJob" OutputProperty="BatchInferenceJob" Verb="Get" Noun="BatchInferenceJob" PipelineParameter="BatchInferenceJobArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCampaign" OutputProperty="Campaign" Verb="Get" Noun="Campaign" PipelineParameter="CampaignArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -120,6 +128,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSolutionMetrics" OutputProperty="*" Verb="Get" Noun="SolutionMetric" PipelineParameter="SolutionVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBatchInferenceJobs" OutputProperty="BatchInferenceJobs" Verb="Get" Noun="BatchInferenceJobList" PipelineParameter="SolutionVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

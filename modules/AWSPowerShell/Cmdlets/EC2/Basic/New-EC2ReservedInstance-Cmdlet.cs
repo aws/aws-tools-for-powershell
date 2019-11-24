@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PurchaseTime
         /// <summary>
         /// <para>
-        /// <para>The time at which to purchase the Reserved Instance.</para>
+        /// <para>The time at which to purchase the Reserved Instance, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

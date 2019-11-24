@@ -67,15 +67,15 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// in the background.
     /// </para><para>
     /// The <code>QualityFilter</code> input parameter allows you to filter out detected faces
-    /// that don’t meet the required quality bar chosen by Amazon Rekognition. The quality
-    /// bar is based on a variety of common use cases. By default, <code>IndexFaces</code>
-    /// filters detected faces. You can also explicitly filter detected faces by specifying
-    /// <code>AUTO</code> for the value of <code>QualityFilter</code>. If you do not want
-    /// to filter detected faces, specify <code>NONE</code>. 
+    /// that don’t meet a required quality bar. The quality bar is based on a variety of common
+    /// use cases. By default, <code>IndexFaces</code> chooses the quality bar that's used
+    /// to filter faces. You can also explicitly choose the quality bar. Use <code>QualityFilter</code>,
+    /// to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>.
+    /// If you do not want to filter detected faces, specify <code>NONE</code>. 
     /// </para><note><para>
     /// To use quality filtering, you need a collection associated with version 3 of the face
-    /// model. To get the version of the face model associated with a collection, call <a>DescribeCollection</a>.
-    /// 
+    /// model or higher. To get the version of the face model associated with a collection,
+    /// call <a>DescribeCollection</a>. 
     /// </para></note><para>
     /// Information about faces detected in an image, but not indexed, is returned in an array
     /// of <a>UnindexedFace</a> objects, <code>UnindexedFaces</code>. Faces aren't indexed
@@ -91,6 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// The image is too dark.
     /// </para></li><li><para>
     /// The face has an extreme pose.
+    /// </para></li><li><para>
+    /// The face doesn’t have enough detail to be suitable for face search.
     /// </para></li></ul><para>
     /// In response, the <code>IndexFaces</code> operation returns an array of metadata for
     /// all detected faces, <code>FaceRecords</code>. This includes: 
@@ -107,10 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para></li></ul><para>
     /// If you request all facial attributes (by using the <code>detectionAttributes</code>
     /// parameter), Amazon Rekognition returns detailed facial attributes, such as facial
-    /// landmarks (for example, location of eye and mouth) and other facial attributes like
-    /// gender. If you provide the same image, specify the same collection, and use the same
-    /// external ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save
-    /// duplicate face metadata.
+    /// landmarks (for example, location of eye and mouth) and other facial attributes. If
+    /// you provide the same image, specify the same collection, and use the same external
+    /// ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
+    /// face metadata.
     /// </para><para>
     /// The input image is passed either as base64-encoded image bytes, or as a reference
     /// to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition
@@ -230,15 +232,16 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter QualityFilter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies how much filtering is done to identify faces that are detected
-        /// with low quality. Filtered faces aren't indexed. If you specify <code>AUTO</code>,
-        /// filtering prioritizes the identification of faces that don’t meet the required quality
-        /// bar chosen by Amazon Rekognition. The quality bar is based on a variety of common
-        /// use cases. Low-quality detections can occur for a number of reasons. Some examples
-        /// are an object that's misidentified as a face, a face that's too blurry, or a face
-        /// with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering
-        /// is performed. The default value is AUTO.</para><para>To use quality filtering, the collection you are using must be associated with version
-        /// 3 of the face model.</para>
+        /// <para>A filter that specifies a quality bar for how much filtering is done to identify faces.
+        /// Filtered faces aren't indexed. If you specify <code>AUTO</code>, Amazon Rekognition
+        /// chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or
+        /// <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality
+        /// bar. The default value is <code>AUTO</code>. The quality bar is based on a variety
+        /// of common use cases. Low-quality detections can occur for a number of reasons. Some
+        /// examples are an object that's misidentified as a face, a face that's too blurry, or
+        /// a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no
+        /// filtering is performed. </para><para>To use quality filtering, the collection you are using must be associated with version
+        /// 3 of the face model or higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does
-        /// not perform the action after this time. </para>
+        /// not perform the action after this time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// one of the two property is reflected in the value of both. EndTime is provided for
         /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
         /// wrong timestamp being passed to the service.</para><para>The date and time for the recurring schedule to end. Amazon EC2 Auto Scaling does
-        /// not perform the action after this time. </para>
+        /// not perform the action after this time.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

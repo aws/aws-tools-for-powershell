@@ -108,16 +108,6 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public Amazon.CostExplorer.OfferingClass EC2Specification_OfferingClass { get; set; }
         #endregion
         
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The number of recommendations that you want returned in a single response object.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? PageSize { get; set; }
-        #endregion
-        
         #region Parameter PaymentOption
         /// <summary>
         /// <para>
@@ -171,6 +161,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NextToken")]
         public System.String NextPageToken { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The number of recommendations that you want returned in a single response object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PageSize { get; set; }
         #endregion
         
         #region Parameter Select

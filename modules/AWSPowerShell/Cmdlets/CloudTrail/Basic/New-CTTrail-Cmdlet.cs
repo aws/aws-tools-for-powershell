@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
     /// Creates a trail that specifies the settings for delivery of log data to an Amazon
-    /// S3 bucket. A maximum of five trails can exist in a region, irrespective of the region
-    /// in which they were created.
+    /// S3 bucket.
     /// </summary>
     [Cmdlet("New", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.CreateTrailResponse")]
@@ -96,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies whether the trail is created in the current region or in all regions. The
-        /// default is false.</para>
+        /// default is false, which creates a trail only in the region where you are signed in.
+        /// As a best practice, consider creating trails that log events in all regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the name of the Amazon S3 bucket designated for publishing log files. See
-        /// <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon
+        /// <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create_trail_naming_policy.html">Amazon
         /// S3 Bucket Naming Requirements</a>.</para>
         /// </para>
         /// </summary>
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon S3 key prefix that comes after the name of the bucket you have
-        /// designated for log file delivery. For more information, see <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding
+        /// designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html">Finding
         /// Your CloudTrail Log Files</a>. The maximum length is 200 characters.</para>
         /// </para>
         /// </summary>
@@ -187,6 +187,16 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SnsTopicName { get; set; }
+        #endregion
+        
+        #region Parameter TagsList
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CloudTrail.Model.Tag[] TagsList { get; set; }
         #endregion
         
         #region Parameter Select
@@ -273,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             #endif
             context.S3KeyPrefix = this.S3KeyPrefix;
             context.SnsTopicName = this.SnsTopicName;
+            if (this.TagsList != null)
+            {
+                context.TagsList = new List<Amazon.CloudTrail.Model.Tag>(this.TagsList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -332,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.SnsTopicName != null)
             {
                 request.SnsTopicName = cmdletContext.SnsTopicName;
+            }
+            if (cmdletContext.TagsList != null)
+            {
+                request.TagsList = cmdletContext.TagsList;
             }
             
             CmdletOutput output;
@@ -405,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             public System.String S3BucketName { get; set; }
             public System.String S3KeyPrefix { get; set; }
             public System.String SnsTopicName { get; set; }
+            public List<Amazon.CloudTrail.Model.Tag> TagsList { get; set; }
             public System.Func<Amazon.CloudTrail.Model.CreateTrailResponse, NewCTTrailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -80,6 +80,13 @@ $GD_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GuardDuty.DestinationType
+        "New-GDPublishingDestination/DestinationType"
+        {
+            $v = "S3"
+            break
+        }
+
         # Amazon.GuardDuty.Feedback
         "Update-GDFindingFeedback/Feedback"
         {
@@ -131,6 +138,7 @@ $GD_Completers = {
 
 $GD_map = @{
     "Action"=@("New-GDFilter","Update-GDFilter")
+    "DestinationType"=@("New-GDPublishingDestination")
     "Feedback"=@("Update-GDFindingFeedback")
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
@@ -192,6 +200,7 @@ $GD_SelectMap = @{
                "New-GDFilter",
                "New-GDIPSet",
                "New-GDMember",
+               "New-GDPublishingDestination",
                "New-GDSampleFinding",
                "New-GDThreatIntelSet",
                "Deny-GDInvitation",
@@ -200,7 +209,9 @@ $GD_SelectMap = @{
                "Remove-GDInvitation",
                "Remove-GDIPSet",
                "Remove-GDMember",
+               "Remove-GDPublishingDestination",
                "Remove-GDThreatIntelSet",
+               "Get-GDPublishingDestination",
                "Unregister-GDFromMasterAccount",
                "Unregister-GDMember",
                "Get-GDDetector",
@@ -219,6 +230,7 @@ $GD_SelectMap = @{
                "Get-GDInvitationList",
                "Get-GDIPSetList",
                "Get-GDMemberList",
+               "Get-GDPublishingDestinationList",
                "Get-GDResourceTag",
                "Get-GDThreatIntelSetList",
                "Start-GDMonitoringMember",
@@ -230,6 +242,7 @@ $GD_SelectMap = @{
                "Update-GDFilter",
                "Update-GDFindingFeedback",
                "Update-GDIPSet",
+               "Update-GDPublishingDestination",
                "Update-GDThreatIntelSet")
 }
 

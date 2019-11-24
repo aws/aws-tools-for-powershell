@@ -28,7 +28,7 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Creates a new branch in a repository and points the branch to a commit.
+    /// Creates a branch in a repository and points the branch to a commit.
     /// 
     ///  <note><para>
     /// Calling the create branch operation does not set a repository's default branch. To

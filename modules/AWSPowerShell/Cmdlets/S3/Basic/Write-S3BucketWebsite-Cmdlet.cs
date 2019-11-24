@@ -28,7 +28,68 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Set the website configuration for a bucket.
+    /// Sets the configuration of the website that is specified in the <code>website</code>
+    /// subresource. To configure a bucket as a website, you can add this subresource on the
+    /// bucket with website configuration information such as the file name of the index document
+    /// and any redirect rules. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting
+    /// Websites on Amazon S3</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This PUT operation requires the <code>S3:PutBucketWebsite</code> permission. By default,
+    /// only the bucket owner can configure the website attached to a bucket; however, bucket
+    /// owners can allow other users to set the website configuration by writing a bucket
+    /// policy that grants them the <code>S3:PutBucketWebsite</code> permission.
+    /// </para><para>
+    /// To redirect all website requests sent to the bucket's website endpoint, you add a
+    /// website configuration with the following elements. Because all requests are sent to
+    /// another website, you don't need to provide index document name for the bucket.
+    /// </para><ul><li><para>
+    /// WebsiteConfiguration
+    /// </para></li><li><para>
+    /// RedirectAllRequestsTo
+    /// </para></li><li><para>
+    /// HostName
+    /// </para></li><li><para>
+    /// Protocol
+    /// </para></li></ul><para>
+    /// If you want granular control over redirects, you can use the following elements to
+    /// add routing rules that describe conditions for redirecting requests and information
+    /// about the redirect destination. In this case, the website configuration must provide
+    /// an index document for the bucket, because some requests might not be redirected. 
+    /// </para><ul><li><para>
+    /// WebsiteConfiguration
+    /// </para></li><li><para>
+    /// IndexDocument
+    /// </para></li><li><para>
+    /// Suffix
+    /// </para></li><li><para>
+    /// ErrorDocument
+    /// </para></li><li><para>
+    /// Key
+    /// </para></li><li><para>
+    /// RoutingRules
+    /// </para></li><li><para>
+    /// RoutingRule
+    /// </para></li><li><para>
+    /// Condition
+    /// </para></li><li><para>
+    /// HttpErrorCodeReturnedEquals
+    /// </para></li><li><para>
+    /// KeyPrefixEquals
+    /// </para></li><li><para>
+    /// Redirect
+    /// </para></li><li><para>
+    /// Protocol
+    /// </para></li><li><para>
+    /// HostName
+    /// </para></li><li><para>
+    /// ReplaceKeyPrefixWith
+    /// </para></li><li><para>
+    /// ReplaceKeyWith
+    /// </para></li><li><para>
+    /// HttpRedirectCode
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketWebsite", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

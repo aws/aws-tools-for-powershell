@@ -87,7 +87,7 @@ $TRS_Completers = {
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
-            $v = "ar-SA","de-DE","en-AU","en-GB","en-IN","en-US","es-ES","es-US","fr-CA","fr-FR","hi-IN","it-IT","ko-KR","pt-BR","ru-RU","zh-CN"
+            $v = "ar-AE","ar-SA","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-US","en-WL","es-ES","es-US","fa-IR","fr-CA","fr-FR","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","ta-IN","te-IN","tr-TR","zh-CN"
             break
         }
 

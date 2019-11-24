@@ -28,7 +28,27 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Applies an Amazon S3 bucket policy to an Amazon S3 bucket.
+    /// Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity
+    /// other than the root user of the AWS account that owns the bucket, the calling identity
+    /// must have the <code>PutBucketPolicy</code> permissions on the specified bucket and
+    /// belong to the bucket owner's account in order to use this operation.
+    /// 
+    ///  
+    /// <para>
+    /// If you don't have <code>PutBucketPolic</code>y permissions, Amazon S3 returns a <code>403
+    /// Access Denied</code> error. If you have the correct permissions, but you're not using
+    /// an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405
+    /// Method Not Allowed</code> error.
+    /// </para><important><para>
+    ///  As a security precaution, the root user of the AWS account that owns a bucket can
+    /// always use this operation, even if the policy explicitly denies the root user the
+    /// ability to perform this action. 
+    /// </para></important><para>
+    /// For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using
+    /// Bucket Policies and User Policies</a>.
+    /// </para><para>
+    /// The following operations are related to <code>PutBucketPolicy</code>:
+    /// </para><ul><li><para><a>CreateBucket</a></para></li><li><para><a>DeleteBucket</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

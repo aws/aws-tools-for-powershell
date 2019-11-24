@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// In addition to listing the properties provided by the user in the <code>CreateForecast</code>
-    /// request, this operation includes the following properties:
+    /// In addition to listing the properties provided in the <code>CreateForecast</code>
+    /// request, this operation lists the following properties:
     /// </para><ul><li><para><code>DatasetGroupArn</code> - The dataset group that provided the training data.
     /// </para></li><li><para><code>CreationTime</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Status</code></para></li><li><para><code>Message</code> - If an error occurred, information about the error.
     /// </para></li></ul>

@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// A Traffic Mirror filter is a set of rules that defines the traffic to mirror.
     /// </para><para>
-    /// By default, no traffic is mirrored. To mirror traffic, use <a>CreateTrafficMirrorFilterRule</a>
+    /// By default, no traffic is mirrored. To mirror traffic, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorFilterRule.htm">CreateTrafficMirrorFilterRule</a>
     /// to add Traffic Mirror rules to the filter. The rules you add define what traffic gets
-    /// mirrored. You can also use <a>ModifyTrafficMirrorFilterNetworkServices</a> to mirror
-    /// supported network services.
+    /// mirrored. You can also use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTrafficMirrorFilterNetworkServices.html">ModifyTrafficMirrorFilterNetworkServices</a>
+    /// to mirror supported network services.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2TrafficMirrorFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

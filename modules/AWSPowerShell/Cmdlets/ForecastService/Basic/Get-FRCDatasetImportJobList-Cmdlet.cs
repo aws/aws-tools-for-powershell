@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Returns a list of dataset import jobs created using the <a>CreateDatasetImportJob</a>
-    /// operation. For each import job, a summary of its properties, including its Amazon
-    /// Resource Name (ARN), is returned. You can retrieve the complete set of properties
+    /// operation. For each import job, this operation returns a summary of its properties,
+    /// including its Amazon Resource Name (ARN). You can retrieve the complete set of properties
     /// by using the ARN with the <a>DescribeDatasetImportJob</a> operation. You can filter
     /// the list by providing an array of <a>Filter</a> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -49,11 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>An array of filters. For each filter, you provide a condition and a match statement.
         /// The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether
-        /// to include or exclude, respectively, from the list, the predictors that match the
-        /// statement. The match statement consists of a key and a value. In this release, <code>Name</code>
-        /// is the only valid key, which filters on the <code>DatasetImportJobName</code> property.</para><ul><li><para><code>Condition</code> - <code>IS</code> or <code>IS_NOT</code></para></li><li><para><code>Key</code> - <code>Name</code></para></li><li><para><code>Value</code> - the value to match</para></li></ul><para>For example, to list all dataset import jobs named <i>my_dataset_import_job</i>, you
-        /// would specify:</para><para><code>"Filters": [ { "Condition": "IS", "Key": "Name", "Value": "my_dataset_import_job"
-        /// } ]</code></para>
+        /// to include or exclude the datasets that match the statement from the list, respectively.
+        /// The match statement consists of a key and a value.</para><para><b>Filter properties</b></para><ul><li><para><code>Condition</code> - The condition to apply. Valid values are <code>IS</code>
+        /// and <code>IS_NOT</code>. To include the datasets that match the statement, specify
+        /// <code>IS</code>. To exclude matching datasets, specify <code>IS_NOT</code>.</para></li><li><para><code>Key</code> - The name of the parameter to filter on. Valid values are <code>DatasetArn</code>
+        /// and <code>Status</code>.</para></li><li><para><code>Value</code> - The value to match.</para></li></ul><para>For example, to list all dataset import jobs whose status is ACTIVE, you specify the
+        /// following filter:</para><para><code>"Filters": [ { "Condition": "IS", "Key": "Status", "Value": "ACTIVE" } ]</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

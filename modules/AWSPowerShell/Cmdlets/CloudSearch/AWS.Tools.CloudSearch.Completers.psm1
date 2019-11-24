@@ -115,6 +115,13 @@ $CS_Completers = {
             break
         }
 
+        # Amazon.CloudSearch.TLSSecurityPolicy
+        "Update-CSDomainEndpointOption/DomainEndpointOptions_TLSSecurityPolicy"
+        {
+            $v = "Policy-Min-TLS-1-0-2019-07","Policy-Min-TLS-1-2-2019-07"
+            break
+        }
+
 
     }
 
@@ -126,6 +133,7 @@ $CS_Completers = {
 $CS_map = @{
     "AnalysisScheme_AnalysisOptions_AlgorithmicStemming"=@("Set-CSAnalysisScheme")
     "AnalysisScheme_AnalysisSchemeLanguage"=@("Set-CSAnalysisScheme")
+    "DomainEndpointOptions_TLSSecurityPolicy"=@("Update-CSDomainEndpointOption")
     "IndexField_IndexFieldType"=@("Set-CSIndexField")
     "ScalingParameters_DesiredInstanceType"=@("Update-CSScalingParameter")
     "Suggester_DocumentSuggesterOptions_FuzzyMatching"=@("Set-CSSuggester")
@@ -194,6 +202,7 @@ $CS_SelectMap = @{
                "Remove-CSSuggester",
                "Get-CSAnalysisScheme",
                "Get-CSAvailabilityOption",
+               "Get-CSDomainEndpointOption",
                "Get-CSDomain",
                "Get-CSExpression",
                "Get-CSIndexField",
@@ -203,6 +212,7 @@ $CS_SelectMap = @{
                "Start-CSIndex",
                "Get-CSDomainNameList",
                "Update-CSAvailabilityOption",
+               "Update-CSDomainEndpointOption",
                "Update-CSScalingParameter",
                "Update-CSServiceAccessPolicy")
 }

@@ -22,11 +22,55 @@
         <Property>Status</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelIngestion" OutputProperty="*" Verb="Stop" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataSet" OutputProperty="*" Verb="New" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGroup" OutputProperty="Group" Verb="New" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateGroupMembership" OutputProperty="GroupMember" Verb="New" Noun="GroupMembership" ShouldProcessTarget="MemberName" PipelineParameter="MemberName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIAMPolicyAssignment" OutputProperty="*" Verb="New" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIngestion" OutputProperty="*" Verb="New" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTemplate" OutputProperty="*" Verb="New" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTemplateAlias" OutputProperty="TemplateAlias" Verb="New" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDashboard" OutputProperty="*" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataSet" OutputProperty="*" Verb="Remove" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataSource" OutputProperty="*" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -38,6 +82,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIAMPolicyAssignment" OutputProperty="AssignmentName" Verb="Remove" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTemplate" OutputProperty="*" Verb="Remove" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTemplateAlias" OutputProperty="*" Verb="Remove" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteUser" OutputProperty="*" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -46,7 +102,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDashboard" OutputProperty="Dashboard" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDashboardPermissions" OutputProperty="*" Verb="Get" Noun="DashboardPermission" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataSet" OutputProperty="DataSet" Verb="Get" Noun="DataSet" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataSetPermissions" OutputProperty="*" Verb="Get" Noun="DataSetPermission" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataSource" OutputProperty="DataSource" Verb="Get" Noun="DataSource" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataSourcePermissions" OutputProperty="*" Verb="Get" Noun="DataSourcePermission" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGroup" OutputProperty="Group" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIAMPolicyAssignment" OutputProperty="IAMPolicyAssignment" Verb="Get" Noun="IAMPolicyAssignment" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIngestion" OutputProperty="Ingestion" Verb="Get" Noun="Ingestion" PipelineParameter="IngestionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTemplate" OutputProperty="Template" Verb="Get" Noun="Template" PipelineParameter="TemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTemplateAlias" OutputProperty="TemplateAlias" Verb="Get" Noun="TemplateAlias" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTemplatePermissions" OutputProperty="*" Verb="Get" Noun="TemplatePermission" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -58,11 +158,55 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaryList" Verb="Get" Noun="DashboardList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDashboardVersions" OutputProperty="DashboardVersionSummaryList" Verb="Get" Noun="DashboardVersionList" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSets" OutputProperty="DataSetSummaries" Verb="Get" Noun="DataSetList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGroupMemberships" OutputProperty="GroupMemberList" Verb="Get" Noun="GroupMembershipList" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGroups" OutputProperty="GroupList" Verb="Get" Noun="GroupList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIAMPolicyAssignments" OutputProperty="IAMPolicyAssignments" Verb="Get" Noun="IAMPolicyAssignmentList" PipelineParameter="Namespace" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIAMPolicyAssignmentsForUser" OutputProperty="ActiveAssignments" Verb="Get" Noun="IAMPolicyAssignmentsForUserList" PipelineParameter="UserName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIngestions" OutputProperty="Ingestions" Verb="Get" Noun="IngestionList" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplateAliases" OutputProperty="TemplateAliasList" Verb="Get" Noun="TemplateAliasList" PipelineParameter="TemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplateSummaryList" Verb="Get" Noun="TemplateList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplateVersions" OutputProperty="TemplateVersionSummaryList" Verb="Get" Noun="TemplateVersionList" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -78,7 +222,59 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" OutputProperty="*" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDashboard" OutputProperty="*" Verb="Update" Noun="Dashboard" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDashboardPermissions" OutputProperty="*" Verb="Update" Noun="DashboardPermission" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDashboardPublishedVersion" OutputProperty="*" Verb="Update" Noun="DashboardPublishedVersion" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataSet" OutputProperty="*" Verb="Update" Noun="DataSet" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataSetPermissions" OutputProperty="*" Verb="Update" Noun="DataSetPermission" ShouldProcessTarget="DataSetId" PipelineParameter="DataSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataSource" OutputProperty="*" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataSourcePermissions" OutputProperty="*" Verb="Update" Noun="DataSourcePermission" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateGroup" OutputProperty="Group" Verb="Update" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIAMPolicyAssignment" OutputProperty="*" Verb="Update" Noun="IAMPolicyAssignment" ShouldProcessTarget="AssignmentName" PipelineParameter="AssignmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTemplate" OutputProperty="*" Verb="Update" Noun="Template" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTemplateAlias" OutputProperty="TemplateAlias" Verb="Update" Noun="TemplateAlias" ShouldProcessTarget="AliasName" PipelineParameter="AliasName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTemplatePermissions" OutputProperty="*" Verb="Update" Noun="TemplatePermission" ShouldProcessTarget="TemplateId" PipelineParameter="TemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

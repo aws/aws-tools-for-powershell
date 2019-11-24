@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBName
         /// <summary>
         /// <para>
-        /// <para>The database name for the restored DB instance.</para><note><para>This parameter is not used for the MySQL or MariaDB engines.</para></note>
+        /// <para>The database name for the restored DB instance.</para><note><para>This parameter isn't used for the MySQL or MariaDB engines.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
-        /// allocated for the DB instance.</para><para>Constraints: Must be an integer greater than 1000.</para><para><b>SQL Server</b></para><para>Setting the IOPS value for the SQL Server database engine is not supported.</para>
+        /// allocated for the DB instance.</para><para>Constraints: Must be an integer greater than 1000.</para><para><b>SQL Server</b></para><para>Setting the IOPS value for the SQL Server database engine isn't supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -284,9 +284,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the DB instance is publicly accessible. When the DB
         /// instance is publicly accessible, it is an Internet-facing instance with a publicly
-        /// resolvable DNS name, which resolves to a public IP address. When the DB instance is
-        /// not publicly accessible, it is an internal instance with a DNS name that resolves
-        /// to a private IP address. For more information, see <a>CreateDBInstance</a>.</para>
+        /// resolvable DNS name, which resolves to a public IP address. When the DB instance isn't
+        /// publicly accessible, it is an internal instance with a DNS name that resolves to a
+        /// private IP address. For more information, see <a>CreateDBInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -399,7 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> A value that indicates whether the DB instance is restored from the latest backup
-        /// time. By default, the DB instance is not restored from the latest backup time. </para><para>Constraints: Can't be specified if the <code>RestoreTime</code> parameter is provided.</para>
+        /// time. By default, the DB instance isn't restored from the latest backup time. </para><para>Constraints: Can't be specified if the <code>RestoreTime</code> parameter is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

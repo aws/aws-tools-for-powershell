@@ -90,23 +90,26 @@ $CE_Completers = {
         # Amazon.CostExplorer.Context
         "Get-CEDimensionValue/Context"
         {
-            $v = "COST_AND_USAGE","RESERVATIONS"
+            $v = "COST_AND_USAGE","RESERVATIONS","SAVINGS_PLANS"
             break
         }
 
         # Amazon.CostExplorer.Dimension
         "Get-CEDimensionValue/Dimension"
         {
-            $v = "AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","OPERATING_SYSTEM","OPERATION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RIGHTSIZING_TYPE","SCOPE","SERVICE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
+            $v = "AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","OPERATING_SYSTEM","OPERATION","PAYMENT_OPTION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RESOURCE_ID","RIGHTSIZING_TYPE","SAVINGS_PLANS_TYPE","SAVINGS_PLAN_ARN","SCOPE","SERVICE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
             break
         }
 
         # Amazon.CostExplorer.Granularity
         {
             ($_ -eq "Get-CECostAndUsage/Granularity") -Or
+            ($_ -eq "Get-CECostAndUsageWithResource/Granularity") -Or
             ($_ -eq "Get-CECostForecast/Granularity") -Or
             ($_ -eq "Get-CEReservationCoverage/Granularity") -Or
             ($_ -eq "Get-CEReservationUtilization/Granularity") -Or
+            ($_ -eq "Get-CESavingsPlansCoverage/Granularity") -Or
+            ($_ -eq "Get-CESavingsPlansUtilization/Granularity") -Or
             ($_ -eq "Get-CEUsageForecast/Granularity")
         }
         {
@@ -115,7 +118,10 @@ $CE_Completers = {
         }
 
         # Amazon.CostExplorer.LookbackPeriodInDays
-        "Get-CEReservationPurchaseRecommendation/LookbackPeriodInDays"
+        {
+            ($_ -eq "Get-CEReservationPurchaseRecommendation/LookbackPeriodInDays") -Or
+            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/LookbackPeriodInDays")
+        }
         {
             $v = "SEVEN_DAYS","SIXTY_DAYS","THIRTY_DAYS"
             break
@@ -139,14 +145,27 @@ $CE_Completers = {
         }
 
         # Amazon.CostExplorer.PaymentOption
-        "Get-CEReservationPurchaseRecommendation/PaymentOption"
+        {
+            ($_ -eq "Get-CEReservationPurchaseRecommendation/PaymentOption") -Or
+            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/PaymentOption")
+        }
         {
             $v = "ALL_UPFRONT","HEAVY_UTILIZATION","LIGHT_UTILIZATION","MEDIUM_UTILIZATION","NO_UPFRONT","PARTIAL_UPFRONT"
             break
         }
 
+        # Amazon.CostExplorer.SupportedSavingsPlansType
+        "Get-CESavingsPlansPurchaseRecommendation/SavingsPlansType"
+        {
+            $v = "COMPUTE_SP","EC2_INSTANCE_SP"
+            break
+        }
+
         # Amazon.CostExplorer.TermInYears
-        "Get-CEReservationPurchaseRecommendation/TermInYears"
+        {
+            ($_ -eq "Get-CEReservationPurchaseRecommendation/TermInYears") -Or
+            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/TermInYears")
+        }
         {
             $v = "ONE_YEAR","THREE_YEARS"
             break
@@ -164,12 +183,13 @@ $CE_map = @{
     "AccountScope"=@("Get-CEReservationPurchaseRecommendation")
     "Context"=@("Get-CEDimensionValue")
     "Dimension"=@("Get-CEDimensionValue")
-    "Granularity"=@("Get-CECostAndUsage","Get-CECostForecast","Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CEUsageForecast")
-    "LookbackPeriodInDays"=@("Get-CEReservationPurchaseRecommendation")
+    "Granularity"=@("Get-CECostAndUsage","Get-CECostAndUsageWithResource","Get-CECostForecast","Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CEUsageForecast")
+    "LookbackPeriodInDays"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "Metric"=@("Get-CECostForecast","Get-CEUsageForecast")
-    "PaymentOption"=@("Get-CEReservationPurchaseRecommendation")
+    "PaymentOption"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
+    "SavingsPlansType"=@("Get-CESavingsPlansPurchaseRecommendation")
     "ServiceSpecification_EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
-    "TermInYears"=@("Get-CEReservationPurchaseRecommendation")
+    "TermInYears"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
 }
 
 _awsArgumentCompleterRegistration $CE_Completers $CE_map
@@ -223,12 +243,17 @@ $CE_SelectCompleters = {
 
 $CE_SelectMap = @{
     "Select"=@("Get-CECostAndUsage",
+               "Get-CECostAndUsageWithResource",
                "Get-CECostForecast",
                "Get-CEDimensionValue",
                "Get-CEReservationCoverage",
                "Get-CEReservationPurchaseRecommendation",
                "Get-CEReservationUtilization",
                "Get-CERightsizingRecommendation",
+               "Get-CESavingsPlansCoverage",
+               "Get-CESavingsPlansPurchaseRecommendation",
+               "Get-CESavingsPlansUtilization",
+               "Get-CESavingsPlansUtilizationDetail",
                "Get-CETag",
                "Get-CEUsageForecast")
 }

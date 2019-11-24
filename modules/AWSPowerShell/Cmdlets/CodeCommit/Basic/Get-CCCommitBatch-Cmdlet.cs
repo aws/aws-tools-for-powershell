@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter CommitId
         /// <summary>
         /// <para>
-        /// <para>The full commit IDs of the commits to get information about.</para><note><para>You must supply the full SHAs of each commit. You cannot use shortened SHAs.</para></note>
+        /// <para>The full commit IDs of the commits to get information about.</para><note><para>You must supply the full SHA IDs of each commit. You cannot use shortened SHA IDs.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

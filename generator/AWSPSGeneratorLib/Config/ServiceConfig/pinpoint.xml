@@ -38,6 +38,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateJourney" OutputProperty="JourneyResponse" Verb="New" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePushTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +51,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSmsTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="SmsTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVoiceTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="VoiceTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -102,6 +110,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteJourney" OutputProperty="JourneyResponse" Verb="Remove" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePushTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -123,6 +135,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVoiceChannel" OutputProperty="VoiceChannelResponse" Verb="Remove" Noun="VoiceChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceTemplate" OutputProperty="MessageBody" Verb="Remove" Noun="VoiceTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -230,6 +246,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetJourney" OutputProperty="JourneyResponse" Verb="Get" Noun="Journey" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJourneyDateRangeKpi" OutputProperty="JourneyDateRangeKpiResponse" Verb="Get" Noun="JourneyDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJourneyExecutionActivityMetrics" OutputProperty="JourneyExecutionActivityMetricsResponse" Verb="Get" Noun="JourneyExecutionActivityMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJourneyExecutionMetrics" OutputProperty="JourneyExecutionMetricsResponse" Verb="Get" Noun="JourneyExecutionMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPushTemplate" OutputProperty="PushNotificationTemplateResponse" Verb="Get" Noun="PushTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -271,6 +303,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetVoiceChannel" OutputProperty="VoiceChannelResponse" Verb="Get" Noun="VoiceChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceTemplate" OutputProperty="VoiceTemplateResponse" Verb="Get" Noun="VoiceTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJourneys" OutputProperty="JourneysResponse" Verb="Get" Noun="JourneyList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -368,6 +408,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateJourney" OutputProperty="JourneyResponse" Verb="Update" Noun="Journey" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateJourneyState" OutputProperty="JourneyResponse" Verb="Update" Noun="JourneyState" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdatePushTemplate" OutputProperty="MessageBody" Verb="Update" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -385,6 +433,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVoiceChannel" OutputProperty="VoiceChannelResponse" Verb="Update" Noun="VoiceChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVoiceTemplate" OutputProperty="MessageBody" Verb="Update" Noun="VoiceTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

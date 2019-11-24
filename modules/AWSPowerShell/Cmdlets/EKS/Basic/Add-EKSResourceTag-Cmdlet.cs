@@ -31,7 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// Associates the specified tags to a resource with the specified <code>resourceArn</code>.
     /// If existing tags on a resource are not specified in the request parameters, they are
     /// not changed. When a resource is deleted, the tags associated with that resource are
-    /// deleted as well.
+    /// deleted as well. Tags that you create for Amazon EKS resources do not propagate to
+    /// any other resources associated with the cluster. For example, if you tag a cluster
+    /// with this operation, that tag does not automatically propagate to the subnets and
+    /// worker nodes associated with the cluster.
     /// </summary>
     [Cmdlet("Add", "EKSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the
-        /// supported resources are Amazon EKS clusters.</para>
+        /// supported resources are Amazon EKS clusters and managed node groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

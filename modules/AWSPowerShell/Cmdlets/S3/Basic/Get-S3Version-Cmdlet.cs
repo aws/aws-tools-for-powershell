@@ -28,7 +28,18 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns metadata about all of the versions of objects in a bucket.
+    /// Returns metadata about all of the versions of objects in a bucket. You can also use
+    /// request parameters as selection criteria to return metadata about a subset of all
+    /// the object versions. 
+    /// 
+    ///  <note><para>
+    ///  A 200 OK response can contain valid or invalid XML. Make sure to design your application
+    /// to parse the contents of the response and handle it appropriately.
+    /// </para></note><para>
+    /// To use this operation, you must have READ access to the bucket.
+    /// </para><para>
+    /// The following operations are related to <code>ListObjectVersions</code>:
+    /// </para><ul><li><para><a>ListObjectsV2</a></para></li><li><para><a>GetObject</a></para></li><li><para><a>PutObject</a></para></li><li><para><a>DeleteObject</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3Version")]
     [OutputType("Amazon.S3.Model.ListVersionsResponse")]

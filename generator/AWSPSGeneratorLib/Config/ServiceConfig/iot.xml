@@ -94,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmTopicRuleDestination" Verb="Confirm" Noun="TopicRuleDestination" ShouldProcessTarget="ConfirmationToken" PipelineParameter="ConfirmationToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAuthorizer" OutputProperty="*" Verb="New" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -163,6 +167,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTopicRule" Verb="New" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTopicRuleDestination" OutputProperty="TopicRuleDestination" Verb="New" Noun="TopicRuleDestination" ShouldProcessTarget="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" PipelineParameter="DestinationConfiguration_HttpUrlConfiguration_ConfirmationUrl" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -253,6 +261,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTopicRule" Verb="Remove" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTopicRuleDestination" Verb="Remove" Noun="TopicRuleDestination" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -380,6 +392,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCardinality" OutputProperty="Cardinality" Verb="Get" Noun="Cardinality" PipelineParameter="QueryString" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEffectivePolicies" OutputProperty="EffectivePolicies" Verb="Get" Noun="EffectivePolicy" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -400,6 +416,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPercentiles" OutputProperty="Percentiles" Verb="Get" Noun="Percentile" PipelineParameter="QueryString" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="PolicyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -417,6 +437,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTopicRule" OutputProperty="*" Verb="Get" Noun="TopicRule" PipelineParameter="RuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTopicRuleDestination" OutputProperty="TopicRuleDestination" Verb="Get" Noun="TopicRuleDestination" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -624,6 +648,11 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTopicRuleDestinations" OutputProperty="DestinationSummaries" Verb="Get" Noun="TopicRuleDestinationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTopicRules" OutputProperty="Rules" Verb="Get" Noun="TopicRuleList" PipelineParameter="Topic" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -796,6 +825,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateThingGroupsForThing" Verb="Update" Noun="ThingGroupsForThing" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTopicRuleDestination" Verb="Update" Noun="TopicRuleDestination" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

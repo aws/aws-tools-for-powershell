@@ -1,0 +1,3 @@
+﻿# MarketplaceCatalog
+
+Export-ModuleMember -Alias *

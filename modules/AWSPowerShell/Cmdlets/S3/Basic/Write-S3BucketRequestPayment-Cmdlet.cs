@@ -31,7 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Sets the request payment configuration for a bucket. By default, the bucket owner
     /// pays for downloads from the bucket. This configuration parameter enables the bucket
     /// owner (only) to specify that the person requesting the download will be charged for
-    /// the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
+    /// the download. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester
+    /// Pays Buckets</a>.
+    /// 
+    ///  
+    /// <para>
+    /// The following operations are related to <code>PutBucketRequestPayment</code>:
+    /// </para><ul><li><para><a>CreateBucket</a></para></li><li><para><a>GetBucketRequestPayment</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketRequestPayment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

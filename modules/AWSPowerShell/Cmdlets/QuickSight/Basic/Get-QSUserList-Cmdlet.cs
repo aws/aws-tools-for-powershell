@@ -32,8 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// The permission resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>*</i></code>.
-    /// </para><para>
     /// The response is a list of user objects, containing each user's Amazon Resource Name
     /// (ARN), AWS Identity and Access Management (IAM) role, and email address. 
     /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight list-users --aws-account-id=111122223333 --namespace=default

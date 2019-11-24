@@ -108,8 +108,22 @@ namespace PSReleaseNotesGenerator
 
         private IEnumerable<CmdletParameter> GetParameters()
         {
+
             var parameters = Type.GetProperties()
-                .Where(property => property.GetCustomAttributes().Any(attribute => attribute.GetType().FullName == CmdletParameter.ParameterAttribute))
+                .Where(property =>
+                {
+                    try
+                    {
+                        return property.GetCustomAttributes().Any(attribute => attribute.GetType().FullName == CmdletParameter.ParameterAttribute);
+                    }
+                    catch (TypeLoadException e)
+                    {
+                        //This is to take care of the exception resulting from the type of a property being removed from
+                        //a service assembly. Returning false here is not ideal because it effects the correctness of
+                        //the release notes.
+                        return false;
+                    }
+                })
                 .Select(property => new CmdletParameter(property))
                 .ToList();
             return new ReadOnlyCollection<CmdletParameter>(parameters);

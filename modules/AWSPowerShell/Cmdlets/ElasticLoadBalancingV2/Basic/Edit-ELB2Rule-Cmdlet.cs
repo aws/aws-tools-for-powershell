@@ -28,11 +28,14 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Modifies the specified rule.
+    /// Replaces the specified properties of the specified rule. Any properties that you do
+    /// not specify are unchanged.
     /// 
     ///  
     /// <para>
-    /// Any existing properties that you do not modify retain their current values.
+    /// To add an item to a list, remove an item from a list, or update an item in a list,
+    /// you must provide the entire list. For example, to add an action, specify a list with
+    /// the current actions plus the new action.
     /// </para><para>
     /// To modify the actions for the default rule, use <a>ModifyListener</a>.
     /// </para>
@@ -51,9 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The actions. Each rule must include exactly one of the following types of actions:
-        /// <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>.</para><para>If the action type is <code>forward</code>, you specify a target group. The protocol
-        /// of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol
-        /// of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</para><para>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate
+        /// <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>, and it
+        /// must be the last action to be performed.</para><para>If the action type is <code>forward</code>, you specify one or more target groups.
+        /// The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer.
+        /// The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
+        /// Balancer.</para><para>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate
         /// users through an identity provider that is OpenID Connect (OIDC) compliant.</para><para>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate
         /// users through the user pools supported by Amazon Cognito.</para><para>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect
         /// specified client requests from one URL to another.</para><para>[Application Load Balancer] If the action type is <code>fixed-response</code>, you

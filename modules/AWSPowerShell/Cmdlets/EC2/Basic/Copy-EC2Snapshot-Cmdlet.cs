@@ -147,6 +147,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SourceSnapshotId { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the new snapshot.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'SnapshotId'.
@@ -226,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter SourceSnapshotId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -265,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SourceSnapshotId != null)
             {
                 request.SourceSnapshotId = cmdletContext.SourceSnapshotId;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -333,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String KmsKeyId { get; set; }
             public System.String SourceRegion { get; set; }
             public System.String SourceSnapshotId { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CopySnapshotResponse, CopyEC2SnapshotCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SnapshotId;
         }

@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Updates an Amazon GuardDuty detector specified by the detectorId.
+    /// Updates the Amazon GuardDuty detector specified by the detectorId.
     /// </summary>
     [Cmdlet("Update", "GDDetector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector that you want to update.</para>
+        /// <para>The unique ID of the detector to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Enable
         /// <summary>
         /// <para>
-        /// <para>Updated boolean value for the detector that specifies whether the detector is enabled.</para>
+        /// <para>Specifies whether the detector is enabled or not enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingPublishingFrequency
         /// <summary>
         /// <para>
-        /// <para>A enum value that specifies how frequently customer got Finding updates published.</para>
+        /// <para>A enum value that specifies how frequently findings are exported, such as to CloudWatch
+        /// Events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

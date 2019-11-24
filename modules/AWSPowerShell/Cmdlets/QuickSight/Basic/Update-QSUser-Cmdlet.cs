@@ -32,12 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// The permission resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>&lt;user-name&gt;</i></code>. 
-    /// </para><para>
     /// The response is a user object that contains the user's Amazon QuickSight user name,
     /// email address, active or inactive status in Amazon QuickSight, Amazon QuickSight role,
     /// and Amazon Resource Name (ARN). 
-    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight update-user --user-name=Pat --role=ADMIN --email=new_address@amazon.com
+    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight update-user --user-name=Pat --role=ADMIN --email=new_address@example.com
     /// --aws-account-id=111122223333 --namespace=default --region=us-east-1 </code></para>
     /// </summary>
     [Cmdlet("Update", "QSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -105,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight role of the user. The user role can be one of the following:</para><ul><li><para><code>READER</code>: A user who has read-only access to dashboards.</para></li><li><para><code>AUTHOR</code>: A user who can create data sources, data sets, analyses, and
+        /// <para>The Amazon QuickSight role of the user. The user role can be one of the following:</para><ul><li><para><code>READER</code>: A user who has read-only access to dashboards.</para></li><li><para><code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
         /// dashboards.</para></li><li><para><code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
         /// settings.</para></li></ul>
         /// </para>

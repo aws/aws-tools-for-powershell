@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O operations
-        /// per second. If this parameter is not specified, the IOPS value is taken from the backup.
+        /// per second. If this parameter isn't specified, the IOPS value is taken from the backup.
         /// If this parameter is set to 0, the new instance is converted to a non-PIOPS instance.
         /// The conversion takes additional time, though your DB instance is available for connections
         /// before the conversion starts. </para><para>The provisioned IOPS value must follow the requirements for your database engine.
@@ -333,9 +333,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the DB instance is publicly accessible. When the DB
         /// instance is publicly accessible, it is an Internet-facing instance with a publicly
-        /// resolvable DNS name, which resolves to a public IP address. When the DB instance is
-        /// not publicly accessible, it is an internal instance with a DNS name that resolves
-        /// to a private IP address. For more information, see <a>CreateDBInstance</a>.</para>
+        /// resolvable DNS name, which resolves to a public IP address. When the DB instance isn't
+        /// publicly accessible, it is an internal instance with a DNS name that resolves to a
+        /// private IP address. For more information, see <a>CreateDBInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

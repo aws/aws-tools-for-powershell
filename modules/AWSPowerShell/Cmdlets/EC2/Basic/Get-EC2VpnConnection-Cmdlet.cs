@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
         /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>type</code> - The type of VPN connection. Currently the only supported type
         /// is <code>ipsec.1</code>.</para></li><li><para><code>vpn-connection-id</code> - The ID of the VPN connection.</para></li><li><para><code>vpn-gateway-id</code> - The ID of a virtual private gateway associated with
-        /// the VPN connection.</para></li></ul>
+        /// the VPN connection.</para></li><li><para><code>transit-gateway-id</code> - The ID of a transit gateway associated with the
+        /// VPN connection.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

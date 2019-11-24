@@ -118,11 +118,25 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String Password { get; set; }
         #endregion
         
+        #region Parameter TimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the time in seconds, in which the <code>JoinDomain</code> operation must
+        /// complete. The default is 20 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TimeoutInSeconds")]
+        public System.Int32? TimeoutInSecond { get; set; }
+        #endregion
+        
         #region Parameter UserName
         /// <summary>
         /// <para>
         /// <para>Sets the user name of user who has permission to add the gateway to the Active Directory
-        /// domain.</para>
+        /// domain. The domain user account should be enabled to join computers to the domain.
+        /// For example, you can use the domain administrator account or an account with delegated
+        /// permissions to join computers to the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -223,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 WriteWarning("You are passing $null as a value for parameter Password which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TimeoutInSecond = this.TimeoutInSecond;
             context.UserName = this.UserName;
             #if MODULAR
             if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
@@ -265,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.Password != null)
             {
                 request.Password = cmdletContext.Password;
+            }
+            if (cmdletContext.TimeoutInSecond != null)
+            {
+                request.TimeoutInSeconds = cmdletContext.TimeoutInSecond.Value;
             }
             if (cmdletContext.UserName != null)
             {
@@ -336,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String GatewayARN { get; set; }
             public System.String OrganizationalUnit { get; set; }
             public System.String Password { get; set; }
+            public System.Int32? TimeoutInSecond { get; set; }
             public System.String UserName { get; set; }
             public System.Func<Amazon.StorageGateway.Model.JoinDomainResponse, JoinSGDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GatewayARN;

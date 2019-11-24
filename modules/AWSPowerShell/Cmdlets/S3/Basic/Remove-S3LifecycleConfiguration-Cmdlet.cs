@@ -28,7 +28,25 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Deletes the lifecycle configuration from the bucket.
+    /// Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all
+    /// the lifecycle configuration rules in the lifecycle subresource associated with the
+    /// bucket. Your objects never expire, and Amazon S3 no longer automatically deletes any
+    /// objects on the basis of rules contained in the deleted lifecycle configuration.
+    /// 
+    ///  
+    /// <para>
+    /// To use this operation, you must have permission to perform the <code>s3:PutLifecycleConfiguration</code>
+    /// action. By default, the bucket owner has this permission and the bucket owner can
+    /// grant this permission to others.
+    /// </para><para>
+    /// There is usually some time lag before lifecycle configuration deletion is fully propagated
+    /// to all the Amazon S3 systems.
+    /// </para><para>
+    /// For more information about the object expiration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#intro-lifecycle-rules-actions">Elements
+    /// to Describe Lifecycle Actions</a>.
+    /// </para><para>
+    /// Related actions include:
+    /// </para><ul><li><para><a>PutBucketLifecycleConfiguration</a></para></li><li><para><a>GetBucketLifecycleConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3LifecycleConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

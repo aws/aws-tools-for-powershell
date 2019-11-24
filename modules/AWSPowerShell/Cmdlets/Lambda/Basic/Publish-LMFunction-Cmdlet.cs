@@ -101,6 +101,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Handler { get; set; }
         #endregion
         
+        #region Parameter Environment_IsVariablesSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Lambda.Model.Environment.Variables" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Environment_IsVariablesSet { get; set; }
+        #endregion
+        
         #region Parameter KMSKeyArn
         /// <summary>
         /// <para>
@@ -375,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                     context.Environment_Variable.Add((String)hashKey, (String)(this.Environment_Variable[hashKey]));
                 }
             }
+            context.Environment_IsVariablesSet = this.Environment_IsVariablesSet;
             context.FunctionName = this.FunctionName;
             #if MODULAR
             if (this.FunctionName == null && ParameterWasBound(nameof(this.FunctionName)))
@@ -533,6 +548,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 if (requestEnvironment_environment_Variable != null)
                 {
                     request.Environment.Variables = requestEnvironment_environment_Variable;
+                    requestEnvironmentIsNull = false;
+                }
+                System.Boolean? requestEnvironment_environment_IsVariablesSet = null;
+                if (cmdletContext.Environment_IsVariablesSet != null)
+                {
+                    requestEnvironment_environment_IsVariablesSet = cmdletContext.Environment_IsVariablesSet.Value;
+                }
+                if (requestEnvironment_environment_IsVariablesSet != null)
+                {
+                    request.Environment.IsVariablesSet = requestEnvironment_environment_IsVariablesSet.Value;
                     requestEnvironmentIsNull = false;
                 }
                  // determine if request.Environment should be set to null
@@ -704,6 +729,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String DeadLetterConfig_TargetArn { get; set; }
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> Environment_Variable { get; set; }
+            public System.Boolean? Environment_IsVariablesSet { get; set; }
             public System.String FunctionName { get; set; }
             public System.String Handler { get; set; }
             public System.String KMSKeyArn { get; set; }

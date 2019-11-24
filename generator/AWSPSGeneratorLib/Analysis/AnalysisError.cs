@@ -99,7 +99,7 @@ namespace AWSPowerShellGenerator.Analysis
 
         public static void UnapprovedVerb(ConfigModel service, ServiceOperation operation, string verb)
         {
-            new AnalysisError(service, operation, $"'{verb}' is not a valid verb (see https://docs.microsoft.com/en-us/powershell/developer/cmdlet/approved-verbs-for-windows-powershell-commands).");
+            new AnalysisError(service, operation, $"'{verb}' is not a valid verb (see https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands).");
         }
 
         public static void MustUpdateVerbAndNoun(ConfigModel service, ServiceOperation operation, string suggestedVerb, string suggestedNoun)

@@ -65,8 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The DB cluster capacity.</para><para>When you change the capacity of a paused Aurora Serverless DB cluster, it automatically
-        /// resumes.</para><para>Constraints:</para><ul><li><para>Value must be <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
-        /// <code>32</code>, <code>64</code>, <code>128</code>, or <code>256</code>.</para></li></ul>
+        /// resumes.</para><para>Constraints:</para><ul><li><para>For Aurora MySQL, valid capacity values are <code>1</code>, <code>2</code>, <code>4</code>,
+        /// <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>, <code>128</code>,
+        /// and <code>256</code>.</para></li><li><para>For Aurora PostgreSQL, valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>,
+        /// <code>16</code>, <code>32</code>, <code>64</code>, <code>192</code>, and <code>384</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DB cluster.</para></li></ul>
+        /// <para>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DB cluster.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code>
         /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code>, the default, sets the capacity to the specified
         /// value as soon as possible.</para><para><code>RollbackCapacityChange</code> ignores the capacity change if a scaling point
-        /// is not found in the timeout period.</para>
+        /// isn't found in the timeout period.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

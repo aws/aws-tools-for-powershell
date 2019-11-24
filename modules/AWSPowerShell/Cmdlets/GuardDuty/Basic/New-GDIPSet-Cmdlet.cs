@@ -28,8 +28,10 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Creates a new IPSet - a list of trusted IP addresses that have been whitelisted for
-    /// secure communication with AWS infrastructure and applications.
+    /// Creates a new IPSet, called Trusted IP list in the consoler user interface. An IPSet
+    /// is a list IP addresses trusted for secure communication with AWS infrastructure and
+    /// applications. GuardDuty does not generate findings for IP addresses included in IPSets.
+    /// Only users from the master account can use this operation.
     /// </summary>
     [Cmdlet("New", "GDIPSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

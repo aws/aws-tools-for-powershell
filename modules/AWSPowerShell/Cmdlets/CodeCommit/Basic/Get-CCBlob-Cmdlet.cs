@@ -28,7 +28,7 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Returns the base-64 encoded content of an individual blob within a repository.
+    /// Returns the base-64 encoded content of an individual blob in a repository.
     /// </summary>
     [Cmdlet("Get", "CCBlob")]
     [OutputType("System.IO.MemoryStream")]

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format.
         /// For more information about ISO 8601, see the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
-        /// Wikipedia page.</a></para><note><para>If the specified time is not a consistent time for the DB cluster, Aurora automatically
+        /// Wikipedia page.</a></para><note><para>If the specified time isn't a consistent time for the DB cluster, Aurora automatically
         /// chooses the nearest possible consistent time for the DB cluster.</para></note><para>Constraints:</para><ul><li><para>Must contain a valid ISO 8601 timestamp.</para></li><li><para>Can't contain a timestamp set in the future.</para></li></ul><para>Example: <code>2017-07-08T18:00Z</code></para>
         /// </para>
         /// </summary>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// BacktrackTo is provided for backwards compatibility only and assigning a non-Utc DateTime
         /// to it results in the wrong timestamp being passed to the service.</para><para>The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format.
         /// For more information about ISO 8601, see the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
-        /// Wikipedia page.</a></para><note><para>If the specified time is not a consistent time for the DB cluster, Aurora automatically
+        /// Wikipedia page.</a></para><note><para>If the specified time isn't a consistent time for the DB cluster, Aurora automatically
         /// chooses the nearest possible consistent time for the DB cluster.</para></note><para>Constraints:</para><ul><li><para>Must contain a valid ISO 8601 timestamp.</para></li><li><para>Can't contain a timestamp set in the future.</para></li></ul><para>Example: <code>2017-07-08T18:00Z</code></para>
         /// </para>
         /// <para>This parameter is deprecated.</para>

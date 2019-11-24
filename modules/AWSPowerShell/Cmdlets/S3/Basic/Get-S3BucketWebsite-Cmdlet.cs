@@ -28,7 +28,19 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns the website configuration for a bucket.
+    /// Returns the website configuration for a bucket. To host website on Amazon S3, you
+    /// can configure a bucket as website by adding a website configuration. For more information
+    /// about hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting
+    /// Websites on Amazon S3</a>. 
+    /// 
+    ///  
+    /// <para>
+    /// This GET operation requires the <code>S3:GetBucketWebsite</code> permission. By default,
+    /// only the bucket owner can read the bucket website configuration. However, bucket owners
+    /// can allow other users to read the website configuration by writing a bucket policy
+    /// granting them the <code>S3:GetBucketWebsite</code> permission.
+    /// </para><para>
+    /// The following operations are related to <code>DeleteBucketWebsite</code></para><ul><li><para><a>DeleteBucketWebsite</a></para></li><li><para><a>PutBucketWebsite</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketWebsite")]
     [OutputType("Amazon.S3.Model.WebsiteConfiguration")]

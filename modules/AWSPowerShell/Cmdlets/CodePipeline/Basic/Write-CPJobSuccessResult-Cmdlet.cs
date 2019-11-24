@@ -105,6 +105,19 @@ namespace Amazon.PowerShell.Cmdlets.CP
         public System.String JobId { get; set; }
         #endregion
         
+        #region Parameter OutputVariable
+        /// <summary>
+        /// <para>
+        /// <para>Key-value pairs produced as output by a job worker that can be made available to a
+        /// downstream action configuration. <code>outputVariables</code> can be included only
+        /// when there is no continuation token on the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputVariables")]
+        public System.Collections.Hashtable OutputVariable { get; set; }
+        #endregion
+        
         #region Parameter ExecutionDetails_PercentComplete
         /// <summary>
         /// <para>
@@ -221,6 +234,14 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 WriteWarning("You are passing $null as a value for parameter JobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.OutputVariable != null)
+            {
+                context.OutputVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.OutputVariable.Keys)
+                {
+                    context.OutputVariable.Add((String)hashKey, (String)(this.OutputVariable[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -333,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
             {
                 request.JobId = cmdletContext.JobId;
             }
+            if (cmdletContext.OutputVariable != null)
+            {
+                request.OutputVariables = cmdletContext.OutputVariable;
+            }
             
             CmdletOutput output;
             
@@ -403,6 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             public System.Int32? ExecutionDetails_PercentComplete { get; set; }
             public System.String ExecutionDetails_Summary { get; set; }
             public System.String JobId { get; set; }
+            public Dictionary<System.String, System.String> OutputVariable { get; set; }
             public System.Func<Amazon.CodePipeline.Model.PutJobSuccessResultResponse, WriteCPJobSuccessResultCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

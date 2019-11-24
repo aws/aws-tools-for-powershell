@@ -205,6 +205,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String[] LoadBalancerName { get; set; }
         #endregion
         
+        #region Parameter MaxInstanceLifetime
+        /// <summary>
+        /// <para>
+        /// <para>The maximum amount of time, in seconds, that an instance can be in service.</para><para>Valid Range: Minimum value of 604800.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxInstanceLifetime { get; set; }
+        #endregion
+        
         #region Parameter MaxSize
         /// <summary>
         /// <para>
@@ -453,6 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 context.LoadBalancerName = new List<System.String>(this.LoadBalancerName);
             }
+            context.MaxInstanceLifetime = this.MaxInstanceLifetime;
             context.MaxSize = this.MaxSize;
             #if MODULAR
             if (this.MaxSize == null && ParameterWasBound(nameof(this.MaxSize)))
@@ -579,6 +590,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.LoadBalancerNames = cmdletContext.LoadBalancerName;
             }
+            if (cmdletContext.MaxInstanceLifetime != null)
+            {
+                request.MaxInstanceLifetime = cmdletContext.MaxInstanceLifetime.Value;
+            }
             if (cmdletContext.MaxSize != null)
             {
                 request.MaxSize = cmdletContext.MaxSize.Value;
@@ -693,6 +708,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String LaunchTemplate_Version { get; set; }
             public List<Amazon.AutoScaling.Model.LifecycleHookSpecification> LifecycleHookSpecificationList { get; set; }
             public List<System.String> LoadBalancerName { get; set; }
+            public System.Int32? MaxInstanceLifetime { get; set; }
             public System.Int32? MaxSize { get; set; }
             public System.Int32? MinSize { get; set; }
             public Amazon.AutoScaling.Model.MixedInstancesPolicy MixedInstancesPolicy { get; set; }

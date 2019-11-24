@@ -174,6 +174,9 @@ $DLM_SelectMap = @{
                "Remove-DLMLifecyclePolicy",
                "Get-DLMLifecyclePolicySummary",
                "Get-DLMLifecyclePolicy",
+               "Get-DLMResourceTag",
+               "Add-DLMResourceTag",
+               "Remove-DLMResourceTag",
                "Update-DLMLifecyclePolicy")
 }
 

@@ -86,21 +86,70 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-QSResourceTag', 
+        'Get-QSDashboard', 
         'Get-QSDashboardEmbedUrl', 
+        'Get-QSDashboardList', 
+        'Get-QSDashboardPermission', 
+        'Get-QSDashboardVersionList', 
+        'Get-QSDataSet', 
+        'Get-QSDataSetList', 
+        'Get-QSDataSetPermission', 
+        'Get-QSDataSource', 
+        'Get-QSDataSourceList', 
+        'Get-QSDataSourcePermission', 
         'Get-QSGroup', 
         'Get-QSGroupList', 
         'Get-QSGroupMembershipList', 
+        'Get-QSIAMPolicyAssignment', 
+        'Get-QSIAMPolicyAssignmentList', 
+        'Get-QSIAMPolicyAssignmentsForUserList', 
+        'Get-QSIngestion', 
+        'Get-QSIngestionList', 
+        'Get-QSResourceTag', 
+        'Get-QSTemplate', 
+        'Get-QSTemplateAlias', 
+        'Get-QSTemplateAliasList', 
+        'Get-QSTemplateList', 
+        'Get-QSTemplatePermission', 
+        'Get-QSTemplateVersionList', 
         'Get-QSUser', 
         'Get-QSUserGroupList', 
         'Get-QSUserList', 
+        'New-QSDashboard', 
+        'New-QSDataSet', 
+        'New-QSDataSource', 
         'New-QSGroup', 
         'New-QSGroupMembership', 
+        'New-QSIAMPolicyAssignment', 
+        'New-QSIngestion', 
+        'New-QSTemplate', 
+        'New-QSTemplateAlias', 
         'Register-QSUser', 
+        'Remove-QSDashboard', 
+        'Remove-QSDataSet', 
+        'Remove-QSDataSource', 
         'Remove-QSGroup', 
         'Remove-QSGroupMembership', 
+        'Remove-QSIAMPolicyAssignment', 
+        'Remove-QSResourceTag', 
+        'Remove-QSTemplate', 
+        'Remove-QSTemplateAlias', 
         'Remove-QSUser', 
         'Remove-QSUserByPrincipalId', 
+        'Stop-QSIngestion', 
+        'Update-QSDashboard', 
+        'Update-QSDashboardPermission', 
+        'Update-QSDashboardPublishedVersion', 
+        'Update-QSDataSet', 
+        'Update-QSDataSetPermission', 
+        'Update-QSDataSource', 
+        'Update-QSDataSourcePermission', 
         'Update-QSGroup', 
+        'Update-QSIAMPolicyAssignment', 
+        'Update-QSTemplate', 
+        'Update-QSTemplateAlias', 
+        'Update-QSTemplatePermission', 
         'Update-QSUser')
 
     # Variables to export from this module
@@ -121,7 +170,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

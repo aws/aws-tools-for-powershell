@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>A comment or description about the new repository.</para><note><para>The description field for a repository accepts all HTML characters and all valid Unicode
         /// characters. Applications that do not HTML-encode the description and display it in
-        /// a web page could expose users to potentially malicious code. Make sure that you HTML-encode
+        /// a webpage can expose users to potentially malicious code. Make sure that you HTML-encode
         /// the description field in any application that uses this API to display the repository
-        /// description on a web page.</para></note>
+        /// description on a webpage.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,11 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the new repository to be created.</para><note><para>The repository name must be unique across the calling AWS account. In addition, repository
-        /// names are limited to 100 alphanumeric, dash, and underscore characters, and cannot
-        /// include certain characters. For a full description of the limits on repository names,
-        /// see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
-        /// in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.</para></note>
+        /// <para>The name of the new repository to be created.</para><note><para>The repository name must be unique across the calling AWS account. Repository names
+        /// are limited to 100 alphanumeric, dash, and underscore characters, and cannot include
+        /// certain characters. For more information about the limits on repository names, see
+        /// <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+        /// in the <i>AWS CodeCommit User Guide</i>. The suffix .git is prohibited.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

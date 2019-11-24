@@ -19,7 +19,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateApprovalRuleTemplateWithRepository" Verb="Add" Noun="ApprovalRuleTemplateToRepository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchAssociateApprovalRuleTemplateWithRepositories" OutputProperty="*" Verb="Add" Noun="ApprovalRuleTemplateToRepositoryBatch" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflictBatch" PipelineParameter="RepositoryName" NoPipelineParameter="false" DisableLegacyPagination="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisassociateApprovalRuleTemplateFromRepositories" OutputProperty="*" Verb="Remove" Noun="ApprovalRuleTemplateFromRepositoryBatch" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -28,6 +40,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchGetRepositories" OutputProperty="*" Verb="Get" Noun="RepositoryBatch" PipelineParameter="RepositoryNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApprovalRuleTemplate" OutputProperty="ApprovalRuleTemplate" Verb="New" Noun="ApprovalRuleTemplate" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateContent" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,11 +59,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePullRequestApprovalRule" OutputProperty="ApprovalRule" Verb="New" Noun="PullRequestApprovalRule" ShouldProcessTarget="ApprovalRuleName" PipelineParameter="ApprovalRuleContent" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRepository" OutputProperty="RepositoryMetadata" Verb="New" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateUnreferencedMergeCommit" OutputProperty="*" Verb="New" Noun="UnreferencedMergeCommit" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApprovalRuleTemplate" OutputProperty="ApprovalRuleTemplateId" Verb="Remove" Noun="ApprovalRuleTemplate" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePullRequestApprovalRule" OutputProperty="ApprovalRuleId" Verb="Remove" Noun="PullRequestApprovalRule" ShouldProcessTarget="ApprovalRuleName" PipelineParameter="ApprovalRuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRepository" OutputProperty="RepositoryId" Verb="Remove" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -72,6 +100,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribePullRequestEvents" OutputProperty="PullRequestEvents" Verb="Get" Noun="PullRequestEvent" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateApprovalRuleTemplateFromRepository" Verb="Remove" Noun="ApprovalRuleTemplateFromRepository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EvaluatePullRequestApprovalRules" OutputProperty="Evaluation" Verb="Invoke" Noun="PullRequestApprovalRule" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApprovalRuleTemplate" OutputProperty="ApprovalRuleTemplate" Verb="Get" Noun="ApprovalRuleTemplate" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,11 +167,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPullRequestApprovalStates" OutputProperty="Approvals" Verb="Get" Noun="PullRequestApprovalState" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPullRequestOverrideState" OutputProperty="*" Verb="Get" Noun="PullRequestOverrideState" PipelineParameter="PullRequestId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRepository" OutputProperty="RepositoryMetadata" Verb="Get" Noun="Repository" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetRepositoryTriggers" OutputProperty="*" Verb="Get" Noun="RepositoryTrigger" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApprovalRuleTemplates" OutputProperty="ApprovalRuleTemplateNames" Verb="Get" Noun="ApprovalRuleTemplateList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedApprovalRuleTemplatesForRepository" OutputProperty="ApprovalRuleTemplateNames" Verb="Get" Noun="AssociatedApprovalRuleTemplatesForRepositoryList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -144,6 +200,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRepositories" OutputProperty="Repositories" Verb="Get" Noun="RepositoryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRepositoriesForApprovalRuleTemplate" OutputProperty="RepositoryNames" Verb="Get" Noun="RepositoriesForApprovalRuleTemplateList" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -172,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="MergePullRequestByThreeWay" OutputProperty="PullRequest" Verb="Merge" Noun="PullRequestByThreeWay" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="OverridePullRequestApprovalRules" Verb="Skip" Noun="PullRequestApprovalRule" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,11 +271,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApprovalRuleTemplateContent" OutputProperty="ApprovalRuleTemplate" Verb="Update" Noun="ApprovalRuleTemplateContent" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="NewRuleContent" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApprovalRuleTemplateDescription" OutputProperty="ApprovalRuleTemplate" Verb="Update" Noun="ApprovalRuleTemplateDescription" ShouldProcessTarget="ApprovalRuleTemplateName" PipelineParameter="ApprovalRuleTemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApprovalRuleTemplateName" OutputProperty="ApprovalRuleTemplate" Verb="Update" Noun="ApprovalRuleTemplateName" ShouldProcessTarget="OldApprovalRuleTemplateName" PipelineParameter="OldApprovalRuleTemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateComment" OutputProperty="Comment" Verb="Update" Noun="Comment" ShouldProcessTarget="CommentId" PipelineParameter="Content" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDefaultBranch" Verb="Update" Noun="DefaultBranch" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePullRequestApprovalRuleContent" OutputProperty="ApprovalRule" Verb="Update" Noun="PullRequestApprovalRuleContent" ShouldProcessTarget="PullRequestId" PipelineParameter="NewRuleContent" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePullRequestApprovalState" Verb="Update" Noun="PullRequestApprovalState" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

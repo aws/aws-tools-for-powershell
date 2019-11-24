@@ -28,14 +28,14 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Deletes a dataset group created using the <a>CreateDatasetGroup</a> operation. To
-    /// be deleted, the dataset group must have a status of <code>ACTIVE</code>, <code>CREATE_FAILED</code>,
-    /// or <code>UPDATE_FAILED</code>. Use the <a>DescribeDatasetGroup</a> operation to get
-    /// the status.
+    /// Deletes a dataset group created using the <a>CreateDatasetGroup</a> operation. You
+    /// can only delete dataset groups that have a status of <code>ACTIVE</code>, <code>CREATE_FAILED</code>,
+    /// or <code>UPDATE_FAILED</code>. To get the status, use the <a>DescribeDatasetGroup</a>
+    /// operation.
     /// 
     ///  
     /// <para>
-    /// The operation deletes only the dataset group, not the datasets in the group.
+    /// This operation deletes only the dataset group, not the datasets in the group.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FRCDatasetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns the accelerate configuration of a bucket.
+    /// Amazon.S3.IAmazonS3.GetBucketAccelerateConfiguration
     /// </summary>
     [Cmdlet("Get", "S3BucketAccelerateConfiguration")]
     [OutputType("Amazon.S3.BucketAccelerateStatus")]

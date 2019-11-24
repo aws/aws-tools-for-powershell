@@ -85,6 +85,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTableReplicaAutoScaling" OutputProperty="TableAutoScalingDescription" Verb="Get" Noun="TableReplicaAutoScaling" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTimeToLive" OutputProperty="TimeToLiveDescription" Verb="Get" Noun="TimeToLive" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -169,6 +173,10 @@
                 <Param Name="ProvisionedThroughput_ReadCapacityUnits" NewName="ReadCapacity" />
                 <Param Name="ProvisionedThroughput_WriteCapacityUnits" NewName="WriteCapacity" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTableReplicaAutoScaling" OutputProperty="TableAutoScalingDescription" Verb="Update" Noun="TableReplicaAutoScaling" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTimeToLive" OutputProperty="TimeToLiveSpecification" Verb="Update" Noun="TimeToLive" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">

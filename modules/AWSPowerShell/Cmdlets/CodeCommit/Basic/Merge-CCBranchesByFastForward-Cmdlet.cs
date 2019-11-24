@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter DestinationCommitSpecifier
         /// <summary>
         /// <para>
-        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
-        /// For example, a branch name or a full commit ID.</para>
+        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+        /// (for example, a branch name or a full commit ID).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter SourceCommitSpecifier
         /// <summary>
         /// <para>
-        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
-        /// For example, a branch name or a full commit ID.</para>
+        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+        /// (for example, a branch name or a full commit ID).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter TargetBranch
         /// <summary>
         /// <para>
-        /// <para>The branch where the merge will be applied.</para>
+        /// <para>The branch where the merge is applied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

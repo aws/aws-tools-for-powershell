@@ -176,6 +176,21 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCM_Body { get; set; }
         #endregion
         
+        #region Parameter PushNotificationTemplateRequest_DefaultSubstitution
+        /// <summary>
+        /// <para>
+        /// <para>A JSON object that specifies the default values to use for message variables in the
+        /// message template. This object is a set of key-value pairs. Each key defines a message
+        /// variable in the template. The corresponding value defines the default value for that
+        /// variable. When you create a message that's based on the template, you can override
+        /// these defaults with message-specific and address-specific variables and values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PushNotificationTemplateRequest_DefaultSubstitutions")]
+        public System.String PushNotificationTemplateRequest_DefaultSubstitution { get; set; }
+        #endregion
+        
         #region Parameter ADM_ImageIconUrl
         /// <summary>
         /// <para>
@@ -258,6 +273,58 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PushNotificationTemplateRequest_APNS_MediaUrl")]
         public System.String APNS_MediaUrl { get; set; }
+        #endregion
+        
+        #region Parameter ADM_RawContent
+        /// <summary>
+        /// <para>
+        /// <para>The raw, JSON-formatted string to use as the payload for a push notification that's
+        /// based on the message template. If specified, this value overrides all other content
+        /// for the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PushNotificationTemplateRequest_ADM_RawContent")]
+        public System.String ADM_RawContent { get; set; }
+        #endregion
+        
+        #region Parameter APNS_RawContent
+        /// <summary>
+        /// <para>
+        /// <para>The raw, JSON-formatted string to use as the payload for push notifications that are
+        /// based on the message template. If specified, this value overrides all other content
+        /// for the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PushNotificationTemplateRequest_APNS_RawContent")]
+        public System.String APNS_RawContent { get; set; }
+        #endregion
+        
+        #region Parameter Baidu_RawContent
+        /// <summary>
+        /// <para>
+        /// <para>The raw, JSON-formatted string to use as the payload for a push notification that's
+        /// based on the message template. If specified, this value overrides all other content
+        /// for the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PushNotificationTemplateRequest_Baidu_RawContent")]
+        public System.String Baidu_RawContent { get; set; }
+        #endregion
+        
+        #region Parameter GCM_RawContent
+        /// <summary>
+        /// <para>
+        /// <para>The raw, JSON-formatted string to use as the payload for a push notification that's
+        /// based on the message template. If specified, this value overrides all other content
+        /// for the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PushNotificationTemplateRequest_GCM_RawContent")]
+        public System.String GCM_RawContent { get; set; }
         #endregion
         
         #region Parameter ADM_SmallImageIconUrl
@@ -381,6 +448,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PushNotificationTemplateRequest_Tags")]
         public System.Collections.Hashtable PushNotificationTemplateRequest_Tag { get; set; }
+        #endregion
+        
+        #region Parameter PushNotificationTemplateRequest_TemplateDescription
+        /// <summary>
+        /// <para>
+        /// <para>A custom description of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PushNotificationTemplateRequest_TemplateDescription { get; set; }
         #endregion
         
         #region Parameter TemplateName
@@ -592,6 +669,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.ADM_Body = this.ADM_Body;
             context.ADM_ImageIconUrl = this.ADM_ImageIconUrl;
             context.ADM_ImageUrl = this.ADM_ImageUrl;
+            context.ADM_RawContent = this.ADM_RawContent;
             context.ADM_SmallImageIconUrl = this.ADM_SmallImageIconUrl;
             context.ADM_Sound = this.ADM_Sound;
             context.ADM_Title = this.ADM_Title;
@@ -599,6 +677,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.APNS_Action = this.APNS_Action;
             context.APNS_Body = this.APNS_Body;
             context.APNS_MediaUrl = this.APNS_MediaUrl;
+            context.APNS_RawContent = this.APNS_RawContent;
             context.APNS_Sound = this.APNS_Sound;
             context.APNS_Title = this.APNS_Title;
             context.APNS_Url = this.APNS_Url;
@@ -606,6 +685,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.Baidu_Body = this.Baidu_Body;
             context.Baidu_ImageIconUrl = this.Baidu_ImageIconUrl;
             context.Baidu_ImageUrl = this.Baidu_ImageUrl;
+            context.Baidu_RawContent = this.Baidu_RawContent;
             context.Baidu_SmallImageIconUrl = this.Baidu_SmallImageIconUrl;
             context.Baidu_Sound = this.Baidu_Sound;
             context.Baidu_Title = this.Baidu_Title;
@@ -615,10 +695,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.Default_Sound = this.Default_Sound;
             context.Default_Title = this.Default_Title;
             context.Default_Url = this.Default_Url;
+            context.PushNotificationTemplateRequest_DefaultSubstitution = this.PushNotificationTemplateRequest_DefaultSubstitution;
             context.GCM_Action = this.GCM_Action;
             context.GCM_Body = this.GCM_Body;
             context.GCM_ImageIconUrl = this.GCM_ImageIconUrl;
             context.GCM_ImageUrl = this.GCM_ImageUrl;
+            context.GCM_RawContent = this.GCM_RawContent;
             context.GCM_SmallImageIconUrl = this.GCM_SmallImageIconUrl;
             context.GCM_Sound = this.GCM_Sound;
             context.GCM_Title = this.GCM_Title;
@@ -631,6 +713,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.PushNotificationTemplateRequest_Tag.Add((String)hashKey, (String)(this.PushNotificationTemplateRequest_Tag[hashKey]));
                 }
             }
+            context.PushNotificationTemplateRequest_TemplateDescription = this.PushNotificationTemplateRequest_TemplateDescription;
             context.TemplateName = this.TemplateName;
             #if MODULAR
             if (this.TemplateName == null && ParameterWasBound(nameof(this.TemplateName)))
@@ -658,6 +741,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
              // populate PushNotificationTemplateRequest
             var requestPushNotificationTemplateRequestIsNull = true;
             request.PushNotificationTemplateRequest = new Amazon.Pinpoint.Model.PushNotificationTemplateRequest();
+            System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_DefaultSubstitution = null;
+            if (cmdletContext.PushNotificationTemplateRequest_DefaultSubstitution != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_DefaultSubstitution = cmdletContext.PushNotificationTemplateRequest_DefaultSubstitution;
+            }
+            if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_DefaultSubstitution != null)
+            {
+                request.PushNotificationTemplateRequest.DefaultSubstitutions = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_DefaultSubstitution;
+                requestPushNotificationTemplateRequestIsNull = false;
+            }
             Dictionary<System.String, System.String> requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Tag = null;
             if (cmdletContext.PushNotificationTemplateRequest_Tag != null)
             {
@@ -666,6 +759,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Tag != null)
             {
                 request.PushNotificationTemplateRequest.Tags = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Tag;
+                requestPushNotificationTemplateRequestIsNull = false;
+            }
+            System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_TemplateDescription = null;
+            if (cmdletContext.PushNotificationTemplateRequest_TemplateDescription != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_TemplateDescription = cmdletContext.PushNotificationTemplateRequest_TemplateDescription;
+            }
+            if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_TemplateDescription != null)
+            {
+                request.PushNotificationTemplateRequest.TemplateDescription = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_TemplateDescription;
                 requestPushNotificationTemplateRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.DefaultPushNotificationTemplate requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Default = null;
@@ -768,6 +871,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS.MediaUrl = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS_aPNS_MediaUrl;
                 requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNSIsNull = false;
             }
+            System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS_aPNS_RawContent = null;
+            if (cmdletContext.APNS_RawContent != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS_aPNS_RawContent = cmdletContext.APNS_RawContent;
+            }
+            if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS_aPNS_RawContent != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS.RawContent = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS_aPNS_RawContent;
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNSIsNull = false;
+            }
             System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_APNS_aPNS_Sound = null;
             if (cmdletContext.APNS_Sound != null)
             {
@@ -851,6 +964,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM_aDM_ImageUrl != null)
             {
                 requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM.ImageUrl = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM_aDM_ImageUrl;
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADMIsNull = false;
+            }
+            System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM_aDM_RawContent = null;
+            if (cmdletContext.ADM_RawContent != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM_aDM_RawContent = cmdletContext.ADM_RawContent;
+            }
+            if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM_aDM_RawContent != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM.RawContent = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM_aDM_RawContent;
                 requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADMIsNull = false;
             }
             System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_ADM_aDM_SmallImageIconUrl = null;
@@ -948,6 +1071,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu.ImageUrl = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu_baidu_ImageUrl;
                 requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_BaiduIsNull = false;
             }
+            System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu_baidu_RawContent = null;
+            if (cmdletContext.Baidu_RawContent != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu_baidu_RawContent = cmdletContext.Baidu_RawContent;
+            }
+            if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu_baidu_RawContent != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu.RawContent = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu_baidu_RawContent;
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_BaiduIsNull = false;
+            }
             System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Baidu_baidu_SmallImageIconUrl = null;
             if (cmdletContext.Baidu_SmallImageIconUrl != null)
             {
@@ -1041,6 +1174,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM_gCM_ImageUrl != null)
             {
                 requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM.ImageUrl = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM_gCM_ImageUrl;
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCMIsNull = false;
+            }
+            System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM_gCM_RawContent = null;
+            if (cmdletContext.GCM_RawContent != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM_gCM_RawContent = cmdletContext.GCM_RawContent;
+            }
+            if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM_gCM_RawContent != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM.RawContent = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM_gCM_RawContent;
                 requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCMIsNull = false;
             }
             System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_GCM_gCM_SmallImageIconUrl = null;
@@ -1167,6 +1310,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String ADM_Body { get; set; }
             public System.String ADM_ImageIconUrl { get; set; }
             public System.String ADM_ImageUrl { get; set; }
+            public System.String ADM_RawContent { get; set; }
             public System.String ADM_SmallImageIconUrl { get; set; }
             public System.String ADM_Sound { get; set; }
             public System.String ADM_Title { get; set; }
@@ -1174,6 +1318,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public Amazon.Pinpoint.Action APNS_Action { get; set; }
             public System.String APNS_Body { get; set; }
             public System.String APNS_MediaUrl { get; set; }
+            public System.String APNS_RawContent { get; set; }
             public System.String APNS_Sound { get; set; }
             public System.String APNS_Title { get; set; }
             public System.String APNS_Url { get; set; }
@@ -1181,6 +1326,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String Baidu_Body { get; set; }
             public System.String Baidu_ImageIconUrl { get; set; }
             public System.String Baidu_ImageUrl { get; set; }
+            public System.String Baidu_RawContent { get; set; }
             public System.String Baidu_SmallImageIconUrl { get; set; }
             public System.String Baidu_Sound { get; set; }
             public System.String Baidu_Title { get; set; }
@@ -1190,15 +1336,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String Default_Sound { get; set; }
             public System.String Default_Title { get; set; }
             public System.String Default_Url { get; set; }
+            public System.String PushNotificationTemplateRequest_DefaultSubstitution { get; set; }
             public Amazon.Pinpoint.Action GCM_Action { get; set; }
             public System.String GCM_Body { get; set; }
             public System.String GCM_ImageIconUrl { get; set; }
             public System.String GCM_ImageUrl { get; set; }
+            public System.String GCM_RawContent { get; set; }
             public System.String GCM_SmallImageIconUrl { get; set; }
             public System.String GCM_Sound { get; set; }
             public System.String GCM_Title { get; set; }
             public System.String GCM_Url { get; set; }
             public Dictionary<System.String, System.String> PushNotificationTemplateRequest_Tag { get; set; }
+            public System.String PushNotificationTemplateRequest_TemplateDescription { get; set; }
             public System.String TemplateName { get; set; }
             public System.Func<Amazon.Pinpoint.Model.UpdatePushTemplateResponse, UpdatePINPushTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MessageBody;

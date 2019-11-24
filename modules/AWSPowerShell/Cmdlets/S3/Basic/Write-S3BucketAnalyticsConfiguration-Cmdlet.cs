@@ -28,8 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Sets an analytics configuration for the bucket (specified by the analytics configuration
-    /// ID).
+    /// Amazon.S3.IAmazonS3.PutBucketAnalyticsConfiguration
     /// </summary>
     [Cmdlet("Write", "S3BucketAnalyticsConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

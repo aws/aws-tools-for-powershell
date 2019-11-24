@@ -105,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Deny-EC2TransitGatewayVpcAttachment', 
         'Deny-EC2VpcPeeringConnection', 
         'Disable-EC2EbsEncryptionByDefault', 
+        'Disable-EC2FastSnapshotRestore', 
         'Disable-EC2TransitGatewayRouteTablePropagation', 
         'Disable-EC2VgwRoutePropagation', 
         'Disable-EC2VpcClassicLink', 
@@ -128,6 +129,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-EC2InstanceCapacityReservationAttribute', 
         'Edit-EC2InstanceCreditSpecification', 
         'Edit-EC2InstanceEventStartTime', 
+        'Edit-EC2InstanceMetadataOption', 
         'Edit-EC2InstancePlacement', 
         'Edit-EC2LaunchTemplate', 
         'Edit-EC2NetworkInterfaceAttribute', 
@@ -151,6 +153,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-EC2VpnTunnelCertificate', 
         'Edit-EC2VpnTunnelOption', 
         'Enable-EC2EbsEncryptionByDefault', 
+        'Enable-EC2FastSnapshotRestore', 
         'Enable-EC2TransitGatewayRouteTablePropagation', 
         'Enable-EC2VgwRoutePropagation', 
         'Enable-EC2VolumeIO', 
@@ -189,6 +192,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2EndpointServicePermission', 
         'Get-EC2ExportImageTask', 
         'Get-EC2ExportTask', 
+        'Get-EC2FastSnapshotRestore', 
         'Get-EC2FleetHistory', 
         'Get-EC2FleetInstanceList', 
         'Get-EC2FleetList', 
@@ -211,6 +215,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2InstanceAttribute', 
         'Get-EC2InstanceMetadata', 
         'Get-EC2InstanceStatus', 
+        'Get-EC2InstanceType', 
+        'Get-EC2InstanceTypeOffering', 
         'Get-EC2InternetGateway', 
         'Get-EC2KeyPair', 
         'Get-EC2LaunchTemplateData', 
@@ -474,7 +480,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

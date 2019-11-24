@@ -48,11 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
     /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
     /// </para><important><para>
-    /// You cannot create more than one customer gateway with the same VPN type, IP address,
-    /// and BGP ASN parameter values. If you run an identical request more than one time,
-    /// the first request creates the customer gateway, and subsequent requests return information
-    /// about the existing customer gateway. The subsequent requests do not create new customer
-    /// gateway resources.
+    /// To create more than one customer gateway with the same VPN type, IP address, and BGP
+    /// ASN, specify a unique device name for each customer gateway. Identical requests return
+    /// information about the existing customer gateway and do not create new customer gateways.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "EC2CustomerGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -89,6 +87,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter DeviceName
+        /// <summary>
+        /// <para>
+        /// <para>A name for the customer gateway device.</para><para>Length Constraints: Up to 255 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeviceName { get; set; }
         #endregion
         
         #region Parameter PublicIp
@@ -189,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.CertificateArn = this.CertificateArn;
+            context.DeviceName = this.DeviceName;
             context.PublicIp = this.PublicIp;
             context.Type = this.Type;
             #if MODULAR
@@ -220,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CertificateArn != null)
             {
                 request.CertificateArn = cmdletContext.CertificateArn;
+            }
+            if (cmdletContext.DeviceName != null)
+            {
+                request.DeviceName = cmdletContext.DeviceName;
             }
             if (cmdletContext.PublicIp != null)
             {
@@ -292,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Int32? BgpAsn { get; set; }
             public System.String CertificateArn { get; set; }
+            public System.String DeviceName { get; set; }
             public System.String PublicIp { get; set; }
             public Amazon.EC2.GatewayType Type { get; set; }
             public System.Func<Amazon.EC2.Model.CreateCustomerGatewayResponse, NewEC2CustomerGatewayCmdlet, object> Select { get; set; } =

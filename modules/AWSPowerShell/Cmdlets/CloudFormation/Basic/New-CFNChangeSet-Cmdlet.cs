@@ -42,10 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <para>
     /// To create a change set for a stack that doesn't exist, for the <code>ChangeSetType</code>
     /// parameter, specify <code>CREATE</code>. To create a change set for an existing stack,
-    /// specify <code>UPDATE</code> for the <code>ChangeSetType</code> parameter. After the
-    /// <code>CreateChangeSet</code> call successfully completes, AWS CloudFormation starts
-    /// creating the change set. To check the status of the change set or to review it, use
-    /// the <a>DescribeChangeSet</a> action.
+    /// specify <code>UPDATE</code> for the <code>ChangeSetType</code> parameter. To create
+    /// a change set for an import operation, specify <code>IMPORT</code> for the <code>ChangeSetType</code>
+    /// parameter. After the <code>CreateChangeSet</code> call successfully completes, AWS
+    /// CloudFormation starts creating the change set. To check the status of the change set
+    /// or to review it, use the <a>DescribeChangeSet</a> action.
     /// </para><para>
     /// When you are satisfied with the changes the change set will make, execute the change
     /// set by using the <a>ExecuteChangeSet</a> action. AWS CloudFormation doesn't make changes
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Capability
         /// <summary>
         /// <para>
-        /// <para>In some cases, you must explicity acknowledge that your stack template contains certain
+        /// <para>In some cases, you must explicitly acknowledge that your stack template contains certain
         /// capabilities in order for AWS CloudFormation to create the stack.</para><ul><li><para><code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code></para><para>Some stack templates might include resources that can affect permissions in your AWS
         /// account; for example, by creating new AWS Identity and Access Management (IAM) users.
         /// For those stacks, you must explicitly acknowledge this by specifying one of these
@@ -126,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The type of change set operation. To create a change set for a new stack, specify
-        /// <code>CREATE</code>. To create a change set for an existing stack, specify <code>UPDATE</code>.</para><para>If you create a change set for a new stack, AWS Cloudformation creates a stack with
+        /// <code>CREATE</code>. To create a change set for an existing stack, specify <code>UPDATE</code>.
+        /// To create a change set for an import operation, specify <code>IMPORT</code>.</para><para>If you create a change set for a new stack, AWS Cloudformation creates a stack with
         /// a unique stack ID, but no template or resources. The stack will be in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995"><code>REVIEW_IN_PROGRESS</code></a> state until you execute the change set.</para><para>By default, AWS CloudFormation specifies <code>UPDATE</code>. You can't use the <code>UPDATE</code>
         /// type to create a change set for a new stack or the <code>CREATE</code> type to create
         /// a change set for an existing stack.</para>
@@ -182,6 +184,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Parameters")]
         public Amazon.CloudFormation.Model.Parameter[] Parameter { get; set; }
+        #endregion
+        
+        #region Parameter ResourcesToImport
+        /// <summary>
+        /// <para>
+        /// <para>The resources to import into your stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CloudFormation.Model.ResourceToImport[] ResourcesToImport { get; set; }
         #endregion
         
         #region Parameter ResourceType
@@ -380,6 +392,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Parameter = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
             }
+            if (this.ResourcesToImport != null)
+            {
+                context.ResourcesToImport = new List<Amazon.CloudFormation.Model.ResourceToImport>(this.ResourcesToImport);
+            }
             if (this.ResourceType != null)
             {
                 context.ResourceType = new List<System.String>(this.ResourceType);
@@ -443,6 +459,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Parameter != null)
             {
                 request.Parameters = cmdletContext.Parameter;
+            }
+            if (cmdletContext.ResourcesToImport != null)
+            {
+                request.ResourcesToImport = cmdletContext.ResourcesToImport;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -544,6 +564,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public System.String Description { get; set; }
             public List<System.String> NotificationARNs { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameter { get; set; }
+            public List<Amazon.CloudFormation.Model.ResourceToImport> ResourcesToImport { get; set; }
             public List<System.String> ResourceType { get; set; }
             public System.String RoleARN { get; set; }
             public Amazon.CloudFormation.Model.RollbackConfiguration RollbackConfiguration { get; set; }

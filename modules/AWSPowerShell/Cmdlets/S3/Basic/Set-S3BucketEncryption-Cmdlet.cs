@@ -28,8 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Creates a new server-side encryption configuration (or replaces an existing one, if
-    /// present).
+    /// Amazon.S3.IAmazonS3.PutBucketEncryption
     /// </summary>
     [Cmdlet("Set", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

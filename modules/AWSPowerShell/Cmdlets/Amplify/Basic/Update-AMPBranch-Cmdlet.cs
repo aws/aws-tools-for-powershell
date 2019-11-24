@@ -57,6 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String AppId { get; set; }
         #endregion
         
+        #region Parameter BackendEnvironmentArn
+        /// <summary>
+        /// <para>
+        /// <para> ARN for a Backend Environment, part of an Amplify App. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BackendEnvironmentArn { get; set; }
+        #endregion
+        
         #region Parameter BasicAuthCredential
         /// <summary>
         /// <para>
@@ -176,6 +186,16 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String Framework { get; set; }
         #endregion
         
+        #region Parameter PullRequestEnvironmentName
+        /// <summary>
+        /// <para>
+        /// <para> The Amplify Environment name for the pull request. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PullRequestEnvironmentName { get; set; }
+        #endregion
+        
         #region Parameter Stage
         /// <summary>
         /// <para>
@@ -265,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.BackendEnvironmentArn = this.BackendEnvironmentArn;
             context.BasicAuthCredential = this.BasicAuthCredential;
             context.BranchName = this.BranchName;
             #if MODULAR
@@ -289,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 }
             }
             context.Framework = this.Framework;
+            context.PullRequestEnvironmentName = this.PullRequestEnvironmentName;
             context.Stage = this.Stage;
             context.Ttl = this.Ttl;
             
@@ -310,6 +332,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (cmdletContext.AppId != null)
             {
                 request.AppId = cmdletContext.AppId;
+            }
+            if (cmdletContext.BackendEnvironmentArn != null)
+            {
+                request.BackendEnvironmentArn = cmdletContext.BackendEnvironmentArn;
             }
             if (cmdletContext.BasicAuthCredential != null)
             {
@@ -354,6 +380,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (cmdletContext.Framework != null)
             {
                 request.Framework = cmdletContext.Framework;
+            }
+            if (cmdletContext.PullRequestEnvironmentName != null)
+            {
+                request.PullRequestEnvironmentName = cmdletContext.PullRequestEnvironmentName;
             }
             if (cmdletContext.Stage != null)
             {
@@ -425,6 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppId { get; set; }
+            public System.String BackendEnvironmentArn { get; set; }
             public System.String BasicAuthCredential { get; set; }
             public System.String BranchName { get; set; }
             public System.String BuildSpec { get; set; }
@@ -436,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public System.Boolean? EnablePullRequestPreview { get; set; }
             public Dictionary<System.String, System.String> EnvironmentVariable { get; set; }
             public System.String Framework { get; set; }
+            public System.String PullRequestEnvironmentName { get; set; }
             public Amazon.Amplify.Stage Stage { get; set; }
             public System.String Ttl { get; set; }
             public System.Func<Amazon.Amplify.Model.UpdateBranchResponse, UpdateAMPBranchCmdlet, object> Select { get; set; } =

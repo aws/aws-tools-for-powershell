@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// <summary>
     /// Gets information about AWS tags for a specified Amazon Resource Name (ARN) in AWS
     /// CodeCommit. For a list of valid resources in AWS CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/auth-and-access-control-iam-access-control-identity-based.html#arn-formats">CodeCommit
-    /// Resources and Operations</a> in the AWS CodeCommit User Guide.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Resources and Operations</a> in the<i> AWS CodeCommit User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CCResourceTag")]
     [OutputType("System.String")]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An enumeration token that when provided in a request, returns the next batch of the
+        /// <para>An enumeration token that, when provided in a request, returns the next batch of the
         /// results.</para>
         /// </para>
         /// <para>

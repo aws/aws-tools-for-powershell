@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Returns a list of dataset groups created using the <a>CreateDatasetGroup</a> operation.
-    /// For each dataset group, a summary of its properties, including its Amazon Resource
-    /// Name (ARN), is returned. You can retrieve the complete set of properties by using
-    /// the ARN with the <a>DescribeDatasetGroup</a> operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// For each dataset group, this operation returns a summary of its properties, including
+    /// its Amazon Resource Name (ARN). You can retrieve the complete set of properties by
+    /// using the dataset group ARN with the <a>DescribeDatasetGroup</a> operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FRCDatasetGroupList")]
     [OutputType("Amazon.ForecastService.Model.DatasetGroupSummary")]

@@ -28,8 +28,8 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Removes one or more tags from the specified resource. This operation is only supported
-    /// in the cached volume, stored volume and tape gateway types.
+    /// Removes one or more tags from the specified resource. This operation is supported
+    /// in storage gateways of all types.
     /// </summary>
     [Cmdlet("Remove", "SGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

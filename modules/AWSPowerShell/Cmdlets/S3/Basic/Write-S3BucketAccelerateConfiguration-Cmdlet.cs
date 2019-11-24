@@ -28,7 +28,39 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Sets the accelerate configuration of an existing bucket.
+    /// Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration
+    /// is a bucket-level feature that enables you to perform faster data transfers to Amazon
+    /// S3.
+    /// 
+    ///  
+    /// <para>
+    ///  To use this operation, you must have permission to perform the s3:PutAccelerateConfiguration
+    /// action. The bucket owner has this permission by default. The bucket owner can grant
+    /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// </para><para>
+    ///  The Transfer Acceleration state of a bucket can be set to one of the following two
+    /// values:
+    /// </para><ul><li><para>
+    ///  Enabled – Enables accelerated data transfers to the bucket.
+    /// </para></li><li><para>
+    ///  Suspended – Disables accelerated data transfers to the bucket.
+    /// </para></li></ul><para>
+    /// The <a>GetBucketAccelerateConfiguration</a> operation returns the transfer acceleration
+    /// state of a bucket.
+    /// </para><para>
+    /// After setting the Transfer Acceleration state of a bucket to Enabled, it might take
+    /// up to thirty minutes before the data transfer rates to the bucket increase.
+    /// </para><para>
+    ///  The name of the bucket used for Transfer Acceleration must be DNS-compliant and must
+    /// not contain periods (".").
+    /// </para><para>
+    ///  For more information about transfer acceleration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html">Transfer
+    /// Acceleration</a>.
+    /// </para><para>
+    /// The following operations are related to <code>PutBucketAccelerateConfiguration</code>:
+    /// </para><ul><li><para><a>GetBucketAccelerateConfiguration</a></para></li><li><para><a>CreateBucket</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketAccelerateConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

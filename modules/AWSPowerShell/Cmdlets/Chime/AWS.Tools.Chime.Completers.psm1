@@ -112,6 +112,16 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.RoomMembershipRole
+        {
+            ($_ -eq "New-CHMRoomMembership/Role") -Or
+            ($_ -eq "Update-CHMRoomMembership/Role")
+        }
+        {
+            $v = "Administrator","Member"
+            break
+        }
+
         # Amazon.Chime.VoiceConnectorAwsRegion
         "New-CHMVoiceConnector/AwsRegion"
         {
@@ -132,6 +142,7 @@ $CHM_map = @{
     "FilterName"=@("Get-CHMPhoneNumberList")
     "LicenseType"=@("Update-CHMUser")
     "ProductType"=@("Get-CHMPhoneNumberList","New-CHMPhoneNumberOrder","Update-CHMPhoneNumber")
+    "Role"=@("New-CHMRoomMembership","Update-CHMRoomMembership")
     "Status"=@("Get-CHMPhoneNumberList")
 }
 
@@ -188,19 +199,29 @@ $CHM_SelectMap = @{
     "Select"=@("Add-CHMPhoneNumbersToVoiceConnector",
                "Add-CHMPhoneNumbersToVoiceConnectorGroup",
                "Add-CHMPhoneNumberToUser",
+               "New-CHMAttendeeBatch",
+               "New-CHMRoomMembershipBatch",
                "Remove-CHMPhoneNumberBatch",
                "Enable-CHMUserSuspensionBatch",
                "Disable-CHMUserSuspensionBatch",
                "Update-CHMPhoneNumberBatch",
                "Update-CHMUserBatch",
                "New-CHMAccount",
+               "New-CHMAttendee",
                "New-CHMBot",
+               "New-CHMMeeting",
                "New-CHMPhoneNumberOrder",
+               "New-CHMRoom",
+               "New-CHMRoomMembership",
                "New-CHMVoiceConnector",
                "New-CHMVoiceConnectorGroup",
                "Remove-CHMAccount",
+               "Remove-CHMAttendee",
                "Remove-CHMEventsConfiguration",
+               "Remove-CHMMeeting",
                "Remove-CHMPhoneNumber",
+               "Remove-CHMRoom",
+               "Remove-CHMRoomMembership",
                "Remove-CHMVoiceConnector",
                "Remove-CHMVoiceConnectorGroup",
                "Remove-CHMVoiceConnectorOrigination",
@@ -212,12 +233,15 @@ $CHM_SelectMap = @{
                "Remove-CHMPhoneNumbersFromVoiceConnectorGroup",
                "Get-CHMAccount",
                "Get-CHMAccountSetting",
+               "Get-CHMAttendee",
                "Get-CHMBot",
                "Get-CHMEventsConfiguration",
                "Get-CHMGlobalSetting",
+               "Get-CHMMeeting",
                "Get-CHMPhoneNumber",
                "Get-CHMPhoneNumberOrder",
                "Get-CHMPhoneNumberSetting",
+               "Get-CHMRoom",
                "Get-CHMUser",
                "Get-CHMUserSetting",
                "Get-CHMVoiceConnector",
@@ -229,9 +253,13 @@ $CHM_SelectMap = @{
                "Get-CHMVoiceConnectorTerminationHealth",
                "Send-CHMUserInvitation",
                "Get-CHMAccountList",
+               "Get-CHMAttendeeList",
                "Get-CHMBotList",
+               "Get-CHMMeetingList",
                "Get-CHMPhoneNumberOrderList",
                "Get-CHMPhoneNumberList",
+               "Get-CHMRoomMembershipList",
+               "Get-CHMRoomList",
                "Get-CHMUserList",
                "Get-CHMVoiceConnectorGroupList",
                "Get-CHMVoiceConnectorList",
@@ -253,6 +281,8 @@ $CHM_SelectMap = @{
                "Update-CHMGlobalSetting",
                "Update-CHMPhoneNumber",
                "Update-CHMPhoneNumberSetting",
+               "Update-CHMRoom",
+               "Update-CHMRoomMembership",
                "Update-CHMUser",
                "Update-CHMUserSetting",
                "Update-CHMVoiceConnector",

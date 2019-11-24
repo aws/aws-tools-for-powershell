@@ -51,8 +51,27 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// and <a>ListClusters</a> to get ClusterIDs. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClusterId { get; set; }
+        #endregion
+        
+        #region Parameter StepCancellationOption
+        /// <summary>
+        /// <para>
+        /// <para>The option to choose for cancelling <code>RUNNING</code> steps. By default, the value
+        /// is <code>SEND_INTERRUPT</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticMapReduce.StepCancellationOption")]
+        public Amazon.ElasticMapReduce.StepCancellationOption StepCancellationOption { get; set; }
         #endregion
         
         #region Parameter StepId
@@ -62,7 +81,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// their states for the specified cluster.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("StepIds")]
         public System.String[] StepId { get; set; }
         #endregion
@@ -129,10 +155,23 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClusterId = this.ClusterId;
+            #if MODULAR
+            if (this.ClusterId == null && ParameterWasBound(nameof(this.ClusterId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.StepCancellationOption = this.StepCancellationOption;
             if (this.StepId != null)
             {
                 context.StepId = new List<System.String>(this.StepId);
             }
+            #if MODULAR
+            if (this.StepId == null && ParameterWasBound(nameof(this.StepId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter StepId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.ClusterId != null)
             {
                 request.ClusterId = cmdletContext.ClusterId;
+            }
+            if (cmdletContext.StepCancellationOption != null)
+            {
+                request.StepCancellationOption = cmdletContext.StepCancellationOption;
             }
             if (cmdletContext.StepId != null)
             {
@@ -219,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterId { get; set; }
+            public Amazon.ElasticMapReduce.StepCancellationOption StepCancellationOption { get; set; }
             public List<System.String> StepId { get; set; }
             public System.Func<Amazon.ElasticMapReduce.Model.CancelStepsResponse, StopEMRStepCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CancelStepsInfoList;

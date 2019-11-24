@@ -28,8 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Retrieve website access logs for a specific time range via a pre-signed URL. Optionally,
-    /// deliver the logs to a given S3 bucket.
+    /// Retrieve website access logs for a specific time range via a pre-signed URL.
     /// </summary>
     [Cmdlet("New", "AMPAccessLog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

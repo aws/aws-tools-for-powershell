@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <summary>
     /// Generates a server-side embeddable URL and authorization code. Before this can work
     /// properly, first you need to configure the dashboards and user permissions. For more
-    /// information, see <a href="https://docs.aws.amazon.com/en_us/quicksight/latest/user/embedding.html">
+    /// information, see <a href="https://docs.aws.example.com/en_us/quicksight/latest/user/embedding.html">
     /// Embedding Amazon QuickSight Dashboards</a>.
     /// 
     ///  
@@ -48,9 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// --identity-type IAM --iam-arn "arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role"
     /// --user-role READER --session-name "embeddingsession" --email user123@example.com --region
     /// us-east-1</code></para><para>
-    /// Get the URL for the embedded dashboard
+    /// Get the URL for the embedded dashboard (<code>IAM</code> identity authentication):
     /// </para><para><code>aws quicksight get-dashboard-embed-url --aws-account-id 111122223333 --dashboard-id
-    /// 1a1ac2b2-3fc3-4b44-5e5d-c6db6778df89 --identity-type IAM</code></para>
+    /// 1a1ac2b2-3fc3-4b44-5e5d-c6db6778df89 --identity-type IAM</code></para><para>
+    /// Get the URL for the embedded dashboard (<code>QUICKSIGHT</code> identity authentication):
+    /// </para><para><code>aws quicksight get-dashboard-embed-url --aws-account-id 111122223333 --dashboard-id
+    /// 1a1ac2b2-3fc3-4b44-5e5d-c6db6778df89 --identity-type QUICKSIGHT --user-arn arn:aws:quicksight:us-east-1:111122223333:user/default/embedding_quicksight_dashboard_role/embeddingsession</code></para>
     /// </summary>
     [Cmdlet("Get", "QSDashboardEmbedUrl")]
     [OutputType("System.String")]
@@ -151,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code> identity type.
-        /// You can use this for any of the following:</para><ul><li><para>Amazon QuickSight users in your account (readers, authors, or admins)</para></li><li><para>AD users</para></li><li><para>Invited non-federated users</para></li><li><para>Federated IAM users</para></li><li><para>Federated IAM role-based sessions</para></li></ul>
+        /// You can use this for any Amazon QuickSight users in your account (readers, authors,
+        /// or admins) authenticated as one of the following:</para><ul><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited non-federated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
+        /// using SAML, OpenID Connect, or IAM Federation</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

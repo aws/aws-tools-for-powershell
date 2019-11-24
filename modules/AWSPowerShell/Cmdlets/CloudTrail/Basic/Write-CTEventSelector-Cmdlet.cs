@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// the trail was created; otherwise, an <code>InvalidHomeRegionException</code> is thrown.
     /// </para><para>
     /// You can configure up to five event selectors for each trail. For more information,
-    /// see <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
+    /// see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging
     /// Data and Management Events for Trails </a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits
     /// in AWS CloudTrail</a> in the <i>AWS CloudTrail User Guide</i>.
     /// </para>

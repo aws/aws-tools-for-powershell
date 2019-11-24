@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter AuthorName
         /// <summary>
         /// <para>
-        /// <para>The name of the author who created the commit. This information will be used as both
-        /// the author and committer for the commit.</para>
+        /// <para>The name of the author who created the commit. This information is used as both the
+        /// author and committer for the commit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para>The name of the branch where you will create the commit.</para>
+        /// <para>The name of the branch where you create the commit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter CommitMessage
         /// <summary>
         /// <para>
-        /// <para>The commit message you want to include as part of creating the commit. Commit messages
-        /// are limited to 256 KB. If no message is specified, a default message will be used.</para>
+        /// <para>The commit message you want to include in the commit. Commit messages are limited
+        /// to 256 KB. If no message is specified, a default message is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter DeleteFile
         /// <summary>
         /// <para>
-        /// <para>The files to delete in this commit. These files will still exist in prior commits.</para>
+        /// <para>The files to delete in this commit. These files still exist in earlier commits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>If the commit contains deletions, whether to keep a folder or folder structure if
-        /// the changes leave the folders empty. If this is specified as true, a .gitkeep file
-        /// will be created for empty folders. The default is false.</para>
+        /// the changes leave the folders empty. If true, a ..gitkeep file is created for empty
+        /// folders. The default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ParentCommitId
         /// <summary>
         /// <para>
-        /// <para>The ID of the commit that is the parent of the commit you will create. If this is
-        /// an empty repository, this is not required.</para>
+        /// <para>The ID of the commit that is the parent of the commit you create. Not required if
+        /// this is an empty repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository where you will create the commit.</para>
+        /// <para>The name of the repository where you create the commit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

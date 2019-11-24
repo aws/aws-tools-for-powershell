@@ -545,6 +545,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String Instances_SlaveInstanceType { get; set; }
         #endregion
         
+        #region Parameter StepConcurrencyLevel
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the number of steps that can be executed concurrently. The default value
+        /// is <code>1</code>. The maximum value is <code>256</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? StepConcurrencyLevel { get; set; }
+        #endregion
+        
         #region Parameter Step
         /// <summary>
         /// <para>
@@ -594,11 +605,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
-        /// <para><i>This member will be deprecated.</i></para><para>Whether the cluster is visible to all IAM users of the AWS account associated with
-        /// the cluster. If this value is set to <code>true</code>, all IAM users of that AWS
-        /// account can view and (if they have the proper policy permissions set) manage the cluster.
-        /// If it is set to <code>false</code>, only the IAM user that created the cluster can
-        /// view and manage it.</para>
+        /// <para>A value of <code>true</code> indicates that all IAM users in the AWS account can perform
+        /// cluster actions if they have the proper IAM policy permissions. This is the default.
+        /// A value of <code>false</code> indicates that only the IAM user who created the cluster
+        /// can perform actions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -743,6 +753,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.ScaleDownBehavior = this.ScaleDownBehavior;
             context.SecurityConfiguration = this.SecurityConfiguration;
             context.ServiceRole = this.ServiceRole;
+            context.StepConcurrencyLevel = this.StepConcurrencyLevel;
             if (this.Step != null)
             {
                 context.Step = new List<Amazon.ElasticMapReduce.Model.StepConfig>(this.Step);
@@ -1103,6 +1114,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.ServiceRole = cmdletContext.ServiceRole;
             }
+            if (cmdletContext.StepConcurrencyLevel != null)
+            {
+                request.StepConcurrencyLevel = cmdletContext.StepConcurrencyLevel.Value;
+            }
             if (cmdletContext.Step != null)
             {
                 request.Steps = cmdletContext.Step;
@@ -1220,6 +1235,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public Amazon.ElasticMapReduce.ScaleDownBehavior ScaleDownBehavior { get; set; }
             public System.String SecurityConfiguration { get; set; }
             public System.String ServiceRole { get; set; }
+            public System.Int32? StepConcurrencyLevel { get; set; }
             public List<Amazon.ElasticMapReduce.Model.StepConfig> Step { get; set; }
             public List<System.String> SupportedProduct { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Tag> Tag { get; set; }

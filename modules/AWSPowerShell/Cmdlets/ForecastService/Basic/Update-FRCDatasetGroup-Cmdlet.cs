@@ -28,12 +28,12 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Replaces any existing datasets in the dataset group with the specified datasets.
+    /// Replaces the datasets in a dataset group with the specified datasets.
     /// 
     ///  <note><para>
-    /// The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before creating
-    /// a predictor using the dataset group. Use the <a>DescribeDatasetGroup</a> operation
-    /// to get the status.
+    /// The <code>Status</code> of the dataset group must be <code>ACTIVE</code> before you
+    /// can use the dataset group to create a predictor. Use the <a>DescribeDatasetGroup</a>
+    /// operation to get the status.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "FRCDatasetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter DatasetArn
         /// <summary>
         /// <para>
-        /// <para>An array of Amazon Resource Names (ARNs) of the datasets to add to the dataset group.</para>
+        /// <para>An array of the Amazon Resource Names (ARNs) of the datasets to add to the dataset
+        /// group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,7 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket
-    /// is public.
+    /// is public. In order to use this operation, you must have the <code>s3:GetBucketPolicyStatus</code>
+    /// permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+    /// Permissions in a Policy</a>.
+    /// 
+    ///  
+    /// <para>
+    ///  For more information about when Amazon S3 considers a bucket public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The
+    /// Meaning of "Public"</a>. 
+    /// </para><para>
+    /// The following operations are related to <code>GetBucketPolicyStatus</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">Using
+    /// Amazon S3 Block Public Access</a></para></li><li><para><a>GetPublicAccessBlock</a></para></li><li><para><a>PutPublicAccessBlock</a></para></li><li><para><a>DeletePublicAccessBlock</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketPolicyStatus")]
     [OutputType("Amazon.S3.Model.PolicyStatus")]

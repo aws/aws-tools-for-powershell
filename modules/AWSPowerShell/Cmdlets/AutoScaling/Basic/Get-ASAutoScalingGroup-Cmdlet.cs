@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The names of the Auto Scaling groups. Each name can be a maximum of 1600 characters.
         /// By default, you can only specify up to 50 names. You can optionally increase this
-        /// limit using the <code>MaxRecords</code> parameter. </para><para>If you omit this parameter, all Auto Scaling groups are described.</para>
+        /// limit using the <code>MaxRecords</code> parameter.</para><para>If you omit this parameter, all Auto Scaling groups are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return with this call. The default value is <code>50</code>
-        /// and the maximum value is <code>100</code>. </para>
+        /// and the maximum value is <code>100</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

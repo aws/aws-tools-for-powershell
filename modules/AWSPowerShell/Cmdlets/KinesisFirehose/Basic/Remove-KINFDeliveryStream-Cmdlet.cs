@@ -32,16 +32,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// 
     ///  
     /// <para>
-    /// You can delete a delivery stream only if it is in <code>ACTIVE</code> or <code>DELETING</code>
-    /// state, and not in the <code>CREATING</code> state. While the deletion request is in
-    /// process, the delivery stream is in the <code>DELETING</code> state.
+    /// To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>. You can
+    /// delete a delivery stream only if it is in one of the following states: <code>ACTIVE</code>,
+    /// <code>DELETING</code>, <code>CREATING_FAILED</code>, or <code>DELETING_FAILED</code>.
+    /// You can't delete a delivery stream that is in the <code>CREATING</code> state. While
+    /// the deletion request is in process, the delivery stream is in the <code>DELETING</code>
+    /// state.
     /// </para><para>
-    /// To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
-    /// </para><para>
-    /// While the delivery stream is <code>DELETING</code> state, the service might continue
-    /// to accept the records, but it doesn't make any guarantees with respect to delivering
-    /// the data. Therefore, as a best practice, you should first stop any applications that
-    /// are sending records before deleting a delivery stream.
+    /// While the delivery stream is in the <code>DELETING</code> state, the service might
+    /// continue to accept records, but it doesn't make any guarantees with respect to delivering
+    /// the data. Therefore, as a best practice, first stop any applications that are sending
+    /// records before you delete a delivery stream.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "KINFDeliveryStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -53,6 +54,22 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     )]
     public partial class RemoveKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowForceDelete
+        /// <summary>
+        /// <para>
+        /// <para>Set this to true if you want to delete the delivery stream even if Kinesis Data Firehose
+        /// is unable to retire the grant for the CMK. Kinesis Data Firehose might be unable to
+        /// retire the grant due to a customer error, such as when the CMK or the grant are in
+        /// an invalid state. If you force deletion, you can then use the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a>
+        /// operation to revoke the grant you gave to Kinesis Data Firehose. If a failure to retire
+        /// the grant happens due to an AWS KMS issue, Kinesis Data Firehose keeps retrying the
+        /// delete operation.</para><para>The default value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AllowForceDelete { get; set; }
+        #endregion
         
         #region Parameter DeliveryStreamName
         /// <summary>
@@ -131,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 context.Select = (response, cmdlet) => this.DeliveryStreamName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowForceDelete = this.AllowForceDelete;
             context.DeliveryStreamName = this.DeliveryStreamName;
             #if MODULAR
             if (this.DeliveryStreamName == null && ParameterWasBound(nameof(this.DeliveryStreamName)))
@@ -154,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             // create request
             var request = new Amazon.KinesisFirehose.Model.DeleteDeliveryStreamRequest();
             
+            if (cmdletContext.AllowForceDelete != null)
+            {
+                request.AllowForceDelete = cmdletContext.AllowForceDelete.Value;
+            }
             if (cmdletContext.DeliveryStreamName != null)
             {
                 request.DeliveryStreamName = cmdletContext.DeliveryStreamName;
@@ -219,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowForceDelete { get; set; }
             public System.String DeliveryStreamName { get; set; }
             public System.Func<Amazon.KinesisFirehose.Model.DeleteDeliveryStreamResponse, RemoveKINFDeliveryStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

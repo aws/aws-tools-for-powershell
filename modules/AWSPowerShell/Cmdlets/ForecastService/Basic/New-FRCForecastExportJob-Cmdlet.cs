@@ -29,10 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Exports a forecast created by the <a>CreateForecast</a> operation to your Amazon Simple
-    /// Storage Service (Amazon S3) bucket.
+    /// Storage Service (Amazon S3) bucket. The forecast file name will match the following
+    /// conventions:
     /// 
     ///  
     /// <para>
+    /// &lt;ForecastExportJobName&gt;_&lt;ExportTimestamp&gt;_&lt;PageNumber&gt;
+    /// </para><para>
+    /// where the &lt;ExportTimestamp&gt; component is in Java SimpleDateFormat (yyyy-MM-ddTHH-mm-ssZ).
+    /// </para><para>
     /// You must specify a <a>DataDestination</a> object that includes an AWS Identity and
     /// Access Management (IAM) role that Amazon Forecast can assume to access the Amazon
     /// S3 bucket. For more information, see <a>aws-forecast-iam-roles</a>.
@@ -43,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// operation.
     /// </para><note><para>
     /// The <code>Status</code> of the forecast export job must be <code>ACTIVE</code> before
-    /// you can access the forecast in your Amazon S3 bucket. Use the <a>DescribeForecastExportJob</a>
-    /// operation to get the status.
+    /// you can access the forecast in your Amazon S3 bucket. To get the status, use the <a>DescribeForecastExportJob</a>
+    /// operation.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "FRCForecastExportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -125,8 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <summary>
         /// <para>
         /// <para>The ARN of the AWS Identity and Access Management (IAM) role that Amazon Forecast
-        /// can assume to access the Amazon S3 bucket or file(s).</para><para>Cross-account pass role is not allowed. If you pass a role that doesn't belong to
-        /// your account, an <code>InvalidInputException</code> is thrown.</para>
+        /// can assume to access the Amazon S3 bucket or files. If you provide a value for the
+        /// <code>KMSKeyArn</code> key, the role must allow access to the key.</para><para>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in
+        /// your account, you get an <code>InvalidInputException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

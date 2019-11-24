@@ -225,7 +225,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PredefinedMetricSpecification_PredefinedMetricType
         /// <summary>
         /// <para>
-        /// <para>The metric type.</para>
+        /// <para>The metric type. The following predefined metrics are available:</para><ul><li><para><code>ASGAverageCPUUtilization</code> - Average CPU utilization of the Auto Scaling
+        /// group.</para></li><li><para><code>ASGAverageNetworkIn</code> - Average number of bytes received on all network
+        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all network
+        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ALBRequestCountPerTarget</code> - Number of requests completed per target in
+        /// an Application Load Balancer target group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,18 +241,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PredefinedMetricSpecification_ResourceLabel
         /// <summary>
         /// <para>
-        /// <para>Identifies the resource associated with the metric type. The following predefined
-        /// metrics are available:</para><ul><li><para><code>ASGAverageCPUUtilization</code> - Average CPU utilization of the Auto Scaling
-        /// group.</para></li><li><para><code>ASGAverageNetworkIn</code> - Average number of bytes received on all network
-        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all network
-        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ALBRequestCountPerTarget</code> - Number of requests completed per target in
-        /// an Application Load Balancer target group.</para></li></ul><para>For predefined metric types <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code>,
-        /// and <code>ASGAverageNetworkOut</code>, the parameter must not be specified as the
-        /// resource associated with the metric type is the Auto Scaling group. For predefined
-        /// metric type <code>ALBRequestCountPerTarget</code>, the parameter must be specified
-        /// in the format: <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i>/targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code>, where <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code>
-        /// is the final portion of the load balancer ARN, and <code>targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code> is the final portion of the target group ARN. The target group must be attached
-        /// to the Auto Scaling group.</para>
+        /// <para>Identifies the resource associated with the metric type. You can't specify a resource
+        /// label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is
+        /// a target group attached to the Auto Scaling group.</para><para>The format is <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i>/targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code>, where </para><ul><li><para><code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code> is the final
+        /// portion of the load balancer ARN, and</para></li><li><para><code>targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code> is the
+        /// final portion of the target group ARN.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// to an alarm breach. The adjustment is based on the value that you specified in the
         /// <code>AdjustmentType</code> parameter (either an absolute number or a percentage).
         /// A positive value adds to the current capacity and a negative value subtracts from
-        /// the current capacity. For exact capacity, you must specify a positive value. </para><para>Conditional: If you specify <code>SimpleScaling</code> for the policy type, you must
+        /// the current capacity. For exact capacity, you must specify a positive value.</para><para>Conditional: If you specify <code>SimpleScaling</code> for the policy type, you must
         /// specify this parameter. (Not used with any other policy type.) </para>
         /// </para>
         /// </summary>

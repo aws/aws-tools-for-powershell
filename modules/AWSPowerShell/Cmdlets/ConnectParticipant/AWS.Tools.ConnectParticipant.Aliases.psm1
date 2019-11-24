@@ -1,0 +1,3 @@
+﻿# ConnectParticipant
+
+Export-ModuleMember -Alias *

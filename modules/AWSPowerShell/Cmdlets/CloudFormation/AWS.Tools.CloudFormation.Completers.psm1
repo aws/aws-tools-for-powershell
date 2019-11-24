@@ -83,7 +83,24 @@ $CFN_Completers = {
         # Amazon.CloudFormation.ChangeSetType
         "New-CFNChangeSet/ChangeSetType"
         {
-            $v = "CREATE","UPDATE"
+            $v = "CREATE","IMPORT","UPDATE"
+            break
+        }
+
+        # Amazon.CloudFormation.DeprecatedStatus
+        {
+            ($_ -eq "Get-CFNTypeList/DeprecatedStatus") -Or
+            ($_ -eq "Get-CFNTypeVersion/DeprecatedStatus")
+        }
+        {
+            $v = "DEPRECATED","LIVE"
+            break
+        }
+
+        # Amazon.CloudFormation.HandlerErrorCode
+        "Write-CFNHandlerProgress/ErrorCode"
+        {
+            $v = "AccessDenied","AlreadyExists","GeneralServiceException","InternalFailure","InvalidCredentials","InvalidRequest","NetworkFailure","NotFound","NotStabilized","NotUpdatable","ResourceConflict","ServiceInternalError","ServiceLimitExceeded","Throttling"
             break
         }
 
@@ -91,6 +108,44 @@ $CFN_Completers = {
         "New-CFNStack/OnFailure"
         {
             $v = "DELETE","DO_NOTHING","ROLLBACK"
+            break
+        }
+
+        # Amazon.CloudFormation.OperationStatus
+        {
+            ($_ -eq "Write-CFNHandlerProgress/CurrentOperationStatus") -Or
+            ($_ -eq "Write-CFNHandlerProgress/OperationStatus")
+        }
+        {
+            $v = "FAILED","IN_PROGRESS","PENDING","SUCCESS"
+            break
+        }
+
+        # Amazon.CloudFormation.ProvisioningType
+        "Get-CFNTypeList/ProvisioningType"
+        {
+            $v = "FULLY_MUTABLE","IMMUTABLE","NON_PROVISIONABLE"
+            break
+        }
+
+        # Amazon.CloudFormation.RegistrationStatus
+        "Get-CFNTypeRegistrationList/RegistrationStatusFilter"
+        {
+            $v = "COMPLETE","FAILED","IN_PROGRESS"
+            break
+        }
+
+        # Amazon.CloudFormation.RegistryType
+        {
+            ($_ -eq "Get-CFNType/Type") -Or
+            ($_ -eq "Get-CFNTypeRegistrationList/Type") -Or
+            ($_ -eq "Get-CFNTypeVersion/Type") -Or
+            ($_ -eq "Register-CFNType/Type") -Or
+            ($_ -eq "Set-CFNTypeDefaultVersion/Type") -Or
+            ($_ -eq "Unregister-CFNType/Type")
+        }
+        {
+            $v = "RESOURCE"
             break
         }
 
@@ -114,7 +169,7 @@ $CFN_Completers = {
             ($_ -eq "Wait-CFNStack/Status")
         }
         {
-            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","DELETE_COMPLETE","DELETE_FAILED","DELETE_IN_PROGRESS","REVIEW_IN_PROGRESS","ROLLBACK_COMPLETE","ROLLBACK_FAILED","ROLLBACK_IN_PROGRESS","UPDATE_COMPLETE","UPDATE_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_IN_PROGRESS","UPDATE_ROLLBACK_COMPLETE","UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_ROLLBACK_FAILED","UPDATE_ROLLBACK_IN_PROGRESS"
+            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","DELETE_COMPLETE","DELETE_FAILED","DELETE_IN_PROGRESS","IMPORT_COMPLETE","IMPORT_IN_PROGRESS","IMPORT_ROLLBACK_COMPLETE","IMPORT_ROLLBACK_FAILED","IMPORT_ROLLBACK_IN_PROGRESS","REVIEW_IN_PROGRESS","ROLLBACK_COMPLETE","ROLLBACK_FAILED","ROLLBACK_IN_PROGRESS","UPDATE_COMPLETE","UPDATE_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_IN_PROGRESS","UPDATE_ROLLBACK_COMPLETE","UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_ROLLBACK_FAILED","UPDATE_ROLLBACK_IN_PROGRESS"
             break
         }
 
@@ -122,6 +177,13 @@ $CFN_Completers = {
         "Get-CFNTemplate/TemplateStage"
         {
             $v = "Original","Processed"
+            break
+        }
+
+        # Amazon.CloudFormation.Visibility
+        "Get-CFNTypeList/Visibility"
+        {
+            $v = "PRIVATE","PUBLIC"
             break
         }
 
@@ -135,9 +197,17 @@ $CFN_Completers = {
 
 $CFN_map = @{
     "ChangeSetType"=@("New-CFNChangeSet")
+    "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
+    "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
+    "ErrorCode"=@("Write-CFNHandlerProgress")
     "OnFailure"=@("New-CFNStack")
+    "OperationStatus"=@("Write-CFNHandlerProgress")
+    "ProvisioningType"=@("Get-CFNTypeList")
+    "RegistrationStatusFilter"=@("Get-CFNTypeRegistrationList")
     "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack")
     "TemplateStage"=@("Get-CFNTemplate")
+    "Type"=@("Get-CFNType","Get-CFNTypeRegistrationList","Get-CFNTypeVersion","Register-CFNType","Set-CFNTypeDefaultVersion","Unregister-CFNType")
+    "Visibility"=@("Get-CFNTypeList")
 }
 
 _awsArgumentCompleterRegistration $CFN_Completers $CFN_map
@@ -200,6 +270,7 @@ $CFN_SelectMap = @{
                "Remove-CFNStack",
                "Remove-CFNStackInstance",
                "Remove-CFNStackSet",
+               "Unregister-CFNType",
                "Get-CFNAccountLimit",
                "Get-CFNChangeSet",
                "Get-CFNStackDriftDetectionStatus",
@@ -211,8 +282,11 @@ $CFN_SelectMap = @{
                "Get-CFNStack",
                "Get-CFNStackSet",
                "Get-CFNStackSetOperation",
+               "Get-CFNType",
+               "Get-CFNTypeRegistration",
                "Start-CFNStackDriftDetection",
                "Get-CFNStackResourceDrift",
+               "Start-CFNStackSetDriftDetection",
                "Measure-CFNTemplateCost",
                "Start-CFNChangeSet",
                "Get-CFNStackPolicy",
@@ -227,7 +301,13 @@ $CFN_SelectMap = @{
                "Get-CFNStackSetOperationResultList",
                "Get-CFNStackSetOperationList",
                "Get-CFNStackSetList",
+               "Get-CFNTypeRegistrationList",
+               "Get-CFNTypeList",
+               "Get-CFNTypeVersion",
+               "Write-CFNHandlerProgress",
+               "Register-CFNType",
                "Set-CFNStackPolicy",
+               "Set-CFNTypeDefaultVersion",
                "Send-CFNResourceSignal",
                "Stop-CFNStackSetOperation",
                "Update-CFNStack",

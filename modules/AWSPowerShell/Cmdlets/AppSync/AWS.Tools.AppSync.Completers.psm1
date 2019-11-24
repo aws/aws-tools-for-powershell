@@ -80,6 +80,26 @@ $ASYN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppSync.ApiCacheType
+        {
+            ($_ -eq "New-ASYNApiCache/Type") -Or
+            ($_ -eq "Update-ASYNApiCache/Type")
+        }
+        {
+            $v = "R4_2XLARGE","R4_4XLARGE","R4_8XLARGE","R4_LARGE","R4_XLARGE","T2_MEDIUM","T2_SMALL"
+            break
+        }
+
+        # Amazon.AppSync.ApiCachingBehavior
+        {
+            ($_ -eq "New-ASYNApiCache/ApiCachingBehavior") -Or
+            ($_ -eq "Update-ASYNApiCache/ApiCachingBehavior")
+        }
+        {
+            $v = "FULL_REQUEST_CACHING","PER_RESOLVER_CACHING"
+            break
+        }
+
         # Amazon.AppSync.AuthenticationType
         {
             ($_ -eq "New-ASYNGraphqlApi/AuthenticationType") -Or
@@ -87,6 +107,26 @@ $ASYN_Completers = {
         }
         {
             $v = "AMAZON_COGNITO_USER_POOLS","API_KEY","AWS_IAM","OPENID_CONNECT"
+            break
+        }
+
+        # Amazon.AppSync.ConflictDetectionType
+        {
+            ($_ -eq "New-ASYNResolver/SyncConfig_ConflictDetection") -Or
+            ($_ -eq "Update-ASYNResolver/SyncConfig_ConflictDetection")
+        }
+        {
+            $v = "NONE","VERSION"
+            break
+        }
+
+        # Amazon.AppSync.ConflictHandlerType
+        {
+            ($_ -eq "New-ASYNResolver/SyncConfig_ConflictHandler") -Or
+            ($_ -eq "Update-ASYNResolver/SyncConfig_ConflictHandler")
+        }
+        {
+            $v = "AUTOMERGE","LAMBDA","NONE","OPTIMISTIC_CONCURRENCY"
             break
         }
 
@@ -158,12 +198,15 @@ $ASYN_Completers = {
 }
 
 $ASYN_map = @{
+    "ApiCachingBehavior"=@("New-ASYNApiCache","Update-ASYNApiCache")
     "AuthenticationType"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Format"=@("Get-ASYNIntrospectionSchema","Get-ASYNType","Get-ASYNTypeList","New-ASYNType","Update-ASYNType")
     "Kind"=@("New-ASYNResolver","Update-ASYNResolver")
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
-    "Type"=@("New-ASYNDataSource","Update-ASYNDataSource")
+    "SyncConfig_ConflictDetection"=@("New-ASYNResolver","Update-ASYNResolver")
+    "SyncConfig_ConflictHandler"=@("New-ASYNResolver","Update-ASYNResolver")
+    "Type"=@("New-ASYNApiCache","New-ASYNDataSource","Update-ASYNApiCache","Update-ASYNDataSource")
 }
 
 _awsArgumentCompleterRegistration $ASYN_Completers $ASYN_map
@@ -216,18 +259,22 @@ $ASYN_SelectCompleters = {
 }
 
 $ASYN_SelectMap = @{
-    "Select"=@("New-ASYNApiKey",
+    "Select"=@("New-ASYNApiCache",
+               "New-ASYNApiKey",
                "New-ASYNDataSource",
                "New-ASYNFunction",
                "New-ASYNGraphqlApi",
                "New-ASYNResolver",
                "New-ASYNType",
+               "Remove-ASYNApiCache",
                "Remove-ASYNApiKey",
                "Remove-ASYNDataSource",
                "Remove-ASYNFunction",
                "Remove-ASYNGraphqlApi",
                "Remove-ASYNResolver",
                "Remove-ASYNType",
+               "Clear-ASYNApiCache",
+               "Get-ASYNApiCache",
                "Get-ASYNDataSource",
                "Get-ASYNFunction",
                "Get-ASYNGraphqlApi",
@@ -246,6 +293,7 @@ $ASYN_SelectMap = @{
                "Start-ASYNSchemaCreation",
                "Add-ASYNResourceTag",
                "Remove-ASYNResourceTag",
+               "Update-ASYNApiCache",
                "Update-ASYNApiKey",
                "Update-ASYNDataSource",
                "Update-ASYNFunction",

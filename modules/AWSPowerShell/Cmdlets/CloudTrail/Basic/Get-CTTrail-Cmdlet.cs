@@ -28,7 +28,8 @@ using Amazon.CloudTrail.Model;
 namespace Amazon.PowerShell.Cmdlets.CT
 {
     /// <summary>
-    /// Retrieves settings for the trail associated with the current region for your account.
+    /// Retrieves settings for one or more trails associated with the current region for your
+    /// account.
     /// </summary>
     [Cmdlet("Get", "CTTrail")]
     [OutputType("Amazon.CloudTrail.Model.Trail")]

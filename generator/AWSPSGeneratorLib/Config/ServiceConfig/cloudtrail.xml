@@ -49,6 +49,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInsightSelectors" OutputProperty="*" Verb="Get" Noun="InsightSelector" PipelineParameter="TrailName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrail" OutputProperty="Trail" Verb="Get" Noun="TrailByName" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTrailStatus" OutputProperty="*" Verb="Get" Noun="TrailStatus" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -61,11 +69,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTrails" OutputProperty="Trails" Verb="Get" Noun="TrailSummary" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="LookupEvents" OutputProperty="Events" Verb="Find" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Find-CTEvents">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutEventSelectors" OutputProperty="*" Verb="Write" Noun="EventSelector" ShouldProcessTarget="TrailName" PipelineParameter="TrailName" NoPipelineParameter="false" LegacyAlias="Write-CTEventSelectors">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutInsightSelectors" OutputProperty="*" Verb="Write" Noun="InsightSelector" ShouldProcessTarget="TrailName" PipelineParameter="TrailName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

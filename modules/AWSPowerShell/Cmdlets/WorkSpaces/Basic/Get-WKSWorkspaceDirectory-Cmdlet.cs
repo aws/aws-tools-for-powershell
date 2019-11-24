@@ -28,8 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Describes the available AWS Directory Service directories that are registered with
-    /// Amazon WorkSpaces.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the available directories that are registered with Amazon WorkSpaces.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspaceDirectory")]
     [OutputType("Amazon.WorkSpaces.Model.WorkspaceDirectory")]
@@ -50,6 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("DirectoryIds")]
         public System.String[] DirectoryId { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of directories to return.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -126,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 context.DirectoryId = new List<System.String>(this.DirectoryId);
             }
+            context.Limit = this.Limit;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -150,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryIds = cmdletContext.DirectoryId;
+            }
+            if (cmdletContext.Limit != null)
+            {
+                request.Limit = cmdletContext.Limit.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -237,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> DirectoryId { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse, GetWKSWorkspaceDirectoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Directories;

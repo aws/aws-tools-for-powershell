@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// If the stream takes time to be deleted, it might still show up on a <code>ListProgressUpdateStreams</code>
     /// call.
     /// </para></li><li><para><code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>, <code>NotifyMigrationTaskState</code>,
-    /// and all Associate[*] APIs realted to the tasks belonging to the stream will throw
+    /// and all Associate[*] APIs related to the tasks belonging to the stream will throw
     /// "InvalidInputException" if the stream of the same name is in the process of being
     /// deleted.
     /// </para></li><li><para>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter ProgressUpdateStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the ProgressUpdateStream. </para>
+        /// <para>The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR

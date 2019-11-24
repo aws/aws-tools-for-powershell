@@ -44,7 +44,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     writer.WriteStartElement("Overrides");
                     writer.WriteAttributeString("xmlns", "xsd", null, "http://www.w3.org/2001/XMLSchema");
                     writer.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
-                    writer.WriteAttributeString("xsi", "noNamespaceSchemaLocation", null, "https://code.amazon.com/packages/AWSPowerShellXmlSchemas/blobs/mainline/--/ConfigurationOverrides/overrides.xsd?raw=1");
+                    writer.WriteAttributeString("xsi", "noNamespaceSchemaLocation", null, "https://raw.githubusercontent.com/aws/aws-tools-for-powershell/master/XmlSchemas/ConfigurationOverrides/overrides.xsd");
 
                     foreach (var configModel in configModelsToOutput)
                     {

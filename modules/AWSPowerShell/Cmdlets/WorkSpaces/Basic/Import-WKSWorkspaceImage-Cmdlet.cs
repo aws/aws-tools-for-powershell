@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Imports the specified Windows 7 or Windows 10 bring your own license (BYOL) image
+    /// Imports the specified Windows 7 or Windows 10 Bring Your Own License (BYOL) image
     /// into Amazon WorkSpaces. The image must be an already licensed EC2 image that is in
     /// your AWS account, and you must own the image.
     /// </summary>

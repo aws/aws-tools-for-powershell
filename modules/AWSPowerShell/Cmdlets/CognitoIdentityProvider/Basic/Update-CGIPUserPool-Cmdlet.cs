@@ -28,9 +28,12 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates the specified user pool with the specified attributes. If you don't provide
-    /// a value for an attribute, it will be set to the default value. You can get a list
+    /// Updates the specified user pool with the specified attributes. You can get a list
     /// of the current user pool settings with .
+    /// 
+    ///  <important><para>
+    /// If you don't provide a value for an attribute, it will be set to the default value.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "CGIPUserPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -85,6 +88,24 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DeviceConfiguration_ChallengeRequiredOnNewDevice { get; set; }
+        #endregion
+        
+        #region Parameter EmailConfiguration_ConfigurationSet
+        /// <summary>
+        /// <para>
+        /// <para>The set of configuration rules that can be applied to emails sent using Amazon SES.
+        /// A configuration set is applied to an email by including a reference to the configuration
+        /// set in the headers of the email. Once applied, all of the rules in that configuration
+        /// set are applied to the email. Configuration sets can be used to apply the following
+        /// types of rules to emails: </para><ul><li><para>Event publishing – Amazon SES can track the number of send, delivery, open, click,
+        /// bounce, and complaint events for each email sent. Use event publishing to send information
+        /// about these events to other AWS services such as SNS and CloudWatch.</para></li><li><para>IP pool management – When leasing dedicated IP addresses with Amazon SES, you can
+        /// create groups of IP addresses, called dedicated IP pools. You can then associate the
+        /// dedicated IP pools with configuration sets.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EmailConfiguration_ConfigurationSet { get; set; }
         #endregion
         
         #region Parameter LambdaConfig_CreateAuthChallenge
@@ -264,6 +285,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SmsConfiguration_ExternalId { get; set; }
+        #endregion
+        
+        #region Parameter EmailConfiguration_From
+        /// <summary>
+        /// <para>
+        /// <para>Identifies either the sender’s email address or the sender’s name with their email
+        /// address. For example, <code>testuser@example.com</code> or <code>Test User &lt;testuser@example.com&gt;</code>.
+        /// This address will appear before the body of the email.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EmailConfiguration_From { get; set; }
         #endregion
         
         #region Parameter MfaConfiguration
@@ -617,7 +650,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             }
             context.DeviceConfiguration_ChallengeRequiredOnNewDevice = this.DeviceConfiguration_ChallengeRequiredOnNewDevice;
             context.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt = this.DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt;
+            context.EmailConfiguration_ConfigurationSet = this.EmailConfiguration_ConfigurationSet;
             context.EmailConfiguration_EmailSendingAccount = this.EmailConfiguration_EmailSendingAccount;
+            context.EmailConfiguration_From = this.EmailConfiguration_From;
             context.EmailConfiguration_ReplyToEmailAddress = this.EmailConfiguration_ReplyToEmailAddress;
             context.EmailConfiguration_SourceArn = this.EmailConfiguration_SourceArn;
             context.EmailVerificationMessage = this.EmailVerificationMessage;
@@ -792,6 +827,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
              // populate EmailConfiguration
             var requestEmailConfigurationIsNull = true;
             request.EmailConfiguration = new Amazon.CognitoIdentityProvider.Model.EmailConfigurationType();
+            System.String requestEmailConfiguration_emailConfiguration_ConfigurationSet = null;
+            if (cmdletContext.EmailConfiguration_ConfigurationSet != null)
+            {
+                requestEmailConfiguration_emailConfiguration_ConfigurationSet = cmdletContext.EmailConfiguration_ConfigurationSet;
+            }
+            if (requestEmailConfiguration_emailConfiguration_ConfigurationSet != null)
+            {
+                request.EmailConfiguration.ConfigurationSet = requestEmailConfiguration_emailConfiguration_ConfigurationSet;
+                requestEmailConfigurationIsNull = false;
+            }
             Amazon.CognitoIdentityProvider.EmailSendingAccountType requestEmailConfiguration_emailConfiguration_EmailSendingAccount = null;
             if (cmdletContext.EmailConfiguration_EmailSendingAccount != null)
             {
@@ -800,6 +845,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (requestEmailConfiguration_emailConfiguration_EmailSendingAccount != null)
             {
                 request.EmailConfiguration.EmailSendingAccount = requestEmailConfiguration_emailConfiguration_EmailSendingAccount;
+                requestEmailConfigurationIsNull = false;
+            }
+            System.String requestEmailConfiguration_emailConfiguration_From = null;
+            if (cmdletContext.EmailConfiguration_From != null)
+            {
+                requestEmailConfiguration_emailConfiguration_From = cmdletContext.EmailConfiguration_From;
+            }
+            if (requestEmailConfiguration_emailConfiguration_From != null)
+            {
+                request.EmailConfiguration.From = requestEmailConfiguration_emailConfiguration_From;
                 requestEmailConfigurationIsNull = false;
             }
             System.String requestEmailConfiguration_emailConfiguration_ReplyToEmailAddress = null;
@@ -1234,7 +1289,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public List<System.String> AutoVerifiedAttribute { get; set; }
             public System.Boolean? DeviceConfiguration_ChallengeRequiredOnNewDevice { get; set; }
             public System.Boolean? DeviceConfiguration_DeviceOnlyRememberedOnUserPrompt { get; set; }
+            public System.String EmailConfiguration_ConfigurationSet { get; set; }
             public Amazon.CognitoIdentityProvider.EmailSendingAccountType EmailConfiguration_EmailSendingAccount { get; set; }
+            public System.String EmailConfiguration_From { get; set; }
             public System.String EmailConfiguration_ReplyToEmailAddress { get; set; }
             public System.String EmailConfiguration_SourceArn { get; set; }
             public System.String EmailVerificationMessage { get; set; }

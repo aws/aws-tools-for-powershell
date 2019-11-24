@@ -80,6 +80,16 @@ $EC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElastiCache.AuthTokenUpdateStrategyType
+        {
+            ($_ -eq "Edit-ECCacheCluster/AuthTokenUpdateStrategy") -Or
+            ($_ -eq "Edit-ECReplicationGroup/AuthTokenUpdateStrategy")
+        }
+        {
+            $v = "ROTATE","SET"
+            break
+        }
+
         # Amazon.ElastiCache.AZMode
         {
             ($_ -eq "Edit-ECCacheCluster/AZMode") -Or
@@ -106,6 +116,7 @@ $EC_Completers = {
 }
 
 $EC_map = @{
+    "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
     "SourceType"=@("Get-ECEvent")
 }

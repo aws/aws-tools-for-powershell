@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
     /// Retrieves all the tags (keys and values) that are associated with an application,
-    /// campaign, message template, or segment.
+    /// campaign, journey, message template, or segment.
     /// </summary>
     [Cmdlet("Get", "PINResourceTag")]
     [OutputType("Amazon.Pinpoint.Model.TagsModel")]
@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application, campaign, message template, or
-        /// segment.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

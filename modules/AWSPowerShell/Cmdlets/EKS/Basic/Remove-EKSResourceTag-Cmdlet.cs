@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource from which to delete tags. Currently,
-        /// the supported resources are Amazon EKS clusters.</para>
+        /// the supported resources are Amazon EKS clusters and managed node groups.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

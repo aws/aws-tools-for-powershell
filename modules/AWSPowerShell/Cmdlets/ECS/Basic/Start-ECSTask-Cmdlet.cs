@@ -101,6 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.ContainerOverride[] Overrides_ContainerOverride { get; set; }
         #endregion
         
+        #region Parameter Overrides_Cpu
+        /// <summary>
+        /// <para>
+        /// <para>The cpu override for the task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Overrides_Cpu { get; set; }
+        #endregion
+        
         #region Parameter EnableECSManagedTag
         /// <summary>
         /// <para>
@@ -148,6 +158,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.InferenceAcceleratorOverride[] Overrides_InferenceAcceleratorOverride { get; set; }
         #endregion
         
+        #region Parameter Overrides_Memory
+        /// <summary>
+        /// <para>
+        /// <para>The memory override for the task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Overrides_Memory { get; set; }
+        #endregion
+        
         #region Parameter PropagateTag
         /// <summary>
         /// <para>
@@ -159,6 +179,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [Alias("PropagateTags")]
         [AWSConstantClassSource("Amazon.ECS.PropagateTags")]
         public Amazon.ECS.PropagateTags PropagateTag { get; set; }
+        #endregion
+        
+        #region Parameter ReferenceId
+        /// <summary>
+        /// <para>
+        /// <para>The reference ID to use for the task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ReferenceId { get; set; }
         #endregion
         
         #region Parameter AwsvpcConfiguration_SecurityGroup
@@ -339,13 +369,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.Overrides_ContainerOverride = new List<Amazon.ECS.Model.ContainerOverride>(this.Overrides_ContainerOverride);
             }
+            context.Overrides_Cpu = this.Overrides_Cpu;
             context.Overrides_ExecutionRoleArn = this.Overrides_ExecutionRoleArn;
             if (this.Overrides_InferenceAcceleratorOverride != null)
             {
                 context.Overrides_InferenceAcceleratorOverride = new List<Amazon.ECS.Model.InferenceAcceleratorOverride>(this.Overrides_InferenceAcceleratorOverride);
             }
+            context.Overrides_Memory = this.Overrides_Memory;
             context.Overrides_TaskRoleArn = this.Overrides_TaskRoleArn;
             context.PropagateTag = this.PropagateTag;
+            context.ReferenceId = this.ReferenceId;
             context.StartedBy = this.StartedBy;
             if (this.Tag != null)
             {
@@ -458,6 +491,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 request.Overrides.ContainerOverrides = requestOverrides_overrides_ContainerOverride;
                 requestOverridesIsNull = false;
             }
+            System.String requestOverrides_overrides_Cpu = null;
+            if (cmdletContext.Overrides_Cpu != null)
+            {
+                requestOverrides_overrides_Cpu = cmdletContext.Overrides_Cpu;
+            }
+            if (requestOverrides_overrides_Cpu != null)
+            {
+                request.Overrides.Cpu = requestOverrides_overrides_Cpu;
+                requestOverridesIsNull = false;
+            }
             System.String requestOverrides_overrides_ExecutionRoleArn = null;
             if (cmdletContext.Overrides_ExecutionRoleArn != null)
             {
@@ -478,6 +521,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 request.Overrides.InferenceAcceleratorOverrides = requestOverrides_overrides_InferenceAcceleratorOverride;
                 requestOverridesIsNull = false;
             }
+            System.String requestOverrides_overrides_Memory = null;
+            if (cmdletContext.Overrides_Memory != null)
+            {
+                requestOverrides_overrides_Memory = cmdletContext.Overrides_Memory;
+            }
+            if (requestOverrides_overrides_Memory != null)
+            {
+                request.Overrides.Memory = requestOverrides_overrides_Memory;
+                requestOverridesIsNull = false;
+            }
             System.String requestOverrides_overrides_TaskRoleArn = null;
             if (cmdletContext.Overrides_TaskRoleArn != null)
             {
@@ -496,6 +549,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.PropagateTag != null)
             {
                 request.PropagateTags = cmdletContext.PropagateTag;
+            }
+            if (cmdletContext.ReferenceId != null)
+            {
+                request.ReferenceId = cmdletContext.ReferenceId;
             }
             if (cmdletContext.StartedBy != null)
             {
@@ -578,10 +635,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<System.String> AwsvpcConfiguration_SecurityGroup { get; set; }
             public List<System.String> AwsvpcConfiguration_Subnet { get; set; }
             public List<Amazon.ECS.Model.ContainerOverride> Overrides_ContainerOverride { get; set; }
+            public System.String Overrides_Cpu { get; set; }
             public System.String Overrides_ExecutionRoleArn { get; set; }
             public List<Amazon.ECS.Model.InferenceAcceleratorOverride> Overrides_InferenceAcceleratorOverride { get; set; }
+            public System.String Overrides_Memory { get; set; }
             public System.String Overrides_TaskRoleArn { get; set; }
             public Amazon.ECS.PropagateTags PropagateTag { get; set; }
+            public System.String ReferenceId { get; set; }
             public System.String StartedBy { get; set; }
             public List<Amazon.ECS.Model.Tag> Tag { get; set; }
             public System.String TaskDefinition { get; set; }

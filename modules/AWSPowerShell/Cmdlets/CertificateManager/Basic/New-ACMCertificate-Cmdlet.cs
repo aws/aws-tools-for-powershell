@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para> Fully qualified domain name (FQDN), such as www.example.com, that you want to secure
         /// with an ACM certificate. Use an asterisk (*) to create a wildcard certificate that
         /// protects several sites in the same domain. For example, *.example.com protects www.example.com,
-        /// site.example.com, and images.example.com. </para><para> The first domain name you enter cannot exceed 63 octets, including periods. Each
+        /// site.example.com, and images.example.com. </para><para> The first domain name you enter cannot exceed 64 octets, including periods. Each
         /// subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length.
         /// </para>
         /// </para>
@@ -148,6 +148,17 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SubjectAlternativeNames")]
         public System.String[] SubjectAlternativeName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more resource tags to associate with the certificate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.CertificateManager.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter ValidationMethod
@@ -223,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             {
                 context.SubjectAlternativeName = new List<System.String>(this.SubjectAlternativeName);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.CertificateManager.Model.Tag>(this.Tag);
+            }
             context.ValidationMethod = this.ValidationMethod;
             
             // allow further manipulation of loaded context prior to processing
@@ -278,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (cmdletContext.SubjectAlternativeName != null)
             {
                 request.SubjectAlternativeNames = cmdletContext.SubjectAlternativeName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.ValidationMethod != null)
             {
@@ -350,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public System.String IdempotencyToken { get; set; }
             public Amazon.CertificateManager.CertificateTransparencyLoggingPreference Options_CertificateTransparencyLoggingPreference { get; set; }
             public List<System.String> SubjectAlternativeName { get; set; }
+            public List<Amazon.CertificateManager.Model.Tag> Tag { get; set; }
             public Amazon.CertificateManager.ValidationMethod ValidationMethod { get; set; }
             public System.Func<Amazon.CertificateManager.Model.RequestCertificateResponse, NewACMCertificateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CertificateArn;

@@ -28,7 +28,25 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns the tag-set of an object.
+    /// Returns the tag-set of an object. You send the GET request against the tagging subresource
+    /// associated with the object.
+    /// 
+    ///  
+    /// <para>
+    /// To use this operation, you must have permission to perform the <code>s3:GetObjectTagging</code>
+    /// action. By default, the GET operation returns information about current version of
+    /// an object. For a versioned bucket, you can have multiple versions of an object in
+    /// your bucket. To retrieve tags of any other version, use the versionId query parameter.
+    /// You also need permission for the <code>s3:GetObjectVersionTagging</code> action.
+    /// </para><para>
+    ///  By default, the bucket owner has this permission and can grant this permission to
+    /// others.
+    /// </para><para>
+    ///  For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
+    /// Tagging</a>.
+    /// </para><para>
+    /// The following operation is related to <code>GetObjectTagging</code>:
+    /// </para><ul><li><para><a>PutObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectTagSet")]
     [OutputType("Amazon.S3.Model.Tag")]

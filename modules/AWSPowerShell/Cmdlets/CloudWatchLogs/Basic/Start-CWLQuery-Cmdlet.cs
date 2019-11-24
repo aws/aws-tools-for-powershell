@@ -130,7 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The maximum number of log events to return in the query. If the query string uses
-        /// the <code>fields</code> command, only the specified fields and their values are returned.</para>
+        /// the <code>fields</code> command, only the specified fields and their values are returned.
+        /// The default is 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

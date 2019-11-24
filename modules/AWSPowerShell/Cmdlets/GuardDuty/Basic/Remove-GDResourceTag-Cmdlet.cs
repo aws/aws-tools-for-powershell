@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the given GuardDuty resource </para>
+        /// <para>The Amazon Resource Name (ARN) for the resource to remove tags from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag keys to remove from a resource.</para>
+        /// <para>The tag keys to remove from the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

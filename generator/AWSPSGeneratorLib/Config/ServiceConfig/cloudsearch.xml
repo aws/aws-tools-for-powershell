@@ -85,6 +85,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomainEndpointOptions" OutputProperty="DomainEndpointOptions" Verb="Get" Noun="DomainEndpointOption" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDomains" OutputProperty="DomainStatusList" Verb="Get" Noun="Domain" PipelineParameter="DomainNames" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -118,6 +122,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAvailabilityOptions" OutputProperty="AvailabilityOptions" Verb="Update" Noun="AvailabilityOption" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSAvailabilityOptions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainEndpointOptions" OutputProperty="DomainEndpointOptions" Verb="Update" Noun="DomainEndpointOption" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

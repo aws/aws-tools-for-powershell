@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateApiCache" OutputProperty="ApiCache" Verb="New" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateApiKey" OutputProperty="ApiKey" Verb="New" Noun="ApiKey" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -43,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApiCache" Verb="Remove" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteApiKey" Verb="Remove" Noun="ApiKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -64,6 +72,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteType" Verb="Remove" Noun="Type" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="FlushApiCache" Verb="Clear" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApiCache" OutputProperty="ApiCache" Verb="Get" Noun="ApiCache" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApiCache" OutputProperty="ApiCache" Verb="Update" Noun="ApiCache" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

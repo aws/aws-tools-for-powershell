@@ -28,7 +28,7 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Replaces all triggers for a repository. This can be used to create or delete triggers.
+    /// Replaces all triggers for a repository. Used to create or delete triggers.
     /// </summary>
     [Cmdlet("Set", "CCRepositoryTrigger", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

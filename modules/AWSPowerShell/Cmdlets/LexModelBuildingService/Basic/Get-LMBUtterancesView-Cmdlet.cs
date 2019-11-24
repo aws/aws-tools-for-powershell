@@ -43,11 +43,15 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </para><para>
     /// After you publish a new version of a bot, you can get information about the old version
     /// and the new so that you can compare the performance across the two versions. 
-    /// </para><note><para>
+    /// </para><para>
     /// Utterance statistics are generated once a day. Data is available for the last 15 days.
-    /// You can request information for up to 5 versions in each request. The response contains
-    /// information about a maximum of 100 utterances for each version.
-    /// </para></note><para>
+    /// You can request information for up to 5 versions of your bot in each request. Amazon
+    /// Lex returns the most frequent utterances received by the bot in the last 15 days.
+    /// The response contains information about a maximum of 100 utterances for each version.
+    /// </para><para>
+    /// If you set <code>childDirected</code> field to true when you created your bot, or
+    /// if you opted out of participating in improving Amazon Lex, utterances are not available.
+    /// </para><para>
     /// This operation requires permissions for the <code>lex:GetUtterancesView</code> action.
     /// </para>
     /// </summary>
@@ -99,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter StatusType
         /// <summary>
         /// <para>
-        /// <para>To return utterances that were recognized and handled, use<code>Detected</code>. To
-        /// return utterances that were not recognized, use <code>Missed</code>.</para>
+        /// <para>To return utterances that were recognized and handled, use <code>Detected</code>.
+        /// To return utterances that were not recognized, use <code>Missed</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

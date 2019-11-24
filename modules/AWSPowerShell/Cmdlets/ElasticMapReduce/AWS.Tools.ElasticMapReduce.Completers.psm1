@@ -111,6 +111,13 @@ $EMR_Completers = {
             break
         }
 
+        # Amazon.ElasticMapReduce.StepCancellationOption
+        "Stop-EMRStep/StepCancellationOption"
+        {
+            $v = "SEND_INTERRUPT","TERMINATE_PROCESS"
+            break
+        }
+
 
     }
 
@@ -125,6 +132,7 @@ $EMR_map = @{
     "InstanceFleetType"=@("Get-EMRInstanceList")
     "RepoUpgradeOnBoot"=@("Start-EMRJobFlow")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
+    "StepCancellationOption"=@("Stop-EMRStep")
 }
 
 _awsArgumentCompleterRegistration $EMR_Completers $EMR_map
@@ -196,6 +204,7 @@ $EMR_SelectMap = @{
                "Get-EMRInstanceList",
                "Get-EMRSecurityConfigurationList",
                "Get-EMRStepList",
+               "Edit-EMRCluster",
                "Edit-EMRInstanceFleet",
                "Edit-EMRInstanceGroup",
                "Write-EMRAutoScalingPolicy",

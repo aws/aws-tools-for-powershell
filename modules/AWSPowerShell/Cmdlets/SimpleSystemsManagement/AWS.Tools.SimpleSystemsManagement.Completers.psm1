@@ -489,6 +489,7 @@ $SSM_SelectMap = @{
                "Update-SSMManagedInstanceRole",
                "Update-SSMOpsItem",
                "Update-SSMPatchBaseline",
+               "Update-SSMResourceDataSync",
                "Update-SSMServiceSetting",
                "Get-SSMLatestEC2Image")
 }

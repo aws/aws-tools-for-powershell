@@ -32,8 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// The permission resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>&lt;user-name&gt;</i></code>. 
-    /// </para><para>
     /// The response is a one or more group objects. 
     /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight list-user-groups -\-user-name=Pat -\-aws-account-id=111122223333
     /// -\-namespace=default -\-region=us-east-1 </code></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

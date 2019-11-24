@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Retrieves information about the activity performed by a campaign.
+    /// Retrieves information about all the activities for a campaign.
     /// </summary>
     [Cmdlet("Get", "PINCampaignActivityList")]
     [OutputType("Amazon.Pinpoint.Model.ActivitiesResponse")]
@@ -75,18 +75,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String CampaignId { get; set; }
         #endregion
         
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to include in each page of a paginated response. This
-        /// parameter is currently not supported by the Application Metrics and Campaign Metrics
-        /// resources.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PageSize { get; set; }
-        #endregion
-        
         #region Parameter Token
         /// <summary>
         /// <para>
@@ -96,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Token { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to include in each page of a paginated response. This
+        /// parameter is currently not supported for application, campaign, and journey metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PageSize { get; set; }
         #endregion
         
         #region Parameter Select

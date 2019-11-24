@@ -29,6 +29,46 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Sets the tags for a bucket.
+    /// 
+    ///  
+    /// <para>
+    /// Use tags to organize your AWS bill to reflect your own cost structure. To do this,
+    /// sign up to get your AWS account bill with tag key values included. Then, to see the
+    /// cost of combined resources, organize your billing information according to resources
+    /// with the same tag key values. For example, you can tag several resources with a specific
+    /// application name, and then organize your billing information to see the total cost
+    /// of that application across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost
+    /// Allocation and Tagging</a>.
+    /// </para><note><para>
+    /// Within a bucket, if you add a tag that has the same key as an existing tag, the new
+    /// value overwrites the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using
+    /// Cost Allocation in Amazon S3 Bucket Tags</a>.
+    /// </para></note><para>
+    /// To use this operation, you must have permissions to perform the <code>s3:PutBucketTagging</code>
+    /// action. The bucket owner has this permission by default and can grant this permission
+    /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// </para><para><code>PutBucketTagging</code> has the following special errors:
+    /// </para><ul><li><para>
+    /// Error code: <code>InvalidTagError</code></para><ul><li><para>
+    /// Description: The tag provided was not a valid tag. This error can occur if the tag
+    /// did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//allocation-tag-restrictions.html">User-Defined
+    /// Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//aws-tag-restrictions.html">AWS-Generated
+    /// Cost Allocation Tag Restrictions</a>.
+    /// </para></li></ul></li><li><para>
+    /// Error code: <code>MalformedXMLError</code></para><ul><li><para>
+    /// Description: The XML provided does not match the schema.
+    /// </para></li></ul></li><li><para>
+    /// Error code: <code>OperationAbortedError </code></para><ul><li><para>
+    /// Description: A conflicting conditional operation is currently in progress against
+    /// this resource. Please try again.
+    /// </para></li></ul></li><li><para>
+    /// Error code: <code>InternalError</code></para><ul><li><para>
+    /// Description: The service was unable to apply the provided tag to the bucket.
+    /// </para></li></ul></li></ul><para>
+    /// The following operations are related to <code>PutBucketTagging</code>:
+    /// </para><ul><li><para><a>GetBucketTagging</a></para></li><li><para><a>DeleteBucketTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

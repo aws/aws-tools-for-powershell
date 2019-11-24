@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
     /// Retrieves information about the status, configuration, and other settings for all
-    /// versions of a specific campaign.
+    /// versions of a campaign.
     /// </summary>
     [Cmdlet("Get", "PINCampaignVersionList")]
     [OutputType("Amazon.Pinpoint.Model.CampaignsResponse")]
@@ -76,18 +76,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String CampaignId { get; set; }
         #endregion
         
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to include in each page of a paginated response. This
-        /// parameter is currently not supported by the Application Metrics and Campaign Metrics
-        /// resources.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String PageSize { get; set; }
-        #endregion
-        
         #region Parameter Token
         /// <summary>
         /// <para>
@@ -97,6 +85,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Token { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to include in each page of a paginated response. This
+        /// parameter is currently not supported for application, campaign, and journey metrics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PageSize { get; set; }
         #endregion
         
         #region Parameter Select

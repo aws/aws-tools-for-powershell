@@ -66,6 +66,31 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.Boolean? ApplyImmediately { get; set; }
         #endregion
         
+        #region Parameter AuthToken
+        /// <summary>
+        /// <para>
+        /// <para>Reserved parameter. The password used to access a password protected server. This
+        /// parameter must be specified with the <code>auth-token-update-strategy </code> parameter.
+        /// Password constraints:</para><ul><li><para>Must be only printable ASCII characters</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@', '%'</para></li></ul><para> For more information, see AUTH password at <a href="http://redis.io/commands/AUTH">AUTH</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthToken { get; set; }
+        #endregion
+        
+        #region Parameter AuthTokenUpdateStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the strategy to use to update the AUTH token. This parameter must be specified
+        /// with the <code>auth-token</code> parameter. Possible values:</para><ul><li><para>Rotate</para></li><li><para>Set</para></li></ul><para> For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating
+        /// Users with Redis AUTH</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElastiCache.AuthTokenUpdateStrategyType")]
+        public Amazon.ElastiCache.AuthTokenUpdateStrategyType AuthTokenUpdateStrategy { get; set; }
+        #endregion
+        
         #region Parameter AutomaticFailoverEnabled
         /// <summary>
         /// <para>
@@ -333,6 +358,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ApplyImmediately = this.ApplyImmediately;
+            context.AuthToken = this.AuthToken;
+            context.AuthTokenUpdateStrategy = this.AuthTokenUpdateStrategy;
             context.AutomaticFailoverEnabled = this.AutomaticFailoverEnabled;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.CacheNodeType = this.CacheNodeType;
@@ -383,6 +410,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.ApplyImmediately != null)
             {
                 request.ApplyImmediately = cmdletContext.ApplyImmediately.Value;
+            }
+            if (cmdletContext.AuthToken != null)
+            {
+                request.AuthToken = cmdletContext.AuthToken;
+            }
+            if (cmdletContext.AuthTokenUpdateStrategy != null)
+            {
+                request.AuthTokenUpdateStrategy = cmdletContext.AuthTokenUpdateStrategy;
             }
             if (cmdletContext.AutomaticFailoverEnabled != null)
             {
@@ -516,6 +551,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ApplyImmediately { get; set; }
+            public System.String AuthToken { get; set; }
+            public Amazon.ElastiCache.AuthTokenUpdateStrategyType AuthTokenUpdateStrategy { get; set; }
             public System.Boolean? AutomaticFailoverEnabled { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String CacheNodeType { get; set; }

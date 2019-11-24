@@ -41,12 +41,27 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     public partial class UpdatePINEmailTemplateCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
+        #region Parameter EmailTemplateRequest_DefaultSubstitution
+        /// <summary>
+        /// <para>
+        /// <para>A JSON object that specifies the default values to use for message variables in the
+        /// message template. This object is a set of key-value pairs. Each key defines a message
+        /// variable in the template. The corresponding value defines the default value for that
+        /// variable. When you create a message that's based on the template, you can override
+        /// these defaults with message-specific and address-specific variables and values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EmailTemplateRequest_DefaultSubstitutions")]
+        public System.String EmailTemplateRequest_DefaultSubstitution { get; set; }
+        #endregion
+        
         #region Parameter EmailTemplateRequest_HtmlPart
         /// <summary>
         /// <para>
         /// <para>The message body, in HTML format, to use in email messages that are based on the message
-        /// template. We recommend using HTML format for email clients that support HTML. You
-        /// can include links, formatted text, and more in an HTML message.</para>
+        /// template. We recommend using HTML format for email clients that render HTML content.
+        /// You can include links, formatted text, and more in an HTML message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,6 +92,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Collections.Hashtable EmailTemplateRequest_Tag { get; set; }
         #endregion
         
+        #region Parameter EmailTemplateRequest_TemplateDescription
+        /// <summary>
+        /// <para>
+        /// <para>A custom description of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EmailTemplateRequest_TemplateDescription { get; set; }
+        #endregion
+        
         #region Parameter TemplateName
         /// <summary>
         /// <para>
@@ -99,9 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EmailTemplateRequest_TextPart
         /// <summary>
         /// <para>
-        /// <para>The message body, in text format, to use in email messages that are based on the message
-        /// template. We recommend using text format for email clients that don't support HTML
-        /// and clients that are connected to high-latency networks, such as mobile devices.</para>
+        /// <para>The message body, in plain text format, to use in email messages that are based on
+        /// the message template. We recommend using plain text format for email clients that
+        /// don't render HTML content and clients that are connected to high-latency networks,
+        /// such as mobile devices.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.Select = (response, cmdlet) => this.TemplateName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EmailTemplateRequest_DefaultSubstitution = this.EmailTemplateRequest_DefaultSubstitution;
             context.EmailTemplateRequest_HtmlPart = this.EmailTemplateRequest_HtmlPart;
             context.EmailTemplateRequest_Subject = this.EmailTemplateRequest_Subject;
             if (this.EmailTemplateRequest_Tag != null)
@@ -179,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.EmailTemplateRequest_Tag.Add((String)hashKey, (String)(this.EmailTemplateRequest_Tag[hashKey]));
                 }
             }
+            context.EmailTemplateRequest_TemplateDescription = this.EmailTemplateRequest_TemplateDescription;
             context.EmailTemplateRequest_TextPart = this.EmailTemplateRequest_TextPart;
             context.TemplateName = this.TemplateName;
             #if MODULAR
@@ -207,6 +235,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
              // populate EmailTemplateRequest
             var requestEmailTemplateRequestIsNull = true;
             request.EmailTemplateRequest = new Amazon.Pinpoint.Model.EmailTemplateRequest();
+            System.String requestEmailTemplateRequest_emailTemplateRequest_DefaultSubstitution = null;
+            if (cmdletContext.EmailTemplateRequest_DefaultSubstitution != null)
+            {
+                requestEmailTemplateRequest_emailTemplateRequest_DefaultSubstitution = cmdletContext.EmailTemplateRequest_DefaultSubstitution;
+            }
+            if (requestEmailTemplateRequest_emailTemplateRequest_DefaultSubstitution != null)
+            {
+                request.EmailTemplateRequest.DefaultSubstitutions = requestEmailTemplateRequest_emailTemplateRequest_DefaultSubstitution;
+                requestEmailTemplateRequestIsNull = false;
+            }
             System.String requestEmailTemplateRequest_emailTemplateRequest_HtmlPart = null;
             if (cmdletContext.EmailTemplateRequest_HtmlPart != null)
             {
@@ -235,6 +273,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_Tag != null)
             {
                 request.EmailTemplateRequest.Tags = requestEmailTemplateRequest_emailTemplateRequest_Tag;
+                requestEmailTemplateRequestIsNull = false;
+            }
+            System.String requestEmailTemplateRequest_emailTemplateRequest_TemplateDescription = null;
+            if (cmdletContext.EmailTemplateRequest_TemplateDescription != null)
+            {
+                requestEmailTemplateRequest_emailTemplateRequest_TemplateDescription = cmdletContext.EmailTemplateRequest_TemplateDescription;
+            }
+            if (requestEmailTemplateRequest_emailTemplateRequest_TemplateDescription != null)
+            {
+                request.EmailTemplateRequest.TemplateDescription = requestEmailTemplateRequest_emailTemplateRequest_TemplateDescription;
                 requestEmailTemplateRequestIsNull = false;
             }
             System.String requestEmailTemplateRequest_emailTemplateRequest_TextPart = null;
@@ -317,9 +365,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EmailTemplateRequest_DefaultSubstitution { get; set; }
             public System.String EmailTemplateRequest_HtmlPart { get; set; }
             public System.String EmailTemplateRequest_Subject { get; set; }
             public Dictionary<System.String, System.String> EmailTemplateRequest_Tag { get; set; }
+            public System.String EmailTemplateRequest_TemplateDescription { get; set; }
             public System.String EmailTemplateRequest_TextPart { get; set; }
             public System.String TemplateName { get; set; }
             public System.Func<Amazon.Pinpoint.Model.UpdateEmailTemplateResponse, UpdatePINEmailTemplateCmdlet, object> Select { get; set; } =

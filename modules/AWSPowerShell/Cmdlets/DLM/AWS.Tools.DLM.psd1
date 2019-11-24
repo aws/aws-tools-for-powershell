@@ -86,10 +86,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-DLMResourceTag', 
         'Get-DLMLifecyclePolicy', 
         'Get-DLMLifecyclePolicySummary', 
+        'Get-DLMResourceTag', 
         'New-DLMLifecyclePolicy', 
         'Remove-DLMLifecyclePolicy', 
+        'Remove-DLMResourceTag', 
         'Update-DLMLifecyclePolicy')
 
     # Variables to export from this module
@@ -110,7 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

@@ -167,13 +167,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The meaning of this parameter differs according to the database engine you use.</para><para><b>MySQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
-        /// is not specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>MariaDB</b></para><para>The name of the database to create when the DB instance is created. If this parameter
-        /// is not specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
-        /// is not specified, the default "postgres" database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters, numbers, or underscores.</para></li><li><para>Must begin with a letter or an underscore. Subsequent characters can be letters, underscores,
+        /// isn't specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>MariaDB</b></para><para>The name of the database to create when the DB instance is created. If this parameter
+        /// isn't specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>PostgreSQL</b></para><para>The name of the database to create when the DB instance is created. If this parameter
+        /// isn't specified, the default "postgres" database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 63 letters, numbers, or underscores.</para></li><li><para>Must begin with a letter or an underscore. Subsequent characters can be letters, underscores,
         /// or digits (0-9).</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul><para><b>Oracle</b></para><para>The Oracle System ID (SID) of the created DB instance. If you specify <code>null</code>,
         /// the default value <code>ORCL</code> is used. You can't specify the string NULL, or
         /// any other reserved word, for <code>DBName</code>. </para><para>Default: <code>ORCL</code></para><para>Constraints:</para><ul><li><para>Can't be longer than 8 characters</para></li></ul><para><b>SQL Server</b></para><para>Not applicable. Must be null.</para><para><b>Amazon Aurora</b></para><para>The name of the database to create when the primary instance of the DB cluster is
-        /// created. If this parameter is not specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul>
+        /// created. If this parameter isn't specified, no database is created in the DB instance.</para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 letters or numbers.</para></li><li><para>Can't be a word reserved by the specified database engine</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -184,8 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB parameter group to associate with this DB instance. If you do not
-        /// specify a value for <code>DBParameterGroupName</code>, then the default <code>DBParameterGroup</code>
-        /// for the specified DB engine is used.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// specify a value, then the default DB parameter group for the specified DB engine and
+        /// version is used.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,7 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
         /// protection is disabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-        /// Deleting a DB Instance</a>. </para>
+        /// Deleting a DB Instance</a>. </para><para><b>Amazon Aurora</b></para><para>Not applicable. You can enable or disable deletion protection for the DB cluster.
+        /// For more information, see <code>CreateDBCluster</code>. DB instances in a DB cluster
+        /// can be deleted even when deletion protection is enabled for the DB cluster. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -555,14 +557,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A value that indicates whether the DB instance is publicly accessible. When the DB
         /// instance is publicly accessible, it is an Internet-facing instance with a publicly
-        /// resolvable DNS name, which resolves to a public IP address. When the DB instance is
-        /// not publicly accessible, it is an internal instance with a DNS name that resolves
-        /// to a private IP address.</para><para>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code>
-        /// is specified.</para><para>If <code>DBSubnetGroupName</code> is not specified, and <code>PubliclyAccessible</code>
-        /// is not specified, the following applies:</para><ul><li><para>If the default VPC in the target region doesn’t have an Internet gateway attached
+        /// resolvable DNS name, which resolves to a public IP address. When the DB instance isn't
+        /// publicly accessible, it is an internal instance with a DNS name that resolves to a
+        /// private IP address.</para><para>Default: The default behavior varies depending on whether <code>DBSubnetGroupName</code>
+        /// is specified.</para><para>If <code>DBSubnetGroupName</code> isn't specified, and <code>PubliclyAccessible</code>
+        /// isn't specified, the following applies:</para><ul><li><para>If the default VPC in the target region doesn’t have an Internet gateway attached
         /// to it, the DB instance is private.</para></li><li><para>If the default VPC in the target region has an Internet gateway attached to it, the
         /// DB instance is public.</para></li></ul><para>If <code>DBSubnetGroupName</code> is specified, and <code>PubliclyAccessible</code>
-        /// is not specified, the following applies:</para><ul><li><para>If the subnets are part of a VPC that doesn’t have an Internet gateway attached to
+        /// isn't specified, the following applies:</para><ul><li><para>If the subnets are part of a VPC that doesn’t have an Internet gateway attached to
         /// it, the DB instance is private.</para></li><li><para>If the subnets are part of a VPC that has an Internet gateway attached to it, the
         /// DB instance is public.</para></li></ul>
         /// </para>
@@ -574,7 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is encrypted. By default, it is not
+        /// <para>A value that indicates whether the DB instance is encrypted. By default, it isn't
         /// encrypted.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The encryption for DB instances is managed by the DB cluster.</para>
         /// </para>
         /// </summary>

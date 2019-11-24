@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// that is different than the KMS key used to encrypt the source DB cluster. The new
         /// DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</para><para>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following
         /// occurs:</para><ul><li><para>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
-        /// KMS key that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that is not encrypted,
-        /// then the restore request is rejected.</para>
+        /// KMS key that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that isn't encrypted, then
+        /// the restore request is rejected.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter UtcRestoreToTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled</para></li><li><para>Can't be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter isn't provided</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled</para></li><li><para>Can't be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -249,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates whether to restore the DB cluster to the latest restorable
-        /// backup time. By default, the DB cluster is not restored to the latest restorable backup
+        /// backup time. By default, the DB cluster isn't restored to the latest restorable backup
         /// time. </para><para>Constraints: Can't be specified if <code>RestoreToTime</code> parameter is provided.</para>
         /// </para>
         /// </summary>
@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned,
         /// the latest assignment to either one of the two property is reflected in the value
         /// of both. RestoreToTime is provided for backwards compatibility only and assigning
-        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled</para></li><li><para>Can't be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter isn't provided</para></li><li><para>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is enabled</para></li><li><para>Can't be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

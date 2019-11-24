@@ -40,6 +40,52 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class UpdateIOTIndexingConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter ThingGroupIndexingConfiguration_CustomField
+        /// <summary>
+        /// <para>
+        /// <para>A list of thing group fields to index. This list cannot contain any managed fields.
+        /// Use the GetIndexingConfiguration API to get a list of managed fields.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThingGroupIndexingConfiguration_CustomFields")]
+        public Amazon.IoT.Model.Field[] ThingGroupIndexingConfiguration_CustomField { get; set; }
+        #endregion
+        
+        #region Parameter ThingIndexingConfiguration_CustomField
+        /// <summary>
+        /// <para>
+        /// <para>A list of thing fields to index. This list cannot contain any managed fields. Use
+        /// the GetIndexingConfiguration API to get a list of managed fields.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThingIndexingConfiguration_CustomFields")]
+        public Amazon.IoT.Model.Field[] ThingIndexingConfiguration_CustomField { get; set; }
+        #endregion
+        
+        #region Parameter ThingGroupIndexingConfiguration_ManagedField
+        /// <summary>
+        /// <para>
+        /// <para>A list of automatically indexed thing group fields.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThingGroupIndexingConfiguration_ManagedFields")]
+        public Amazon.IoT.Model.Field[] ThingGroupIndexingConfiguration_ManagedField { get; set; }
+        #endregion
+        
+        #region Parameter ThingIndexingConfiguration_ManagedField
+        /// <summary>
+        /// <para>
+        /// <para>A list of automatically indexed thing fields.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ThingIndexingConfiguration_ManagedFields")]
+        public Amazon.IoT.Model.Field[] ThingIndexingConfiguration_ManagedField { get; set; }
+        #endregion
+        
         #region Parameter ThingIndexingConfiguration_ThingConnectivityIndexingMode
         /// <summary>
         /// <para>
@@ -134,7 +180,23 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = (response, cmdlet) => this.ThingIndexingConfiguration_ThingIndexingMode;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.ThingGroupIndexingConfiguration_CustomField != null)
+            {
+                context.ThingGroupIndexingConfiguration_CustomField = new List<Amazon.IoT.Model.Field>(this.ThingGroupIndexingConfiguration_CustomField);
+            }
+            if (this.ThingGroupIndexingConfiguration_ManagedField != null)
+            {
+                context.ThingGroupIndexingConfiguration_ManagedField = new List<Amazon.IoT.Model.Field>(this.ThingGroupIndexingConfiguration_ManagedField);
+            }
             context.ThingGroupIndexingConfiguration_ThingGroupIndexingMode = this.ThingGroupIndexingConfiguration_ThingGroupIndexingMode;
+            if (this.ThingIndexingConfiguration_CustomField != null)
+            {
+                context.ThingIndexingConfiguration_CustomField = new List<Amazon.IoT.Model.Field>(this.ThingIndexingConfiguration_CustomField);
+            }
+            if (this.ThingIndexingConfiguration_ManagedField != null)
+            {
+                context.ThingIndexingConfiguration_ManagedField = new List<Amazon.IoT.Model.Field>(this.ThingIndexingConfiguration_ManagedField);
+            }
             context.ThingIndexingConfiguration_ThingConnectivityIndexingMode = this.ThingIndexingConfiguration_ThingConnectivityIndexingMode;
             context.ThingIndexingConfiguration_ThingIndexingMode = this.ThingIndexingConfiguration_ThingIndexingMode;
             
@@ -157,6 +219,26 @@ namespace Amazon.PowerShell.Cmdlets.IOT
              // populate ThingGroupIndexingConfiguration
             var requestThingGroupIndexingConfigurationIsNull = true;
             request.ThingGroupIndexingConfiguration = new Amazon.IoT.Model.ThingGroupIndexingConfiguration();
+            List<Amazon.IoT.Model.Field> requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_CustomField = null;
+            if (cmdletContext.ThingGroupIndexingConfiguration_CustomField != null)
+            {
+                requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_CustomField = cmdletContext.ThingGroupIndexingConfiguration_CustomField;
+            }
+            if (requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_CustomField != null)
+            {
+                request.ThingGroupIndexingConfiguration.CustomFields = requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_CustomField;
+                requestThingGroupIndexingConfigurationIsNull = false;
+            }
+            List<Amazon.IoT.Model.Field> requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_ManagedField = null;
+            if (cmdletContext.ThingGroupIndexingConfiguration_ManagedField != null)
+            {
+                requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_ManagedField = cmdletContext.ThingGroupIndexingConfiguration_ManagedField;
+            }
+            if (requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_ManagedField != null)
+            {
+                request.ThingGroupIndexingConfiguration.ManagedFields = requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_ManagedField;
+                requestThingGroupIndexingConfigurationIsNull = false;
+            }
             Amazon.IoT.ThingGroupIndexingMode requestThingGroupIndexingConfiguration_thingGroupIndexingConfiguration_ThingGroupIndexingMode = null;
             if (cmdletContext.ThingGroupIndexingConfiguration_ThingGroupIndexingMode != null)
             {
@@ -176,6 +258,26 @@ namespace Amazon.PowerShell.Cmdlets.IOT
              // populate ThingIndexingConfiguration
             var requestThingIndexingConfigurationIsNull = true;
             request.ThingIndexingConfiguration = new Amazon.IoT.Model.ThingIndexingConfiguration();
+            List<Amazon.IoT.Model.Field> requestThingIndexingConfiguration_thingIndexingConfiguration_CustomField = null;
+            if (cmdletContext.ThingIndexingConfiguration_CustomField != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_CustomField = cmdletContext.ThingIndexingConfiguration_CustomField;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_CustomField != null)
+            {
+                request.ThingIndexingConfiguration.CustomFields = requestThingIndexingConfiguration_thingIndexingConfiguration_CustomField;
+                requestThingIndexingConfigurationIsNull = false;
+            }
+            List<Amazon.IoT.Model.Field> requestThingIndexingConfiguration_thingIndexingConfiguration_ManagedField = null;
+            if (cmdletContext.ThingIndexingConfiguration_ManagedField != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_ManagedField = cmdletContext.ThingIndexingConfiguration_ManagedField;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_ManagedField != null)
+            {
+                request.ThingIndexingConfiguration.ManagedFields = requestThingIndexingConfiguration_thingIndexingConfiguration_ManagedField;
+                requestThingIndexingConfigurationIsNull = false;
+            }
             Amazon.IoT.ThingConnectivityIndexingMode requestThingIndexingConfiguration_thingIndexingConfiguration_ThingConnectivityIndexingMode = null;
             if (cmdletContext.ThingIndexingConfiguration_ThingConnectivityIndexingMode != null)
             {
@@ -262,7 +364,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.IoT.Model.Field> ThingGroupIndexingConfiguration_CustomField { get; set; }
+            public List<Amazon.IoT.Model.Field> ThingGroupIndexingConfiguration_ManagedField { get; set; }
             public Amazon.IoT.ThingGroupIndexingMode ThingGroupIndexingConfiguration_ThingGroupIndexingMode { get; set; }
+            public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_CustomField { get; set; }
+            public List<Amazon.IoT.Model.Field> ThingIndexingConfiguration_ManagedField { get; set; }
             public Amazon.IoT.ThingConnectivityIndexingMode ThingIndexingConfiguration_ThingConnectivityIndexingMode { get; set; }
             public Amazon.IoT.ThingIndexingMode ThingIndexingConfiguration_ThingIndexingMode { get; set; }
             public System.Func<Amazon.IoT.Model.UpdateIndexingConfigurationResponse, UpdateIOTIndexingConfigurationCmdlet, object> Select { get; set; } =

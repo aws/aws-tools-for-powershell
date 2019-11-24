@@ -32,11 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// In addition to listing the properties provided by the user in the <code>CreatePredictor</code>
-    /// request, this operation includes the following properties:
+    /// In addition to listing the properties provided in the <code>CreatePredictor</code>
+    /// request, this operation lists the following properties:
     /// </para><ul><li><para><code>DatasetImportJobArns</code> - The dataset import jobs used to import training
     /// data.
-    /// </para></li><li><para><code>AutoMLAlgorithmArns</code> - If AutoML is performed, the algorithms evaluated.
+    /// </para></li><li><para><code>AutoMLAlgorithmArns</code> - If AutoML is performed, the algorithms that were
+    /// evaluated.
     /// </para></li><li><para><code>CreationTime</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>Status</code></para></li><li><para><code>Message</code> - If an error occurred, information about the error.
     /// </para></li></ul>
     /// </summary>

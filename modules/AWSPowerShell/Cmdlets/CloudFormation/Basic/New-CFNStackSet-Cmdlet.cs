@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Capability
         /// <summary>
         /// <para>
-        /// <para>In some cases, you must explicity acknowledge that your stack set template contains
+        /// <para>In some cases, you must explicitly acknowledge that your stack set template contains
         /// certain capabilities in order for AWS CloudFormation to create the stack set and related
         /// stack instances.</para><ul><li><para><code>CAPABILITY_IAM</code> and <code>CAPABILITY_NAMED_IAM</code></para><para>Some stack templates might include resources that can affect permissions in your AWS
         /// account; for example, by creating new AWS Identity and Access Management (IAM) users.

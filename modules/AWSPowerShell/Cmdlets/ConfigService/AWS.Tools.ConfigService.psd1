@@ -107,6 +107,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFGConfigurationAggregatorSourcesStatus', 
         'Get-CFGConfigurationRecorder', 
         'Get-CFGConfigurationRecorderStatus', 
+        'Get-CFGConformancePack', 
+        'Get-CFGConformancePackCompliance', 
+        'Get-CFGConformancePackComplianceDetail', 
+        'Get-CFGConformancePackComplianceSummary', 
+        'Get-CFGConformancePackStatus', 
         'Get-CFGDeliveryChannel', 
         'Get-CFGDeliveryChannelStatus', 
         'Get-CFGDiscoveredResource', 
@@ -115,6 +120,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CFGOrganizationConfigRule', 
         'Get-CFGOrganizationConfigRuleDetailedStatus', 
         'Get-CFGOrganizationConfigRuleStatus', 
+        'Get-CFGOrganizationConformancePack', 
+        'Get-CFGOrganizationConformancePackDetailedStatus', 
+        'Get-CFGOrganizationConformancePackStatus', 
         'Get-CFGPendingAggregationRequestList', 
         'Get-CFGRemediationConfiguration', 
         'Get-CFGRemediationException', 
@@ -126,12 +134,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CFGConfigRule', 
         'Remove-CFGConfigurationAggregator', 
         'Remove-CFGConfigurationRecorder', 
+        'Remove-CFGConformancePack', 
         'Remove-CFGDeliveryChannel', 
         'Remove-CFGEvaluationResult', 
         'Remove-CFGOrganizationConfigRule', 
+        'Remove-CFGOrganizationConformancePack', 
         'Remove-CFGPendingAggregationRequest', 
         'Remove-CFGRemediationConfiguration', 
         'Remove-CFGRemediationException', 
+        'Remove-CFGResourceConfig', 
         'Remove-CFGResourceTag', 
         'Remove-CFGRetentionConfiguration', 
         'Select-CFGResourceConfig', 
@@ -144,11 +155,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CFGConfigRule', 
         'Write-CFGConfigurationAggregator', 
         'Write-CFGConfigurationRecorder', 
+        'Write-CFGConformancePack', 
         'Write-CFGDeliveryChannel', 
         'Write-CFGEvaluation', 
         'Write-CFGOrganizationConfigRule', 
+        'Write-CFGOrganizationConformancePack', 
         'Write-CFGRemediationConfiguration', 
         'Write-CFGRemediationException', 
+        'Write-CFGResourceConfig', 
         'Write-CFGRetentionConfiguration')
 
     # Variables to export from this module
@@ -173,7 +187,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The ID of the DB instance to retrieve the list of DB snapshots for. This parameter
         /// can't be used in conjunction with <code>DBSnapshotIdentifier</code>. This parameter
-        /// is not case-sensitive. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
+        /// isn't case-sensitive. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

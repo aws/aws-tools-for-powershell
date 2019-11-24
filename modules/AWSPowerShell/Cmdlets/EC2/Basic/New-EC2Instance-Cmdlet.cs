@@ -297,6 +297,49 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Placement_HostId { get; set; }
         #endregion
         
+        #region Parameter MetadataOptions_HttpEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>This parameter enables or disables the HTTP metadata endpoint on your instances. If
+        /// the parameter is not specified, the default state is <code>enabled</code>.</para><note><para>If you specify a value of <code>disabled</code>, you will not be able to access your
+        /// instance metadata.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.InstanceMetadataEndpointState")]
+        public Amazon.EC2.InstanceMetadataEndpointState MetadataOptions_HttpEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter MetadataOptions_HttpPutResponseHopLimit
+        /// <summary>
+        /// <para>
+        /// <para>The desired HTTP PUT response hop limit for instance metadata requests. The larger
+        /// the number, the further instance metadata requests can travel.</para><para>Default: 1</para><para>Possible values: Integers from 1 to 64</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MetadataOptions_HttpPutResponseHopLimit { get; set; }
+        #endregion
+        
+        #region Parameter MetadataOptions_HttpToken
+        /// <summary>
+        /// <para>
+        /// <para>The state of token usage for your instance metadata requests. If the parameter is
+        /// not specified in the request, the default state is <code>optional</code>.</para><para>If the state is <code>optional</code>, you can choose to retrieve instance metadata
+        /// with or without a signed token header on your request. If you retrieve the IAM role
+        /// credentials without a token, the version 1.0 role credentials are returned. If you
+        /// retrieve the IAM role credentials using a valid signed token, the version 2.0 role
+        /// credentials are returned.</para><para>If the state is <code>required</code>, you must send a signed token header with any
+        /// instance metadata retrieval requests. In this state, retrieving the IAM role credentials
+        /// always returns the version 2.0 credentials; the version 1.0 credentials are not available.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetadataOptions_HttpTokens")]
+        [AWSConstantClassSource("Amazon.EC2.HttpTokensState")]
+        public Amazon.EC2.HttpTokensState MetadataOptions_HttpToken { get; set; }
+        #endregion
+        
         #region Parameter ImageId
         /// <summary>
         /// <para>
@@ -720,6 +763,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter MaxCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MetadataOptions_HttpEndpoint = this.MetadataOptions_HttpEndpoint;
+            context.MetadataOptions_HttpPutResponseHopLimit = this.MetadataOptions_HttpPutResponseHopLimit;
+            context.MetadataOptions_HttpToken = this.MetadataOptions_HttpToken;
             if (ParameterWasBound(nameof(this.MinCount)))
             {
                 context.MinCount = this.MinCount;
@@ -966,6 +1012,45 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.MaxCount = cmdletContext.MaxCount.Value;
             }
+            
+             // populate MetadataOptions
+            var requestMetadataOptionsIsNull = true;
+            request.MetadataOptions = new Amazon.EC2.Model.InstanceMetadataOptionsRequest();
+            Amazon.EC2.InstanceMetadataEndpointState requestMetadataOptions_metadataOptions_HttpEndpoint = null;
+            if (cmdletContext.MetadataOptions_HttpEndpoint != null)
+            {
+                requestMetadataOptions_metadataOptions_HttpEndpoint = cmdletContext.MetadataOptions_HttpEndpoint;
+            }
+            if (requestMetadataOptions_metadataOptions_HttpEndpoint != null)
+            {
+                request.MetadataOptions.HttpEndpoint = requestMetadataOptions_metadataOptions_HttpEndpoint;
+                requestMetadataOptionsIsNull = false;
+            }
+            System.Int32? requestMetadataOptions_metadataOptions_HttpPutResponseHopLimit = null;
+            if (cmdletContext.MetadataOptions_HttpPutResponseHopLimit != null)
+            {
+                requestMetadataOptions_metadataOptions_HttpPutResponseHopLimit = cmdletContext.MetadataOptions_HttpPutResponseHopLimit.Value;
+            }
+            if (requestMetadataOptions_metadataOptions_HttpPutResponseHopLimit != null)
+            {
+                request.MetadataOptions.HttpPutResponseHopLimit = requestMetadataOptions_metadataOptions_HttpPutResponseHopLimit.Value;
+                requestMetadataOptionsIsNull = false;
+            }
+            Amazon.EC2.HttpTokensState requestMetadataOptions_metadataOptions_HttpToken = null;
+            if (cmdletContext.MetadataOptions_HttpToken != null)
+            {
+                requestMetadataOptions_metadataOptions_HttpToken = cmdletContext.MetadataOptions_HttpToken;
+            }
+            if (requestMetadataOptions_metadataOptions_HttpToken != null)
+            {
+                request.MetadataOptions.HttpTokens = requestMetadataOptions_metadataOptions_HttpToken;
+                requestMetadataOptionsIsNull = false;
+            }
+             // determine if request.MetadataOptions should be set to null
+            if (requestMetadataOptionsIsNull)
+            {
+                request.MetadataOptions = null;
+            }
             if (cmdletContext.MinCount != null)
             {
                 request.MinCount = cmdletContext.MinCount.Value;
@@ -1171,6 +1256,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.Model.LaunchTemplateSpecification LaunchTemplate { get; set; }
             public List<Amazon.EC2.Model.LicenseConfigurationRequest> LicenseSpecification { get; set; }
             public System.Int32? MaxCount { get; set; }
+            public Amazon.EC2.InstanceMetadataEndpointState MetadataOptions_HttpEndpoint { get; set; }
+            public System.Int32? MetadataOptions_HttpPutResponseHopLimit { get; set; }
+            public Amazon.EC2.HttpTokensState MetadataOptions_HttpToken { get; set; }
             public System.Int32? MinCount { get; set; }
             public System.Boolean? Monitoring { get; set; }
             public List<Amazon.EC2.Model.InstanceNetworkInterfaceSpecification> NetworkInterface { get; set; }

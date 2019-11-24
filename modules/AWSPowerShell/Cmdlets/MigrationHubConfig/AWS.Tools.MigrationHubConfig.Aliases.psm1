@@ -1,0 +1,3 @@
+﻿# MigrationHubConfig
+
+Export-ModuleMember -Alias *

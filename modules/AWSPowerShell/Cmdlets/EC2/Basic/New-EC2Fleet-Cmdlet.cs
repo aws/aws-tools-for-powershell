@@ -67,12 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates how to allocate the target Spot Instance capacity across the Spot Instance
-        /// pools specified by the EC2 Fleet.</para><para>If the allocation strategy is <code>lowestPrice</code>, EC2 Fleet launches instances
+        /// pools specified by the EC2 Fleet.</para><para>If the allocation strategy is <code>lowest-price</code>, EC2 Fleet launches instances
         /// from the Spot Instance pools with the lowest price. This is the default allocation
         /// strategy.</para><para>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances
-        /// from all the Spot Instance pools that you specify.</para><para>If the allocation strategy is <code>capacityOptimized</code>, EC2 Fleet launches instances
-        /// from Spot Instance pools with optimal capacity for the number of instances that are
-        /// launching.</para>
+        /// from all the Spot Instance pools that you specify.</para><para>If the allocation strategy is <code>capacity-optimized</code>, EC2 Fleet launches
+        /// instances from Spot Instance pools with optimal capacity for the number of instances
+        /// that are launching.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

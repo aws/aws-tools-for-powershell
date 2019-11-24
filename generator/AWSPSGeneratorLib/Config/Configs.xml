@@ -43,6 +43,7 @@
     <Parameter>MaxRecords</Parameter>
     <Parameter>MaxResults</Parameter>
     <Parameter>MaxItems</Parameter>
+    <Parameter>PageSize</Parameter>
     <Parameter>Limit</Parameter>
     <Parameter>PaginationToken</Parameter>
   </MetadataParameters>

@@ -28,13 +28,14 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Deletes a forecast created using the <a>CreateForecast</a> operation. To be deleted,
-    /// the forecast must have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
-    /// Use the <a>DescribeForecast</a> operation to get the status.
+    /// Deletes a forecast created using the <a>CreateForecast</a> operation. You can delete
+    /// only forecasts that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
+    /// To get the status, use the <a>DescribeForecast</a> operation.
     /// 
     ///  
     /// <para>
-    /// You can't delete a forecast while it is being exported.
+    /// You can't delete a forecast while it is being exported. After a forecast is deleted,
+    /// you can no longer query the forecast.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "FRCForecast", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

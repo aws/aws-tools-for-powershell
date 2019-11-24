@@ -104,6 +104,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GDMasterAccount', 
         'Get-GDMember', 
         'Get-GDMemberList', 
+        'Get-GDPublishingDestination', 
+        'Get-GDPublishingDestinationList', 
         'Get-GDResourceTag', 
         'Get-GDThreatIntelSet', 
         'Get-GDThreatIntelSetList', 
@@ -111,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-GDFilter', 
         'New-GDIPSet', 
         'New-GDMember', 
+        'New-GDPublishingDestination', 
         'New-GDSampleFinding', 
         'New-GDThreatIntelSet', 
         'Remove-GDDetector', 
@@ -118,6 +121,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-GDInvitation', 
         'Remove-GDIPSet', 
         'Remove-GDMember', 
+        'Remove-GDPublishingDestination', 
         'Remove-GDResourceTag', 
         'Remove-GDThreatIntelSet', 
         'Restore-GDFinding', 
@@ -130,6 +134,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-GDFilter', 
         'Update-GDFindingFeedback', 
         'Update-GDIPSet', 
+        'Update-GDPublishingDestination', 
         'Update-GDThreatIntelSet')
 
     # Variables to export from this module
@@ -150,7 +155,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

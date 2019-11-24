@@ -28,8 +28,9 @@ using Amazon.ElasticMapReduce.Model;
 namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Provides a list of steps for the cluster in reverse order unless you specify stepIds
-    /// with the request.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides a list of steps for the cluster in reverse order unless you specify <code>stepIds</code>
+    /// with the request of filter by <code>StepStates</code>. You can specify a maximum of
+    /// ten <code>stepIDs</code>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EMRStepList")]
     [OutputType("Amazon.ElasticMapReduce.Model.StepSummary")]
@@ -61,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter StepId
         /// <summary>
         /// <para>
-        /// <para>The filter to limit the step list based on the identifier of the steps.</para>
+        /// <para>The filter to limit the step list based on the identifier of the steps. You can specify
+        /// a maximum of ten Step IDs. The character constraint applies to the overall length
+        /// of the array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

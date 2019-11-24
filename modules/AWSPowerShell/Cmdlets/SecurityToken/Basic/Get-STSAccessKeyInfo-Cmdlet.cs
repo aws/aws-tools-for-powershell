@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// review your root user access keys. Then, you can pull a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html">credentials
     /// report</a> to learn which IAM user owns the keys. To learn who requested the temporary
     /// credentials for an <code>ASIA</code> access key, view the STS events in your <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html">CloudTrail
-    /// logs</a>.
+    /// logs</a> in the <i>IAM User Guide</i>.
     /// </para><para>
     /// This operation does not indicate the state of the access key. The key might be active,
     /// inactive, or deleted. Active keys might not have permissions to perform an operation.
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// <summary>
         /// <para>
         /// <para>The identifier of an access key.</para><para>This parameter allows (through its regex pattern) a string of characters that can
-        /// consist of any upper- or lowercased letter or digit.</para>
+        /// consist of any upper- or lowercase letter or digit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

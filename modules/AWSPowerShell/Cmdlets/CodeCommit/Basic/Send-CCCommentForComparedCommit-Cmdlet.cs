@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter AfterCommitId
         /// <summary>
         /// <para>
-        /// <para>To establish the directionality of the comparison, the full commit ID of the 'after'
+        /// <para>To establish the directionality of the comparison, the full commit ID of the after
         /// commit.</para>
         /// </para>
         /// </summary>
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter BeforeCommitId
         /// <summary>
         /// <para>
-        /// <para>To establish the directionality of the comparison, the full commit ID of the 'before'
-        /// commit.</para><note><para>This is required for commenting on any commit unless that commit is the initial commit.</para></note>
+        /// <para>To establish the directionality of the comparison, the full commit ID of the before
+        /// commit. Required for commenting on any commit unless that commit is the initial commit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A unique, client-generated idempotency token that when provided in a request, ensures
+        /// <para>A unique, client-generated idempotency token that, when provided in a request, ensures
         /// the request cannot be repeated with a changed parameter. If a request is received
-        /// with the same parameters and a token is included, the request will return information
+        /// with the same parameters and a token is included, the request returns information
         /// about the initial request that used that token.</para>
         /// </para>
         /// </summary>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter Location_FilePosition
         /// <summary>
         /// <para>
-        /// <para>The position of a change within a compared file, in line number format.</para>
+        /// <para>The position of a change in a compared file, in line number format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter Location_RelativeFileVersion
         /// <summary>
         /// <para>
-        /// <para>In a comparison of commits or a pull request, whether the change is in the 'before'
-        /// or 'after' of that comparison.</para>
+        /// <para>In a comparison of commits or a pull request, whether the change is in the before
+        /// or after of that comparison.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Returns the logging status of a bucket and the permissions users have to view and
     /// modify that status. To use GET, you must be the bucket owner.
+    /// 
+    ///  
+    /// <para>
+    /// The following operations are related to <code>GetBucketLogging</code>:
+    /// </para><ul><li><para><a>CreateBucket</a></para></li><li><para><a>PutBucketLogging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketLogging")]
     [OutputType("Amazon.S3.Model.S3BucketLoggingConfig")]

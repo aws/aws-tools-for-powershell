@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Elastic Container Service for Kubernetes
 
 
+$EKS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.EKS.AMITypes
+        "New-EKSNodegroup/AmiType"
+        {
+            $v = "AL2_x86_64","AL2_x86_64_GPU"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EKS_map = @{
+    "AmiType"=@("New-EKSNodegroup")
+}
+
+_awsArgumentCompleterRegistration $EKS_Completers $EKS_map
+
 $EKS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -124,16 +150,22 @@ $EKS_SelectCompleters = {
 
 $EKS_SelectMap = @{
     "Select"=@("New-EKSCluster",
+               "New-EKSNodegroup",
                "Remove-EKSCluster",
+               "Remove-EKSNodegroup",
                "Get-EKSCluster",
+               "Get-EKSNodegroup",
                "Get-EKSUpdate",
                "Get-EKSClusterList",
+               "Get-EKSNodegroupList",
                "Get-EKSResourceTag",
                "Get-EKSUpdateList",
                "Add-EKSResourceTag",
                "Remove-EKSResourceTag",
                "Update-EKSClusterConfig",
-               "Update-EKSClusterVersion")
+               "Update-EKSClusterVersion",
+               "Update-EKSNodegroupConfig",
+               "Update-EKSNodegroupVersion")
 }
 
 _awsArgumentCompleterRegistration $EKS_SelectCompleters $EKS_SelectMap

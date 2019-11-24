@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
-        /// which will return a not mergeable result if the same file has differences in both
-        /// branches. If LINE_LEVEL is specified, a conflict will be considered not mergeable
-        /// if the same file in both branches has differences on the same line.</para>
+        /// which returns a not-mergeable result if the same file has differences in both branches.
+        /// If LINE_LEVEL is specified, a conflict is considered not mergeable if the same file
+        /// in both branches has differences on the same line.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>
         /// <para>Specifies which branch to use when resolving conflicts, or whether to attempt automatically
         /// merging two versions of a file. The default is NONE, which requires any conflicts
-        /// to be resolved manually before the merge operation will be successful.</para>
+        /// to be resolved manually before the merge operation is successful.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter DestinationCommitSpecifier
         /// <summary>
         /// <para>
-        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
-        /// For example, a branch name or a full commit ID.</para>
+        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+        /// (for example, a branch name or a full commit ID).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter SourceCommitSpecifier
         /// <summary>
         /// <para>
-        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
-        /// For example, a branch name or a full commit ID.</para>
+        /// <para>The branch, tag, HEAD, or other fully qualified reference used to identify a commit
+        /// (for example, a branch name or a full commit ID).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An enumeration token that when provided in a request, returns the next batch of the
+        /// <para>An enumeration token that, when provided in a request, returns the next batch of the
         /// results.</para>
         /// </para>
         /// <para>

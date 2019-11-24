@@ -107,7 +107,7 @@ $CGIP_Completers = {
             ($_ -eq "Start-CGIPAuthAdmin/AuthFlow")
         }
         {
-            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_AUTH","REFRESH_TOKEN","REFRESH_TOKEN_AUTH","USER_PASSWORD_AUTH","USER_SRP_AUTH"
+            $v = "ADMIN_NO_SRP_AUTH","ADMIN_USER_PASSWORD_AUTH","CUSTOM_AUTH","REFRESH_TOKEN","REFRESH_TOKEN_AUTH","USER_PASSWORD_AUTH","USER_SRP_AUTH"
             break
         }
 
@@ -182,6 +182,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.PreventUserExistenceErrorTypes
+        {
+            ($_ -eq "New-CGIPUserPoolClient/PreventUserExistenceErrors") -Or
+            ($_ -eq "Update-CGIPUserPoolClient/PreventUserExistenceErrors")
+        }
+        {
+            $v = "ENABLED","LEGACY"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.UserPoolMfaType
         {
             ($_ -eq "New-CGIPUserPool/MfaConfiguration") -Or
@@ -213,6 +223,7 @@ $CGIP_map = @{
     "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")
     "MessageAction"=@("New-CGIPUserAdmin")
     "MfaConfiguration"=@("New-CGIPUserPool","Set-CGIPUserPoolMfaConfig","Update-CGIPUserPool")
+    "PreventUserExistenceErrors"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
     "UserPoolAddOns_AdvancedSecurityMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "VerificationMessageTemplate_DefaultEmailOption"=@("New-CGIPUserPool","Update-CGIPUserPool")

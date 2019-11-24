@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// specified gateway. Detaching and attaching a volume enables you to recover your data
     /// from one gateway to a different gateway without creating a snapshot. It also makes
     /// it easier to move your volumes from an on-premises gateway to a gateway hosted on
-    /// an Amazon EC2 instance.
+    /// an Amazon EC2 instance. This operation is only supported in the volume gateway type.
     /// </summary>
     [Cmdlet("Dismount", "SGVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

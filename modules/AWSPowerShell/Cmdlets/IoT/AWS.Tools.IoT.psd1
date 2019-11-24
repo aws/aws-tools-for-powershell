@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-IOTThingToThingGroup', 
         'Clear-IOTDefaultAuthorizer', 
         'Confirm-IOTCertificateTransfer', 
+        'Confirm-IOTTopicRuleDestination', 
         'Deny-IOTCertificateTransfer', 
         'Disable-IOTTopicRule', 
         'Dismount-IOTPolicy', 
@@ -115,6 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTBillingGroupList', 
         'Get-IOTCACertificate', 
         'Get-IOTCACertificateList', 
+        'Get-IOTCardinality', 
         'Get-IOTCertificate', 
         'Get-IOTCertificateList', 
         'Get-IOTCertificateListByCA', 
@@ -137,6 +139,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTOTAUpdate', 
         'Get-IOTOTAUpdateList', 
         'Get-IOTOutgoingCertificate', 
+        'Get-IOTPercentile', 
         'Get-IOTPolicy', 
         'Get-IOTPolicyList', 
         'Get-IOTPolicyPrincipalList', 
@@ -173,6 +176,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IOTThingType', 
         'Get-IOTThingTypeList', 
         'Get-IOTTopicRule', 
+        'Get-IOTTopicRuleDestination', 
+        'Get-IOTTopicRuleDestinationList', 
         'Get-IOTTopicRuleList', 
         'Get-IOTV2LoggingLevelList', 
         'Get-IOTV2LoggingOption', 
@@ -196,6 +201,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-IOTThingGroup', 
         'New-IOTThingType', 
         'New-IOTTopicRule', 
+        'New-IOTTopicRuleDestination', 
         'Register-IOTCACertificate', 
         'Register-IOTCertificate', 
         'Register-IOTThing', 
@@ -225,6 +231,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-IOTThingPrincipal', 
         'Remove-IOTThingType', 
         'Remove-IOTTopicRule', 
+        'Remove-IOTTopicRuleDestination', 
         'Remove-IOTV2LoggingLevel', 
         'Request-IOTCertificateTransfer', 
         'Search-IOTIndex', 
@@ -263,7 +270,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-IOTStream', 
         'Update-IOTThing', 
         'Update-IOTThingGroup', 
-        'Update-IOTThingGroupsForThing')
+        'Update-IOTThingGroupsForThing', 
+        'Update-IOTTopicRuleDestination')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -297,7 +305,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     PrivateData = @{
 
         PSData = @{
-            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS')
+            Tags = @('AWS', 'cloud', 'Windows', 'PSEdition_Desktop', 'PSEdition_Core', 'Linux', 'MacOS', 'Mac')
             LicenseUri = 'https://aws.amazon.com/apache-2-0/'
             ProjectUri = 'https://github.com/aws/aws-tools-for-powershell'
             IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// you don't specify values for required fields, Amazon Lex throws an exception.
     /// </para><para>
     /// This operation requires permissions for the <code>lex:PutBot</code> action. For more
-    /// information, see <a>auth-and-access-control</a>.
+    /// information, see <a>security-iam</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "LMBBot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,7 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// a few more times. </para><para>For example, in a pizza ordering application, <code>OrderPizza</code> might be one
         /// of the intents. This intent might require the <code>CrustType</code> slot. You specify
         /// the <code>valueElicitationPrompt</code> field when you create the <code>CrustType</code>
-        /// slot.</para>
+        /// slot.</para><para>If you have defined a fallback intent the abort statement will not be sent to the
+        /// user, the fallback intent is used instead. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html">
+        /// AMAZON.FallbackIntent</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter CreateVersion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>When set to <code>true</code> a new numbered version of the bot is created. This is
+        /// the same as calling the <code>CreateBotVersion</code> operation. If you don't specify
+        /// <code>createVersion</code>, the default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,6 +147,17 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DetectSentiment
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code> user utterances are sent to Amazon Comprehend for sentiment
+        /// analysis. If you don't specify <code>detectSentiment</code>, the default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DetectSentiment { get; set; }
         #endregion
         
         #region Parameter IdleSessionTTLInSecond
@@ -264,8 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <para>
         /// <para>The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with
         /// the user. The locale configured for the voice must match the locale of the bot. For
-        /// more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available
-        /// Voices</a> in the <i>Amazon Polly Developer Guide</i>.</para>
+        /// more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Voices
+        /// in Amazon Polly</a> in the <i>Amazon Polly Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             context.ClarificationPrompt_ResponseCard = this.ClarificationPrompt_ResponseCard;
             context.CreateVersion = this.CreateVersion;
             context.Description = this.Description;
+            context.DetectSentiment = this.DetectSentiment;
             context.IdleSessionTTLInSecond = this.IdleSessionTTLInSecond;
             if (this.Intent != null)
             {
@@ -446,6 +462,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.DetectSentiment != null)
+            {
+                request.DetectSentiment = cmdletContext.DetectSentiment.Value;
+            }
             if (cmdletContext.IdleSessionTTLInSecond != null)
             {
                 request.IdleSessionTTLInSeconds = cmdletContext.IdleSessionTTLInSecond.Value;
@@ -539,6 +559,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public System.String ClarificationPrompt_ResponseCard { get; set; }
             public System.Boolean? CreateVersion { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DetectSentiment { get; set; }
             public System.Int32? IdleSessionTTLInSecond { get; set; }
             public List<Amazon.LexModelBuildingService.Model.Intent> Intent { get; set; }
             public Amazon.LexModelBuildingService.Locale Locale { get; set; }

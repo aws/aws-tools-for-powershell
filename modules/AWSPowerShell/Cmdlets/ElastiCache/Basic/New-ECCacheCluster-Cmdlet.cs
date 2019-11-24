@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AuthToken
         /// <summary>
         /// <para>
-        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@'. </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
+        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>The only permitted printable special characters are !, &amp;, #, $, ^, &lt;, &gt;,
+        /// and -. Other printable special characters cannot be used in the AUTH token.</para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
         /// at http://redis.io/commands/AUTH.</para>
         /// </para>
         /// </summary>

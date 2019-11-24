@@ -28,9 +28,9 @@ using Amazon.ForecastService.Model;
 namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
-    /// Creates an Amazon Forecast dataset group, which holds a collection of related datasets.
-    /// You can add datasets to the dataset group when you create the dataset group, or you
-    /// can add datasets later with the <a>UpdateDatasetGroup</a> operation.
+    /// Creates a dataset group, which holds a collection of related datasets. You can add
+    /// datasets to the dataset group when you create the dataset group, or later by using
+    /// the <a>UpdateDatasetGroup</a> operation.
     /// 
     ///  
     /// <para>
@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// To get a list of all your datasets groups, use the <a>ListDatasetGroups</a> operation.
     /// </para><note><para>
     /// The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you
-    /// can create a predictor using the dataset group. Use the <a>DescribeDatasetGroup</a>
-    /// operation to get the status.
+    /// can create use the dataset group to create a predictor. To get the status, use the
+    /// <a>DescribeDatasetGroup</a> operation.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "FRCDatasetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -86,12 +86,14 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The domain associated with the dataset group. The <code>Domain</code> and <code>DatasetType</code>
-        /// that you choose determine the fields that must be present in the training data that
-        /// you import to the dataset. For example, if you choose the <code>RETAIL</code> domain
-        /// and <code>TARGET_TIME_SERIES</code> as the <code>DatasetType</code>, Amazon Forecast
-        /// requires <code>item_id</code>, <code>timestamp</code>, and <code>demand</code> fields
-        /// to be present in your data. For more information, see <a>howitworks-datasets-groups</a>.</para>
+        /// <para>The domain associated with the dataset group. When you add a dataset to a dataset
+        /// group, this value and the value specified for the <code>Domain</code> parameter of
+        /// the <a>CreateDataset</a> operation must match.</para><para>The <code>Domain</code> and <code>DatasetType</code> that you choose determine the
+        /// fields that must be present in training data that you import to a dataset. For example,
+        /// if you choose the <code>RETAIL</code> domain and <code>TARGET_TIME_SERIES</code> as
+        /// the <code>DatasetType</code>, Amazon Forecast requires that <code>item_id</code>,
+        /// <code>timestamp</code>, and <code>demand</code> fields are present in your data. For
+        /// more information, see <a>howitworks-datasets-groups</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

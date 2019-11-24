@@ -28,8 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Allocates a Dedicated Host to your account. At a minimum, specify the instance size
-    /// type, Availability Zone, and quantity of hosts to allocate.
+    /// Allocates a Dedicated Host to your account. At a minimum, specify the supported instance
+    /// type or instance family, the Availability Zone in which to allocate the host, and
+    /// the number of hosts to allocate.
     /// </summary>
     [Cmdlet("New", "EC2Host", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -98,22 +99,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.HostRecovery HostRecovery { get; set; }
         #endregion
         
+        #region Parameter InstanceFamily
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the instance family to be supported by the Dedicated Hosts. If you specify
+        /// an instance family, the Dedicated Hosts support multiple instance types within that
+        /// instance family.</para><para>If you want the Dedicated Hosts to support a specific instance type only, omit this
+        /// parameter and specify <b>InstanceType</b> instead. You cannot specify <b>InstanceFamily</b>
+        /// and <b>InstanceType</b> in the same request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceFamily { get; set; }
+        #endregion
+        
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>Specifies the instance type for which to configure your Dedicated Hosts. When you
-        /// specify the instance type, that is the only instance type that you can launch onto
-        /// that host.</para>
+        /// <para>Specifies the instance type to be supported by the Dedicated Hosts. If you specify
+        /// an instance type, the Dedicated Hosts support instances of the specified instance
+        /// type only.</para><para>If you want the Dedicated Hosts to support multiple instance types in a specific instance
+        /// family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot
+        /// specify <b>InstanceType</b> and <b>InstanceFamily</b> in the same request.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceType { get; set; }
         #endregion
         
@@ -215,13 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.ClientToken = this.ClientToken;
             context.HostRecovery = this.HostRecovery;
+            context.InstanceFamily = this.InstanceFamily;
             context.InstanceType = this.InstanceType;
-            #if MODULAR
-            if (this.InstanceType == null && ParameterWasBound(nameof(this.InstanceType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Quantity = this.Quantity;
             #if MODULAR
             if (this.Quantity == null && ParameterWasBound(nameof(this.Quantity)))
@@ -264,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.HostRecovery != null)
             {
                 request.HostRecovery = cmdletContext.HostRecovery;
+            }
+            if (cmdletContext.InstanceFamily != null)
+            {
+                request.InstanceFamily = cmdletContext.InstanceFamily;
             }
             if (cmdletContext.InstanceType != null)
             {
@@ -342,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String AvailabilityZone { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.EC2.HostRecovery HostRecovery { get; set; }
+            public System.String InstanceFamily { get; set; }
             public System.String InstanceType { get; set; }
             public System.Int32? Quantity { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
 {
     /// <summary>
     /// Returns a list of forecast export jobs created using the <a>CreateForecastExportJob</a>
-    /// operation. For each forecast export job, a summary of its properties, including its
-    /// Amazon Resource Name (ARN), is returned. You can retrieve the complete set of properties
-    /// by using the ARN with the <a>DescribeForecastExportJob</a> operation. The list can
-    /// be filtered using an array of <a>Filter</a> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// operation. For each forecast export job, this operation returns a summary of its properties,
+    /// including its Amazon Resource Name (ARN). To retrieve the complete set of properties,
+    /// use the ARN with the <a>DescribeForecastExportJob</a> operation. You can filter the
+    /// list using an array of <a>Filter</a> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FRCForecastExportJobList")]
     [OutputType("Amazon.ForecastService.Model.ForecastExportJobSummary")]
@@ -49,10 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         /// <para>
         /// <para>An array of filters. For each filter, you provide a condition and a match statement.
         /// The condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether
-        /// to include or exclude, respectively, from the list, the predictors that match the
-        /// statement. The match statement consists of a key and a value. In this release, <code>Name</code>
-        /// is the only valid key, which filters on the <code>ForecastExportJobName</code> property.</para><ul><li><para><code>Condition</code> - <code>IS</code> or <code>IS_NOT</code></para></li><li><para><code>Key</code> - <code>Name</code></para></li><li><para><code>Value</code> - the value to match</para></li></ul><para>For example, to list all forecast export jobs named <i>my_forecast_export_job</i>,
-        /// you would specify:</para><para><code>"Filters": [ { "Condition": "IS", "Key": "Name", "Value": "my_forecast_export_job"
+        /// to include or exclude the forecast export jobs that match the statement from the list,
+        /// respectively. The match statement consists of a key and a value.</para><para><b>Filter properties</b></para><ul><li><para><code>Condition</code> - The condition to apply. Valid values are <code>IS</code>
+        /// and <code>IS_NOT</code>. To include the forecast export jobs that match the statement,
+        /// specify <code>IS</code>. To exclude matching forecast export jobs, specify <code>IS_NOT</code>.</para></li><li><para><code>Key</code> - The name of the parameter to filter on. Valid values are <code>ForecastArn</code>
+        /// and <code>Status</code>.</para></li><li><para><code>Value</code> - The value to match.</para></li></ul><para>For example, to list all jobs that export a forecast named <i>electricityforecast</i>,
+        /// specify the following filter:</para><para><code>"Filters": [ { "Condition": "IS", "Key": "ForecastArn", "Value": "arn:aws:forecast:us-west-2:&lt;acct-id&gt;:forecast/electricityforecast"
         /// } ]</code></para>
         /// </para>
         /// </summary>

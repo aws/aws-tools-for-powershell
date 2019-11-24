@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
     /// Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can
-    /// use for the network management interface when you enable bring your own license (BYOL).
+    /// use for the network management interface when you enable Bring Your Own License (BYOL).
     /// 
     /// 
     ///  

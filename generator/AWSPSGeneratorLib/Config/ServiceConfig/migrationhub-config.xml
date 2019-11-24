@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>migrationhub-config</C2jFilename>
+    <AssemblyName>MigrationHubConfig</AssemblyName>
+    <ServiceNounPrefix>MHC</ServiceNounPrefix>
+    <ServiceName>AWS Migration Hub Config</ServiceName>
+    <ServiceClientInterface>IAmazonMigrationHubConfig</ServiceClientInterface>
+    <ServiceClient>AmazonMigrationHubConfigClient</ServiceClient>
+    <ServiceModuleGuid>61f5cd76-24e1-4047-947b-cd54fb56faf1</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateHomeRegionControl" OutputProperty="HomeRegionControl" Verb="New" Noun="HomeRegionControl" ShouldProcessTarget="Target_Id" PipelineParameter="HomeRegion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHomeRegionControls" OutputProperty="HomeRegionControls" Verb="Get" Noun="HomeRegionControl" PipelineParameter="HomeRegion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHomeRegion" OutputProperty="HomeRegion" Verb="Get" Noun="HomeRegion" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

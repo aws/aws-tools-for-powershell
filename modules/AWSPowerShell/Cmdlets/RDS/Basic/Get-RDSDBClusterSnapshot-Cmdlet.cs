@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter
         /// can't be used in conjunction with the <code>DBClusterSnapshotIdentifier</code> parameter.
-        /// This parameter is not case-sensitive. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBCluster.</para></li></ul>
+        /// This parameter isn't case-sensitive. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBCluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that you can retrieve the remaining results. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// included in the response so you can retrieve the remaining results. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

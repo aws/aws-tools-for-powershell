@@ -28,8 +28,8 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Removes one or more tags (keys and values) from an application, campaign, message
-    /// template, or segment.
+    /// Removes one or more tags (keys and values) from an application, campaign, journey,
+    /// message template, or segment.
     /// </summary>
     [Cmdlet("Remove", "PINResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the application, campaign, message template, or
-        /// segment.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The key of the tag to remove from the application, campaign, message template, or
-        /// segment. To remove multiple tags, append the tagKeys parameter and argument for each
-        /// additional tag to remove, separated by an ampersand (&amp;).</para>
+        /// <para>The key of the tag to remove from the resource. To remove multiple tags, append the
+        /// tagKeys parameter and argument for each additional tag to remove, separated by an
+        /// ampersand (&amp;).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

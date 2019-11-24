@@ -66,7 +66,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
     /// <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
     /// Signature Version 4 Signing Process</a>.
-    /// </para></li><li><para><code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy
+    /// </para><note><para>
+    /// If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code>
+    /// (or <code>--source-region</code> for the AWS CLI) instead of specifying <code>PreSignedUrl</code>
+    /// manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that
+    /// is a valid request for the operation that can be executed in the source AWS Region.
+    /// </para></note></li><li><para><code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy
     /// of the DB cluster snapshot in the destination AWS Region.
     /// </para></li><li><para><code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier
     /// for the encrypted DB cluster snapshot to be copied. This identifier must be in the
@@ -134,7 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code>
         /// API action in the AWS Region that contains the source DB cluster snapshot to copy.
         /// The <code>PreSignedUrl</code> parameter must be used when copying an encrypted DB
-        /// cluster snapshot from another AWS Region.</para><para>The pre-signed URL must be a valid request for the <code>CopyDBSClusterSnapshot</code>
+        /// cluster snapshot from another AWS Region. Don't specify <code>PreSignedUrl</code>
+        /// when you are copying an encrypted DB cluster snapshot in the same AWS Region.</para><para>The pre-signed URL must be a valid request for the <code>CopyDBSClusterSnapshot</code>
         /// API action that can be executed in the source AWS Region that contains the encrypted
         /// DB cluster snapshot to be copied. The pre-signed URL request must contain the following
         /// parameter values:</para><ul><li><para><code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt
@@ -148,7 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <code>SourceDBClusterSnapshotIdentifier</code> looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:aurora-cluster1-snapshot-20161115</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
         /// Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
         /// <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-        /// Signature Version 4 Signing Process</a>.</para>
+        /// Signature Version 4 Signing Process</a>.</para><note><para>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code>
+        /// (or <code>--source-region</code> for the AWS CLI) instead of specifying <code>PreSignedUrl</code>
+        /// manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that
+        /// is a valid request for the operation that can be executed in the source AWS Region.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case-sensitive.</para><para>You can't copy an encrypted, shared DB cluster snapshot from one AWS Region to another.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot
+        /// <para>The identifier of the DB cluster snapshot to copy. This parameter isn't case-sensitive.</para><para>You can't copy an encrypted, shared DB cluster snapshot from one AWS Region to another.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot
         /// identifier.</para></li><li><para>If the source snapshot is in a different AWS Region than the copy, specify a valid
         /// DB cluster snapshot ARN. For more information, go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CopySnapshot.html#USER_CopySnapshot.AcrossRegions">
         /// Copying Snapshots Across AWS Regions</a> in the <i>Amazon Aurora User Guide.</i></para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
@@ -203,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The identifier of the new DB cluster snapshot to create from the source DB cluster
-        /// snapshot. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster-snapshot2</code></para>
+        /// snapshot. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster-snapshot2</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

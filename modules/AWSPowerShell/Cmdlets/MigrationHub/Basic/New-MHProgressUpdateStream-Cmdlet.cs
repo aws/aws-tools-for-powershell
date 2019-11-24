@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
         #region Parameter ProgressUpdateStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the ProgressUpdateStream. </para>
+        /// <para>The name of the ProgressUpdateStream. <i>Do not store personal data in this field.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR

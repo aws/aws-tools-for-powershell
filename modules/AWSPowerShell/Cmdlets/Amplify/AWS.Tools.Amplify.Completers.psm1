@@ -80,13 +80,6 @@ $AMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.Amplify.ArtifactType
-        "Get-AMPArtifactList/ArtifactType"
-        {
-            $v = "TEST"
-            break
-        }
-
         # Amazon.Amplify.JobType
         "Start-AMPJob/JobType"
         {
@@ -125,7 +118,6 @@ $AMP_Completers = {
 }
 
 $AMP_map = @{
-    "ArtifactType"=@("Get-AMPArtifactList")
     "AutoBranchCreationConfig_Stage"=@("New-AMPApp","Update-AMPApp")
     "JobType"=@("Start-AMPJob")
     "Platform"=@("New-AMPApp","Update-AMPApp")
@@ -183,11 +175,13 @@ $AMP_SelectCompleters = {
 
 $AMP_SelectMap = @{
     "Select"=@("New-AMPApp",
+               "New-AMPBackendEnvironment",
                "New-AMPBranch",
                "New-AMPDeployment",
                "New-AMPDomainAssociation",
                "New-AMPWebhook",
                "Remove-AMPApp",
+               "Remove-AMPBackendEnvironment",
                "Remove-AMPBranch",
                "Remove-AMPDomainAssociation",
                "Remove-AMPJob",
@@ -195,12 +189,14 @@ $AMP_SelectMap = @{
                "New-AMPAccessLog",
                "Get-AMPApp",
                "Get-AMPArtifactUrl",
+               "Get-AMPBackendEnvironment",
                "Get-AMPBranch",
                "Get-AMPDomainAssociation",
                "Get-AMPJob",
                "Get-AMPWebhook",
                "Get-AMPAppList",
                "Get-AMPArtifactList",
+               "Get-AMPBackendEnvironmentList",
                "Get-AMPBranchList",
                "Get-AMPDomainAssociationList",
                "Get-AMPJobList",

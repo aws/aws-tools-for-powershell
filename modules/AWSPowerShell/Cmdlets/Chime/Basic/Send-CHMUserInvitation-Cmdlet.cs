@@ -28,9 +28,9 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Sends email invites to as many as 50 users, inviting them to the specified Amazon
-    /// Chime <code>Team</code> account. Only <code>Team</code> account types are currently
-    /// supported for this action.
+    /// Sends email to a maximum of 50 users, inviting them to the specified Amazon Chime
+    /// <code>Team</code> account. Only <code>Team</code> account types are currently supported
+    /// for this action.
     /// </summary>
     [Cmdlet("Send", "CHMUserInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.Invite")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter UserEmailList
         /// <summary>
         /// <para>
-        /// <para>The user email addresses to which to send the invite.</para>
+        /// <para>The user email addresses to which to send the email invitation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

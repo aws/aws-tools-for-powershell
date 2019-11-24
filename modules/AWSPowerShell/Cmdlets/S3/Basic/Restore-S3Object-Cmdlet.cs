@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Restores an archived copy of an object back into Amazon S3
+    /// Amazon.S3.IAmazonS3.RestoreObject
     /// </summary>
     [Cmdlet("Restore", "S3Object", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.Model.RestoreObjectResponse")]

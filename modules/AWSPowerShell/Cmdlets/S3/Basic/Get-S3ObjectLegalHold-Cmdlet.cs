@@ -28,7 +28,8 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Gets an object's current Legal Hold status.
+    /// Gets an object's current Legal Hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
+    /// Objects</a>.
     /// </summary>
     [Cmdlet("Get", "S3ObjectLegalHold")]
     [OutputType("Amazon.S3.Model.ObjectLockLegalHold")]

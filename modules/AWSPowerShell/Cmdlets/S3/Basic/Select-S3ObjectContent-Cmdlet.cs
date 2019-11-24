@@ -28,12 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// This operation filters the contents of an Amazon S3 object based on a simple Structured
-    /// Query Language (SQL) statement. In the request, along with the SQL expression, you
-    /// must also specify a data serialization format (JSON or CSV) of the object. Amazon
-    /// S3 uses this to parse object data into records, and returns only records that match
-    /// the specified SQL expression. You must also specify the data serialization format
-    /// for the response.
+    /// Amazon.S3.IAmazonS3.SelectObjectContent
     /// </summary>
     [Cmdlet("Select", "S3ObjectContent")]
     [OutputType("Amazon.S3.Model.ISelectObjectContentEventStream")]

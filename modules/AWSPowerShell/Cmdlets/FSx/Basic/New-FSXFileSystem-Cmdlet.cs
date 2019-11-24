@@ -135,9 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>The storage capacity of the file system being created.</para><para>For Windows file systems, the storage capacity has a minimum of 300 GiB, and a maximum
-        /// of 65,536 GiB.</para><para>For Lustre file systems, the storage capacity has a minimum of 3,600 GiB. Storage
-        /// capacity is provisioned in increments of 3,600 GiB.</para>
+        /// <para>The storage capacity of the file system being created.</para><para>For Windows file systems, valid values are 32 GiB - 65,536 GiB.</para><para>For Lustre file systems, valid values are 1,200, 2,400, 3,600, then continuing in
+        /// increments of 3600 GiB.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,9 +152,13 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets that the file system will be accessible from. File systems
-        /// support only one subnet. The file server is also launched in that subnet's Availability
-        /// Zone.</para>
+        /// <para>Specifies the IDs of the subnets that the file system will be accessible from. For
+        /// Windows <code>MULTI_AZ_1</code> file system deployment types, provide exactly two
+        /// subnet IDs, one for the preferred file server and one for the standy file server.
+        /// You specify one of these subnets as the preferred subnet using the <code>WindowsConfiguration
+        /// &gt; PreferredSubnetID</code> property.</para><para>For Windows <code>SINGLE_AZ_1</code> file system deployment types and Lustre file
+        /// systems, provide exactly one subnet ID. The file server is launched in that subnet's
+        /// Availability Zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

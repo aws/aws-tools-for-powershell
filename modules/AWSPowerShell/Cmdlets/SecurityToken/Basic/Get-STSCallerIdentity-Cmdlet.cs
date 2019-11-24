@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// action, you can still perform this operation. Permissions are not required because
     /// the same information is returned when an IAM user or role is denied access. To view
     /// an example response, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa">I
-    /// Am Not Authorized to Perform: iam:DeleteVirtualMFADevice</a>.
+    /// Am Not Authorized to Perform: iam:DeleteVirtualMFADevice</a> in the <i>IAM User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "STSCallerIdentity")]

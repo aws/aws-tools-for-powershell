@@ -326,6 +326,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.TopicRuleDestinationStatus
+        "Update-IOTTopicRuleDestination/Status"
+        {
+            $v = "DISABLED","ENABLED","ERROR","IN_PROGRESS"
+            break
+        }
+
 
     }
 
@@ -351,7 +358,7 @@ $IOT_map = @{
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
     "OtaUpdateStatus"=@("Get-IOTOTAUpdateList")
     "ReportType"=@("Get-IOTThingRegistrationTaskReportList")
-    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Update-IOTAuthorizer")
+    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
     "TargetSelection"=@("Get-IOTJobList","New-IOTJob","New-IOTOTAUpdate")
     "TargetType"=@("Get-IOTV2LoggingLevelList","Remove-IOTV2LoggingLevel")
     "TaskStatus"=@("Get-IOTAuditMitigationActionsTaskList","Get-IOTTaskList")
@@ -429,6 +436,7 @@ $IOT_SelectMap = @{
                "Stop-IOTJob",
                "Stop-IOTJobExecution",
                "Clear-IOTDefaultAuthorizer",
+               "Confirm-IOTTopicRuleDestination",
                "New-IOTAuthorizer",
                "New-IOTBillingGroup",
                "New-IOTCertificateFromCsr",
@@ -447,6 +455,7 @@ $IOT_SelectMap = @{
                "New-IOTThingGroup",
                "New-IOTThingType",
                "New-IOTTopicRule",
+               "New-IOTTopicRuleDestination",
                "Remove-IOTAccountAuditConfiguration",
                "Remove-IOTAuthorizer",
                "Remove-IOTBillingGroup",
@@ -468,6 +477,7 @@ $IOT_SelectMap = @{
                "Remove-IOTThingGroup",
                "Remove-IOTThingType",
                "Remove-IOTTopicRule",
+               "Remove-IOTTopicRuleDestination",
                "Remove-IOTV2LoggingLevel",
                "Set-IOTThingTypeDeprecation",
                "Get-IOTAccountAuditConfiguration",
@@ -499,16 +509,19 @@ $IOT_SelectMap = @{
                "Remove-IOTThingPrincipal",
                "Disable-IOTTopicRule",
                "Enable-IOTTopicRule",
+               "Get-IOTCardinality",
                "Get-IOTEffectivePolicy",
                "Get-IOTIndexingConfiguration",
                "Get-IOTJobDocument",
                "Get-IOTLoggingOption",
                "Get-IOTOTAUpdate",
+               "Get-IOTPercentile",
                "Get-IOTPolicy",
                "Get-IOTPolicyVersion",
                "Get-IOTRegistrationCode",
                "Get-IOTStatistic",
                "Get-IOTTopicRule",
+               "Get-IOTTopicRuleDestination",
                "Get-IOTV2LoggingOption",
                "Get-IOTActiveViolationList",
                "Get-IOTAttachedPolicyList",
@@ -550,6 +563,7 @@ $IOT_SelectMap = @{
                "Get-IOTThingsInBillingGroupList",
                "Get-IOTThingsInThingGroupList",
                "Get-IOTThingTypeList",
+               "Get-IOTTopicRuleDestinationList",
                "Get-IOTTopicRuleList",
                "Get-IOTV2LoggingLevelList",
                "Get-IOTViolationEventList",
@@ -592,6 +606,7 @@ $IOT_SelectMap = @{
                "Update-IOTThing",
                "Update-IOTThingGroup",
                "Update-IOTThingGroupsForThing",
+               "Update-IOTTopicRuleDestination",
                "Test-IOTValidSecurityProfileBehavior")
 }
 

@@ -44,6 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     public partial class UpdateCGIIdentityPoolCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowClassicFlow
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables the Basic (Classic) authentication flow. For more information,
+        /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity
+        /// Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer
+        /// Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AllowClassicFlow { get; set; }
+        #endregion
+        
         #region Parameter AllowUnauthenticatedIdentity
         /// <summary>
         /// <para>
@@ -221,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 context.Select = (response, cmdlet) => this.IdentityPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowClassicFlow = this.AllowClassicFlow;
             context.AllowUnauthenticatedIdentity = this.AllowUnauthenticatedIdentity;
             #if MODULAR
             if (this.AllowUnauthenticatedIdentity == null && ParameterWasBound(nameof(this.AllowUnauthenticatedIdentity)))
@@ -287,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             // create request
             var request = new Amazon.CognitoIdentity.Model.UpdateIdentityPoolRequest();
             
+            if (cmdletContext.AllowClassicFlow != null)
+            {
+                request.AllowClassicFlow = cmdletContext.AllowClassicFlow.Value;
+            }
             if (cmdletContext.AllowUnauthenticatedIdentity != null)
             {
                 request.AllowUnauthenticatedIdentities = cmdletContext.AllowUnauthenticatedIdentity.Value;
@@ -384,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AllowClassicFlow { get; set; }
             public System.Boolean? AllowUnauthenticatedIdentity { get; set; }
             public List<Amazon.CognitoIdentity.Model.CognitoIdentityProviderInfo> CognitoIdentityProvider { get; set; }
             public System.String DeveloperProviderName { get; set; }

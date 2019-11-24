@@ -29,7 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Gets a metrics configuration (specified by the metrics configuration ID) from the
-    /// bucket.
+    /// bucket. Note that this doesn't include the daily storage metrics.
+    /// 
+    ///  
+    /// <para>
+    ///  To use this operation, you must have permissions to perform the <code>s3:GetMetricsConfiguration</code>
+    /// action. The bucket owner has this permission by default. The bucket owner can grant
+    /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
+    /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// </para><para>
+    ///  For information about CloudWatch request metrics for Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
+    /// Metrics with Amazon CloudWatch</a>.
+    /// </para><para>
+    /// The following operations are related to <code>GetBucketMetricsConfiguration</code>:
+    /// </para><ul><li><para><a>PutBucketMetricsConfiguration</a></para></li><li><para><a>DeleteBucketMetricsConfiguration</a></para></li><li><para><a>ListBucketMetricsConfigurations</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
+    /// Metrics with Amazon CloudWatch</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketMetricsConfiguration")]
     [OutputType("Amazon.S3.Model.MetricsConfiguration")]

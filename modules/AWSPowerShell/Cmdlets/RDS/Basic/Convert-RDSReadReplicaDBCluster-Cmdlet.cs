@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster Read Replica to promote. This parameter is not case-sensitive.
+        /// <para>The identifier of the DB cluster Read Replica to promote. This parameter isn't case-sensitive.
         /// </para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBCluster Read Replica.</para></li></ul><para>Example: <code>my-cluster-replica1</code></para>
         /// </para>
         /// </summary>

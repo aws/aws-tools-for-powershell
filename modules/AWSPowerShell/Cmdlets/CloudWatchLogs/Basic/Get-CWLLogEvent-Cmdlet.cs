@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
-        /// call.)</para>
+        /// call.)</para><para>Using this token works only when you specify <code>true</code> for <code>startFromHead</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

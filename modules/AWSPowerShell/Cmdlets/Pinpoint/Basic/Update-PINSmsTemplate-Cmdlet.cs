@@ -51,6 +51,21 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String SMSTemplateRequest_Body { get; set; }
         #endregion
         
+        #region Parameter SMSTemplateRequest_DefaultSubstitution
+        /// <summary>
+        /// <para>
+        /// <para>A JSON object that specifies the default values to use for message variables in the
+        /// message template. This object is a set of key-value pairs. Each key defines a message
+        /// variable in the template. The corresponding value defines the default value for that
+        /// variable. When you create a message that's based on the template, you can override
+        /// these defaults with message-specific and address-specific variables and values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SMSTemplateRequest_DefaultSubstitutions")]
+        public System.String SMSTemplateRequest_DefaultSubstitution { get; set; }
+        #endregion
+        
         #region Parameter SMSTemplateRequest_Tag
         /// <summary>
         /// <para>
@@ -62,6 +77,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SMSTemplateRequest_Tags")]
         public System.Collections.Hashtable SMSTemplateRequest_Tag { get; set; }
+        #endregion
+        
+        #region Parameter SMSTemplateRequest_TemplateDescription
+        /// <summary>
+        /// <para>
+        /// <para>A custom description of the message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SMSTemplateRequest_TemplateDescription { get; set; }
         #endregion
         
         #region Parameter TemplateName
@@ -145,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SMSTemplateRequest_Body = this.SMSTemplateRequest_Body;
+            context.SMSTemplateRequest_DefaultSubstitution = this.SMSTemplateRequest_DefaultSubstitution;
             if (this.SMSTemplateRequest_Tag != null)
             {
                 context.SMSTemplateRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -153,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.SMSTemplateRequest_Tag.Add((String)hashKey, (String)(this.SMSTemplateRequest_Tag[hashKey]));
                 }
             }
+            context.SMSTemplateRequest_TemplateDescription = this.SMSTemplateRequest_TemplateDescription;
             context.TemplateName = this.TemplateName;
             #if MODULAR
             if (this.TemplateName == null && ParameterWasBound(nameof(this.TemplateName)))
@@ -190,6 +217,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.SMSTemplateRequest.Body = requestSMSTemplateRequest_sMSTemplateRequest_Body;
                 requestSMSTemplateRequestIsNull = false;
             }
+            System.String requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution = null;
+            if (cmdletContext.SMSTemplateRequest_DefaultSubstitution != null)
+            {
+                requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution = cmdletContext.SMSTemplateRequest_DefaultSubstitution;
+            }
+            if (requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution != null)
+            {
+                request.SMSTemplateRequest.DefaultSubstitutions = requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution;
+                requestSMSTemplateRequestIsNull = false;
+            }
             Dictionary<System.String, System.String> requestSMSTemplateRequest_sMSTemplateRequest_Tag = null;
             if (cmdletContext.SMSTemplateRequest_Tag != null)
             {
@@ -198,6 +235,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSTemplateRequest_sMSTemplateRequest_Tag != null)
             {
                 request.SMSTemplateRequest.Tags = requestSMSTemplateRequest_sMSTemplateRequest_Tag;
+                requestSMSTemplateRequestIsNull = false;
+            }
+            System.String requestSMSTemplateRequest_sMSTemplateRequest_TemplateDescription = null;
+            if (cmdletContext.SMSTemplateRequest_TemplateDescription != null)
+            {
+                requestSMSTemplateRequest_sMSTemplateRequest_TemplateDescription = cmdletContext.SMSTemplateRequest_TemplateDescription;
+            }
+            if (requestSMSTemplateRequest_sMSTemplateRequest_TemplateDescription != null)
+            {
+                request.SMSTemplateRequest.TemplateDescription = requestSMSTemplateRequest_sMSTemplateRequest_TemplateDescription;
                 requestSMSTemplateRequestIsNull = false;
             }
              // determine if request.SMSTemplateRequest should be set to null
@@ -271,7 +318,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String SMSTemplateRequest_Body { get; set; }
+            public System.String SMSTemplateRequest_DefaultSubstitution { get; set; }
             public Dictionary<System.String, System.String> SMSTemplateRequest_Tag { get; set; }
+            public System.String SMSTemplateRequest_TemplateDescription { get; set; }
             public System.String TemplateName { get; set; }
             public System.Func<Amazon.Pinpoint.Model.UpdateSmsTemplateResponse, UpdatePINSmsTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MessageBody;

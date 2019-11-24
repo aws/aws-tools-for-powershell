@@ -29,8 +29,67 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Creates a replication configuration or replaces an existing one. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
-    /// Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a>
+    /// in the <i>Amazon S3 Developer Guide</i>. 
+    /// 
+    ///  <note><para>
+    /// To perform this operation, the user or role performing the operation must have the
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
+    /// permission.
+    /// </para></note><para>
+    /// Specify the replication configuration in the request body. In the replication configuration,
+    /// you provide the name of the destination bucket where you want Amazon S3 to replicate
+    /// objects, the IAM role that Amazon S3 can assume to replicate objects on your behalf,
+    /// and other relevant information.
+    /// </para><para>
+    /// A replication configuration must include at least one rule, and can contain a maximum
+    /// of 1,000. Each rule identifies a subset of objects to replicate by filtering the objects
+    /// in the source bucket. To choose additional subsets of objects to replicate, add a
+    /// rule for each subset. All rules must specify the same destination bucket.
+    /// </para><para>
+    /// To specify a subset of the objects in the source bucket to apply a replication rule
+    /// to, add the Filter element as a child of the Rule element. You can filter objects
+    /// based on an object key prefix, one or more object tags, or both. When you add the
+    /// Filter element in the configuration, you must also add the following elements: <code>DeleteMarkerReplication</code>,
+    /// <code>Status</code>, and <code>Priority</code>.
+    /// </para><para>
+    /// For information about enabling versioning on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Using
+    /// Versioning</a>.
+    /// </para><para>
+    /// By default, a resource owner, in this case the AWS account that created the bucket,
+    /// can perform this operation. The resource owner can also grant others permissions to
+    /// perform the operation. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+    /// Permissions in a Policy</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
+    /// Access Permissions to Your Amazon S3 Resources</a>.
+    /// </para><para><b>Handling Replication of Encrypted Objects</b></para><para>
+    /// By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side
+    /// encryption with CMKs stored in AWS KMS. To replicate AWS KMS-encrypted objects, add
+    /// the following: <code>SourceSelectionCriteria</code>, <code>SseKmsEncryptedObjects</code>,
+    /// <code>Status</code>, <code>EncryptionConfiguration</code>, and <code>ReplicaKmsKeyID</code>.
+    /// For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating
+    /// Objects Created with SSE Using CMKs stored in AWS KMS</a>.
+    /// </para><para><code>PutBucketReplication</code> has the following special errors:
+    /// </para><ul><li><para>
+    /// Error code: <code>InvalidRequest</code></para><ul><li><para>
+    /// Description: If the &lt;Owner&gt; in &lt;AccessControlTranslation&gt; has a value,
+    /// the &lt;Account&gt; element must be specified.
+    /// </para></li><li><para>
+    /// HTTP 400
+    /// </para></li></ul></li><li><para>
+    /// Error code: <code>InvalidArgument</code></para><ul><li><para>
+    /// Description: The &lt;Account&gt; element is empty. It must contain a valid account
+    /// ID.
+    /// </para></li><li><para>
+    /// HTTP 400
+    /// </para></li></ul></li><li><para>
+    /// Error code: <code>InvalidArgument</code></para><ul><li><para>
+    /// Description: The AWS account specified in the &lt;Account&gt; element must match the
+    /// destination bucket owner.
+    /// </para></li><li><para>
+    /// HTTP 400
+    /// </para></li></ul></li></ul><para>
+    /// The following operations are related to <code>PutBucketReplication</code>:
+    /// </para><ul><li><para><a>GetBucketReplication</a></para></li><li><para><a>DeleteBucketReplication</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

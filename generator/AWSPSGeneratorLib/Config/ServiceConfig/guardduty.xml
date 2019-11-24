@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePublishingDestination" OutputProperty="DestinationId" Verb="New" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSampleFindings" Verb="New" Noun="SampleFinding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -75,7 +79,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeletePublishingDestination" Verb="Remove" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteThreatIntelSet" Verb="Remove" Noun="ThreatIntelSet" ShouldProcessTarget="ThreatIntelSetId" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePublishingDestination" OutputProperty="*" Verb="Get" Noun="PublishingDestination" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,6 +163,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPublishingDestinations" OutputProperty="Destinations" Verb="Get" Noun="PublishingDestinationList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -192,6 +208,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIPSet" Verb="Update" Noun="IPSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePublishingDestination" Verb="Update" Noun="PublishingDestination" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

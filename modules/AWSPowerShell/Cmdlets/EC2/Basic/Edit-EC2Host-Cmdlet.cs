@@ -34,6 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// enabled. When auto-placement is disabled, you need to provide a host ID to have the
     /// instance launch onto a specific host. If no host ID is provided, the instance is launched
     /// onto a suitable host with auto-placement enabled.
+    /// 
+    ///  
+    /// <para>
+    /// You can also use this API action to modify a Dedicated Host to support either multiple
+    /// instance types in an instance family, or to support a specific instance type only.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2Host", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyHostsResponse")]
@@ -84,6 +90,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.HostRecovery")]
         public Amazon.EC2.HostRecovery HostRecovery { get; set; }
+        #endregion
+        
+        #region Parameter InstanceFamily
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the instance family to be supported by the Dedicated Host. Specify this
+        /// parameter to modify a Dedicated Host to support multiple instance types within its
+        /// current instance family.</para><para>If you want to modify a Dedicated Host to support a specific instance type only, omit
+        /// this parameter and specify <b>InstanceType</b> instead. You cannot specify <b>InstanceFamily</b>
+        /// and <b>InstanceType</b> in the same request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceFamily { get; set; }
+        #endregion
+        
+        #region Parameter InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the instance type to be supported by the Dedicated Host. Specify this parameter
+        /// to modify a Dedicated Host to support only a specific instance type.</para><para>If you want to modify a Dedicated Host to support multiple instance types in its current
+        /// instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You
+        /// cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the same request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,6 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.HostRecovery = this.HostRecovery;
+            context.InstanceFamily = this.InstanceFamily;
+            context.InstanceType = this.InstanceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,6 +221,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.HostRecovery != null)
             {
                 request.HostRecovery = cmdletContext.HostRecovery;
+            }
+            if (cmdletContext.InstanceFamily != null)
+            {
+                request.InstanceFamily = cmdletContext.InstanceFamily;
+            }
+            if (cmdletContext.InstanceType != null)
+            {
+                request.InstanceType = cmdletContext.InstanceType;
             }
             
             CmdletOutput output;
@@ -251,6 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.AutoPlacement AutoPlacement { get; set; }
             public List<System.String> HostId { get; set; }
             public Amazon.EC2.HostRecovery HostRecovery { get; set; }
+            public System.String InstanceFamily { get; set; }
+            public System.String InstanceType { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyHostsResponse, EditEC2HostCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -101,9 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The URL that contains a Signature Version 4 signed request for the <code>CopyDBSnapshot</code>
         /// API action in the source AWS Region that contains the source DB snapshot to copy.
         /// </para><para>You must specify this parameter when you copy an encrypted DB snapshot from another
-        /// AWS Region by using the Amazon RDS API. You can specify the <code>--source-region</code>
-        /// option instead of this parameter when you copy an encrypted DB snapshot from another
-        /// AWS Region by using the AWS CLI. </para><para>The presigned URL must be a valid request for the <code>CopyDBSnapshot</code> API
+        /// AWS Region by using the Amazon RDS API. Don't specify <code>PreSignedUrl</code> when
+        /// you are copying an encrypted DB snapshot in the same AWS Region.</para><para>The presigned URL must be a valid request for the <code>CopyDBSnapshot</code> API
         /// action that can be executed in the source AWS Region that contains the encrypted DB
         /// snapshot to be copied. The presigned URL request must contain the following parameter
         /// values: </para><ul><li><para><code>DestinationRegion</code> - The AWS Region that the encrypted DB snapshot is
@@ -122,7 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// like the following example: <code>arn:aws:rds:us-west-2:123456789012:snapshot:mysql-instance1-snapshot-20161115</code>.
         /// </para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
         /// Requests: Using Query Parameters (AWS Signature Version 4)</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
-        /// Version 4 Signing Process</a>. </para>
+        /// Version 4 Signing Process</a>. </para><note><para>If you are using an AWS SDK tool or the AWS CLI, you can specify <code>SourceRegion</code>
+        /// (or <code>--source-region</code> for the AWS CLI) instead of specifying <code>PreSignedUrl</code>
+        /// manually. Specifying <code>SourceRegion</code> autogenerates a pre-signed URL that
+        /// is a valid request for the operation that can be executed in the source AWS Region.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Returns some or all (up to 1000) of the objects in a bucket. You can use the request
-    /// parameters as selection criteria to return a subset of the objects in a bucket.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// parameters as selection criteria to return a subset of the objects in a bucket. A
+    /// 200 OK response can contain valid or invalid XML. Be sure to design your application
+    /// to parse the contents of the response and handle it appropriately.
+    /// 
+    ///  <important><para>
+    /// This API has been revised. We recommend that you use the newer version, <a>ListObjectsV2</a>,
+    /// when developing applications. For backward compatibility, Amazon S3 continues to support
+    /// <code>ListObjects</code>.
+    /// </para></important><para>
+    /// The following operations are related to <code>ListObjects</code>:
+    /// </para><ul><li><para><a>ListObjectsV2</a></para></li><li><para><a>GetObject</a></para></li><li><para><a>PutObject</a></para></li><li><para><a>CreateBucket</a></para></li><li><para><a>ListBuckets</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "S3Object", DefaultParameterSetName="GetMultipleObjects")]
     [OutputType("Amazon.S3.Model.S3Object")]

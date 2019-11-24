@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Modifies the configuration of bring your own license (BYOL) for the specified account.
+    /// Modifies the configuration of Bring Your Own License (BYOL) for the specified account.
     /// </summary>
     [Cmdlet("Edit", "WKSAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

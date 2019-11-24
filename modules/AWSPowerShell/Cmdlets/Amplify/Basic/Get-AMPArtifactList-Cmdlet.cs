@@ -57,17 +57,6 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String AppId { get; set; }
         #endregion
         
-        #region Parameter ArtifactType
-        /// <summary>
-        /// <para>
-        /// <para> Type for an artifact. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Amplify.ArtifactType")]
-        public Amazon.Amplify.ArtifactType ArtifactType { get; set; }
-        #endregion
-        
         #region Parameter BranchName
         /// <summary>
         /// <para>
@@ -196,7 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ArtifactType = this.ArtifactType;
             context.BranchName = this.BranchName;
             #if MODULAR
             if (this.BranchName == null && ParameterWasBound(nameof(this.BranchName)))
@@ -246,10 +234,6 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (cmdletContext.AppId != null)
             {
                 request.AppId = cmdletContext.AppId;
-            }
-            if (cmdletContext.ArtifactType != null)
-            {
-                request.ArtifactType = cmdletContext.ArtifactType;
             }
             if (cmdletContext.BranchName != null)
             {
@@ -321,10 +305,6 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (cmdletContext.AppId != null)
             {
                 request.AppId = cmdletContext.AppId;
-            }
-            if (cmdletContext.ArtifactType != null)
-            {
-                request.ArtifactType = cmdletContext.ArtifactType;
             }
             if (cmdletContext.BranchName != null)
             {
@@ -454,7 +434,6 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppId { get; set; }
-            public Amazon.Amplify.ArtifactType ArtifactType { get; set; }
             public System.String BranchName { get; set; }
             public System.String JobId { get; set; }
             public int? MaxResult { get; set; }

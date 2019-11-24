@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the user whose actions resulted in the event. Examples
-        /// include updating the pull request with additional commits or changing the status of
-        /// a pull request.</para>
+        /// include updating the pull request with more commits or changing the status of a pull
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>A non-negative integer used to limit the number of returned results. The default is
-        /// 100 events, which is also the maximum number of events that can be returned in a result.</para>
+        /// <para>A non-zero, non-negative integer used to limit the number of returned results. The
+        /// default is 100 events, which is also the maximum number of events that can be returned
+        /// in a result.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An enumeration token that when provided in a request, returns the next batch of the
+        /// <para>An enumeration token that, when provided in a request, returns the next batch of the
         /// results.</para>
         /// </para>
         /// <para>

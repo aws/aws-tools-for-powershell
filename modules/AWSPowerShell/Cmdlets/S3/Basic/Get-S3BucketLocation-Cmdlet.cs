@@ -28,7 +28,16 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns the region the bucket resides in.
+    /// Returns the region the bucket resides in. You set the bucket's region using the <code>LocationConstraint</code>
+    /// request parameter in a <code>CreateBucket</code> request. For more information, see
+    /// <a>CreateBucket</a>.
+    /// 
+    ///  
+    /// <para>
+    ///  To use this implementation of the operation, you must be the bucket owner.
+    /// </para><para>
+    /// The following operations are related to <code>GetBucketLocation</code>:
+    /// </para><ul><li><para><a>GetObject</a></para></li><li><para><a>CreateBucket</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketLocation")]
     [OutputType("Amazon.S3.S3Region")]

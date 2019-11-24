@@ -32,11 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// The results describe all the Dedicated Host reservation offerings, including offerings
-    /// that may not match the instance family and Region of your Dedicated Hosts. When purchasing
-    /// an offering, ensure that the instance family and Region of the offering matches that
-    /// of the Dedicated Hosts with which it is to be associated. For more information about
-    /// supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
+    /// The results describe all of the Dedicated Host reservation offerings, including offerings
+    /// that might not match the instance family and Region of your Dedicated Hosts. When
+    /// purchasing an offering, ensure that the instance family and Region of the offering
+    /// matches that of the Dedicated Hosts with which it is to be associated. For more information
+    /// about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
     /// Hosts Overview</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

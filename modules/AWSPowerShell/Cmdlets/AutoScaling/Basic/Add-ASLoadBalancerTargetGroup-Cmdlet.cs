@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Attaches one or more target groups to the specified Auto Scaling group. 
+    /// Attaches one or more target groups to the specified Auto Scaling group.
     /// 
     ///  
     /// <para>

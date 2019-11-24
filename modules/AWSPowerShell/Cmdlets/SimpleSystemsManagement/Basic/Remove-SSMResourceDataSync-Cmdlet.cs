@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Deletes a Resource Data Sync configuration. After the configuration is deleted, changes
-    /// to inventory data on managed instances are no longer synced with the target Amazon
-    /// S3 bucket. Deleting a sync configuration does not delete data in the target Amazon
-    /// S3 bucket.
+    /// to data on managed instances are no longer synced to or from the target. Deleting
+    /// a sync configuration does not delete data.
     /// </summary>
     [Cmdlet("Remove", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -58,6 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SyncName { get; set; }
+        #endregion
+        
+        #region Parameter SyncType
+        /// <summary>
+        /// <para>
+        /// <para>Specify the type of resource data sync to delete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SyncType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -127,6 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter SyncName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SyncType = this.SyncType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -146,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.SyncName != null)
             {
                 request.SyncName = cmdletContext.SyncName;
+            }
+            if (cmdletContext.SyncType != null)
+            {
+                request.SyncType = cmdletContext.SyncType;
             }
             
             CmdletOutput output;
@@ -209,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String SyncName { get; set; }
+            public System.String SyncType { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncResponse, RemoveSSMResourceDataSyncCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

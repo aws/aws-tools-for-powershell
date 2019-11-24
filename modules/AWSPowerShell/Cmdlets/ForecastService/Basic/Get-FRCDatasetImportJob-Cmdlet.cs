@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// 
     ///  
     /// <para>
-    /// In addition to listing the properties provided by the user in the <code>CreateDatasetImportJob</code>
+    /// In addition to listing the parameters provided in the <code>CreateDatasetImportJob</code>
     /// request, this operation includes the following properties:
     /// </para><ul><li><para><code>CreationTime</code></para></li><li><para><code>LastModificationTime</code></para></li><li><para><code>DataSize</code></para></li><li><para><code>FieldStatistics</code></para></li><li><para><code>Status</code></para></li><li><para><code>Message</code> - If an error occurred, information about the error.
     /// </para></li></ul>
