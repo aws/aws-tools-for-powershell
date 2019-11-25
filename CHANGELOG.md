@@ -1,4 +1,7 @@
-﻿### 4.0.1.0 (2019-11-25)
+﻿### 4.0.1.1 (2019-11-25)
+  * Fixed an issue where an older version of AWSSDK.SageMakerRuntime was included in the modules resulting in the MSI installer being non functional.
+
+### 4.0.1.0 (2019-11-25)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.3.637.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Fixed Get-AWSCmdletName returning wrong cmdlet names.
   * Fixed error in AWS.Tools.Installer.
