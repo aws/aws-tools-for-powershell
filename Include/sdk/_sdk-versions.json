@@ -929,7 +929,7 @@
             "InPreview"               : false
         },
         "SageMakerRuntime"                : {
-            "Version" : "3.3.100.4",
+            "Version" : "3.3.100.99",
             "AssemblyVersionOverride" : null,
             "Dependencies"            : {
                 "Core" : "3.3.103.68"
