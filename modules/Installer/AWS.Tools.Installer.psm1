@@ -586,10 +586,6 @@ function Install-AWSToolsModule {
             throw "The Name parameter must contain only AWS.Tools modules without duplicates."
         }
 
-        if ($Name -eq 'AWS.Tools.Installer') {
-            throw "AWS.Tools.Installer cannot be used to install AWS.Tools.Installer. Use Update-Module instead."
-        }
-        
         if ($RequiredVersion) {
             $versionToInstall = $RequiredVersion
         }
