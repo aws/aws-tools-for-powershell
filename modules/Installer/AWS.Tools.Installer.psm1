@@ -241,13 +241,6 @@ function Get-AvailableModuleVersion {
         if ($versionToInstall.Count -gt 1) {
             Write-Verbose "[$($MyInvocation.MyCommand)] Found multiple modules versions: $([System.String]::Join(', ', $versionToInstall)).)"
             $versionToInstall = [System.Version[]]$versionToInstall | Measure-Object -Minimum | Select-Object -Expand Minimum
-        
-            $findModuleParams = @{
-                RequiredVersion = $versionToInstall
-                Repository      = 'PSGallery'
-                ErrorAction     = 'Stop'
-            }
-            $savedModules = $Name | ForEach-Object { Find-Module -Name $_ @findModuleParams @proxyParams }
         }
         
         $versionToInstall
