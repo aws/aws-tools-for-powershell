@@ -1,7 +1,85 @@
+Param(
+    ## Specifies a proxy server for the module import request, rather than connecting directly to an internet resource.
+    [Parameter(ValueFromPipelineByPropertyName, Position = 0)]
+    [Uri]
+    $Proxy,
+
+    ## Specifies a user account that has permission to use the proxy server specified by the Proxy parameter.
+    [Parameter(ValueFromPipelineByPropertyName, Position = 1)]
+    [PSCredential]
+    $ProxyCredential
+)
+
 $script:AWSToolsSignatureSubject = 'CN="Amazon.com, Inc.", O="Amazon.com, Inc.", L=Seattle, S=Washington, C=US'
+$script:AWSToolsInstallerModuleName = 'AWS.Tools.Installer'
 $script:AWSToolsTempRepoName = 'AWSToolsTemp'
 $script:CurrentMinAWSToolsInstallerVersion = '0.0.0.0'
 $script:ExpectedModuleCompanyName = 'aws-dotnet-sdk-team'
+
+#region Retrieve the current list of AWS.Tools modules from the PowerShell Gallery for custom validation
+$findModuleParams = @{
+    Name        = 'AWS.Tools.*'
+    Repository  = 'PSGallery'
+    ErrorAction = 'Stop'
+}
+if ($Proxy) {
+    $findModuleParams.Add('Proxy', $Proxy)
+}
+if ($ProxyCredential) {
+    $findModuleParams.Add('ProxyCredential', $ProxyCredential)
+}
+
+$script:validAwsToolsModuleNames = Find-Module @findModuleParams |
+    Where-Object -FilterScript {
+        $_.Name -ne $script:AWSToolsInstallerModuleName -and
+        $_.CompanyName -eq $script:ExpectedModuleCompanyName
+    } |
+    Sort-Object -Property 'Name' |
+    Select-Object -ExpandProperty 'Name'
+
+if ($null -eq $script:validAwsToolsModuleNames) {
+    $message = 'Failed to retrieve the list of AWS.Tools modules from the PowerShell Gallery.'
+    throw [System.ArgumentNullException]::new('validAwsToolsModuleNames', $message)
+}
+elseif ($script:validAwsToolsModuleNames.Count -eq 0) {
+    throw [System.Management.Automation.ValidationMetadataException]::new('No AWS.Tools modules were found.')
+}
+#endregion
+
+#region Prepend the shortnames of all AWS.Tools modules so that these populate first in argument completion
+$script:validAwsToolsModuleNames = $script:validAwsToolsModuleNames.ForEach( { $_.Split('.')[-1] }) + $script:validAwsToolsModuleNames
+#endregion
+
+#region Create a custom parameter validator
+class ValidateAwsToolsModuleSet : System.Management.Automation.ValidateArgumentsAttribute {
+    [void] Validate([object]$Arguments, [System.Management.Automation.EngineIntrinsics]$EngineIntrinsics) {
+        [string[]]$moduleNames = $Arguments
+        foreach ($moduleName in $moduleNames) {
+            if ($moduleName -notin $script:validAwsToolsModuleNames) {
+                $validAwsToolsModuleNameList = $script:validAwsToolsModuleNames -join ', '
+                $message = (
+                    "The argument `"${moduleName}`" does not belong to the set `"${validAwsToolsModuleNameList}`" " +
+                    "specified by the ValidateAwsToolsModuleSet attribute. " +
+                    "Supply an argument that is in the set and then try the command again."
+                )
+
+                throw $message
+            }
+        }
+    }
+}
+#endregion
+
+#region Register argument completion for AWS.Tools module names
+$scriptBlock = {
+    Param($CommandName, $ParameterName, $WordToComplete, $CommandAst, $FakeBoundParameter)
+
+    $script:validAwsToolsModuleNames |
+        Where-Object -FilterScript { $_ -like "${WordToComplete}*" } |
+        ForEach-Object -Process { New-Object -TypeName 'System.Management.Automation.CompletionResult' -ArgumentList $_ }
+}
+Register-ArgumentCompleter -CommandName 'Install-AWSToolsModule' -ParameterName 'Name' -ScriptBlock $scriptBlock
+#endregion
 
 function Get-CleanVersion {
     Param(
@@ -57,7 +135,7 @@ function Get-AWSToolsModule {
                 $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject
             }
         }
-        $awsToolsModules | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
+        $awsToolsModules | Where-Object { $_.Name -ne $script:AWSToolsInstallerModuleName }
     }
 }
 
@@ -366,7 +444,7 @@ function Save-AWSToolsModule {
                 if ($manifestData.PrivateData.MinAWSToolsInstallerVersion) {
                     $minVersion = Get-CleanVersion $manifestData.PrivateData.MinAWSToolsInstallerVersion
                     if ($minVersion -gt $script:CurrentMinAWSToolsInstallerVersion) {
-                        throw "$($moduleInfo.Name) version $RequiredVersion requires at least AWS.Tools.Installer version $minVersion. Run 'Update-Module AWS.Tools.Installer -Force'."
+                        throw "$($moduleInfo.Name) version $RequiredVersion requires at least $script:AWSToolsInstallerModuleName version $minVersion. Run 'Update-Module $script:AWSToolsInstallerModuleName -Force'."
                     }
                 }
 
@@ -429,6 +507,7 @@ function Install-AWSToolsModule {
         ## Specifies names of the AWS.Tools modules to install.
         ## The names can be listed either with or without the "AWS.Tools." prefix (i.e. "AWS.Tools.Common" or simply "Common"). 
         [Parameter(ValueFromPipelineByPropertyName, ValueFromPipeline, Mandatory, Position = 0)]
+        [ValidateAwsToolsModuleSet()]
         [string[]]
         $Name,
 
