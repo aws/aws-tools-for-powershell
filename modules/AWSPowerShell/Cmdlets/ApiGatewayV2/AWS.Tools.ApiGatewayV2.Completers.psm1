@@ -86,7 +86,7 @@ $AG2_Completers = {
             ($_ -eq "Update-AG2Route/AuthorizationType")
         }
         {
-            $v = "AWS_IAM","CUSTOM","NONE"
+            $v = "AWS_IAM","CUSTOM","JWT","NONE"
             break
         }
 
@@ -96,7 +96,7 @@ $AG2_Completers = {
             ($_ -eq "Update-AG2Authorizer/AuthorizerType")
         }
         {
-            $v = "REQUEST"
+            $v = "JWT","REQUEST"
             break
         }
 
@@ -155,7 +155,7 @@ $AG2_Completers = {
         # Amazon.ApiGatewayV2.ProtocolType
         "New-AG2Api/ProtocolType"
         {
-            $v = "WEBSOCKET"
+            $v = "HTTP","WEBSOCKET"
             break
         }
 
@@ -242,6 +242,7 @@ $AG2_SelectMap = @{
                "Remove-AG2Api",
                "Remove-AG2ApiMapping",
                "Remove-AG2Authorizer",
+               "Remove-AG2CorsConfiguration",
                "Remove-AG2Deployment",
                "Remove-AG2DomainName",
                "Remove-AG2Integration",
@@ -249,6 +250,7 @@ $AG2_SelectMap = @{
                "Remove-AG2Model",
                "Remove-AG2Route",
                "Remove-AG2RouteResponse",
+               "Remove-AG2RouteSetting",
                "Remove-AG2Stage",
                "Get-AG2Api",
                "Get-AG2ApiMapping",
@@ -274,6 +276,8 @@ $AG2_SelectMap = @{
                "Get-AG2Stage",
                "Get-AG2StageList",
                "Get-AG2Tag",
+               "Import-AG2Api",
+               "Update-AG2ApiImport",
                "Add-AG2ResourceTag",
                "Remove-AG2ResourceTag",
                "Update-AG2Api",

@@ -87,6 +87,13 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.EngineFamily
+        "New-RDSDBProxy/EngineFamily"
+        {
+            $v = "MYSQL"
+            break
+        }
+
         # Amazon.RDS.SourceType
         "Get-RDSEvent/SourceType"
         {
@@ -103,6 +110,7 @@ $RDS_Completers = {
 }
 
 $RDS_map = @{
+    "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
     "SourceType"=@("Get-RDSEvent")
 }
@@ -177,6 +185,7 @@ $RDS_SelectMap = @{
                "New-RDSDBInstance",
                "New-RDSDBInstanceReadReplica",
                "New-RDSDBParameterGroup",
+               "New-RDSDBProxy",
                "New-RDSDBSecurityGroup",
                "New-RDSDBSnapshot",
                "New-RDSDBSubnetGroup",
@@ -191,6 +200,7 @@ $RDS_SelectMap = @{
                "Remove-RDSDBInstance",
                "Remove-RDSDBInstanceAutomatedBackup",
                "Remove-RDSDBParameterGroup",
+               "Remove-RDSDBProxy",
                "Remove-RDSDBSecurityGroup",
                "Remove-RDSDBSnapshot",
                "Remove-RDSDBSubnetGroup",
@@ -198,6 +208,7 @@ $RDS_SelectMap = @{
                "Remove-RDSGlobalCluster",
                "Remove-RDSInstallationMedia",
                "Remove-RDSOptionGroup",
+               "Unregister-RDSDBProxyTarget",
                "Get-RDSAccountAttribute",
                "Get-RDSCertificate",
                "Get-RDSCustomAvailabilityZone",
@@ -214,6 +225,9 @@ $RDS_SelectMap = @{
                "Get-RDSDBLogFile",
                "Get-RDSDBParameterGroup",
                "Get-RDSDBParameter",
+               "Get-RDSDBProxy",
+               "Get-RDSDBProxyTargetGroup",
+               "Get-RDSDBProxyTarget",
                "Get-RDSDBSecurityGroup",
                "Get-RDSDBSnapshotAttribute",
                "Get-RDSDBSnapshot",
@@ -244,6 +258,8 @@ $RDS_SelectMap = @{
                "Edit-RDSDBClusterSnapshotAttribute",
                "Edit-RDSDBInstance",
                "Edit-RDSDBParameterGroup",
+               "Edit-RDSDBProxy",
+               "Edit-RDSDBProxyTargetGroup",
                "Edit-RDSDBSnapshot",
                "Edit-RDSDBSnapshotAttribute",
                "Edit-RDSDBSubnetGroup",
@@ -254,6 +270,7 @@ $RDS_SelectMap = @{
                "Convert-RDSReadReplicaDBCluster",
                "New-RDSReservedDBInstancesOfferingPurchase",
                "Restart-RDSDBInstance",
+               "Register-RDSDBProxyTarget",
                "Remove-RDSFromGlobalCluster",
                "Remove-RDSRoleFromDBCluster",
                "Remove-RDSRoleFromDBInstance",

@@ -143,6 +143,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
         #endregion
         
+        #region Parameter CapacityProviderStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The capacity provider strategy to update the service to use.</para><para>If the service is using the default capacity provider strategy for the cluster, the
+        /// service can be updated to use one or more capacity providers. However, when a service
+        /// is using a non-default capacity provider strategy, the service cannot be updated to
+        /// use the cluster's default capacity provider strategy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.ECS.Model.CapacityProviderStrategyItem[] CapacityProviderStrategy { get; set; }
+        #endregion
+        
         #region Parameter Cluster
         /// <summary>
         /// <para>
@@ -186,9 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// This is only valid if your service is configured to use a load balancer. If your service's
         /// tasks take a while to start and respond to Elastic Load Balancing health checks, you
         /// can specify a health check grace period of up to 2,147,483,647 seconds. During that
-        /// time, the ECS service scheduler ignores the Elastic Load Balancing health check status.
-        /// This grace period can prevent the ECS service scheduler from marking tasks as unhealthy
-        /// and stopping them before they have time to come up.</para>
+        /// time, the Amazon ECS service scheduler ignores the Elastic Load Balancing health check
+        /// status. This grace period can prevent the ECS service scheduler from marking tasks
+        /// as unhealthy and stopping them before they have time to come up.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,9 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The platform version on which your tasks in the service are running. A platform version
-        /// is only specified for tasks using the Fargate launch type. If one is not specified,
-        /// the <code>LATEST</code> platform version is used by default. For more information,
-        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+        /// is only specified for tasks using the Fargate launch type. If a platform version is
+        /// not specified, the <code>LATEST</code> platform version is used by default. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
         /// Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
         /// </para>
@@ -382,6 +395,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Select = (response, cmdlet) => this.Cluster;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CapacityProviderStrategy != null)
+            {
+                context.CapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.CapacityProviderStrategy);
+            }
             context.Cluster = this.Cluster;
             context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
             context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
@@ -422,6 +439,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // create request
             var request = new Amazon.ECS.Model.UpdateServiceRequest();
             
+            if (cmdletContext.CapacityProviderStrategy != null)
+            {
+                request.CapacityProviderStrategy = cmdletContext.CapacityProviderStrategy;
+            }
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
@@ -594,6 +615,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ECS.Model.CapacityProviderStrategyItem> CapacityProviderStrategy { get; set; }
             public System.String Cluster { get; set; }
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }

@@ -28,13 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Update template alias of given template.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight delete-template-alias --aws-account-id 111122223333 --template-id
-    /// 'reports_test_template' --alias-name 'STAGING'</code></para>
+    /// Deletes the item that the specified template alias points to. If you provide a specific
+    /// alias, you delete the version of the template that the alias points to.
     /// </summary>
     [Cmdlet("Remove", "QSTemplateAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteTemplateAliasResponse")]
@@ -48,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>The alias of the template. If alias-name is provided, the version that the alias-name
-        /// points to is deleted. Alias names that start with <code>$</code> are reserved by QuickSight
-        /// and can't be deleted.”</para>
+        /// <para>The name for the template alias. If you name a specific alias, you delete the version
+        /// that the alias points to. You can specify the latest version of the template by providing
+        /// the keyword <code>$LATEST</code> in the <code>AliasName</code> parameter. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template alias you are deleting.</para>
+        /// <para>The ID of the AWS account that contains the item to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter TemplateId
         /// <summary>
         /// <para>
-        /// <para>An ID for the template.</para>
+        /// <para>The ID for the template that the specified alias is for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

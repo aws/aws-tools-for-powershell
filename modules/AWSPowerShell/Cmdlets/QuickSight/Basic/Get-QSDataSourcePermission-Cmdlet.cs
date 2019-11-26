@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Describes the resource permissions for a data source.
-    /// 
-    ///  
-    /// <para>
-    /// The permissions resource is <code>aws:quicksight:region:aws-account-id:datasource/data-source-id</code></para>
     /// </summary>
     [Cmdlet("Get", "QSDataSourcePermission")]
     [OutputType("Amazon.QuickSight.Model.DescribeDataSourcePermissionsResponse")]
@@ -63,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the data source. This is unique per AWS Region per AWS account.</para>
+        /// <para>The ID of the data source. This ID is unique per AWS Region for each AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

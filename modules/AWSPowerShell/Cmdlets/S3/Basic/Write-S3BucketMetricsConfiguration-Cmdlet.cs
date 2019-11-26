@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have permissions to perform the s3:PutMetricsConfiguration
+    /// To use this operation, you must have permissions to perform the <code>s3:PutMetricsConfiguration</code>
     /// action. The bucket owner has this permission by default. The bucket owner can grant
     /// this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
     /// Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Managing
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><ul><li><para><a>DeleteBucketMetricsConfiguration</a></para></li><li><para><a>PutBucketMetricsConfiguration</a></para></li><li><para><a>ListBucketMetricsConfigurations</a></para></li></ul><para><code>GetBucketLifecycle</code> has the following special error:
     /// </para><ul><li><para>
     /// Error code: <code>TooManyConfigurations</code></para><ul><li><para>
-    /// Description:You are attempting to create a new configuration but have already reached
+    /// Description: You are attempting to create a new configuration but have already reached
     /// the 1,000-configuration limit.
     /// </para></li><li><para>
     /// HTTP Status Code: HTTP 400 Bad Request

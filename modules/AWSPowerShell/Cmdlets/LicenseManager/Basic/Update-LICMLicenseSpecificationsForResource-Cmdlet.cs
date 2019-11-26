@@ -28,11 +28,14 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Adds or removes license configurations for a specified AWS resource. This operation
-    /// currently supports updating the license specifications of AMIs, instances, and hosts.
-    /// Launch templates and AWS CloudFormation templates are not managed from this operation
-    /// as those resources send the license configurations directly to a resource creation
-    /// operation, such as <code>RunInstances</code>.
+    /// Adds or removes the specified license configurations for the specified AWS resource.
+    /// 
+    ///  
+    /// <para>
+    /// You can update the license specifications of AMIs, instances, and hosts. You cannot
+    /// update the license specifications for launch templates and AWS CloudFormation templates,
+    /// as they send license configurations to the operation that creates the resource.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "LICMLicenseSpecificationsForResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter AddLicenseSpecification
         /// <summary>
         /// <para>
-        /// <para>License configuration ARNs to be added to a resource.</para>
+        /// <para>ARNs of the license configurations to add.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter RemoveLicenseSpecification
         /// <summary>
         /// <para>
-        /// <para>License configuration ARNs to be removed from a resource.</para>
+        /// <para>ARNs of the license configurations to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>ARN for an AWS server resource.</para>
+        /// <para>Amazon Resource Name (ARN) of the AWS resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

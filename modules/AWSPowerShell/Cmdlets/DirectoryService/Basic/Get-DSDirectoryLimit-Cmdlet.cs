@@ -28,7 +28,7 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Obtains directory limit information for the current region.
+    /// Obtains directory limit information for the current Region.
     /// </summary>
     [Cmdlet("Get", "DSDirectoryLimit")]
     [OutputType("Amazon.DirectoryService.Model.DirectoryLimits")]

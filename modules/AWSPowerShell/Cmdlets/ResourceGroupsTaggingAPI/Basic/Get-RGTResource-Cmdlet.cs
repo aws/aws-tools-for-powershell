@@ -29,13 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.RGT
 {
     /// <summary>
     /// Returns all the tagged or previously tagged resources that are located in the specified
-    /// region for the AWS account. You can optionally specify <i>filters</i> (tags and resource
-    /// types) in your request, depending on what information you want returned. The response
-    /// includes all tags that are associated with the requested resources.
+    /// Region for the AWS account.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Depending on what information you want returned, you can also specify the following:
+    /// </para><ul><li><para><i>Filters</i> that specify what tags and resource types you want returned. The response
+    /// includes all tags that are associated with the requested resources.
+    /// </para></li><li><para>
+    /// Information about compliance with the account's effective tag policy. For more information
+    /// on tag policies, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag
+    /// Policies</a> in the <i>AWS Organizations User Guide.</i></para></li></ul><note><para>
     /// You can check the <code>PaginationToken</code> response parameter to determine if
-    /// a query completed. Queries can occasionally return fewer results on a page than allowed.
+    /// a query is complete. Queries occasionally return fewer results on a page than allowed.
     /// The <code>PaginationToken</code> response parameter value is <code>null</code><i>only</i>
     /// when there are no more results to display. 
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -49,6 +55,33 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     )]
     public partial class GetRGTResourceCmdlet : AmazonResourceGroupsTaggingAPIClientCmdlet, IExecutor
     {
+        
+        #region Parameter ExcludeCompliantResource
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to exclude resources that are compliant with the tag policy. Set
+        /// this to <code>true</code> if you are interested in retrieving information on noncompliant
+        /// resources only.</para><para>You can use this parameter only if the <code>IncludeComplianceDetails</code> parameter
+        /// is also set to <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExcludeCompliantResources")]
+        public System.Boolean? ExcludeCompliantResource { get; set; }
+        #endregion
+        
+        #region Parameter IncludeComplianceDetail
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include details regarding the compliance with the effective tag
+        /// policy. Set this to <code>true</code> to determine whether resources are compliant
+        /// with the tag policy and to get details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeComplianceDetails")]
+        public System.Boolean? IncludeComplianceDetail { get; set; }
+        #endregion
         
         #region Parameter ResourcesPerPage
         /// <summary>
@@ -110,16 +143,16 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter TagsPerPage
         /// <summary>
         /// <para>
-        /// <para>A limit that restricts the number of tags (key and value pairs) returned by GetResources
+        /// <para>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</para><para>A limit that restricts the number of tags (key and value pairs) returned by GetResources
         /// in paginated output. A resource with no tags is counted as having one tag (one key
         /// and value pair).</para><para><code>GetResources</code> does not split a resource and its associated tags across
         /// pages. If the specified <code>TagsPerPage</code> would cause such a break, a <code>PaginationToken</code>
         /// is returned in place of the affected resource and its tags. Use that token in another
         /// request to get the remaining data. For example, if you specify a <code>TagsPerPage</code>
         /// of <code>100</code> and the account has 22 resources with 10 tags each (meaning that
-        /// each resource has 10 key and value pairs), the output will consist of 3 pages, with
-        /// the first page displaying the first 10 resources, each with its 10 tags, the second
-        /// page displaying the next 10 resources each with its 10 tags, and the third page displaying
+        /// each resource has 10 key and value pairs), the output will consist of three pages.
+        /// The first page displays the first 10 resources, each with its 10 tags. The second
+        /// page displays the next 10 resources, each with its 10 tags. The third page displays
         /// the remaining 2 resources, each with its 10 tags.</para><para>You can set <code>TagsPerPage</code> to a minimum of 100 items and the maximum of
         /// 500 items.</para>
         /// </para>
@@ -201,6 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
                 context.Select = (response, cmdlet) => this.ResourceTypeFilter;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ExcludeCompliantResource = this.ExcludeCompliantResource;
+            context.IncludeComplianceDetail = this.IncludeComplianceDetail;
             context.PaginationToken = this.PaginationToken;
             context.ResourcesPerPage = this.ResourcesPerPage;
             if (this.ResourceTypeFilter != null)
@@ -232,6 +267,14 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             // create request and set iteration invariants
             var request = new Amazon.ResourceGroupsTaggingAPI.Model.GetResourcesRequest();
             
+            if (cmdletContext.ExcludeCompliantResource != null)
+            {
+                request.ExcludeCompliantResources = cmdletContext.ExcludeCompliantResource.Value;
+            }
+            if (cmdletContext.IncludeComplianceDetail != null)
+            {
+                request.IncludeComplianceDetails = cmdletContext.IncludeComplianceDetail.Value;
+            }
             if (cmdletContext.ResourcesPerPage != null)
             {
                 request.ResourcesPerPage = cmdletContext.ResourcesPerPage.Value;
@@ -333,6 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ExcludeCompliantResource { get; set; }
+            public System.Boolean? IncludeComplianceDetail { get; set; }
             public System.String PaginationToken { get; set; }
             public System.Int32? ResourcesPerPage { get; set; }
             public List<System.String> ResourceTypeFilter { get; set; }

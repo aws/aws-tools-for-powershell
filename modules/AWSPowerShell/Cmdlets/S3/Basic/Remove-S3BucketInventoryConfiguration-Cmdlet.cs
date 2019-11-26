@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon
     /// S3 Inventory</a>.
     /// </para><para>
-    /// Operation related to <code>DeleteBucketInventoryConfiguration</code> include: 
+    /// Operations related to <code>DeleteBucketInventoryConfiguration</code> include: 
     /// </para><ul><li><para><a>GetBucketInventoryConfiguration</a></para></li><li><para><a>PutBucketInventoryConfiguration</a></para></li><li><para><a>ListBucketInventoryConfigurations</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketInventoryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

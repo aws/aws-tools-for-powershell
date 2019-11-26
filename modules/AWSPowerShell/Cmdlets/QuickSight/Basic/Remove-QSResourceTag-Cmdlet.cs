@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Removes a tag or tags from a resource.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><ul><li><para><code>aws quicksight untag-resource --resource-arn arn:aws:quicksight:us-east-1:111111111111:dataset/dataset1
-    /// --tag-keys K1 K2 --region us-east-1</code></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "QSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.UntagResourceResponse")]
@@ -48,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource you to untag.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want to untag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

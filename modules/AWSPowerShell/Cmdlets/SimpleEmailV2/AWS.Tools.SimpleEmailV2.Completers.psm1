@@ -87,6 +87,13 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.SuppressionListReason
+        "Write-SES2SuppressedDestination/Reason"
+        {
+            $v = "BOUNCE","COMPLAINT"
+            break
+        }
+
         # Amazon.SimpleEmailV2.TlsPolicy
         {
             ($_ -eq "New-SES2ConfigurationSet/DeliveryOptions_TlsPolicy") -Or
@@ -108,6 +115,7 @@ $SES2_Completers = {
 $SES2_map = @{
     "BehaviorOnMxFailure"=@("Write-SES2EmailIdentityMailFromAttribute")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
+    "Reason"=@("Write-SES2SuppressedDestination")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
 }
 
@@ -170,6 +178,7 @@ $SES2_SelectMap = @{
                "Remove-SES2ConfigurationSetEventDestination",
                "Remove-SES2DedicatedIpPool",
                "Remove-SES2EmailIdentity",
+               "Remove-SES2SuppressedDestination",
                "Get-SES2Account",
                "Get-SES2BlacklistReport",
                "Get-SES2ConfigurationSet",
@@ -181,17 +190,21 @@ $SES2_SelectMap = @{
                "Get-SES2DomainDeliverabilityCampaign",
                "Get-SES2DomainStatisticsReport",
                "Get-SES2EmailIdentity",
+               "Get-SES2SuppressedDestination",
                "Get-SES2ConfigurationSetList",
                "Get-SES2DedicatedIpPoolList",
                "Get-SES2DeliverabilityTestReportList",
                "Get-SES2DomainDeliverabilityCampaignList",
                "Get-SES2EmailIdentityList",
+               "Get-SES2SuppressedDestinationList",
                "Get-SES2ResourceTag",
                "Write-SES2AccountDedicatedIpWarmupAttribute",
                "Write-SES2AccountSendingAttribute",
+               "Write-SES2AccountSuppressionAttribute",
                "Write-SES2ConfigurationSetDeliveryOption",
                "Write-SES2ConfigurationSetReputationOption",
                "Write-SES2ConfigurationSetSendingOption",
+               "Write-SES2ConfigurationSetSuppressionOption",
                "Write-SES2ConfigurationSetTrackingOption",
                "Write-SES2DedicatedIpInPool",
                "Write-SES2DedicatedIpWarmupAttribute",
@@ -199,6 +212,7 @@ $SES2_SelectMap = @{
                "Write-SES2EmailIdentityDkimAttribute",
                "Write-SES2EmailIdentityFeedbackAttribute",
                "Write-SES2EmailIdentityMailFromAttribute",
+               "Write-SES2SuppressedDestination",
                "Send-SES2Email",
                "Add-SES2ResourceTag",
                "Remove-SES2ResourceTag",

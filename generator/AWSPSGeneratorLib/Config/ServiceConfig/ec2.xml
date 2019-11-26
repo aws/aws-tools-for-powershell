@@ -69,19 +69,23 @@
         <Property>SpotFleetRequestId</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" OutputProperty="ExchangeId" Verb="Confirm" Noun="ReservedInstancesExchangeQuote" ShouldProcessTarget="ReservedInstanceIds" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" OutputProperty="ExchangeId" Verb="Approve" Noun="ReservedInstancesExchangeQuote" ShouldProcessTarget="ReservedInstanceIds" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false" LegacyAlias="Confirm-EC2ReservedInstancesExchangeQuote">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Confirm" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="Approve" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false" LegacyAlias="Confirm-EC2TransitGatewayPeeringAttachment">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptVpcEndpointConnections" OutputProperty="Unsuccessful" Verb="Confirm" Noun="EndpointConnection" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Approve" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false" LegacyAlias="Confirm-EC2TransitGatewayVpcAttachment">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcceptVpcPeeringConnection" OutputProperty="VpcPeeringConnection" Verb="Approve" Noun="VpcPeeringConnection" ShouldProcessTarget="VpcPeeringConnectionId" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AcceptVpcEndpointConnections" OutputProperty="Unsuccessful" Verb="Approve" Noun="EndpointConnection" ShouldProcessTarget="ServiceId" PipelineParameter="ServiceId" NoPipelineParameter="false" LegacyAlias="Confirm-EC2EndpointConnection">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcceptVpcPeeringConnection" OutputProperty="VpcPeeringConnection" Verb="Approve" Noun="VpcPeeringConnection" ShouldProcessTarget="VpcPeeringConnectionId" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false" LegacyAlias="Confirm-EC2VpcPeeringConnection">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -130,6 +134,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateSubnetCidrBlock" OutputProperty="*" Verb="Register" Noun="SubnetCidrBlock" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateTransitGatewayMulticastDomain" OutputProperty="Associations" Verb="Register" Noun="TransitGatewayMulticastDomain" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -300,6 +308,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocalGatewayRoute" OutputProperty="Route" Verb="New" Noun="LocalGatewayRoute" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocalGatewayRouteTableVpcAssociation" OutputProperty="LocalGatewayRouteTableVpcAssociation" Verb="New" Noun="LocalGatewayRouteTableVpcAssociation" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateNatGateway" OutputProperty="*" Verb="New" Noun="NatGateway" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -390,6 +406,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTransitGateway" OutputProperty="TransitGateway" Verb="New" Noun="TransitGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayMulticastDomain" OutputProperty="TransitGatewayMulticastDomain" Verb="New" Noun="TransitGatewayMulticastDomain" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="New" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -491,6 +515,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLocalGatewayRoute" OutputProperty="Route" Verb="Remove" Noun="LocalGatewayRoute" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLocalGatewayRouteTableVpcAssociation" OutputProperty="LocalGatewayRouteTableVpcAssociation" Verb="Remove" Noun="LocalGatewayRouteTableVpcAssociation" ShouldProcessTarget="LocalGatewayRouteTableVpcAssociationId" PipelineParameter="LocalGatewayRouteTableVpcAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNatGateway" OutputProperty="NatGatewayId" Verb="Remove" Noun="NatGateway" ShouldProcessTarget="NatGatewayId" PipelineParameter="NatGatewayId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -575,6 +607,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayMulticastDomain" OutputProperty="TransitGatewayMulticastDomain" Verb="Remove" Noun="TransitGatewayMulticastDomain" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="Remove" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGatewayRoute" OutputProperty="Route" Verb="Remove" Noun="TransitGatewayRoute" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -631,6 +671,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterTransitGatewayMulticastGroupMembers" OutputProperty="DeregisteredMulticastGroupMembers" Verb="Unregister" Noun="TransitGatewayMulticastGroupMember" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterTransitGatewayMulticastGroupSources" OutputProperty="DeregisteredMulticastGroupSources" Verb="Unregister" Noun="TransitGatewayMulticastGroupSource" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="AccountAttributes" Verb="Get" Noun="AccountAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false" LegacyAlias="Get-EC2AccountAttributes">
             <Params>
                 <Param Name="AttributeNames" NewName="AttributeName" Alias="AccountAttributeNames" />
@@ -682,6 +730,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeClientVpnTargetNetworks" OutputProperty="ClientVpnTargetNetworks" Verb="Get" Noun="ClientVpnTargetNetwork" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCoipPools" OutputProperty="CoipPools" Verb="Get" Noun="CoipPool" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -823,6 +875,30 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLaunchTemplateVersions" OutputProperty="LaunchTemplateVersions" Verb="Get" Noun="TemplateVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocalGatewayRouteTables" OutputProperty="LocalGatewayRouteTables" Verb="Get" Noun="LocalGatewayRouteTable" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations" OutputProperty="LocalGatewayRouteTableVirtualInterfaceGroupAssociations" Verb="Get" Noun="LocalGatewayRouteTableVirtualInterfaceGroupAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocalGatewayRouteTableVpcAssociations" OutputProperty="LocalGatewayRouteTableVpcAssociations" Verb="Get" Noun="LocalGatewayRouteTableVpcAssociation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocalGateways" OutputProperty="LocalGateways" Verb="Get" Noun="LocalGateway" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaceGroups" OutputProperty="LocalGatewayVirtualInterfaceGroups" Verb="Get" Noun="LocalGatewayVirtualInterfaceGroup" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaces" OutputProperty="LocalGatewayVirtualInterfaces" Verb="Get" Noun="LocalGatewayVirtualInterface" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -994,6 +1070,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayMulticastDomains" OutputProperty="TransitGatewayMulticastDomains" Verb="Get" Noun="TransitGatewayMulticastDomain" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTransitGatewayPeeringAttachments" OutputProperty="TransitGatewayPeeringAttachments" Verb="Get" Noun="TransitGatewayPeeringAttachment" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTransitGatewayRouteTables" OutputProperty="TransitGatewayRouteTables" Verb="Get" Noun="TransitGatewayRouteTable" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1148,6 +1232,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateTransitGatewayMulticastDomain" OutputProperty="Associations" Verb="Unregister" Noun="TransitGatewayMulticastDomain" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateTransitGatewayRouteTable" OutputProperty="Association" Verb="Unregister" Noun="TransitGatewayRouteTable" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1204,11 +1292,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCoipPoolUsage" OutputProperty="*" Verb="Get" Noun="CoipPoolUsage" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetConsoleOutput" OutputProperty="*" Verb="Get" Noun="ConsoleOutput" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetConsoleScreenshot" OutputProperty="*" Verb="Get" Noun="ConsoleScreenshot" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDefaultCreditSpecification" OutputProperty="InstanceFamilyCreditSpecification" Verb="Get" Noun="DefaultCreditSpecification" PipelineParameter="InstanceFamily" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1237,6 +1333,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTransitGatewayAttachmentPropagations" OutputProperty="TransitGatewayAttachmentPropagations" Verb="Get" Noun="TransitGatewayAttachmentPropagation" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayMulticastDomainAssociations" OutputProperty="MulticastDomainAssociations" Verb="Get" Noun="TransitGatewayMulticastDomainAssociation" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1291,6 +1391,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyClientVpnEndpoint" OutputProperty="Return" Verb="Edit" Noun="ClientVpnEndpoint" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDefaultCreditSpecification" OutputProperty="InstanceFamilyCreditSpecification" Verb="Edit" Noun="DefaultCreditSpecification" ShouldProcessTarget="InstanceFamily" PipelineParameter="InstanceFamily" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1476,6 +1580,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RegisterTransitGatewayMulticastGroupMembers" OutputProperty="RegisteredMulticastGroupMembers" Verb="Register" Noun="TransitGatewayMulticastGroupMember" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterTransitGatewayMulticastGroupSources" OutputProperty="RegisteredMulticastGroupSources" Verb="Register" Noun="TransitGatewayMulticastGroupSource" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="Deny" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RejectTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Deny" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1615,6 +1731,14 @@
             </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="RunScheduledInstances" OutputProperty="InstanceIdSet" Verb="New" Noun="ScheduledInstance" ShouldProcessTarget="ScheduledInstanceId" PipelineParameter="ScheduledInstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchLocalGatewayRoutes" OutputProperty="Routes" Verb="Search" Noun="LocalGatewayRoute" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchTransitGatewayMulticastGroups" OutputProperty="MulticastGroups" Verb="Search" Noun="TransitGatewayMulticastGroup" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

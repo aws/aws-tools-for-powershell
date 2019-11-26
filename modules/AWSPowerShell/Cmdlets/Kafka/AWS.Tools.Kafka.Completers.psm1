@@ -88,7 +88,10 @@ $MSK_Completers = {
         }
 
         # Amazon.Kafka.EnhancedMonitoring
-        "New-MSKCluster/EnhancedMonitoring"
+        {
+            ($_ -eq "New-MSKCluster/EnhancedMonitoring") -Or
+            ($_ -eq "Update-MSKMonitoring/EnhancedMonitoring")
+        }
         {
             $v = "DEFAULT","PER_BROKER","PER_TOPIC_PER_BROKER"
             break
@@ -104,7 +107,7 @@ $MSK_Completers = {
 
 $MSK_map = @{
     "EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKCluster")
-    "EnhancedMonitoring"=@("New-MSKCluster")
+    "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
 }
 
 _awsArgumentCompleterRegistration $MSK_Completers $MSK_map
@@ -175,7 +178,8 @@ $MSK_SelectMap = @{
                "Remove-MSKResourceTag",
                "Update-MSKBrokerCount",
                "Update-MSKBrokerStorage",
-               "Update-MSKClusterConfiguration")
+               "Update-MSKClusterConfiguration",
+               "Update-MSKMonitoring")
 }
 
 _awsArgumentCompleterRegistration $MSK_SelectCompleters $MSK_SelectMap

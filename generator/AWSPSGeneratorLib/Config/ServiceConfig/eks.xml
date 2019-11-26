@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateFargateProfile" OutputProperty="FargateProfile" Verb="New" Noun="FargateProfile" ShouldProcessTarget="FargateProfileName" PipelineParameter="FargateProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateNodegroup" OutputProperty="Nodegroup" Verb="New" Noun="Nodegroup" ShouldProcessTarget="NodegroupName" PipelineParameter="NodegroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -31,11 +35,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFargateProfile" OutputProperty="FargateProfile" Verb="Remove" Noun="FargateProfile" ShouldProcessTarget="FargateProfileName" PipelineParameter="FargateProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteNodegroup" OutputProperty="Nodegroup" Verb="Remove" Noun="Nodegroup" ShouldProcessTarget="NodegroupName" PipelineParameter="NodegroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFargateProfile" OutputProperty="FargateProfile" Verb="Get" Noun="FargateProfile" PipelineParameter="FargateProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +60,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFargateProfiles" OutputProperty="FargateProfileNames" Verb="Get" Noun="FargateProfileList" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

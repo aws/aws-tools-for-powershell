@@ -120,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] StaticMember { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be assigned to the Amazon RDS resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -210,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.StaticMember = new List<System.String>(this.StaticMember);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -245,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.StaticMember != null)
             {
                 request.StaticMembers = cmdletContext.StaticMember;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -312,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String EndpointType { get; set; }
             public List<System.String> ExcludedMember { get; set; }
             public List<System.String> StaticMember { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.RDS.Model.CreateDBClusterEndpointResponse, NewRDSDBClusterEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

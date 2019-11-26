@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the credit option for CPU usage on a running or stopped T2 or T3 instance.
-    /// The credit options are <code>standard</code> and <code>unlimited</code>.
+    /// Modifies the credit option for CPU usage on a running or stopped burstable performance
+    /// instance. The credit options are <code>standard</code> and <code>unlimited</code>.
     /// 
     ///  
     /// <para>
@@ -45,18 +45,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class EditEC2InstanceCreditSpecificationCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive token that you provide to ensure idempotency of your modification
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
         
         #region Parameter InstanceCreditSpecification
         /// <summary>
@@ -74,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("InstanceCreditSpecifications")]
         public Amazon.EC2.Model.InstanceCreditSpecificationRequest[] InstanceCreditSpecification { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive token that you provide to ensure idempotency of your modification
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

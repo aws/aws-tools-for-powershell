@@ -28,21 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates the permissions on a template.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><ul><li><para><code>aws quicksight describe-template-permissions —aws-account-id 111122223333 —template-id
-    /// reports_test_template</code></para></li><li><para><code>aws quicksight update-template-permissions —cli-input-json file://update-permission.json
-    /// </code></para></li><li><para>
-    /// The structure of <code>update-permissions.json</code> to add permissions:
-    /// </para><para><code>{ "AwsAccountId": "111122223333",</code></para><para><code> "DashboardId": "reports_test_template",</code></para><para><code> "GrantPermissions": [</code></para><para><code> { "Principal": "arn:aws:quicksight:us-east-1:196359894473:user/default/user3",</code></para><para><code> "Actions": [</code></para><para><code> "quicksight:DescribeTemplate",</code></para><para><code> "quicksight:ListTemplateVersions"</code></para><para><code> ] } ] }</code></para><para>
-    /// The structure of <code>update-permissions.json</code> to add permissions:
-    /// </para><para><code>{ "AwsAccountId": "111122223333",</code></para><para><code> "DashboardId": "reports_test_template",</code></para><para><code> "RevokePermissions": [</code></para><para><code> { "Principal": "arn:aws:quicksight:us-east-1:196359894473:user/default/user3",</code></para><para><code> "Actions": [</code></para><para><code> "quicksight:DescribeTemplate",</code></para><para><code> "quicksight:ListTemplateVersions"</code></para><para><code> ] } ] }</code></para><para>
-    /// To obtain the principal name of a QuickSight group or user, use user describe-group
-    /// or describe-user. For example:
-    /// </para><para><code>aws quicksight describe-user </code></para><para><code>--aws-account-id 111122223333</code></para><para><code>--namespace default</code></para><para><code>--user-name user2 </code></para><para><code>--region us-east-1</code></para><para><code>{</code></para><para><code> "User": {</code></para><para><code> "Arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/user2",</code></para><para><code> "Active": true,</code></para><para><code> "Email": "user2@example.com",</code></para><para><code> "Role": "ADMIN",</code></para><para><code> "UserName": "user2",</code></para><para><code> "PrincipalId": "federated/iam/abcd2abcdabcdeabc5ab5"</code></para><para><code> },</code></para><para><code> "RequestId": "8f74bb31-6291-448a-a71c-a765a44bae31",</code></para><para><code> "Status": 200</code></para><para><code>}</code></para></li></ul>
+    /// Updates the resource permissions for a template.
     /// </summary>
     [Cmdlet("Update", "QSTemplatePermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateTemplatePermissionsResponse")]
@@ -56,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template.</para>
+        /// <para>The ID of the AWS account that contains the template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter GrantPermission
         /// <summary>
         /// <para>
-        /// <para>A list of resource permissions to be granted on the template. The following example
-        /// shows the shorthand syntax: </para><para><code>Shorthand Syntax: Principal=string,Actions=string,string ... </code></para>
+        /// <para>A list of resource permissions to be granted on the template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RevokePermission
         /// <summary>
         /// <para>
-        /// <para>A list of resource permissions to be revoked from the template. Shorthand syntax:
-        /// <code>Shorthand Syntax: Principal=string,Actions=string,string ... </code></para>
+        /// <para>A list of resource permissions to be revoked from the template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

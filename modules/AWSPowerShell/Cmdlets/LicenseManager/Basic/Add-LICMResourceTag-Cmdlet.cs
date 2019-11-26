@@ -28,7 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Attach one of more tags to any resource.
+    /// Adds the specified tags to the specified license configuration.
     /// </summary>
     [Cmdlet("Add", "LICMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Resource of the ARN to be tagged.</para>
+        /// <para>Amazon Resource Name (ARN) of the license configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Names of the tags to attach to the resource.</para>
+        /// <para>One or more tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -89,9 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>Force the update if the existing node group's pods are unable to be drained due to
-        /// a pod disruption budget issue. If a previous update fails because pods could not be
-        /// drained, you can force the update after it fails to terminate the old node regardless
-        /// of whether or not any pods are running on the node.</para>
+        /// a pod disruption budget issue. If an update fails because pods could not be drained,
+        /// you can force the update after it fails to terminate the old node whether or not any
+        /// pods are running on the node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

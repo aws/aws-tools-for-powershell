@@ -171,7 +171,7 @@ $CGIP_Completers = {
         # Amazon.CognitoIdentityProvider.IdentityProviderTypeType
         "New-CGIPIdentityProvider/ProviderType"
         {
-            $v = "Facebook","Google","LoginWithAmazon","OIDC","SAML"
+            $v = "Facebook","Google","LoginWithAmazon","OIDC","SAML","SignInWithApple"
             break
         }
 

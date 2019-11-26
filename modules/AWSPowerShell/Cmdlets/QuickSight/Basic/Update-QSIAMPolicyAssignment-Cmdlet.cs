@@ -28,16 +28,8 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates an existing assignment. This operation updates only the optional parameter
-    /// or parameters that are specified in the request.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code />aws quicksight update-iam-policy-assignment --aws-account-id=111122223333
-    /// --assignment-name=FullAccessAssignment --assignment-status=DRAFT --policy-arns=arn:aws:iam::aws:policy/AdministratorAccess
-    /// --identities="user=user-1,user-2,group=admin" --namespace=default --region=us-east-1
-    /// </para>
+    /// Updates an existing IAM policy assignment. This operation updates only the optional
+    /// parameter or parameters that are specified in the request.
     /// </summary>
     [Cmdlet("Update", "QSIAMPolicyAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateIAMPolicyAssignmentResponse")]
@@ -51,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssignmentName
         /// <summary>
         /// <para>
-        /// <para>The name of the assignment. It must be unique within an AWS account.</para>
+        /// <para>The name of the assignment. This name must be unique within an AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssignmentStatus
         /// <summary>
         /// <para>
-        /// <para>The status of an assignment:</para><ul><li><para>ENABLED - Anything specified in this assignment is used while creating the data source.</para></li><li><para>DISABLED - This assignment isn't used while creating the data source.</para></li><li><para>DRAFT - Assignment is an unfinished draft and isn't used while creating the data source.</para></li></ul>
+        /// <para>The status of the assignment. Possible values are as follows:</para><ul><li><para><code>ENABLED</code> - Anything specified in this assignment is used when creating
+        /// the data source.</para></li><li><para><code>DISABLED</code> - This assignment isn't used when creating the data source.</para></li><li><para><code>DRAFT</code> - This assignment is an unfinished draft and isn't used when creating
+        /// the data source.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID that contains the IAM policy assignment.</para>
+        /// <para>The ID of the AWS account that contains the IAM policy assignment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Identity
         /// <summary>
         /// <para>
-        /// <para>QuickSight users and/or groups that you want to assign to the specified IAM policy.</para>
+        /// <para>The QuickSight users, groups, or both that you want to assign the policy to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>An IAM policy ARN that will be applied to specified QuickSight users and groups in
+        /// <para>The ARN for the IAM policy to apply to the QuickSight users and groups specified in
         /// this assignment.</para>
         /// </para>
         /// </summary>

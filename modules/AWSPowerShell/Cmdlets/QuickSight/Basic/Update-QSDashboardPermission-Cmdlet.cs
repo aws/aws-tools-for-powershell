@@ -29,43 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates read and write permissions on a dashboard.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight update-dashboard-permissions —cli-input-json file://update-permission.json</code></para><para>
-    /// A sample update-permissions.json for granting read only permissions:
-    /// </para><para><code>{ "AwsAccountId": "111122223333", "DashboardId": "reports_test_report", "GrantPermissions":
-    /// [ { "Principal": "arn:aws:quicksight:us-east-1:111122223333:user/default/user2", "Actions":
-    /// [ "quicksight:DescribeDashboard", "quicksight:ListDashboardVersions", "quicksight:DescribeDashboardVersion",
-    /// "quicksight:QueryDashboard" ] } ] }</code></para><para>
-    /// A sample update-permissions.json for granting read and write permissions:
-    /// </para><para><code>{ "AwsAccountId": "111122223333", "DashboardId": "reports_test_report", "GrantPermissions":
-    /// [ { "Principal": "arn:aws:quicksight:us-east-1:111122223333:user/default/user2", "Actions":
-    /// [ "quicksight:DescribeDashboard", "quicksight:ListDashboardVersions", "quicksight:DescribeDashboardVersion",
-    /// "quicksight:QueryDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:UpdateDashboardPermissions",
-    /// "quicksight:DeleteDashboardVersion", "quicksight:DeleteDashboard", "quicksight:UpdateDashboard",
-    /// "quicksight:UpdateDashboardPublishedVersion", ] } ] }</code></para><para>
-    /// A sample update-permissions.json for revoking write permissions:
-    /// </para><para><code>{ "AwsAccountId": "111122223333", "DashboardId": "reports_test_report", "RevokePermissions":
-    /// [ { "Principal": "arn:aws:quicksight:us-east-1:111122223333:user/default/user2", "Actions":
-    /// [ "quicksight:DescribeDashboardPermissions", "quicksight:UpdateDashboardPermissions",
-    /// "quicksight:DeleteDashboardVersion", "quicksight:DeleteDashboard", "quicksight:UpdateDashboard",
-    /// "quicksight:UpdateDashboardPublishedVersion", ] } ] }</code></para><para>
-    /// A sample update-permissions.json for revoking read and write permissions:
-    /// </para><para><code>{ "AwsAccountId": "111122223333", "DashboardId": "reports_test_report", "RevokePermissions":
-    /// [ { "Principal": "arn:aws:quicksight:us-east-1:111122223333:user/default/user2", "Actions":
-    /// [ "quicksight:DescribeDashboard", "quicksight:ListDashboardVersions", "quicksight:DescribeDashboardVersion",
-    /// "quicksight:QueryDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:UpdateDashboardPermissions",
-    /// "quicksight:DeleteDashboardVersion", "quicksight:DeleteDashboard", "quicksight:UpdateDashboard",
-    /// "quicksight:UpdateDashboardPublishedVersion", ] } ] }</code></para><para>
-    /// To obtain the principal name of a QuickSight user or group, you can use describe-group
-    /// or describe-user. For example:
-    /// </para><para><code>aws quicksight describe-user --aws-account-id 111122223333 --namespace default
-    /// --user-name user2 --region us-east-1 { "User": { "Arn": "arn:aws:quicksight:us-east-1:111122223333:user/default/user2",
-    /// "Active": true, "Email": "user2@example.com", "Role": "ADMIN", "UserName": "user2",
-    /// "PrincipalId": "federated/iam/abcd2abcdabcdeabc5ab5" }, "RequestId": "8f74bb31-6291-448a-a71c-a765a44bae31",
-    /// "Status": 200 }</code></para>
     /// </summary>
     [Cmdlet("Update", "QSDashboardPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateDashboardPermissionsResponse")]
@@ -79,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the dashboard you are updating.</para>
+        /// <para>The ID of the AWS account that contains the dashboard whose permissions you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

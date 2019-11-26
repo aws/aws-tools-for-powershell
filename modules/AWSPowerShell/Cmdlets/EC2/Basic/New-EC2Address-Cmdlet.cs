@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Address { get; set; }
         #endregion
         
+        #region Parameter CustomerOwnedIpv4Pool
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a customer-owned address pool. Use this parameter to let Amazon EC2 select
+        /// an address from the address pool. Alternatively, specify a specific address from the
+        /// address pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomerOwnedIpv4Pool { get; set; }
+        #endregion
+        
         #region Parameter Domain
         /// <summary>
         /// <para>
@@ -82,6 +94,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.DomainType")]
         public Amazon.EC2.DomainType Domain { get; set; }
+        #endregion
+        
+        #region Parameter NetworkBorderGroup
+        /// <summary>
+        /// <para>
+        /// <para>The location from which the IP address is advertised. Use this parameter to limit
+        /// the address to this location.</para><para>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html">DescribeVpcs</a>
+        /// to view the network border groups.</para><note><para>You cannot use a network border group with EC2 Classic. If you attempt this operation
+        /// on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error
+        /// Codes</a>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkBorderGroup { get; set; }
         #endregion
         
         #region Parameter PublicIpv4Pool
@@ -138,7 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Address = this.Address;
+            context.CustomerOwnedIpv4Pool = this.CustomerOwnedIpv4Pool;
             context.Domain = this.Domain;
+            context.NetworkBorderGroup = this.NetworkBorderGroup;
             context.PublicIpv4Pool = this.PublicIpv4Pool;
             
             // allow further manipulation of loaded context prior to processing
@@ -160,9 +189,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Address = cmdletContext.Address;
             }
+            if (cmdletContext.CustomerOwnedIpv4Pool != null)
+            {
+                request.CustomerOwnedIpv4Pool = cmdletContext.CustomerOwnedIpv4Pool;
+            }
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.NetworkBorderGroup != null)
+            {
+                request.NetworkBorderGroup = cmdletContext.NetworkBorderGroup;
             }
             if (cmdletContext.PublicIpv4Pool != null)
             {
@@ -230,7 +267,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Address { get; set; }
+            public System.String CustomerOwnedIpv4Pool { get; set; }
             public Amazon.EC2.DomainType Domain { get; set; }
+            public System.String NetworkBorderGroup { get; set; }
             public System.String PublicIpv4Pool { get; set; }
             public System.Func<Amazon.EC2.Model.AllocateAddressResponse, NewEC2AddressCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

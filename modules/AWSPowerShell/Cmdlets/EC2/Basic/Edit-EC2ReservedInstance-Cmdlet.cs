@@ -49,18 +49,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2ReservedInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive token you provide to ensure idempotency of your modification
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter ReservedInstancesId
         /// <summary>
         /// <para>
@@ -95,6 +83,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("TargetConfigurations")]
         public Amazon.EC2.Model.ReservedInstancesConfiguration[] TargetConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive token you provide to ensure idempotency of your modification
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

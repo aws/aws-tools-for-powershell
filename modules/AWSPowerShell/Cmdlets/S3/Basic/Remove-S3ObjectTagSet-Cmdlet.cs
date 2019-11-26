@@ -34,13 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    /// To use this operation, you must have permission to perform the s3:DeleteObjectTagging
+    /// To use this operation, you must have permission to perform the <code>s3:DeleteObjectTagging</code>
     /// action.
     /// </para><para>
-    /// To delete tags of a specific object version, add the versionId query parameter in
-    /// the request. You will need permission for the s3:DeleteObjectVersionTagging action.
+    /// To delete tags of a specific object version, add the <code>versionId</code> query
+    /// parameter in the request. You will need permission for the <code>s3:DeleteObjectVersionTagging</code>
+    /// action.
     /// </para><para>
-    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code></para><ul><li><para><a>PutObjectTagging</a></para></li><li><para><a>GetObjectTagging</a></para></li></ul>
+    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:
+    /// </para><ul><li><para><a>PutObjectTagging</a></para></li><li><para><a>GetObjectTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -55,7 +57,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket containing the object tagging to delete.
+        /// <para>The bucket name containing the objects from which to remove the tags.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 
+        /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
+        /// When using this operation using an access point through the AWS SDKs, you provide the access point 
+        /// ARN in place of the bucket name. For more information about access point ARNs, see 
+        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> 
+        /// in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Lists the tags assigned to a resource.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><ul><li><para><code>aws quicksight list-tags-for-resource --resource-arn arn:aws:quicksight:us-east-1:111111111111:dataset/dataset1
-    /// --region us-east-1</code></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "QSResourceTag")]
     [OutputType("Amazon.QuickSight.Model.Tag")]
@@ -49,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource you want a list of tags for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

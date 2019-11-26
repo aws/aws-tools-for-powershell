@@ -39,7 +39,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ClassifyDocument" OutputProperty="Classes" Verb="Invoke" Noun="DocumentClassification" ShouldProcessTarget="EndpointArn" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDocumentClassifier" OutputProperty="DocumentClassifierArn" Verb="New" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierName" PipelineParameter="DocumentClassifierName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -48,6 +56,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDocumentClassifier" Verb="Remove" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpoint" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -64,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDominantLanguageDetectionJob" OutputProperty="DominantLanguageDetectionJobProperties" Verb="Get" Noun="DominantLanguageDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoint" OutputProperty="EndpointProperties" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -116,6 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" OutputProperty="DominantLanguageDetectionJobPropertiesList" Verb="Get" Noun="DominantLanguageDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEndpoints" OutputProperty="EndpointPropertiesList" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -196,6 +216,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEndpoint" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointArn" PipelineParameter="EndpointArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

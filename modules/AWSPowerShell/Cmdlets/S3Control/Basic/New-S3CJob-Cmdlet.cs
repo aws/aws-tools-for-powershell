@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Report_Bucket
         /// <summary>
         /// <para>
-        /// <para>The bucket where specified job-completion report will be stored.</para>
+        /// <para>The Amazon Resource Name (ARN) for the bucket where specified job-completion report
+        /// will be stored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -82,7 +82,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDocument" Verb="Remove" Noun="Document" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInventory" OutputProperty="*" Verb="Remove" Noun="Inventory" ShouldProcessTarget="TypeName" PipelineParameter="TypeName" NoPipelineParameter="false">
@@ -255,6 +257,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAutomationExecution" OutputProperty="AutomationExecution" Verb="Get" Noun="AutomationExecution" PipelineParameter="AutomationExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCalendarState" OutputProperty="*" Verb="Get" Noun="CalendarState" PipelineParameter="AtTime" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

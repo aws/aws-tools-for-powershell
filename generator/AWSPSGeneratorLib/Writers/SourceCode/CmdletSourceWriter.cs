@@ -1660,6 +1660,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
             Func<SimplePropertyInfo, bool> isMetadataOrDeprecatedProperty = p =>
                         MethodAnalysis.AllModels.MetadataParameterNames.Contains(p.AnalyzedName) ||
+                        ServiceConfig.MetadataPropertyNames.Contains(p.AnalyzedName) ||
                         p.IsDeprecated ||
                         (autoIterateSettings?.IsIterationParameter(p.AnalyzedName) ?? false);
 

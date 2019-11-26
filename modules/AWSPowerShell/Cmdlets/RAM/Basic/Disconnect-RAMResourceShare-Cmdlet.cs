@@ -40,17 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class DisconnectRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Principal
         /// <summary>
         /// <para>
@@ -65,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resources.</para>
+        /// <para>The Amazon Resource Names (ARNs) of the resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceShareArn { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

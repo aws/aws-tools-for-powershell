@@ -50,17 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class NewAMSHVirtualRouterCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
-        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Spec_Listener
         /// <summary>
         /// <para>
@@ -119,6 +108,17 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VirtualRouterName { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
+        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

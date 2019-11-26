@@ -340,8 +340,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The amount of Provisioned IOPS (input/output operations per second) to be initially
         /// allocated for the DB instance. For information about valid Iops values, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
         /// RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS User
-        /// Guide</i>. </para><para>Constraints: Must be a multiple between 1 and 50 of the storage amount for the DB
-        /// instance. </para>
+        /// Guide</i>. </para><para>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL DB instances, must be a multiple
+        /// between .5 and 50 of the storage amount for the DB instance. For SQL Server DB instances,
+        /// must be a multiple between 1 and 50 of the storage amount for the DB instance. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

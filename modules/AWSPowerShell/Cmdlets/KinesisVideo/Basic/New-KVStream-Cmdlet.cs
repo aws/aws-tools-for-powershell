@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <para>The media type of the stream. Consumers of the stream can use this information when
         /// processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
         /// Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming
-        /// Requirements</a> for guidelines.</para><para>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</para>
+        /// Requirements</a> for guidelines.</para><para>Example valid values include "video/h264" and "video/h264,audio/aac".</para><para>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

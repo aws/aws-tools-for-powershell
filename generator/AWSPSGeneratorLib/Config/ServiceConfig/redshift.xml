@@ -91,6 +91,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateScheduledAction" OutputProperty="*" Verb="New" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateSnapshotCopyGrant" OutputProperty="SnapshotCopyGrant" Verb="New" Noun="SnapshotCopyGrant" ShouldProcessTarget="SnapshotCopyGrantName" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -132,6 +136,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteHsmConfiguration" Verb="Remove" Noun="HsmConfiguration" ShouldProcessTarget="HsmConfigurationIdentifier" PipelineParameter="HsmConfigurationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScheduledAction" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -245,6 +253,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSnapshotCopyGrants" OutputProperty="SnapshotCopyGrants" Verb="Get" Noun="SnapshotCopyGrant" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -326,6 +338,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyEventSubscription" OutputProperty="EventSubscription" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyScheduledAction" OutputProperty="*" Verb="Edit" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

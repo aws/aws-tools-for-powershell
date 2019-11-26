@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>imagebuilder</C2jFilename>
+    <AssemblyName>Imagebuilder</AssemblyName>
+    <ServiceNounPrefix>EC2IB</ServiceNounPrefix>
+    <ServiceName>EC2 Image Builder</ServiceName>
+    <ServiceClientInterface>IAmazonImagebuilder</ServiceClientInterface>
+    <ServiceClient>AmazonImagebuilderClient</ServiceClient>
+    <ServiceModuleGuid>fc96178c-fb1a-4434-8f77-fe8cd38e0a6b</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelImageCreation" OutputProperty="ImageBuildVersionArn" Verb="Stop" Noun="ImageCreation" ShouldProcessTarget="ImageBuildVersionArn" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateComponent" OutputProperty="ComponentBuildVersionArn" Verb="New" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDistributionConfiguration" OutputProperty="DistributionConfigurationArn" Verb="New" Noun="DistributionConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateImage" OutputProperty="ImageBuildVersionArn" Verb="New" Noun="Image" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateImagePipeline" OutputProperty="ImagePipelineArn" Verb="New" Noun="ImagePipeline" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateImageRecipe" OutputProperty="ImageRecipeArn" Verb="New" Noun="ImageRecipe" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInfrastructureConfiguration" OutputProperty="InfrastructureConfigurationArn" Verb="New" Noun="InfrastructureConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteComponent" OutputProperty="*" Verb="Remove" Noun="Component" ShouldProcessTarget="ComponentBuildVersionArn" PipelineParameter="ComponentBuildVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDistributionConfiguration" OutputProperty="*" Verb="Remove" Noun="DistributionConfiguration" ShouldProcessTarget="DistributionConfigurationArn" PipelineParameter="DistributionConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImage" OutputProperty="*" Verb="Remove" Noun="Image" ShouldProcessTarget="ImageBuildVersionArn" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImagePipeline" OutputProperty="*" Verb="Remove" Noun="ImagePipeline" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImageRecipe" OutputProperty="*" Verb="Remove" Noun="ImageRecipe" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInfrastructureConfiguration" OutputProperty="*" Verb="Remove" Noun="InfrastructureConfiguration" ShouldProcessTarget="InfrastructureConfigurationArn" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComponent" OutputProperty="Component" Verb="Get" Noun="Component" PipelineParameter="ComponentBuildVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComponentPolicy" OutputProperty="Policy" Verb="Get" Noun="ComponentPolicy" PipelineParameter="ComponentArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDistributionConfiguration" OutputProperty="DistributionConfiguration" Verb="Get" Noun="DistributionConfiguration" PipelineParameter="DistributionConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetImage" OutputProperty="Image" Verb="Get" Noun="Image" PipelineParameter="ImageBuildVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetImagePipeline" OutputProperty="ImagePipeline" Verb="Get" Noun="ImagePipeline" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetImagePolicy" OutputProperty="Policy" Verb="Get" Noun="ImagePolicy" PipelineParameter="ImageArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetImageRecipe" OutputProperty="ImageRecipe" Verb="Get" Noun="ImageRecipe" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetImageRecipePolicy" OutputProperty="Policy" Verb="Get" Noun="ImageRecipePolicy" PipelineParameter="ImageRecipeArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInfrastructureConfiguration" OutputProperty="InfrastructureConfiguration" Verb="Get" Noun="InfrastructureConfiguration" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportComponent" OutputProperty="ComponentBuildVersionArn" Verb="Import" Noun="Component" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComponentBuildVersions" OutputProperty="ComponentSummaryList" Verb="Get" Noun="ComponentBuildVersionList" PipelineParameter="ComponentVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComponents" OutputProperty="ComponentVersionList" Verb="Get" Noun="ComponentList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionConfigurations" OutputProperty="DistributionConfigurationSummaryList" Verb="Get" Noun="DistributionConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImageBuildVersions" OutputProperty="ImageSummaryList" Verb="Get" Noun="ImageBuildVersionList" PipelineParameter="ImageVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImagePipelineImages" OutputProperty="ImageSummaryList" Verb="Get" Noun="ImagePipelineImageList" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImagePipelines" OutputProperty="ImagePipelineList" Verb="Get" Noun="ImagePipelineList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImageRecipes" OutputProperty="ImageRecipeSummaryList" Verb="Get" Noun="ImageRecipeList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImages" OutputProperty="ImageVersionList" Verb="Get" Noun="ImageList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInfrastructureConfigurations" OutputProperty="InfrastructureConfigurationSummaryList" Verb="Get" Noun="InfrastructureConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutComponentPolicy" OutputProperty="*" Verb="Write" Noun="ComponentPolicy" ShouldProcessTarget="ComponentArn" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutImagePolicy" OutputProperty="*" Verb="Write" Noun="ImagePolicy" ShouldProcessTarget="ImageArn" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutImageRecipePolicy" OutputProperty="*" Verb="Write" Noun="ImageRecipePolicy" ShouldProcessTarget="ImageRecipeArn" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartImagePipelineExecution" OutputProperty="ImageBuildVersionArn" Verb="Start" Noun="ImagePipelineExecution" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDistributionConfiguration" OutputProperty="DistributionConfigurationArn" Verb="Update" Noun="DistributionConfiguration" ShouldProcessTarget="DistributionConfigurationArn" PipelineParameter="DistributionConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateImagePipeline" OutputProperty="ImagePipelineArn" Verb="Update" Noun="ImagePipeline" ShouldProcessTarget="ImagePipelineArn" PipelineParameter="ImagePipelineArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateInfrastructureConfiguration" OutputProperty="InfrastructureConfigurationArn" Verb="Update" Noun="InfrastructureConfiguration" ShouldProcessTarget="InfrastructureConfigurationArn" PipelineParameter="InfrastructureConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -23,7 +23,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateTrialComponent" OutputProperty="*" Verb="Register" Noun="TrialComponent" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAlgorithm" OutputProperty="AlgorithmArn" Verb="New" Noun="Algorithm" ShouldProcessTarget="AlgorithmName" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApp" OutputProperty="AppArn" Verb="New" Noun="App" ShouldProcessTarget="AppName" PipelineParameter="AppName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutoMLJob" OutputProperty="AutoMLJobArn" Verb="New" Noun="AutoMLJob" ShouldProcessTarget="AutoMLJobName" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -35,11 +47,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpoint" OutputProperty="EndpointArn" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpointConfig" OutputProperty="EndpointConfigArn" Verb="New" Noun="EndpointConfig" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateExperiment" OutputProperty="ExperimentArn" Verb="New" Noun="Experiment" ShouldProcessTarget="ExperimentName" PipelineParameter="ExperimentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFlowDefinition" OutputProperty="FlowDefinitionArn" Verb="New" Noun="FlowDefinition" ShouldProcessTarget="FlowDefinitionName" PipelineParameter="FlowDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateHumanTaskUi" OutputProperty="HumanTaskUiArn" Verb="New" Noun="HumanTaskUi" ShouldProcessTarget="HumanTaskUiName" PipelineParameter="HumanTaskUiName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMonitoringSchedule" OutputProperty="MonitoringScheduleArn" Verb="New" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateNotebookInstance" OutputProperty="NotebookInstanceArn" Verb="New" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -67,7 +99,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePresignedDomainUrl" OutputProperty="AuthorizedUrl" Verb="New" Noun="PresignedDomainUrl" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePresignedNotebookInstanceUrl" OutputProperty="AuthorizedUrl" Verb="New" Noun="PresignedNotebookInstanceUrl" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProcessingJob" OutputProperty="ProcessingJobArn" Verb="New" Noun="ProcessingJob" ShouldProcessTarget="ProcessingJobName" PipelineParameter="ProcessingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,6 +119,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrial" OutputProperty="TrialArn" Verb="New" Noun="Trial" ShouldProcessTarget="TrialName" PipelineParameter="TrialName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrialComponent" OutputProperty="TrialComponentArn" Verb="New" Noun="TrialComponent" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserProfile" OutputProperty="UserProfileArn" Verb="New" Noun="UserProfile" ShouldProcessTarget="UserProfileName" PipelineParameter="UserProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkteam" OutputProperty="WorkteamArn" Verb="New" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -87,7 +139,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApp" Verb="Remove" Noun="App" ShouldProcessTarget="AppName" PipelineParameter="AppName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCodeRepository" Verb="Remove" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomain" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,11 +159,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExperiment" OutputProperty="ExperimentArn" Verb="Remove" Noun="Experiment" ShouldProcessTarget="ExperimentName" PipelineParameter="ExperimentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFlowDefinition" Verb="Remove" Noun="FlowDefinition" ShouldProcessTarget="FlowDefinitionName" PipelineParameter="FlowDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteModel" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteModelPackage" Verb="Remove" Noun="ModelPackage" ShouldProcessTarget="ModelPackageName" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMonitoringSchedule" Verb="Remove" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,11 +191,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrial" OutputProperty="TrialArn" Verb="Remove" Noun="Trial" ShouldProcessTarget="TrialName" PipelineParameter="TrialName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrialComponent" OutputProperty="TrialComponentArn" Verb="Remove" Noun="TrialComponent" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserProfile" Verb="Remove" Noun="UserProfile" ShouldProcessTarget="UserProfileName" PipelineParameter="UserProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteWorkteam" OutputProperty="Success" Verb="Remove" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAlgorithm" OutputProperty="*" Verb="Get" Noun="Algorithm" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApp" OutputProperty="*" Verb="Get" Noun="App" PipelineParameter="AppName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoMLJob" OutputProperty="*" Verb="Get" Noun="AutoMLJob" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,11 +227,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEndpoint" OutputProperty="*" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEndpointConfig" OutputProperty="*" Verb="Get" Noun="EndpointConfig" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExperiment" OutputProperty="*" Verb="Get" Noun="Experiment" PipelineParameter="ExperimentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlowDefinition" OutputProperty="*" Verb="Get" Noun="FlowDefinition" PipelineParameter="FlowDefinitionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHumanTaskUi" OutputProperty="*" Verb="Get" Noun="HumanTaskUi" PipelineParameter="HumanTaskUiName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,11 +267,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMonitoringSchedule" OutputProperty="*" Verb="Get" Noun="MonitoringSchedule" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeNotebookInstance" OutputProperty="*" Verb="Get" Noun="NotebookInstance" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeNotebookInstanceLifecycleConfig" OutputProperty="*" Verb="Get" Noun="NotebookInstanceLifecycleConfig" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProcessingJob" OutputProperty="*" Verb="Get" Noun="ProcessingJob" PipelineParameter="ProcessingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -179,7 +295,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrial" OutputProperty="*" Verb="Get" Noun="Trial" PipelineParameter="TrialName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrialComponent" OutputProperty="*" Verb="Get" Noun="TrialComponent" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserProfile" OutputProperty="*" Verb="Get" Noun="UserProfile" PipelineParameter="UserProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkteam" OutputProperty="Workteam" Verb="Get" Noun="Workteam" PipelineParameter="WorkteamName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateTrialComponent" OutputProperty="*" Verb="Unregister" Noun="TrialComponent" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,6 +323,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutoMLJobs" OutputProperty="AutoMLJobSummaries" Verb="Get" Noun="AutoMLJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCandidatesForAutoMLJob" OutputProperty="Candidates" Verb="Get" Noun="CandidatesForAutoMLJobList" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCodeRepositories" OutputProperty="CodeRepositorySummaryList" Verb="Get" Noun="CodeRepositoryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -199,11 +343,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEndpointConfigs" OutputProperty="EndpointConfigs" Verb="Get" Noun="ConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExperiments" OutputProperty="ExperimentSummaries" Verb="Get" Noun="ExperimentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFlowDefinitions" OutputProperty="FlowDefinitionSummaries" Verb="Get" Noun="FlowDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHumanTaskUis" OutputProperty="HumanTaskUiSummaries" Verb="Get" Noun="HumanTaskUiList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -227,11 +387,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMonitoringExecutions" OutputProperty="MonitoringExecutionSummaries" Verb="Get" Noun="MonitoringExecutionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMonitoringSchedules" OutputProperty="MonitoringScheduleSummaries" Verb="Get" Noun="MonitoringScheduleList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListNotebookInstanceLifecycleConfigs" OutputProperty="NotebookInstanceLifecycleConfigs" Verb="Get" Noun="NotebookInstanceLifecycleConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNotebookInstances" OutputProperty="NotebookInstances" Verb="Get" Noun="NotebookInstanceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProcessingJobs" OutputProperty="ProcessingJobSummaries" Verb="Get" Noun="ProcessingJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -255,6 +427,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTrialComponents" OutputProperty="TrialComponentSummaries" Verb="Get" Noun="TrialComponentList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTrials" OutputProperty="TrialSummaries" Verb="Get" Noun="TrialList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserProfiles" OutputProperty="UserProfiles" Verb="Get" Noun="UserProfileList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListWorkteams" OutputProperty="Workteams" Verb="Get" Noun="WorkteamList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -267,7 +451,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartMonitoringSchedule" Verb="Start" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartNotebookInstance" Verb="Start" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAutoMLJob" Verb="Stop" Noun="AutoMLJob" ShouldProcessTarget="AutoMLJobName" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -283,7 +475,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopMonitoringSchedule" Verb="Stop" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopNotebookInstance" Verb="Stop" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopProcessingJob" Verb="Stop" Noun="ProcessingJob" ShouldProcessTarget="ProcessingJobName" PipelineParameter="ProcessingJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -299,6 +499,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomain" OutputProperty="DomainArn" Verb="Update" Noun="Domain" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateEndpoint" OutputProperty="EndpointArn" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -307,11 +511,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateExperiment" OutputProperty="ExperimentArn" Verb="Update" Noun="Experiment" ShouldProcessTarget="ExperimentName" PipelineParameter="ExperimentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMonitoringSchedule" OutputProperty="MonitoringScheduleArn" Verb="Update" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateNotebookInstance" Verb="Update" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateNotebookInstanceLifecycleConfig" Verb="Update" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrial" OutputProperty="TrialArn" Verb="Update" Noun="Trial" ShouldProcessTarget="TrialName" PipelineParameter="TrialName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrialComponent" OutputProperty="TrialComponentArn" Verb="Update" Noun="TrialComponent" ShouldProcessTarget="TrialComponentName" PipelineParameter="TrialComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserProfile" OutputProperty="UserProfileArn" Verb="Update" Noun="UserProfile" ShouldProcessTarget="UserProfileName" PipelineParameter="UserProfileName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -328,5 +552,7 @@
         <Type>Amazon.SageMaker.Model.DesiredWeightAndCapacity</Type>
         <Type>Amazon.SageMaker.Model.OutputDataConfig</Type>
         <Type>Amazon.SageMaker.Model.ResourceConfig</Type>
+        <Type>Amazon.SageMaker.Model.UserSettings</Type>
+        <Type>Amazon.SageMaker.Model.MonitoringScheduleConfig</Type>
     </TypesNotToFlatten>
 </ConfigModel>

@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  <note><para>
     /// When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to create
-    /// the service-linked role for your account so that required resources in other AWS services
-    /// can be managed on your behalf. However, if the IAM user that makes the call does not
-    /// have permissions to create the service-linked role, it is not created. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+    /// the Amazon ECS service-linked role for your account so that required resources in
+    /// other AWS services can be managed on your behalf. However, if the IAM user that makes
+    /// the call does not have permissions to create the service-linked role, it is not created.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
     /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
     /// Developer Guide</i>.
     /// </para></note>
@@ -52,6 +52,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class NewECSClusterCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        #region Parameter CapacityProvider
+        /// <summary>
+        /// <para>
+        /// <para>The short name or full Amazon Resource Name (ARN) of one or more capacity providers
+        /// to associate with the cluster.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
+        /// must already be created and not already associated with another cluster. New capacity
+        /// providers can be created with the <a>CreateCapacityProvider</a> API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+        /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+        /// available to all accounts and only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
+        /// available capacity providers for a cluster after the cluster is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityProviders")]
+        public System.String[] CapacityProvider { get; set; }
+        #endregion
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>
@@ -62,6 +79,28 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterName { get; set; }
+        #endregion
+        
+        #region Parameter DefaultCapacityProviderStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The capacity provider strategy to use by default for the cluster.</para><para>When creating a service or running a task on a cluster, if no capacity provider or
+        /// launch type is specified then the default capacity provider strategy for the cluster
+        /// is used.</para><para>A capacity provider strategy consists of one or more capacity providers along with
+        /// the <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+        /// must be associated with the cluster to be used in a capacity provider strategy. The
+        /// <a>PutClusterCapacityProviders</a> API is used to associate a capacity provider with
+        /// a cluster. Only capacity providers with an <code>ACTIVE</code> or <code>UPDATING</code>
+        /// status can be used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
+        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
+        /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+        /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+        /// available to all accounts and only need to be associated with a cluster to be used.</para><para>If a default capacity provider strategy is not defined for a cluster during creation,
+        /// it can be defined later with the <a>PutClusterCapacityProviders</a> API operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.ECS.Model.CapacityProviderStrategyItem[] DefaultCapacityProviderStrategy { get; set; }
         #endregion
         
         #region Parameter Setting
@@ -157,7 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Select = (response, cmdlet) => this.ClusterName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CapacityProvider != null)
+            {
+                context.CapacityProvider = new List<System.String>(this.CapacityProvider);
+            }
             context.ClusterName = this.ClusterName;
+            if (this.DefaultCapacityProviderStrategy != null)
+            {
+                context.DefaultCapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.DefaultCapacityProviderStrategy);
+            }
             if (this.Setting != null)
             {
                 context.Setting = new List<Amazon.ECS.Model.ClusterSetting>(this.Setting);
@@ -182,9 +229,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // create request
             var request = new Amazon.ECS.Model.CreateClusterRequest();
             
+            if (cmdletContext.CapacityProvider != null)
+            {
+                request.CapacityProviders = cmdletContext.CapacityProvider;
+            }
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
+            }
+            if (cmdletContext.DefaultCapacityProviderStrategy != null)
+            {
+                request.DefaultCapacityProviderStrategy = cmdletContext.DefaultCapacityProviderStrategy;
             }
             if (cmdletContext.Setting != null)
             {
@@ -255,7 +310,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> CapacityProvider { get; set; }
             public System.String ClusterName { get; set; }
+            public List<Amazon.ECS.Model.CapacityProviderStrategyItem> DefaultCapacityProviderStrategy { get; set; }
             public List<Amazon.ECS.Model.ClusterSetting> Setting { get; set; }
             public List<Amazon.ECS.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ECS.Model.CreateClusterResponse, NewECSClusterCmdlet, object> Select { get; set; } =

@@ -28,7 +28,7 @@ using Amazon.ApiGatewayV2.Model;
 namespace Amazon.PowerShell.Cmdlets.AG2
 {
     /// <summary>
-    /// The API mapping.
+    /// Gets an API mapping.
     /// </summary>
     [Cmdlet("Get", "AG2ApiMapping")]
     [OutputType("Amazon.ApiGatewayV2.Model.GetApiMappingResponse")]

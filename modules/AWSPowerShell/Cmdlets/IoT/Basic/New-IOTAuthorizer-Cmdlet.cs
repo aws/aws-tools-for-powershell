@@ -73,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String AuthorizerName { get; set; }
         #endregion
         
+        #region Parameter SigningDisabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether AWS IoT validates the token signature in an authorization request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SigningDisabled { get; set; }
+        #endregion
+        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -90,14 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>The name of the token key used to extract the token from the HTTP headers.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TokenKeyName { get; set; }
         #endregion
         
@@ -108,14 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// service.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("TokenSigningPublicKeys")]
         public System.Collections.Hashtable TokenSigningPublicKey { get; set; }
         #endregion
@@ -195,14 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter AuthorizerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SigningDisabled = this.SigningDisabled;
             context.Status = this.Status;
             context.TokenKeyName = this.TokenKeyName;
-            #if MODULAR
-            if (this.TokenKeyName == null && ParameterWasBound(nameof(this.TokenKeyName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TokenKeyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.TokenSigningPublicKey != null)
             {
                 context.TokenSigningPublicKey = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -211,12 +202,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                     context.TokenSigningPublicKey.Add((String)hashKey, (String)(this.TokenSigningPublicKey[hashKey]));
                 }
             }
-            #if MODULAR
-            if (this.TokenSigningPublicKey == null && ParameterWasBound(nameof(this.TokenSigningPublicKey)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TokenSigningPublicKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -240,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.AuthorizerName != null)
             {
                 request.AuthorizerName = cmdletContext.AuthorizerName;
+            }
+            if (cmdletContext.SigningDisabled != null)
+            {
+                request.SigningDisabled = cmdletContext.SigningDisabled.Value;
             }
             if (cmdletContext.Status != null)
             {
@@ -316,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String AuthorizerFunctionArn { get; set; }
             public System.String AuthorizerName { get; set; }
+            public System.Boolean? SigningDisabled { get; set; }
             public Amazon.IoT.AuthorizerStatus Status { get; set; }
             public System.String TokenKeyName { get; set; }
             public Dictionary<System.String, System.String> TokenSigningPublicKey { get; set; }

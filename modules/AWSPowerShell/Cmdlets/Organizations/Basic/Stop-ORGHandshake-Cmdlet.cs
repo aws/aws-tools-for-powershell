@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>The unique identifier (ID) of the handshake that you want to cancel. You can get the
         /// ID from the <a>ListHandshakesForOrganization</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
-        /// requires "h-" followed by from 8 to 32 lower-case letters or digits.</para>
+        /// requires "h-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

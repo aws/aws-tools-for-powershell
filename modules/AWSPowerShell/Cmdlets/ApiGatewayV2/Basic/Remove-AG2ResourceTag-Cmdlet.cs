@@ -28,7 +28,7 @@ using Amazon.ApiGatewayV2.Model;
 namespace Amazon.PowerShell.Cmdlets.AG2
 {
     /// <summary>
-    /// Untag an APIGW resource
+    /// Deletes a Tag.
     /// </summary>
     [Cmdlet("Remove", "AG2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>AWS resource arn </para>
+        /// <para>The resource ARN for the tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The Tag keys to delete</para>
+        /// <para>The Tag keys to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

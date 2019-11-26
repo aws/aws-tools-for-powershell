@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>Identifier (ID) of the directory whose log subscription you want to delete.</para>
+        /// <para>Identifier of the directory whose log subscription you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -52,18 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class CopyEC2ImageCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -155,6 +143,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceRegion { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of the request.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

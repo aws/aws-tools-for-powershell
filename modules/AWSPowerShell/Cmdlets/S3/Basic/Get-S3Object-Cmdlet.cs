@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns some or all (up to 1000) of the objects in a bucket. You can use the request
+    /// Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
     /// parameters as selection criteria to return a subset of the objects in a bucket. A
     /// 200 OK response can contain valid or invalid XML. Be sure to design your application
     /// to parse the contents of the response and handle it appropriately.
@@ -61,16 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String BucketName { get; set; }
         #endregion
         
-        #region Parameter Delimiter
-        /// <summary>
-        /// <para>
-        /// A delimiter is a character you use to group keys.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
-        public System.String Delimiter { get; set; }
-        #endregion
-        
         #region Parameter Encoding
         /// <summary>
         /// <para>
@@ -87,17 +77,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.EncodingType Encoding { get; set; }
         #endregion
         
-        #region Parameter Prefix
-        /// <summary>
-        /// <para>
-        /// Limits the response to keys that begin with the specified prefix.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
-        [Alias("KeyPrefix")]
-        public System.String Prefix { get; set; }
-        #endregion
-        
         #region Parameter RequestPayer
         /// <summary>
         /// <para>
@@ -108,6 +87,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3.RequestPayer")]
         public Amazon.S3.RequestPayer RequestPayer { get; set; }
+        #endregion
+        
+        #region Parameter Delimiter
+        /// <summary>
+        /// <para>
+        /// A delimiter is a character you use to group keys.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
+        public System.String Delimiter { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -139,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
         [Alias("MaxItems","MaxKeys")]
         public int? MaxKey { get; set; }
+        #endregion
+        
+        #region Parameter Prefix
+        /// <summary>
+        /// <para>
+        /// Limits the response to keys that begin with the specified prefix.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "GetMultipleObjects")]
+        [Alias("KeyPrefix")]
+        public System.String Prefix { get; set; }
         #endregion
         
         #region Parameter Select

@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Describes read and write permissions on a template.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight describe-template-permissions —aws-account-id 735340738645 —template-id
-    /// reports_test_template</code></para>
     /// </summary>
     [Cmdlet("Get", "QSTemplatePermission")]
     [OutputType("Amazon.QuickSight.Model.DescribeTemplatePermissionsResponse")]
@@ -48,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template you are describing.</para>
+        /// <para>The ID of the AWS account that contains the template that you're describing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

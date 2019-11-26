@@ -139,19 +139,6 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public Amazon.CloudFormation.ChangeSetType ChangeSetType { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier for this <code>CreateChangeSet</code> request. Specify this token
-        /// if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
-        /// to create another change set with the same name. You might retry <code>CreateChangeSet</code>
-        /// requests to ensure that AWS CloudFormation successfully received them.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -307,6 +294,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? UsePreviousTemplate { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for this <code>CreateChangeSet</code> request. Specify this token
+        /// if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
+        /// to create another change set with the same name. You might retry <code>CreateChangeSet</code>
+        /// requests to ensure that AWS CloudFormation successfully received them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

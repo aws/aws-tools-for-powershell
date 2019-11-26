@@ -83,14 +83,21 @@ $RS_Completers = {
         # Amazon.Redshift.ActionType
         "Get-RSNodeConfigurationOption/ActionType"
         {
-            $v = "restore-cluster"
+            $v = "recommend-node-config","restore-cluster"
+            break
+        }
+
+        # Amazon.Redshift.ScheduledActionTypeValues
+        "Get-RSScheduledAction/TargetActionType"
+        {
+            $v = "ResizeCluster"
             break
         }
 
         # Amazon.Redshift.SourceType
         "Get-RSEvent/SourceType"
         {
-            $v = "cluster","cluster-parameter-group","cluster-security-group","cluster-snapshot"
+            $v = "cluster","cluster-parameter-group","cluster-security-group","cluster-snapshot","scheduled-action"
             break
         }
 
@@ -105,6 +112,7 @@ $RS_Completers = {
 $RS_map = @{
     "ActionType"=@("Get-RSNodeConfigurationOption")
     "SourceType"=@("Get-RSEvent")
+    "TargetActionType"=@("Get-RSScheduledAction")
 }
 
 _awsArgumentCompleterRegistration $RS_Completers $RS_map
@@ -172,6 +180,7 @@ $RS_SelectMap = @{
                "New-RSEventSubscription",
                "New-RSHsmClientCertificate",
                "New-RSHsmConfiguration",
+               "New-RSScheduledAction",
                "New-RSSnapshotCopyGrant",
                "New-RSSnapshotSchedule",
                "New-RSResourceTag",
@@ -183,6 +192,7 @@ $RS_SelectMap = @{
                "Remove-RSEventSubscription",
                "Remove-RSHsmClientCertificate",
                "Remove-RSHsmConfiguration",
+               "Remove-RSScheduledAction",
                "Remove-RSSnapshotCopyGrant",
                "Remove-RSSnapshotSchedule",
                "Remove-RSResourceTag",
@@ -208,6 +218,7 @@ $RS_SelectMap = @{
                "Get-RSReservedNodeOffering",
                "Get-RSReservedNode",
                "Get-RSResize",
+               "Get-RSScheduledAction",
                "Get-RSSnapshotCopyGrant",
                "Get-RSSnapshotSchedule",
                "Get-RSStorage",
@@ -228,6 +239,7 @@ $RS_SelectMap = @{
                "Edit-RSClusterSnapshotSchedule",
                "Edit-RSClusterSubnetGroup",
                "Edit-RSEventSubscription",
+               "Edit-RSScheduledAction",
                "Edit-RSSnapshotCopyRetentionPeriod",
                "Edit-RSSnapshotSchedule",
                "Request-RSReservedNodeOffering",

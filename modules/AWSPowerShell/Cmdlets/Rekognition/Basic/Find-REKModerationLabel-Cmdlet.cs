@@ -79,6 +79,38 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public byte[] Image_Byte { get; set; }
         #endregion
         
+        #region Parameter DataAttributes_ContentClassifier
+        /// <summary>
+        /// <para>
+        /// <para>Sets whether the input image is free of personally identifiable information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HumanLoopConfig_DataAttributes_ContentClassifiers")]
+        public System.String[] DataAttributes_ContentClassifier { get; set; }
+        #endregion
+        
+        #region Parameter HumanLoopConfig_FlowDefinitionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the flow definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HumanLoopConfig_FlowDefinitionArn { get; set; }
+        #endregion
+        
+        #region Parameter HumanLoopConfig_HumanLoopName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the human review used for this image. This should be kept unique within
+        /// a region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HumanLoopConfig_HumanLoopName { get; set; }
+        #endregion
+        
         #region Parameter MinConfidence
         /// <summary>
         /// <para>
@@ -138,6 +170,12 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.DetectModerationLabelsResponse, FindREKModerationLabelCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.DataAttributes_ContentClassifier != null)
+            {
+                context.DataAttributes_ContentClassifier = new List<System.String>(this.DataAttributes_ContentClassifier);
+            }
+            context.HumanLoopConfig_FlowDefinitionArn = this.HumanLoopConfig_FlowDefinitionArn;
+            context.HumanLoopConfig_HumanLoopName = this.HumanLoopConfig_HumanLoopName;
             context.Image_Byte = this.Image_Byte;
             context.S3Object_Bucket = this.S3Object_Bucket;
             context.S3Object_Name = this.S3Object_Name;
@@ -163,6 +201,60 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 // create request
                 var request = new Amazon.Rekognition.Model.DetectModerationLabelsRequest();
                 
+                
+                 // populate HumanLoopConfig
+                var requestHumanLoopConfigIsNull = true;
+                request.HumanLoopConfig = new Amazon.Rekognition.Model.HumanLoopConfig();
+                System.String requestHumanLoopConfig_humanLoopConfig_FlowDefinitionArn = null;
+                if (cmdletContext.HumanLoopConfig_FlowDefinitionArn != null)
+                {
+                    requestHumanLoopConfig_humanLoopConfig_FlowDefinitionArn = cmdletContext.HumanLoopConfig_FlowDefinitionArn;
+                }
+                if (requestHumanLoopConfig_humanLoopConfig_FlowDefinitionArn != null)
+                {
+                    request.HumanLoopConfig.FlowDefinitionArn = requestHumanLoopConfig_humanLoopConfig_FlowDefinitionArn;
+                    requestHumanLoopConfigIsNull = false;
+                }
+                System.String requestHumanLoopConfig_humanLoopConfig_HumanLoopName = null;
+                if (cmdletContext.HumanLoopConfig_HumanLoopName != null)
+                {
+                    requestHumanLoopConfig_humanLoopConfig_HumanLoopName = cmdletContext.HumanLoopConfig_HumanLoopName;
+                }
+                if (requestHumanLoopConfig_humanLoopConfig_HumanLoopName != null)
+                {
+                    request.HumanLoopConfig.HumanLoopName = requestHumanLoopConfig_humanLoopConfig_HumanLoopName;
+                    requestHumanLoopConfigIsNull = false;
+                }
+                Amazon.Rekognition.Model.HumanLoopDataAttributes requestHumanLoopConfig_humanLoopConfig_DataAttributes = null;
+                
+                 // populate DataAttributes
+                var requestHumanLoopConfig_humanLoopConfig_DataAttributesIsNull = true;
+                requestHumanLoopConfig_humanLoopConfig_DataAttributes = new Amazon.Rekognition.Model.HumanLoopDataAttributes();
+                List<System.String> requestHumanLoopConfig_humanLoopConfig_DataAttributes_dataAttributes_ContentClassifier = null;
+                if (cmdletContext.DataAttributes_ContentClassifier != null)
+                {
+                    requestHumanLoopConfig_humanLoopConfig_DataAttributes_dataAttributes_ContentClassifier = cmdletContext.DataAttributes_ContentClassifier;
+                }
+                if (requestHumanLoopConfig_humanLoopConfig_DataAttributes_dataAttributes_ContentClassifier != null)
+                {
+                    requestHumanLoopConfig_humanLoopConfig_DataAttributes.ContentClassifiers = requestHumanLoopConfig_humanLoopConfig_DataAttributes_dataAttributes_ContentClassifier;
+                    requestHumanLoopConfig_humanLoopConfig_DataAttributesIsNull = false;
+                }
+                 // determine if requestHumanLoopConfig_humanLoopConfig_DataAttributes should be set to null
+                if (requestHumanLoopConfig_humanLoopConfig_DataAttributesIsNull)
+                {
+                    requestHumanLoopConfig_humanLoopConfig_DataAttributes = null;
+                }
+                if (requestHumanLoopConfig_humanLoopConfig_DataAttributes != null)
+                {
+                    request.HumanLoopConfig.DataAttributes = requestHumanLoopConfig_humanLoopConfig_DataAttributes;
+                    requestHumanLoopConfigIsNull = false;
+                }
+                 // determine if request.HumanLoopConfig should be set to null
+                if (requestHumanLoopConfigIsNull)
+                {
+                    request.HumanLoopConfig = null;
+                }
                 
                  // populate Image
                 var requestImageIsNull = true;
@@ -301,6 +393,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> DataAttributes_ContentClassifier { get; set; }
+            public System.String HumanLoopConfig_FlowDefinitionArn { get; set; }
+            public System.String HumanLoopConfig_HumanLoopName { get; set; }
             public byte[] Image_Byte { get; set; }
             public System.String S3Object_Bucket { get; set; }
             public System.String S3Object_Name { get; set; }

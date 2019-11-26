@@ -57,6 +57,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String DocumentVersion { get; set; }
         #endregion
         
+        #region Parameter Enforce
+        /// <summary>
+        /// <para>
+        /// <para>Some SSM document types require that you specify a <code>Force</code> flag before
+        /// you can delete the document. For example, you must specify a <code>Force</code> flag
+        /// to delete a document of type <code>ApplicationConfigurationSchema</code>. You can
+        /// restrict access to the <code>Force</code> flag in an AWS Identity and Access Management
+        /// (IAM) policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Enforce { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -146,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DocumentVersion = this.DocumentVersion;
+            context.Enforce = this.Enforce;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -173,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.DocumentVersion != null)
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
+            }
+            if (cmdletContext.Enforce != null)
+            {
+                request.Force = cmdletContext.Enforce.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -244,6 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DocumentVersion { get; set; }
+            public System.Boolean? Enforce { get; set; }
             public System.String Name { get; set; }
             public System.String VersionName { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.DeleteDocumentResponse, RemoveSSMDocumentCmdlet, object> Select { get; set; } =

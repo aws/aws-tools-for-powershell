@@ -40,16 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class RegisterSSMTargetWithMaintenanceWindowCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>User-provided idempotency token.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -137,6 +127,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String WindowId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>User-provided idempotency token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

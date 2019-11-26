@@ -103,6 +103,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-COMPDocumentClassifierList', 
         'Get-COMPDominantLanguageDetectionJob', 
         'Get-COMPDominantLanguageDetectionJobList', 
+        'Get-COMPEndpoint', 
+        'Get-COMPEndpointList', 
         'Get-COMPEntitiesDetectionJob', 
         'Get-COMPEntitiesDetectionJobList', 
         'Get-COMPEntityRecognizer', 
@@ -114,9 +116,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-COMPSentimentDetectionJobList', 
         'Get-COMPTopicsDetectionJob', 
         'Get-COMPTopicsDetectionJobList', 
+        'Invoke-COMPDocumentClassification', 
         'New-COMPDocumentClassifier', 
+        'New-COMPEndpoint', 
         'New-COMPEntityRecognizer', 
         'Remove-COMPDocumentClassifier', 
+        'Remove-COMPEndpoint', 
         'Remove-COMPEntityRecognizer', 
         'Remove-COMPResourceTag', 
         'Start-COMPDocumentClassificationJob', 
@@ -130,7 +135,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-COMPKeyPhrasesDetectionJob', 
         'Stop-COMPSentimentDetectionJob', 
         'Stop-COMPTrainingDocumentClassifier', 
-        'Stop-COMPTrainingEntityRecognizer')
+        'Stop-COMPTrainingEntityRecognizer', 
+        'Update-COMPEndpoint')
 
     # Variables to export from this module
     VariablesToExport = '*'

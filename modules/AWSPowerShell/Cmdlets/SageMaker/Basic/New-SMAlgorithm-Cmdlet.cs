@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Indicates whether the algorithm supports distributed training. If set to false, buyers
-        /// can’t request more than one instance during training.</para>
+        /// can't request more than one instance during training.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -110,6 +110,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomainConfiguration" OutputProperty="*" Verb="New" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDynamicThingGroup" OutputProperty="*" Verb="New" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,6 +139,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicyVersion" OutputProperty="*" Verb="New" Noun="PolicyVersion" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProvisioningClaim" OutputProperty="*" Verb="New" Noun="ProvisioningClaim" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProvisioningTemplate" OutputProperty="*" Verb="New" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateBody" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProvisioningTemplateVersion" OutputProperty="*" Verb="New" Noun="ProvisioningTemplateVersion" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateBody" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -196,6 +212,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomainConfiguration" Verb="Remove" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDynamicThingGroup" Verb="Remove" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -225,6 +245,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePolicyVersion" Verb="Remove" Noun="PolicyVersion" ShouldProcessTarget="PolicyVersionId" PipelineParameter="PolicyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProvisioningTemplate" Verb="Remove" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProvisioningTemplateVersion" Verb="Remove" Noun="ProvisioningTemplateVersion" ShouldProcessTarget="VersionId" PipelineParameter="VersionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -312,6 +340,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomainConfiguration" OutputProperty="*" Verb="Get" Noun="DomainConfiguration" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEndpoint" OutputProperty="EndpointAddress" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -333,6 +365,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMitigationAction" OutputProperty="*" Verb="Get" Noun="MitigationAction" PipelineParameter="ActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProvisioningTemplate" OutputProperty="*" Verb="Get" Noun="ProvisioningTemplate" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProvisioningTemplateVersion" OutputProperty="*" Verb="Get" Noun="ProvisioningTemplateVersion" PipelineParameter="VersionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -467,7 +507,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAuditMitigationActionsTasks" OutputProperty="Tasks" Verb="Get" Noun="AuditMitigationActionsTaskList" PipelineParameter="FindingId" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAuditMitigationActionsTasks" OutputProperty="Tasks" Verb="Get" Noun="AuditMitigationActionsTaskList" PipelineParameter="FindingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -504,6 +544,10 @@
         <ServiceOperation MethodName="ListCertificatesByCA" OutputProperty="Certificates" Verb="Get" Noun="CertificateListByCA" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainConfigurations" OutputProperty="DomainConfigurations" Verb="Get" Noun="DomainConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIndices" OutputProperty="IndexNames" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="false">
@@ -563,6 +607,16 @@
         <ServiceOperation MethodName="ListPrincipalThings" OutputProperty="Things" Verb="Get" Noun="PrincipalThingList" PipelineParameter="Principal" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProvisioningTemplates" OutputProperty="Templates" Verb="Get" Noun="ProvisioningTemplateList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProvisioningTemplateVersions" OutputProperty="Versions" Verb="Get" Noun="ProvisioningTemplateVersionList" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRoleAliases" OutputProperty="RoleAliases" Verb="Get" Noun="RoleAliasList" PipelineParameter="" NoPipelineParameter="true">
@@ -780,6 +834,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainConfiguration" OutputProperty="*" Verb="Update" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDynamicThingGroup" OutputProperty="Version" Verb="Update" Noun="DynamicThingGroup" ShouldProcessTarget="ThingGroupName" PipelineParameter="ThingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -797,6 +855,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMitigationAction" OutputProperty="*" Verb="Update" Noun="MitigationAction" ShouldProcessTarget="ActionName" PipelineParameter="ActionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProvisioningTemplate" Verb="Update" Noun="ProvisioningTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

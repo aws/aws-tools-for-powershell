@@ -81,6 +81,29 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
         #endregion
         
+        #region Parameter CapacityProviderStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The capacity provider strategy to use for the task.</para><para>A capacity provider strategy consists of one or more capacity providers along with
+        /// the <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+        /// must be associated with the cluster to be used in a capacity provider strategy. The
+        /// <a>PutClusterCapacityProviders</a> API is used to associate a capacity provider with
+        /// a cluster. Only capacity providers with an <code>ACTIVE</code> or <code>UPDATING</code>
+        /// status can be used.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+        /// parameter must be omitted. If no <code>capacityProviderStrategy</code> or <code>launchType</code>
+        /// is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is
+        /// used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
+        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
+        /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+        /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+        /// available to all accounts and only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
+        /// available capacity providers for a cluster after the cluster is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.ECS.Model.CapacityProviderStrategyItem[] CapacityProviderStrategy { get; set; }
+        #endregion
+        
         #region Parameter Cluster
         /// <summary>
         /// <para>
@@ -175,7 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The launch type on which to run your task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
+        /// parameter must be omitted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -409,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Select = (response, cmdlet) => this.Cluster;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CapacityProviderStrategy != null)
+            {
+                context.CapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.CapacityProviderStrategy);
+            }
             context.Cluster = this.Cluster;
             context.Count = this.Count;
             context.EnableECSManagedTag = this.EnableECSManagedTag;
@@ -474,6 +502,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // create request
             var request = new Amazon.ECS.Model.RunTaskRequest();
             
+            if (cmdletContext.CapacityProviderStrategy != null)
+            {
+                request.CapacityProviderStrategy = cmdletContext.CapacityProviderStrategy;
+            }
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
@@ -710,6 +742,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ECS.Model.CapacityProviderStrategyItem> CapacityProviderStrategy { get; set; }
             public System.String Cluster { get; set; }
             public System.Int32? Count { get; set; }
             public System.Boolean? EnableECSManagedTag { get; set; }

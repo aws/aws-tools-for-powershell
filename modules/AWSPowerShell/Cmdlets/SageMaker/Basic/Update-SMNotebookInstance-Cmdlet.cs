@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>A list of the Elastic Inference (EI) instance types to associate with this notebook
         /// instance. Currently only one EI instance type can be associated with a notebook instance.
-        /// For more information, see <a href="sagemaker/latest/dg/ei.html">Using Elastic Inference
-        /// in Amazon SageMaker</a>.</para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using
+        /// Elastic Inference in Amazon SageMaker</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

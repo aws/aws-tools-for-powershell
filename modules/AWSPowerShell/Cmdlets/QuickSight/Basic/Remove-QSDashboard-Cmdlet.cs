@@ -29,13 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Deletes a dashboard.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight delete-dashboard --aws-account-id 111122223333 —dashboard-id
-    /// 123123123</code></para><para><code>aws quicksight delete-dashboard --aws-account-id 111122223333 —dashboard-id
-    /// 123123123 —version-number 3</code></para>
     /// </summary>
     [Cmdlet("Remove", "QSDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteDashboardResponse")]
@@ -49,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the dashboard you are deleting.</para>
+        /// <para>The ID of the AWS account that contains the dashboard that you're deleting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VersionNumber
         /// <summary>
         /// <para>
-        /// <para>The version number of the dashboard. If version number property is provided, only
+        /// <para>The version number of the dashboard. If the version number property is provided, only
         /// the specified version of the dashboard is deleted.</para>
         /// </para>
         /// </summary>

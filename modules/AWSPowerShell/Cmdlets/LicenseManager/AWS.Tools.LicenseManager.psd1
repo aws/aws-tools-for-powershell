@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-LICMResourceTag', 
         'Get-LICMAssociationsForLicenseConfigurationList', 
+        'Get-LICMFailuresForLicenseConfigurationOperationList', 
         'Get-LICMLicenseConfiguration', 
         'Get-LICMLicenseConfigurationList', 
         'Get-LICMLicenseSpecificationsForResourceList', 

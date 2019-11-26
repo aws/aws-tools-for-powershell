@@ -28,12 +28,17 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Creates a new license configuration object. A license configuration is an abstraction
-    /// of a customer license agreement that can be consumed and enforced by License Manager.
-    /// Components include specifications for the license type (licensing by instance, socket,
-    /// CPU, or VCPU), tenancy (shared tenancy, Amazon EC2 Dedicated Instance, Amazon EC2
-    /// Dedicated Host, or any of these), host affinity (how long a VM must be associated
-    /// with a host), the number of licenses purchased and used.
+    /// Creates a license configuration.
+    /// 
+    ///  
+    /// <para>
+    /// A license configuration is an abstraction of a customer license agreement that can
+    /// be consumed and enforced by License Manager. Components include specifications for
+    /// the license type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
+    /// tenancy, Dedicated Instance, Dedicated Host, or all of these), host affinity (how
+    /// long a VM must be associated with a host), and the number of licenses purchased and
+    /// used.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "LICMLicenseConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -48,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Human-friendly description of the license configuration.</para>
+        /// <para>Description of the license configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseCountHardLimit
         /// <summary>
         /// <para>
-        /// <para>Flag indicating whether hard or soft license enforcement is used. Exceeding a hard
-        /// limit results in the blocked deployment of new instances.</para>
+        /// <para>Indicates whether hard or soft license enforcement is used. Exceeding a hard limit
+        /// blocks the launch of new instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseCountingType
         /// <summary>
         /// <para>
-        /// <para>Dimension to use to track the license inventory.</para>
+        /// <para>Dimension used to track the license inventory.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +101,13 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseRule
         /// <summary>
         /// <para>
-        /// <para>Array of configured License Manager rules.</para>
+        /// <para>License rules. The syntax is #name=value (for example, #allowedTenancy=EC2-DedicatedHost).
+        /// Available rules vary by dimension.</para><ul><li><para><code>Cores</code> dimension: <code>allowedTenancy</code> | <code>maximumCores</code>
+        /// | <code>minimumCores</code></para></li><li><para><code>Instances</code> dimension: <code>allowedTenancy</code> | <code>maximumCores</code>
+        /// | <code>minimumCores</code> | <code>maximumSockets</code> | <code>minimumSockets</code>
+        /// | <code>maximumVcpus</code> | <code>minimumVcpus</code></para></li><li><para><code>Sockets</code> dimension: <code>allowedTenancy</code> | <code>maximumSockets</code>
+        /// | <code>minimumSockets</code></para></li><li><para><code>vCPUs</code> dimension: <code>allowedTenancy</code> | <code>honorVcpuOptimization</code>
+        /// | <code>maximumVcpus</code> | <code>minimumVcpus</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,12 +132,20 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ProductInformationList
+        /// <summary>
+        /// <para>
+        /// <para>Product information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.LicenseManager.Model.ProductInformation[] ProductInformationList { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to apply to the resources during launch. You can only tag instances and volumes
-        /// on launch. The specified tags are applied to all instances or volumes that are created
-        /// during launch. To tag a resource after it has been created, see CreateTags .</para>
+        /// <para>Tags to add to the license configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ProductInformationList != null)
+            {
+                context.ProductInformationList = new List<Amazon.LicenseManager.Model.ProductInformation>(this.ProductInformationList);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.LicenseManager.Model.Tag>(this.Tag);
@@ -259,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ProductInformationList != null)
+            {
+                request.ProductInformationList = cmdletContext.ProductInformationList;
             }
             if (cmdletContext.Tag != null)
             {
@@ -331,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public Amazon.LicenseManager.LicenseCountingType LicenseCountingType { get; set; }
             public List<System.String> LicenseRule { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.LicenseManager.Model.ProductInformation> ProductInformationList { get; set; }
             public List<Amazon.LicenseManager.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.LicenseManager.Model.CreateLicenseConfigurationResponse, NewLICMLicenseConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LicenseConfigurationArn;

@@ -28,13 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Removes a user group from Amazon QuickSight. 
-    /// 
-    ///  
-    /// <para>
-    /// The permissions resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:group/default/<i>&lt;group-name&gt;</i></code>.
-    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight delete-group -\-aws-account-id=111122223333 -\-namespace=default
-    /// -\-group-name=Sales-Management </code></para>
+    /// Removes a user group from Amazon QuickSight.
     /// </summary>
     [Cmdlet("Remove", "QSGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteGroupResponse")]

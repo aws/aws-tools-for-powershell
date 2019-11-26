@@ -141,6 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Collections.Hashtable Environment { get; set; }
         #endregion
         
+        #region Parameter ExperimentConfig_ExperimentName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the experiment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExperimentConfig_ExperimentName { get; set; }
+        #endregion
+        
         #region Parameter DataProcessing_InputFilter
         /// <summary>
         /// <para>
@@ -235,10 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The maximum number of parallel requests that can be sent to each instance in a transform
         /// job. If <code>MaxConcurrentTransforms</code> is set to <code>0</code> or left unset,
-        /// Amazon SageMaker checks the optional execution-parameters to determine the optimal
-        /// settings for your chosen algorithm. If the execution-parameters endpoint is not enabled,
-        /// the default value is <code>1</code>. For more information on execution-parameters,
-        /// see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+        /// Amazon SageMaker checks the optional execution-parameters to determine the settings
+        /// for your chosen algorithm. If the execution-parameters endpoint is not enabled, the
+        /// default value is <code>1</code>. For more information on execution-parameters, see
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
         /// Containers Serve Requests</a>. For built-in algorithms, you don't need to set a value
         /// for <code>MaxConcurrentTransforms</code>.</para>
         /// </para>
@@ -429,12 +439,32 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String TransformJobName { get; set; }
         #endregion
         
+        #region Parameter ExperimentConfig_TrialComponentDisplayName
+        /// <summary>
+        /// <para>
+        /// <para>Display name for the trial component.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExperimentConfig_TrialComponentDisplayName { get; set; }
+        #endregion
+        
+        #region Parameter ExperimentConfig_TrialName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the trial.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExperimentConfig_TrialName { get; set; }
+        #endregion
+        
         #region Parameter TransformResources_VolumeKmsKeyId
         /// <summary>
         /// <para>
         /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
-        /// data on the storage volume attached to the ML compute instance(s) that run the batch
-        /// transform job. The <code>VolumeKmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// model data on the storage volume attached to the ML compute instance(s) that run the
+        /// batch transform job. The <code>VolumeKmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -514,6 +544,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
                     context.Environment.Add((String)hashKey, (String)(this.Environment[hashKey]));
                 }
             }
+            context.ExperimentConfig_ExperimentName = this.ExperimentConfig_ExperimentName;
+            context.ExperimentConfig_TrialComponentDisplayName = this.ExperimentConfig_TrialComponentDisplayName;
+            context.ExperimentConfig_TrialName = this.ExperimentConfig_TrialName;
             context.MaxConcurrentTransform = this.MaxConcurrentTransform;
             context.MaxPayloadInMB = this.MaxPayloadInMB;
             context.ModelName = this.ModelName;
@@ -638,6 +671,45 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.Environment != null)
             {
                 request.Environment = cmdletContext.Environment;
+            }
+            
+             // populate ExperimentConfig
+            var requestExperimentConfigIsNull = true;
+            request.ExperimentConfig = new Amazon.SageMaker.Model.ExperimentConfig();
+            System.String requestExperimentConfig_experimentConfig_ExperimentName = null;
+            if (cmdletContext.ExperimentConfig_ExperimentName != null)
+            {
+                requestExperimentConfig_experimentConfig_ExperimentName = cmdletContext.ExperimentConfig_ExperimentName;
+            }
+            if (requestExperimentConfig_experimentConfig_ExperimentName != null)
+            {
+                request.ExperimentConfig.ExperimentName = requestExperimentConfig_experimentConfig_ExperimentName;
+                requestExperimentConfigIsNull = false;
+            }
+            System.String requestExperimentConfig_experimentConfig_TrialComponentDisplayName = null;
+            if (cmdletContext.ExperimentConfig_TrialComponentDisplayName != null)
+            {
+                requestExperimentConfig_experimentConfig_TrialComponentDisplayName = cmdletContext.ExperimentConfig_TrialComponentDisplayName;
+            }
+            if (requestExperimentConfig_experimentConfig_TrialComponentDisplayName != null)
+            {
+                request.ExperimentConfig.TrialComponentDisplayName = requestExperimentConfig_experimentConfig_TrialComponentDisplayName;
+                requestExperimentConfigIsNull = false;
+            }
+            System.String requestExperimentConfig_experimentConfig_TrialName = null;
+            if (cmdletContext.ExperimentConfig_TrialName != null)
+            {
+                requestExperimentConfig_experimentConfig_TrialName = cmdletContext.ExperimentConfig_TrialName;
+            }
+            if (requestExperimentConfig_experimentConfig_TrialName != null)
+            {
+                request.ExperimentConfig.TrialName = requestExperimentConfig_experimentConfig_TrialName;
+                requestExperimentConfigIsNull = false;
+            }
+             // determine if request.ExperimentConfig should be set to null
+            if (requestExperimentConfigIsNull)
+            {
+                request.ExperimentConfig = null;
             }
             if (cmdletContext.MaxConcurrentTransform != null)
             {
@@ -902,6 +974,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.JoinSource DataProcessing_JoinSource { get; set; }
             public System.String DataProcessing_OutputFilter { get; set; }
             public Dictionary<System.String, System.String> Environment { get; set; }
+            public System.String ExperimentConfig_ExperimentName { get; set; }
+            public System.String ExperimentConfig_TrialComponentDisplayName { get; set; }
+            public System.String ExperimentConfig_TrialName { get; set; }
             public System.Int32? MaxConcurrentTransform { get; set; }
             public System.Int32? MaxPayloadInMB { get; set; }
             public System.String ModelName { get; set; }

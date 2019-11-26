@@ -45,17 +45,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTPolicyPrincipalListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter AscendingOrder
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the order for results. If true, the results are returned in ascending creation
-        /// order.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? AscendingOrder { get; set; }
-        #endregion
-        
         #region Parameter PolicyName
         /// <summary>
         /// <para>
@@ -71,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PolicyName { get; set; }
+        #endregion
+        
+        #region Parameter AscendingOrder
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the order for results. If true, the results are returned in ascending creation
+        /// order.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AscendingOrder { get; set; }
         #endregion
         
         #region Parameter Marker

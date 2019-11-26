@@ -1,0 +1,3 @@
+﻿# AccessAnalyzer
+
+Export-ModuleMember -Alias *

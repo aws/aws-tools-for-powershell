@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ApiMappingKey
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// The API mapping key.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

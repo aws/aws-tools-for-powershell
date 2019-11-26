@@ -68,7 +68,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter BucketName
         /// <summary>
-        /// The name of the bucket containing the source object.
+        /// <para>The name of the bucket containing the source object.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 
+        /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
+        /// When using this operation using an access point through the AWS SDKs, you provide the access point 
+        /// ARN in place of the bucket name. For more information about access point ARNs, see 
+        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> 
+        /// in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
         /// </summary>
         [Parameter(Position = 0, Mandatory = true, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("SourceBucket")]
@@ -111,8 +116,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter DestinationBucket
         /// <summary>
-        /// The name of the bucket that will contain the copied object. If not specified,
-        /// the copy is to another S3 object in the source bucket.
+        /// <para>The name of the bucket that will contain the copied object. If not specified,
+        /// the copy is to another S3 object in the source bucket.</para><para>When using this API with an access point, you must direct requests to the access point hostname. 
+        /// The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. 
+        /// When using this operation using an access point through the AWS SDKs, you provide the access point 
+        /// ARN in place of the bucket name. For more information about access point ARNs, see 
+        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using Access Points</a> 
+        /// in the <i>Amazon Simple Storage Service Developer Guide</i>.</para>
         /// </summary>
         [Parameter(Position = 3, ParameterSetName = CopyS3ObjectToS3Object, ValueFromPipelineByPropertyName = true)]
         public System.String DestinationBucket { get; set; }

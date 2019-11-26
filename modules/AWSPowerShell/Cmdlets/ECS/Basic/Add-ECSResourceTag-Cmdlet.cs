@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the resource to which to add tags. Currently, the
-        /// supported resources are Amazon ECS tasks, services, task definitions, clusters, and
-        /// container instances.</para>
+        /// supported resources are Amazon ECS capacity providers, tasks, services, task definitions,
+        /// clusters, and container instances.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

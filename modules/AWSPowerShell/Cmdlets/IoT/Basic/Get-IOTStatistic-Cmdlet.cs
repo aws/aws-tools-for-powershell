@@ -28,7 +28,9 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Gets statistics about things that match the specified query.
+    /// Returns the count, average, sum, minimum, maximum, sum of squares, variance, and standard
+    /// deviation for the specified aggregated field. If the aggregation field is of type
+    /// <code>String</code>, only the count statistic is returned.
     /// </summary>
     [Cmdlet("Get", "IOTStatistic")]
     [OutputType("Amazon.IoT.Model.Statistics")]
@@ -43,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AggregationField
         /// <summary>
         /// <para>
-        /// <para>The aggregation field name. Currently not supported.</para>
+        /// <para>The aggregation field name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

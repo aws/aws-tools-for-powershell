@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
-    /// In order to use this operation, you must have the <code>s3:GetBucketPublicAccessBlock</code>
+    /// To use this operation, you must have the <code>s3:GetBucketPublicAccessBlock</code>
     /// permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
     /// Permissions in a Policy</a>.
     /// 

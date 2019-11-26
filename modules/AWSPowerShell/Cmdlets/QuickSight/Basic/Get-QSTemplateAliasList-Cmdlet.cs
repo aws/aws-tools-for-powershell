@@ -28,13 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all the aliases of a template.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight list-template-aliases --aws-account-id 111122223333 —template-id
-    /// 'reports_test_template'</code></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the aliases of a template.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSTemplateAliasList")]
     [OutputType("Amazon.QuickSight.Model.TemplateAlias")]
@@ -49,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template aliases you are listing.</para>
+        /// <para>The ID of the AWS account that contains the template aliases that you're listing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

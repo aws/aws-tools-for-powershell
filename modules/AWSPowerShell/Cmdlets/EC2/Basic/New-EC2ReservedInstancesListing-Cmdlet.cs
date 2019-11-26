@@ -64,25 +64,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2ReservedInstancesListingCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of your listings.
-        /// This helps avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter InstanceCount
         /// <summary>
         /// <para>
@@ -135,6 +116,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ReservedInstancesId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier you provide to ensure idempotency of your listings.
+        /// This helps avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

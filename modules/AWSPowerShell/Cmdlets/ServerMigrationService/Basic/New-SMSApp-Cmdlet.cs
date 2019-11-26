@@ -40,17 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     public partial class NewSMSAppCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure idempotency of application
-        /// creation.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -101,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.ServerMigrationService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier you provide to ensure idempotency of application
+        /// creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

@@ -28,7 +28,10 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Provisions a thing.
+    /// Provisions a thing in the device registry. RegisterThing calls other AWS IoT control
+    /// plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
+    /// AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS
+    /// Customer Support</a> to raise your throttling limits if necessary.
     /// </summary>
     [Cmdlet("Register", "IOTThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.RegisterThingResponse")]

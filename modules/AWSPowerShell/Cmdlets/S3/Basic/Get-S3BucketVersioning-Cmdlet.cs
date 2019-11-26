@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <para>
     /// To retrieve the versioning state of a bucket, you must be the bucket owner.
     /// </para><para>
-    /// This implementation also returns the MFA Delete status of the versioning state, i.e.,
-    /// if the MFA Delete status is <code>enabled</code>, the bucket owner must use an authentication
+    /// This implementation also returns the MFA Delete status of the versioning state. If
+    /// the MFA Delete status is <code>enabled</code>, the bucket owner must use an authentication
     /// device to change the versioning state of the bucket.
     /// </para><para>
     /// The following operations are related to <code>GetBucketVersioning</code>:

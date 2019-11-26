@@ -93,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type.</para><para>Valid values: <code>route53resolver:ResolverRule</code> | <code>ec2:TransitGateway</code>
-        /// | <code>ec2:Subnet</code> | <code>license-manager:LicenseConfiguration</code></para>
+        /// <para>The resource type.</para><para>Valid values: <code>ec2:CapacityReservation</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code>
+        /// | <code>ec2:TransitGateway</code> | <code>license-manager:LicenseConfiguration</code>
+        /// | <code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> | <code>resource-groups:Group</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

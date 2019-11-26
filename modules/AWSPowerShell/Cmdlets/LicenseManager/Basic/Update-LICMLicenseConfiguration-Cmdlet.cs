@@ -28,11 +28,17 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Modifies the attributes of an existing license configuration object. A license configuration
-    /// is an abstraction of a customer license agreement that can be consumed and enforced
-    /// by License Manager. Components include specifications for the license type (Instances,
-    /// cores, sockets, VCPUs), tenancy (shared or Dedicated Host), host affinity (how long
-    /// a VM is associated with a host), the number of licenses purchased and used.
+    /// Modifies the attributes of an existing license configuration.
+    /// 
+    ///  
+    /// <para>
+    /// A license configuration is an abstraction of a customer license agreement that can
+    /// be consumed and enforced by License Manager. Components include specifications for
+    /// the license type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
+    /// tenancy, Dedicated Instance, Dedicated Host, or all of these), host affinity (how
+    /// long a VM must be associated with a host), and the number of licenses purchased and
+    /// used.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "LICMLicenseConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>New human-friendly description of the license configuration.</para>
+        /// <para>New description of the license configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>ARN for a license configuration.</para>
+        /// <para>Amazon Resource Name (ARN) of the license configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseConfigurationStatus
         /// <summary>
         /// <para>
-        /// <para>New status of the license configuration (<code>ACTIVE</code> or <code>INACTIVE</code>).</para>
+        /// <para>New status of the license configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseCountHardLimit
         /// <summary>
         /// <para>
-        /// <para>Sets the number of available licenses as a hard limit.</para>
+        /// <para>New hard limit of the number of available licenses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseRule
         /// <summary>
         /// <para>
-        /// <para>List of flexible text strings designating license rules.</para>
+        /// <para>New license rules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,6 +127,16 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ProductInformationList
+        /// <summary>
+        /// <para>
+        /// <para>New product information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.LicenseManager.Model.ProductInformation[] ProductInformationList { get; set; }
         #endregion
         
         #region Parameter Select
@@ -199,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 context.LicenseRule = new List<System.String>(this.LicenseRule);
             }
             context.Name = this.Name;
+            if (this.ProductInformationList != null)
+            {
+                context.ProductInformationList = new List<Amazon.LicenseManager.Model.ProductInformation>(this.ProductInformationList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -242,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ProductInformationList != null)
+            {
+                request.ProductInformationList = cmdletContext.ProductInformationList;
             }
             
             CmdletOutput output;
@@ -311,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
             public System.Boolean? LicenseCountHardLimit { get; set; }
             public List<System.String> LicenseRule { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.LicenseManager.Model.ProductInformation> ProductInformationList { get; set; }
             public System.Func<Amazon.LicenseManager.Model.UpdateLicenseConfigurationResponse, UpdateLICMLicenseConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

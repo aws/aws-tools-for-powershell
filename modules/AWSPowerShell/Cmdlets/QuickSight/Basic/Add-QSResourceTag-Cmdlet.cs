@@ -28,33 +28,29 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Assigns a tag or tags to a resource.
+    /// Assigns one or more tags (key-value pairs) to the specified QuickSight resource. 
     /// 
     ///  
     /// <para>
-    /// Assigns one or more tags (key-value pairs) to the specified QuickSight resource. Tags
-    /// can help you organize and categorize your resources. You can also use them to scope
-    /// user permissions, by granting a user permission to access or change only resources
-    /// with certain tag values. You can use the TagResource action with a resource that already
-    /// has tags. If you specify a new tag key for the resource, this tag is appended to the
-    /// list of tags associated with the resource. If you specify a tag key that is already
-    /// associated with the resource, the new tag value that you specify replaces the previous
-    /// value for that tag.
+    /// Tags can help you organize and categorize your resources. You can also use them to
+    /// scope user permissions, by granting a user permission to access or change only resources
+    /// with certain tag values. You can use the <code>TagResource</code> operation with a
+    /// resource that already has tags. If you specify a new tag key for the resource, this
+    /// tag is appended to the list of tags associated with the resource. If you specify a
+    /// tag key that is already associated with the resource, the new tag value that you specify
+    /// replaces the previous value for that tag.
     /// </para><para>
     /// You can associate as many as 50 tags with a resource. QuickSight supports tagging
-    /// on data-set, data-source, dashboard, template. 
+    /// on data set, data source, dashboard, and template. 
     /// </para><para>
-    /// Tagging for QuickSight works in a similar was to tagging for other AWS services, except
+    /// Tagging for QuickSight works in a similar way to tagging for other AWS services, except
     /// for the following:
     /// </para><ul><li><para>
-    /// You can't use tags to track AWS costs for QuickSight, because QuickSight costs are
-    /// based on users and SPICE capacity, which aren't taggable resources.
+    /// You can't use tags to track AWS costs for QuickSight. This restriction is because
+    /// QuickSight costs are based on users and SPICE capacity, which aren't taggable resources.
     /// </para></li><li><para>
     /// QuickSight doesn't currently support the Tag Editor for AWS Resource Groups.
-    /// </para></li></ul><para>
-    /// CLI syntax to tag a resource:
-    /// </para><ul><li><para><code>aws quicksight tag-resource --resource-arn arn:aws:quicksight:us-east-1:111111111111:dataset/dataset1
-    /// --tags Key=K1,Value=V1 Key=K2,Value=V2 --region us-east-1</code></para></li></ul>
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Add", "QSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.TagResourceResponse")]
@@ -68,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource you want to tag.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource that you want to tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

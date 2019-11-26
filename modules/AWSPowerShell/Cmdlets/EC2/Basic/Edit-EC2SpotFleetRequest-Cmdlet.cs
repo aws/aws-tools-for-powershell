@@ -94,6 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? OnDemandTargetCapacity { get; set; }
         #endregion
         
+        #region Parameter TargetCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The size of the fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? TargetCapacity { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
@@ -109,16 +119,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SpotFleetRequestId { get; set; }
-        #endregion
-        
-        #region Parameter TargetCapacity
-        /// <summary>
-        /// <para>
-        /// <para>The size of the fleet.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? TargetCapacity { get; set; }
         #endregion
         
         #region Parameter Select

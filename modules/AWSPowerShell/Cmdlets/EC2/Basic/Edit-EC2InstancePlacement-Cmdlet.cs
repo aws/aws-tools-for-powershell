@@ -96,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String HostId { get; set; }
         #endregion
         
+        #region Parameter HostResourceGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the host resource group in which to place the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HostResourceGroupArn { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -198,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Affinity = this.Affinity;
             context.GroupName = this.GroupName;
             context.HostId = this.HostId;
+            context.HostResourceGroupArn = this.HostResourceGroupArn;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -234,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.HostId != null)
             {
                 request.HostId = cmdletContext.HostId;
+            }
+            if (cmdletContext.HostResourceGroupArn != null)
+            {
+                request.HostResourceGroupArn = cmdletContext.HostResourceGroupArn;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -311,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.Affinity Affinity { get; set; }
             public System.String GroupName { get; set; }
             public System.String HostId { get; set; }
+            public System.String HostResourceGroupArn { get; set; }
             public System.String InstanceId { get; set; }
             public System.Int32? PartitionNumber { get; set; }
             public Amazon.EC2.HostTenancy Tenancy { get; set; }

@@ -28,14 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists assignments in current QuickSight account.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight list-iam-policy-assignments --aws-account-id=111122223333 --max-result=5
-    /// --assignment-status=ENABLED --namespace=default --region=us-east-1 --next-token=3
-    /// </code></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists IAM policy assignments in the current Amazon QuickSight account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSIAMPolicyAssignmentList")]
     [OutputType("Amazon.QuickSight.Model.IAMPolicyAssignmentSummary")]
@@ -50,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AssignmentStatus
         /// <summary>
         /// <para>
-        /// <para>The status of the assignment.</para>
+        /// <para>The status of the assignments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID that contains this IAM policy assignment.</para>
+        /// <para>The ID of the AWS account that contains these IAM policy assignments.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace for this assignment.</para>
+        /// <para>The namespace for the assignments.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

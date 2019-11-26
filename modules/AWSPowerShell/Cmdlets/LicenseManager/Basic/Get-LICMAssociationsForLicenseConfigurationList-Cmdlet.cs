@@ -28,10 +28,14 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Lists the resource associations for a license configuration. Resource associations
-    /// need not consume licenses from a license configuration. For example, an AMI or a stopped
-    /// instance may not consume a license (depending on the license rules). Use this operation
-    /// to find all resources associated with a license configuration.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the resource associations for the specified license configuration.
+    /// 
+    ///  
+    /// <para>
+    /// Resource associations need not consume licenses from a license configuration. For
+    /// example, an AMI or a stopped instance might not consume a license (depending on the
+    /// license rules).
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LICMAssociationsForLicenseConfigurationList")]
     [OutputType("Amazon.LicenseManager.Model.LicenseConfigurationAssociation")]
@@ -46,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>ARN of a <code>LicenseConfiguration</code> object.</para>
+        /// <para>Amazon Resource Name (ARN) of a license configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in a single call. To retrieve the remaining results,
-        /// make another call with the returned <code>NextToken</code> value.</para>
+        /// <para>Maximum number of results to return in a single call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

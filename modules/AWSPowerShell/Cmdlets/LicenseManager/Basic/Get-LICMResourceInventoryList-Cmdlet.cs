@@ -28,7 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Returns a detailed list of resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists resources managed using Systems Manager inventory.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LICMResourceInventoryList")]
     [OutputType("Amazon.LicenseManager.Model.ResourceInventory")]
@@ -43,7 +43,13 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para>
+        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><code>account_id</code> - The ID of the AWS account that owns the resource. Logical
+        /// operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>application_name</code> - The name of the application. Logical operators are
+        /// <code>EQUALS</code> | <code>BEGINS_WITH</code>.</para></li><li><para><code>license_included</code> - The type of license included. Logical operators are
+        /// <code>EQUALS</code> | <code>NOT_EQUALS</code>. Possible values are <code>sql-server-enterprise</code>
+        /// | <code>sql-server-standard</code> | <code>sql-server-web</code> | <code>windows-server-datacenter</code>.</para></li><li><para><code>platform</code> - The platform of the resource. Logical operators are <code>EQUALS</code>
+        /// | <code>BEGINS_WITH</code>.</para></li><li><para><code>resource_id</code> - The ID of the resource. Logical operators are <code>EQUALS</code>
+        /// | <code>NOT_EQUALS</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in a single call. To retrieve the remaining results,
-        /// make another call with the returned <code>NextToken</code> value.</para>
+        /// <para>Maximum number of results to return in a single call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

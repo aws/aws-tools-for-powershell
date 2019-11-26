@@ -39,6 +39,51 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     public partial class UpdateAG2ApiCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter CorsConfiguration_AllowCredential
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether credentials are included in the CORS request. Supported only for
+        /// HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CorsConfiguration_AllowCredentials")]
+        public System.Boolean? CorsConfiguration_AllowCredential { get; set; }
+        #endregion
+        
+        #region Parameter CorsConfiguration_AllowHeader
+        /// <summary>
+        /// <para>
+        /// <para>Represents a collection of allowed headers. Supported only for HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CorsConfiguration_AllowHeaders")]
+        public System.String[] CorsConfiguration_AllowHeader { get; set; }
+        #endregion
+        
+        #region Parameter CorsConfiguration_AllowMethod
+        /// <summary>
+        /// <para>
+        /// <para>Represents a collection of allowed HTTP methods. Supported only for HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CorsConfiguration_AllowMethods")]
+        public System.String[] CorsConfiguration_AllowMethod { get; set; }
+        #endregion
+        
+        #region Parameter CorsConfiguration_AllowOrigin
+        /// <summary>
+        /// <para>
+        /// <para>Represents a collection of allowed origins. Supported only for HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CorsConfiguration_AllowOrigins")]
+        public System.String[] CorsConfiguration_AllowOrigin { get; set; }
+        #endregion
+        
         #region Parameter ApiId
         /// <summary>
         /// <para>
@@ -59,12 +104,29 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ApiKeySelectionExpression
         /// <summary>
         /// <para>
-        /// <para>An API key selection expression. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API
+        /// <para>An API key selection expression. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions">API
         /// Key Selection Expressions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ApiKeySelectionExpression { get; set; }
+        #endregion
+        
+        #region Parameter CredentialsArn
+        /// <summary>
+        /// <para>
+        /// <para>This property is part of quick create. It specifies the credentials required for the
+        /// integration, if any. For a Lambda integration, three options are available. To specify
+        /// an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN).
+        /// To require that the caller's identity be passed through from the request, specify
+        /// arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services,
+        /// specify null. Currently, this property is not used for HTTP integrations. If provided,
+        /// this value replaces the credentials associated with the quick create integration.
+        /// Supported only for HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CredentialsArn { get; set; }
         #endregion
         
         #region Parameter Description
@@ -80,11 +142,33 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter DisableSchemaValidation
         /// <summary>
         /// <para>
-        /// <para>Avoid validating models when creating a deployment.</para>
+        /// <para>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? DisableSchemaValidation { get; set; }
+        #endregion
+        
+        #region Parameter CorsConfiguration_ExposeHeader
+        /// <summary>
+        /// <para>
+        /// <para>Represents a collection of exposed headers. Supported only for HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CorsConfiguration_ExposeHeaders")]
+        public System.String[] CorsConfiguration_ExposeHeader { get; set; }
+        #endregion
+        
+        #region Parameter CorsConfiguration_MaxAge
+        /// <summary>
+        /// <para>
+        /// <para>The number of seconds that the browser should cache preflight request results. Supported
+        /// only for HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? CorsConfiguration_MaxAge { get; set; }
         #endregion
         
         #region Parameter Name
@@ -97,14 +181,43 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RouteKey
+        /// <summary>
+        /// <para>
+        /// <para>This property is part of quick create. If not specified, the route created using quick
+        /// create is kept. Otherwise, this value replaces the route key of the quick create route.
+        /// Additional routes may still be added after the API is updated. Supported only for
+        /// HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RouteKey { get; set; }
+        #endregion
+        
         #region Parameter RouteSelectionExpression
         /// <summary>
         /// <para>
-        /// <para>The route selection expression for the API.</para>
+        /// <para>The route selection expression for the API. For HTTP APIs, the routeSelectionExpression
+        /// must be ${request.method} ${request.path}. If not provided, this will be the default
+        /// for HTTP APIs. This property is required for WebSocket APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RouteSelectionExpression { get; set; }
+        #endregion
+        
+        #region Parameter Target
+        /// <summary>
+        /// <para>
+        /// <para>This property is part of quick create. For HTTP integrations, specify a fully qualified
+        /// URL. For Lambda integrations, specify a function ARN. The type of the integration
+        /// will be HTTP_PROXY or AWS_PROXY, respectively. The value provided updates the integration
+        /// URI and integration type. You can update a quick-created target, but you can't remove
+        /// it from an API. Supported only for HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Target { get; set; }
         #endregion
         
         #region Parameter Version
@@ -186,10 +299,31 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             }
             #endif
             context.ApiKeySelectionExpression = this.ApiKeySelectionExpression;
+            context.CorsConfiguration_AllowCredential = this.CorsConfiguration_AllowCredential;
+            if (this.CorsConfiguration_AllowHeader != null)
+            {
+                context.CorsConfiguration_AllowHeader = new List<System.String>(this.CorsConfiguration_AllowHeader);
+            }
+            if (this.CorsConfiguration_AllowMethod != null)
+            {
+                context.CorsConfiguration_AllowMethod = new List<System.String>(this.CorsConfiguration_AllowMethod);
+            }
+            if (this.CorsConfiguration_AllowOrigin != null)
+            {
+                context.CorsConfiguration_AllowOrigin = new List<System.String>(this.CorsConfiguration_AllowOrigin);
+            }
+            if (this.CorsConfiguration_ExposeHeader != null)
+            {
+                context.CorsConfiguration_ExposeHeader = new List<System.String>(this.CorsConfiguration_ExposeHeader);
+            }
+            context.CorsConfiguration_MaxAge = this.CorsConfiguration_MaxAge;
+            context.CredentialsArn = this.CredentialsArn;
             context.Description = this.Description;
             context.DisableSchemaValidation = this.DisableSchemaValidation;
             context.Name = this.Name;
+            context.RouteKey = this.RouteKey;
             context.RouteSelectionExpression = this.RouteSelectionExpression;
+            context.Target = this.Target;
             context.Version = this.Version;
             
             // allow further manipulation of loaded context prior to processing
@@ -215,6 +349,79 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             {
                 request.ApiKeySelectionExpression = cmdletContext.ApiKeySelectionExpression;
             }
+            
+             // populate CorsConfiguration
+            var requestCorsConfigurationIsNull = true;
+            request.CorsConfiguration = new Amazon.ApiGatewayV2.Model.Cors();
+            System.Boolean? requestCorsConfiguration_corsConfiguration_AllowCredential = null;
+            if (cmdletContext.CorsConfiguration_AllowCredential != null)
+            {
+                requestCorsConfiguration_corsConfiguration_AllowCredential = cmdletContext.CorsConfiguration_AllowCredential.Value;
+            }
+            if (requestCorsConfiguration_corsConfiguration_AllowCredential != null)
+            {
+                request.CorsConfiguration.AllowCredentials = requestCorsConfiguration_corsConfiguration_AllowCredential.Value;
+                requestCorsConfigurationIsNull = false;
+            }
+            List<System.String> requestCorsConfiguration_corsConfiguration_AllowHeader = null;
+            if (cmdletContext.CorsConfiguration_AllowHeader != null)
+            {
+                requestCorsConfiguration_corsConfiguration_AllowHeader = cmdletContext.CorsConfiguration_AllowHeader;
+            }
+            if (requestCorsConfiguration_corsConfiguration_AllowHeader != null)
+            {
+                request.CorsConfiguration.AllowHeaders = requestCorsConfiguration_corsConfiguration_AllowHeader;
+                requestCorsConfigurationIsNull = false;
+            }
+            List<System.String> requestCorsConfiguration_corsConfiguration_AllowMethod = null;
+            if (cmdletContext.CorsConfiguration_AllowMethod != null)
+            {
+                requestCorsConfiguration_corsConfiguration_AllowMethod = cmdletContext.CorsConfiguration_AllowMethod;
+            }
+            if (requestCorsConfiguration_corsConfiguration_AllowMethod != null)
+            {
+                request.CorsConfiguration.AllowMethods = requestCorsConfiguration_corsConfiguration_AllowMethod;
+                requestCorsConfigurationIsNull = false;
+            }
+            List<System.String> requestCorsConfiguration_corsConfiguration_AllowOrigin = null;
+            if (cmdletContext.CorsConfiguration_AllowOrigin != null)
+            {
+                requestCorsConfiguration_corsConfiguration_AllowOrigin = cmdletContext.CorsConfiguration_AllowOrigin;
+            }
+            if (requestCorsConfiguration_corsConfiguration_AllowOrigin != null)
+            {
+                request.CorsConfiguration.AllowOrigins = requestCorsConfiguration_corsConfiguration_AllowOrigin;
+                requestCorsConfigurationIsNull = false;
+            }
+            List<System.String> requestCorsConfiguration_corsConfiguration_ExposeHeader = null;
+            if (cmdletContext.CorsConfiguration_ExposeHeader != null)
+            {
+                requestCorsConfiguration_corsConfiguration_ExposeHeader = cmdletContext.CorsConfiguration_ExposeHeader;
+            }
+            if (requestCorsConfiguration_corsConfiguration_ExposeHeader != null)
+            {
+                request.CorsConfiguration.ExposeHeaders = requestCorsConfiguration_corsConfiguration_ExposeHeader;
+                requestCorsConfigurationIsNull = false;
+            }
+            System.Int32? requestCorsConfiguration_corsConfiguration_MaxAge = null;
+            if (cmdletContext.CorsConfiguration_MaxAge != null)
+            {
+                requestCorsConfiguration_corsConfiguration_MaxAge = cmdletContext.CorsConfiguration_MaxAge.Value;
+            }
+            if (requestCorsConfiguration_corsConfiguration_MaxAge != null)
+            {
+                request.CorsConfiguration.MaxAge = requestCorsConfiguration_corsConfiguration_MaxAge.Value;
+                requestCorsConfigurationIsNull = false;
+            }
+             // determine if request.CorsConfiguration should be set to null
+            if (requestCorsConfigurationIsNull)
+            {
+                request.CorsConfiguration = null;
+            }
+            if (cmdletContext.CredentialsArn != null)
+            {
+                request.CredentialsArn = cmdletContext.CredentialsArn;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -227,9 +434,17 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.RouteKey != null)
+            {
+                request.RouteKey = cmdletContext.RouteKey;
+            }
             if (cmdletContext.RouteSelectionExpression != null)
             {
                 request.RouteSelectionExpression = cmdletContext.RouteSelectionExpression;
+            }
+            if (cmdletContext.Target != null)
+            {
+                request.Target = cmdletContext.Target;
             }
             if (cmdletContext.Version != null)
             {
@@ -298,10 +513,19 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         {
             public System.String ApiId { get; set; }
             public System.String ApiKeySelectionExpression { get; set; }
+            public System.Boolean? CorsConfiguration_AllowCredential { get; set; }
+            public List<System.String> CorsConfiguration_AllowHeader { get; set; }
+            public List<System.String> CorsConfiguration_AllowMethod { get; set; }
+            public List<System.String> CorsConfiguration_AllowOrigin { get; set; }
+            public List<System.String> CorsConfiguration_ExposeHeader { get; set; }
+            public System.Int32? CorsConfiguration_MaxAge { get; set; }
+            public System.String CredentialsArn { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? DisableSchemaValidation { get; set; }
             public System.String Name { get; set; }
+            public System.String RouteKey { get; set; }
             public System.String RouteSelectionExpression { get; set; }
+            public System.String Target { get; set; }
             public System.String Version { get; set; }
             public System.Func<Amazon.ApiGatewayV2.Model.UpdateApiResponse, UpdateAG2ApiCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

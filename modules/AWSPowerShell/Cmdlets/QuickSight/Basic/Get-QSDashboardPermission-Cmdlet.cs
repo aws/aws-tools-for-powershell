@@ -28,13 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes read and write permissions on a dashboard.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight describe-dashboard-permissions --aws-account-id 735340738645
-    /// —dashboard-id reports_test_bob_report</code></para>
+    /// Describes read and write permissions for a dashboard.
     /// </summary>
     [Cmdlet("Get", "QSDashboardPermission")]
     [OutputType("Amazon.QuickSight.Model.DescribeDashboardPermissionsResponse")]
@@ -48,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the dashboard you are describing permissions of.</para>
+        /// <para>The ID of the AWS account that contains the dashboard that you're describing permissions
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dashboard, also added to IAM policy.</para>
+        /// <para>The ID for the dashboard, also added to the IAM policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

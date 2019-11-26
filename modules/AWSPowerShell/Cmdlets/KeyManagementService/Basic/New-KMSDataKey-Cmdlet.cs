@@ -28,25 +28,41 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Generates a unique data key. This operation returns a plaintext copy of the data key
-    /// and a copy that is encrypted under a customer master key (CMK) that you specify. You
-    /// can use the plaintext key to encrypt your data outside of KMS and store the encrypted
-    /// data key with the encrypted data.
+    /// Generates a unique symmetric data key. This operation returns a plaintext copy of
+    /// the data key and a copy that is encrypted under a customer master key (CMK) that you
+    /// specify. You can use the plaintext key to encrypt your data outside of AWS KMS and
+    /// store the encrypted data key with the encrypted data.
     /// 
     ///  
     /// <para><code>GenerateDataKey</code> returns a unique data key for each request. The bytes
     /// in the key are not related to the caller or CMK that is used to encrypt the data key.
     /// </para><para>
-    /// To generate a data key, you need to specify the customer master key (CMK) that will
-    /// be used to encrypt the data key. You must also specify the length of the data key
-    /// using either the <code>KeySpec</code> or <code>NumberOfBytes</code> field (but not
-    /// both). For common key lengths (128-bit and 256-bit symmetric keys), we recommend that
-    /// you use <code>KeySpec</code>. To perform this operation on a CMK in a different AWS
-    /// account, specify the key ARN or alias ARN in the value of the KeyId parameter.
+    /// To generate a data key, specify the symmetric CMK that will be used to encrypt the
+    /// data key. You cannot use an asymmetric CMK to generate data keys.
     /// </para><para>
-    /// You will find the plaintext copy of the data key in the <code>Plaintext</code> field
-    /// of the response, and the encrypted copy of the data key in the <code>CiphertextBlob</code>
+    /// You must also specify the length of the data key. Use either the <code>KeySpec</code>
+    /// or <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data
+    /// keys, use the <code>KeySpec</code> parameter. 
+    /// </para><para>
+    /// If the operation succeeds, the plaintext copy of the data key is in the <code>Plaintext</code>
+    /// field of the response, and the encrypted copy of the data key in the <code>CiphertextBlob</code>
     /// field.
+    /// </para><para>
+    /// To get only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>.
+    /// To generate an asymmetric data key pair, use the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a>
+    /// operation. To get a cryptographically secure random byte string, use <a>GenerateRandom</a>.
+    /// </para><para>
+    /// You can use the optional encryption context to add additional security to the encryption
+    /// operation. If you specify an <code>EncryptionContext</code>, you must specify the
+    /// same encryption context (a case-sensitive exact match) when decrypting the encrypted
+    /// data key. Otherwise, the request to decrypt fails with an InvalidCiphertextException.
+    /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+    /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para><para>
+    /// The CMK that you use for this operation must be in a compatible key state. For details,
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+    /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
+    /// Developer Guide</i>.
     /// </para><para>
     /// We recommend that you use the following pattern to encrypt data locally in your application:
     /// </para><ol><li><para>
@@ -65,22 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para></li><li><para>
     /// Use the plaintext data key to decrypt data locally, then erase the plaintext data
     /// key from memory.
-    /// </para></li></ol><para>
-    /// To get only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>.
-    /// To get a cryptographically secure random byte string, use <a>GenerateRandom</a>.
-    /// </para><para>
-    /// You can use the optional encryption context to add additional security to your encryption
-    /// operation. When you specify an <code>EncryptionContext</code> in the <code>GenerateDataKey</code>
-    /// operation, you must specify the same encryption context (a case-sensitive exact match)
-    /// in your request to <a>Decrypt</a> the data key. Otherwise, the request to decrypt
-    /// fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-    /// Context</a> in the <i><i>AWS Key Management Service Developer Guide</i></i>.
-    /// </para><para>
-    /// The result of this operation varies with the key state of the CMK. For details, see
-    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
-    /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
-    /// Developer Guide</i>.
-    /// </para>
+    /// </para></li></ol>
     /// </summary>
     [Cmdlet("New", "KMSDataKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.GenerateDataKeyResponse")]
@@ -94,7 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter EncryptionContext
         /// <summary>
         /// <para>
-        /// <para>A set of key-value pairs that represents additional authenticated data.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+        /// <para>Specifies the encryption context that will be used when encrypting the data key.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents
+        /// additional authenticated data. When you use an encryption context to encrypt data,
+        /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
+        /// the data. An encryption context is optional when encrypting with a symmetric CMK,
+        /// but it is highly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
         /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -117,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>An identifier for the CMK that encrypts the data key.</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+        /// <para>Identifies the symmetric CMK that encrypts the data key.</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
         /// ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a
         /// CMK in a different AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
@@ -137,8 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeySpec
         /// <summary>
         /// <para>
-        /// <para>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric
-        /// key, or <code>AES_256</code> to generate a 256-bit symmetric key.</para>
+        /// <para>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit
+        /// symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</para><para>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code>
+        /// parameter (but not both) in every <code>GenerateDataKey</code> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,9 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter NumberOfBytes
         /// <summary>
         /// <para>
-        /// <para>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit
-        /// data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric
-        /// keys), we recommend that you use the <code>KeySpec</code> field instead of this one.</para>
+        /// <para>Specifies the length of the data key in bytes. For example, use the value 64 to generate
+        /// a 512-bit data key (64 bytes is 512 bits). For 128-bit (16-byte) and 256-bit (32-byte)
+        /// data keys, use the <code>KeySpec</code> parameter.</para><para>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code>
+        /// parameter (but not both) in every <code>GenerateDataKey</code> request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

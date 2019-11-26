@@ -28,7 +28,9 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Enables single sign-on for a directory.
+    /// Enables single sign-on for a directory. Single sign-on allows users in your directory
+    /// to access certain AWS services from a computer joined to the directory without having
+    /// to enter their credentials separately.
     /// </summary>
     [Cmdlet("Enable", "DSSso", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

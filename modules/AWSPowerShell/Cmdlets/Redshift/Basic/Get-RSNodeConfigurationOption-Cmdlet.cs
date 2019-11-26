@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ActionType
         /// <summary>
         /// <para>
-        /// <para>The action type to evaluate for possible node configurations. Currently, it must be
-        /// "restore-cluster".</para>
+        /// <para>The action type to evaluate for possible node configurations. Specify "restore-cluster"
+        /// to get configuration combinations based on an existing snapshot. Specify "recommend-node-config"
+        /// to get configuration recommendations based on an existing cluster or snapshot. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Redshift.ActionType")]
         public Amazon.Redshift.ActionType ActionType { get; set; }
+        #endregion
+        
+        #region Parameter ClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the cluster to evaluate for possible node configurations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClusterIdentifier { get; set; }
         #endregion
         
         #region Parameter Filter
@@ -193,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 WriteWarning("You are passing $null as a value for parameter ActionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ClusterIdentifier = this.ClusterIdentifier;
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.Redshift.Model.NodeConfigurationOptionsFilter>(this.Filter);
@@ -244,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ActionType != null)
             {
                 request.ActionType = cmdletContext.ActionType;
+            }
+            if (cmdletContext.ClusterIdentifier != null)
+            {
+                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
             }
             if (cmdletContext.Filter != null)
             {
@@ -319,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ActionType != null)
             {
                 request.ActionType = cmdletContext.ActionType;
+            }
+            if (cmdletContext.ClusterIdentifier != null)
+            {
+                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
             }
             if (cmdletContext.Filter != null)
             {
@@ -456,6 +476,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Redshift.ActionType ActionType { get; set; }
+            public System.String ClusterIdentifier { get; set; }
             public List<Amazon.Redshift.Model.NodeConfigurationOptionsFilter> Filter { get; set; }
             public System.String Marker { get; set; }
             public int? MaxRecord { get; set; }

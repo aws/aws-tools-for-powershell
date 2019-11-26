@@ -196,6 +196,50 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.ReportExportConfigType
+        {
+            ($_ -eq "New-CBReportGroup/ExportConfig_ExportConfigType") -Or
+            ($_ -eq "Update-CBReportGroup/ExportConfig_ExportConfigType")
+        }
+        {
+            $v = "NO_EXPORT","S3"
+            break
+        }
+
+        # Amazon.CodeBuild.ReportGroupSortByType
+        "Get-CBReportGroupList/SortBy"
+        {
+            $v = "CREATED_TIME","LAST_MODIFIED_TIME","NAME"
+            break
+        }
+
+        # Amazon.CodeBuild.ReportPackagingType
+        {
+            ($_ -eq "New-CBReportGroup/ExportConfig_S3Destination_Packaging") -Or
+            ($_ -eq "Update-CBReportGroup/ExportConfig_S3Destination_Packaging")
+        }
+        {
+            $v = "NONE","ZIP"
+            break
+        }
+
+        # Amazon.CodeBuild.ReportStatusType
+        {
+            ($_ -eq "Get-CBReportList/Filter_Status") -Or
+            ($_ -eq "Get-CBReportsForReportGroupList/Filter_Status")
+        }
+        {
+            $v = "DELETING","FAILED","GENERATING","INCOMPLETE","SUCCEEDED"
+            break
+        }
+
+        # Amazon.CodeBuild.ReportType
+        "New-CBReportGroup/Type"
+        {
+            $v = "TEST"
+            break
+        }
+
         # Amazon.CodeBuild.ServerType
         "Import-CBSourceCredential/ServerType"
         {
@@ -207,7 +251,10 @@ $CB_Completers = {
         {
             ($_ -eq "Get-CBBuildIdList/SortOrder") -Or
             ($_ -eq "Get-CBBuildIdListForProject/SortOrder") -Or
-            ($_ -eq "Get-CBProjectList/SortOrder")
+            ($_ -eq "Get-CBProjectList/SortOrder") -Or
+            ($_ -eq "Get-CBReportGroupList/SortOrder") -Or
+            ($_ -eq "Get-CBReportList/SortOrder") -Or
+            ($_ -eq "Get-CBReportsForReportGroupList/SortOrder")
         }
         {
             $v = "ASCENDING","DESCENDING"
@@ -260,6 +307,9 @@ $CB_map = @{
     "Environment_RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")
     "EnvironmentTypeOverride"=@("Start-CBBuild")
+    "ExportConfig_ExportConfigType"=@("New-CBReportGroup","Update-CBReportGroup")
+    "ExportConfig_S3Destination_Packaging"=@("New-CBReportGroup","Update-CBReportGroup")
+    "Filter_Status"=@("Get-CBReportList","Get-CBReportsForReportGroupList")
     "ImagePullCredentialsTypeOverride"=@("Start-CBBuild")
     "LogsConfig_CloudWatchLogs_Status"=@("New-CBProject","Update-CBProject")
     "LogsConfig_S3Logs_Status"=@("New-CBProject","Update-CBProject")
@@ -267,12 +317,13 @@ $CB_map = @{
     "LogsConfigOverride_S3Logs_Status"=@("Start-CBBuild")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBuild")
     "ServerType"=@("Import-CBSourceCredential")
-    "SortBy"=@("Get-CBProjectList")
-    "SortOrder"=@("Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBProjectList")
+    "SortBy"=@("Get-CBProjectList","Get-CBReportGroupList")
+    "SortOrder"=@("Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList")
     "Source_Auth_Type"=@("New-CBProject","Update-CBProject")
     "Source_Type"=@("New-CBProject","Update-CBProject")
     "SourceAuthOverride_Type"=@("Start-CBBuild")
     "SourceTypeOverride"=@("Start-CBBuild")
+    "Type"=@("New-CBReportGroup")
 }
 
 _awsArgumentCompleterRegistration $CB_Completers $CB_map
@@ -328,21 +379,31 @@ $CB_SelectMap = @{
     "Select"=@("Remove-CBBuildBatch",
                "Get-CBBuildBatch",
                "Get-CBProjectBatch",
+               "Get-CBReportGroupBatch",
+               "Get-CBReportBatch",
                "New-CBProject",
+               "New-CBReportGroup",
                "New-CBWebhook",
                "Remove-CBProject",
+               "Remove-CBReport",
+               "Remove-CBReportGroup",
                "Remove-CBSourceCredential",
                "Remove-CBWebhook",
+               "Get-CBTestCase",
                "Import-CBSourceCredential",
                "Reset-CBProjectCache",
                "Get-CBBuildIdList",
                "Get-CBBuildIdListForProject",
                "Get-CBCuratedEnvironmentImageList",
                "Get-CBProjectList",
+               "Get-CBReportGroupList",
+               "Get-CBReportList",
+               "Get-CBReportsForReportGroupList",
                "Get-CBSourceCredentialList",
                "Start-CBBuild",
                "Stop-CBBuild",
                "Update-CBProject",
+               "Update-CBReportGroup",
                "Update-CBWebhook")
 }
 

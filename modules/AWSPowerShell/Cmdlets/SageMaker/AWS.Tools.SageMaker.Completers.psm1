@@ -87,10 +87,80 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.AppInstanceType
+        "New-SMApp/ResourceSpec_InstanceType"
+        {
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
+            break
+        }
+
+        # Amazon.SageMaker.AppSortKey
+        "Get-SMAppList/SortBy"
+        {
+            $v = "CreationTime"
+            break
+        }
+
+        # Amazon.SageMaker.AppType
+        {
+            ($_ -eq "Get-SMApp/AppType") -Or
+            ($_ -eq "New-SMApp/AppType") -Or
+            ($_ -eq "Remove-SMApp/AppType")
+        }
+        {
+            $v = "JupyterServer","KernelGateway","TensorBoard"
+            break
+        }
+
         # Amazon.SageMaker.AssemblyType
         "New-SMTransformJob/TransformOutput_AssembleWith"
         {
             $v = "Line","None"
+            break
+        }
+
+        # Amazon.SageMaker.AuthMode
+        "New-SMDomain/AuthMode"
+        {
+            $v = "IAM","SSO"
+            break
+        }
+
+        # Amazon.SageMaker.AutoMLJobStatus
+        "Get-SMAutoMLJobList/StatusEquals"
+        {
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+
+        # Amazon.SageMaker.AutoMLMetricEnum
+        "New-SMAutoMLJob/AutoMLJobObjective_MetricName"
+        {
+            $v = "Accuracy","F1","F1macro","MSE"
+            break
+        }
+
+        # Amazon.SageMaker.AutoMLSortBy
+        "Get-SMAutoMLJobList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
+            break
+        }
+
+        # Amazon.SageMaker.AutoMLSortOrder
+        {
+            ($_ -eq "Get-SMAutoMLJobList/SortOrder") -Or
+            ($_ -eq "Get-SMCandidatesForAutoMLJobList/SortOrder")
+        }
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+
+        # Amazon.SageMaker.AwsManagedHumanLoopRequestSource
+        "New-SMFlowDefinition/HumanLoopActivationConfig_HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
+        {
+            $v = "AWS/Rekognition/DetectModerationLabels/Image/V3","AWS/Textract/AnalyzeDocument/Forms/V1"
             break
         }
 
@@ -105,6 +175,20 @@ $SM_Completers = {
         "Search-SMResource/SearchExpression_Operator"
         {
             $v = "And","Or"
+            break
+        }
+
+        # Amazon.SageMaker.CandidateSortBy
+        "Get-SMCandidatesForAutoMLJobList/SortBy"
+        {
+            $v = "CreationTime","FinalObjectiveMetricValue","Status"
+            break
+        }
+
+        # Amazon.SageMaker.CandidateStatus
+        "Get-SMCandidatesForAutoMLJobList/StatusEquals"
+        {
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
             break
         }
 
@@ -164,6 +248,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ExecutionStatus
+        "Get-SMMonitoringExecutionList/StatusEquals"
+        {
+            $v = "Completed","CompletedWithViolations","Failed","InProgress","Pending","Stopped","Stopping"
+            break
+        }
+
         # Amazon.SageMaker.Framework
         "New-SMCompilationJob/InputConfig_Framework"
         {
@@ -172,7 +263,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.HyperParameterTuningJobObjectiveType
-        "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"
+        {
+            ($_ -eq "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type") -Or
+            ($_ -eq "New-SMHyperParameterTuningJob/TrainingJobDefinition_TuningObjective_Type")
+        }
         {
             $v = "Maximize","Minimize"
             break
@@ -265,6 +359,20 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.MonitoringExecutionSortKey
+        "Get-SMMonitoringExecutionList/SortBy"
+        {
+            $v = "CreationTime","ScheduledTime","Status"
+            break
+        }
+
+        # Amazon.SageMaker.MonitoringScheduleSortKey
+        "Get-SMMonitoringScheduleList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
+            break
+        }
+
         # Amazon.SageMaker.NotebookInstanceLifecycleConfigSortKey
         "Get-SMNotebookInstanceLifecycleConfigList/SortBy"
         {
@@ -311,13 +419,41 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ProblemType
+        "New-SMAutoMLJob/ProblemType"
+        {
+            $v = "BinaryClassification","MulticlassClassification","Regression"
+            break
+        }
+
+        # Amazon.SageMaker.ProcessingInstanceType
+        "New-SMProcessingJob/ProcessingResources_ClusterConfig_InstanceType"
+        {
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
+            break
+        }
+
+        # Amazon.SageMaker.ProcessingJobStatus
+        "Get-SMProcessingJobList/StatusEquals"
+        {
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+
         # Amazon.SageMaker.ResourceType
         {
             ($_ -eq "Get-SMSearchSuggestion/Resource") -Or
             ($_ -eq "Search-SMResource/Resource")
         }
         {
-            $v = "TrainingJob"
+            $v = "Experiment","ExperimentTrial","ExperimentTrialComponent","TrainingJob"
+            break
+        }
+
+        # Amazon.SageMaker.RetentionType
+        "Remove-SMDomain/RetentionPolicy_HomeEfsFileSystem"
+        {
+            $v = "Delete","Retain"
             break
         }
 
@@ -338,6 +474,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ScheduleStatus
+        "Get-SMMonitoringScheduleList/StatusEquals"
+        {
+            $v = "Failed","Pending","Scheduled","Stopped"
+            break
+        }
+
         # Amazon.SageMaker.SearchSortOrder
         "Search-SMResource/SortOrder"
         {
@@ -348,6 +491,7 @@ $SM_Completers = {
         # Amazon.SageMaker.SortBy
         {
             ($_ -eq "Get-SMLabelingJobList/SortBy") -Or
+            ($_ -eq "Get-SMProcessingJobList/SortBy") -Or
             ($_ -eq "Get-SMTrainingJobList/SortBy") -Or
             ($_ -eq "Get-SMTransformJobList/SortBy")
         }
@@ -356,21 +500,52 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.SortExperimentsBy
+        "Get-SMExperimentList/SortBy"
+        {
+            $v = "CreationTime","Name"
+            break
+        }
+
         # Amazon.SageMaker.SortOrder
         {
             ($_ -eq "Get-SMAlgorithmList/SortOrder") -Or
+            ($_ -eq "Get-SMAppList/SortOrder") -Or
             ($_ -eq "Get-SMCompilationJobList/SortOrder") -Or
+            ($_ -eq "Get-SMExperimentList/SortOrder") -Or
+            ($_ -eq "Get-SMFlowDefinitionList/SortOrder") -Or
+            ($_ -eq "Get-SMHumanTaskUiList/SortOrder") -Or
             ($_ -eq "Get-SMHyperParameterTuningJobList/SortOrder") -Or
             ($_ -eq "Get-SMLabelingJobList/SortOrder") -Or
             ($_ -eq "Get-SMLabelingJobListForWorkteam/SortOrder") -Or
             ($_ -eq "Get-SMModelPackageList/SortOrder") -Or
+            ($_ -eq "Get-SMMonitoringExecutionList/SortOrder") -Or
+            ($_ -eq "Get-SMMonitoringScheduleList/SortOrder") -Or
+            ($_ -eq "Get-SMProcessingJobList/SortOrder") -Or
             ($_ -eq "Get-SMTrainingJobList/SortOrder") -Or
             ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/SortOrder") -Or
             ($_ -eq "Get-SMTransformJobList/SortOrder") -Or
+            ($_ -eq "Get-SMTrialComponentList/SortOrder") -Or
+            ($_ -eq "Get-SMTrialList/SortOrder") -Or
+            ($_ -eq "Get-SMUserProfileList/SortOrder") -Or
             ($_ -eq "Get-SMWorkteamList/SortOrder")
         }
         {
             $v = "Ascending","Descending"
+            break
+        }
+
+        # Amazon.SageMaker.SortTrialComponentsBy
+        "Get-SMTrialComponentList/SortBy"
+        {
+            $v = "CreationTime","Name"
+            break
+        }
+
+        # Amazon.SageMaker.SortTrialsBy
+        "Get-SMTrialList/SortBy"
+        {
+            $v = "CreationTime","Name"
             break
         }
 
@@ -384,7 +559,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
-            $v = "aisage","deeplens","jetson_nano","jetson_tx1","jetson_tx2","lambda","ml_c4","ml_c5","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c"
+            $v = "aisage","deeplens","jetson_nano","jetson_tx1","jetson_tx2","lambda","ml_c4","ml_c5","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c"
             break
         }
 
@@ -433,6 +608,23 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.TrialComponentPrimaryStatus
+        {
+            ($_ -eq "New-SMTrialComponent/Status_PrimaryStatus") -Or
+            ($_ -eq "Update-SMTrialComponent/Status_PrimaryStatus")
+        }
+        {
+            $v = "Completed","Failed","InProgress"
+            break
+        }
+
+        # Amazon.SageMaker.UserProfileSortKey
+        "Get-SMUserProfileList/SortBy"
+        {
+            $v = "CreationTime","LastModifiedTime"
+            break
+        }
+
 
     }
 
@@ -442,22 +634,32 @@ $SM_Completers = {
 }
 
 $SM_map = @{
+    "AppType"=@("Get-SMApp","New-SMApp","Remove-SMApp")
+    "AuthMode"=@("New-SMDomain")
+    "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob")
     "BatchStrategy"=@("New-SMTransformJob")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
+    "HumanLoopActivationConfig_HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")
+    "ProblemType"=@("New-SMAutoMLJob")
+    "ProcessingResources_ClusterConfig_InstanceType"=@("New-SMProcessingJob")
     "Resource"=@("Get-SMSearchSuggestion","Search-SMResource")
+    "ResourceSpec_InstanceType"=@("New-SMApp")
+    "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "SearchExpression_Operator"=@("Search-SMResource")
-    "SortBy"=@("Get-SMAlgorithmList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMAlgorithmList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMWorkteamList","Search-SMResource")
-    "StatusEquals"=@("Get-SMCompilationJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "SortBy"=@("Get-SMAlgorithmList","Get-SMAppList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMExperimentList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMAlgorithmList","Get-SMAppList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFlowDefinitionList","Get-SMHumanTaskUiList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkteamList","Search-SMResource")
+    "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
+    "StatusEquals"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
+    "TrainingJobDefinition_TuningObjective_Type"=@("New-SMHyperParameterTuningJob")
     "TransformInput_CompressionType"=@("New-SMTransformJob")
     "TransformInput_DataSource_S3DataSource_S3DataType"=@("New-SMTransformJob")
     "TransformInput_SplitType"=@("New-SMTransformJob")
@@ -517,79 +719,135 @@ $SM_SelectCompleters = {
 
 $SM_SelectMap = @{
     "Select"=@("Add-SMResourceTag",
+               "Register-SMTrialComponent",
                "New-SMAlgorithm",
+               "New-SMApp",
+               "New-SMAutoMLJob",
                "New-SMCodeRepository",
                "New-SMCompilationJob",
+               "New-SMDomain",
                "New-SMEndpoint",
                "New-SMEndpointConfig",
+               "New-SMExperiment",
+               "New-SMFlowDefinition",
+               "New-SMHumanTaskUi",
                "New-SMHyperParameterTuningJob",
                "New-SMLabelingJob",
                "New-SMModel",
                "New-SMModelPackage",
+               "New-SMMonitoringSchedule",
                "New-SMNotebookInstance",
                "New-SMNotebookInstanceLifecycleConfig",
+               "New-SMPresignedDomainUrl",
                "New-SMPresignedNotebookInstanceUrl",
+               "New-SMProcessingJob",
                "New-SMTrainingJob",
                "New-SMTransformJob",
+               "New-SMTrial",
+               "New-SMTrialComponent",
+               "New-SMUserProfile",
                "New-SMWorkteam",
                "Remove-SMAlgorithm",
+               "Remove-SMApp",
                "Remove-SMCodeRepository",
+               "Remove-SMDomain",
                "Remove-SMEndpoint",
                "Remove-SMEndpointConfig",
+               "Remove-SMExperiment",
+               "Remove-SMFlowDefinition",
                "Remove-SMModel",
                "Remove-SMModelPackage",
+               "Remove-SMMonitoringSchedule",
                "Remove-SMNotebookInstance",
                "Remove-SMNotebookInstanceLifecycleConfig",
                "Remove-SMResourceTag",
+               "Remove-SMTrial",
+               "Remove-SMTrialComponent",
+               "Remove-SMUserProfile",
                "Remove-SMWorkteam",
                "Get-SMAlgorithm",
+               "Get-SMApp",
+               "Get-SMAutoMLJob",
                "Get-SMCodeRepository",
                "Get-SMCompilationJob",
+               "Get-SMDomain",
                "Get-SMEndpoint",
                "Get-SMEndpointConfig",
+               "Get-SMExperiment",
+               "Get-SMFlowDefinition",
+               "Get-SMHumanTaskUi",
                "Get-SMHyperParameterTuningJob",
                "Get-SMLabelingJob",
                "Get-SMModel",
                "Get-SMModelPackage",
+               "Get-SMMonitoringSchedule",
                "Get-SMNotebookInstance",
                "Get-SMNotebookInstanceLifecycleConfig",
+               "Get-SMProcessingJob",
                "Get-SMSubscribedWorkteam",
                "Get-SMTrainingJob",
                "Get-SMTransformJob",
+               "Get-SMTrial",
+               "Get-SMTrialComponent",
+               "Get-SMUserProfile",
                "Get-SMWorkteam",
+               "Unregister-SMTrialComponent",
                "Get-SMSearchSuggestion",
                "Get-SMAlgorithmList",
+               "Get-SMAppList",
+               "Get-SMAutoMLJobList",
+               "Get-SMCandidatesForAutoMLJobList",
                "Get-SMCodeRepositoryList",
                "Get-SMCompilationJobList",
+               "Get-SMDomainList",
                "Get-SMConfigList",
                "Get-SMEndpointList",
+               "Get-SMExperimentList",
+               "Get-SMFlowDefinitionList",
+               "Get-SMHumanTaskUiList",
                "Get-SMHyperParameterTuningJobList",
                "Get-SMLabelingJobList",
                "Get-SMLabelingJobListForWorkteam",
                "Get-SMModelPackageList",
                "Get-SMModelList",
+               "Get-SMMonitoringExecutionList",
+               "Get-SMMonitoringScheduleList",
                "Get-SMNotebookInstanceLifecycleConfigList",
                "Get-SMNotebookInstanceList",
+               "Get-SMProcessingJobList",
                "Get-SMSubscribedWorkteamList",
                "Get-SMResourceTagList",
                "Get-SMTrainingJobList",
                "Get-SMTrainingJobsForHyperParameterTuningJobList",
                "Get-SMTransformJobList",
+               "Get-SMTrialComponentList",
+               "Get-SMTrialList",
+               "Get-SMUserProfileList",
                "Get-SMWorkteamList",
                "Invoke-SMUiTemplateRendering",
                "Search-SMResource",
+               "Start-SMMonitoringSchedule",
                "Start-SMNotebookInstance",
+               "Stop-SMAutoMLJob",
                "Stop-SMCompilationJob",
                "Stop-SMHyperParameterTuningJob",
                "Stop-SMLabelingJob",
+               "Stop-SMMonitoringSchedule",
                "Stop-SMNotebookInstance",
+               "Stop-SMProcessingJob",
                "Stop-SMTrainingJob",
                "Stop-SMTransformJob",
                "Update-SMCodeRepository",
+               "Update-SMDomain",
                "Update-SMEndpoint",
                "Update-SMEndpointWeightAndCapacity",
+               "Update-SMExperiment",
+               "Update-SMMonitoringSchedule",
                "Update-SMNotebookInstance",
                "Update-SMNotebookInstanceLifecycleConfig",
+               "Update-SMTrial",
+               "Update-SMTrialComponent",
+               "Update-SMUserProfile",
                "Update-SMWorkteam")
 }
 

@@ -77,6 +77,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCorsConfiguration" Verb="Remove" Noun="CorsConfiguration" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDeployment" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -102,6 +106,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRouteResponse" Verb="Remove" Noun="RouteResponse" ShouldProcessTarget="RouteResponseId" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouteSettings" Verb="Remove" Noun="RouteSetting" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -202,6 +210,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportApi" OutputProperty="*" Verb="Import" Noun="Api" ShouldProcessTarget="Body" PipelineParameter="Body" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReimportApi" OutputProperty="*" Verb="Update" Noun="ApiImport" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

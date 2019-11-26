@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  For information about replication configuration, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a>
     /// in the <i>Amazon S3 Developer Guide</i>. 
     /// </para><para>
-    /// The following operations are related to <code>DeleteBucketReplication</code></para><ul><li><para><a>PutBucketReplication</a></para></li><li><para><a>GetBucketReplication</a></para></li></ul>
+    /// The following operations are related to <code>DeleteBucketReplication</code>:
+    /// </para><ul><li><para><a>PutBucketReplication</a></para></li><li><para><a>GetBucketReplication</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -373,6 +373,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String LambdaConfig_PreTokenGeneration { get; set; }
         #endregion
         
+        #region Parameter AccountRecoverySetting_RecoveryMechanism
+        /// <summary>
+        /// <para>
+        /// <para>The list of <code>RecoveryOptionTypes</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccountRecoverySetting_RecoveryMechanisms")]
+        public Amazon.CognitoIdentityProvider.Model.RecoveryOptionType[] AccountRecoverySetting_RecoveryMechanism { get; set; }
+        #endregion
+        
         #region Parameter EmailConfiguration_ReplyToEmailAddress
         /// <summary>
         /// <para>
@@ -639,6 +650,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.Select = (response, cmdlet) => this.UserPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AccountRecoverySetting_RecoveryMechanism != null)
+            {
+                context.AccountRecoverySetting_RecoveryMechanism = new List<Amazon.CognitoIdentityProvider.Model.RecoveryOptionType>(this.AccountRecoverySetting_RecoveryMechanism);
+            }
             context.AdminCreateUserConfig_AllowAdminCreateUserOnly = this.AdminCreateUserConfig_AllowAdminCreateUserOnly;
             context.InviteMessageTemplate_EmailMessage = this.InviteMessageTemplate_EmailMessage;
             context.InviteMessageTemplate_EmailSubject = this.InviteMessageTemplate_EmailSubject;
@@ -716,6 +731,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.UpdateUserPoolRequest();
             
+            
+             // populate AccountRecoverySetting
+            var requestAccountRecoverySettingIsNull = true;
+            request.AccountRecoverySetting = new Amazon.CognitoIdentityProvider.Model.AccountRecoverySettingType();
+            List<Amazon.CognitoIdentityProvider.Model.RecoveryOptionType> requestAccountRecoverySetting_accountRecoverySetting_RecoveryMechanism = null;
+            if (cmdletContext.AccountRecoverySetting_RecoveryMechanism != null)
+            {
+                requestAccountRecoverySetting_accountRecoverySetting_RecoveryMechanism = cmdletContext.AccountRecoverySetting_RecoveryMechanism;
+            }
+            if (requestAccountRecoverySetting_accountRecoverySetting_RecoveryMechanism != null)
+            {
+                request.AccountRecoverySetting.RecoveryMechanisms = requestAccountRecoverySetting_accountRecoverySetting_RecoveryMechanism;
+                requestAccountRecoverySettingIsNull = false;
+            }
+             // determine if request.AccountRecoverySetting should be set to null
+            if (requestAccountRecoverySettingIsNull)
+            {
+                request.AccountRecoverySetting = null;
+            }
             
              // populate AdminCreateUserConfig
             var requestAdminCreateUserConfigIsNull = true;
@@ -1281,6 +1315,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.CognitoIdentityProvider.Model.RecoveryOptionType> AccountRecoverySetting_RecoveryMechanism { get; set; }
             public System.Boolean? AdminCreateUserConfig_AllowAdminCreateUserOnly { get; set; }
             public System.String InviteMessageTemplate_EmailMessage { get; set; }
             public System.String InviteMessageTemplate_EmailSubject { get; set; }

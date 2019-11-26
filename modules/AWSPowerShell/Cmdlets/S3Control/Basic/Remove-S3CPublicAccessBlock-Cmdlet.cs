@@ -28,7 +28,8 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Deletes the block public access configuration for the specified account.
+    /// Removes the <code>PublicAccessBlock</code> configuration for an Amazon Web Services
+    /// account.
     /// </summary>
     [Cmdlet("Remove", "S3CPublicAccessBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID for the AWS account whose block public access configuration you want
-        /// to delete.</para>
+        /// <para>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code>
+        /// configuration you want to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

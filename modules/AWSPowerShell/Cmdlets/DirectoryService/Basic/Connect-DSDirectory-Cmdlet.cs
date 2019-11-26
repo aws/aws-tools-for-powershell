@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A textual description for the directory.</para>
+        /// <para>A description for the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -48,7 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <para>The configuration settings of the component. The value is the escaped JSON of the
         /// configuration. For more information about the JSON format, see <a href="https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/working-with-json.html">Working
         /// with JSON</a>. You can send a request to <code>DescribeComponentConfigurationRecommendation</code>
-        /// to see the recommended configuration for a component.</para>
+        /// to see the recommended configuration for a component. For the complete format of the
+        /// component configuration file, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html">Component
+        /// Configuration</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,11 +105,13 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         /// <summary>
         /// <para>
         /// <para>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>,
-        /// <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</para>
+        /// <code>DOT_NET_WEB</code>, <code>DOT_NET_CORE</code>, <code>SQL_SERVER</code>, and
+        /// <code>DEFAULT</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Tier { get; set; }
+        [AWSConstantClassSource("Amazon.ApplicationInsights.Tier")]
+        public Amazon.ApplicationInsights.Tier Tier { get; set; }
         #endregion
         
         #region Parameter Select
@@ -288,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             public System.String ComponentName { get; set; }
             public System.Boolean? Monitor { get; set; }
             public System.String ResourceGroupName { get; set; }
-            public System.String Tier { get; set; }
+            public Amazon.ApplicationInsights.Tier Tier { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.UpdateComponentConfigurationResponse, UpdateCWAIComponentConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

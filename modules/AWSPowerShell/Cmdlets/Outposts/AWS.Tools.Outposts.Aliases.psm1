@@ -1,0 +1,3 @@
+﻿# Outposts
+
+Export-ModuleMember -Alias *

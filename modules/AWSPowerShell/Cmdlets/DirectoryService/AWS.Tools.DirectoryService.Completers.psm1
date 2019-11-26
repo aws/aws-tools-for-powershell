@@ -97,6 +97,17 @@ $DS_Completers = {
             break
         }
 
+        # Amazon.DirectoryService.LDAPSType
+        {
+            ($_ -eq "Disable-DSLDAPS/Type") -Or
+            ($_ -eq "Enable-DSLDAPS/Type") -Or
+            ($_ -eq "Get-DSLDAPSSetting/Type")
+        }
+        {
+            $v = "Client"
+            break
+        }
+
         # Amazon.DirectoryService.RadiusAuthenticationProtocol
         {
             ($_ -eq "Enable-DSRadius/RadiusSettings_AuthenticationProtocol") -Or
@@ -165,6 +176,7 @@ $DS_map = @{
     "Size"=@("Connect-DSDirectory","New-DSDirectory")
     "TrustDirection"=@("New-DSTrust")
     "TrustType"=@("New-DSTrust")
+    "Type"=@("Disable-DSLDAPS","Enable-DSLDAPS","Get-DSLDAPSSetting")
     "UnshareTarget_Type"=@("Disable-DSDirectoryShare")
 }
 
@@ -236,24 +248,31 @@ $DS_SelectMap = @{
                "Remove-DSLogSubscription",
                "Remove-DSSnapshot",
                "Remove-DSTrust",
+               "Unregister-DSCertificate",
                "Unregister-DSEventTopic",
+               "Get-DSCertificate",
                "Get-DSConditionalForwarder",
                "Get-DSDirectory",
                "Get-DSDomainControllerList",
                "Get-DSEventTopic",
+               "Get-DSLDAPSSetting",
                "Get-DSSharedDirectory",
                "Get-DSSnapshot",
                "Get-DSTrust",
+               "Disable-DSLDAPS",
                "Disable-DSRadius",
                "Disable-DSSso",
+               "Enable-DSLDAPS",
                "Enable-DSRadius",
                "Enable-DSSso",
                "Get-DSDirectoryLimit",
                "Get-DSSnapshotLimit",
+               "Get-DSCertificateList",
                "Get-DSIpRouteList",
                "Get-DSLogSubscriptionList",
                "Get-DSSchemaExtension",
                "Get-DSResourceTag",
+               "Register-DSCertificate",
                "Register-DSEventTopic",
                "Deny-DSSharedDirectory",
                "Remove-DSIpRoute",

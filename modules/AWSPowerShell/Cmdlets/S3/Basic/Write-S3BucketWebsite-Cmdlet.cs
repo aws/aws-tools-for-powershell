@@ -44,52 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// To redirect all website requests sent to the bucket's website endpoint, you add a
     /// website configuration with the following elements. Because all requests are sent to
     /// another website, you don't need to provide index document name for the bucket.
-    /// </para><ul><li><para>
-    /// WebsiteConfiguration
-    /// </para></li><li><para>
-    /// RedirectAllRequestsTo
-    /// </para></li><li><para>
-    /// HostName
-    /// </para></li><li><para>
-    /// Protocol
-    /// </para></li></ul><para>
+    /// </para><ul><li><para><code>WebsiteConfiguration</code></para></li><li><para><code>RedirectAllRequestsTo</code></para></li><li><para><code>HostName</code></para></li><li><para><code>Protocol</code></para></li></ul><para>
     /// If you want granular control over redirects, you can use the following elements to
     /// add routing rules that describe conditions for redirecting requests and information
     /// about the redirect destination. In this case, the website configuration must provide
     /// an index document for the bucket, because some requests might not be redirected. 
-    /// </para><ul><li><para>
-    /// WebsiteConfiguration
-    /// </para></li><li><para>
-    /// IndexDocument
-    /// </para></li><li><para>
-    /// Suffix
-    /// </para></li><li><para>
-    /// ErrorDocument
-    /// </para></li><li><para>
-    /// Key
-    /// </para></li><li><para>
-    /// RoutingRules
-    /// </para></li><li><para>
-    /// RoutingRule
-    /// </para></li><li><para>
-    /// Condition
-    /// </para></li><li><para>
-    /// HttpErrorCodeReturnedEquals
-    /// </para></li><li><para>
-    /// KeyPrefixEquals
-    /// </para></li><li><para>
-    /// Redirect
-    /// </para></li><li><para>
-    /// Protocol
-    /// </para></li><li><para>
-    /// HostName
-    /// </para></li><li><para>
-    /// ReplaceKeyPrefixWith
-    /// </para></li><li><para>
-    /// ReplaceKeyWith
-    /// </para></li><li><para>
-    /// HttpRedirectCode
-    /// </para></li></ul>
+    /// </para><ul><li><para><code>WebsiteConfiguration</code></para></li><li><para><code>IndexDocument</code></para></li><li><para><code>Suffix</code></para></li><li><para><code>ErrorDocument</code></para></li><li><para><code>Key</code></para></li><li><para><code>RoutingRules</code></para></li><li><para><code>RoutingRule</code></para></li><li><para><code>Condition</code></para></li><li><para><code>HttpErrorCodeReturnedEquals</code></para></li><li><para><code>KeyPrefixEquals</code></para></li><li><para><code>Redirect</code></para></li><li><para><code>Protocol</code></para></li><li><para><code>HostName</code></para></li><li><para><code>ReplaceKeyPrefixWith</code></para></li><li><para><code>ReplaceKeyWith</code></para></li><li><para><code>HttpRedirectCode</code></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketWebsite", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

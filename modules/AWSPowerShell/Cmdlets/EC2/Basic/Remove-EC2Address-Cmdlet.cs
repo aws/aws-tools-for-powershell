@@ -69,6 +69,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AllocationId { get; set; }
         #endregion
         
+        #region Parameter NetworkBorderGroup
+        /// <summary>
+        /// <para>
+        /// <para>The location that the IP address is released from.</para><para>If you provide an incorrect network border group, you will receive an <code>InvalidAddress.NotFound</code>
+        /// error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error
+        /// Codes</a>.</para><note><para>You cannot use a network border group with EC2 Classic. If you attempt this operation
+        /// on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error
+        /// Codes</a>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkBorderGroup { get; set; }
+        #endregion
+        
         #region Parameter PublicIp
         /// <summary>
         /// <para>
@@ -140,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllocationId = this.AllocationId;
+            context.NetworkBorderGroup = this.NetworkBorderGroup;
             context.PublicIp = this.PublicIp;
             
             // allow further manipulation of loaded context prior to processing
@@ -160,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AllocationId != null)
             {
                 request.AllocationId = cmdletContext.AllocationId;
+            }
+            if (cmdletContext.NetworkBorderGroup != null)
+            {
+                request.NetworkBorderGroup = cmdletContext.NetworkBorderGroup;
             }
             if (cmdletContext.PublicIp != null)
             {
@@ -227,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AllocationId { get; set; }
+            public System.String NetworkBorderGroup { get; set; }
             public System.String PublicIp { get; set; }
             public System.Func<Amazon.EC2.Model.ReleaseAddressResponse, RemoveEC2AddressCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
