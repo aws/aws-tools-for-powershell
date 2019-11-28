@@ -1,7 +1,34 @@
+Microsoft.PowerShell.Core\Set-StrictMode -Version 3
+
 $script:AWSToolsSignatureSubject = 'CN="Amazon.com, Inc.", O="Amazon.com, Inc.", L=Seattle, S=Washington, C=US'
 $script:AWSToolsTempRepoName = 'AWSToolsTemp'
 $script:CurrentMinAWSToolsInstallerVersion = '0.0.0.0'
 $script:ExpectedModuleCompanyName = 'aws-dotnet-sdk-team'
+$script:MaxModulesToFindIndividually = 3
+$script:ParallelDownloaderClassCode = @"
+using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+public class ParallelDownloader
+{
+    private readonly HttpClient client;
+
+    public ParallelDownloader(HttpClient _client)
+    {
+        client = _client;
+    }
+
+    public async Task DownloadToFile(string uri, string filePath)
+    {
+        using (var stream = await client.GetStreamAsync(uri))
+        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        {
+            await stream.CopyToAsync(fileStream);
+        }
+    }
+}
+"@
 
 function Get-CleanVersion {
     Param(
@@ -16,11 +43,11 @@ function Get-CleanVersion {
             $Version
         }
         else {
-            $major = $Version.Major
-            $minor = $Version.Minor
-            $build = $Version.Build
-            $revision = $Version.Revision
-    
+            [int]$major = $Version.Major
+            [int]$minor = $Version.Minor
+            [int]$build = $Version.Build
+            [int]$revision = $Version.Revision
+
             #PowerShell modules version numbers can have missing fields, that would create problems with
             #matching and sorting versions. Replacing missing fields with 0s
             if ($major -lt 0) {
@@ -35,7 +62,7 @@ function Get-CleanVersion {
             if ($revision -lt 0) {
                 $revision = 0
             }
-    
+
             [System.Version]::new($major, $minor, $build, $revision)
         }
     }
@@ -49,15 +76,15 @@ function Get-AWSToolsModule {
     )
 
     Process {
-        $awsToolsModules = Get-Module AWS.Tools.* -ListAvailable
-        if ($awsToolsModules -and ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows)) {
-            $awsToolsModules = $awsToolsModules | Where-Object {
-                $signature = Get-AuthenticodeSignature $_.Path
-                ($signature.Status -eq 'Valid' -or $SkipIfInvalidSignature) -and
-                $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject
+        [System.Management.Automation.PSModuleInfo[]]$installedAwsToolsModules = Get-Module -Name 'AWS.Tools.*' -ListAvailable -Verbose:$false
+        if ($installedAwsToolsModules -and ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows)) {
+            $installedAwsToolsModules = $installedAwsToolsModules | Where-Object {
+                [System.Management.Automation.Signature]$signature = Get-AuthenticodeSignature -FilePath $_.Path
+                ($signature.Status -eq 'Valid' -or $SkipIfInvalidSignature) -and $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject
             }
         }
-        $awsToolsModules | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
+        $installedAwsToolsModules = $installedAwsToolsModules | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
+        Write-Output $installedAwsToolsModules
     }
 }
 
@@ -118,40 +145,40 @@ function Uninstall-AWSToolsModule {
         $ErrorActionPreference = 'Stop'
 
         Write-Verbose "[$($MyInvocation.MyCommand)] Searching installed modules"
-        $awsToolsModules = Get-AWSToolsModule
-        
+        [System.Management.Automation.PSModuleInfo[]]$InstalledAwsToolsModules = Get-AWSToolsModule
+
         if ($MinimumVersion) {
-            $awsToolsModules = $awsToolsModules | Where-Object { $_.Version -ge $MinimumVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -ge $MinimumVersion }
         }
         if ($MaximumVersion) {
-            $awsToolsModules = $awsToolsModules | Where-Object { $_.Version -le $MaximumVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -le $MaximumVersion }
         }
         if ($RequiredVersion) {
-            $awsToolsModules = $awsToolsModules | Where-Object { $_.Version -eq $RequiredVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -eq $RequiredVersion }
         }
         if ($ExceptVersion) {
-            $awsToolsModules = $awsToolsModules | Where-Object { $_.Version -ne $ExceptVersion }
+            $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -ne $ExceptVersion }
         }
 
-        $versions = $awsToolsModules | Group-Object Version
+        $versions = $InstalledAwsToolsModules | Group-Object Version
 
-        if ($awsToolsModules -and ($Force -or $WhatIfPreference -or $PSCmdlet.ShouldProcess("AWS Tools version $([System.String]::Join(', ', $versions.Name))"))) {
+        if ($versions -and ($Force -or $WhatIfPreference -or $PSCmdlet.ShouldProcess("AWS Tools version $([System.String]::Join(', ', $versions.Name))"))) {
             $ConfirmPreference = 'None'
 
             $versions | ForEach-Object {
                 Write-Host "Uninstalling AWS.Tools version $($_.Name)"
-            
-                $versionModules = $_.Group
-            
+
+                [System.Management.Automation.PSModuleInfo[]]$versionModules = $_.Group
+
                 while ($versionModules) {
-                    $dependencies = $versionModules.RequiredModules | Sort-Object -Unique
-                    if ($dependencies) {
-                        $removableModules = $versionModules | Where-Object { -not $dependencies.Name.Contains($_.Name) }
+                    [string[]]$dependencyNames = $versionModules | Select-Object -ExpandProperty RequiredModules | Select-Object -ExpandProperty Name | Sort-Object -Unique
+                    if ($dependencyNames) {
+                        [System.Management.Automation.PSModuleInfo[]]$removableModules = $versionModules | Where-Object { -not $dependencyNames.Contains($_.Name) }
                     }
                     else {
-                        $removableModules = $versionModules
+                        [System.Management.Automation.PSModuleInfo[]]$removableModules = $versionModules
                     }
-            
+
                     if (-not $removableModules) {
                         Write-Error "Remaining modules for version $($_.Name) cannot be removed"
                         break
@@ -173,8 +200,8 @@ function Uninstall-AWSToolsModule {
                             Uninstall-Module @uninstallModuleParams
                         }
                     }
-            
-                    $versionModules = $versionModules | Where-Object { -not $removableModules.Name.Contains($_.Name) }
+
+                    $versionModules = $versionModules | Where-Object { $_.Name -notin ($removableModules | Select-Object -ExpandProperty Name) }
                 }
             }
         }
@@ -185,22 +212,12 @@ function Uninstall-AWSToolsModule {
     }
 }
 
-function Get-AvailableModuleVersion {
+function Find-AWSToolsModule {
     Param(
-        ## Specifies names of the AWS.Tools modules to retrieve the version for.
-        [Parameter(ValueFromPipelineByPropertyName, ValueFromPipeline, Mandatory)]
+        ## Specifies a proxy server for the request, rather than connecting directly to an internet resource.
+        [Parameter(ValueFromPipelineByPropertyName, ValueFromPipeline, Mandatory, Position = 0)]
         [string[]]
         $Name,
-
-        ## Specifies exact version number of the module to install.
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [System.Version]
-        $RequiredVersion,
-
-        ## Specifies the maximum version of the modules to install.
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [System.Version]
-        $MaximumVersion,
 
         ## Specifies a proxy server for the request, rather than connecting directly to an internet resource.
         [Parameter(ValueFromPipelineByPropertyName)]
@@ -217,7 +234,7 @@ function Get-AvailableModuleVersion {
         $RequiredVersion = Get-CleanVersion $RequiredVersion
         $MaximumVersion = Get-CleanVersion $MaximumVersion
 
-        Write-Verbose "[$($MyInvocation.MyCommand)] ConfirmPreference=$ConfirmPreference WhatIfPreference=$WhatIfPreference VerbosePreference=$VerbosePreference Force=$Force"
+        Write-Verbose "[$($MyInvocation.MyCommand)] ConfirmPreference=$ConfirmPreference WhatIfPreference=$WhatIfPreference VerbosePreference=$VerbosePreference Name=($Name)"
     }
 
     Process {
@@ -228,29 +245,32 @@ function Get-AvailableModuleVersion {
         if ($ProxyCredential) {
             $proxyParams['ProxyCredential'] = $ProxyCredential
         }
-        $findModuleParams = @{
-            RequiredVersion = $versionToInstall
-            MaximumVersion  = $MaximumVersion
-            Repository      = 'PSGallery'
-            ErrorAction     = 'Stop'
-        }
-        $savedModules = $Name | ForEach-Object { Find-Module -Name $_ @findModuleParams @proxyParams }
-        
-        $versionToInstall = $savedModules.Version | Sort-Object -Unique
-            
-        if ($versionToInstall.Count -gt 1) {
-            Write-Verbose "[$($MyInvocation.MyCommand)] Found multiple modules versions: $([System.String]::Join(', ', $versionToInstall)).)"
-            $versionToInstall = [System.Version[]]$versionToInstall | Measure-Object -Minimum | Select-Object -Expand Minimum
-        
-            $findModuleParams = @{
-                RequiredVersion = $versionToInstall
-                Repository      = 'PSGallery'
-                ErrorAction     = 'Stop'
+
+        [PSObject[]]$availableModules = @()
+        [string[]]$missingModules = $Name
+
+        #'Find-Module AWS.Tools.*' is only slightly slower than Find-Module for a single module
+        if ($Name.Count -gt $script:MaxModulesToFindIndividually) {
+            $availableModules += Find-Module -Name 'AWS.Tools.*' -Repository 'PSGallery' @proxyParams -ErrorAction 'Stop' | Where-Object { $_.Name -in $Name -and $_.CompanyName -ceq $script:ExpectedModuleCompanyName }
+            $missingModules = $Name | Where-Object { $_ -notin ($availableModules | Select-Object -ExpandProperty Name) }
+            if ($missingModules) {
+                Write-Verbose "[$($MyInvocation.MyCommand)] Retrying Find-Module on ($missingModules)"
             }
-            $savedModules = $Name | ForEach-Object { Find-Module -Name $_ @findModuleParams @proxyParams }
         }
-        
-        $versionToInstall
+
+        if ($missingModules) {
+            #'Find-Module AWS.Tools.*' doesn't always return all modules, so we have to retry missing ones
+            $missingModules | ForEach-Object {
+                $availableModules += Find-Module -Name $_ -Repository 'PSGallery' @proxyParams -ErrorAction 'Ignore' | Where-Object { $_.Name -in $Name -and $_.CompanyName -ceq $script:ExpectedModuleCompanyName }
+            }
+
+            $missingModules = $Name | Where-Object { $_ -notin ($availableModules | Select-Object -ExpandProperty Name) }
+            if ($missingModules) {
+                throw "Could not find AWS.Tools module on PSGallery: $([string]::Join(', ', $missingModules))."
+            }
+        }
+
+        Write-Output $availableModules
     }
 
     End {
@@ -258,144 +278,84 @@ function Get-AvailableModuleVersion {
     }
 }
 
-function Save-AWSToolsModule {
-    [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'Low')]
+function Get-AWSToolsModuleDependenciesAndValidate {
     Param(
-        ## Specifies name of the AWS.Tools module to save.
-        [Parameter(ValueFromPipelineByPropertyName, ValueFromPipeline, Mandatory)]
-        [string]
-        $Name,
-
-        ## Specifies directory the module should be saved to.
+        ## Path of the manifest file to validate
         [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
         [string]
-        $TemporaryRepoDirectory,
+        $Path,
 
-        ## Specifies exact version number of the module to install.
+        ## Name of the module to validate
         [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
-        [System.Version]
-        $RequiredVersion,
-
-        ## Specifies which modules are already available either installed or in the temporary repository.
-        [Parameter(ValueFromPipelineByPropertyName, Mandatory)]
-        [AllowEmptyCollection()]
-        [System.Collections.Generic.HashSet[string]]
-        $SavedModules,
-
-        ## Specifies a proxy server for the request, rather than connecting directly to an internet resource.
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [Uri]
-        $Proxy,
-
-        ## Specifies a user account that has permission to use the proxy server specified by the Proxy parameter.
-        [Parameter(ValueFromPipelineByPropertyName)]
-        [PSCredential]
-        $ProxyCredential
+        [string]
+        $Name
     )
 
     Begin {
         $RequiredVersion = Get-CleanVersion $RequiredVersion
 
-        Write-Verbose "[$($MyInvocation.MyCommand)] ConfirmPreference=$ConfirmPreference WhatIfPreference=$WhatIfPreference VerbosePreference=$VerbosePreference Force=$Force"
+        Write-Verbose "[$($MyInvocation.MyCommand)] ConfirmPreference=$ConfirmPreference WhatIfPreference=$WhatIfPreference VerbosePreference=$VerbosePreference Name=$Name Path=$Path"
     }
 
     Process {
         $ErrorActionPreference = 'Stop'
 
-        if ($SavedModules.Add($Name.ToLower())) {
-            $proxyParams = @{ }
-            if ($Proxy) {
-                $proxyParams['Proxy'] = $Proxy
-            }
-            if ($ProxyCredential) {
-                $proxyParams['ProxyCredential'] = $ProxyCredential
-            }
+        Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop
+        Add-Type -AssemblyName System.IO.Compression -ErrorAction Stop
 
-            $findModuleParams = @{
-                Name            = $Name
-                RequiredVersion = $versionToInstall
-                Repository      = 'PSGallery'
-                ErrorAction     = 'Stop'
-            }
-            $moduleInfo = Find-Module @findModuleParams @proxyParams
-            if ($moduleInfo.CompanyName -ne $script:ExpectedModuleCompanyName) {
-                throw "Error validating CompanyName for $($moduleInfo.Name)"
-            }
+        [System.IO.Stream]$manifestFileStream = $null
+        [System.IO.Stream]$entryStream = $null
+        [System.IO.Compression.ZipArchive]$zipArchive = $null
+        [string]$temporaryManifestFilePath = $null
 
-            $nupkgFilePath = Join-Path $TemporaryRepoDirectory "$($moduleInfo.Name).$($moduleInfo.Version).nupkg"
+        try {
+            $zipArchive = [System.IO.Compression.ZipFile]::OpenRead($Path)
+            [System.IO.Compression.ZipArchiveEntry]$entry = $zipArchive.GetEntry("$($Name).psd1")
+            $entryStream = $entry.Open()
+            $temporaryManifestFilePath = Join-Path ([System.IO.Path]::GetTempPath()) "$([System.IO.Path]::GetRandomFileName()).psd1"
+            $manifestFileStream = [System.IO.File]::OpenWrite($temporaryManifestFilePath)
+            $entryStream.CopyTo($manifestFileStream)
+            $manifestFileStream.Close();
 
-            Write-Verbose "[$($MyInvocation.MyCommand)] Downloading module $($moduleInfo.Name) to $TemporaryRepoDirectory"
-            $webRequestParams = @{
-                Uri     = "https://www.powershellgallery.com/api/v2/package/$($moduleInfo.Name)/$($moduleInfo.Version)"
-                OutFile = $nupkgFilePath
-            }
-            if ($PSVersionTable.PSVersion.Major -le 5) {
-                $webRequestParams['UseBasicParsing'] = $true
-            }
-            Invoke-WebRequest @webRequestParams @proxyParams
-
-            Write-Verbose "[$($MyInvocation.MyCommand)] Validating module manifest"
-            try {
-                Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop
-                $zipArchive = [System.IO.Compression.ZipFile]::OpenRead($nupkgFilePath)
-                $entry = $zipArchive.GetEntry("$($moduleInfo.Name).psd1")
-                $entryStream = $entry.Open()
-                $temporaryManifestFilePath = Join-Path ([System.IO.Path]::GetTempPath()) "$([System.IO.Path]::GetRandomFileName()).psd1"
-                $manifestFileStream = [System.IO.File]::OpenWrite($temporaryManifestFilePath)
-                $entryStream.CopyTo($manifestFileStream)
-                $manifestFileStream.Close();
-
-                if ($awsToolsModules -and ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows)) {
-                    $manifestSignature = Get-AuthenticodeSignature $temporaryManifestFilePath
-                    if ($manifestSignature.Status -eq 'Valid' -and $manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject) {
-                        Write-Verbose "[$($MyInvocation.MyCommand)] Manifest signature correctly validated"
-                    }
-                    else {
-                        Write-Host $temporaryManifestFilePath
-                        Write-Host $manifestSignature.Status
-                        Write-Host $manifestSignature.SignerCertificate.Subject
-                        throw "Error validating manifest signature for $($moduleInfo.Name)"
-                    }
+            if ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows) {
+                [System.Management.Automation.Signature]$manifestSignature = Get-AuthenticodeSignature -FilePath $temporaryManifestFilePath
+                if ($manifestSignature.Status -eq 'Valid' -and $manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject) {
+                    Write-Verbose "[$($MyInvocation.MyCommand)] Manifest signature correctly validated"
                 }
                 else {
-                    Write-Verbose "[$($MyInvocation.MyCommand)] Authenticode signature can only be vefied on Windows, skipping"
+                    throw "Error validating manifest signature for $($Name)"
                 }
-
-                $manifestData = Import-PowerShellDataFile $temporaryManifestFilePath
-
-                if ($manifestData.PrivateData.MinAWSToolsInstallerVersion) {
-                    $minVersion = Get-CleanVersion $manifestData.PrivateData.MinAWSToolsInstallerVersion
-                    if ($minVersion -gt $script:CurrentMinAWSToolsInstallerVersion) {
-                        throw "$($moduleInfo.Name) version $RequiredVersion requires at least AWS.Tools.Installer version $minVersion. Run 'Update-Module AWS.Tools.Installer -Force'."
-                    }
-                }
-
-                $saveAWSToolsModuleParams = @{
-                    RequiredVersion        = $RequiredVersion
-                    TemporaryRepoDirectory = $TemporaryRepoDirectory
-                    SavedModules           = $SavedModules
-                }
-                $manifestData.RequiredModules | ForEach-Object {
-                    Write-Verbose "[$($MyInvocation.MyCommand)] Found dependency $($_.ModuleName)"
-                    Save-AWSToolsModule -Name $_.ModuleName @saveAWSToolsModuleParams @proxyParams | Out-Null
-                }
-
-                #Returning the property capitalized module name.
-                $moduleInfo.Name
             }
-            finally {
-                if ($manifestFileStream) {
-                    $manifestFileStream.Dispose()
+            else {
+                Write-Verbose "[$($MyInvocation.MyCommand)] Authenticode signature can only be vefied on Windows, skipping"
+            }
+
+            [PSObject]$manifestData = Import-PowerShellDataFile $temporaryManifestFilePath
+
+            if ($manifestData.PrivateData.ContainsKey('MinAWSToolsInstallerVersion')) {
+                [System.Version]$minVersion = Get-CleanVersion $manifestData.PrivateData.MinAWSToolsInstallerVersion
+                if ($minVersion -gt $script:CurrentMinAWSToolsInstallerVersion) {
+                    throw "$($Name) version $RequiredVersion requires at least AWS.Tools.Installer version $minVersion. Run 'Update-Module AWS.Tools.Installer -Force'."
                 }
-                if ($entryStream) {
-                    $entryStream.Dispose()
-                }
-                if ($zipArchive) {
-                    $zipArchive.Dispose()
-                }
-                if ($temporaryManifestFilePath) {
-                    Remove-Item $temporaryManifestFilePath
-                }
+            }
+
+            $manifestData.RequiredModules | ForEach-Object {
+                Write-Verbose "[$($MyInvocation.MyCommand)] Found dependency $($_.ModuleName)"
+                Write-Output $_.ModuleName
+            }
+        }
+        finally {
+            if ($manifestFileStream) {
+                $manifestFileStream.Dispose()
+            }
+            if ($entryStream) {
+                $entryStream.Dispose()
+            }
+            if ($zipArchive) {
+                $zipArchive.Dispose()
+            }
+            if ($temporaryManifestFilePath) {
+                Remove-Item $temporaryManifestFilePath -WhatIf:$false
             }
         }
     }
@@ -437,6 +397,11 @@ function Install-AWSToolsModule {
         [System.Version]
         $RequiredVersion,
 
+        ## Specifies the minimum version of the modules to install.
+        [Parameter(ValueFromPipelineByPropertyName)]
+        [System.Version]
+        $MinimumVersion,
+
         ## Specifies the maximum version of the modules to install.
         [Parameter(ValueFromPipelineByPropertyName)]
         [System.Version]
@@ -477,7 +442,7 @@ function Install-AWSToolsModule {
         [Parameter(ValueFromPipelineByPropertyName)]
         [PSCredential]
         $ProxyCredential,
-        
+
         ## Forces an install of each specified module without a prompt to request confirmation
         [Parameter(ValueFromPipelineByPropertyName)]
         [Switch]
@@ -488,7 +453,7 @@ function Install-AWSToolsModule {
         $RequiredVersion = Get-CleanVersion $RequiredVersion
         $MaximumVersion = Get-CleanVersion $MaximumVersion
 
-        Write-Verbose "[$($MyInvocation.MyCommand)] ConfirmPreference=$ConfirmPreference WhatIfPreference=$WhatIfPreference VerbosePreference=$VerbosePreference Force=$Force"
+        Write-Verbose "[$($MyInvocation.MyCommand)] ConfirmPreference=$ConfirmPreference WhatIfPreference=$WhatIfPreference VerbosePreference=$VerbosePreference Force=$Force Name=($Name) RequiredVersion=$RequiredVersion SkipUpdate=$SkipUpdate CleanUp=$CleanUp"
     }
 
     Process {
@@ -501,40 +466,60 @@ function Install-AWSToolsModule {
             else {
                 "AWS.Tools.$_"
             }
-        }
+        } | Sort-Object -Unique
 
-        if (($Name -like 'AWS.Tools.*' | Sort-Object -Unique).Count -ne $Name.Count) {
-            throw "The Name parameter must contain only AWS.Tools modules without duplicates."
+        if ($Name -notlike 'AWS.Tools.*') {
+            throw "The Name parameter must contain only AWS.Tools modules."
         }
 
         if ($Name -eq 'AWS.Tools.Installer') {
             throw "AWS.Tools.Installer cannot be used to install AWS.Tools.Installer. Use Update-Module instead."
         }
-        
-        if ($RequiredVersion) {
-            $versionToInstall = $RequiredVersion
+
+        [PSObject[]]$availableModulesToInstall = Find-AWSToolsModule -Name $Name -Proxy $Proxy -ProxyCredential $ProxyCredential
+
+        [System.Version]$availableVersion = [System.Version[]]$availableModulesToInstall.Version | Measure-Object -Minimum | Select-Object -Expand Minimum
+
+        if ($MinimumVersion -and $MinimumVersion -gt $availableVersion) {
+            throw "The maximum version available is $availableVersion."
         }
-        else {
-            $versionToInstall = Get-AvailableModuleVersion -Name $Name -MaximumVersion $MaximumVersion -Proxy $Proxy -ProxyCredential $ProxyCredential
-            Write-Verbose "[$($MyInvocation.MyCommand)] Installing AWS Tools version $versionToInstall"
+        if ($RequiredVersion -and $RequiredVersion -gt $availableVersion) {
+            throw "The maximum version available is $availableVersion."
         }
+        if ($MinimumVersion -and $RequiredVersion -and $MinimumVersion -gt $RequiredVersion) {
+            throw "Parameter MinimumVersion is greater than RequiredVersion."
+        }
+        if ($MaximumVersion -and $RequiredVersion -and $MaximumVersion -lt $RequiredVersion) {
+            throw "Parameter MaximumVersion is less than RequiredVersion."
+        }
+        if ($MaximumVersion -and -not $RequiredVersion -and $MaximumVersion -lt $availableVersion) {
+            $RequiredVersion = Find-Module -Name 'AWS.Tools.Common' -MaximumVersion $MaximumVersion | Select-Object -Expand Version
+        }
+        if (-not $RequiredVersion) {
+            $RequiredVersion = $availableVersion
+        }
+
+        Write-Verbose "[$($MyInvocation.MyCommand)] Installing AWS Tools version $RequiredVersion"
+
+        [string[]]$modulesToInstall = $availableModulesToInstall.Name
 
         if (-not $SkipUpdate) {
             Write-Verbose "[$($MyInvocation.MyCommand)] Searching installed modules"
-            $awsToolsModules = Get-AWSToolsModule -SkipIfInvalidSignature
-            if ($awsToolsModules) {
-                Write-Verbose "[$($MyInvocation.MyCommand)] Merging existing modules into the list of modules to install"
-                $Name = ($Name + ($awsToolsModules | Select-Object -Expand Name)) | Sort-Object -Unique
+            [System.Management.Automation.PSModuleInfo[]]$installedAwsToolsModules = Get-AWSToolsModule -SkipIfInvalidSignature
+            if ($installedAwsToolsModules) {
+                $modulesToInstall = ($modulesToInstall + ($installedAwsToolsModules | Select-Object -Expand Name)) | Sort-Object -Unique
+                Write-Verbose "[$($MyInvocation.MyCommand)] Merging existing modules into the list of modules to install: ($modulesToInstall)"
             }
         }
 
-        $Name = $Name | Where-Object { -not (Get-Module $_ -ListAvailable | Where-Object { $_.Version -eq $versionToInstall }) }
+        $modulesToInstall = $modulesToInstall | Where-Object { -not (Get-Module $_ -ListAvailable -Verbose:$false | Where-Object { $_.Version -eq $RequiredVersion }) }
+        Write-Verbose "[$($MyInvocation.MyCommand)] Removing already installed modules from the. Final list of modules to install: ($modulesToInstall)"
 
-        if ($Name) {
-            if ($Force -or $WhatIfPreference -or $PSCmdlet.ShouldProcess("AWS Tools version $versionToInstall")) {
+        if ($modulesToInstall) {
+            if ($Force -or $WhatIfPreference -or $PSCmdlet.ShouldProcess("AWS Tools version $RequiredVersion")) {
                 $ConfirmPreference = 'None'
 
-                $temporaryRepoDirectory = Join-Path ([System.IO.Path]::GetTempPath()) ([System.IO.Path]::GetRandomFileName())
+                [string]$temporaryRepoDirectory = Join-Path ([System.IO.Path]::GetTempPath()) ([System.IO.Path]::GetRandomFileName())
                 Write-Verbose "[$($MyInvocation.MyCommand)] Create folder for temporary repository $temporaryRepoDirectory"
                 New-Item -ItemType Directory -Path $temporaryRepoDirectory -WhatIf:$false | Out-Null
                 try {
@@ -545,31 +530,63 @@ function Install-AWSToolsModule {
                         Set-PSRepository -Name $script:AWSToolsTempRepoName -InstallationPolicy Trusted
                     }
 
-                    $savedModules = New-Object System.Collections.Generic.HashSet[string]
-                    $modulesToInstall = @()
+                    Add-Type -AssemblyName System.Net.Http -ErrorAction Stop
+
+                    [System.Net.Http.HttpClient]$httpClient = $null
+                    [System.Net.Http.HttpClientHandler]$httpClientHandler = $null
 
                     Write-Verbose "[$($MyInvocation.MyCommand)] Downloading modules to temporary repository"
-                    $saveAWSToolsModuleParams = @{
-                        RequiredVersion        = $versionToInstall
-                        TemporaryRepoDirectory = $temporaryRepoDirectory
-                        SavedModules           = $savedModules
-                        Proxy                  = $Proxy
-                        ProxyCredential        = $ProxyCredential
-                        Confirm                = $false
-                        WhatIf                 = $false
-                    }
-                    $Name | ForEach-Object {
-                        if (Get-Module $_ -ListAvailable | Where-Object { $_.Version -eq $versionToInstall } ) {
-                            Write-Verbose "[$($MyInvocation.MyCommand)] Skipping installation of $_ because already installed"
+                    try {
+                        $httpClientHandler = [System.Net.Http.HttpClientHandler]::new()
+                        if ($Proxy) {
+                            $httpClientHandler.Proxy = [System.Net.WebProxy]::new($Proxy)
+                            if ($ProxyCredential) {
+                                $httpClientHandler.Proxy.Credentials = $ProxyCredential.GetNetworkCredential()
+                            }
                         }
-                        else {
-                            $modulesToInstall += Save-AWSToolsModule -Name $_ @saveAWSToolsModuleParams
+                        $httpClient = [System.Net.Http.HttpClient]::new($httpClientHandler);
+
+                        Add-Type $script:ParallelDownloaderClassCode -ReferencedAssemblies System.Net.Http
+                        [ParallelDownloader]$parallelDownloader = [ParallelDownloader]::new($httpClient)
+
+                        [string[]]$modulesToDownload = $modulesToInstall
+                        [System.Collections.Generic.HashSet[string]]$savedModules = New-Object -TypeName System.Collections.Generic.HashSet[string]
+
+                        Write-Verbose "[$($MyInvocation.MyCommand)] Downloading modules ($modulesToDownload)"
+
+                        while ($modulesToDownload) {
+                            [string[]]$dependencies = @()
+
+                            $tasks = $modulesToDownload | Where-Object { $savedModules.Add($_) } | ForEach-Object {
+                                [string]$nupkgFilePath = Join-Path $temporaryRepoDirectory "$($_).$($RequiredVersion).nupkg"
+                                Write-Verbose "[$($MyInvocation.MyCommand)] Downloading module $($_) to $TemporaryRepoDirectory"
+                                [System.Threading.Tasks.Task]$task = $parallelDownloader.DownloadToFile("https://www.powershellgallery.com/api/v2/package/$_/$RequiredVersion", $nupkgFilePath)
+                                @{
+                                    Task       = $task
+                                    ModuleName = $_
+                                    Path       = $nupkgFilePath
+                                }
+                            }
+                            $tasks | ForEach-Object {
+                                $_.Task.Wait()
+                                $dependencies += Get-AWSToolsModuleDependenciesAndValidate -Path $_.Path -Name $_.ModuleName
+                            }
+
+                            $modulesToDownload = $dependencies | Sort-Object -Unique
+                        }
+                    }
+                    finally {
+                        if ($httpClient) {
+                            $httpClient.Dispose()
+                        }
+                        if ($httpClientHandler) {
+                            $httpClientHandler.Dispose()
                         }
                     }
 
-                    Write-Verbose "[$($MyInvocation.MyCommand)] Installing modules"
+                    Write-Verbose "[$($MyInvocation.MyCommand)] Installing modules ($modulesToInstall)"
                     $installModuleParams = @{
-                        RequiredVersion = $versionToInstall
+                        RequiredVersion = $RequiredVersion
                         Scope           = $Scope
                         Repository      = $script:AWSToolsTempRepoName
                         AllowClobber    = $AllowClobber
@@ -578,11 +595,11 @@ function Install-AWSToolsModule {
                     }
                     $modulesToInstall | ForEach-Object {
                         if (-not $WhatIfPreference) {
-                            Write-Host "Installing module $_ version $versionToInstall"
+                            Write-Host "Installing module $_ version $RequiredVersion"
                             Install-Module -Name $_ @installModuleParams
                         }
                         else {
-                            Write-Host "What if: Installing module $_ version $versionToInstall"
+                            Write-Host "What if: Installing module $_ version $RequiredVersion"
                         }
                     }
                     Write-Verbose "[$($MyInvocation.MyCommand)] Modules install complete"
@@ -602,7 +619,7 @@ function Install-AWSToolsModule {
         }
 
         if ($CleanUp) {
-            Uninstall-AWSToolsModule -ExceptVersion $versionToInstall
+            Uninstall-AWSToolsModule -ExceptVersion $RequiredVersion
         }
     }
 
@@ -671,7 +688,7 @@ function Update-AWSToolsModule {
         [Parameter(ValueFromPipelineByPropertyName)]
         [PSCredential]
         $ProxyCredential,
-        
+
         ## Forces an update of each specified module without a prompt to request confirmation
         [Parameter(ValueFromPipelineByPropertyName)]
         [Switch]
@@ -689,28 +706,15 @@ function Update-AWSToolsModule {
         $ErrorActionPreference = 'Stop'
 
         Write-Verbose "[$($MyInvocation.MyCommand)] Searching installed modules"
-        $awsToolsModules = Get-AWSToolsModule -SkipIfInvalidSignature
-        $awsToolsModulesNames = $awsToolsModules | Select-Object -Expand Name | Sort-Object -Unique
+        [System.Management.Automation.PSModuleInfo[]]$installedAwsToolsModules = Get-AWSToolsModule -SkipIfInvalidSignature
+        [string[]]$installedAwsToolsModuleNames = $installedAwsToolsModules | Select-Object -Expand Name | Sort-Object -Unique
 
-        if ($awsToolsModulesNames) {
-            Write-Verbose "[$($MyInvocation.MyCommand)] Found modules $([System.String]::Join(', ', $awsToolsModulesNames))"
-            if ($RequiredVersion) {
-                $versionToInstall = $RequiredVersion
-            }
-            else {
-                $getAvailableModuleVersionParams = @{
-                    Name            = $awsToolsModulesNames
-                    MaximumVersion  = $MaximumVersion
-                    Proxy           = $Proxy
-                    ProxyCredential = $ProxyCredential
-                }
-                $versionToInstall = Get-AvailableModuleVersion @getAvailableModuleVersionParams
-                Write-Host "Installing AWS Tools version $versionToInstall"
-            }
-    
+        if ($installedAwsToolsModuleNames) {
+            Write-Verbose "[$($MyInvocation.MyCommand)] Found modules ($installedAwsToolsModuleNames)"
+
             $installAWSToolsModuleParams = @{
-                Name            = $awsToolsModulesNames
-                RequiredVersion = $versionToInstall
+                Name            = $installedAwsToolsModuleNames
+                RequiredVersion = $RequiredVersion
                 Scope           = $Scope
                 AllowClobber    = $AllowClobber
                 CleanUp         = $CleanUp
