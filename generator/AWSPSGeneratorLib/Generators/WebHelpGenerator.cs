@@ -43,18 +43,6 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        /// <summary>
-        /// Html snippet that contains the documentation for the credential parameters
-        /// that can be found on supporting cmdlets
-        /// </summary>
-        public string CredentialParametersSnippet { get; private set; }
-
-        /// <summary>
-        /// Html snipper that contains the documentation for the region parameter
-        /// that can be found on supporting cmdlets
-        /// </summary>
-        public string RegionParametersSnippet { get; private set; }
-
         #endregion
 
         protected static Dictionary<string, string> _msdnDocLinks = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
@@ -85,9 +73,7 @@ namespace AWSPowerShellGenerator.Generators
             }
         };
 
-        private const string CommonParametersSnippetMarker = "{COMMON_PARAM_SNIPPET}";
-
-        private const string LegacyAliasesSnippetMarker = "{LEGACY_ALIASES_SNIPPET}";
+        private static readonly HashSet<string> CommonParameters = new HashSet<string>() { "AccessKey", "Credential", "ProfileLocation", "ProfileName", "NetworkCredential", "SecretKey", "SessionToken", "Region", "EndpointUrl" };
 
         /// <summary>
         /// Holds the base class type we derive cmdlets from, which indicates the cmdlet
@@ -119,7 +105,6 @@ namespace AWSPowerShellGenerator.Generators
             if (!Directory.Exists(buildLogsPath))
                 Directory.CreateDirectory(buildLogsPath);
 
-            LoadCommonParameterSnippets();
             ServiceCmdletBaseClass = CmdletAssembly.GetType("Amazon.PowerShell.Common.ServiceCmdlet");
 
             var logFile = Path.Combine(buildLogsPath, Name + ".dll-WebHelp.log");
@@ -133,7 +118,6 @@ namespace AWSPowerShellGenerator.Generators
 
                     CleanWebHelpOutputFolder(OutputFolder);
                     CopyWebHelpStaticFiles(OutputFolder);
-                    CopyCommonParametersFile();
                     CreateVersionInfoFile(Path.Combine(OutputFolder, "items"));
 
                     var tocWriter = new TOCWriter(Options, OutputFolder);
@@ -181,9 +165,8 @@ namespace AWSPowerShellGenerator.Generators
 
                             WriteDetails(cmdletPageWriter, typeDocumentation, synopsis);
                             WriteSyntax(cmdletPageWriter, cmdletName, parameterPartitioning);
-                            WriteParameters(cmdletPageWriter, cmdletName, allProperties);
-                            WriteCommonParameters(cmdletPageWriter, cmdletType, cmdletName);
-                            WriteInputs(cmdletPageWriter, allProperties);
+                            WriteParameters(cmdletPageWriter, cmdletName, allProperties, false);
+                            WriteParameters(cmdletPageWriter, cmdletName, allProperties, true);
                             WriteOutputs(cmdletPageWriter, AWSCmdletOutputAttributes);
                             WriteNotes(cmdletPageWriter);
                             WriteExamples(cmdletPageWriter, cmdletName);
@@ -201,7 +184,7 @@ namespace AWSPowerShellGenerator.Generators
                     WriteLegacyAliasesPage();
                 }
             }
-            finally                               
+            finally
             {
                 Console.SetOut(oldWriter);
             }
@@ -261,10 +244,8 @@ namespace AWSPowerShellGenerator.Generators
 
             if (isCustomNamedSet)
             {
-                sb.AppendFormat(
-                    isDefaultSet
-                        ? "<div class=\"paramsetname\"><h4>{0} (Default)</h4>"
-                        : "<div class=\"paramsetname\"><h4>{0}</h4>", setName);
+                sb.Append( isDefaultSet ? $"<div class=\"paramsetname\"><h4>{setName} (Default)</h4>"
+                                        : $"<div class=\"paramsetname\"><h4>{setName}</h4>");
             }
 
             sb.Append("<div class=\"syntaxblock\">");
@@ -272,22 +253,18 @@ namespace AWSPowerShellGenerator.Generators
             // Microsoft cmdlets show params in syntax in defined but non-alpha order. Use the ordering we found
             // during reflection here in the hope the sdk has them in 'most important' order. Also, if there is
             // four or less params, keep the syntax on one line.
-            sb.AppendFormat("<div class=\"cmdlet\">{0}</div>", cmdletName);
+            sb.Append($"<div class=\"cmdlet\">{cmdletName}</div>");
             var allParameters = parameterSetPartitioning.Parameters;
             var paramCount = setParameterNames.Count;
 
             if (paramCount > 0)
             {
                 sb.Append("<div class=\"paramlist\">");
-                foreach (var p in allParameters)
+                foreach (var p in allParameters
+                    .Where(param => !CommonParameters.Contains(param.CmdletParameterName) &&
+                                    setParameterNames.Contains(param.CmdletParameterName)))
                 {
-                    if (!setParameterNames.Contains(p.CmdletParameterName))
-                        continue;
-
-                    sb.AppendFormat("<div class=\"{0}\">-{1} &lt;{2}&gt;</div>",
-                                    paramCount < 5 ? "inlineParam" : "wrappedParam",
-                                    p.CmdletParameterName,
-                                    GetTypeDisplayName(p.PropertyType, false));
+                    sb.Append($"<div class=\"{(paramCount < 5 ? "inlineParam" : "wrappedParam")}\">-{p.CmdletParameterName} &lt;{GetTypeDisplayName(p.PropertyType, false)}&gt;</div>");
                 }
                 sb.Append("</div>");
             }
@@ -300,13 +277,15 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        private void WriteParameters(CmdletPageWriter writer, string cmdletName, IEnumerable<SimplePropertyInfo> allProperties)
+        private void WriteParameters(CmdletPageWriter writer, string cmdletName, IEnumerable<SimplePropertyInfo> allProperties, bool commonParameters)
         {
+            var pageElementKey = commonParameters ? CmdletPageWriter.CommonParametersElementKey : CmdletPageWriter.ParametersElementKey;
+
             var sb = new StringBuilder();
 
             // Microsoft cmdlets list the parameters in alpha order here, so do the same (leaving metadata/paging
             // params in the correct order)
-            foreach (var property in allProperties.OrderBy(p => p.Name))
+            foreach (var property in allProperties.Where(p => CommonParameters.Contains(p.Name) ^ !commonParameters).OrderBy(p => p.Name))
             {
                 sb.Append("<div class=\"parameter\">");
 
@@ -314,42 +293,36 @@ namespace AWSPowerShellGenerator.Generators
                 var inputTypeDocLink = PredictHtmlDocsLink(typeName);
                 if (!string.IsNullOrEmpty(inputTypeDocLink))
                 {
-                    sb.AppendFormat("<div class=\"parameterName\">-{0} &lt;<a href=\"{1}\"{2}>{3}</a>&gt;</div>", 
-                                        property.Name, 
-                                        inputTypeDocLink,
-                                        RequiresLinkTarget(typeName) ? " target=\"_blank\"" : "",
-                                        GetTypeDisplayName(property.PropertyType, false));
+                    sb.Append($"<div class=\"parameterName\">-{property.Name} &lt;<a href=\"{inputTypeDocLink}\"{(RequiresLinkTarget(typeName) ? " target=\"_blank\"" : "")}>{GetTypeDisplayName(property.PropertyType, false)}</a>&gt;</div>");
                 }
                 else
                 {
-                    sb.AppendFormat("<div class=\"parameterName\">-{0} &lt;{1}&gt;</div>", 
-                                    property.Name, 
-                                    GetTypeDisplayName(property.PropertyType, false));
+                    sb.Append($"<div class=\"parameterName\">-{property.Name} &lt;{GetTypeDisplayName(property.PropertyType, false)}&gt;</div>");
                 }
 
-                sb.AppendFormat("<div class=\"parameterDescription\">{0}</div>", property.PowershellWebDocumentation);
+                sb.Append($"<div class=\"parameterDescription\">{property.PowershellWebDocumentation}</div>");
 
                 InspectParameter(property, out var isRequiredForParameterSets, out var pipelineInput, out var position, out var aliases);
 
                 sb.Append("<div class=\"parameterAttributes\"><table>");
-                sb.AppendFormat("<tr><td class=\"col1\">Required?</td><td class=\"col2\">{0}</td></tr>", FormatIsRequired(isRequiredForParameterSets));
-                sb.AppendFormat("<tr><td class=\"col1\">Position?</td><td class=\"col2\">{0}</td></tr>", position);
+                sb.Append($"<tr><td class=\"col1\">Required?</td><td class=\"col2\">{FormatIsRequired(isRequiredForParameterSets)}</td></tr>");
+                sb.Append($"<tr><td class=\"col1\">Position?</td><td class=\"col2\">{position}</td></tr>");
                 //sb.AppendFormat("<tr><td class=\"col1\">Default value</td><td class=\"col2\">{0}</td></tr>", );
-                sb.AppendFormat("<tr><td class=\"col1\">Accept pipeline input?</td><td class=\"col2\">{0}</td></tr>", pipelineInput);
+                sb.Append($"<tr><td class=\"col1\">Accept pipeline input?</td><td class=\"col2\">{pipelineInput}</td></tr>");
                 //sb.AppendFormat("<tr><td class=\"col1\">Accept wildcard characters?</td><td class=\"col2\">{0}</td></tr>", );
                 if (aliases.Length > 0)
                 {
-                    sb.AppendFormat("<tr><td class=\"col1\">Aliases</td><td class=\"col2\">{0}</td></tr>", string.Join(", ", aliases));
+                    sb.AppendFormat($"<tr><td class=\"col1\">Aliases</td><td class=\"col2\">{string.Join(", ", aliases)}</td></tr>");
                 }
                 sb.Append("</table></div>");
 
                 sb.Append("</div>");
             }
 
-            if (sb.Length == 0)
-                sb.Append("This cmdlet has no parameters specific to its operation.");
-
-            writer.AddPageElement(CmdletPageWriter.ParametersElementKey, sb.ToString());
+            if (sb.Length != 0)
+            {
+                writer.AddPageElement(pageElementKey, sb.ToString());
+            }
         }
 
         private static string FormatIsRequired(HashSet<string> parameterSets)
@@ -363,67 +336,6 @@ namespace AWSPowerShellGenerator.Generators
                 return "True";
             }
             return $"True ({string.Join(", ", parameterSets)})";
-        }
-
-        /// <summary>
-        /// If the cmdlet is a service cmdlet, or is one of our common cmdlets that supports credential
-        /// and/or region parameters, add in the relevant common parameters section
-        /// </summary>
-        /// <param name="writer"></param>
-        /// <param name="addCredentials"></param>
-        /// <param name="addRegion"></param>
-        private void WriteCommonParameters(CmdletPageWriter writer, Type cmdletType, string cmdletName)
-        {
-            if (cmdletType.IsSubclassOf(ServiceCmdletBaseClass))
-            {
-                var sb = new StringBuilder();
-
-                sb.AppendLine("<div class=\"sectionbody\">");
-                sb.AppendLine("<div class=\"parameters\">");
-
-                sb.Append("<div class=\"commonparameters\">");
-                // right now all service cmdlets have credential and region parameters
-                sb.Append(CredentialParametersSnippet);
-                sb.Append(RegionParametersSnippet);
-                sb.Append("</div>");
-
-                sb.AppendLine("</div>");
-                sb.AppendLine("</div>");
-
-                writer.AddPageElement(CmdletPageWriter.CommonParametersElementKey, sb.ToString());
-            }
-        }
-
-        private void WriteInputs(CmdletPageWriter writer, IEnumerable<SimplePropertyInfo> allProperties)
-        {
-            var sb = new StringBuilder();
-
-            foreach (var simplePropertyInfo in allProperties)
-            {
-                if (simplePropertyInfo.PsParameterAttribute != null && IsMarkedValueFromPipeline(simplePropertyInfo.PsParameterAttribute))
-                {
-                    // if the input type has a predictable sdk/msdn html address, construct the link
-                    var inputTypeDocLink = PredictHtmlDocsLink(simplePropertyInfo.PropertyTypeName);
-
-                    sb.Append("<div class=\"inputType\">");
-                    if (!string.IsNullOrEmpty(inputTypeDocLink))
-                        sb.AppendFormat("<a href=\"{0}\"{1}>{2}</a>", 
-                                        inputTypeDocLink,
-                                        RequiresLinkTarget(simplePropertyInfo.PropertyTypeName) ? " target=\"_blank\"" : "",
-                                        simplePropertyInfo.PropertyTypeName);
-                    else
-                        sb.Append(simplePropertyInfo.PropertyTypeName);
-                    sb.Append("</div>");
-                    sb.AppendFormat("<div class=\"inputDescription\">You can pipe a {0} object to this cmdlet for the {1} parameter.</div>", 
-                                    GetTypeDisplayName(simplePropertyInfo.PropertyType, false),
-                                    simplePropertyInfo.CmdletParameterName);
-                }
-            }
-
-            if (sb.Length == 0)
-                sb.Append("This cmdlet does not accept pipeline input.");
-
-            writer.AddPageElement(CmdletPageWriter.InputsElementKey, sb.ToString());
         }
 
         private void WriteOutputs(CmdletPageWriter writer, IEnumerable<object> outputAttributes)
@@ -691,46 +603,6 @@ namespace AWSPowerShellGenerator.Generators
             IOUtils.DirectoryCopy(Path.Combine(sourceLocation, "..", "..", "..", "..", "AWSPSGeneratorLib", "HelpMaterials", "WebHelp", "StaticContent"), webFilesRoot, true);
         }
 
-        private void CopyCommonParametersFile()
-        {
-            var templateFilename = "pstoolsref-commonparams.html";
-
-            // copy the common parameters template, replacing the inner marker with the snippet content
-            // we loaded earlier
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates." + templateFilename))
-            using (var reader = new StreamReader(stream))
-            {
-                var templateBody = reader.ReadToEnd();
-
-                var commonParams = string.Concat(CredentialParametersSnippet, RegionParametersSnippet);
-                var finalBody = templateBody.Replace(CommonParametersSnippetMarker, commonParams);
-
-                var filename = Path.Combine(OutputFolder, "items", templateFilename);
-                using (var writer = new StreamWriter(filename))
-                {
-                    writer.Write(finalBody);
-                }
-            }
-        }
-
-        private void LoadCommonParameterSnippets()
-        {
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates.CredentialParametersSnippet.html"))
-            using (var reader = new StreamReader(stream))
-            {
-                var templateBody = reader.ReadToEnd();
-                CredentialParametersSnippet = templateBody;
-            }
-
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates.RegionParametersSnippet.html"))
-            using (var reader = new StreamReader(stream))
-            {
-                var templateBody = reader.ReadToEnd();
-                RegionParametersSnippet = templateBody;
-            }
-
-        }
-
         private void CreateVersionInfoFile(string path)
         {
             if (!Directory.Exists(path))
@@ -779,7 +651,7 @@ namespace AWSPowerShellGenerator.Generators
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates." + templateFilename))
             using (var reader = new StreamReader(stream))
             {
-                var templateBody = reader.ReadToEnd();
+                var finalBody = reader.ReadToEnd();
 
                 var aliasTables = new StringBuilder();
 
@@ -799,8 +671,6 @@ namespace AWSPowerShellGenerator.Generators
                     var aliases = _legacyAliasesByService[service];
                     WriteLegacyAliasesForService(aliasTables, service, aliases);
                 }   
-                                         
-                var finalBody = templateBody.Replace(LegacyAliasesSnippetMarker, aliasTables.ToString());
 
                 var filename = Path.Combine(OutputFolder, "items", templateFilename);
                 using (var writer = new StreamWriter(filename))
