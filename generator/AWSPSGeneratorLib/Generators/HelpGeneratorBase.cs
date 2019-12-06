@@ -212,31 +212,14 @@ namespace AWSPowerShellGenerator.Generators
 
         protected IEnumerable<SimplePropertyInfo> GetRootSimpleProperties(Type requestType)
         {
-            var properties = requestType
-                .GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
-                .ToList();
-
-            // mix in any parameters added dynamically to specific cmdlets (this way we don't spam all cmdlets
-            // with credential parameters) yet still show the actual params where the user needs to see them
-            if (_dynamicParameterCmdlets.Contains(requestType.FullName))
+            IEnumerable<PropertyInfo> properties = new PropertyInfo[0];
+            for (var type = requestType; type != null; type = type.BaseType)
             {
-                // create an instance of the cmdlet itself
-                var cmdletInstance = Activator.CreateInstance(requestType);
-                // assume it implements IDynamicParameters and get the dynamic parameters object
-                var dynamicParamsObject = (cmdletInstance as IDynamicParameters)?.GetDynamicParameters();
-
-                if (dynamicParamsObject != null)
-                {
-                    properties.AddRange(
-                        dynamicParamsObject.GetType()
-                            .GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                            .Where(dynamicParamsProperty => dynamicParamsProperty
-                                .GetCustomAttributes(false)
-                                .Any(ca => ca.GetType() == typeof(ParameterAttribute))));
-                }
+                properties = properties.Concat(type.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance));
             }
 
             var simpleProperties = properties
+                .Where(p => p.GetCustomAttributes(typeof(ParameterAttribute), false).Any())
                 .Select(p => CreateSimpleProperty(p, null))
                 .Where(sp => sp.IsReadWrite)
                 .OrderBy(sp => sp.ParameterPosition)
