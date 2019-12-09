@@ -76,15 +76,14 @@ function Get-AWSToolsModule {
     )
 
     Process {
-        [System.Management.Automation.PSModuleInfo[]]$installedAwsToolsModules = Get-Module -Name 'AWS.Tools.*' -ListAvailable -Verbose:$false
+        [System.Management.Automation.PSModuleInfo[]]$installedAwsToolsModules = Microsoft.PowerShell.Core\Get-Module -Name 'AWS.Tools.*' -ListAvailable -Verbose:$false
         if ($installedAwsToolsModules -and ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows)) {
             $installedAwsToolsModules = $installedAwsToolsModules | Where-Object {
-                [System.Management.Automation.Signature]$signature = Get-AuthenticodeSignature -FilePath $_.Path
+                [System.Management.Automation.Signature]$signature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $_.Path
                 ($signature.Status -eq 'Valid' -or $SkipIfInvalidSignature) -and $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject
             }
         }
-        $installedAwsToolsModules = $installedAwsToolsModules | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
-        Write-Output $installedAwsToolsModules
+        $installedAwsToolsModules | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
     }
 }
 
@@ -197,7 +196,7 @@ function Uninstall-AWSToolsModule {
                                 Confirm         = $false
                                 ErrorAction     = 'Continue'
                             }
-                            Uninstall-Module @uninstallModuleParams
+                            PowerShellGet\Uninstall-Module @uninstallModuleParams
                         }
                     }
 
@@ -251,7 +250,7 @@ function Find-AWSToolsModule {
 
         #'Find-Module AWS.Tools.*' is only slightly slower than Find-Module for a single module
         if ($Name.Count -gt $script:MaxModulesToFindIndividually) {
-            $availableModules += Find-Module -Name 'AWS.Tools.*' -Repository 'PSGallery' @proxyParams -ErrorAction 'Stop' | Where-Object { $_.Name -in $Name -and $_.CompanyName -ceq $script:ExpectedModuleCompanyName }
+            $availableModules += PowerShellGet\Find-Module -Name 'AWS.Tools.*' -Repository 'PSGallery' @proxyParams -ErrorAction 'Stop' | Where-Object { $_.Name -in $Name -and $_.CompanyName -ceq $script:ExpectedModuleCompanyName }
             $missingModules = $Name | Where-Object { $_ -notin ($availableModules | Select-Object -ExpandProperty Name) }
             if ($missingModules) {
                 Write-Verbose "[$($MyInvocation.MyCommand)] Retrying Find-Module on ($missingModules)"
@@ -261,7 +260,7 @@ function Find-AWSToolsModule {
         if ($missingModules) {
             #'Find-Module AWS.Tools.*' doesn't always return all modules, so we have to retry missing ones
             $missingModules | ForEach-Object {
-                $availableModules += Find-Module -Name $_ -Repository 'PSGallery' @proxyParams -ErrorAction 'Ignore' | Where-Object { $_.Name -in $Name -and $_.CompanyName -ceq $script:ExpectedModuleCompanyName }
+                $availableModules += PowerShellGet\Find-Module -Name $_ -Repository 'PSGallery' @proxyParams -ErrorAction 'Ignore' | Where-Object { $_.Name -in $Name -and $_.CompanyName -ceq $script:ExpectedModuleCompanyName }
             }
 
             $missingModules = $Name | Where-Object { $_ -notin ($availableModules | Select-Object -ExpandProperty Name) }
@@ -270,7 +269,7 @@ function Find-AWSToolsModule {
             }
         }
 
-        Write-Output $availableModules
+        $availableModules
     }
 
     End {
@@ -292,8 +291,6 @@ function Get-AWSToolsModuleDependenciesAndValidate {
     )
 
     Begin {
-        $RequiredVersion = Get-CleanVersion $RequiredVersion
-
         Write-Verbose "[$($MyInvocation.MyCommand)] ConfirmPreference=$ConfirmPreference WhatIfPreference=$WhatIfPreference VerbosePreference=$VerbosePreference Name=$Name Path=$Path"
     }
 
@@ -318,7 +315,7 @@ function Get-AWSToolsModuleDependenciesAndValidate {
             $manifestFileStream.Close();
 
             if ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows) {
-                [System.Management.Automation.Signature]$manifestSignature = Get-AuthenticodeSignature -FilePath $temporaryManifestFilePath
+                [System.Management.Automation.Signature]$manifestSignature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $temporaryManifestFilePath
                 if ($manifestSignature.Status -eq 'Valid' -and $manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject) {
                     Write-Verbose "[$($MyInvocation.MyCommand)] Manifest signature correctly validated"
                 }
@@ -330,18 +327,18 @@ function Get-AWSToolsModuleDependenciesAndValidate {
                 Write-Verbose "[$($MyInvocation.MyCommand)] Authenticode signature can only be vefied on Windows, skipping"
             }
 
-            [PSObject]$manifestData = Import-PowerShellDataFile $temporaryManifestFilePath
+            [PSObject]$manifestData = Microsoft.PowerShell.Utility\Import-PowerShellDataFile $temporaryManifestFilePath
 
             if ($manifestData.PrivateData.ContainsKey('MinAWSToolsInstallerVersion')) {
                 [System.Version]$minVersion = Get-CleanVersion $manifestData.PrivateData.MinAWSToolsInstallerVersion
                 if ($minVersion -gt $script:CurrentMinAWSToolsInstallerVersion) {
-                    throw "$($Name) version $RequiredVersion requires at least AWS.Tools.Installer version $minVersion. Run 'Update-Module AWS.Tools.Installer -Force'."
+                    throw "$Name version $($manifestData.ModuleVersion) requires at least AWS.Tools.Installer version $minVersion. Run 'Update-Module AWS.Tools.Installer'."
                 }
             }
 
             $manifestData.RequiredModules | ForEach-Object {
                 Write-Verbose "[$($MyInvocation.MyCommand)] Found dependency $($_.ModuleName)"
-                Write-Output $_.ModuleName
+                $_.ModuleName
             }
         }
         finally {
@@ -355,7 +352,7 @@ function Get-AWSToolsModuleDependenciesAndValidate {
                 $zipArchive.Dispose()
             }
             if ($temporaryManifestFilePath) {
-                Remove-Item $temporaryManifestFilePath -WhatIf:$false
+                Microsoft.PowerShell.Management\Remove-Item -Path $temporaryManifestFilePath -WhatIf:$false
             }
         }
     }
@@ -387,7 +384,7 @@ function Install-AWSToolsModule {
     [CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
     Param(
         ## Specifies names of the AWS.Tools modules to install.
-        ## The names can be listed either with or without the "AWS.Tools." prefix (i.e. "AWS.Tools.Common" or simply "Common"). 
+        ## The names can be listed either with or without the "AWS.Tools." prefix (i.e. "AWS.Tools.Common" or simply "Common").
         [Parameter(ValueFromPipelineByPropertyName, ValueFromPipeline, Mandatory, Position = 0)]
         [string[]]
         $Name,
@@ -487,10 +484,10 @@ function Install-AWSToolsModule {
             throw "The maximum version available is $availableVersion."
         }
         if ($MinimumVersion -and $RequiredVersion -and $MinimumVersion -gt $RequiredVersion) {
-            throw "Parameter MinimumVersion is greater than RequiredVersion."
+            throw 'Parameter MinimumVersion is greater than RequiredVersion.'
         }
         if ($MaximumVersion -and $RequiredVersion -and $MaximumVersion -lt $RequiredVersion) {
-            throw "Parameter MaximumVersion is less than RequiredVersion."
+            throw 'Parameter MaximumVersion is less than RequiredVersion.'
         }
         if ($MaximumVersion -and -not $RequiredVersion -and $MaximumVersion -lt $availableVersion) {
             $RequiredVersion = Find-Module -Name 'AWS.Tools.Common' -MaximumVersion $MaximumVersion | Select-Object -Expand Version
@@ -521,13 +518,13 @@ function Install-AWSToolsModule {
 
                 [string]$temporaryRepoDirectory = Join-Path ([System.IO.Path]::GetTempPath()) ([System.IO.Path]::GetRandomFileName())
                 Write-Verbose "[$($MyInvocation.MyCommand)] Create folder for temporary repository $temporaryRepoDirectory"
-                New-Item -ItemType Directory -Path $temporaryRepoDirectory -WhatIf:$false | Out-Null
+                Microsoft.PowerShell.Management\New-Item -ItemType Directory -Path $temporaryRepoDirectory -WhatIf:$false | Out-Null
                 try {
                     if (-not $WhatIfPreference) {
-                        Unregister-PSRepository -Name $script:AWSToolsTempRepoName -ErrorAction 'SilentlyContinue'
+                        PowerShellGet\Unregister-PSRepository -Name $script:AWSToolsTempRepoName -ErrorAction 'SilentlyContinue'
                         Write-Verbose "[$($MyInvocation.MyCommand)] Registering temporary repository $script:AWSToolsTempRepoName"
-                        Register-PSRepository -Name $script:AWSToolsTempRepoName -SourceLocation $temporaryRepoDirectory -ErrorAction 'Stop'
-                        Set-PSRepository -Name $script:AWSToolsTempRepoName -InstallationPolicy Trusted
+                        PowerShellGet\Register-PSRepository -Name $script:AWSToolsTempRepoName -SourceLocation $temporaryRepoDirectory -ErrorAction 'Stop'
+                        PowerShellGet\Set-PSRepository -Name $script:AWSToolsTempRepoName -InstallationPolicy Trusted
                     }
 
                     Add-Type -AssemblyName System.Net.Http -ErrorAction Stop
@@ -596,7 +593,7 @@ function Install-AWSToolsModule {
                     $modulesToInstall | ForEach-Object {
                         if (-not $WhatIfPreference) {
                             Write-Host "Installing module $_ version $RequiredVersion"
-                            Install-Module -Name $_ @installModuleParams
+                            PowerShellGet\Install-Module -Name $_ @installModuleParams
                         }
                         else {
                             Write-Host "What if: Installing module $_ version $RequiredVersion"
@@ -607,10 +604,10 @@ function Install-AWSToolsModule {
                 finally {
                     if (-not $WhatIfPreference) {
                         Write-Verbose "[$($MyInvocation.MyCommand)] Unregistering temporary repository $script:AWSToolsTempRepoName"
-                        Unregister-PSRepository -Name $script:AWSToolsTempRepoName -ErrorAction 'Continue'
+                        PowerShellGet\Unregister-PSRepository -Name $script:AWSToolsTempRepoName -ErrorAction 'Continue'
                     }
                     Write-Verbose "[$($MyInvocation.MyCommand)] Delete repository folder $temporaryRepoDirectory"
-                    Remove-Item -Path $temporaryRepoDirectory -Recurse -WhatIf:$false
+                    Microsoft.PowerShell.Management\Remove-Item -Path $temporaryRepoDirectory -Recurse -WhatIf:$false
                 }
             }
         }
