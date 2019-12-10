@@ -1,3 +1,12 @@
+using namespace System
+using namespace System.Collections.Generic
+using namespace System.IO
+using namespace System.IO.Compression
+using namespace System.Management.Automation
+using namespace System.Net
+using namespace System.Net.Http
+using namespace System.Threading.Tasks
+
 Microsoft.PowerShell.Core\Set-StrictMode -Version 3
 
 $script:AWSToolsSignatureSubject = 'CN="Amazon.com, Inc.", O="Amazon.com, Inc.", L=Seattle, S=Washington, C=US'
@@ -43,7 +52,7 @@ function Get-CleanVersion {
     Param(
         [Parameter(ValueFromPipelineByPropertyName, ValueFromPipeline, Mandatory, Position = 0)]
         [AllowNull()]
-        [System.Version]
+        [Version]
         $Version
     )
 
@@ -72,7 +81,7 @@ function Get-CleanVersion {
                 $revision = 0
             }
 
-            [System.Version]::new($major, $minor, $build, $revision)
+            [Version]::new($major, $minor, $build, $revision)
         }
     }
 }
@@ -85,10 +94,10 @@ function Get-AWSToolsModule {
     )
 
     Process {
-        [System.Management.Automation.PSModuleInfo[]]$installedAwsToolsModules = Microsoft.PowerShell.Core\Get-Module -Name 'AWS.Tools.*' -ListAvailable -Verbose:$false
+        [PSModuleInfo[]]$installedAwsToolsModules = Microsoft.PowerShell.Core\Get-Module -Name 'AWS.Tools.*' -ListAvailable -Verbose:$false
         if ($installedAwsToolsModules -and ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows)) {
             $installedAwsToolsModules = $installedAwsToolsModules | Where-Object {
-                [System.Management.Automation.Signature]$signature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $_.Path
+                [Signature]$signature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $_.Path
                 ($signature.Status -eq 'Valid' -or $SkipIfInvalidSignature) -and $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject
             }
         }
@@ -116,22 +125,22 @@ function Uninstall-AWSToolsModule {
     Param(
         ## Specifies the minimum version of the modules to uninstall.
         [Parameter(ValueFromPipelineByPropertyName)]
-        [System.Version]
+        [Version]
         $MinimumVersion,
 
         ## Specifies exact version number of the module to uninstall.
         [Parameter(ValueFromPipelineByPropertyName)]
-        [System.Version]
+        [Version]
         $RequiredVersion,
 
         ## Specifies the maximum version of the modules to uninstall.
         [Parameter(ValueFromPipelineByPropertyName)]
-        [System.Version]
+        [Version]
         $MaximumVersion,
 
         ## Specifies that you want to uninstall all of the other available versions of AWS Tools except this one.
         [Parameter(ValueFromPipelineByPropertyName)]
-        [System.Version]
+        [Version]
         $ExceptVersion,
 
         ## Forces Uninstall-AWSToolsModule to run without asking for user confirmation
@@ -153,7 +162,7 @@ function Uninstall-AWSToolsModule {
         $ErrorActionPreference = 'Stop'
 
         Write-Verbose "[$($MyInvocation.MyCommand)] Searching installed modules"
-        [System.Management.Automation.PSModuleInfo[]]$InstalledAwsToolsModules = Get-AWSToolsModule
+        [PSModuleInfo[]]$InstalledAwsToolsModules = Get-AWSToolsModule
 
         if ($MinimumVersion) {
             $InstalledAwsToolsModules = $InstalledAwsToolsModules | Where-Object { $_.Version -ge $MinimumVersion }
@@ -170,21 +179,21 @@ function Uninstall-AWSToolsModule {
 
         $versions = $InstalledAwsToolsModules | Group-Object Version
 
-        if ($versions -and ($Force -or $WhatIfPreference -or $PSCmdlet.ShouldProcess("AWS Tools version $([System.String]::Join(', ', $versions.Name))"))) {
+        if ($versions -and ($Force -or $WhatIfPreference -or $PSCmdlet.ShouldProcess("AWS Tools version $([string]::Join(', ', $versions.Name))"))) {
             $ConfirmPreference = 'None'
 
             $versions | ForEach-Object {
                 Write-Host "Uninstalling AWS.Tools version $($_.Name)"
 
-                [System.Management.Automation.PSModuleInfo[]]$versionModules = $_.Group
+                [PSModuleInfo[]]$versionModules = $_.Group
 
                 while ($versionModules) {
                     [string[]]$dependencyNames = $versionModules | Select-Object -ExpandProperty RequiredModules | Select-Object -ExpandProperty Name | Sort-Object -Unique
                     if ($dependencyNames) {
-                        [System.Management.Automation.PSModuleInfo[]]$removableModules = $versionModules | Where-Object { -not $dependencyNames.Contains($_.Name) }
+                        [PSModuleInfo[]]$removableModules = $versionModules | Where-Object { -not $dependencyNames.Contains($_.Name) }
                     }
                     else {
-                        [System.Management.Automation.PSModuleInfo[]]$removableModules = $versionModules
+                        [PSModuleInfo[]]$removableModules = $versionModules
                     }
 
                     if (-not $removableModules) {
@@ -309,22 +318,22 @@ function Get-AWSToolsModuleDependenciesAndValidate {
         Add-Type -AssemblyName System.IO.Compression.FileSystem -ErrorAction Stop
         Add-Type -AssemblyName System.IO.Compression -ErrorAction Stop
 
-        [System.IO.Stream]$manifestFileStream = $null
-        [System.IO.Stream]$entryStream = $null
-        [System.IO.Compression.ZipArchive]$zipArchive = $null
+        [Stream]$manifestFileStream = $null
+        [Stream]$entryStream = $null
+        [ZipArchive]$zipArchive = $null
         [string]$temporaryManifestFilePath = $null
 
         try {
-            $zipArchive = [System.IO.Compression.ZipFile]::OpenRead($Path)
-            [System.IO.Compression.ZipArchiveEntry]$entry = $zipArchive.GetEntry("$($Name).psd1")
+            $zipArchive = [ZipFile]::OpenRead($Path)
+            [ZipArchiveEntry]$entry = $zipArchive.GetEntry("$($Name).psd1")
             $entryStream = $entry.Open()
-            $temporaryManifestFilePath = Join-Path ([System.IO.Path]::GetTempPath()) "$([System.IO.Path]::GetRandomFileName()).psd1"
-            $manifestFileStream = [System.IO.File]::OpenWrite($temporaryManifestFilePath)
+            $temporaryManifestFilePath = Join-Path ([Path]::GetTempPath()) "$([Path]::GetRandomFileName()).psd1"
+            $manifestFileStream = [File]::OpenWrite($temporaryManifestFilePath)
             $entryStream.CopyTo($manifestFileStream)
             $manifestFileStream.Close();
 
             if ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows) {
-                [System.Management.Automation.Signature]$manifestSignature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $temporaryManifestFilePath
+                [Signature]$manifestSignature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $temporaryManifestFilePath
                 if ($manifestSignature.Status -eq 'Valid' -and $manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject) {
                     Write-Verbose "[$($MyInvocation.MyCommand)] Manifest signature correctly validated"
                 }
@@ -339,7 +348,7 @@ function Get-AWSToolsModuleDependenciesAndValidate {
             [PSObject]$manifestData = Microsoft.PowerShell.Utility\Import-PowerShellDataFile $temporaryManifestFilePath
 
             if ($manifestData.PrivateData.ContainsKey('MinAWSToolsInstallerVersion')) {
-                [System.Version]$minVersion = Get-CleanVersion $manifestData.PrivateData.MinAWSToolsInstallerVersion
+                [Version]$minVersion = Get-CleanVersion $manifestData.PrivateData.MinAWSToolsInstallerVersion
                 if ($minVersion -gt $script:CurrentMinAWSToolsInstallerVersion) {
                     throw "$Name version $($manifestData.ModuleVersion) requires at least AWS.Tools.Installer version $minVersion. Run 'Update-Module AWS.Tools.Installer'."
                 }
@@ -400,17 +409,17 @@ function Install-AWSToolsModule {
 
         ## Specifies exact version number of the module to install.
         [Parameter(ValueFromPipelineByPropertyName, Position = 1)]
-        [System.Version]
+        [Version]
         $RequiredVersion,
 
         ## Specifies the minimum version of the modules to install.
         [Parameter(ValueFromPipelineByPropertyName)]
-        [System.Version]
+        [Version]
         $MinimumVersion,
 
         ## Specifies the maximum version of the modules to install.
         [Parameter(ValueFromPipelineByPropertyName)]
-        [System.Version]
+        [Version]
         $MaximumVersion,
 
         ## Specifies that, after a successful install, all other versions of the AWS Tools modules should be uninstalled.
@@ -484,7 +493,7 @@ function Install-AWSToolsModule {
 
         [PSObject[]]$availableModulesToInstall = Find-AWSToolsModule -Name $Name -Proxy $Proxy -ProxyCredential $ProxyCredential
 
-        [System.Version]$availableVersion = [System.Version[]]$availableModulesToInstall.Version | Measure-Object -Minimum | Select-Object -Expand Minimum
+        [Version]$availableVersion = [Version[]]$availableModulesToInstall.Version | Measure-Object -Minimum | Select-Object -Expand Minimum
 
         if ($MinimumVersion -and $MinimumVersion -gt $availableVersion) {
             throw "The maximum version available is $availableVersion."
@@ -511,7 +520,7 @@ function Install-AWSToolsModule {
 
         if (-not $SkipUpdate) {
             Write-Verbose "[$($MyInvocation.MyCommand)] Searching installed modules"
-            [System.Management.Automation.PSModuleInfo[]]$installedAwsToolsModules = Get-AWSToolsModule -SkipIfInvalidSignature
+            [PSModuleInfo[]]$installedAwsToolsModules = Get-AWSToolsModule -SkipIfInvalidSignature
             if ($installedAwsToolsModules) {
                 $modulesToInstall = ($modulesToInstall + ($installedAwsToolsModules | Select-Object -Expand Name)) | Sort-Object -Unique
                 Write-Verbose "[$($MyInvocation.MyCommand)] Merging existing modules into the list of modules to install: ($modulesToInstall)"
@@ -525,7 +534,7 @@ function Install-AWSToolsModule {
             if ($Force -or $WhatIfPreference -or $PSCmdlet.ShouldProcess("AWS Tools version $RequiredVersion")) {
                 $ConfirmPreference = 'None'
 
-                [string]$temporaryRepoDirectory = Join-Path ([System.IO.Path]::GetTempPath()) ([System.IO.Path]::GetRandomFileName())
+                [string]$temporaryRepoDirectory = Join-Path ([Path]::GetTempPath()) ([Path]::GetRandomFileName())
                 Write-Verbose "[$($MyInvocation.MyCommand)] Create folder for temporary repository $temporaryRepoDirectory"
                 Microsoft.PowerShell.Management\New-Item -ItemType Directory -Path $temporaryRepoDirectory -WhatIf:$false | Out-Null
                 try {
@@ -538,26 +547,26 @@ function Install-AWSToolsModule {
 
                     Add-Type -AssemblyName System.Net.Http -ErrorAction Stop
 
-                    [System.Net.Http.HttpClient]$httpClient = $null
-                    [System.Net.Http.HttpClientHandler]$httpClientHandler = $null
-                    [System.Collections.Generic.List[PSCustomObject]]$tasks = @()
+                    [HttpClient]$httpClient = $null
+                    [HttpClientHandler]$httpClientHandler = $null
+                    [List[PSCustomObject]]$tasks = @()
 
                     Write-Verbose "[$($MyInvocation.MyCommand)] Downloading modules to temporary repository"
                     try {
-                        $httpClientHandler = [System.Net.Http.HttpClientHandler]::new()
+                        $httpClientHandler = [HttpClientHandler]::new()
                         if ($Proxy) {
-                            $httpClientHandler.Proxy = [System.Net.WebProxy]::new($Proxy)
+                            $httpClientHandler.Proxy = [WebProxy]::new($Proxy)
                             if ($ProxyCredential) {
                                 $httpClientHandler.Proxy.Credentials = $ProxyCredential.GetNetworkCredential()
                             }
                         }
-                        $httpClient = [System.Net.Http.HttpClient]::new($httpClientHandler);
+                        $httpClient = [HttpClient]::new($httpClientHandler);
 
-                        Add-Type $script:ParallelDownloaderClassCode -ReferencedAssemblies System.Net.Http
+                        Add-Type $script:ParallelDownloaderClassCode -ReferencedAssemblies System.Net.Http,System.Threading.Tasks
                         [ParallelDownloader]$parallelDownloader = [ParallelDownloader]::new($httpClient)
 
                         [string[]]$modulesToDownload = $modulesToInstall
-                        [System.Collections.Generic.HashSet[string]]$savedModules = New-Object -TypeName System.Collections.Generic.HashSet[string]
+                        [HashSet[string]]$savedModules = New-Object -TypeName System.Collections.Generic.HashSet[string]
 
                         Write-Verbose "[$($MyInvocation.MyCommand)] Downloading modules ($modulesToDownload)"
 
@@ -574,7 +583,7 @@ function Install-AWSToolsModule {
                                 }
                             }
                             while ($tasks) {
-                                [int]$taskIndex = [System.Threading.Tasks.Task]::WaitAny($tasks.Task)
+                                [int]$taskIndex = [Task]::WaitAny($tasks.Task)
                                 [PSObject]$task = $tasks[$taskIndex]
                                 $tasks.RemoveAt($taskIndex)
                                 if ($task.Task.IsCompleted) {
@@ -592,7 +601,7 @@ function Install-AWSToolsModule {
                             Write-Verbose "[$($MyInvocation.MyCommand)] Cancelling $($tasks.Count) tasks"
                             $parallelDownloader.Cancel()
                             try {
-                                [System.Threading.Tasks.Task]::WaitAll($tasks.Task)
+                                [Task]::WaitAll($tasks.Task)
                             } catch {
 
                             }
@@ -672,12 +681,12 @@ function Update-AWSToolsModule {
     Param(
         ## Specifies the exact version of the modules to update to.
         [Parameter(ValueFromPipelineByPropertyName, Position = 0)]
-        [System.Version]
+        [Version]
         $RequiredVersion,
 
         ## Specifies the maximum version of the modules to update to.
         [Parameter(ValueFromPipelineByPropertyName)]
-        [System.Version]
+        [Version]
         $MaximumVersion,
 
         ## Specifies that, after a successful install, all other versions of the AWS Tools modules should be uninstalled.
@@ -728,7 +737,7 @@ function Update-AWSToolsModule {
         $ErrorActionPreference = 'Stop'
 
         Write-Verbose "[$($MyInvocation.MyCommand)] Searching installed modules"
-        [System.Management.Automation.PSModuleInfo[]]$installedAwsToolsModules = Get-AWSToolsModule -SkipIfInvalidSignature
+        [PSModuleInfo[]]$installedAwsToolsModules = Get-AWSToolsModule -SkipIfInvalidSignature
         [string[]]$installedAwsToolsModuleNames = $installedAwsToolsModules | Select-Object -Expand Name | Sort-Object -Unique
 
         if ($installedAwsToolsModuleNames) {
@@ -737,6 +746,7 @@ function Update-AWSToolsModule {
             $installAWSToolsModuleParams = @{
                 Name            = $installedAwsToolsModuleNames
                 RequiredVersion = $RequiredVersion
+                MaximumVersion  = $MaximumVersion
                 Scope           = $Scope
                 AllowClobber    = $AllowClobber
                 CleanUp         = $CleanUp
