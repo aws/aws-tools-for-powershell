@@ -342,7 +342,7 @@ function Get-AWSToolsModuleDependenciesAndValidate {
                 }
             }
             else {
-                Write-Verbose "[$($MyInvocation.MyCommand)] Authenticode signature can only be vefied on Windows, skipping"
+                Write-Verbose "[$($MyInvocation.MyCommand)] Authenticode signature can only be verified on Windows, skipping"
             }
 
             [PSObject]$manifestData = Microsoft.PowerShell.Utility\Import-PowerShellDataFile $temporaryManifestFilePath
