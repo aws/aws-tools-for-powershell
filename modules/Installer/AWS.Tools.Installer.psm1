@@ -6,26 +6,35 @@ $script:CurrentMinAWSToolsInstallerVersion = '0.0.0.0'
 $script:ExpectedModuleCompanyName = 'aws-dotnet-sdk-team'
 $script:MaxModulesToFindIndividually = 3
 $script:ParallelDownloaderClassCode = @"
+using System;
 using System.IO;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 public class ParallelDownloader
 {
-    private readonly HttpClient client;
+    private readonly HttpClient Client;
+    private readonly CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
 
-    public ParallelDownloader(HttpClient _client)
+    public ParallelDownloader(HttpClient client)
     {
-        client = _client;
+        Client = client;
     }
 
     public async Task DownloadToFile(string uri, string filePath)
     {
-        using (var stream = await client.GetStreamAsync(uri))
+        using (var httpResponseMessage = await Client.GetAsync(uri, CancellationTokenSource.Token))
+        using (var stream = await httpResponseMessage.EnsureSuccessStatusCode().Content.ReadAsStreamAsync())
         using (var fileStream = new FileStream(filePath, FileMode.Create))
         {
-            await stream.CopyToAsync(fileStream);
+            await stream.CopyToAsync(fileStream, 81920, CancellationTokenSource.Token);
         }
+    }
+
+    public void Cancel()
+    {
+        CancellationTokenSource.Cancel();
     }
 }
 "@
@@ -531,6 +540,7 @@ function Install-AWSToolsModule {
 
                     [System.Net.Http.HttpClient]$httpClient = $null
                     [System.Net.Http.HttpClientHandler]$httpClientHandler = $null
+                    [System.Collections.Generic.List[PSCustomObject]]$tasks = @()
 
                     Write-Verbose "[$($MyInvocation.MyCommand)] Downloading modules to temporary repository"
                     try {
@@ -555,24 +565,39 @@ function Install-AWSToolsModule {
                             [string[]]$dependencies = @()
 
                             $tasks = $modulesToDownload | Where-Object { $savedModules.Add($_) } | ForEach-Object {
-                                [string]$nupkgFilePath = Join-Path $temporaryRepoDirectory "$($_).$($RequiredVersion).nupkg"
-                                Write-Verbose "[$($MyInvocation.MyCommand)] Downloading module $($_) to $TemporaryRepoDirectory"
-                                [System.Threading.Tasks.Task]$task = $parallelDownloader.DownloadToFile("https://www.powershellgallery.com/api/v2/package/$_/$RequiredVersion", $nupkgFilePath)
-                                @{
-                                    Task       = $task
+                                [string]$nupkgFilePath = Join-Path $temporaryRepoDirectory "$_.$($RequiredVersion).nupkg"
+                                Write-Verbose "[$($MyInvocation.MyCommand)] Downloading module $_ to $TemporaryRepoDirectory"
+                                [PSCustomObject]@{
+                                    Task       = $parallelDownloader.DownloadToFile("https://www.powershellgallery.com/api/v2/package/$_/$RequiredVersion", $nupkgFilePath)
                                     ModuleName = $_
                                     Path       = $nupkgFilePath
                                 }
                             }
-                            $tasks | ForEach-Object {
-                                $_.Task.Wait()
-                                $dependencies += Get-AWSToolsModuleDependenciesAndValidate -Path $_.Path -Name $_.ModuleName
+                            while ($tasks) {
+                                [int]$taskIndex = [System.Threading.Tasks.Task]::WaitAny($tasks.Task)
+                                [PSObject]$task = $tasks[$taskIndex]
+                                $tasks.RemoveAt($taskIndex)
+                                if ($task.Task.IsCompleted) {
+                                    $dependencies += Get-AWSToolsModuleDependenciesAndValidate -Path $task.Path -Name $task.ModuleName
+                                } else {
+                                    throw "Error downloading $($task.ModuleName): $($task.Task.Exception)"
+                                }
                             }
 
                             $modulesToDownload = $dependencies | Sort-Object -Unique
                         }
                     }
                     finally {
+                        if ($tasks) {
+                            Write-Verbose "[$($MyInvocation.MyCommand)] Cancelling $($tasks.Count) tasks"
+                            $parallelDownloader.Cancel()
+                            try {
+                                [System.Threading.Tasks.Task]::WaitAll($tasks.Task)
+                            } catch {
+
+                            }
+                        }
+
                         if ($httpClient) {
                             $httpClient.Dispose()
                         }
