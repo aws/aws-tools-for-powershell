@@ -4,14 +4,14 @@ function AWSToolsImportGuard() {
     [string[]]$rootModules = @( 'AWSPowerShell', 'AWSPowerShell.NetCore', 'AWS.Tools.Common' )
 
     foreach ($rootModule in $rootModules) {
-        [string]$version = Get-Module -Name $rootModule | Select-Object -First 1 -ExpandProperty Version
+        [string]$version = Microsoft.PowerShell.Core\Get-Module -Name $rootModule | Select-Object -First 1 -ExpandProperty Version
         if ($version) {
             [string]$message = "$rootModule version $version is currently imported. Only a single version of a single variant of AWS Tools for PowerShell (AWSPowerShell, AWSPowerShell.NetCore or AWS.Tools.Common) can be imported at any time."
 
             [System.Management.Automation.PSModuleInfo[]]$importingModule = Get-Module "$PSScriptRoot/*.psd1" -ListAvailable
             if ($importingModule.Count -eq 1) {
                 if ($PSVersionTable.PSVersion.Major -ge 5) {
-                    [System.Collections.Hashtable]$importingModuleData = Import-PowerShellDataFile $importingModule.Path
+                    [System.Collections.Hashtable]$importingModuleData = Microsoft.PowerShell.Utility\Import-PowerShellDataFile $importingModule.Path
                     $message = "Module $($importingModule.Name) version $($importingModuleData.ModuleVersion) failed importing. " + $message
                 } else {
                     $message = "Module $($importingModule.Name) failed importing. " + $message
@@ -22,9 +22,9 @@ function AWSToolsImportGuard() {
         }
     }
 
-    [System.Management.Automation.PSModuleInfo[]]$installedAWSToolsModules = Get-Module -Name 'AWS.Tools.*' -ListAvailable | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
-    [System.Version]$maxAWSToolsVersion = $installedAWSToolsModules | Select-Object -ExpandProperty Version | Measure-Object -Maximum | Select-Object -ExpandProperty Maximum
-    if ($maxAWSToolsVersion) {
+    [System.Management.Automation.PSModuleInfo[]]$installedAWSToolsModules = Microsoft.PowerShell.Core\Get-Module -Name 'AWS.Tools.*' -ListAvailable | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
+    if ($installedAWSToolsModules) {
+        [System.Version]$maxAWSToolsVersion = $installedAWSToolsModules | Select-Object -ExpandProperty Version | Measure-Object -Maximum | Select-Object -ExpandProperty Maximum
         [string[]]$maxVersionModules = $installedAWSToolsModules | Where-Object { $_.Version -eq $maxAWSToolsVersion } | Select-Object -ExpandProperty Name | Sort-Object -Unique
         [string[]]$prevVersionsModules = $installedAWSToolsModules | Where-Object { $_.Version -ne $maxAWSToolsVersion } | Select-Object -ExpandProperty Name | Sort-Object -Unique
         if ($prevVersionsModules | Where-Object { -not $maxVersionModules.Contains($_) }) {
@@ -36,7 +36,7 @@ function AWSToolsImportGuard() {
         }
     }
 
-    [int]$installedModuleVariants = Get-Module -Name $rootModules -ListAvailable | Group-Object -Property Name -NoElement | Measure-Object | Select-Object -ExpandProperty Count
+    [int]$installedModuleVariants = Microsoft.PowerShell.Core\Get-Module -Name $rootModules -ListAvailable | Group-Object -Property Name -NoElement | Measure-Object | Select-Object -ExpandProperty Count
     if ($installedModuleVariants -gt 1) {
         Write-Warning 'Multiple variants of AWS Tools for PowerShell (AWSPowerShell, AWSPowerShell.NetCore or AWS.Tools) are currently installed. Please run ''Get-Module -Name AWSPowerShell,AWSPowerShell.NetCore,AWS.Tools.Common -ListAvailable'' for details. To avoid problems with cmdlet auto-importing, it is suggested to only install one variant.
 AWS.Tools is the new modularized version of AWS Tools for PowerShell, compatible with PowerShell Core 6+ and Windows Powershell 5.1+ (when .NET Framework 4.7.2+ is installed).
