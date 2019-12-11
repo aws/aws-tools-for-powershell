@@ -32,11 +32,19 @@ namespace AWSPowerShellGenerator.Generators
 
         protected Dictionary<string, XmlDocument> LinksCache;
 
-        protected Type DynamicParamsType;
+        protected class CmdletInfo
+        {
+            public CmdletInfo(List<CmdletAttribute> cmdletAttributes, Attribute awsCmdletAttribute, List<Attribute> awsCmdletOutputAttributes)
+            {
+                CmdletAttributes = cmdletAttributes;
+                AWSCmdletAttribute = awsCmdletAttribute;
+                AWSCmdletOutputAttributes = awsCmdletOutputAttributes;
+            }
 
-        protected List<CmdletAttribute> CmdletAttributes; // should actually only be one
-        protected Attribute AWSCmdletAttribute;
-        protected List<Attribute> AWSCmdletOutputAttributes;
+            public readonly List<CmdletAttribute> CmdletAttributes; // should actually only be one
+            public readonly Attribute AWSCmdletAttribute;
+            public readonly List<Attribute> AWSCmdletOutputAttributes;
+        }
 
         // lists cmdlets where we want to expose the dynamic parameters based on the 
         // AWSCredentialsArguments or AWSRegionArguments types as first-class parameters
@@ -70,7 +78,6 @@ namespace AWSPowerShellGenerator.Generators
         protected override void GenerateHelper()
         {
             var psCmdletType = typeof(PSCmdlet);
-            DynamicParamsType = typeof(IDynamicParameters);
             CmdletTypes = CmdletAssembly.GetTypes()
                 .Where(t => psCmdletType.IsAssignableFrom(t) && t.IsPublic && !t.IsAbstract)
                 .ToList();
@@ -79,21 +86,23 @@ namespace AWSPowerShellGenerator.Generators
             LoadLinksCache();
         }
 
-        protected void InspectCmdletAttributes(Type cmdletType)
+        protected CmdletInfo InspectCmdletAttributes(Type cmdletType)
         {
             var customAttributes = cmdletType.GetCustomAttributes(true).Cast<Attribute>();
 
-            CmdletAttributes =
+            var cmdletAttributes =
                 customAttributes.Select(att => att as CmdletAttribute).Where(catt => catt != null).ToList();
 
-            AWSCmdletAttribute =
+            var awsCmdletAttribute =
                 customAttributes.FirstOrDefault(
                     att => string.Equals(att.GetType().FullName, "Amazon.PowerShell.Common.AWSCmdletAttribute",
                         StringComparison.Ordinal));
 
-            AWSCmdletOutputAttributes = customAttributes
+            var awsCmdletOutputAttributes = customAttributes
                 .Where(att => att.GetType().FullName == "Amazon.PowerShell.Common.AWSCmdletOutputAttribute")
                 .ToList();
+
+            return new CmdletInfo(cmdletAttributes, awsCmdletAttribute, awsCmdletOutputAttributes);
         }
 
         private void LoadExamplesCache()
@@ -415,7 +424,7 @@ namespace AWSPowerShellGenerator.Generators
 
     internal static class XmlWriterExtensions
     {
-        public static void WriteUnescapedElementString(this XmlTextWriter self, string localName, string value)
+        public static void WriteUnescapedElementString(this XmlWriter self, string localName, string value)
         {
             if (self == null) throw new ArgumentNullException("self");
 
@@ -425,7 +434,7 @@ namespace AWSPowerShellGenerator.Generators
             self.WriteEndElement();
         }
 
-        public static void WriteRawElementString(this XmlTextWriter self, string localName, string value)
+        public static void WriteRawElementString(this XmlWriter self, string localName, string value)
         {
             if (self == null) throw new ArgumentNullException("self");
 

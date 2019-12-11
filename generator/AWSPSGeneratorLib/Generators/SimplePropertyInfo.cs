@@ -768,21 +768,7 @@ Scenario-4  Create            Create       The new create is added to the pendin
                     }
                     else if (type == XmlNodeType.Text)
                     {
-                        // XmlReader unescapes by default, with no apparent option to turn off - so docs
-                        // that have escaped <> characters can form invalid xml when doc writers use them
-                        // to illustrate replaced values in a string. This test makes sure we don't have
-                        // any unclosed tags and if we do, re-escapes the string.
-                        try
-                        {
-                            var x = new XmlDocument();
-                            // need dummy outer tags for the purposes of LoadXml
-                            x.LoadXml("<a>" + value + "</a>");
-                        }
-                        catch
-                        {
-                            value = value.Replace("<", "&lt;").Replace(">", "&gt;");
-                        }
-                        sb.Append(value);
+                        sb.Append(System.Net.WebUtility.HtmlEncode(value));
                     }
                 }
 

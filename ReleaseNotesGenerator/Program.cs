@@ -22,6 +22,7 @@ namespace PSReleaseNotesGenerator
         private const string ModuleVersionOptionName = "module-version";
         private const string DownloadFolderOptionName = "download-folder";
         private const string AssemblyFileNameOptionName = "assembly-file-name";
+        private const string OutputFilePathOptionName = "out-file";
 
         private const string BreakingChangeText = "[Breaking Change]"; //The build system will look for this string in the output to validate the build
 
@@ -50,6 +51,9 @@ namespace PSReleaseNotesGenerator
 
         [Option("-an|--" + AssemblyFileNameOptionName + " <FILE_NAME>", Description = "Name of the assembly file to analyze from the module downloaded from PS Gallery.")]
         public string AssemblyFileName { get; set; } = "AWSPowerShell.dll";
+
+        [Option("-of|--" + OutputFilePathOptionName + " <FILE_PATH>", Description = "Optional path to a file to write the output to.")]
+        public string OutputFilePath { get; set; }
 
         public static int Main(string[] args)
         {
@@ -111,12 +115,22 @@ namespace PSReleaseNotesGenerator
                 throw new Exception($"Error while reading SDK version", e);
             }
 
-            CreateReleaseNotes(newModule, oldModule, sdkNewVersion);
+            var report = CreateReleaseNotes(newModule, oldModule, sdkNewVersion);
+            Console.WriteLine(report);
+
+            if (!string.IsNullOrWhiteSpace(OutputFilePath))
+            {
+                var fullOutputPath = Path.GetFullPath(OutputFilePath);
+                Console.WriteLine($"Writing report to {fullOutputPath}");
+                File.WriteAllText(fullOutputPath, report);
+            }
         }
 
-        private static void CreateReleaseNotes(IDictionary<string, Cmdlet> newModule, IDictionary<string, Cmdlet> oldModule, string sdkNewVersion)
+        private static string CreateReleaseNotes(IDictionary<string, Cmdlet> newModule, IDictionary<string, Cmdlet> oldModule, string sdkNewVersion)
         {
-            Console.WriteLine($"  * AWS Tools for PowerShell now use AWS .NET SDK {sdkNewVersion} and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.");
+            var outputWriter = new StringWriter();
+
+            outputWriter.WriteLine($"  * AWS Tools for PowerShell now use AWS .NET SDK {sdkNewVersion} and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.");
 
             var newServices = newModule.Values.GroupBy(cmdlet => cmdlet.ServicePrefix).ToDictionary(service => service.Key ?? "", service => service);
             var oldServices = oldModule.Values.GroupBy(cmdlet => cmdlet.ServicePrefix).ToDictionary(service => service.Key ?? "", service => service);
@@ -126,7 +140,7 @@ namespace PSReleaseNotesGenerator
 
             foreach (var oldService in oldServices.Where(service => !newServices.Keys.Contains(service.Key)).OrderBy(service => GetServiceName(service)))
             {
-                Console.WriteLine($"  * {BreakingChangeText} Removed support for {GetServiceName(oldService)}");
+                outputWriter.WriteLine($"  * {BreakingChangeText} Removed support for {GetServiceName(oldService)}");
             }
 
             foreach (var newService in newServices.OrderBy(service => GetServiceName(service)))
@@ -142,23 +156,23 @@ namespace PSReleaseNotesGenerator
                     var removedCmdlets = oldCmdlets.Keys.Where(cmdletName => !newCmdlets.ContainsKey(cmdletName)).OrderBy(cmdletName => cmdletName).ToArray();
                     if (removedCmdlets.Length > 0)
                     {
-                        PrintServiceHeader(newService.Key, ref IsServiceHeaderPrinted);
-                        Console.WriteLine($"    * {BreakingChangeText} Removed cmdlet{(removedCmdlets.Length > 1 ? "s" : "")} {FormatCollection(removedCmdlets)}.");
+                        PrintServiceHeader(newService.Key, outputWriter, ref IsServiceHeaderPrinted);
+                        outputWriter.WriteLine($"    * {BreakingChangeText} Removed cmdlet{(removedCmdlets.Length > 1 ? "s" : "")} {FormatCollection(removedCmdlets)}.");
                     }
 
                     var addedCmdlets = newCmdlets.Values.Where(cmdlet => !oldCmdlets.ContainsKey(cmdlet.Name)).OrderBy(cmdlet => cmdlet.Name).ToArray();
                     if (addedCmdlets.Length > 0)
                     {
-                        PrintServiceHeader(GetServiceName(newService), ref IsServiceHeaderPrinted);
+                        PrintServiceHeader(GetServiceName(newService), outputWriter, ref IsServiceHeaderPrinted);
                         foreach (var addedCmdlet in addedCmdlets)
                         {
                             if (addedCmdlet.Operations.Count() > 0)
                             {
-                                Console.WriteLine($"    * Added cmdlet {addedCmdlet.Name} leveraging the {FormatCollection(addedCmdlet.Operations)} service API{(addedCmdlet.Operations.Count() > 1 ? "s" : "")}.");
+                                outputWriter.WriteLine($"    * Added cmdlet {addedCmdlet.Name} leveraging the {FormatCollection(addedCmdlet.Operations)} service API{(addedCmdlet.Operations.Count() > 1 ? "s" : "")}.");
                             }
                             else
                             {
-                                Console.WriteLine($"    * Added cmdlet {addedCmdlet.Name}.");
+                                outputWriter.WriteLine($"    * Added cmdlet {addedCmdlet.Name}.");
                             }
                         }
                     }
@@ -170,8 +184,8 @@ namespace PSReleaseNotesGenerator
                             var cmdLetComparison = CompareCmdlet(newCmdlet.Value, oldCmdlet).ToArray();
                             if (cmdLetComparison.Length > 0)
                             {
-                                PrintServiceHeader(GetServiceName(newService), ref IsServiceHeaderPrinted);
-                                Console.WriteLine($"    * {(cmdLetComparison.Any(comparison => comparison.IsBreakingChange) ? BreakingChangeText + " " : "")}Modified cmdlet {newCmdlet.Key}: {string.Join("; ", cmdLetComparison.Select(comparison => comparison.Message))}.");
+                                PrintServiceHeader(GetServiceName(newService), outputWriter, ref IsServiceHeaderPrinted);
+                                outputWriter.WriteLine($"    * {(cmdLetComparison.Any(comparison => comparison.IsBreakingChange) ? BreakingChangeText + " " : "")}Modified cmdlet {newCmdlet.Key}: {string.Join("; ", cmdLetComparison.Select(comparison => comparison.Message))}.");
                             }
                         }
                     }
@@ -179,9 +193,12 @@ namespace PSReleaseNotesGenerator
                 else
                 {
                     var servicePrefix = newService.Value.Select(cmdlet => cmdlet.ServicePrefix).Distinct().Single();
-                    Console.WriteLine($"  * {newService.Value.First().ServiceName}. Added cmdlets to support the service. Cmdlets for the service have the noun prefix {servicePrefix} and can be listed using the command 'Get-AWSCmdletName -Service {servicePrefix}'.");
+                    outputWriter.WriteLine($"  * {newService.Value.First().ServiceName}. Added cmdlets to support the service. Cmdlets for the service have the noun prefix {servicePrefix} and can be listed using the command 'Get-AWSCmdletName -Service {servicePrefix}'.");
                 }
             }
+
+            outputWriter.Close();
+            return outputWriter.ToString();
         }
 
         private static IEnumerable<(string Message, bool IsBreakingChange)> CompareCmdlet(Cmdlet newCmdlet, Cmdlet oldCmdlet)
@@ -280,13 +297,13 @@ namespace PSReleaseNotesGenerator
             return matchingParameters.Length == 1 ? matchingParameters[0] : null;
         }
 
-        private static void PrintServiceHeader(string serviceName, ref bool isPrinted)
+        private static void PrintServiceHeader(string serviceName, StringWriter outputWriter, ref bool isPrinted)
         {
             if (!isPrinted)
             {
                 if (serviceName == "")
                     serviceName = "AWSPowerShell cmdlets";
-                Console.WriteLine($"  * {serviceName}");
+                outputWriter.WriteLine($"  * {serviceName}");
                 isPrinted = true;
             }
         }

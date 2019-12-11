@@ -8,6 +8,7 @@ using System.Management.Automation;
 using System.IO;
 using AWSPowerShellGenerator.Utils;
 using AWSPowerShellGenerator.Writers;
+using System.Threading.Tasks;
 
 namespace AWSPowerShellGenerator.Generators
 {
@@ -51,59 +52,70 @@ namespace AWSPowerShellGenerator.Generators
                         psHelpWriter.WriteStartElement("helpItems");
                         psHelpWriter.WriteAttributeString("schema", "maml");
 
-                        foreach (var cmdletType in CmdletTypes)
+                        Parallel.ForEach(CmdletTypes, (cmdletType) =>
                         {
-                            InspectCmdletAttributes(cmdletType);
+                            CmdletInfo cmdletInfo = InspectCmdletAttributes(cmdletType);
 
-                            string synopsis = null;
-                            if (AWSCmdletAttribute == null)
+                            using (StringWriter sectionWriter = new StringWriter())
+                            using (var sectionXmlWriter = XmlWriter.Create(sectionWriter, new XmlWriterSettings()
                             {
-                                Console.WriteLine("Unable to find AWSCmdletAttribute for type " + cmdletType.FullName);
-                            }
-                            else
+                                OmitXmlDeclaration = true,
+                                ConformanceLevel = ConformanceLevel.Fragment,
+                                CloseOutput = true
+                            }))
                             {
-                                var cmdletReturnAttributeType = AWSCmdletAttribute.GetType();
-                                synopsis = cmdletReturnAttributeType.GetProperty("Synopsis").GetValue(AWSCmdletAttribute, null) as string;
-                            }
-
-                            foreach (var cmdletAttribute in CmdletAttributes)
-                            {
-                                psHelpWriter.WriteStartElement("command");
-                                psHelpWriter.WriteAttributeString("xmlns", "maml", null, "http://schemas.microsoft.com/maml/2004/10");
-                                psHelpWriter.WriteAttributeString("xmlns", "command", null, "http://schemas.microsoft.com/maml/dev/command/2004/10");
-                                psHelpWriter.WriteAttributeString("xmlns", "dev", null, "http://schemas.microsoft.com/maml/dev/2004/10");
+                                string synopsis = null;
+                                if (cmdletInfo.AWSCmdletAttribute == null)
                                 {
-                                    var hasDynamicParams = DynamicParamsType.IsAssignableFrom(cmdletType);
-
-                                    var typeDocumentation = DocumentationUtils.GetTypeDocumentation(cmdletType, AssemblyDocumentation);
-                                    typeDocumentation = DocumentationUtils.FormatXMLForPowershell(typeDocumentation);
-                                    Console.WriteLine("Cmdlet = {0}", cmdletType.FullName);
-                                    if (hasDynamicParams)
-                                        Console.WriteLine("This cmdlet has dynamic parameters!");
-                                    Console.WriteLine("Documentation = {0}", typeDocumentation);
-
-                                    var cmdletName = cmdletAttribute.VerbName + "-" + cmdletAttribute.NounName;
-
-                                    var allProperties = GetRootSimpleProperties(cmdletType);
-                                    var parameterPartitioning = new CmdletParameterSetPartitions(allProperties, cmdletAttribute.DefaultParameterSetName);
-
-                                    var serviceAbbreviation = GetServiceAbbreviation(cmdletType);
-
-                                    WriteDetails(psHelpWriter, cmdletAttribute, typeDocumentation, cmdletName, synopsis);
-                                    WriteSyntax(psHelpWriter, cmdletName, parameterPartitioning);
-                                    WriteParameters(psHelpWriter, cmdletName, allProperties);
-                                    WriteReturnValues(psHelpWriter, AWSCmdletOutputAttributes);
-                                    WriteRelatedLinks(psHelpWriter, serviceAbbreviation, cmdletName);
-                                    WriteExamples(psHelpWriter, cmdletName);
+                                    Console.WriteLine("Unable to find AWSCmdletAttribute for type " + cmdletType.FullName);
                                 }
-                                psHelpWriter.WriteEndElement();
+                                else
+                                {
+                                    var cmdletReturnAttributeType = cmdletInfo.AWSCmdletAttribute.GetType();
+                                    synopsis = cmdletReturnAttributeType.GetProperty("Synopsis").GetValue(cmdletInfo.AWSCmdletAttribute, null) as string;
+                                }
+
+                                foreach (var cmdletAttribute in cmdletInfo.CmdletAttributes)
+                                {
+                                    sectionXmlWriter.WriteStartElement("command");
+                                    sectionXmlWriter.WriteAttributeString("xmlns", "maml", null, "http://schemas.microsoft.com/maml/2004/10");
+                                    sectionXmlWriter.WriteAttributeString("xmlns", "command", null, "http://schemas.microsoft.com/maml/dev/command/2004/10");
+                                    sectionXmlWriter.WriteAttributeString("xmlns", "dev", null, "http://schemas.microsoft.com/maml/dev/2004/10");
+                                    {
+                                        var typeDocumentation = DocumentationUtils.GetTypeDocumentation(cmdletType, AssemblyDocumentation);
+                                        typeDocumentation = DocumentationUtils.FormatXMLForPowershell(typeDocumentation);
+                                        Console.WriteLine($"Cmdlet = {cmdletType.FullName}");
+                                        Console.WriteLine($"Documentation = {typeDocumentation}");
+
+                                        var cmdletName = cmdletAttribute.VerbName + "-" + cmdletAttribute.NounName;
+
+                                        var allProperties = GetRootSimpleProperties(cmdletType);
+                                        var parameterPartitioning = new CmdletParameterSetPartitions(allProperties, cmdletAttribute.DefaultParameterSetName);
+
+                                        var serviceAbbreviation = GetServiceAbbreviation(cmdletType);
+
+                                        WriteDetails(sectionXmlWriter, cmdletAttribute, typeDocumentation, cmdletName, synopsis);
+                                        WriteSyntax(sectionXmlWriter, cmdletName, parameterPartitioning);
+                                        WriteParameters(sectionXmlWriter, cmdletName, allProperties);
+                                        WriteReturnValues(sectionXmlWriter, cmdletInfo.AWSCmdletOutputAttributes);
+                                        WriteRelatedLinks(sectionXmlWriter, serviceAbbreviation, cmdletName);
+                                        WriteExamples(sectionXmlWriter, cmdletName);
+                                    }
+                                    sectionXmlWriter.WriteEndElement();
+                                }
+
+                                sectionXmlWriter.Close();
+                                lock (psHelpWriter)
+                                {
+                                    psHelpWriter.WriteRaw(sectionWriter.ToString());
+                                }
                             }
-                        }
+                        });
 
                         psHelpWriter.WriteEndElement();
                     }
 
-                    Console.WriteLine("Verifying help file {0} using XmlDocument...", outputFile);
+                    Console.WriteLine($"Verifying help file {outputFile} using XmlDocument...");
                     try
                     {
                         var document = new XmlDocument();
@@ -111,7 +123,7 @@ namespace AWSPowerShellGenerator.Generators
                     }
                     catch (Exception e)
                     {
-                        Logger.LogError(e, "Error when loading file {0} as XmlDocument", outputFile);
+                        Logger.LogError(e, $"Error when loading file {outputFile} as XmlDocument");
                     }
                 }
             }
@@ -121,7 +133,7 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        private static void WriteReturnValues(XmlTextWriter writer, IEnumerable<object> outputAttributes)
+        private static void WriteReturnValues(XmlWriter writer, IEnumerable<object> outputAttributes)
         {
             writer.WriteStartElement("returnValues");
             foreach (var outputAttribute in outputAttributes)
@@ -152,7 +164,7 @@ namespace AWSPowerShellGenerator.Generators
             writer.WriteEndElement();
         }
 
-        private static void WriteDetails(XmlTextWriter psHelpWriter, CmdletAttribute cmdletAttribute, string typeDocumentation, string cmdletName, string synopsis)
+        private static void WriteDetails(XmlWriter psHelpWriter, CmdletAttribute cmdletAttribute, string typeDocumentation, string cmdletName, string synopsis)
         {
             psHelpWriter.WriteStartElement("details");
             {
@@ -186,7 +198,7 @@ namespace AWSPowerShellGenerator.Generators
             psHelpWriter.WriteEndElement();
         }
 
-        private static void WriteSyntax(XmlTextWriter writer, string cmdletName, CmdletParameterSetPartitions parameterSetPartitioning)
+        private static void WriteSyntax(XmlWriter writer, string cmdletName, CmdletParameterSetPartitions parameterSetPartitioning)
         {
             writer.WriteStartElement("syntax");
             if (parameterSetPartitioning.HasNamedParameterSets)
@@ -204,7 +216,7 @@ namespace AWSPowerShellGenerator.Generators
             writer.WriteEndElement();
         }
 
-        private static void WriteSyntaxItem(XmlTextWriter writer, string cmdletName, string setName, CmdletParameterSetPartitions parameterSetPartitioning)
+        private static void WriteSyntaxItem(XmlWriter writer, string cmdletName, string setName, CmdletParameterSetPartitions parameterSetPartitioning)
         {
             var isCustomNamedSet = !setName.Equals(CmdletParameterSetPartitions.AllSetsKey);
             var isDefaultSet = isCustomNamedSet && setName.Equals(parameterSetPartitioning.DefaultParameterSetName, StringComparison.Ordinal);
@@ -254,7 +266,7 @@ namespace AWSPowerShellGenerator.Generators
             writer.WriteEndElement();
         }
 
-        private static void WriteParameters(XmlTextWriter writer, string cmdletName, IEnumerable<SimplePropertyInfo> allProperties)
+        private static void WriteParameters(XmlWriter writer, string cmdletName, IEnumerable<SimplePropertyInfo> allProperties)
         {
             writer.WriteStartElement("parameters");
             {
@@ -303,7 +315,7 @@ namespace AWSPowerShellGenerator.Generators
             writer.WriteEndElement();
         }
 
-        private void WriteRelatedLinks(XmlTextWriter writer, string serviceAbbreviation, string cmdletName)
+        private void WriteRelatedLinks(XmlWriter writer, string serviceAbbreviation, string cmdletName)
         {
             var webrefLink 
                 = string.Format("{0}/index.html?page={1}.html&tocid={1}",
@@ -330,7 +342,7 @@ namespace AWSPowerShellGenerator.Generators
             writer.WriteEndElement();
         }
 
-        public void ConstructLinks(XmlTextWriter writer, XmlDocument document, string target)
+        public void ConstructLinks(XmlWriter writer, XmlDocument document, string target)
         {
             var links = GetRelatedLinks(document, target);
             if (links != null)
@@ -356,7 +368,7 @@ namespace AWSPowerShellGenerator.Generators
         /// <param name="writer"></param>
         /// <param name="linkText">The 'display' text for the link</param>
         /// <param name="linkUri">The uri, if relevant</param>
-        private static void WriteRelatedHelpNavigationLink(XmlTextWriter writer, string linkText, string linkUri)
+        private static void WriteRelatedHelpNavigationLink(XmlWriter writer, string linkText, string linkUri)
         {
             writer.WriteStartElement("navigationLink");
             {
@@ -370,7 +382,7 @@ namespace AWSPowerShellGenerator.Generators
         private const string remarksFormat = "<para>Description</para><para>-----------</para>{0}<para /><para />";
         private const string psCmdlinePrefix = "PS C:\\&gt;";
         
-        private void WriteExamples(XmlTextWriter writer, string cmdletName)
+        private void WriteExamples(XmlWriter writer, string cmdletName)
         {
             XmlDocument document;
             if (!ExamplesCache.TryGetValue(cmdletName, out document))
@@ -395,8 +407,6 @@ namespace AWSPowerShellGenerator.Generators
                     writer.WriteStartElement("example");
                     {
                         writer.WriteElementString("title", string.Format(exampleTitleFormat, exampleIndex));
-
-                        writer.Formatting = Formatting.None;
                         {
                             // code tag CANNOT HAVE PARA TAGS
                             var code = example.SelectSingleNode("code");
@@ -432,7 +442,6 @@ namespace AWSPowerShellGenerator.Generators
                             var remarks = string.Format(remarksFormat, correctedText);
                             writer.WriteUnescapedElementString("remarks", remarks);
                         }
-                        writer.Formatting = Formatting.Indented;
                     }
                     writer.WriteEndElement();
                     exampleIndex++;

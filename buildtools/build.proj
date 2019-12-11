@@ -174,7 +174,7 @@
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShellLegacyAliases.psm1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
         <Copy SourceFiles="$(DesktopBuildFolder)/AWSPowerShell.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(DesktopBuildFolder)/AWSPowerShell.xml" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(DesktopBuildFolder)/AWSPowerShell.XML" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <!-- clone the generated file from coreclr -->
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFiles="$(DesktopDeploymentArtifacts)/AWSPowerShell.Format.ps1xml" />
 
@@ -198,7 +198,7 @@
         <Copy SourceFiles="$(AWSPowerShellSourceFolder)/AWSPowerShellLegacyAliases.psm1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.xml" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.XML" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFolder="$(NetCoreDeploymentArtifacts)" />
         
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(NetCoreDeploymentArtifacts)/CHANGELOG.txt"/>
@@ -286,6 +286,6 @@
    
     <Target Name="draft-release-notes" Condition="$(DraftReleaseNotes)">
         <Exec Command="dotnet build -c Release --no-incremental ../solutions/ReleaseNotesGenerator.sln"/>
-        <Exec Command="dotnet $(MSBuildProjectDirectory)/../ReleaseNotesGenerator/bin/Release/netcoreapp2.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json > ../ReleaseNotesDraft.txt"/>
+        <Exec Command="dotnet $(MSBuildProjectDirectory)/../ReleaseNotesGenerator/bin/Release/netcoreapp2.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt"/>
     </Target>
 </Project>

@@ -10,6 +10,7 @@ using AWSPowerShellGenerator.Writers.Help;
 using System.Reflection;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace AWSPowerShellGenerator.Generators
 {
@@ -76,12 +77,6 @@ namespace AWSPowerShellGenerator.Generators
         private static readonly HashSet<string> CommonParameters = new HashSet<string>() { "AccessKey", "Credential", "ProfileLocation", "ProfileName", "NetworkCredential", "SecretKey", "SessionToken", "Region", "EndpointUrl" };
 
         /// <summary>
-        /// Holds the base class type we derive cmdlets from, which indicates the cmdlet
-        /// supports common credential and region parameters
-        /// </summary>
-        private Type ServiceCmdletBaseClass { get; set; }
-
-        /// <summary>
         /// As we process each cmdlet we build a collection organized by service detailing any backwards
         /// compatibility aliases that we'll output into a set of tables into the pstoolsref_legacyaliases.html
         /// page. In the tuples, T1 is the alias name, T2 is the actual cmdlet name.
@@ -105,8 +100,6 @@ namespace AWSPowerShellGenerator.Generators
             if (!Directory.Exists(buildLogsPath))
                 Directory.CreateDirectory(buildLogsPath);
 
-            ServiceCmdletBaseClass = CmdletAssembly.GetType("Amazon.PowerShell.Common.ServiceCmdlet");
-
             var logFile = Path.Combine(buildLogsPath, Name + ".dll-WebHelp.log");
             var oldWriter = Console.Out;
             
@@ -123,35 +116,31 @@ namespace AWSPowerShellGenerator.Generators
                     var tocWriter = new TOCWriter(Options, OutputFolder);
                     tocWriter.AddFixedSection();
 
-                    foreach (var cmdletType in CmdletTypes)
+                    Parallel.ForEach(CmdletTypes, (cmdletType) =>
                     {
                         var (moduleName, serviceName) = DetermineCmdletServiceOwner(cmdletType);
-                        InspectCmdletAttributes(cmdletType);
+                        var cmdletInfo = InspectCmdletAttributes(cmdletType);
 
                         string synopsis = null;
-                        if (AWSCmdletAttribute == null)
+                        if (cmdletInfo.AWSCmdletAttribute == null)
                         {
                             Console.WriteLine("Unable to find AWSCmdletAttribute for type " + cmdletType.FullName);
                         }
                         else
                         {
-                            var cmdletReturnAttributeType = AWSCmdletAttribute.GetType();
+                            var cmdletReturnAttributeType = cmdletInfo.AWSCmdletAttribute.GetType();
                             synopsis =
-                                cmdletReturnAttributeType.GetProperty("Synopsis").GetValue(AWSCmdletAttribute, null) as
+                                cmdletReturnAttributeType.GetProperty("Synopsis").GetValue(cmdletInfo.AWSCmdletAttribute, null) as
                                 string;
                         }
 
-                        foreach (var cmdletAttribute in CmdletAttributes)
+                        foreach (var cmdletAttribute in cmdletInfo.CmdletAttributes)
                         {
-                            var hasDynamicParams = DynamicParamsType.IsAssignableFrom(cmdletType);
-
                             var typeDocumentation = DocumentationUtils.GetTypeDocumentation(cmdletType,
                                                                                             AssemblyDocumentation);
                             typeDocumentation = DocumentationUtils.FormatXMLForPowershell(typeDocumentation, true);
-                            Console.WriteLine("Cmdlet = {0}", cmdletType.FullName);
-                            if (hasDynamicParams)
-                                Console.WriteLine("This cmdlet has dynamic parameters!");
-                            Console.WriteLine("Documentation = {0}", typeDocumentation);
+                            Console.WriteLine($"Cmdlet = {cmdletType.FullName}");
+                            Console.WriteLine($"Documentation = {typeDocumentation}");
 
                             var cmdletName = cmdletAttribute.VerbName + "-" + cmdletAttribute.NounName;
 
@@ -163,21 +152,24 @@ namespace AWSPowerShellGenerator.Generators
 
                             var cmdletPageWriter = new CmdletPageWriter(Options, OutputFolder, serviceName, moduleName, cmdletName);
 
-                            WriteDetails(cmdletPageWriter, typeDocumentation, synopsis);
+                            WriteDetails(cmdletPageWriter, typeDocumentation, synopsis, cmdletInfo.AWSCmdletAttribute);
                             WriteSyntax(cmdletPageWriter, cmdletName, parameterPartitioning);
                             WriteParameters(cmdletPageWriter, cmdletName, allProperties, false);
                             WriteParameters(cmdletPageWriter, cmdletName, allProperties, true);
-                            WriteOutputs(cmdletPageWriter, AWSCmdletOutputAttributes);
+                            WriteOutputs(cmdletPageWriter, cmdletInfo.AWSCmdletOutputAttributes);
                             WriteNotes(cmdletPageWriter);
                             WriteExamples(cmdletPageWriter, cmdletName);
                             WriteRelatedLinks(cmdletPageWriter, serviceAbbreviation, cmdletName);
 
                             cmdletPageWriter.Write();
 
-                            var legacyAlias = InspectForLegacyAliasAttribution(moduleName, cmdletName);
-                            tocWriter.AddServiceCmdlet(moduleName, serviceName, cmdletName, cmdletPageWriter.GetTOCID(), synopsis, legacyAlias);
+                            lock (tocWriter)
+                            {
+                                var legacyAlias = InspectForLegacyAliasAttribution(moduleName, cmdletName, cmdletInfo.AWSCmdletAttribute);
+                                tocWriter.AddServiceCmdlet(moduleName, serviceName, cmdletName, cmdletPageWriter.GetTOCID(), synopsis, legacyAlias);
+                            }
                         }
-                    }
+                    });
 
                     tocWriter.Write();
 
@@ -190,7 +182,7 @@ namespace AWSPowerShellGenerator.Generators
             }
         }
 
-        private void WriteDetails(CmdletPageWriter writer, string typeDocumentation, string synopsis)
+        private void WriteDetails(CmdletPageWriter writer, string typeDocumentation, string synopsis, Attribute awsCmdletAttribute)
         {
             if (!string.IsNullOrEmpty(synopsis))
                 writer.AddPageElement(CmdletPageWriter.SynopsisElementKey, synopsis);
@@ -199,7 +191,7 @@ namespace AWSPowerShellGenerator.Generators
             if (!string.IsNullOrEmpty(typeDocumentation))
                 doc.Append(typeDocumentation);
 
-            var legacyAlias = ExtractLegacyAlias(AWSCmdletAttribute);
+            var legacyAlias = ExtractLegacyAlias(awsCmdletAttribute);
             if (!string.IsNullOrEmpty(legacyAlias))
             {
                 doc.AppendLine("<br/>");
@@ -539,9 +531,9 @@ namespace AWSPowerShellGenerator.Generators
         /// <param name="serviceName"></param>
         /// <param name="cmdletName"></param>
         /// <returns>The legacy alias, if one exists</returns>
-        private string InspectForLegacyAliasAttribution(string serviceName, string cmdletName)
+        private string InspectForLegacyAliasAttribution(string serviceName, string cmdletName, Attribute awsCmdletAttribute)
         {
-            var legacyAlias = ExtractLegacyAlias(AWSCmdletAttribute);
+            var legacyAlias = ExtractLegacyAlias(awsCmdletAttribute);
             if (!string.IsNullOrEmpty(legacyAlias))
             {
                 List<Tuple<string, string>> aliases;
@@ -687,7 +679,7 @@ namespace AWSPowerShellGenerator.Generators
             aliasTables.AppendLine("<thead><tr><td>Alias</td><td>Cmdlet</td></tr></thead>");
             aliasTables.AppendLine("<tbody>");
 
-            foreach (var a in aliases)
+            foreach (var a in aliases.OrderBy(alias => alias.Item1))
             {
                 var alias = a.Item1;
                 var cmdlet = a.Item2;
