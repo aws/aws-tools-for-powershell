@@ -6,11 +6,11 @@
 
 UserName                   AuthenticationType Enabled
 --------                   ------------------ -------
-CuriousPiyushP@outlook.com USERPOOL              True
-pandeypi@amazon.com        USERPOOL              True
-piyush210690@outlook.com   USERPOOL              True
-piyushawstest@outlook.com  USERPOOL              True
-prachaun@amazon.com        USERPOOL              True</code>
+foo1@contoso.com USERPOOL              True
+foo2@contoso.com        USERPOOL              True
+foo3@contoso.com    USERPOOL              True
+foo4@contoso.com   USERPOOL              True
+foo5@contoso.com         USERPOOL              True</code>
     <description>This Sample displays list of users with enabled status</description>
   </example>
 </examples>
