@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>$defaultAction = [Amazon.ElasticLoadBalancingV2.Model.Action]@{
+  ForwardConfig = @{
+    TargetGroups = @(
+      @{ TargetGroupArn = "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/testAlbTG/3d61c2f20aa5bccb" }
+    )
+    TargetGroupStickinessConfig = @{
+      DurationSeconds = 900
+      Enabled = $true
+    }
+  }
+  Type = "Forward"
+}
+
+New-ELB2Listener -LoadBalancerArn 'arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/testALB/3e2f03b558e19676' -Port 8001 -Protocol "HTTP" -DefaultAction $defaultAction
+
+Certificates    : {}
+DefaultActions  : {Amazon.ElasticLoadBalancingV2.Model.Action}
+ListenerArn     : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener/app/testALB/3e2f03b558e19676/1c84f02aec143e80
+LoadBalancerArn : arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/testALB/3e2f03b558e19676
+Port            : 8001
+Protocol        : HTTP
+SslPolicy       : </code>
+    <description>This example creates new ALB listener with the default action 'Forward' to send traffic to specified Target Group.</description>
+  </example>
+</examples>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>$newRuleCondition = [Amazon.ElasticLoadBalancingV2.Model.Action]@{           
+  "FixedResponseConfig" = @{
+    "ContentType" = "text/plain"
+    "MessageBody" = "Hello World"
+    "StatusCode" = "200"
+  }
+  "Type" = [Amazon.ElasticLoadBalancingV2.ActionTypeEnum]::FixedResponse
+}
+
+$newRuleCondition = [Amazon.ElasticLoadBalancingV2.Model.RuleCondition]@{
+  "httpHeaderConfig" = @{
+    "HttpHeaderName" = "customHeader"
+    "Values" = "header2","header1" 
+  }         
+  "Field" = "http-header"
+}
+
+New-ELB2Rule -ListenerArn 'arn:aws:elasticloadbalancing:us-east-1:123456789012:listener/app/testALB/3e2f03b558e19676/1c84f02aec143e80' -Action $newRuleAction -Condition $newRuleCondition -Priority 10
+
+Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+Conditions : {Amazon.ElasticLoadBalancingV2.Model.RuleCondition}
+IsDefault  : False
+Priority   : 10
+RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/testALB/3e2f03b558e19676/1c84f02aec143e80/f4f51dfaa033a8cc</code>
+    <description>This example creates new Listener rule with fixed-response action based on the customer header value for the specified Listener.</description>
+  </example>
+</examples>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-ELB2TargetGroupAttribute -TargetGroupArn 'arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/test-tg/a4e04b3688be1970'
+
+Key                                   Value
+---                                   -----
+stickiness.enabled                    false
+deregistration_delay.timeout_seconds  300
+stickiness.type                       lb_cookie
+stickiness.lb_cookie.duration_seconds 86400
+slow_start.duration_seconds           0
+load_balancing.algorithm.type         round_robin</code>
+    <description>This example describes the attributes of the specified Target Group.</description>
+  </example>
+</examples>

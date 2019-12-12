@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-ELB2LoadBalancer
+
+AvailabilityZones     : {us-east-1c}
+CanonicalHostedZoneId : Z26RNL4JYFTOTI
+CreatedTime           : 6/22/18 11:21:50 AM
+DNSName               : test-elb1234567890-238d34ad8d94bc2e.elb.us-east-1.amazonaws.com
+IpAddressType         : ipv4
+LoadBalancerArn       : arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/net/test-elb1234567890/238d34ad8d94bc2e
+LoadBalancerName      : test-elb1234567890
+Scheme                : internet-facing
+SecurityGroups        : {}
+State                 : Amazon.ElasticLoadBalancingV2.Model.LoadBalancerState
+Type                  : network
+VpcId                 : vpc-2cf00000</code>
+    <description>This sample displays all the load balancers for the given region.</description>
+  </example>
+</examples>
