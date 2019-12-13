@@ -8,6 +8,7 @@ using System.Xml;
 using System.IO;
 using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Utils;
+using System.Collections.Concurrent;
 
 namespace AWSPowerShellGenerator.Generators
 {
@@ -213,22 +214,35 @@ namespace AWSPowerShellGenerator.Generators
 
         public string DefaultValue { get; internal set; }
 
+        private static ConcurrentDictionary<Tuple<Type, string>, string> PowershellDocumentationCache = new ConcurrentDictionary<Tuple<Type, string>, string>();
+
         public string PowershellDocumentation
         {
             get
             {
-                var documentation = MemberDocumentation; //FlattenedDocumentation;
-                var xml = DocumentationUtils.FormatXMLForPowershell(documentation);
+                var key = new Tuple<Type, string>(DeclaringType, CmdletParameterName);
+                var xml = PowershellDocumentationCache.GetOrAdd(key, (k) =>
+                {
+                    var documentation = MemberDocumentation; //FlattenedDocumentation;
+                    return DocumentationUtils.FormatXMLForPowershell(documentation);
+                });
+
                 return xml;
             }
         }
+
+        private static ConcurrentDictionary<Tuple<Type, string>, string> PowershellWebDocumentationCache = new ConcurrentDictionary<Tuple<Type, string>, string>();
 
         public string PowershellWebDocumentation
         {
             get
             {
-                var documentation = MemberDocumentation; //FlattenedDocumentation;
-                var xml = DocumentationUtils.FormatXMLForPowershell(documentation, true);
+                var key = new Tuple<Type, string>(DeclaringType, CmdletParameterName);
+                var xml = PowershellWebDocumentationCache.GetOrAdd(key, (k) =>
+                {
+                    var documentation = MemberDocumentation; //FlattenedDocumentation;
+                    return DocumentationUtils.FormatXMLForPowershell(documentation, true);
+                });
                 return xml;
             }
         }
