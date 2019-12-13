@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-DSConditionalForwarder -DirectoryId d-123456ijk -RemoteDomainName contoso.com
+
+DnsIpAddrs      RemoteDomainName ReplicationScope
+----------      ---------------- ----------------
+{172.31.77.239} contoso.com      Domain</code>
+    <description>This command gets conditional forwarders created for specific RemoteDomain created in specified Directory-id</description>
+  </example>
+</examples>
