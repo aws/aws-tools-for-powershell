@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>outposts</C2jFilename>
+    <AssemblyName>Outposts</AssemblyName>
+    <ServiceNounPrefix>OUTP</ServiceNounPrefix>
+    <ServiceName>AWS Outposts</ServiceName>
+    <ServiceClientInterface>IAmazonOutposts</ServiceClientInterface>
+    <ServiceClient>AmazonOutpostsClient</ServiceClient>
+    <ServiceModuleGuid>ae8e2e99-f2fc-4d6c-983f-9f11ca57354f</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateOutpost" OutputProperty="Outpost" Verb="New" Noun="Outpost" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOutpost" OutputProperty="Outpost" Verb="Get" Noun="Outpost" PipelineParameter="OutpostId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOutpostInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="OutpostInstanceType" PipelineParameter="OutpostId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOutposts" OutputProperty="Outposts" Verb="Get" Noun="OutpostList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSites" OutputProperty="Sites" Verb="Get" Noun="SiteList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

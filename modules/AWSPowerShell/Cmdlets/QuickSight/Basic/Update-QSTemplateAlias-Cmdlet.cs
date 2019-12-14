@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates the template alias of a template.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight update-template-alias --aws-account-id 111122223333 --template-id
-    /// 'reports_test_template' --alias-name STAGING —template-version-number 2 </code></para>
     /// </summary>
     [Cmdlet("Update", "QSTemplateAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.TemplateAlias")]
@@ -49,7 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>The alias name.</para>
+        /// <para>The alias of the template that you want to update. If you name a specific alias, you
+        /// update the version that the alias points to. You can specify the latest version of
+        /// the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+        /// parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template aliases you are updating.</para>
+        /// <para>The ID of the AWS account that contains the template alias that you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

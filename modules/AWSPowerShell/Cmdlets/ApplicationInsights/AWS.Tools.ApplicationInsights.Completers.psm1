@@ -75,6 +75,35 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon CloudWatch Application Insights
 
 
+$CWAI_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ApplicationInsights.Tier
+        {
+            ($_ -eq "Get-CWAIComponentConfigurationRecommendation/Tier") -Or
+            ($_ -eq "Update-CWAIComponentConfiguration/Tier")
+        }
+        {
+            $v = "DEFAULT","DOT_NET_CORE","DOT_NET_WEB","DOT_NET_WORKER","SQL_SERVER"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWAI_map = @{
+    "Tier"=@("Get-CWAIComponentConfigurationRecommendation","Update-CWAIComponentConfiguration")
+}
+
+_awsArgumentCompleterRegistration $CWAI_Completers $CWAI_map
+
 $CWAI_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -125,21 +154,30 @@ $CWAI_SelectCompleters = {
 $CWAI_SelectMap = @{
     "Select"=@("New-CWAIApplication",
                "New-CWAIComponent",
+               "New-CWAILogPattern",
                "Remove-CWAIApplication",
                "Remove-CWAIComponent",
+               "Remove-CWAILogPattern",
                "Get-CWAIApplication",
                "Get-CWAIComponent",
                "Get-CWAIComponentConfiguration",
                "Get-CWAIComponentConfigurationRecommendation",
+               "Get-CWAILogPattern",
                "Get-CWAIObservation",
                "Get-CWAIProblem",
                "Get-CWAIProblemObservation",
                "Get-CWAIApplicationList",
                "Get-CWAIComponentList",
+               "Get-CWAILogPatternList",
+               "Get-CWAILogPatternSetList",
                "Get-CWAIProblemList",
+               "Get-CWAIResourceTag",
+               "Add-CWAIResourceTag",
+               "Remove-CWAIResourceTag",
                "Update-CWAIApplication",
                "Update-CWAIComponent",
-               "Update-CWAIComponentConfiguration")
+               "Update-CWAIComponentConfiguration",
+               "Update-CWAILogPattern")
 }
 
 _awsArgumentCompleterRegistration $CWAI_SelectCompleters $CWAI_SelectMap

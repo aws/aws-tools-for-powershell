@@ -77,6 +77,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CustomerGatewayId { get; set; }
         #endregion
         
+        #region Parameter Options_EnableAcceleration
+        /// <summary>
+        /// <para>
+        /// <para>Indicate whether to enable acceleration for the VPN connection.</para><para>Default: <code>false</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Options_EnableAcceleration { get; set; }
+        #endregion
+        
         #region Parameter Options_StaticRoutesOnly
         /// <summary>
         /// <para>
@@ -208,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter CustomerGatewayId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Options_EnableAcceleration = this.Options_EnableAcceleration;
             context.Options_StaticRoutesOnly = this.Options_StaticRoutesOnly;
             if (this.Options_TunnelOption != null)
             {
@@ -246,6 +257,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate Options
             var requestOptionsIsNull = true;
             request.Options = new Amazon.EC2.Model.VpnConnectionOptionsSpecification();
+            System.Boolean? requestOptions_options_EnableAcceleration = null;
+            if (cmdletContext.Options_EnableAcceleration != null)
+            {
+                requestOptions_options_EnableAcceleration = cmdletContext.Options_EnableAcceleration.Value;
+            }
+            if (requestOptions_options_EnableAcceleration != null)
+            {
+                request.Options.EnableAcceleration = requestOptions_options_EnableAcceleration.Value;
+                requestOptionsIsNull = false;
+            }
             System.Boolean? requestOptions_options_StaticRoutesOnly = null;
             if (cmdletContext.Options_StaticRoutesOnly != null)
             {
@@ -345,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CustomerGatewayId { get; set; }
+            public System.Boolean? Options_EnableAcceleration { get; set; }
             public System.Boolean? Options_StaticRoutesOnly { get; set; }
             public List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> Options_TunnelOption { get; set; }
             public System.String TransitGatewayId { get; set; }

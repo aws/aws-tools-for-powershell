@@ -29,18 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Describes a template's metadata.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight describe-template --aws-account-id 111122223333 --template-id
-    /// reports_test_template </code></para><para><code>aws quicksight describe-template --aws-account-id 111122223333 --template-id
-    /// reports_test_template --version-number-2</code></para><para><code>aws quicksight describe-template --aws-account-id 111122223333 --template-id
-    /// reports_test_template --alias-name '\$LATEST' </code></para><para>
-    /// Users can explicitly describe the latest version of the dashboard by passing <code>$LATEST</code>
-    /// to the <code>alias-name</code> parameter. <code>$LATEST</code> is an internally supported
-    /// alias, which points to the latest version of the dashboard. 
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "QSTemplate")]
     [OutputType("Amazon.QuickSight.Model.Template")]
@@ -55,9 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>This is an optional field, when an alias name is provided, the version referenced
-        /// by the alias is described. Refer to <code>CreateTemplateAlias</code> to create a template
-        /// alias. <code>$PUBLISHED</code> is not supported for template.</para>
+        /// <para>The alias of the template that you want to describe. If you name a specific alias,
+        /// you describe the version that the alias points to. You can specify the latest version
+        /// of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+        /// parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template you are describing.</para>
+        /// <para>The ID of the AWS account that contains the template that you're describing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter TemplateId
         /// <summary>
         /// <para>
-        /// <para>An ID for the template.</para>
+        /// <para>The ID for the template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VersionNumber
         /// <summary>
         /// <para>
-        /// <para>This is an optional field, when a version number is provided the corresponding version
-        /// is describe, if it's not provided the latest version of the template is described.</para>
+        /// <para>(Optional) The number for the version to describe. If a <code>VersionNumber</code>
+        /// parameter value isn't provided, the latest version of the template is described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

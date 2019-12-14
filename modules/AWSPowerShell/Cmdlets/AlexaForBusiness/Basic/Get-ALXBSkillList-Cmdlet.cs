@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter EnablementType
         /// <summary>
         /// <para>
-        /// <para>Whether the skill is enabled under the user's account, or if it requires linking to
-        /// be used.</para>
+        /// <para>Whether the skill is enabled under the user's account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter SkillGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the skill group for which to list enabled skills. Required.</para>
+        /// <para>The ARN of the skill group for which to list enabled skills.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -78,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <para>
         /// <para>The maximum number of results to include in the response. If more results exist than
         /// the specified <code>MaxResults</code> value, a token is included in the response so
-        /// that the remaining results can be retrieved. Required.</para>
+        /// that the remaining results can be retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -97,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <para>
         /// <para>An optional token returned from a prior request. Use this token for pagination of
         /// results from this action. If this parameter is specified, the response includes only
-        /// results beyond the token, up to the value specified by <code>MaxResults</code>. Required.</para>
+        /// results beyond the token, up to the value specified by <code>MaxResults</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

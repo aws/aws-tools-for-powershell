@@ -28,14 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Returns a list of all of the Amazon QuickSight users belonging to this account. 
-    /// 
-    ///  
-    /// <para>
-    /// The response is a list of user objects, containing each user's Amazon Resource Name
-    /// (ARN), AWS Identity and Access Management (IAM) role, and email address. 
-    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight list-users --aws-account-id=111122223333 --namespace=default
-    /// </code></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of all of the Amazon QuickSight users belonging to this account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSUserList")]
     [OutputType("Amazon.QuickSight.Model.User")]

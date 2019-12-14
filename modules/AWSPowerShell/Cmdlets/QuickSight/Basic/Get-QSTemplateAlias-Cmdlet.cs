@@ -28,13 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes the template aliases of a template.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight describe-template-alias --aws-account-id 111122223333 --template-id
-    /// 'reports_test_template' --alias-name 'STAGING'</code></para>
+    /// Describes the template alias for a template.
     /// </summary>
     [Cmdlet("Get", "QSTemplateAlias")]
     [OutputType("Amazon.QuickSight.Model.TemplateAlias")]
@@ -49,7 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>The alias name. <code>$PUBLISHED</code> is not supported for template.</para>
+        /// <para>The name of the template alias that you want to describe. If you name a specific alias,
+        /// you describe the version that the alias points to. You can specify the latest version
+        /// of the template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+        /// parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template alias you are describing.</para>
+        /// <para>The ID of the AWS account that contains the template alias that you're describing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter TemplateId
         /// <summary>
         /// <para>
-        /// <para>An ID for the template.</para>
+        /// <para>The ID for the template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

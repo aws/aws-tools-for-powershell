@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     [AWSCmdletOutput("string", "If no parameters are supplied the cmdlet emits the built-in logical names that can be used with the -Name parameter.")]
 #if MODULAR
-    [Obsolete("This cmdlet is deprecated and will be removed in a future version. Use Get-SSMLatestEC2Image from the AWS.Tools.SimpleSystemsManager module instead.")]
+    [Obsolete("This cmdlet is deprecated and will be removed in a future version. Use Get-SSMLatestEC2Image from the AWS.Tools.SimpleSystemsManagement module instead.")]
 #else
     [Obsolete("This cmdlet is deprecated and will be removed in a future version. Use Get-SSMLatestEC2Image instead.")]
 #endif

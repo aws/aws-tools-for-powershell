@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// file. This mode is a good choice if your build scenario is not suited to one of the
         /// other three local cache modes. If you use a custom cache: </para><ul><li><para> Only directories can be specified for caching. You cannot specify individual files.
         /// </para></li><li><para> Symlinks are used to reference cached directories. </para></li><li><para> Cached directories are linked to your build before it downloads its project sources.
-        /// Cached items are overriden if a source item has the same name. Directories are specified
+        /// Cached items are overridden if a source item has the same name. Directories are specified
         /// using cache paths in the buildspec file. </para></li></ul></li></ul>
         /// </para>
         /// </summary>
@@ -521,7 +521,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A version of the build input to be built, for this build only. If not specified, the
-        /// latest version is used. If specified, must be one of:</para><ul><li><para>For AWS CodeCommit: the commit ID to use.</para></li><li><para>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds
+        /// latest version is used. If specified, must be one of:</para><ul><li><para>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</para></li><li><para>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds
         /// to the version of the source code you want to build. If a pull request ID is specified,
         /// it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>).
         /// If a branch name is specified, the branch's HEAD commit ID is used. If not specified,

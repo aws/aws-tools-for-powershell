@@ -29,13 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Provides a summary for a dashboard.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><ul><li><para><code>aws quicksight describe-dashboard --aws-account-id 111122223333 —dashboard-id
-    /// reports_test_report -version-number 2</code></para></li><li><para><code> aws quicksight describe-dashboard --aws-account-id 111122223333 —dashboard-id
-    /// reports_test_report -alias-name ‘$PUBLISHED’ </code></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "QSDashboard")]
     [OutputType("Amazon.QuickSight.Model.Dashboard")]
@@ -60,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the dashboard you are describing.</para>
+        /// <para>The ID of the AWS account that contains the dashboard that you're describing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,8 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VersionNumber
         /// <summary>
         /// <para>
-        /// <para>The version number for the dashboard. If version number isn’t passed the latest published
-        /// dashboard version is described. </para>
+        /// <para>The version number for the dashboard. If a version number isn't passed, the latest
+        /// published dashboard version is described. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

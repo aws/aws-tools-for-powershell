@@ -190,7 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
         #region Parameter ElasticsearchClusterConfig_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type for an Elasticsearch cluster.</para>
+        /// <para>The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported
+        /// for data instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,6 +299,37 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public Amazon.Elasticsearch.VolumeType EBSOptions_VolumeType { get; set; }
         #endregion
         
+        #region Parameter ElasticsearchClusterConfig_WarmCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of warm nodes in the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ElasticsearchClusterConfig_WarmCount { get; set; }
+        #endregion
+        
+        #region Parameter ElasticsearchClusterConfig_WarmEnabled
+        /// <summary>
+        /// <para>
+        /// <para>True to enable warm storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ElasticsearchClusterConfig_WarmEnabled { get; set; }
+        #endregion
+        
+        #region Parameter ElasticsearchClusterConfig_WarmType
+        /// <summary>
+        /// <para>
+        /// <para>The instance type for the Elasticsearch cluster's warm nodes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Elasticsearch.ESWarmPartitionInstanceType")]
+        public Amazon.Elasticsearch.ESWarmPartitionInstanceType ElasticsearchClusterConfig_WarmType { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchClusterConfig_ZoneAwarenessEnabled
         /// <summary>
         /// <para>
@@ -380,6 +412,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
             context.ElasticsearchClusterConfig_DedicatedMasterType = this.ElasticsearchClusterConfig_DedicatedMasterType;
             context.ElasticsearchClusterConfig_InstanceCount = this.ElasticsearchClusterConfig_InstanceCount;
             context.ElasticsearchClusterConfig_InstanceType = this.ElasticsearchClusterConfig_InstanceType;
+            context.ElasticsearchClusterConfig_WarmCount = this.ElasticsearchClusterConfig_WarmCount;
+            context.ElasticsearchClusterConfig_WarmEnabled = this.ElasticsearchClusterConfig_WarmEnabled;
+            context.ElasticsearchClusterConfig_WarmType = this.ElasticsearchClusterConfig_WarmType;
             context.ZoneAwarenessConfig_AvailabilityZoneCount = this.ZoneAwarenessConfig_AvailabilityZoneCount;
             context.ElasticsearchClusterConfig_ZoneAwarenessEnabled = this.ElasticsearchClusterConfig_ZoneAwarenessEnabled;
             if (this.LogPublishingOption != null)
@@ -608,6 +643,36 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.ElasticsearchClusterConfig.InstanceType = requestElasticsearchClusterConfig_elasticsearchClusterConfig_InstanceType;
                 requestElasticsearchClusterConfigIsNull = false;
             }
+            System.Int32? requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmCount = null;
+            if (cmdletContext.ElasticsearchClusterConfig_WarmCount != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmCount = cmdletContext.ElasticsearchClusterConfig_WarmCount.Value;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmCount != null)
+            {
+                request.ElasticsearchClusterConfig.WarmCount = requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmCount.Value;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
+            System.Boolean? requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmEnabled = null;
+            if (cmdletContext.ElasticsearchClusterConfig_WarmEnabled != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmEnabled = cmdletContext.ElasticsearchClusterConfig_WarmEnabled.Value;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmEnabled != null)
+            {
+                request.ElasticsearchClusterConfig.WarmEnabled = requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmEnabled.Value;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
+            Amazon.Elasticsearch.ESWarmPartitionInstanceType requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmType = null;
+            if (cmdletContext.ElasticsearchClusterConfig_WarmType != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmType = cmdletContext.ElasticsearchClusterConfig_WarmType;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmType != null)
+            {
+                request.ElasticsearchClusterConfig.WarmType = requestElasticsearchClusterConfig_elasticsearchClusterConfig_WarmType;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
             System.Boolean? requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled = null;
             if (cmdletContext.ElasticsearchClusterConfig_ZoneAwarenessEnabled != null)
             {
@@ -779,6 +844,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
             public System.Int32? ElasticsearchClusterConfig_InstanceCount { get; set; }
             public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
+            public System.Int32? ElasticsearchClusterConfig_WarmCount { get; set; }
+            public System.Boolean? ElasticsearchClusterConfig_WarmEnabled { get; set; }
+            public Amazon.Elasticsearch.ESWarmPartitionInstanceType ElasticsearchClusterConfig_WarmType { get; set; }
             public System.Int32? ZoneAwarenessConfig_AvailabilityZoneCount { get; set; }
             public System.Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
             public Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption> LogPublishingOption { get; set; }

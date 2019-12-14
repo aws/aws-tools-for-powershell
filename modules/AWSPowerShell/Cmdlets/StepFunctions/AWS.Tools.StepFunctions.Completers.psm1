@@ -87,6 +87,23 @@ $SFN_Completers = {
             break
         }
 
+        # Amazon.StepFunctions.LogLevel
+        {
+            ($_ -eq "New-SFNStateMachine/LoggingConfiguration_Level") -Or
+            ($_ -eq "Update-SFNStateMachine/LoggingConfiguration_Level")
+        }
+        {
+            $v = "ALL","ERROR","FATAL","OFF"
+            break
+        }
+
+        # Amazon.StepFunctions.StateMachineType
+        "New-SFNStateMachine/Type"
+        {
+            $v = "EXPRESS","STANDARD"
+            break
+        }
+
 
     }
 
@@ -96,7 +113,9 @@ $SFN_Completers = {
 }
 
 $SFN_map = @{
+    "LoggingConfiguration_Level"=@("New-SFNStateMachine","Update-SFNStateMachine")
     "StatusFilter"=@("Get-SFNExecutionList")
+    "Type"=@("New-SFNStateMachine")
 }
 
 _awsArgumentCompleterRegistration $SFN_Completers $SFN_map

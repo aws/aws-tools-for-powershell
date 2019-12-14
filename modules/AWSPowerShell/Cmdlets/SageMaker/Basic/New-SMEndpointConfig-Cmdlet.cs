@@ -60,6 +60,48 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMEndpointConfigCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter DataCaptureConfig_CaptureOption
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataCaptureConfig_CaptureOptions")]
+        public Amazon.SageMaker.Model.CaptureOption[] DataCaptureConfig_CaptureOption { get; set; }
+        #endregion
+        
+        #region Parameter CaptureContentTypeHeader_CsvContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataCaptureConfig_CaptureContentTypeHeader_CsvContentTypes")]
+        public System.String[] CaptureContentTypeHeader_CsvContentType { get; set; }
+        #endregion
+        
+        #region Parameter DataCaptureConfig_DestinationS3Uri
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataCaptureConfig_DestinationS3Uri { get; set; }
+        #endregion
+        
+        #region Parameter DataCaptureConfig_EnableCapture
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DataCaptureConfig_EnableCapture { get; set; }
+        #endregion
+        
         #region Parameter EndpointConfigName
         /// <summary>
         /// <para>
@@ -76,6 +118,37 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EndpointConfigName { get; set; }
+        #endregion
+        
+        #region Parameter DataCaptureConfig_InitialSamplingPercentage
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? DataCaptureConfig_InitialSamplingPercentage { get; set; }
+        #endregion
+        
+        #region Parameter CaptureContentTypeHeader_JsonContentType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataCaptureConfig_CaptureContentTypeHeader_JsonContentTypes")]
+        public System.String[] CaptureContentTypeHeader_JsonContentType { get; set; }
+        #endregion
+        
+        #region Parameter DataCaptureConfig_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataCaptureConfig_KmsKeyId { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -191,6 +264,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.EndpointConfigName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CaptureContentTypeHeader_CsvContentType != null)
+            {
+                context.CaptureContentTypeHeader_CsvContentType = new List<System.String>(this.CaptureContentTypeHeader_CsvContentType);
+            }
+            if (this.CaptureContentTypeHeader_JsonContentType != null)
+            {
+                context.CaptureContentTypeHeader_JsonContentType = new List<System.String>(this.CaptureContentTypeHeader_JsonContentType);
+            }
+            if (this.DataCaptureConfig_CaptureOption != null)
+            {
+                context.DataCaptureConfig_CaptureOption = new List<Amazon.SageMaker.Model.CaptureOption>(this.DataCaptureConfig_CaptureOption);
+            }
+            context.DataCaptureConfig_DestinationS3Uri = this.DataCaptureConfig_DestinationS3Uri;
+            context.DataCaptureConfig_EnableCapture = this.DataCaptureConfig_EnableCapture;
+            context.DataCaptureConfig_InitialSamplingPercentage = this.DataCaptureConfig_InitialSamplingPercentage;
+            context.DataCaptureConfig_KmsKeyId = this.DataCaptureConfig_KmsKeyId;
             context.EndpointConfigName = this.EndpointConfigName;
             #if MODULAR
             if (this.EndpointConfigName == null && ParameterWasBound(nameof(this.EndpointConfigName)))
@@ -229,6 +318,100 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateEndpointConfigRequest();
             
+            
+             // populate DataCaptureConfig
+            var requestDataCaptureConfigIsNull = true;
+            request.DataCaptureConfig = new Amazon.SageMaker.Model.DataCaptureConfig();
+            List<Amazon.SageMaker.Model.CaptureOption> requestDataCaptureConfig_dataCaptureConfig_CaptureOption = null;
+            if (cmdletContext.DataCaptureConfig_CaptureOption != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_CaptureOption = cmdletContext.DataCaptureConfig_CaptureOption;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_CaptureOption != null)
+            {
+                request.DataCaptureConfig.CaptureOptions = requestDataCaptureConfig_dataCaptureConfig_CaptureOption;
+                requestDataCaptureConfigIsNull = false;
+            }
+            System.String requestDataCaptureConfig_dataCaptureConfig_DestinationS3Uri = null;
+            if (cmdletContext.DataCaptureConfig_DestinationS3Uri != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_DestinationS3Uri = cmdletContext.DataCaptureConfig_DestinationS3Uri;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_DestinationS3Uri != null)
+            {
+                request.DataCaptureConfig.DestinationS3Uri = requestDataCaptureConfig_dataCaptureConfig_DestinationS3Uri;
+                requestDataCaptureConfigIsNull = false;
+            }
+            System.Boolean? requestDataCaptureConfig_dataCaptureConfig_EnableCapture = null;
+            if (cmdletContext.DataCaptureConfig_EnableCapture != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_EnableCapture = cmdletContext.DataCaptureConfig_EnableCapture.Value;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_EnableCapture != null)
+            {
+                request.DataCaptureConfig.EnableCapture = requestDataCaptureConfig_dataCaptureConfig_EnableCapture.Value;
+                requestDataCaptureConfigIsNull = false;
+            }
+            System.Int32? requestDataCaptureConfig_dataCaptureConfig_InitialSamplingPercentage = null;
+            if (cmdletContext.DataCaptureConfig_InitialSamplingPercentage != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_InitialSamplingPercentage = cmdletContext.DataCaptureConfig_InitialSamplingPercentage.Value;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_InitialSamplingPercentage != null)
+            {
+                request.DataCaptureConfig.InitialSamplingPercentage = requestDataCaptureConfig_dataCaptureConfig_InitialSamplingPercentage.Value;
+                requestDataCaptureConfigIsNull = false;
+            }
+            System.String requestDataCaptureConfig_dataCaptureConfig_KmsKeyId = null;
+            if (cmdletContext.DataCaptureConfig_KmsKeyId != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_KmsKeyId = cmdletContext.DataCaptureConfig_KmsKeyId;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_KmsKeyId != null)
+            {
+                request.DataCaptureConfig.KmsKeyId = requestDataCaptureConfig_dataCaptureConfig_KmsKeyId;
+                requestDataCaptureConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.CaptureContentTypeHeader requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader = null;
+            
+             // populate CaptureContentTypeHeader
+            var requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeaderIsNull = true;
+            requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader = new Amazon.SageMaker.Model.CaptureContentTypeHeader();
+            List<System.String> requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader_captureContentTypeHeader_CsvContentType = null;
+            if (cmdletContext.CaptureContentTypeHeader_CsvContentType != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader_captureContentTypeHeader_CsvContentType = cmdletContext.CaptureContentTypeHeader_CsvContentType;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader_captureContentTypeHeader_CsvContentType != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader.CsvContentTypes = requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader_captureContentTypeHeader_CsvContentType;
+                requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeaderIsNull = false;
+            }
+            List<System.String> requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader_captureContentTypeHeader_JsonContentType = null;
+            if (cmdletContext.CaptureContentTypeHeader_JsonContentType != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader_captureContentTypeHeader_JsonContentType = cmdletContext.CaptureContentTypeHeader_JsonContentType;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader_captureContentTypeHeader_JsonContentType != null)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader.JsonContentTypes = requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader_captureContentTypeHeader_JsonContentType;
+                requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeaderIsNull = false;
+            }
+             // determine if requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader should be set to null
+            if (requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeaderIsNull)
+            {
+                requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader = null;
+            }
+            if (requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader != null)
+            {
+                request.DataCaptureConfig.CaptureContentTypeHeader = requestDataCaptureConfig_dataCaptureConfig_CaptureContentTypeHeader;
+                requestDataCaptureConfigIsNull = false;
+            }
+             // determine if request.DataCaptureConfig should be set to null
+            if (requestDataCaptureConfigIsNull)
+            {
+                request.DataCaptureConfig = null;
+            }
             if (cmdletContext.EndpointConfigName != null)
             {
                 request.EndpointConfigName = cmdletContext.EndpointConfigName;
@@ -306,6 +489,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> CaptureContentTypeHeader_CsvContentType { get; set; }
+            public List<System.String> CaptureContentTypeHeader_JsonContentType { get; set; }
+            public List<Amazon.SageMaker.Model.CaptureOption> DataCaptureConfig_CaptureOption { get; set; }
+            public System.String DataCaptureConfig_DestinationS3Uri { get; set; }
+            public System.Boolean? DataCaptureConfig_EnableCapture { get; set; }
+            public System.Int32? DataCaptureConfig_InitialSamplingPercentage { get; set; }
+            public System.String DataCaptureConfig_KmsKeyId { get; set; }
             public System.String EndpointConfigName { get; set; }
             public System.String KmsKeyId { get; set; }
             public List<Amazon.SageMaker.Model.ProductionVariant> ProductionVariant { get; set; }

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>The unique identifier (ID) of the policy whose attachments you want to know.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string
-        /// requires "p-" followed by from 8 to 128 lower-case letters or digits.</para>
+        /// requires "p-" followed by from 8 to 128 lowercase letters or digits.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

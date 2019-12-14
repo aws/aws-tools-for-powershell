@@ -28,7 +28,7 @@ using Amazon.ResourceGroupsTaggingAPI.Model;
 namespace Amazon.PowerShell.Cmdlets.RGT
 {
     /// <summary>
-    /// Returns all tag values for the specified key in the specified region for the AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns all tag values for the specified key in the specified Region for the AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGTTagValue")]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>The key for which you want to list all existing values in the specified region for
+        /// <para>The key for which you want to list all existing values in the specified Region for
         /// the AWS account.</para>
         /// </para>
         /// </summary>
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// <summary>
         /// <para>
         /// <para>A string that indicates that additional data is available. Leave this value empty
-        /// for your initial request. If the response includes a PaginationToken, use that string
-        /// for this value to request an additional page of data.</para>
+        /// for your initial request. If the response includes a <code>PaginationToken</code>,
+        /// use that string for this value to request an additional page of data.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

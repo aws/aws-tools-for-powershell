@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter IntegrationResponseId
         /// <summary>
         /// <para>
-        /// The integration response ID.
+        /// <para>The integration response ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

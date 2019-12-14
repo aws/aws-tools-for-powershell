@@ -87,6 +87,23 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.CustomerMasterKeySpec
+        "New-KMSKey/CustomerMasterKeySpec"
+        {
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096","SYMMETRIC_DEFAULT"
+            break
+        }
+
+        # Amazon.KeyManagementService.DataKeyPairSpec
+        {
+            ($_ -eq "New-KMSDataKeyPair/KeyPairSpec") -Or
+            ($_ -eq "New-KMSDataKeyPairWithoutPlaintext/KeyPairSpec")
+        }
+        {
+            $v = "ECC_NIST_P256","ECC_NIST_P384","ECC_NIST_P521","ECC_SECG_P256K1","RSA_2048","RSA_3072","RSA_4096"
+            break
+        }
+
         # Amazon.KeyManagementService.DataKeySpec
         {
             ($_ -eq "New-KMSDataKey/KeySpec") -Or
@@ -94,6 +111,18 @@ $KMS_Completers = {
         }
         {
             $v = "AES_128","AES_256"
+            break
+        }
+
+        # Amazon.KeyManagementService.EncryptionAlgorithmSpec
+        {
+            ($_ -eq "Invoke-KMSReEncrypt/DestinationEncryptionAlgorithm") -Or
+            ($_ -eq "Invoke-KMSDecrypt/EncryptionAlgorithm") -Or
+            ($_ -eq "Invoke-KMSEncrypt/EncryptionAlgorithm") -Or
+            ($_ -eq "Invoke-KMSReEncrypt/SourceEncryptionAlgorithm")
+        }
+        {
+            $v = "RSAES_OAEP_SHA_1","RSAES_OAEP_SHA_256","SYMMETRIC_DEFAULT"
             break
         }
 
@@ -107,7 +136,17 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeyUsageType
         "New-KMSKey/KeyUsage"
         {
-            $v = "ENCRYPT_DECRYPT"
+            $v = "ENCRYPT_DECRYPT","SIGN_VERIFY"
+            break
+        }
+
+        # Amazon.KeyManagementService.MessageType
+        {
+            ($_ -eq "Invoke-KMSSigning/MessageType") -Or
+            ($_ -eq "Test-KMSSignature/MessageType")
+        }
+        {
+            $v = "DIGEST","RAW"
             break
         }
 
@@ -115,6 +154,16 @@ $KMS_Completers = {
         "New-KMSKey/Origin"
         {
             $v = "AWS_CLOUDHSM","AWS_KMS","EXTERNAL"
+            break
+        }
+
+        # Amazon.KeyManagementService.SigningAlgorithmSpec
+        {
+            ($_ -eq "Invoke-KMSSigning/SigningAlgorithm") -Or
+            ($_ -eq "Test-KMSSignature/SigningAlgorithm")
+        }
+        {
+            $v = "ECDSA_SHA_256","ECDSA_SHA_384","ECDSA_SHA_512","RSASSA_PKCS1_V1_5_SHA_256","RSASSA_PKCS1_V1_5_SHA_384","RSASSA_PKCS1_V1_5_SHA_512","RSASSA_PSS_SHA_256","RSASSA_PSS_SHA_384","RSASSA_PSS_SHA_512"
             break
         }
 
@@ -134,10 +183,17 @@ $KMS_Completers = {
 }
 
 $KMS_map = @{
+    "CustomerMasterKeySpec"=@("New-KMSKey")
+    "DestinationEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
+    "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
+    "KeyPairSpec"=@("New-KMSDataKeyPair","New-KMSDataKeyPairWithoutPlaintext")
     "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext")
     "KeyUsage"=@("New-KMSKey")
+    "MessageType"=@("Invoke-KMSSigning","Test-KMSSignature")
     "Origin"=@("New-KMSKey")
+    "SigningAlgorithm"=@("Invoke-KMSSigning","Test-KMSSignature")
+    "SourceEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "WrappingAlgorithm"=@("Get-KMSParametersForImport")
     "WrappingKeySpec"=@("Get-KMSParametersForImport")
 }
@@ -211,11 +267,14 @@ $KMS_SelectMap = @{
                "Enable-KMSKeyRotation",
                "Invoke-KMSEncrypt",
                "New-KMSDataKey",
+               "New-KMSDataKeyPair",
+               "New-KMSDataKeyPairWithoutPlaintext",
                "New-KMSDataKeyWithoutPlaintext",
                "New-KMSRandom",
                "Get-KMSKeyPolicy",
                "Get-KMSKeyRotationStatus",
                "Get-KMSParametersForImport",
+               "Get-KMSPublicKey",
                "Import-KMSKeyMaterial",
                "Get-KMSAliasList",
                "Get-KMSGrantList",
@@ -228,11 +287,13 @@ $KMS_SelectMap = @{
                "Disable-KMSGrant",
                "Revoke-KMSGrant",
                "Request-KMSKeyDeletion",
+               "Invoke-KMSSigning",
                "Add-KMSResourceTag",
                "Remove-KMSResourceTag",
                "Update-KMSAlias",
                "Update-KMSCustomKeyStore",
-               "Update-KMSKeyDescription")
+               "Update-KMSKeyDescription",
+               "Test-KMSSignature")
 }
 
 _awsArgumentCompleterRegistration $KMS_SelectCompleters $KMS_SelectMap

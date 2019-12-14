@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// can restrict access to this API and to the URL that it returns to a list of IP addresses
     /// that you specify. Use the <code>NotIpAddress</code> condition operator and the <code>aws:SourceIP</code>
     /// condition context key to specify the list of IP addresses that you want to have access
-    /// to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-ip-filter.html">Limit
+    /// to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter">Limit
     /// Access to a Notebook Instance by IP Address</a>.
     /// </para><note><para>
     /// The URL that you get from a call to is valid only for 5 minutes. If you try to use

@@ -175,18 +175,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para><para>Constraints: Maximum 64 ASCII characters</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter HibernationOptions_Configured
         /// <summary>
         /// <para>
@@ -295,6 +283,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HostId","Placement_Host")]
         public System.String Placement_HostId { get; set; }
+        #endregion
+        
+        #region Parameter Placement_HostResourceGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the host resource group in which to launch the instances. If you specify
+        /// a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Placement_HostResourceGroupArn { get; set; }
         #endregion
         
         #region Parameter MetadataOptions_HttpEndpoint
@@ -648,6 +647,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String UserData { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// Idempotency</a>.</para><para>Constraints: Maximum 64 ASCII characters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Reservation'.
@@ -790,6 +801,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Placement_AvailabilityZone = this.Placement_AvailabilityZone;
             context.Placement_GroupName = this.Placement_GroupName;
             context.Placement_HostId = this.Placement_HostId;
+            context.Placement_HostResourceGroupArn = this.Placement_HostResourceGroupArn;
             context.Placement_PartitionNumber = this.Placement_PartitionNumber;
             context.Placement_SpreadDomain = this.Placement_SpreadDomain;
             context.Placement_Tenancy = this.Placement_Tenancy;
@@ -1107,6 +1119,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Placement.HostId = requestPlacement_placement_HostId;
                 requestPlacementIsNull = false;
             }
+            System.String requestPlacement_placement_HostResourceGroupArn = null;
+            if (cmdletContext.Placement_HostResourceGroupArn != null)
+            {
+                requestPlacement_placement_HostResourceGroupArn = cmdletContext.Placement_HostResourceGroupArn;
+            }
+            if (requestPlacement_placement_HostResourceGroupArn != null)
+            {
+                request.Placement.HostResourceGroupArn = requestPlacement_placement_HostResourceGroupArn;
+                requestPlacementIsNull = false;
+            }
             System.Int32? requestPlacement_placement_PartitionNumber = null;
             if (cmdletContext.Placement_PartitionNumber != null)
             {
@@ -1266,6 +1288,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Placement_AvailabilityZone { get; set; }
             public System.String Placement_GroupName { get; set; }
             public System.String Placement_HostId { get; set; }
+            public System.String Placement_HostResourceGroupArn { get; set; }
             public System.Int32? Placement_PartitionNumber { get; set; }
             public System.String Placement_SpreadDomain { get; set; }
             public Amazon.EC2.Tenancy Placement_Tenancy { get; set; }

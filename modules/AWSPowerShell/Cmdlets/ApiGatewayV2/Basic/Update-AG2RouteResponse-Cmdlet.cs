@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ModelSelectionExpression
         /// <summary>
         /// <para>
-        /// <para>The model selection expression for the route response.</para>
+        /// <para>The model selection expression for the route response. Supported only for WebSocket
+        /// APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

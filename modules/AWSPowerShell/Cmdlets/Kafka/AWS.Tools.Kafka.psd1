@@ -104,7 +104,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-MSKResourceTag', 
         'Update-MSKBrokerCount', 
         'Update-MSKBrokerStorage', 
-        'Update-MSKClusterConfiguration')
+        'Update-MSKClusterConfiguration', 
+        'Update-MSKMonitoring')
 
     # Variables to export from this module
     VariablesToExport = '*'

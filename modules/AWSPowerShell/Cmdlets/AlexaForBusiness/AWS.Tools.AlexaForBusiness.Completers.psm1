@@ -93,7 +93,7 @@ $ALXB_Completers = {
         # Amazon.AlexaForBusiness.BusinessReportInterval
         "New-ALXBBusinessReportSchedule/ContentRange_Interval"
         {
-            $v = "ONE_DAY","ONE_WEEK"
+            $v = "ONE_DAY","ONE_WEEK","THIRTY_DAYS"
             break
         }
 
@@ -145,6 +145,16 @@ $ALXB_Completers = {
         "Get-ALXBSkillList/EnablementType"
         {
             $v = "ENABLED","PENDING"
+            break
+        }
+
+        # Amazon.AlexaForBusiness.EndOfMeetingReminderType
+        {
+            ($_ -eq "New-ALXBProfile/MeetingRoomConfiguration_EndOfMeetingReminder_ReminderType") -Or
+            ($_ -eq "Update-ALXBProfile/MeetingRoomConfiguration_EndOfMeetingReminder_ReminderType")
+        }
+        {
+            $v = "ANNOUNCEMENT_TIME_CHECK","ANNOUNCEMENT_VARIABLE_TIME_LEFT","CHIME","KNOCK"
             break
         }
 
@@ -217,6 +227,7 @@ $ALXB_map = @{
     "EventType"=@("Get-ALXBDeviceEventList")
     "Format"=@("New-ALXBBusinessReportSchedule","Update-ALXBBusinessReportSchedule")
     "IPDialIn_CommsProtocol"=@("New-ALXBConferenceProvider","Update-ALXBConferenceProvider")
+    "MeetingRoomConfiguration_EndOfMeetingReminder_ReminderType"=@("New-ALXBProfile","Update-ALXBProfile")
     "MeetingSetting_RequirePin"=@("New-ALXBConferenceProvider","Update-ALXBConferenceProvider")
     "SecurityType"=@("New-ALXBNetworkProfile")
     "SkillType"=@("Get-ALXBSkillList")

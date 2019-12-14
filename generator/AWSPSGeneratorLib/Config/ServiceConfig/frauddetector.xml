@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>frauddetector</C2jFilename>
+    <AssemblyName>FraudDetector</AssemblyName>
+    <ServiceNounPrefix>FD</ServiceNounPrefix>
+    <ServiceName>Amazon Fraud Detector</ServiceName>
+    <ServiceClientInterface>IAmazonFraudDetector</ServiceClientInterface>
+    <ServiceClient>AmazonFraudDetectorClient</ServiceClient>
+    <ServiceModuleGuid>f2ed2778-97af-4b44-8f4c-b94561d2ce37</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchCreateVariable" OutputProperty="Errors" Verb="New" Noun="VariableBatch" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetVariable" OutputProperty="*" Verb="Get" Noun="VariableBatch" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDetectorVersion" OutputProperty="*" Verb="New" Noun="DetectorVersion" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelVersion" OutputProperty="*" Verb="New" Noun="ModelVersion" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRule" OutputProperty="Rule" Verb="New" Noun="Rule" ShouldProcessTarget="RuleId" PipelineParameter="RuleId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVariable" Verb="New" Noun="Variable" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDetectorVersion" Verb="Remove" Noun="DetectorVersion" ShouldProcessTarget="DetectorVersionId" PipelineParameter="DetectorVersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEvent" Verb="Remove" Noun="Event" ShouldProcessTarget="EventId" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDetector" OutputProperty="DetectorVersionSummaries" Verb="Get" Noun="DetectorVersionList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModelVersions" OutputProperty="ModelVersionDetails" Verb="Get" Noun="ModelVersionList" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDetectors" OutputProperty="Detectors" Verb="Get" Noun="Detector" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDetectorVersion" OutputProperty="*" Verb="Get" Noun="DetectorVersion" PipelineParameter="DetectorVersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetExternalModels" OutputProperty="ExternalModels" Verb="Get" Noun="ExternalModel" PipelineParameter="ModelEndpoint" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetModels" OutputProperty="Models" Verb="Get" Noun="Model" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetModelVersion" OutputProperty="*" Verb="Get" Noun="ModelVersion" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOutcomes" OutputProperty="Outcomes" Verb="Get" Noun="Outcome" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPrediction" OutputProperty="*" Verb="Get" Noun="Prediction" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRules" OutputProperty="RuleDetails" Verb="Get" Noun="Rule" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVariables" OutputProperty="Variables" Verb="Get" Noun="Variable" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDetector" Verb="Write" Noun="Detector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutExternalModel" Verb="Write" Noun="ExternalModel" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="ModelSource" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutModel" Verb="Write" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutOutcome" Verb="Write" Noun="Outcome" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDetectorVersion" Verb="Update" Noun="DetectorVersion" ShouldProcessTarget="DetectorVersionId" PipelineParameter="DetectorVersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDetectorVersionMetadata" Verb="Update" Noun="DetectorVersionMetadata" ShouldProcessTarget="DetectorVersionId" PipelineParameter="DetectorVersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDetectorVersionStatus" Verb="Update" Noun="DetectorVersionStatus" ShouldProcessTarget="DetectorVersionId" PipelineParameter="DetectorVersionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateModelVersion" Verb="Update" Noun="ModelVersion" ShouldProcessTarget="ModelId" PipelineParameter="ModelVersionNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRuleMetadata" Verb="Update" Noun="RuleMetadata" ShouldProcessTarget="Rule_RuleId" PipelineParameter="Description" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRuleVersion" OutputProperty="Rule" Verb="Update" Noun="RuleVersion" ShouldProcessTarget="Rule_RuleVersion" PipelineParameter="Rule_RuleVersion" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVariable" Verb="Update" Noun="Variable" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

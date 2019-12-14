@@ -28,8 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Gets License Manager settings for a region. Exposes the configured S3 bucket, SNS
-    /// topic, etc., for inspection.
+    /// Gets the License Manager settings for the current Region.
     /// </summary>
     [Cmdlet("Get", "LICMServiceSetting")]
     [OutputType("Amazon.LicenseManager.Model.GetServiceSettingsResponse")]

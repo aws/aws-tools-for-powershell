@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
     /// You can use the <code>GetMetricData</code> API to retrieve as many as 100 different
-    /// metrics in a single request, with a total of as many as 100,800 datapoints. You can
+    /// metrics in a single request, with a total of as many as 100,800 data points. You can
     /// also optionally perform math expressions on the values of the returned statistics,
     /// to create new time series that represent new insights into your data. For example,
     /// using Lambda metrics, you could divide the Errors metric by the Invocations metric

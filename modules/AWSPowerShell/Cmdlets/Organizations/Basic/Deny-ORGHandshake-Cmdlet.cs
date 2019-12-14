@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// can't reactivate a declined request, but can reinitiate the process with a new handshake
     /// request.
     /// </para><para>
-    /// After you decline a handshake, it continues to appear in the results of relevant APIs
-    /// for only 30 days. After that, it's deleted.
+    /// After you decline a handshake, it continues to appear in the results of relevant API
+    /// operations for only 30 days. After that, it's deleted.
     /// </para>
     /// </summary>
     [Cmdlet("Deny", "ORGHandshake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>The unique identifier (ID) of the handshake that you want to decline. You can get
         /// the ID from the <a>ListHandshakesForAccount</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
-        /// requires "h-" followed by from 8 to 32 lower-case letters or digits.</para>
+        /// requires "h-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

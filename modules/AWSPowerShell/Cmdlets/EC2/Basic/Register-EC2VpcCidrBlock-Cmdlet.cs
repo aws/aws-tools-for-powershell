@@ -69,6 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CidrBlock { get; set; }
         #endregion
         
+        #region Parameter Ipv6CidrBlockNetworkBorderGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter
+        /// to limit the CiDR block to this location.</para><para> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use
+        /// this parameter.</para><para> You can have one IPv6 CIDR block association per network border group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
+        #endregion
+        
         #region Parameter VpcId
         /// <summary>
         /// <para>
@@ -149,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AmazonProvidedIpv6CidrBlock = this.AmazonProvidedIpv6CidrBlock;
             context.CidrBlock = this.CidrBlock;
+            context.Ipv6CidrBlockNetworkBorderGroup = this.Ipv6CidrBlockNetworkBorderGroup;
             context.VpcId = this.VpcId;
             #if MODULAR
             if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
@@ -179,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.CidrBlock != null)
             {
                 request.CidrBlock = cmdletContext.CidrBlock;
+            }
+            if (cmdletContext.Ipv6CidrBlockNetworkBorderGroup != null)
+            {
+                request.Ipv6CidrBlockNetworkBorderGroup = cmdletContext.Ipv6CidrBlockNetworkBorderGroup;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -247,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? AmazonProvidedIpv6CidrBlock { get; set; }
             public System.String CidrBlock { get; set; }
+            public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.AssociateVpcCidrBlockResponse, RegisterEC2VpcCidrBlockCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

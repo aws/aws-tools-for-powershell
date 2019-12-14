@@ -56,18 +56,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2FlowLogCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter DeliverLogsPermissionArn
         /// <summary>
         /// <para>
@@ -85,8 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Specifies the destination to which the flow log data is to be published. Flow log
         /// data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value
-        /// specified for this parameter depends on the value specified for <code>LogDestinationType</code>.</para><para>If LogDestinationType is not specified or <code>cloud-watch-logs</code>, specify the
-        /// Amazon Resource Name (ARN) of the CloudWatch Logs log group.</para><para>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket.
+        /// specified for this parameter depends on the value specified for <code>LogDestinationType</code>.</para><para>If <code>LogDestinationType</code> is not specified or <code>cloud-watch-logs</code>,
+        /// specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example,
+        /// to publish to a log group called <code>my-logs</code>, specify <code>arn:aws:logs:us-east-1:123456789012:log-group:my-logs</code>.
+        /// Alternatively, use <code>LogGroupName</code> instead.</para><para>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket.
         /// You can also specify a subfolder in the bucket. To specify a subfolder in the bucket,
         /// use the following ARN format: <code>bucket_ARN/subfolder_name/</code>. For example,
         /// to specify a subfolder named <code>my-logs</code> in a bucket named <code>my-bucket</code>,
@@ -193,6 +183,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.EC2.TrafficType")]
         public Amazon.EC2.TrafficType TrafficType { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// to Ensure Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

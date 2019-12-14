@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-REKDetectedFacesToCollection', 
         'Compare-REKFace', 
         'Find-REKCelebrity', 
+        'Find-REKCustomLabel', 
         'Find-REKFace', 
         'Find-REKLabel', 
         'Find-REKModerationLabel', 
@@ -103,9 +104,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-REKFaceSearch', 
         'Get-REKLabelDetection', 
         'Get-REKPersonTracking', 
+        'Get-REKProject', 
+        'Get-REKProjectVersion', 
         'Get-REKStreamProcessor', 
         'Get-REKStreamProcessorList', 
         'New-REKCollection', 
+        'New-REKProject', 
+        'New-REKProjectVersion', 
         'New-REKStreamProcessor', 
         'Remove-REKCollection', 
         'Remove-REKFace', 
@@ -118,7 +123,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-REKFaceSearch', 
         'Start-REKLabelDetection', 
         'Start-REKPersonTracking', 
+        'Start-REKProjectVersion', 
         'Start-REKStreamProcessor', 
+        'Stop-REKProjectVersion', 
         'Stop-REKStreamProcessor')
 
     # Variables to export from this module

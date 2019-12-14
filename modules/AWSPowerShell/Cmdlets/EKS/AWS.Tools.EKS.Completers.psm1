@@ -150,13 +150,17 @@ $EKS_SelectCompleters = {
 
 $EKS_SelectMap = @{
     "Select"=@("New-EKSCluster",
+               "New-EKSFargateProfile",
                "New-EKSNodegroup",
                "Remove-EKSCluster",
+               "Remove-EKSFargateProfile",
                "Remove-EKSNodegroup",
                "Get-EKSCluster",
+               "Get-EKSFargateProfile",
                "Get-EKSNodegroup",
                "Get-EKSUpdate",
                "Get-EKSClusterList",
+               "Get-EKSFargateProfileList",
                "Get-EKSNodegroupList",
                "Get-EKSResourceTag",
                "Get-EKSUpdateList",

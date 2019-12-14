@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Replaces an existing route within a route table in a VPC. You must provide only one
-    /// of the following: internet gateway or virtual private gateway, NAT instance, NAT gateway,
-    /// VPC peering connection, network interface, or egress-only internet gateway.
+    /// of the following: internet gateway, virtual private gateway, NAT instance, NAT gateway,
+    /// VPC peering connection, network interface, egress-only internet gateway, or transit
+    /// gateway.
     /// 
     ///  
     /// <para>
@@ -98,6 +99,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter LocalGatewayId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the local gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LocalGatewayId { get; set; }
+        #endregion
+        
+        #region Parameter LocalTarget
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to reset the local route to its default target (<code>local</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LocalTarget { get; set; }
         #endregion
         
         #region Parameter NatGatewayId
@@ -222,6 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.EgressOnlyInternetGatewayId = this.EgressOnlyInternetGatewayId;
             context.GatewayId = this.GatewayId;
             context.InstanceId = this.InstanceId;
+            context.LocalGatewayId = this.LocalGatewayId;
+            context.LocalTarget = this.LocalTarget;
             context.NatGatewayId = this.NatGatewayId;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             context.RouteTableId = this.RouteTableId;
@@ -268,6 +291,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.LocalGatewayId != null)
+            {
+                request.LocalGatewayId = cmdletContext.LocalGatewayId;
+            }
+            if (cmdletContext.LocalTarget != null)
+            {
+                request.LocalTarget = cmdletContext.LocalTarget.Value;
             }
             if (cmdletContext.NatGatewayId != null)
             {
@@ -355,6 +386,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String EgressOnlyInternetGatewayId { get; set; }
             public System.String GatewayId { get; set; }
             public System.String InstanceId { get; set; }
+            public System.String LocalGatewayId { get; set; }
+            public System.Boolean? LocalTarget { get; set; }
             public System.String NatGatewayId { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.String RouteTableId { get; set; }

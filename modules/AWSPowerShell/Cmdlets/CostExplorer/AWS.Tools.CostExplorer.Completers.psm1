@@ -94,6 +94,16 @@ $CE_Completers = {
             break
         }
 
+        # Amazon.CostExplorer.CostCategoryRuleVersion
+        {
+            ($_ -eq "New-CECostCategoryDefinition/RuleVersion") -Or
+            ($_ -eq "Update-CECostCategoryDefinition/RuleVersion")
+        }
+        {
+            $v = "CostCategoryExpression.v1"
+            break
+        }
+
         # Amazon.CostExplorer.Dimension
         "Get-CEDimensionValue/Dimension"
         {
@@ -187,6 +197,7 @@ $CE_map = @{
     "LookbackPeriodInDays"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "Metric"=@("Get-CECostForecast","Get-CEUsageForecast")
     "PaymentOption"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
+    "RuleVersion"=@("New-CECostCategoryDefinition","Update-CECostCategoryDefinition")
     "SavingsPlansType"=@("Get-CESavingsPlansPurchaseRecommendation")
     "ServiceSpecification_EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
     "TermInYears"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
@@ -242,7 +253,10 @@ $CE_SelectCompleters = {
 }
 
 $CE_SelectMap = @{
-    "Select"=@("Get-CECostAndUsage",
+    "Select"=@("New-CECostCategoryDefinition",
+               "Remove-CECostCategoryDefinition",
+               "Get-CECostCategoryDefinition",
+               "Get-CECostAndUsage",
                "Get-CECostAndUsageWithResource",
                "Get-CECostForecast",
                "Get-CEDimensionValue",
@@ -255,7 +269,9 @@ $CE_SelectMap = @{
                "Get-CESavingsPlansUtilization",
                "Get-CESavingsPlansUtilizationDetail",
                "Get-CETag",
-               "Get-CEUsageForecast")
+               "Get-CEUsageForecast",
+               "Get-CECostCategoryDefinitionList",
+               "Update-CECostCategoryDefinition")
 }
 
 _awsArgumentCompleterRegistration $CE_SelectCompleters $CE_SelectMap

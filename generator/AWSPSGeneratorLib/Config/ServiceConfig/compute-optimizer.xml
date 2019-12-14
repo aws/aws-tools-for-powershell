@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>compute-optimizer</C2jFilename>
+    <AssemblyName>ComputeOptimizer</AssemblyName>
+    <ServiceNounPrefix>CO</ServiceNounPrefix>
+    <ServiceName>AWS Compute Optimizer</ServiceName>
+    <ServiceClientInterface>IAmazonComputeOptimizer</ServiceClientInterface>
+    <ServiceClient>AmazonComputeOptimizerClient</ServiceClient>
+    <ServiceModuleGuid>eecf537b-6007-4a79-9745-1405c2c2e9e0</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetAutoScalingGroupRecommendations" OutputProperty="AutoScalingGroupRecommendations" Verb="Get" Noun="AutoScalingGroupRecommendation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEC2InstanceRecommendations" OutputProperty="*" Verb="Get" Noun="EC2InstanceRecommendation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEC2RecommendationProjectedMetrics" OutputProperty="RecommendedOptionProjectedMetrics" Verb="Get" Noun="EC2RecommendationProjectedMetric" PipelineParameter="InstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnrollmentStatus" OutputProperty="*" Verb="Get" Noun="EnrollmentStatus" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommendationSummaries" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationSummary" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnrollmentStatus" OutputProperty="*" Verb="Update" Noun="EnrollmentStatus" ShouldProcessTarget="Status" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

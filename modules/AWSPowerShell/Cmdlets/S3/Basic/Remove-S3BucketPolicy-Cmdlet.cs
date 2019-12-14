@@ -28,17 +28,17 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// This implementation of the DELETE operation uses the policysubresource to delete the
-    /// policy of a specified bucket. If you are using an identity other than the root user
-    /// of the AWS account that owns the bucket, the calling identity must have the <code>DeleteBucketPolicy</code>
-    /// permissions on the specified bucket and belong to the bucket owner's account in order
-    /// to use this operation. 
+    /// This implementation of the DELETE operation uses the policy subresource to delete
+    /// the policy of a specified bucket. If you are using an identity other than the root
+    /// user of the AWS account that owns the bucket, the calling identity must have the <code>DeleteBucketPolicy</code>
+    /// permissions on the specified bucket and belong to the bucket owner's account to use
+    /// this operation. 
     /// 
     ///  
     /// <para>
     /// If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a
     /// <code>403 Access Denied</code> error. If you have the correct permissions, but you're
-    /// notusing an identity that belongs to the bucket owner's account, Amazon S3 returns
+    /// not using an identity that belongs to the bucket owner's account, Amazon S3 returns
     /// a <code>405 Method Not Allowed</code> error. 
     /// </para><important><para>
     /// As a security precaution, the root user of the AWS account that owns a bucket can

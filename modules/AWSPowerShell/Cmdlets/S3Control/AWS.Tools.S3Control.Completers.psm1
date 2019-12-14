@@ -233,11 +233,19 @@ $S3C_SelectCompleters = {
 }
 
 $S3C_SelectMap = @{
-    "Select"=@("New-S3CJob",
+    "Select"=@("New-S3CAccessPoint",
+               "New-S3CJob",
+               "Remove-S3CAccessPoint",
+               "Remove-S3CAccessPointPolicy",
                "Remove-S3CPublicAccessBlock",
                "Get-S3CJob",
+               "Get-S3CAccessPoint",
+               "Get-S3CAccessPointPolicy",
+               "Get-S3CAccessPointPolicyStatus",
                "Get-S3CPublicAccessBlock",
+               "Get-S3CAccessPointList",
                "Get-S3CJobList",
+               "Write-S3CAccessPointPolicy",
                "Add-S3CPublicAccessBlock",
                "Update-S3CJobPriority",
                "Update-S3CJobStatus")

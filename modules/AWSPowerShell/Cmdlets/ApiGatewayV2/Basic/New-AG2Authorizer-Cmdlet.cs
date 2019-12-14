@@ -56,12 +56,25 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.String ApiId { get; set; }
         #endregion
         
+        #region Parameter JwtConfiguration_Audience
+        /// <summary>
+        /// <para>
+        /// <para>A list of the intended recipients of the JWT. A valid JWT must provide an aud that
+        /// matches at least one entry in this list. See <a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">RFC
+        /// 7519</a>. Supported only for HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] JwtConfiguration_Audience { get; set; }
+        #endregion
+        
         #region Parameter AuthorizerCredentialsArn
         /// <summary>
         /// <para>
         /// <para>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
         /// To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name
-        /// (ARN). To use resource-based permissions on the Lambda function, specify null.</para>
+        /// (ARN). To use resource-based permissions on the Lambda function, specify null. Supported
+        /// only for REQUEST authorizers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,10 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter AuthorizerResultTtlInSecond
         /// <summary>
         /// <para>
-        /// <para>The time to live (TTL), in seconds, of cached authorizer results. If it equals 0,
-        /// authorization caching is disabled. If it is greater than 0, API Gateway will cache
-        /// authorizer responses. If this field is not set, the default value is 300. The maximum
-        /// value is 3600, or 1 hour.</para>
+        /// <para>Authorizer caching is not currently supported. Don't specify this value for authorizers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter AuthorizerType
         /// <summary>
         /// <para>
-        /// <para>The authorizer type. Currently the only valid value is REQUEST, for a Lambda function
-        /// using incoming request parameters.</para>
+        /// <para>The authorizer type. For WebSocket APIs, specify REQUEST for a Lambda function using
+        /// incoming request parameters. For HTTP APIs, specify JWT to use JSON Web Tokens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,38 +114,34 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <summary>
         /// <para>
         /// <para>The authorizer's Uniform Resource Identifier (URI). For REQUEST authorizers, this
-        /// must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:{account_id}:function:{lambda_function_name}/invocations.
-        /// In general, the URI has this form: arn:aws:apigateway:{region}:lambda:path/{service_api}
-        /// , where {region} is the same as the region hosting the Lambda function, path indicates
-        /// that the remaining substring in the URI should be treated as the path to the resource,
-        /// including the initial /. For Lambda functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations.</para>
+        /// must be a well-formed Lambda function URI, for example, arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:<replaceable>{account_id}</replaceable>:function:<replaceable>{lambda_function_name}</replaceable>/invocations.
+        /// In general, the URI has this form: arn:aws:apigateway:<replaceable>{region}</replaceable>:lambda:path/<replaceable>{service_api}</replaceable>
+        ///               , where <replaceable></replaceable>{region} is the same as the region
+        /// hosting the Lambda function, path indicates that the remaining substring in the URI
+        /// should be treated as the path to the resource, including the initial /. For Lambda
+        /// functions, this is usually of the form /2015-03-31/functions/[FunctionARN]/invocations.
+        /// Supported only for REQUEST authorizers.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AuthorizerUri { get; set; }
         #endregion
         
         #region Parameter IdentitySource
         /// <summary>
         /// <para>
-        /// <para>The identity source for which authorization is requested.</para><para>For the REQUEST authorizer, this is required when authorization caching is enabled.
-        /// The value is a comma-separated string of one or more mapping expressions of the specified
-        /// request parameters. For example, if an Auth header and a Name query string parameters
-        /// are defined as identity sources, this value is method.request.header.Auth, method.request.querystring.Name.
-        /// These parameters will be used to derive the authorization caching key and to perform
-        /// runtime validation of the REQUEST authorizer by verifying all of the identity-related
-        /// request parameters are present, not null, and non-empty. Only when this is true does
-        /// the authorizer invoke the authorizer Lambda function, otherwise, it returns a 401
-        /// Unauthorized response without calling the Lambda function. The valid value is a string
-        /// of comma-separated mapping expressions of the specified request parameters. When the
-        /// authorization caching is not enabled, this property is optional.</para>
+        /// <para>The identity source for which authorization is requested.</para><para>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping
+        /// expressions of the specified request parameters. Currently, the identity source can
+        /// be headers, query string parameters, stage variables, and context parameters. For
+        /// example, if an Auth header and a Name query string parameter are defined as identity
+        /// sources, this value is route.request.header.Auth, route.request.querystring.Name.
+        /// These parameters will be used to perform runtime validation for Lambda-based authorizers
+        /// by verifying all of the identity-related request parameters are present in the request,
+        /// not null, and non-empty. Only when this is true does the authorizer invoke the authorizer
+        /// Lambda function. Otherwise, it returns a 401 Unauthorized response without calling
+        /// the Lambda function.</para><para>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT )from
+        /// inbound requests. Currently only header-based and query parameter-based selections
+        /// are supported, for example "$request.header.Authorization".</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -152,11 +158,23 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter IdentityValidationExpression
         /// <summary>
         /// <para>
-        /// <para>The validation expression does not apply to the REQUEST authorizer.</para>
+        /// <para>This parameter is not used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdentityValidationExpression { get; set; }
+        #endregion
+        
+        #region Parameter JwtConfiguration_Issuer
+        /// <summary>
+        /// <para>
+        /// <para>The base domain of the identity provider that issues JSON Web Tokens. For example,
+        /// an Amazon Cognito user pool has the following format: https://cognito-idp.<replaceable>{region}</replaceable>.amazonaws.com/<replaceable>{userPoolId}</replaceable>
+        ///               . Required for the JWT authorizer type. Supported only for HTTP APIs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JwtConfiguration_Issuer { get; set; }
         #endregion
         
         #region Parameter Name
@@ -174,17 +192,6 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter ProviderArn
-        /// <summary>
-        /// <para>
-        /// <para>For REQUEST authorizer, this is not defined.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ProviderArns")]
-        public System.String[] ProviderArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -265,12 +272,6 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             }
             #endif
             context.AuthorizerUri = this.AuthorizerUri;
-            #if MODULAR
-            if (this.AuthorizerUri == null && ParameterWasBound(nameof(this.AuthorizerUri)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AuthorizerUri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.IdentitySource != null)
             {
                 context.IdentitySource = new List<System.String>(this.IdentitySource);
@@ -282,6 +283,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             }
             #endif
             context.IdentityValidationExpression = this.IdentityValidationExpression;
+            if (this.JwtConfiguration_Audience != null)
+            {
+                context.JwtConfiguration_Audience = new List<System.String>(this.JwtConfiguration_Audience);
+            }
+            context.JwtConfiguration_Issuer = this.JwtConfiguration_Issuer;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -289,10 +295,6 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ProviderArn != null)
-            {
-                context.ProviderArn = new List<System.String>(this.ProviderArn);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -337,13 +339,38 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             {
                 request.IdentityValidationExpression = cmdletContext.IdentityValidationExpression;
             }
+            
+             // populate JwtConfiguration
+            var requestJwtConfigurationIsNull = true;
+            request.JwtConfiguration = new Amazon.ApiGatewayV2.Model.JWTConfiguration();
+            List<System.String> requestJwtConfiguration_jwtConfiguration_Audience = null;
+            if (cmdletContext.JwtConfiguration_Audience != null)
+            {
+                requestJwtConfiguration_jwtConfiguration_Audience = cmdletContext.JwtConfiguration_Audience;
+            }
+            if (requestJwtConfiguration_jwtConfiguration_Audience != null)
+            {
+                request.JwtConfiguration.Audience = requestJwtConfiguration_jwtConfiguration_Audience;
+                requestJwtConfigurationIsNull = false;
+            }
+            System.String requestJwtConfiguration_jwtConfiguration_Issuer = null;
+            if (cmdletContext.JwtConfiguration_Issuer != null)
+            {
+                requestJwtConfiguration_jwtConfiguration_Issuer = cmdletContext.JwtConfiguration_Issuer;
+            }
+            if (requestJwtConfiguration_jwtConfiguration_Issuer != null)
+            {
+                request.JwtConfiguration.Issuer = requestJwtConfiguration_jwtConfiguration_Issuer;
+                requestJwtConfigurationIsNull = false;
+            }
+             // determine if request.JwtConfiguration should be set to null
+            if (requestJwtConfigurationIsNull)
+            {
+                request.JwtConfiguration = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.ProviderArn != null)
-            {
-                request.ProviderArns = cmdletContext.ProviderArn;
             }
             
             CmdletOutput output;
@@ -413,8 +440,9 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public System.String AuthorizerUri { get; set; }
             public List<System.String> IdentitySource { get; set; }
             public System.String IdentityValidationExpression { get; set; }
+            public List<System.String> JwtConfiguration_Audience { get; set; }
+            public System.String JwtConfiguration_Issuer { get; set; }
             public System.String Name { get; set; }
-            public List<System.String> ProviderArn { get; set; }
             public System.Func<Amazon.ApiGatewayV2.Model.CreateAuthorizerResponse, NewAG2AuthorizerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

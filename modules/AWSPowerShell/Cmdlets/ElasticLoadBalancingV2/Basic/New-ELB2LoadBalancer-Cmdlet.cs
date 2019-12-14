@@ -131,7 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// You must specify either subnets or subnet mappings.</para><para>[Application Load Balancers] You must specify subnets from at least two Availability
         /// Zones. You cannot specify Elastic IP addresses for your subnets.</para><para>[Network Load Balancers] You can specify subnets from one or more Availability Zones.
         /// You can specify one Elastic IP address per subnet if you need static IP addresses
-        /// for your load balancer.</para>
+        /// for your internet-facing load balancer. For internal load balancers, you can specify
+        /// one private IP address per subnet from the IPv4 range of the subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

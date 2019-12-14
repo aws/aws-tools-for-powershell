@@ -104,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ORGAccountList', 
         'Get-ORGAWSServiceAccessForOrganization', 
         'Get-ORGChild', 
+        'Get-ORGEffectivePolicy', 
         'Get-ORGHandshake', 
         'Get-ORGOrganization', 
         'Get-ORGOrganizationalUnit', 

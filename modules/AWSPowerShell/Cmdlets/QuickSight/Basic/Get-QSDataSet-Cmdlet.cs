@@ -28,12 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes a dataset. 
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight describe-data-set \</code></para><para><code>--aws-account-id=111111111111 \</code></para><para><code>--data-set-id=unique-data-set-id</code></para>
+    /// Describes a dataset.
     /// </summary>
     [Cmdlet("Get", "QSDataSet")]
     [OutputType("Amazon.QuickSight.Model.DataSet")]
@@ -48,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS Account ID.</para>
+        /// <para>The AWS account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSetId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dataset you want to create. This is unique per region per AWS account.</para>
+        /// <para>The ID for the dataset that you want to create. This ID is unique per AWS Region for
+        /// each AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

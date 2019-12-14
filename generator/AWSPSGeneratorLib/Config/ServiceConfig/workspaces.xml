@@ -174,13 +174,13 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartWorkspaces" OutputProperty="FailedRequests" Verb="Start" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StartWorkspaceRequests" NoPipelineParameter="true" DefaultParameterSet="IdFromRequestObject">
+        <ServiceOperation MethodName="StartWorkspaces" OutputProperty="FailedRequests" Verb="Start" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StartWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
             <Params>
                 <Param Name="StartWorkspaceRequests" NewName="Request" Alias="StartWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopWorkspaces" OutputProperty="FailedRequests" Verb="Stop" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StopWorkspaceRequests" NoPipelineParameter="true" DefaultParameterSet="IdFromRequestObject">
+        <ServiceOperation MethodName="StopWorkspaces" OutputProperty="FailedRequests" Verb="Stop" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StopWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
             <Params>
                 <Param Name="StopWorkspaceRequests" NewName="Request" Alias="StopWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>

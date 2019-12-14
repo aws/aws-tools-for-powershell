@@ -52,17 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public System.Boolean? AllowExternalPrincipal { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -78,6 +67,19 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter PermissionArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARNs of the permissions to associate with the resource share. If you do not specify
+        /// an ARN for the permission, AWS RAM automatically attaches the default version of the
+        /// permission for each resource type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PermissionArns")]
+        public System.String[] PermissionArn { get; set; }
         #endregion
         
         #region Parameter Principal
@@ -112,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.RAM.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -184,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PermissionArn != null)
+            {
+                context.PermissionArn = new List<System.String>(this.PermissionArn);
+            }
             if (this.Principal != null)
             {
                 context.Principal = new List<System.String>(this.Principal);
@@ -223,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PermissionArn != null)
+            {
+                request.PermissionArns = cmdletContext.PermissionArn;
             }
             if (cmdletContext.Principal != null)
             {
@@ -300,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
             public System.Boolean? AllowExternalPrincipal { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> PermissionArn { get; set; }
             public List<System.String> Principal { get; set; }
             public List<System.String> ResourceArn { get; set; }
             public List<Amazon.RAM.Model.Tag> Tag { get; set; }

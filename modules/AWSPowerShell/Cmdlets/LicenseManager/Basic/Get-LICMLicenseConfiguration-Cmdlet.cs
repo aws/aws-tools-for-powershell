@@ -28,7 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Returns a detailed description of a license configuration.
+    /// Gets detailed information about the specified license configuration.
     /// </summary>
     [Cmdlet("Get", "LICMLicenseConfiguration")]
     [OutputType("Amazon.LicenseManager.Model.GetLicenseConfigurationResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the license configuration being requested.</para>
+        /// <para>Amazon Resource Name (ARN) of the license configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

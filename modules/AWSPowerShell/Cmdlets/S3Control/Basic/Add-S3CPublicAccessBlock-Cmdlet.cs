@@ -28,7 +28,8 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    
+    /// Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon
+    /// Web Services account.
     /// </summary>
     [Cmdlet("Add", "S3CPublicAccessBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code>
+        /// configuration you want to set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter PublicAccessBlockConfiguration_BlockPublicAcl
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets
+        /// in this account. Setting this element to <code>TRUE</code> causes the following behavior:</para><ul><li><para>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.</para></li><li><para>PUT Object calls fail if the request includes a public ACL.</para></li><li><para>PUT Bucket calls fail if the request includes a public ACL.</para></li></ul><para>Enabling this setting doesn't affect existing policies or ACLs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter PublicAccessBlockConfiguration_BlockPublicPolicy
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether Amazon S3 should block public bucket policies for buckets in this
+        /// account. Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls
+        /// to PUT Bucket policy if the specified bucket policy allows public access. </para><para>Enabling this setting doesn't affect existing bucket policies.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter PublicAccessBlockConfiguration_IgnorePublicAcl
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account.
+        /// Setting this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs
+        /// on buckets in this account and any objects that they contain. </para><para>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't
+        /// prevent new public ACLs from being set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +100,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter PublicAccessBlockConfiguration_RestrictPublicBucket
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether Amazon S3 should restrict public bucket policies for buckets in
+        /// this account. Setting this element to <code>TRUE</code> restricts access to buckets
+        /// with public policies to only AWS services and authorized users within this account.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
+        /// public and cross-account access within any public bucket policy, including non-public
+        /// delegation to specific accounts, is blocked.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

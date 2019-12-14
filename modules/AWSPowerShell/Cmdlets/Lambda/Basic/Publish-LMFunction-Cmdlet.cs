@@ -36,6 +36,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// 
     ///  
     /// <para>
+    /// When you create a function, Lambda provisions an instance of the function and its
+    /// supporting resources. If your function connects to a VPC, this process can take a
+    /// minute or so. During this time, you can't invoke or modify the function. The <code>State</code>,
+    /// <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response
+    /// from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke.
+    /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function
+    /// States</a>.
+    /// </para><para>
     /// A function has an unpublished version, and can have published versions and aliases.
     /// The unpublished version changes when you update your function's code and configuration.
     /// A published version is a snapshot of your function code and configuration that can't
@@ -55,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para><para>
     /// To invoke your function directly, use <a>Invoke</a>. To invoke your function in response
     /// to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>),
-    /// or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-functions.html">Invoking
+    /// or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking
     /// Functions</a>.
     /// </para>
     /// </summary>

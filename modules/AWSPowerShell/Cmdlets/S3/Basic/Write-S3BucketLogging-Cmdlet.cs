@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    /// The bucket owner is automatically granted FULL_CONTROL to all logs. You use the Grantee
-    /// request element to grant access to other people. The Permissions request element specifies
-    /// the kind of access the grantee has to the logs.
+    /// The bucket owner is automatically granted FULL_CONTROL to all logs. You use the <code>Grantee</code>
+    /// request element to grant access to other people. The <code>Permissions</code> request
+    /// element specifies the kind of access the grantee has to the logs.
     /// </para><para><b>Grantee Values</b></para><para>
     /// You can specify the person (grantee) to whom you're assigning access rights (using
     /// request elements) in the following ways:

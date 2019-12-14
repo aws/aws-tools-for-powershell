@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Creates a template alias for a template.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight create-template-alias --aws-account-id 111122223333 --template-id
-    /// 'reports_test_template' --alias-name PROD —version-number 1</code></para>
     /// </summary>
     [Cmdlet("New", "QSTemplateAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.TemplateAlias")]
@@ -49,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>The name you want to give the template's alias. Alias names can't begin with a <code>$</code>,
-        /// which is reserved by QuickSight. Alias names that start with ‘$’ sign are QuickSight
-        /// reserved naming and can't be deleted. </para>
+        /// <para>The name that you want to give to the template alias that you're creating. Don't start
+        /// the alias name with the <code>$</code> character. Alias names that start with <code>$</code>
+        /// are reserved by QuickSight. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template you are aliasing.</para>
+        /// <para>The ID of the AWS account that contains the template that you creating an alias for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

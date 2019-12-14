@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Cancels an on-going ingestion of data into SPICE.
+    /// Cancels an ongoing ingestion of data into SPICE.
     /// </summary>
     [Cmdlet("Stop", "QSIngestion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.CancelIngestionResponse")]

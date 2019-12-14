@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// After you delete key material, you can use <a>ImportKeyMaterial</a> to reimport the
     /// same key material into the CMK.
     /// </para><para>
-    /// The result of this operation varies with the key state of the CMK. For details, see
-    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+    /// The CMK that you use for this operation must be in a compatible key state. For details,
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
     /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
     /// Developer Guide</i>.
     /// </para>

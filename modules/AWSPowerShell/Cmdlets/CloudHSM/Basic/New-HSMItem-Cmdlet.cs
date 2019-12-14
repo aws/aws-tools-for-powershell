@@ -61,17 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     public partial class NewHSMItemCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A user-defined token to ensure idempotence. Subsequent calls to this operation with
-        /// the same token will be ignored.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter EniIp
         /// <summary>
         /// <para>
@@ -171,6 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SyslogIp { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A user-defined token to ensure idempotence. Subsequent calls to this operation with
+        /// the same token will be ignored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

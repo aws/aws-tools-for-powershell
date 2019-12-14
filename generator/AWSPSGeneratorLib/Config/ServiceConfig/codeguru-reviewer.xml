@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>codeguru-reviewer</C2jFilename>
+    <AssemblyName>CodeGuruReviewer</AssemblyName>
+    <ServiceNounPrefix>CGR</ServiceNounPrefix>
+    <ServiceName>Amazon CodeGuru Reviewer</ServiceName>
+    <ServiceClientInterface>IAmazonCodeGuruReviewer</ServiceClientInterface>
+    <ServiceClient>AmazonCodeGuruReviewerClient</ServiceClient>
+    <ServiceModuleGuid>342d4496-5881-417f-b7c9-1a4646d6cd65</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateRepository" OutputProperty="RepositoryAssociation" Verb="Register" Noun="Repository" ShouldProcessTarget="Repository_CodeCommit_Name" PipelineParameter="Repository_CodeCommit_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRepositoryAssociation" OutputProperty="RepositoryAssociation" Verb="Get" Noun="RepositoryAssociation" PipelineParameter="AssociationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateRepository" OutputProperty="RepositoryAssociation" Verb="Unregister" Noun="Repository" ShouldProcessTarget="AssociationArn" PipelineParameter="AssociationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRepositoryAssociations" OutputProperty="RepositoryAssociationSummaries" Verb="Get" Noun="RepositoryAssociationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>kinesis-video-signaling</C2jFilename>
+    <AssemblyName>KinesisVideoSignalingChannels</AssemblyName>
+    <ServiceNounPrefix>KVSC</ServiceNounPrefix>
+    <ServiceName>Amazon Kinesis Video Signaling Channels</ServiceName>
+    <ServiceClientInterface>IAmazonKinesisVideoSignalingChannels</ServiceClientInterface>
+    <ServiceClient>AmazonKinesisVideoSignalingChannelsClient</ServiceClient>
+    <ServiceModuleGuid>fcb6153c-1957-4c47-9faa-2bc9b838d46d</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetIceServerConfig" OutputProperty="IceServerList" Verb="Get" Noun="IceServerConfig" PipelineParameter="ChannelARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendAlexaOfferToMaster" OutputProperty="Answer" Verb="Send" Noun="AlexaOfferToMaster" ShouldProcessTarget="SenderClientId" PipelineParameter="MessagePayload" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

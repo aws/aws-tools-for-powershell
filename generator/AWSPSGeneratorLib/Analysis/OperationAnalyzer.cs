@@ -1056,6 +1056,10 @@ namespace AWSPowerShellGenerator.Analysis
         /// <param name="generator"></param>
         private void DeterminePipelineParameter(CmdletGenerator generator)
         {
+            if (CurrentOperation.NoPipelineParameter && !string.IsNullOrEmpty(CurrentOperation.PipelineParameter))
+            {
+                AnalysisError.NoPipelineParameterAndPipelineParameterSpecified(CurrentModel, CurrentOperation);
+            }
             if (!NonIterationParameters.Any() || CurrentOperation.NoPipelineParameter)
             {
                 return;
@@ -1065,27 +1069,30 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 if (!NonIterationParameters.Any(param => param.AnalyzedName == CurrentOperation.PipelineParameter))
                 {
-                    AnalysisError.InvalidPipelineConfiguration(CurrentModel, CurrentOperation,
-                        CurrentOperation.PipelineParameter, NonIterationParameters);
+                    AnalysisError.InvalidPipelineConfiguration(CurrentModel, CurrentOperation, CurrentOperation.PipelineParameter, NonIterationParameters);
                 }
             }
             else
             {
-                var candidateParameters = SelectPreferredCandidateParameters(NonIterationParameters);
-
                 string pipelineParam = null;
                 if (!string.IsNullOrEmpty(CurrentModel.PipelineParameter) && NonIterationParameters.Any(param => param.AnalyzedName == CurrentModel.PipelineParameter))
                 {
                     pipelineParam = CurrentModel.PipelineParameter;
                 }
-                else if (candidateParameters.Count == 1)
-                {
-                    pipelineParam = candidateParameters.First().AnalyzedName;
-                }
                 else
                 {
-                    AnalysisError.MissingPipelineConfiguration(CurrentModel, CurrentOperation, candidateParameters);
-                    return;
+                    var candidateParameters = SelectPreferredCandidateParameters(NonIterationParameters);
+                    switch (candidateParameters.Count)
+                    {
+                        case 0:
+                            return;
+                        case 1:
+                            pipelineParam = candidateParameters.First().AnalyzedName;
+                            break;
+                        default:
+                            AnalysisError.MissingPipelineConfiguration(CurrentModel, CurrentOperation, candidateParameters);
+                            return;
+                    }
                 }
 
                 if (CurrentOperation.IsAutoConfiguring)
@@ -1194,20 +1201,33 @@ namespace AWSPowerShellGenerator.Analysis
                 }
             }
 
-            if (targetParameter != null && !CurrentOperation.IsAutoConfiguring)
+            if (CurrentOperation.IsAutoConfiguring)
+            {
+                //Setting the value to string.Empty instead of null makes the attribute appear in the configuration file so that it is easy to fill the value in.
+                CurrentOperation.ShouldProcessTarget = targetParameter?.AnalyzedName ?? string.Empty;
+            }
+            else if (targetParameter != null)
             {
                 AnalysisError.OutdatedShouldProcessTargetConfiguration(CurrentModel, CurrentOperation, targetParameter?.AnalyzedName);
             }
-
-            //Setting the value to string.Empty instead of null makes the attribute appear in the configuration file so that it is easy to fill the value in.
-            CurrentOperation.ShouldProcessTarget = targetParameter?.AnalyzedName ?? string.Empty;
         }
 
         //If there are multiple candidates, try further restricting the list by only using required root parameters
 
         private List<SimplePropertyInfo> SelectPreferredCandidateParameters(IEnumerable<SimplePropertyInfo> parameters)
         {
-            var result = parameters.ToList();
+            var autoIterateSettings = AutoIterateSettings;
+            var result = parameters
+                //Excluding collections
+                .Where(param => param.PropertyType == typeof(string) ||
+                                !typeof(System.Collections.IEnumerable).IsAssignableFrom(param.PropertyType))
+                //Excluding metadata and deprecated properties
+                .Where(param => !(AllModels.MetadataParameterNames.Contains(param.AnalyzedName) ||
+                                 CurrentModel.MetadataPropertyNames.Contains(param.AnalyzedName) ||
+                                 param.IsDeprecated ||
+                                 (autoIterateSettings?.IsIterationParameter(param.AnalyzedName) ?? false)))
+                .ToList();
+
             if (result.Count > 1)
             {
                 var requiredParameters = result.Where(parameter => parameter.IsRecursivelyRequired).ToList();

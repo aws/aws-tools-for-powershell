@@ -28,14 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all the versions of the dashboards in the Quicksight subscription.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para>
-    /// aws quicksight list-template-versions —aws-account-id 111122223333 —template-id reports-test-template
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the versions of the dashboards in the QuickSight subscription.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSDashboardVersionList")]
     [OutputType("Amazon.QuickSight.Model.DashboardVersionSummary")]
@@ -50,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the dashboard you are listing.</para>
+        /// <para>The ID of the AWS account that contains the dashboard that you're listing versions
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

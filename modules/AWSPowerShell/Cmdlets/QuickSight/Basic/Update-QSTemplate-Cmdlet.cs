@@ -28,17 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates a template from an existing QuickSight analysis.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight update-template --aws-account-id 111122223333 --template-id
-    /// reports_test_template --data-set-references DataSetPlaceholder=reports,DataSetArn=arn:aws:quicksight:us-west-2:111122223333:dataset/c684a204-d134-4c53-a63c-451f72c60c28
-    /// DataSetPlaceholder=Elblogs,DataSetArn=arn:aws:quicksight:us-west-2:111122223333:dataset/15840b7d-b542-4491-937b-602416b367b3
-    /// —source-entity SourceAnalysis=’{Arn=arn:aws:quicksight:us-west-2:111122223333:analysis/c5731fe9-4708-4598-8f6d-cf2a70875b6d}</code></para><para>
-    /// You can also pass in a json file: <code>aws quicksight update-template —cli-input-json
-    /// file://create-template.json</code></para>
+    /// Updates a template from an existing Amazon QuickSight analysis or another template.
     /// </summary>
     [Cmdlet("Update", "QSTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateTemplateResponse")]
@@ -52,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SourceAnalysis_Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource name (ARN) of the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SourceTemplate_Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource name (ARN) of the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template you are updating.</para>
+        /// <para>The ID of the AWS account that contains the template that you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,10 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VersionDescription
         /// <summary>
         /// <para>
-        /// <para>A description of the current template version being created. This API created the
-        /// first version of the template. Every time UpdateTemplate is called a new version is
-        /// created. Each version of the template maintains a description of the version in the
-        /// VersionDescription field.</para>
+        /// <para>A description of the current template version that is being updated. Every time you
+        /// call <code>UpdateTemplate</code>, you create a new version of the template. Each version
+        /// of the template maintains a description of the version in the <code>VersionDescription</code>
+        /// field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

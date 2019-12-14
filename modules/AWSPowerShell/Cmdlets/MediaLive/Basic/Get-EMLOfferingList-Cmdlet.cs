@@ -71,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String Codec { get; set; }
         #endregion
         
+        #region Parameter Duration
+        /// <summary>
+        /// <para>
+        /// Filter by offering duration, e.g. '12'
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Duration { get; set; }
+        #endregion
+        
         #region Parameter MaximumBitrate
         /// <summary>
         /// <para>
@@ -96,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
         #region Parameter Resolution
         /// <summary>
         /// <para>
-        /// Filter by resolution, 'SD', 'HD', or 'UHD'
+        /// Filter by resolution, 'SD', 'HD', 'FHD', or
+        /// 'UHD'
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// <summary>
         /// <para>
         /// Filter by resource type, 'INPUT', 'OUTPUT',
-        /// or 'CHANNEL'
+        /// 'MULTIPLEX', or 'CHANNEL'
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.ChannelClass = this.ChannelClass;
             context.ChannelConfiguration = this.ChannelConfiguration;
             context.Codec = this.Codec;
+            context.Duration = this.Duration;
             context.MaximumBitrate = this.MaximumBitrate;
             context.MaximumFramerate = this.MaximumFramerate;
             context.MaxResult = this.MaxResult;
@@ -251,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Codec != null)
             {
                 request.Codec = cmdletContext.Codec;
+            }
+            if (cmdletContext.Duration != null)
+            {
+                request.Duration = cmdletContext.Duration;
             }
             if (cmdletContext.MaximumBitrate != null)
             {
@@ -346,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Codec != null)
             {
                 request.Codec = cmdletContext.Codec;
+            }
+            if (cmdletContext.Duration != null)
+            {
+                request.Duration = cmdletContext.Duration;
             }
             if (cmdletContext.MaximumBitrate != null)
             {
@@ -493,6 +513,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String ChannelClass { get; set; }
             public System.String ChannelConfiguration { get; set; }
             public System.String Codec { get; set; }
+            public System.String Duration { get; set; }
             public System.String MaximumBitrate { get; set; }
             public System.String MaximumFramerate { get; set; }
             public int? MaxResult { get; set; }

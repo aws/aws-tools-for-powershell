@@ -19,6 +19,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="DescribeReportCreation" OutputProperty="*" Verb="Get" Noun="ReportCreation" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComplianceSummary" OutputProperty="SummaryList" Verb="Get" Noun="ComplianceSummary" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetResources" OutputProperty="ResourceTagMappingList" Verb="Get" Noun="Resource" PipelineParameter="ResourceTypeFilters" NoPipelineParameter="false">
             <Params>
                 <Param Name="TagsPerPage" Alias="MaxItems" />
@@ -30,6 +38,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTagValues" OutputProperty="TagValues" Verb="Get" Noun="TagValue" PipelineParameter="Key" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartReportCreation" Verb="Start" Noun="ReportCreation" ShouldProcessTarget="S3Bucket" PipelineParameter="S3Bucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

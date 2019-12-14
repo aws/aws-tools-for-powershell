@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// operation has two primary use cases:
     /// 
     ///  <ul><li><para>
-    /// You can encrypt up to 4 kilobytes (4096 bytes) of arbitrary data such as an RSA key,
-    /// a database password, or other sensitive information.
+    /// You can encrypt small amounts of arbitrary data, such as a personal identifier or
+    /// database password, or other sensitive information. 
     /// </para></li><li><para>
     /// You can use the <code>Encrypt</code> operation to move encrypted data from one AWS
     /// region to another. In the first region, generate a data key and use the plaintext
@@ -41,15 +41,49 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// on same plaintext data key. Now, you can safely move the encrypted data and encrypted
     /// data key to the new region, and decrypt in the new region when necessary.
     /// </para></li></ul><para>
-    /// You don't need use this operation to encrypt a data key within a region. The <a>GenerateDataKey</a>
-    /// and <a>GenerateDataKeyWithoutPlaintext</a> operations return an encrypted data key.
+    /// You don't need to use the <code>Encrypt</code> operation to encrypt a data key. The
+    /// <a>GenerateDataKey</a> and <a>GenerateDataKeyPair</a> operations return a plaintext
+    /// data key and an encrypted copy of that data key.
     /// </para><para>
-    /// Also, you don't need to use this operation to encrypt data in your application. You
-    /// can use the plaintext and encrypted data keys that the <code>GenerateDataKey</code>
-    /// operation returns.
+    /// When you encrypt data, you must specify a symmetric or asymmetric CMK to use in the
+    /// encryption operation. The CMK must have a <code>KeyUsage</code> value of <code>ENCRYPT_DECRYPT.</code>
+    /// To find the <code>KeyUsage</code> of a CMK, use the <a>DescribeKey</a> operation.
+    /// 
     /// </para><para>
-    /// The result of this operation varies with the key state of the CMK. For details, see
-    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+    /// If you use a symmetric CMK, you can use an encryption context to add additional security
+    /// to your encryption operation. If you specify an <code>EncryptionContext</code> when
+    /// encrypting data, you must specify the same encryption context (a case-sensitive exact
+    /// match) when decrypting the data. Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+    /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.
+    /// </para><para>
+    /// If you specify an asymmetric CMK, you must also specify the encryption algorithm.
+    /// The algorithm must be compatible with the CMK type.
+    /// </para><important><para>
+    /// When you use an asymmetric CMK to encrypt or reencrypt data, be sure to record the
+    /// CMK and encryption algorithm that you choose. You will be required to provide the
+    /// same CMK and encryption algorithm when you decrypt the data. If the CMK and algorithm
+    /// do not match the values used to encrypt the data, the decrypt operation fails.
+    /// </para><para>
+    /// You are not required to supply the CMK ID and encryption algorithm when you decrypt
+    /// with symmetric CMKs because AWS KMS stores this information in the ciphertext blob.
+    /// AWS KMS cannot store metadata in ciphertext generated with asymmetric keys. The standard
+    /// format for asymmetric key ciphertext does not include configurable fields.
+    /// </para></important><para>
+    /// The maximum size of the data that you can encrypt varies with the type of CMK and
+    /// the encryption algorithm that you choose.
+    /// </para><ul><li><para>
+    /// Symmetric CMKs
+    /// </para><ul><li><para><code>SYMMETRIC_DEFAULT</code>: 4096 bytes
+    /// </para></li></ul></li><li><para><code>RSA_2048</code></para><ul><li><para><code>RSAES_OAEP_SHA_1</code>: 214 bytes
+    /// </para></li><li><para><code>RSAES_OAEP_SHA_256</code>: 190 bytes
+    /// </para></li></ul></li><li><para><code>RSA_3072</code></para><ul><li><para><code>RSAES_OAEP_SHA_1</code>: 342 bytes
+    /// </para></li><li><para><code>RSAES_OAEP_SHA_256</code>: 318 bytes
+    /// </para></li></ul></li><li><para><code>RSA_4096</code></para><ul><li><para><code>RSAES_OAEP_SHA_1</code>: 470 bytes
+    /// </para></li><li><para><code>RSAES_OAEP_SHA_256</code>: 446 bytes
+    /// </para></li></ul></li></ul><para>
+    /// The CMK that you use for this operation must be in a compatible key state. For details,
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
     /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
     /// Developer Guide</i>.
     /// </para><para>
@@ -66,13 +100,32 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     public partial class InvokeKMSEncryptCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter EncryptionAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the encryption algorithm that AWS KMS will use to encrypt the plaintext
+        /// message. The algorithm must be compatible with the CMK that you specify.</para><para>This parameter is required only for asymmetric CMKs. The default value, <code>SYMMETRIC_DEFAULT</code>,
+        /// is the algorithm used for symmetric CMKs. If you are using an asymmetric CMK, we recommend
+        /// RSAES_OAEP_SHA_256.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KeyManagementService.EncryptionAlgorithmSpec")]
+        public Amazon.KeyManagementService.EncryptionAlgorithmSpec EncryptionAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter EncryptionContext
         /// <summary>
         /// <para>
-        /// <para>Name-value pair that specifies the encryption context to be used for authenticated
-        /// encryption. If used here, the same value must be supplied to the <code>Decrypt</code>
-        /// API or decryption will fail. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-        /// Context</a>.</para>
+        /// <para>Specifies the encryption context that will be used to encrypt the data. An encryption
+        /// context is valid only for cryptographic operations with a symmetric CMK. The standard
+        /// asymmetric encryption algorithms that AWS KMS uses do not support an encryption context.
+        /// </para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents
+        /// additional authenticated data. When you use an encryption context to encrypt data,
+        /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
+        /// the data. An encryption context is optional when encrypting with a symmetric CMK,
+        /// but it is highly recommended.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+        /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,6 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.Select = (response, cmdlet) => this.KeyId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EncryptionAlgorithm = this.EncryptionAlgorithm;
             if (this.EncryptionContext != null)
             {
                 context.EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -236,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 // create request
                 var request = new Amazon.KeyManagementService.Model.EncryptRequest();
                 
+                if (cmdletContext.EncryptionAlgorithm != null)
+                {
+                    request.EncryptionAlgorithm = cmdletContext.EncryptionAlgorithm;
+                }
                 if (cmdletContext.EncryptionContext != null)
                 {
                     request.EncryptionContext = cmdletContext.EncryptionContext;
@@ -322,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.KeyManagementService.EncryptionAlgorithmSpec EncryptionAlgorithm { get; set; }
             public Dictionary<System.String, System.String> EncryptionContext { get; set; }
             public List<System.String> GrantToken { get; set; }
             public System.String KeyId { get; set; }

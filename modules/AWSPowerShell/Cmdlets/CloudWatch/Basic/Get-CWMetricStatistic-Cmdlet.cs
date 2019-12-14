@@ -112,7 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The time stamp that determines the last data point to return.</para><para>The value specified is exclusive; results include data points up to the specified
-        /// time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).</para>
+        /// time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for
+        /// example, 2016-10-10T23:00:00Z).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,7 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The time stamp that determines the first data point to return. Start times are evaluated
         /// relative to the time that CloudWatch receives the request.</para><para>The value specified is inclusive; results include data points with the specified time
-        /// stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
+        /// stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example,
+        /// 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
         /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is
@@ -261,7 +263,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// one of the two property is reflected in the value of both. EndTime is provided for
         /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
         /// wrong timestamp being passed to the service.</para><para>The time stamp that determines the last data point to return.</para><para>The value specified is exclusive; results include data points up to the specified
-        /// time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).</para>
+        /// time stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for
+        /// example, 2016-10-10T23:00:00Z).</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -280,7 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
         /// results in the wrong timestamp being passed to the service.</para><para>The time stamp that determines the first data point to return. Start times are evaluated
         /// relative to the time that CloudWatch receives the request.</para><para>The value specified is inclusive; results include data points with the specified time
-        /// stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
+        /// stamp. In a raw HTTP query, the time stamp must be in ISO 8601 UTC format (for example,
+        /// 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
         /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is

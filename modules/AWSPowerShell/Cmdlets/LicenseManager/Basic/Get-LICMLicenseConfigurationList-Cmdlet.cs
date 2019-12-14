@@ -28,8 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Lists license configuration objects for an account, each containing the name, description,
-    /// license type, and other license terms modeled from a license agreement.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the license configurations for your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LICMLicenseConfigurationList")]
     [OutputType("Amazon.LicenseManager.Model.LicenseConfiguration")]
@@ -44,7 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para>
+        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><code>licenseCountingType</code> - The dimension on which licenses are counted (vCPU).
+        /// Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license
+        /// enforcement is used. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>usagelimitExceeded</code> - A Boolean value that indicates whether the available
+        /// licenses have been exceeded. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>An array of ARNs for the calling account’s license configurations.</para>
+        /// <para>Amazon Resource Names (ARN) of the license configurations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in a single call. To retrieve the remaining results,
-        /// make another call with the returned <code>NextToken</code> value.</para>
+        /// <para>Maximum number of results to return in a single call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-ECSResourceTag', 
         'Get-ECSAccountSetting', 
         'Get-ECSAttributeList', 
+        'Get-ECSCapacityProvider', 
         'Get-ECSClusterDetail', 
         'Get-ECSClusterList', 
         'Get-ECSClusterService', 
@@ -102,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ECSTaskDetail', 
         'Get-ECSTaskList', 
         'Get-ECSTaskSet', 
+        'New-ECSCapacityProvider', 
         'New-ECSCluster', 
         'New-ECSService', 
         'New-ECSTask', 
@@ -126,7 +128,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-ECSTaskSet', 
         'Write-ECSAccountSetting', 
         'Write-ECSAccountSettingDefault', 
-        'Write-ECSAttribute')
+        'Write-ECSAttribute', 
+        'Write-ECSClusterCapacityProvider')
 
     # Variables to export from this module
     VariablesToExport = '*'

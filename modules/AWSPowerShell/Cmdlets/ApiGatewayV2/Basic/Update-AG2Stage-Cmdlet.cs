@@ -56,6 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.String ApiId { get; set; }
         #endregion
         
+        #region Parameter AutoDeploy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether updates to an API automatically trigger a new deployment. The default
+        /// value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoDeploy { get; set; }
+        #endregion
+        
         #region Parameter ClientCertificateId
         /// <summary>
         /// <para>
@@ -70,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <summary>
         /// <para>
         /// <para>Specifies whether (true) or not (false) data trace logging is enabled for this route.
-        /// This property affects the log entries pushed to Amazon CloudWatch Logs.</para>
+        /// This property affects the log entries pushed to Amazon CloudWatch Logs. Supported
+        /// only for WebSocket APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The deployment identifier for the API stage.</para>
+        /// <para>The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter DefaultRouteSettings_LoggingLevel
         /// <summary>
         /// <para>
-        /// <para>Specifies the logging level for this route: DEBUG, INFO, or WARN. This property affects
-        /// the log entries pushed to Amazon CloudWatch Logs.</para>
+        /// <para>Specifies the logging level for this route: INFO, ERROR, or OFF. This property affects
+        /// the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>The stage name.</para>
+        /// <para>The stage name. Stage names can only contain alphanumeric characters, hyphens, and
+        /// underscores. Maximum length is 128 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -171,7 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter StageVariable
         /// <summary>
         /// <para>
-        /// Amazon.ApiGatewayV2.Model.UpdateStageRequest.StageVariables
+        /// <para>A map that defines the stage variables for a Stage. Variable names can have alphanumeric
+        /// and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.
+        /// Supported only for WebSocket APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter DefaultRouteSettings_ThrottlingBurstLimit
         /// <summary>
         /// <para>
-        /// <para>Specifies the throttling burst limit.</para>
+        /// <para>Specifies the throttling burst limit. Supported only for WebSocket APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter DefaultRouteSettings_ThrottlingRateLimit
         /// <summary>
         /// <para>
-        /// <para>Specifies the throttling rate limit.</para>
+        /// <para>Specifies the throttling rate limit. Supported only for WebSocket APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AutoDeploy = this.AutoDeploy;
             context.ClientCertificateId = this.ClientCertificateId;
             context.DefaultRouteSettings_DataTraceEnabled = this.DefaultRouteSettings_DataTraceEnabled;
             context.DefaultRouteSettings_DetailedMetricsEnabled = this.DefaultRouteSettings_DetailedMetricsEnabled;
@@ -348,6 +364,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             if (cmdletContext.ApiId != null)
             {
                 request.ApiId = cmdletContext.ApiId;
+            }
+            if (cmdletContext.AutoDeploy != null)
+            {
+                request.AutoDeploy = cmdletContext.AutoDeploy.Value;
             }
             if (cmdletContext.ClientCertificateId != null)
             {
@@ -496,6 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public System.String AccessLogSettings_DestinationArn { get; set; }
             public System.String AccessLogSettings_Format { get; set; }
             public System.String ApiId { get; set; }
+            public System.Boolean? AutoDeploy { get; set; }
             public System.String ClientCertificateId { get; set; }
             public System.Boolean? DefaultRouteSettings_DataTraceEnabled { get; set; }
             public System.Boolean? DefaultRouteSettings_DetailedMetricsEnabled { get; set; }

@@ -28,7 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Returns the license configuration for a resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the license configurations for the specified resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LICMLicenseSpecificationsForResourceList")]
     [OutputType("Amazon.LicenseManager.Model.LicenseSpecification")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>ARN of an AMI or Amazon EC2 instance that has an associated license configuration.</para>
+        /// <para>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in a single call. To retrieve the remaining results,
-        /// make another call with the returned <code>NextToken</code> value.</para>
+        /// <para>Maximum number of results to return in a single call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

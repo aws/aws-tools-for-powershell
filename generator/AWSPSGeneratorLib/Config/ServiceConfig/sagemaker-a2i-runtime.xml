@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>sagemaker-a2i-runtime</C2jFilename>
+    <AssemblyName>AugmentedAIRuntime</AssemblyName>
+    <ServiceNounPrefix>A2IR</ServiceNounPrefix>
+    <ServiceName>Amazon Augmented AI (A2I) Runtime</ServiceName>
+    <ServiceClientInterface>IAmazonAugmentedAIRuntime</ServiceClientInterface>
+    <ServiceClient>AmazonAugmentedAIRuntimeClient</ServiceClient>
+    <ServiceModuleGuid>c58198f3-af29-491f-bf99-f9979e4489fa</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteHumanLoop" Verb="Remove" Noun="HumanLoop" ShouldProcessTarget="HumanLoopName" PipelineParameter="HumanLoopName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHumanLoop" OutputProperty="*" Verb="Get" Noun="HumanLoop" PipelineParameter="HumanLoopName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHumanLoops" OutputProperty="HumanLoopSummaries" Verb="Get" Noun="HumanLoopList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartHumanLoop" OutputProperty="*" Verb="Start" Noun="HumanLoop" ShouldProcessTarget="HumanLoopName" PipelineParameter="HumanLoopName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopHumanLoop" Verb="Stop" Noun="HumanLoop" ShouldProcessTarget="HumanLoopName" PipelineParameter="HumanLoopName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

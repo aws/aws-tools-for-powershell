@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     /// </para></li><li><para><code>StoppingCondition</code> - To help cap training costs, use <code>MaxRuntimeInSeconds</code>
     /// to set a time limit for training. Use <code>MaxWaitTimeInSeconds</code> to specify
-    /// how long you are willing to to wait for a managed spot training job to complete. 
+    /// how long you are willing to wait for a managed spot training job to complete. 
     /// </para></li></ul><para>
     ///  For more information about Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
     /// It Works</a>. 
@@ -96,6 +96,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.SageMaker.Model.AlgorithmSpecification AlgorithmSpecification { get; set; }
+        #endregion
+        
+        #region Parameter DebugHookConfig_CollectionConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Configuration information for tensor collections.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DebugHookConfig_CollectionConfigurations")]
+        public Amazon.SageMaker.Model.CollectionConfiguration[] DebugHookConfig_CollectionConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter DebugRuleConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Configuration information for debugging rules.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DebugRuleConfigurations")]
+        public Amazon.SageMaker.Model.DebugRuleConfiguration[] DebugRuleConfiguration { get; set; }
         #endregion
         
         #region Parameter EnableInterContainerTrafficEncryption
@@ -143,6 +165,27 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? EnableNetworkIsolation { get; set; }
         #endregion
         
+        #region Parameter ExperimentConfig_ExperimentName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the experiment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExperimentConfig_ExperimentName { get; set; }
+        #endregion
+        
+        #region Parameter DebugHookConfig_HookParameter
+        /// <summary>
+        /// <para>
+        /// <para>Configuration information for the debug hook parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DebugHookConfig_HookParameters")]
+        public System.Collections.Hashtable DebugHookConfig_HookParameter { get; set; }
+        #endregion
+        
         #region Parameter HyperParameter
         /// <summary>
         /// <para>
@@ -186,6 +229,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CheckpointConfig_LocalPath { get; set; }
+        #endregion
+        
+        #region Parameter DebugHookConfig_LocalPath
+        /// <summary>
+        /// <para>
+        /// <para>Path to local storage location for tensors. Defaults to <code>/opt/ml/output/tensors/</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DebugHookConfig_LocalPath { get; set; }
+        #endregion
+        
+        #region Parameter TensorBoardOutputConfig_LocalPath
+        /// <summary>
+        /// <para>
+        /// <para>Path to local storage location for tensorBoard output. Defaults to <code>/opt/ml/output/tensorboard</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TensorBoardOutputConfig_LocalPath { get; set; }
         #endregion
         
         #region Parameter StoppingCondition_MaxRuntimeInSecond
@@ -277,6 +340,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter DebugHookConfig_S3OutputPath
+        /// <summary>
+        /// <para>
+        /// <para>Path to Amazon S3 storage location for tensors.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DebugHookConfig_S3OutputPath { get; set; }
+        #endregion
+        
+        #region Parameter TensorBoardOutputConfig_S3OutputPath
+        /// <summary>
+        /// <para>
+        /// <para>Path to Amazon S3 storage location for TensorBoard output.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TensorBoardOutputConfig_S3OutputPath { get; set; }
+        #endregion
+        
         #region Parameter CheckpointConfig_S3Uri
         /// <summary>
         /// <para>
@@ -343,6 +426,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TrainingJobName { get; set; }
+        #endregion
+        
+        #region Parameter ExperimentConfig_TrialComponentDisplayName
+        /// <summary>
+        /// <para>
+        /// <para>Display name for the trial component.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExperimentConfig_TrialComponentDisplayName { get; set; }
+        #endregion
+        
+        #region Parameter ExperimentConfig_TrialName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the trial.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExperimentConfig_TrialName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -415,9 +518,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #endif
             context.CheckpointConfig_LocalPath = this.CheckpointConfig_LocalPath;
             context.CheckpointConfig_S3Uri = this.CheckpointConfig_S3Uri;
+            if (this.DebugHookConfig_CollectionConfiguration != null)
+            {
+                context.DebugHookConfig_CollectionConfiguration = new List<Amazon.SageMaker.Model.CollectionConfiguration>(this.DebugHookConfig_CollectionConfiguration);
+            }
+            if (this.DebugHookConfig_HookParameter != null)
+            {
+                context.DebugHookConfig_HookParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DebugHookConfig_HookParameter.Keys)
+                {
+                    context.DebugHookConfig_HookParameter.Add((String)hashKey, (String)(this.DebugHookConfig_HookParameter[hashKey]));
+                }
+            }
+            context.DebugHookConfig_LocalPath = this.DebugHookConfig_LocalPath;
+            context.DebugHookConfig_S3OutputPath = this.DebugHookConfig_S3OutputPath;
+            if (this.DebugRuleConfiguration != null)
+            {
+                context.DebugRuleConfiguration = new List<Amazon.SageMaker.Model.DebugRuleConfiguration>(this.DebugRuleConfiguration);
+            }
             context.EnableInterContainerTrafficEncryption = this.EnableInterContainerTrafficEncryption;
             context.EnableManagedSpotTraining = this.EnableManagedSpotTraining;
             context.EnableNetworkIsolation = this.EnableNetworkIsolation;
+            context.ExperimentConfig_ExperimentName = this.ExperimentConfig_ExperimentName;
+            context.ExperimentConfig_TrialComponentDisplayName = this.ExperimentConfig_TrialComponentDisplayName;
+            context.ExperimentConfig_TrialName = this.ExperimentConfig_TrialName;
             if (this.HyperParameter != null)
             {
                 context.HyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -457,6 +581,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            context.TensorBoardOutputConfig_LocalPath = this.TensorBoardOutputConfig_LocalPath;
+            context.TensorBoardOutputConfig_S3OutputPath = this.TensorBoardOutputConfig_S3OutputPath;
             context.TrainingJobName = this.TrainingJobName;
             #if MODULAR
             if (this.TrainingJobName == null && ParameterWasBound(nameof(this.TrainingJobName)))
@@ -521,6 +647,59 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.CheckpointConfig = null;
             }
+            
+             // populate DebugHookConfig
+            var requestDebugHookConfigIsNull = true;
+            request.DebugHookConfig = new Amazon.SageMaker.Model.DebugHookConfig();
+            List<Amazon.SageMaker.Model.CollectionConfiguration> requestDebugHookConfig_debugHookConfig_CollectionConfiguration = null;
+            if (cmdletContext.DebugHookConfig_CollectionConfiguration != null)
+            {
+                requestDebugHookConfig_debugHookConfig_CollectionConfiguration = cmdletContext.DebugHookConfig_CollectionConfiguration;
+            }
+            if (requestDebugHookConfig_debugHookConfig_CollectionConfiguration != null)
+            {
+                request.DebugHookConfig.CollectionConfigurations = requestDebugHookConfig_debugHookConfig_CollectionConfiguration;
+                requestDebugHookConfigIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestDebugHookConfig_debugHookConfig_HookParameter = null;
+            if (cmdletContext.DebugHookConfig_HookParameter != null)
+            {
+                requestDebugHookConfig_debugHookConfig_HookParameter = cmdletContext.DebugHookConfig_HookParameter;
+            }
+            if (requestDebugHookConfig_debugHookConfig_HookParameter != null)
+            {
+                request.DebugHookConfig.HookParameters = requestDebugHookConfig_debugHookConfig_HookParameter;
+                requestDebugHookConfigIsNull = false;
+            }
+            System.String requestDebugHookConfig_debugHookConfig_LocalPath = null;
+            if (cmdletContext.DebugHookConfig_LocalPath != null)
+            {
+                requestDebugHookConfig_debugHookConfig_LocalPath = cmdletContext.DebugHookConfig_LocalPath;
+            }
+            if (requestDebugHookConfig_debugHookConfig_LocalPath != null)
+            {
+                request.DebugHookConfig.LocalPath = requestDebugHookConfig_debugHookConfig_LocalPath;
+                requestDebugHookConfigIsNull = false;
+            }
+            System.String requestDebugHookConfig_debugHookConfig_S3OutputPath = null;
+            if (cmdletContext.DebugHookConfig_S3OutputPath != null)
+            {
+                requestDebugHookConfig_debugHookConfig_S3OutputPath = cmdletContext.DebugHookConfig_S3OutputPath;
+            }
+            if (requestDebugHookConfig_debugHookConfig_S3OutputPath != null)
+            {
+                request.DebugHookConfig.S3OutputPath = requestDebugHookConfig_debugHookConfig_S3OutputPath;
+                requestDebugHookConfigIsNull = false;
+            }
+             // determine if request.DebugHookConfig should be set to null
+            if (requestDebugHookConfigIsNull)
+            {
+                request.DebugHookConfig = null;
+            }
+            if (cmdletContext.DebugRuleConfiguration != null)
+            {
+                request.DebugRuleConfigurations = cmdletContext.DebugRuleConfiguration;
+            }
             if (cmdletContext.EnableInterContainerTrafficEncryption != null)
             {
                 request.EnableInterContainerTrafficEncryption = cmdletContext.EnableInterContainerTrafficEncryption.Value;
@@ -532,6 +711,45 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.EnableNetworkIsolation != null)
             {
                 request.EnableNetworkIsolation = cmdletContext.EnableNetworkIsolation.Value;
+            }
+            
+             // populate ExperimentConfig
+            var requestExperimentConfigIsNull = true;
+            request.ExperimentConfig = new Amazon.SageMaker.Model.ExperimentConfig();
+            System.String requestExperimentConfig_experimentConfig_ExperimentName = null;
+            if (cmdletContext.ExperimentConfig_ExperimentName != null)
+            {
+                requestExperimentConfig_experimentConfig_ExperimentName = cmdletContext.ExperimentConfig_ExperimentName;
+            }
+            if (requestExperimentConfig_experimentConfig_ExperimentName != null)
+            {
+                request.ExperimentConfig.ExperimentName = requestExperimentConfig_experimentConfig_ExperimentName;
+                requestExperimentConfigIsNull = false;
+            }
+            System.String requestExperimentConfig_experimentConfig_TrialComponentDisplayName = null;
+            if (cmdletContext.ExperimentConfig_TrialComponentDisplayName != null)
+            {
+                requestExperimentConfig_experimentConfig_TrialComponentDisplayName = cmdletContext.ExperimentConfig_TrialComponentDisplayName;
+            }
+            if (requestExperimentConfig_experimentConfig_TrialComponentDisplayName != null)
+            {
+                request.ExperimentConfig.TrialComponentDisplayName = requestExperimentConfig_experimentConfig_TrialComponentDisplayName;
+                requestExperimentConfigIsNull = false;
+            }
+            System.String requestExperimentConfig_experimentConfig_TrialName = null;
+            if (cmdletContext.ExperimentConfig_TrialName != null)
+            {
+                requestExperimentConfig_experimentConfig_TrialName = cmdletContext.ExperimentConfig_TrialName;
+            }
+            if (requestExperimentConfig_experimentConfig_TrialName != null)
+            {
+                request.ExperimentConfig.TrialName = requestExperimentConfig_experimentConfig_TrialName;
+                requestExperimentConfigIsNull = false;
+            }
+             // determine if request.ExperimentConfig should be set to null
+            if (requestExperimentConfigIsNull)
+            {
+                request.ExperimentConfig = null;
             }
             if (cmdletContext.HyperParameter != null)
             {
@@ -585,6 +803,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate TensorBoardOutputConfig
+            var requestTensorBoardOutputConfigIsNull = true;
+            request.TensorBoardOutputConfig = new Amazon.SageMaker.Model.TensorBoardOutputConfig();
+            System.String requestTensorBoardOutputConfig_tensorBoardOutputConfig_LocalPath = null;
+            if (cmdletContext.TensorBoardOutputConfig_LocalPath != null)
+            {
+                requestTensorBoardOutputConfig_tensorBoardOutputConfig_LocalPath = cmdletContext.TensorBoardOutputConfig_LocalPath;
+            }
+            if (requestTensorBoardOutputConfig_tensorBoardOutputConfig_LocalPath != null)
+            {
+                request.TensorBoardOutputConfig.LocalPath = requestTensorBoardOutputConfig_tensorBoardOutputConfig_LocalPath;
+                requestTensorBoardOutputConfigIsNull = false;
+            }
+            System.String requestTensorBoardOutputConfig_tensorBoardOutputConfig_S3OutputPath = null;
+            if (cmdletContext.TensorBoardOutputConfig_S3OutputPath != null)
+            {
+                requestTensorBoardOutputConfig_tensorBoardOutputConfig_S3OutputPath = cmdletContext.TensorBoardOutputConfig_S3OutputPath;
+            }
+            if (requestTensorBoardOutputConfig_tensorBoardOutputConfig_S3OutputPath != null)
+            {
+                request.TensorBoardOutputConfig.S3OutputPath = requestTensorBoardOutputConfig_tensorBoardOutputConfig_S3OutputPath;
+                requestTensorBoardOutputConfigIsNull = false;
+            }
+             // determine if request.TensorBoardOutputConfig should be set to null
+            if (requestTensorBoardOutputConfigIsNull)
+            {
+                request.TensorBoardOutputConfig = null;
             }
             if (cmdletContext.TrainingJobName != null)
             {
@@ -683,9 +930,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.Model.AlgorithmSpecification AlgorithmSpecification { get; set; }
             public System.String CheckpointConfig_LocalPath { get; set; }
             public System.String CheckpointConfig_S3Uri { get; set; }
+            public List<Amazon.SageMaker.Model.CollectionConfiguration> DebugHookConfig_CollectionConfiguration { get; set; }
+            public Dictionary<System.String, System.String> DebugHookConfig_HookParameter { get; set; }
+            public System.String DebugHookConfig_LocalPath { get; set; }
+            public System.String DebugHookConfig_S3OutputPath { get; set; }
+            public List<Amazon.SageMaker.Model.DebugRuleConfiguration> DebugRuleConfiguration { get; set; }
             public System.Boolean? EnableInterContainerTrafficEncryption { get; set; }
             public System.Boolean? EnableManagedSpotTraining { get; set; }
             public System.Boolean? EnableNetworkIsolation { get; set; }
+            public System.String ExperimentConfig_ExperimentName { get; set; }
+            public System.String ExperimentConfig_TrialComponentDisplayName { get; set; }
+            public System.String ExperimentConfig_TrialName { get; set; }
             public Dictionary<System.String, System.String> HyperParameter { get; set; }
             public List<Amazon.SageMaker.Model.Channel> InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig OutputDataConfig { get; set; }
@@ -694,6 +949,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public System.String TensorBoardOutputConfig_LocalPath { get; set; }
+            public System.String TensorBoardOutputConfig_S3OutputPath { get; set; }
             public System.String TrainingJobName { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }

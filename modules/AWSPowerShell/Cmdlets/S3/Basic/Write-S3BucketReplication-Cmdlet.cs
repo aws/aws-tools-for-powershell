@@ -68,26 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <code>Status</code>, <code>EncryptionConfiguration</code>, and <code>ReplicaKmsKeyID</code>.
     /// For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating
     /// Objects Created with SSE Using CMKs stored in AWS KMS</a>.
-    /// </para><para><code>PutBucketReplication</code> has the following special errors:
-    /// </para><ul><li><para>
-    /// Error code: <code>InvalidRequest</code></para><ul><li><para>
-    /// Description: If the &lt;Owner&gt; in &lt;AccessControlTranslation&gt; has a value,
-    /// the &lt;Account&gt; element must be specified.
-    /// </para></li><li><para>
-    /// HTTP 400
-    /// </para></li></ul></li><li><para>
-    /// Error code: <code>InvalidArgument</code></para><ul><li><para>
-    /// Description: The &lt;Account&gt; element is empty. It must contain a valid account
-    /// ID.
-    /// </para></li><li><para>
-    /// HTTP 400
-    /// </para></li></ul></li><li><para>
-    /// Error code: <code>InvalidArgument</code></para><ul><li><para>
-    /// Description: The AWS account specified in the &lt;Account&gt; element must match the
-    /// destination bucket owner.
-    /// </para></li><li><para>
-    /// HTTP 400
-    /// </para></li></ul></li></ul><para>
+    /// </para><para>
+    /// For information on <code>PutBucketReplication</code> errors, see <a>ReplicationErrorCodeList</a></para><para>
     /// The following operations are related to <code>PutBucketReplication</code>:
     /// </para><ul><li><para><a>GetBucketReplication</a></para></li><li><para><a>DeleteBucketReplication</a></para></li></ul>
     /// </summary>

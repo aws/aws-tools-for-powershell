@@ -29,6 +29,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateResourceSharePermission" OutputProperty="ReturnValue" Verb="Add" Noun="PermissionToResourceShare" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateResourceShare" OutputProperty="ResourceShare" Verb="New" Noun="ResourceShare" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -41,7 +45,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResourceSharePermission" OutputProperty="ReturnValue" Verb="Remove" Noun="PermissionFromResourceShare" ShouldProcessTarget="PermissionArn" PipelineParameter="PermissionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableSharingWithAwsOrganization" OutputProperty="ReturnValue" Verb="Enable" Noun="SharingWithAwsOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPermission" OutputProperty="Permission" Verb="Get" Noun="Permission" PipelineParameter="PermissionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -65,11 +77,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="ResourceType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPrincipals" OutputProperty="Principals" Verb="Get" Noun="PrincipalList" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceSharePermissions" OutputProperty="Permissions" Verb="Get" Noun="ResourceSharePermissionList" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PromoteResourceShareCreatedFromPolicy" OutputProperty="ReturnValue" Verb="Convert" Noun="PolicyBasedResourceShareToPromoted" ShouldProcessTarget="ResourceShareArn" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

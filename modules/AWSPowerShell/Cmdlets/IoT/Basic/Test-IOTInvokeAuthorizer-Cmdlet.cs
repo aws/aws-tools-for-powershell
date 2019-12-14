@@ -58,20 +58,66 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String AuthorizerName { get; set; }
         #endregion
         
+        #region Parameter MqttContext_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The value of the <code>clientId</code> key in an MQTT authorization request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MqttContext_ClientId { get; set; }
+        #endregion
+        
+        #region Parameter HttpContext_Header
+        /// <summary>
+        /// <para>
+        /// <para>The header keys and values in an HTTP authorization request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HttpContext_Headers")]
+        public System.Collections.Hashtable HttpContext_Header { get; set; }
+        #endregion
+        
+        #region Parameter MqttContext_Password
+        /// <summary>
+        /// <para>
+        /// <para>The value of the <code>password</code> key in an MQTT authorization request.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] MqttContext_Password { get; set; }
+        #endregion
+        
+        #region Parameter HttpContext_QueryString
+        /// <summary>
+        /// <para>
+        /// <para>The query string keys and values in an HTTP authorization request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HttpContext_QueryString { get; set; }
+        #endregion
+        
+        #region Parameter TlsContext_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>The value of the <code>serverName</code> key in a TLS authorization request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TlsContext_ServerName { get; set; }
+        #endregion
+        
         #region Parameter Token
         /// <summary>
         /// <para>
         /// <para>The token returned by your custom authentication service.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Token { get; set; }
         #endregion
         
@@ -82,15 +128,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// key.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TokenSignature { get; set; }
+        #endregion
+        
+        #region Parameter MqttContext_Username
+        /// <summary>
+        /// <para>
+        /// <para>The value of the <code>username</code> key in an MQTT authorization request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MqttContext_Username { get; set; }
         #endregion
         
         #region Parameter Select
@@ -145,20 +194,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter AuthorizerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.HttpContext_Header != null)
+            {
+                context.HttpContext_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.HttpContext_Header.Keys)
+                {
+                    context.HttpContext_Header.Add((String)hashKey, (String)(this.HttpContext_Header[hashKey]));
+                }
+            }
+            context.HttpContext_QueryString = this.HttpContext_QueryString;
+            context.MqttContext_ClientId = this.MqttContext_ClientId;
+            context.MqttContext_Password = this.MqttContext_Password;
+            context.MqttContext_Username = this.MqttContext_Username;
+            context.TlsContext_ServerName = this.TlsContext_ServerName;
             context.Token = this.Token;
-            #if MODULAR
-            if (this.Token == null && ParameterWasBound(nameof(this.Token)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Token which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TokenSignature = this.TokenSignature;
-            #if MODULAR
-            if (this.TokenSignature == null && ParameterWasBound(nameof(this.TokenSignature)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TokenSignature which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -171,44 +221,144 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.IoT.Model.TestInvokeAuthorizerRequest();
+            System.IO.MemoryStream _MqttContext_PasswordStream = null;
             
-            if (cmdletContext.AuthorizerName != null)
-            {
-                request.AuthorizerName = cmdletContext.AuthorizerName;
-            }
-            if (cmdletContext.Token != null)
-            {
-                request.Token = cmdletContext.Token;
-            }
-            if (cmdletContext.TokenSignature != null)
-            {
-                request.TokenSignature = cmdletContext.TokenSignature;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.IoT.Model.TestInvokeAuthorizerRequest();
+                
+                if (cmdletContext.AuthorizerName != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    request.AuthorizerName = cmdletContext.AuthorizerName;
+                }
+                
+                 // populate HttpContext
+                var requestHttpContextIsNull = true;
+                request.HttpContext = new Amazon.IoT.Model.HttpContext();
+                Dictionary<System.String, System.String> requestHttpContext_httpContext_Header = null;
+                if (cmdletContext.HttpContext_Header != null)
+                {
+                    requestHttpContext_httpContext_Header = cmdletContext.HttpContext_Header;
+                }
+                if (requestHttpContext_httpContext_Header != null)
+                {
+                    request.HttpContext.Headers = requestHttpContext_httpContext_Header;
+                    requestHttpContextIsNull = false;
+                }
+                System.String requestHttpContext_httpContext_QueryString = null;
+                if (cmdletContext.HttpContext_QueryString != null)
+                {
+                    requestHttpContext_httpContext_QueryString = cmdletContext.HttpContext_QueryString;
+                }
+                if (requestHttpContext_httpContext_QueryString != null)
+                {
+                    request.HttpContext.QueryString = requestHttpContext_httpContext_QueryString;
+                    requestHttpContextIsNull = false;
+                }
+                 // determine if request.HttpContext should be set to null
+                if (requestHttpContextIsNull)
+                {
+                    request.HttpContext = null;
+                }
+                
+                 // populate MqttContext
+                var requestMqttContextIsNull = true;
+                request.MqttContext = new Amazon.IoT.Model.MqttContext();
+                System.String requestMqttContext_mqttContext_ClientId = null;
+                if (cmdletContext.MqttContext_ClientId != null)
+                {
+                    requestMqttContext_mqttContext_ClientId = cmdletContext.MqttContext_ClientId;
+                }
+                if (requestMqttContext_mqttContext_ClientId != null)
+                {
+                    request.MqttContext.ClientId = requestMqttContext_mqttContext_ClientId;
+                    requestMqttContextIsNull = false;
+                }
+                System.IO.MemoryStream requestMqttContext_mqttContext_Password = null;
+                if (cmdletContext.MqttContext_Password != null)
+                {
+                    _MqttContext_PasswordStream = new System.IO.MemoryStream(cmdletContext.MqttContext_Password);
+                    requestMqttContext_mqttContext_Password = _MqttContext_PasswordStream;
+                }
+                if (requestMqttContext_mqttContext_Password != null)
+                {
+                    request.MqttContext.Password = requestMqttContext_mqttContext_Password;
+                    requestMqttContextIsNull = false;
+                }
+                System.String requestMqttContext_mqttContext_Username = null;
+                if (cmdletContext.MqttContext_Username != null)
+                {
+                    requestMqttContext_mqttContext_Username = cmdletContext.MqttContext_Username;
+                }
+                if (requestMqttContext_mqttContext_Username != null)
+                {
+                    request.MqttContext.Username = requestMqttContext_mqttContext_Username;
+                    requestMqttContextIsNull = false;
+                }
+                 // determine if request.MqttContext should be set to null
+                if (requestMqttContextIsNull)
+                {
+                    request.MqttContext = null;
+                }
+                
+                 // populate TlsContext
+                var requestTlsContextIsNull = true;
+                request.TlsContext = new Amazon.IoT.Model.TlsContext();
+                System.String requestTlsContext_tlsContext_ServerName = null;
+                if (cmdletContext.TlsContext_ServerName != null)
+                {
+                    requestTlsContext_tlsContext_ServerName = cmdletContext.TlsContext_ServerName;
+                }
+                if (requestTlsContext_tlsContext_ServerName != null)
+                {
+                    request.TlsContext.ServerName = requestTlsContext_tlsContext_ServerName;
+                    requestTlsContextIsNull = false;
+                }
+                 // determine if request.TlsContext should be set to null
+                if (requestTlsContextIsNull)
+                {
+                    request.TlsContext = null;
+                }
+                if (cmdletContext.Token != null)
+                {
+                    request.Token = cmdletContext.Token;
+                }
+                if (cmdletContext.TokenSignature != null)
+                {
+                    request.TokenSignature = cmdletContext.TokenSignature;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _MqttContext_PasswordStream != null)
+                {
+                    _MqttContext_PasswordStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -249,6 +399,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AuthorizerName { get; set; }
+            public Dictionary<System.String, System.String> HttpContext_Header { get; set; }
+            public System.String HttpContext_QueryString { get; set; }
+            public System.String MqttContext_ClientId { get; set; }
+            public byte[] MqttContext_Password { get; set; }
+            public System.String MqttContext_Username { get; set; }
+            public System.String TlsContext_ServerName { get; set; }
             public System.String Token { get; set; }
             public System.String TokenSignature { get; set; }
             public System.Func<Amazon.IoT.Model.TestInvokeAuthorizerResponse, TestIOTInvokeAuthorizerCmdlet, object> Select { get; set; } =

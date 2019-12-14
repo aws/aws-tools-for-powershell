@@ -37,6 +37,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInsightRules" OutputProperty="Failures" Verb="Remove" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAlarmHistory" OutputProperty="AlarmHistoryItems" Verb="Get" Noun="AlarmHistory" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false">
             <Params>
                 <Param Name="EndDateUtc" NewName="UtcEndDate" AutoApplyAlias="false" />
@@ -58,7 +62,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInsightRules" OutputProperty="InsightRules" Verb="Get" Noun="InsightRule" PipelineParameter="MaxResults" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableAlarmActions" Verb="Disable" Noun="AlarmAction" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableInsightRules" OutputProperty="Failures" Verb="Disable" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -66,7 +78,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="EnableInsightRules" OutputProperty="Failures" Verb="Enable" Noun="InsightRule" ShouldProcessTarget="RuleNames" PipelineParameter="RuleNames" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInsightRuleReport" OutputProperty="*" Verb="Get" Noun="InsightRuleReport" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -110,6 +130,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDashboard" OutputProperty="DashboardValidationMessages" Verb="Write" Noun="Dashboard" ShouldProcessTarget="DashboardName" PipelineParameter="DashboardBody" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutInsightRule" Verb="Write" Noun="InsightRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

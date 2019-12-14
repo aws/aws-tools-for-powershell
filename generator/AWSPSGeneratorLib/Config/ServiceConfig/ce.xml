@@ -19,6 +19,18 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateCostCategoryDefinition" OutputProperty="*" Verb="New" Noun="CostCategoryDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCostCategoryDefinition" OutputProperty="*" Verb="Remove" Noun="CostCategoryDefinition" ShouldProcessTarget="CostCategoryArn" PipelineParameter="CostCategoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCostCategoryDefinition" OutputProperty="CostCategory" Verb="Get" Noun="CostCategoryDefinition" PipelineParameter="CostCategoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCostAndUsage" OutputProperty="*" Verb="Get" Noun="CostAndUsage" PipelineParameter="TimePeriod" NoPipelineParameter="false" DisableLegacyPagination="true">
             <Params />
             <TypesNotToFlatten />
@@ -74,6 +86,15 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetUsageForecast" OutputProperty="*" Verb="Get" Noun="UsageForecast" PipelineParameter="Metric" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCostCategoryDefinitions" OutputProperty="CostCategoryReferences" Verb="Get" Noun="CostCategoryDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCostCategoryDefinition" OutputProperty="*" Verb="Update" Noun="CostCategoryDefinition" ShouldProcessTarget="CostCategoryArn" PipelineParameter="CostCategoryArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

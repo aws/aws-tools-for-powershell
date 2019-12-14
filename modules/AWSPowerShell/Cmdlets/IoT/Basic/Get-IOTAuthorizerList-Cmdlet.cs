@@ -40,16 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTAuthorizerListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter AscendingOrder
-        /// <summary>
-        /// <para>
-        /// <para>Return the list of authorizers in ascending alphabetical order.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? AscendingOrder { get; set; }
-        #endregion
-        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -59,6 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.IoT.AuthorizerStatus")]
         public Amazon.IoT.AuthorizerStatus Status { get; set; }
+        #endregion
+        
+        #region Parameter AscendingOrder
+        /// <summary>
+        /// <para>
+        /// <para>Return the list of authorizers in ascending alphabetical order.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AscendingOrder { get; set; }
         #endregion
         
         #region Parameter Marker

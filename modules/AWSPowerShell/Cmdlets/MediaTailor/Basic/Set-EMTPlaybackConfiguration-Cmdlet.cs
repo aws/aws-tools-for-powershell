@@ -52,6 +52,20 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String AdDecisionServerUrl { get; set; }
         #endregion
         
+        #region Parameter LivePreRollConfiguration_AdDecisionServerUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification
+        /// of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor
+        /// substitutes player-specific and session-specific parameters as needed when calling
+        /// the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum
+        /// length is 25,000 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
+        #endregion
+        
         #region Parameter CdnConfiguration
         /// <summary>
         /// <para>
@@ -71,6 +85,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter LivePreRollConfiguration_MaxDurationSecond
+        /// <summary>
+        /// <para>
+        /// The maximum allowed duration for the
+        /// pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this
+        /// duration, regardless of the total duration of ads that the ADS returns.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LivePreRollConfiguration_MaxDurationSeconds")]
+        public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }
         #endregion
         
         #region Parameter Name
@@ -196,6 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.AdDecisionServerUrl = this.AdDecisionServerUrl;
             context.CdnConfiguration = this.CdnConfiguration;
             context.DashConfiguration = this.DashConfiguration;
+            context.LivePreRollConfiguration_AdDecisionServerUrl = this.LivePreRollConfiguration_AdDecisionServerUrl;
+            context.LivePreRollConfiguration_MaxDurationSecond = this.LivePreRollConfiguration_MaxDurationSecond;
             context.Name = this.Name;
             context.SlateAdUrl = this.SlateAdUrl;
             if (this.Tag != null)
@@ -235,6 +264,35 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.DashConfiguration != null)
             {
                 request.DashConfiguration = cmdletContext.DashConfiguration;
+            }
+            
+             // populate LivePreRollConfiguration
+            var requestLivePreRollConfigurationIsNull = true;
+            request.LivePreRollConfiguration = new Amazon.MediaTailor.Model.LivePreRollConfiguration();
+            System.String requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerUrl = null;
+            if (cmdletContext.LivePreRollConfiguration_AdDecisionServerUrl != null)
+            {
+                requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerUrl = cmdletContext.LivePreRollConfiguration_AdDecisionServerUrl;
+            }
+            if (requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerUrl != null)
+            {
+                request.LivePreRollConfiguration.AdDecisionServerUrl = requestLivePreRollConfiguration_livePreRollConfiguration_AdDecisionServerUrl;
+                requestLivePreRollConfigurationIsNull = false;
+            }
+            System.Int32? requestLivePreRollConfiguration_livePreRollConfiguration_MaxDurationSecond = null;
+            if (cmdletContext.LivePreRollConfiguration_MaxDurationSecond != null)
+            {
+                requestLivePreRollConfiguration_livePreRollConfiguration_MaxDurationSecond = cmdletContext.LivePreRollConfiguration_MaxDurationSecond.Value;
+            }
+            if (requestLivePreRollConfiguration_livePreRollConfiguration_MaxDurationSecond != null)
+            {
+                request.LivePreRollConfiguration.MaxDurationSeconds = requestLivePreRollConfiguration_livePreRollConfiguration_MaxDurationSecond.Value;
+                requestLivePreRollConfigurationIsNull = false;
+            }
+             // determine if request.LivePreRollConfiguration should be set to null
+            if (requestLivePreRollConfigurationIsNull)
+            {
+                request.LivePreRollConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -320,6 +378,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.String AdDecisionServerUrl { get; set; }
             public Amazon.MediaTailor.Model.CdnConfiguration CdnConfiguration { get; set; }
             public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
+            public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
+            public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }
             public System.String Name { get; set; }
             public System.String SlateAdUrl { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

@@ -28,7 +28,7 @@ using Amazon.ApiGatewayV2.Model;
 namespace Amazon.PowerShell.Cmdlets.AG2
 {
     /// <summary>
-    /// Gets the Tags for an API.
+    /// Gets a collection of Tag resources.
     /// </summary>
     [Cmdlet("Get", "AG2Tag")]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The resource ARN for the tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

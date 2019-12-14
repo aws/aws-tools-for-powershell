@@ -87,10 +87,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-RGTResourceTag', 
+        'Get-RGTComplianceSummary', 
+        'Get-RGTReportCreation', 
         'Get-RGTResource', 
         'Get-RGTTagKey', 
         'Get-RGTTagValue', 
-        'Remove-RGTResourceTag')
+        'Remove-RGTResourceTag', 
+        'Start-RGTReportCreation')
 
     # Variables to export from this module
     VariablesToExport = '*'

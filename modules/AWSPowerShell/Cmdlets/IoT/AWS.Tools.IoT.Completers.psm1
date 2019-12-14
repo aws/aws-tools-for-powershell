@@ -193,6 +193,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.DomainConfigurationStatus
+        "Update-IOTDomainConfiguration/DomainConfigurationStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.IoT.DynamoKeyType
         {
             ($_ -eq "New-IOTTopicRule/TopicRulePayload_ErrorAction_DynamoDB_HashKeyType") -Or
@@ -287,6 +294,16 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.ServiceType
+        {
+            ($_ -eq "Get-IOTDomainConfigurationList/ServiceType") -Or
+            ($_ -eq "New-IOTDomainConfiguration/ServiceType")
+        }
+        {
+            $v = "CREDENTIAL_PROVIDER","DATA","JOBS"
+            break
+        }
+
         # Amazon.IoT.Status
         "Get-IOTThingRegistrationTaskList/Status"
         {
@@ -350,6 +367,7 @@ $IOT_map = @{
     "ActionType"=@("Get-IOTMitigationActionList")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
+    "DomainConfigurationStatus"=@("Update-IOTDomainConfiguration")
     "Frequency"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
     "LoggingOptionsPayload_LogLevel"=@("Set-IOTLoggingOption")
     "LogLevel"=@("Set-IOTV2LoggingLevel")
@@ -358,6 +376,7 @@ $IOT_map = @{
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
     "OtaUpdateStatus"=@("Get-IOTOTAUpdateList")
     "ReportType"=@("Get-IOTThingRegistrationTaskReportList")
+    "ServiceType"=@("Get-IOTDomainConfigurationList","New-IOTDomainConfiguration")
     "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
     "TargetSelection"=@("Get-IOTJobList","New-IOTJob","New-IOTOTAUpdate")
     "TargetType"=@("Get-IOTV2LoggingLevelList","Remove-IOTV2LoggingLevel")
@@ -440,6 +459,7 @@ $IOT_SelectMap = @{
                "New-IOTAuthorizer",
                "New-IOTBillingGroup",
                "New-IOTCertificateFromCsr",
+               "New-IOTDomainConfiguration",
                "New-IOTDynamicThingGroup",
                "New-IOTJob",
                "New-IOTKeysAndCertificate",
@@ -447,6 +467,9 @@ $IOT_SelectMap = @{
                "New-IOTOTAUpdate",
                "New-IOTPolicy",
                "New-IOTPolicyVersion",
+               "New-IOTProvisioningClaim",
+               "New-IOTProvisioningTemplate",
+               "New-IOTProvisioningTemplateVersion",
                "New-IOTRoleAlias",
                "New-IOTScheduledAudit",
                "New-IOTSecurityProfile",
@@ -461,6 +484,7 @@ $IOT_SelectMap = @{
                "Remove-IOTBillingGroup",
                "Remove-IOTCACertificate",
                "Remove-IOTCertificate",
+               "Remove-IOTDomainConfiguration",
                "Remove-IOTDynamicThingGroup",
                "Remove-IOTJob",
                "Remove-IOTJobExecution",
@@ -468,6 +492,8 @@ $IOT_SelectMap = @{
                "Remove-IOTOTAUpdate",
                "Remove-IOTPolicy",
                "Remove-IOTPolicyVersion",
+               "Remove-IOTProvisioningTemplate",
+               "Remove-IOTProvisioningTemplateVersion",
                "Remove-IOTRegistrationCode",
                "Remove-IOTRoleAlias",
                "Remove-IOTScheduledAudit",
@@ -489,12 +515,15 @@ $IOT_SelectMap = @{
                "Get-IOTCACertificate",
                "Get-IOTCertificate",
                "Get-IOTDefaultAuthorizer",
+               "Get-IOTDomainConfiguration",
                "Get-IOTEndpoint",
                "Get-IOTEventConfiguration",
                "Get-IOTIndex",
                "Get-IOTJob",
                "Get-IOTJobExecution",
                "Get-IOTMitigationAction",
+               "Get-IOTProvisioningTemplate",
+               "Get-IOTProvisioningTemplateVersion",
                "Get-IOTRoleAlias",
                "Get-IOTScheduledAudit",
                "Get-IOTSecurityProfile",
@@ -534,6 +563,7 @@ $IOT_SelectMap = @{
                "Get-IOTCACertificateList",
                "Get-IOTCertificateList",
                "Get-IOTCertificateListByCA",
+               "Get-IOTDomainConfigurationList",
                "Get-IOTIndexList",
                "Get-IOTJobExecutionsForJobList",
                "Get-IOTJobExecutionsForThingList",
@@ -546,6 +576,8 @@ $IOT_SelectMap = @{
                "Get-IOTPolicyVersionList",
                "Get-IOTPrincipalPolicyList",
                "Get-IOTPrincipalThingList",
+               "Get-IOTProvisioningTemplateList",
+               "Get-IOTProvisioningTemplateVersionList",
                "Get-IOTRoleAliasList",
                "Get-IOTScheduledAuditList",
                "Get-IOTSecurityProfileList",
@@ -594,11 +626,13 @@ $IOT_SelectMap = @{
                "Update-IOTBillingGroup",
                "Update-IOTCACertificate",
                "Update-IOTCertificate",
+               "Update-IOTDomainConfiguration",
                "Update-IOTDynamicThingGroup",
                "Update-IOTEventConfiguration",
                "Update-IOTIndexingConfiguration",
                "Update-IOTJob",
                "Update-IOTMitigationAction",
+               "Update-IOTProvisioningTemplate",
                "Update-IOTRoleAlias",
                "Update-IOTScheduledAudit",
                "Update-IOTSecurityProfile",

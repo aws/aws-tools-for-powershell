@@ -66,11 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// will not add the configuration to your bucket.
     /// </para></note><para><b>Responses</b></para><para>
     /// If the configuration in the request body includes only one <code>TopicConfiguration</code>
-    /// specifying only the <i>s3:ReducedRedundancyLostObject</i> event type, the response
-    /// will also include the <i>x-amz-sns-test-message-id</i> header containing the message
-    /// ID of the test notification sent to topic.
+    /// specifying only the <code>s3:ReducedRedundancyLostObject</code> event type, the response
+    /// will also include the <code>x-amz-sns-test-message-id</code> header containing the
+    /// message ID of the test notification sent to the topic.
     /// </para><para>
-    /// The following operations is related to <code>PutBucketNotificationConfiguration</code>:
+    /// The following operation is related to <code>PutBucketNotificationConfiguration</code>:
     /// </para><ul><li><para><a>GetBucketNotificationConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -28,7 +28,9 @@ using Amazon.AlexaForBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.ALXB
 {
     /// <summary>
-    /// Lists the details of the schedules that a user configured.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the details of the schedules that a user configured. A download URL of the report
+    /// associated with each schedule is returned every time this action is called. A new
+    /// download URL is returned each time, and is valid for 24 hours.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ALXBBusinessReportScheduleList")]
     [OutputType("Amazon.AlexaForBusiness.Model.BusinessReportSchedule")]

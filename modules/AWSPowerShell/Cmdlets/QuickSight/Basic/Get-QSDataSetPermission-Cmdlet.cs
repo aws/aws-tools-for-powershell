@@ -32,9 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// 
     ///  
     /// <para>
-    /// The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code></para><para>
-    /// CLI syntax: 
-    /// </para><para><code>aws quicksight describe-data-set-permissions \</code></para><para><code>--aws-account-id=111122223333 \</code></para><para><code>--data-set-id=unique-data-set-id \</code></para>
+    /// The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "QSDataSetPermission")]
     [OutputType("Amazon.QuickSight.Model.DescribeDataSetPermissionsResponse")]
@@ -48,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS Account ID.</para>
+        /// <para>The AWS account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSetId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dataset you want to create. This is unique per region per AWS account.</para>
+        /// <para>The ID for the dataset that you want to create. This ID is unique per AWS Region for
+        /// each AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

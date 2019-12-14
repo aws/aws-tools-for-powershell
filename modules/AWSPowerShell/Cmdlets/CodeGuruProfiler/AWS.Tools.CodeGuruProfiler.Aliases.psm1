@@ -1,0 +1,3 @@
+﻿# CodeGuruProfiler
+
+Export-ModuleMember -Alias *

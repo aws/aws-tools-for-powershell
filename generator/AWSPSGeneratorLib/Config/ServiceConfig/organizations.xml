@@ -75,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEffectivePolicy" OutputProperty="EffectivePolicy" Verb="Get" Noun="EffectivePolicy" PipelineParameter="PolicyType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeHandshake" OutputProperty="Handshake" Verb="Get" Noun="Handshake" PipelineParameter="HandshakeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

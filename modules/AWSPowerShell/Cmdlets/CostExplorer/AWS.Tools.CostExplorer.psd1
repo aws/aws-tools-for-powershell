@@ -88,6 +88,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Get-CECostAndUsage', 
         'Get-CECostAndUsageWithResource', 
+        'Get-CECostCategoryDefinition', 
+        'Get-CECostCategoryDefinitionList', 
         'Get-CECostForecast', 
         'Get-CEDimensionValue', 
         'Get-CEReservationCoverage', 
@@ -99,7 +101,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CESavingsPlansUtilization', 
         'Get-CESavingsPlansUtilizationDetail', 
         'Get-CETag', 
-        'Get-CEUsageForecast')
+        'Get-CEUsageForecast', 
+        'New-CECostCategoryDefinition', 
+        'Remove-CECostCategoryDefinition', 
+        'Update-CECostCategoryDefinition')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -34,16 +34,21 @@ namespace Amazon.PowerShell.Cmdlets.SMR
     /// 
     ///  
     /// <para>
-    /// For an overview of Amazon SageMaker, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
+    /// For an overview of Amazon SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
     /// It Works</a>. 
     /// </para><para>
     /// Amazon SageMaker strips all POST headers except those supported by the API. Amazon
     /// SageMaker might add additional headers. You should not rely on the behavior of headers
     /// outside those enumerated in the request syntax. 
     /// </para><para>
-    /// Cals to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version
+    /// Calls to <code>InvokeEndpoint</code> are authenticated by using AWS Signature Version
     /// 4. For information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">Authenticating
     /// Requests (AWS Signature Version 4)</a> in the <i>Amazon S3 API Reference</i>.
+    /// </para><para>
+    /// A customer's model containers must respond to requests within 60 seconds. The model
+    /// itself can have a maximum processing time of 60 seconds before responding to the /invocations.
+    /// If your model is going to take 50-60 seconds of processing time, the SDK socket timeout
+    /// should be set to be 70 seconds.
     /// </para><note><para>
     /// Endpoints are scoped to an individual account, and are not public. The URL does not
     /// contain the account ID, but Amazon SageMaker determines the account ID from the authentication
@@ -73,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// <summary>
         /// <para>
         /// <para>Provides input data, in the format specified in the <code>ContentType</code> request
-        /// header. Amazon SageMaker passes all of the data in the body to the model. </para><para>For information about the format of the request body, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common
+        /// header. Amazon SageMaker passes all of the data in the body to the model. </para><para>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common
         /// Data Formats—Inference</a>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -102,7 +107,15 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         #region Parameter CustomAttribute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Provides additional information about a request for an inference submitted to a model
+        /// hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
+        /// forwarded verbatim. You could use this value, for example, to provide an ID that you
+        /// can use to track a request or to provide other metadata that a service endpoint was
+        /// programmed to process. The value must consist of no more than 1024 visible US-ASCII
+        /// characters as specified in <a href="https://tools.ietf.org/html/rfc7230#section-3.2.6">Section
+        /// 3.3.6. Field Value Components</a> of the Hypertext Transfer Protocol (HTTP/1.1). This
+        /// feature is currently supported in the AWS SDKs but not in the Amazon SageMaker Python
+        /// SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// <summary>
         /// <para>
         /// <para>The name of the endpoint that you specified when you created the endpoint using the
-        /// <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
         /// API. </para>
         /// </para>
         /// </summary>
@@ -127,6 +140,17 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EndpointName { get; set; }
+        #endregion
+        
+        #region Parameter TargetModel
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the model to be requested for an inference when invoking a multi-model endpoint.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetModel { get; set; }
         #endregion
         
         #region Parameter Select
@@ -207,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TargetModel = this.TargetModel;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -247,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.EndpointName != null)
                 {
                     request.EndpointName = cmdletContext.EndpointName;
+                }
+                if (cmdletContext.TargetModel != null)
+                {
+                    request.TargetModel = cmdletContext.TargetModel;
                 }
                 
                 CmdletOutput output;
@@ -322,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String ContentType { get; set; }
             public System.String CustomAttribute { get; set; }
             public System.String EndpointName { get; set; }
+            public System.String TargetModel { get; set; }
             public System.Func<Amazon.SageMakerRuntime.Model.InvokeEndpointResponse, InvokeSMREndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

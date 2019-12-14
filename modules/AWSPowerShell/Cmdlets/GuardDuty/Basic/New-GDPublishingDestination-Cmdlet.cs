@@ -41,16 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
     public partial class NewGDPublishingDestinationCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>The idempotency token for the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter DestinationProperties_DestinationArn
         /// <summary>
         /// <para>
@@ -103,6 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DestinationProperties_KmsKeyArn { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>The idempotency token for the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

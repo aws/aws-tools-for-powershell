@@ -50,6 +50,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// parameter. You can use the <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon
     /// RDS console</a> or the <code>DescribeDBClusterParameters</code> action to verify that
     /// your DB cluster parameter group has been created or modified.
+    /// </para><para>
+    /// If the modified DB cluster parameter group is used by an Aurora Serverless cluster,
+    /// Aurora applies the update immediately. The cluster restart might interrupt your workload.
+    /// In that case, your application must reopen any connections and retry any transactions
+    /// that were active when the parameter changes took effect.
     /// </para></important><note><para>
     /// This action only applies to Aurora DB clusters.
     /// </para></note>

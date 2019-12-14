@@ -28,7 +28,7 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Retrieves AWS Organizations-related information about the specified account.
+    /// Retrieves AWS Organizations related information about the specified account.
     /// 
     ///  
     /// <para>

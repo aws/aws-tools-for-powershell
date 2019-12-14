@@ -30,6 +30,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// <summary>
     /// Updates an event source mapping. You can change the function that AWS Lambda invokes,
     /// or pause invocation and resume later from the same location.
+    /// 
+    ///  
+    /// <para>
+    /// The following error handling options are only available for stream sources (DynamoDB
+    /// and Kinesis):
+    /// </para><ul><li><para><code>BisectBatchOnFunctionError</code> - If the function returns an error, split
+    /// the batch in two and retry.
+    /// </para></li><li><para><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or
+    /// Amazon SNS topic.
+    /// </para></li><li><para><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified
+    /// age.
+    /// </para></li><li><para><code>MaximumRetryAttempts</code> - Discard records after the specified number of
+    /// retries.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.UpdateEventSourceMappingResponse")]
@@ -48,6 +62,38 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? BatchSize { get; set; }
+        #endregion
+        
+        #region Parameter BisectBatchOnFunctionError
+        /// <summary>
+        /// <para>
+        /// <para>(Streams) If the function returns an error, split the batch in two and retry.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BisectBatchOnFunctionError { get; set; }
+        #endregion
+        
+        #region Parameter OnFailure_Destination
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationConfig_OnFailure_Destination")]
+        public System.String OnFailure_Destination { get; set; }
+        #endregion
+        
+        #region Parameter OnSuccess_Destination
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DestinationConfig_OnSuccess_Destination")]
+        public System.String OnSuccess_Destination { get; set; }
         #endregion
         
         #region Parameter Enabled
@@ -73,12 +119,44 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumBatchingWindowInSecond
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum amount of time to gather records before invoking the function, in seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaximumBatchingWindowInSeconds")]
         public System.Int32? MaximumBatchingWindowInSecond { get; set; }
+        #endregion
+        
+        #region Parameter MaximumRecordAgeInSecond
+        /// <summary>
+        /// <para>
+        /// <para>(Streams) The maximum age of a record that Lambda sends to a function for processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaximumRecordAgeInSeconds")]
+        public System.Int32? MaximumRecordAgeInSecond { get; set; }
+        #endregion
+        
+        #region Parameter MaximumRetryAttempt
+        /// <summary>
+        /// <para>
+        /// <para>(Streams) The maximum number of times to retry when the function returns an error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaximumRetryAttempts")]
+        public System.Int32? MaximumRetryAttempt { get; set; }
+        #endregion
+        
+        #region Parameter ParallelizationFactor
+        /// <summary>
+        /// <para>
+        /// <para>(Streams) The number of batches to process from each shard concurrently.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ParallelizationFactor { get; set; }
         #endregion
         
         #region Parameter UUID
@@ -160,9 +238,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BatchSize = this.BatchSize;
+            context.BisectBatchOnFunctionError = this.BisectBatchOnFunctionError;
+            context.OnFailure_Destination = this.OnFailure_Destination;
+            context.OnSuccess_Destination = this.OnSuccess_Destination;
             context.Enabled = this.Enabled;
             context.FunctionName = this.FunctionName;
             context.MaximumBatchingWindowInSecond = this.MaximumBatchingWindowInSecond;
+            context.MaximumRecordAgeInSecond = this.MaximumRecordAgeInSecond;
+            context.MaximumRetryAttempt = this.MaximumRetryAttempt;
+            context.ParallelizationFactor = this.ParallelizationFactor;
             context.UUID = this.UUID;
             #if MODULAR
             if (this.UUID == null && ParameterWasBound(nameof(this.UUID)))
@@ -190,6 +274,69 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.BatchSize = cmdletContext.BatchSize.Value;
             }
+            if (cmdletContext.BisectBatchOnFunctionError != null)
+            {
+                request.BisectBatchOnFunctionError = cmdletContext.BisectBatchOnFunctionError.Value;
+            }
+            
+             // populate DestinationConfig
+            var requestDestinationConfigIsNull = true;
+            request.DestinationConfig = new Amazon.Lambda.Model.DestinationConfig();
+            Amazon.Lambda.Model.OnFailure requestDestinationConfig_destinationConfig_OnFailure = null;
+            
+             // populate OnFailure
+            var requestDestinationConfig_destinationConfig_OnFailureIsNull = true;
+            requestDestinationConfig_destinationConfig_OnFailure = new Amazon.Lambda.Model.OnFailure();
+            System.String requestDestinationConfig_destinationConfig_OnFailure_onFailure_Destination = null;
+            if (cmdletContext.OnFailure_Destination != null)
+            {
+                requestDestinationConfig_destinationConfig_OnFailure_onFailure_Destination = cmdletContext.OnFailure_Destination;
+            }
+            if (requestDestinationConfig_destinationConfig_OnFailure_onFailure_Destination != null)
+            {
+                requestDestinationConfig_destinationConfig_OnFailure.Destination = requestDestinationConfig_destinationConfig_OnFailure_onFailure_Destination;
+                requestDestinationConfig_destinationConfig_OnFailureIsNull = false;
+            }
+             // determine if requestDestinationConfig_destinationConfig_OnFailure should be set to null
+            if (requestDestinationConfig_destinationConfig_OnFailureIsNull)
+            {
+                requestDestinationConfig_destinationConfig_OnFailure = null;
+            }
+            if (requestDestinationConfig_destinationConfig_OnFailure != null)
+            {
+                request.DestinationConfig.OnFailure = requestDestinationConfig_destinationConfig_OnFailure;
+                requestDestinationConfigIsNull = false;
+            }
+            Amazon.Lambda.Model.OnSuccess requestDestinationConfig_destinationConfig_OnSuccess = null;
+            
+             // populate OnSuccess
+            var requestDestinationConfig_destinationConfig_OnSuccessIsNull = true;
+            requestDestinationConfig_destinationConfig_OnSuccess = new Amazon.Lambda.Model.OnSuccess();
+            System.String requestDestinationConfig_destinationConfig_OnSuccess_onSuccess_Destination = null;
+            if (cmdletContext.OnSuccess_Destination != null)
+            {
+                requestDestinationConfig_destinationConfig_OnSuccess_onSuccess_Destination = cmdletContext.OnSuccess_Destination;
+            }
+            if (requestDestinationConfig_destinationConfig_OnSuccess_onSuccess_Destination != null)
+            {
+                requestDestinationConfig_destinationConfig_OnSuccess.Destination = requestDestinationConfig_destinationConfig_OnSuccess_onSuccess_Destination;
+                requestDestinationConfig_destinationConfig_OnSuccessIsNull = false;
+            }
+             // determine if requestDestinationConfig_destinationConfig_OnSuccess should be set to null
+            if (requestDestinationConfig_destinationConfig_OnSuccessIsNull)
+            {
+                requestDestinationConfig_destinationConfig_OnSuccess = null;
+            }
+            if (requestDestinationConfig_destinationConfig_OnSuccess != null)
+            {
+                request.DestinationConfig.OnSuccess = requestDestinationConfig_destinationConfig_OnSuccess;
+                requestDestinationConfigIsNull = false;
+            }
+             // determine if request.DestinationConfig should be set to null
+            if (requestDestinationConfigIsNull)
+            {
+                request.DestinationConfig = null;
+            }
             if (cmdletContext.Enabled != null)
             {
                 request.Enabled = cmdletContext.Enabled.Value;
@@ -201,6 +348,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.MaximumBatchingWindowInSecond != null)
             {
                 request.MaximumBatchingWindowInSeconds = cmdletContext.MaximumBatchingWindowInSecond.Value;
+            }
+            if (cmdletContext.MaximumRecordAgeInSecond != null)
+            {
+                request.MaximumRecordAgeInSeconds = cmdletContext.MaximumRecordAgeInSecond.Value;
+            }
+            if (cmdletContext.MaximumRetryAttempt != null)
+            {
+                request.MaximumRetryAttempts = cmdletContext.MaximumRetryAttempt.Value;
+            }
+            if (cmdletContext.ParallelizationFactor != null)
+            {
+                request.ParallelizationFactor = cmdletContext.ParallelizationFactor.Value;
             }
             if (cmdletContext.UUID != null)
             {
@@ -268,9 +427,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? BatchSize { get; set; }
+            public System.Boolean? BisectBatchOnFunctionError { get; set; }
+            public System.String OnFailure_Destination { get; set; }
+            public System.String OnSuccess_Destination { get; set; }
             public System.Boolean? Enabled { get; set; }
             public System.String FunctionName { get; set; }
             public System.Int32? MaximumBatchingWindowInSecond { get; set; }
+            public System.Int32? MaximumRecordAgeInSecond { get; set; }
+            public System.Int32? MaximumRetryAttempt { get; set; }
+            public System.Int32? ParallelizationFactor { get; set; }
             public System.String UUID { get; set; }
             public System.Func<Amazon.Lambda.Model.UpdateEventSourceMappingResponse, UpdateLMEventSourceMappingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

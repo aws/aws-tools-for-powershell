@@ -95,7 +95,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMEventSourceMapping', 
         'Get-LMEventSourceMappingList', 
         'Get-LMFunction', 
+        'Get-LMFunctionConcurrency', 
         'Get-LMFunctionConfiguration', 
+        'Get-LMFunctionEventInvokeConfig', 
+        'Get-LMFunctionEventInvokeConfigList', 
         'Get-LMFunctionList', 
         'Get-LMLayerList', 
         'Get-LMLayerVersion', 
@@ -103,6 +106,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMLayerVersionList', 
         'Get-LMLayerVersionPolicy', 
         'Get-LMPolicy', 
+        'Get-LMProvisionedConcurrencyConfig', 
+        'Get-LMProvisionedConcurrencyConfigList', 
         'Get-LMResourceTag', 
         'Get-LMVersionsByFunction', 
         'Invoke-LMFunction', 
@@ -116,15 +121,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LMEventSourceMapping', 
         'Remove-LMFunction', 
         'Remove-LMFunctionConcurrency', 
+        'Remove-LMFunctionEventInvokeConfig', 
         'Remove-LMLayerVersion', 
         'Remove-LMLayerVersionPermission', 
         'Remove-LMPermission', 
+        'Remove-LMProvisionedConcurrencyConfig', 
         'Remove-LMResourceTag', 
         'Update-LMAlias', 
         'Update-LMEventSourceMapping', 
         'Update-LMFunctionCode', 
         'Update-LMFunctionConfiguration', 
-        'Write-LMFunctionConcurrency')
+        'Update-LMFunctionEventInvokeConfig', 
+        'Write-LMFunctionConcurrency', 
+        'Write-LMFunctionEventInvokeConfig', 
+        'Write-LMProvisionedConcurrencyConfig')
 
     # Variables to export from this module
     VariablesToExport = '*'

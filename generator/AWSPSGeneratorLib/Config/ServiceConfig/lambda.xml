@@ -66,7 +66,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFunctionEventInvokeConfig" Verb="Remove" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteLayerVersion" Verb="Remove" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProvisionedConcurrencyConfig" Verb="Remove" Noun="ProvisionedConcurrencyConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -86,7 +94,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFunctionConcurrency" OutputProperty="ReservedConcurrentExecutions" Verb="Get" Noun="FunctionConcurrency" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFunctionConfiguration" OutputProperty="*" Verb="Get" Noun="FunctionConfiguration" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFunctionEventInvokeConfig" OutputProperty="*" Verb="Get" Noun="FunctionEventInvokeConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -103,6 +119,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProvisionedConcurrencyConfig" OutputProperty="*" Verb="Get" Noun="ProvisionedConcurrencyConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -128,6 +148,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFunctionEventInvokeConfigs" OutputProperty="FunctionEventInvokeConfigs" Verb="Get" Noun="FunctionEventInvokeConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-LMFunctions">
             <Params />
             <TypesNotToFlatten />
@@ -137,6 +161,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLayerVersions" OutputProperty="LayerVersions" Verb="Get" Noun="LayerVersionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProvisionedConcurrencyConfigs" OutputProperty="ProvisionedConcurrencyConfigs" Verb="Get" Noun="ProvisionedConcurrencyConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -157,6 +185,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutFunctionConcurrency" OutputProperty="ReservedConcurrentExecutions" Verb="Write" Noun="FunctionConcurrency" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutFunctionEventInvokeConfig" OutputProperty="*" Verb="Write" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutProvisionedConcurrencyConfig" OutputProperty="*" Verb="Write" Noun="ProvisionedConcurrencyConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -196,6 +232,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFunctionConfiguration" OutputProperty="*" Verb="Update" Noun="FunctionConfiguration" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFunctionEventInvokeConfig" OutputProperty="*" Verb="Update" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

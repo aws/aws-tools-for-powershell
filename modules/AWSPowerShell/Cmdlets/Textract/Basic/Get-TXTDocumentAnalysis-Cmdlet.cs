@@ -43,21 +43,26 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// </para><para><code>GetDocumentAnalysis</code> returns an array of <a>Block</a> objects. The following
     /// types of information are returned: 
     /// </para><ul><li><para>
-    /// Words and lines that are related to nearby lines and words. The related information
-    /// is returned in two <a>Block</a> objects each of type <code>KEY_VALUE_SET</code>: a
-    /// KEY Block object and a VALUE Block object. For example, <i>Name: Ana Silva Carolina</i>
+    /// Form data (key-value pairs). The related information is returned in two <a>Block</a>
+    /// objects, each of type <code>KEY_VALUE_SET</code>: a KEY <code>Block</code> object
+    /// and a VALUE <code>Block</code> object. For example, <i>Name: Ana Silva Carolina</i>
     /// contains a key and value. <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is the
     /// value.
     /// </para></li><li><para>
-    /// Table and table cell data. A TABLE Block object contains information about a detected
-    /// table. A CELL Block object is returned for each cell in a table.
+    /// Table and table cell data. A TABLE <code>Block</code> object contains information
+    /// about a detected table. A CELL <code>Block</code> object is returned for each cell
+    /// in a table.
     /// </para></li><li><para>
-    /// Selectable elements such as checkboxes and radio buttons. A SELECTION_ELEMENT Block
-    /// object contains information about a selectable element.
-    /// </para></li><li><para>
-    /// Lines and words of text. A LINE Block object contains one or more WORD Block objects.
+    /// Lines and words of text. A LINE <code>Block</code> object contains one or more WORD
+    /// <code>Block</code> objects. All lines and words that are detected in the document
+    /// are returned (including text that doesn't have a relationship with the value of the
+    /// <code>StartDocumentAnalysis</code><code>FeatureTypes</code> input parameter). 
     /// </para></li></ul><para>
-    /// Use the <code>MaxResults</code> parameter to limit the number of blocks returned.
+    /// Selection elements such as check boxes and option buttons (radio buttons) can be detected
+    /// in form data and in tables. A SELECTION_ELEMENT <code>Block</code> object contains
+    /// information about a selection element, including the selection status.
+    /// </para><para>
+    /// Use the <code>MaxResults</code> parameter to limit the number of blocks that are returned.
     /// If there are more results than specified in <code>MaxResults</code>, the value of
     /// <code>NextToken</code> in the operation response contains a pagination token for getting
     /// the next set of results. To get the next page of results, call <code>GetDocumentAnalysis</code>,
@@ -81,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the text-detection job. The <code>JobId</code> is returned
-        /// from <code>StartDocumentAnalysis</code>.</para>
+        /// from <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid
+        /// for 7 days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

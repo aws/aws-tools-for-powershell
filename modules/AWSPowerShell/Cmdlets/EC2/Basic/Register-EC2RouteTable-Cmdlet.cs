@@ -28,11 +28,11 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Associates a subnet with a route table. The subnet and route table must be in the
-    /// same VPC. This association causes traffic originating from the subnet to be routed
-    /// according to the routes in the route table. The action returns an association ID,
-    /// which you need in order to disassociate the route table from the subnet later. A route
-    /// table can be associated with multiple subnets.
+    /// Associates a subnet in your VPC or an internet gateway or virtual private gateway
+    /// attached to your VPC with a route table in your VPC. This association causes traffic
+    /// from the subnet or gateway to be routed according to the routes in the route table.
+    /// The action returns an association ID, which you need in order to disassociate the
+    /// route table later. A route table can be associated with multiple subnets.
     /// 
     ///  
     /// <para>
@@ -49,6 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class RegisterEC2RouteTableCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter GatewayId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the internet gateway or virtual private gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GatewayId { get; set; }
+        #endregion
         
         #region Parameter RouteTableId
         /// <summary>
@@ -73,14 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the subnet.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SubnetId { get; set; }
         #endregion
         
@@ -145,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.RouteTableId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.GatewayId = this.GatewayId;
             context.RouteTableId = this.RouteTableId;
             #if MODULAR
             if (this.RouteTableId == null && ParameterWasBound(nameof(this.RouteTableId)))
@@ -153,12 +157,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.SubnetId = this.SubnetId;
-            #if MODULAR
-            if (this.SubnetId == null && ParameterWasBound(nameof(this.SubnetId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.AssociateRouteTableRequest();
             
+            if (cmdletContext.GatewayId != null)
+            {
+                request.GatewayId = cmdletContext.GatewayId;
+            }
             if (cmdletContext.RouteTableId != null)
             {
                 request.RouteTableId = cmdletContext.RouteTableId;
@@ -244,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String GatewayId { get; set; }
             public System.String RouteTableId { get; set; }
             public System.String SubnetId { get; set; }
             public System.Func<Amazon.EC2.Model.AssociateRouteTableResponse, RegisterEC2RouteTableCmdlet, object> Select { get; set; } =

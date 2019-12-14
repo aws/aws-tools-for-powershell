@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>ebs</C2jFilename>
+    <AssemblyName>EBS</AssemblyName>
+    <ServiceNounPrefix>EBS</ServiceNounPrefix>
+    <ServiceName>Amazon EBS</ServiceName>
+    <ServiceClientInterface>IAmazonEBS</ServiceClientInterface>
+    <ServiceClient>AmazonEBSClient</ServiceClient>
+    <ServiceModuleGuid>af61433a-6977-4129-af89-d55f89e3e0eb</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetSnapshotBlock" OutputProperty="*" Verb="Get" Noun="SnapshotBlock" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChangedBlocks" OutputProperty="ChangedBlocks" Verb="Get" Noun="ChangedBlockList" PipelineParameter="SecondSnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSnapshotBlocks" OutputProperty="Blocks" Verb="Get" Noun="SnapshotBlockList" PipelineParameter="SnapshotId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

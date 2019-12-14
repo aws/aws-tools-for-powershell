@@ -86,15 +86,24 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-KVResourceTag', 
         'Add-KVStreamTag', 
         'Get-KVDataEndpoint', 
+        'Get-KVResourceTag', 
+        'Get-KVSignalingChannel', 
+        'Get-KVSignalingChannelEndpoint', 
+        'Get-KVSignalingChannelList', 
         'Get-KVStream', 
         'Get-KVStreamList', 
         'Get-KVTagsForStreamList', 
+        'New-KVSignalingChannel', 
         'New-KVStream', 
+        'Remove-KVResourceTag', 
+        'Remove-KVSignalingChannel', 
         'Remove-KVStream', 
         'Remove-KVStreamTag', 
         'Update-KVDataRetention', 
+        'Update-KVSignalingChannel', 
         'Update-KVStream')
 
     # Variables to export from this module

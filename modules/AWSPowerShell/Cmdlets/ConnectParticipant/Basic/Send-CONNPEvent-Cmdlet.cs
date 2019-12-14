@@ -40,17 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
     public partial class SendCONNPEventCmdlet : AmazonConnectParticipantClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter ConnectionToken
         /// <summary>
         /// <para>
@@ -93,6 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ContentType { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

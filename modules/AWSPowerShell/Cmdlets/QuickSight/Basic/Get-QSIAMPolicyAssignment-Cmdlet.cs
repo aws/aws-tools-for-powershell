@@ -28,13 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Describes an existing IAMPolicy Assignment by specified assignment name.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight describe-iam-policy-assignment --aws-account-id=111122223333
-    /// --assignment-name=testtest --namespace=default --region=us-east-1 </code></para>
+    /// Describes an existing IAM policy assignment, as specified by the assignment name.
     /// </summary>
     [Cmdlet("Get", "QSIAMPolicyAssignment")]
     [OutputType("Amazon.QuickSight.Model.IAMPolicyAssignment")]
@@ -66,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID that contains the assignment you want to describe.</para>
+        /// <para>The ID of the AWS account that contains the assignment that you want to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -62,6 +62,40 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public System.String Definition { get; set; }
         #endregion
         
+        #region Parameter LoggingConfiguration_Destination
+        /// <summary>
+        /// <para>
+        /// <para>An object that describes where your execution history events will be logged. Limited
+        /// to size 1. Required, if your log level is not set to <code>OFF</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingConfiguration_Destinations")]
+        public Amazon.StepFunctions.Model.LogDestination[] LoggingConfiguration_Destination { get; set; }
+        #endregion
+        
+        #region Parameter LoggingConfiguration_IncludeExecutionData
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether execution history data is included in your log. When set to <code>FALSE</code>,
+        /// data is excluded.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LoggingConfiguration_IncludeExecutionData { get; set; }
+        #endregion
+        
+        #region Parameter LoggingConfiguration_Level
+        /// <summary>
+        /// <para>
+        /// <para>Defines which category of execution history events are logged.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StepFunctions.LogLevel")]
+        public Amazon.StepFunctions.LogLevel LoggingConfiguration_Level { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -151,6 +185,12 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Definition = this.Definition;
+            if (this.LoggingConfiguration_Destination != null)
+            {
+                context.LoggingConfiguration_Destination = new List<Amazon.StepFunctions.Model.LogDestination>(this.LoggingConfiguration_Destination);
+            }
+            context.LoggingConfiguration_IncludeExecutionData = this.LoggingConfiguration_IncludeExecutionData;
+            context.LoggingConfiguration_Level = this.LoggingConfiguration_Level;
             context.RoleArn = this.RoleArn;
             context.StateMachineArn = this.StateMachineArn;
             #if MODULAR
@@ -178,6 +218,45 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.Definition != null)
             {
                 request.Definition = cmdletContext.Definition;
+            }
+            
+             // populate LoggingConfiguration
+            var requestLoggingConfigurationIsNull = true;
+            request.LoggingConfiguration = new Amazon.StepFunctions.Model.LoggingConfiguration();
+            List<Amazon.StepFunctions.Model.LogDestination> requestLoggingConfiguration_loggingConfiguration_Destination = null;
+            if (cmdletContext.LoggingConfiguration_Destination != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_Destination = cmdletContext.LoggingConfiguration_Destination;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_Destination != null)
+            {
+                request.LoggingConfiguration.Destinations = requestLoggingConfiguration_loggingConfiguration_Destination;
+                requestLoggingConfigurationIsNull = false;
+            }
+            System.Boolean? requestLoggingConfiguration_loggingConfiguration_IncludeExecutionData = null;
+            if (cmdletContext.LoggingConfiguration_IncludeExecutionData != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_IncludeExecutionData = cmdletContext.LoggingConfiguration_IncludeExecutionData.Value;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_IncludeExecutionData != null)
+            {
+                request.LoggingConfiguration.IncludeExecutionData = requestLoggingConfiguration_loggingConfiguration_IncludeExecutionData.Value;
+                requestLoggingConfigurationIsNull = false;
+            }
+            Amazon.StepFunctions.LogLevel requestLoggingConfiguration_loggingConfiguration_Level = null;
+            if (cmdletContext.LoggingConfiguration_Level != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_Level = cmdletContext.LoggingConfiguration_Level;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_Level != null)
+            {
+                request.LoggingConfiguration.Level = requestLoggingConfiguration_loggingConfiguration_Level;
+                requestLoggingConfigurationIsNull = false;
+            }
+             // determine if request.LoggingConfiguration should be set to null
+            if (requestLoggingConfigurationIsNull)
+            {
+                request.LoggingConfiguration = null;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -249,6 +328,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Definition { get; set; }
+            public List<Amazon.StepFunctions.Model.LogDestination> LoggingConfiguration_Destination { get; set; }
+            public System.Boolean? LoggingConfiguration_IncludeExecutionData { get; set; }
+            public Amazon.StepFunctions.LogLevel LoggingConfiguration_Level { get; set; }
             public System.String RoleArn { get; set; }
             public System.String StateMachineArn { get; set; }
             public System.Func<Amazon.StepFunctions.Model.UpdateStateMachineResponse, UpdateSFNStateMachineCmdlet, object> Select { get; set; } =

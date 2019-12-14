@@ -28,7 +28,7 @@ using Amazon.ApiGatewayV2.Model;
 namespace Amazon.PowerShell.Cmdlets.AG2
 {
     /// <summary>
-    /// Tag an APIGW resource
+    /// Creates a new Tag resource to represent a tag.
     /// </summary>
     [Cmdlet("Add", "AG2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>AWS resource arn </para>
+        /// <para>The resource ARN for the tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,9 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag
-        /// key can be up to 128 characters and must not start with aws:. The tag value can be
-        /// up to 256 characters..</para>
+        /// <para>The collection of tags. Each tag element is associated with a given resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -81,7 +81,7 @@ namespace AWSPowerShellGenerator.Generators
                                     if (hasDynamicParams)
                                         Console.WriteLine("This cmdlet has dynamic parameters!");
                                     Console.WriteLine("Documentation = {0}", typeDocumentation);
-                                    
+
                                     var cmdletName = cmdletAttribute.VerbName + "-" + cmdletAttribute.NounName;
 
                                     var allProperties = GetRootSimpleProperties(cmdletType);
@@ -171,7 +171,7 @@ namespace AWSPowerShellGenerator.Generators
                 psHelpWriter.WriteElementString("noun", cmdletAttribute.NounName);
                 psHelpWriter.WriteStartElement("copyright");
                 {
-                    psHelpWriter.WriteElementString("para", 
+                    psHelpWriter.WriteElementString("para",
                                                     string.Format("&copy; Copyright 2012 - {0} Amazon.com, Inc.or its affiliates.All Rights Reserved.",
                                                                   DateTime.UtcNow.Year));
                 }

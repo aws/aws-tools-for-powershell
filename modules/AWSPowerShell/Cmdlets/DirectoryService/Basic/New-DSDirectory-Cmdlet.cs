@@ -28,7 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a Simple AD directory.
+    /// Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple
+    /// Active Directory</a> in the <i>AWS Directory Service Admin Guide</i>.
     /// 
     ///  
     /// <para>
@@ -51,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A textual description for the directory.</para>
+        /// <para>A description for the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// <para>
         /// <para>The password for the directory administrator. The directory creation process creates
         /// a directory administrator account with the user name <code>Administrator</code> and
-        /// this password.</para>
+        /// this password.</para><para>If you need to change the password for the administrator account, you can use the
+        /// <a>ResetUserPassword</a> API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter ShortName
         /// <summary>
         /// <para>
-        /// <para>The short name of the directory, such as <code>CORP</code>.</para>
+        /// <para>The NetBIOS name of the directory, such as <code>CORP</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

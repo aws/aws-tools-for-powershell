@@ -38,6 +38,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateProject" OutputProperty="ProjectArn" Verb="New" Noun="Project" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProjectVersion" OutputProperty="ProjectVersionArn" Verb="New" Noun="ProjectVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateStreamProcessor" OutputProperty="StreamProcessorArn" Verb="New" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -58,7 +66,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProjects" OutputProperty="ProjectDescriptions" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProjectVersions" OutputProperty="ProjectVersionDescriptions" Verb="Get" Noun="ProjectVersion" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeStreamProcessor" OutputProperty="*" Verb="Get" Noun="StreamProcessor" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectCustomLabels" OutputProperty="CustomLabels" Verb="Find" Noun="CustomLabel" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -188,7 +208,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartProjectVersion" OutputProperty="Status" Verb="Start" Noun="ProjectVersion" ShouldProcessTarget="ProjectVersionArn" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartStreamProcessor" Verb="Start" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopProjectVersion" OutputProperty="Status" Verb="Stop" Noun="ProjectVersion" ShouldProcessTarget="ProjectVersionArn" PipelineParameter="ProjectVersionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

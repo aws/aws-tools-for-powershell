@@ -112,6 +112,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.DateTime? EndTime { get; set; }
         #endregion
         
+        #region Parameter ResourceIdentifier_IamRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role that has overly permissive actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceIdentifier_IamRoleArn { get; set; }
+        #endregion
+        
         #region Parameter PolicyVersionIdentifier_PolicyName
         /// <summary>
         /// <para>
@@ -132,6 +142,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResourceIdentifier_PolicyVersionIdentifier_PolicyVersionId")]
         public System.String PolicyVersionIdentifier_PolicyVersionId { get; set; }
+        #endregion
+        
+        #region Parameter ResourceIdentifier_RoleAliasArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role alias that has overly permissive actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceIdentifier_RoleAliasArn { get; set; }
         #endregion
         
         #region Parameter StartTime
@@ -239,8 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.ResourceIdentifier_ClientId = this.ResourceIdentifier_ClientId;
             context.ResourceIdentifier_CognitoIdentityPoolId = this.ResourceIdentifier_CognitoIdentityPoolId;
             context.ResourceIdentifier_DeviceCertificateId = this.ResourceIdentifier_DeviceCertificateId;
+            context.ResourceIdentifier_IamRoleArn = this.ResourceIdentifier_IamRoleArn;
             context.PolicyVersionIdentifier_PolicyName = this.PolicyVersionIdentifier_PolicyName;
             context.PolicyVersionIdentifier_PolicyVersionId = this.PolicyVersionIdentifier_PolicyVersionId;
+            context.ResourceIdentifier_RoleAliasArn = this.ResourceIdentifier_RoleAliasArn;
             context.StartTime = this.StartTime;
             context.TaskId = this.TaskId;
             
@@ -326,6 +348,26 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_DeviceCertificateId != null)
             {
                 request.ResourceIdentifier.DeviceCertificateId = requestResourceIdentifier_resourceIdentifier_DeviceCertificateId;
+                requestResourceIdentifierIsNull = false;
+            }
+            System.String requestResourceIdentifier_resourceIdentifier_IamRoleArn = null;
+            if (cmdletContext.ResourceIdentifier_IamRoleArn != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IamRoleArn = cmdletContext.ResourceIdentifier_IamRoleArn;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IamRoleArn != null)
+            {
+                request.ResourceIdentifier.IamRoleArn = requestResourceIdentifier_resourceIdentifier_IamRoleArn;
+                requestResourceIdentifierIsNull = false;
+            }
+            System.String requestResourceIdentifier_resourceIdentifier_RoleAliasArn = null;
+            if (cmdletContext.ResourceIdentifier_RoleAliasArn != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_RoleAliasArn = cmdletContext.ResourceIdentifier_RoleAliasArn;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_RoleAliasArn != null)
+            {
+                request.ResourceIdentifier.RoleAliasArn = requestResourceIdentifier_resourceIdentifier_RoleAliasArn;
                 requestResourceIdentifierIsNull = false;
             }
             Amazon.IoT.Model.PolicyVersionIdentifier requestResourceIdentifier_resourceIdentifier_PolicyVersionIdentifier = null;
@@ -491,6 +533,26 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestResourceIdentifier_resourceIdentifier_DeviceCertificateId != null)
             {
                 request.ResourceIdentifier.DeviceCertificateId = requestResourceIdentifier_resourceIdentifier_DeviceCertificateId;
+                requestResourceIdentifierIsNull = false;
+            }
+            System.String requestResourceIdentifier_resourceIdentifier_IamRoleArn = null;
+            if (cmdletContext.ResourceIdentifier_IamRoleArn != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_IamRoleArn = cmdletContext.ResourceIdentifier_IamRoleArn;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_IamRoleArn != null)
+            {
+                request.ResourceIdentifier.IamRoleArn = requestResourceIdentifier_resourceIdentifier_IamRoleArn;
+                requestResourceIdentifierIsNull = false;
+            }
+            System.String requestResourceIdentifier_resourceIdentifier_RoleAliasArn = null;
+            if (cmdletContext.ResourceIdentifier_RoleAliasArn != null)
+            {
+                requestResourceIdentifier_resourceIdentifier_RoleAliasArn = cmdletContext.ResourceIdentifier_RoleAliasArn;
+            }
+            if (requestResourceIdentifier_resourceIdentifier_RoleAliasArn != null)
+            {
+                request.ResourceIdentifier.RoleAliasArn = requestResourceIdentifier_resourceIdentifier_RoleAliasArn;
                 requestResourceIdentifierIsNull = false;
             }
             Amazon.IoT.Model.PolicyVersionIdentifier requestResourceIdentifier_resourceIdentifier_PolicyVersionIdentifier = null;
@@ -669,8 +731,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String ResourceIdentifier_ClientId { get; set; }
             public System.String ResourceIdentifier_CognitoIdentityPoolId { get; set; }
             public System.String ResourceIdentifier_DeviceCertificateId { get; set; }
+            public System.String ResourceIdentifier_IamRoleArn { get; set; }
             public System.String PolicyVersionIdentifier_PolicyName { get; set; }
             public System.String PolicyVersionIdentifier_PolicyVersionId { get; set; }
+            public System.String ResourceIdentifier_RoleAliasArn { get; set; }
             public System.DateTime? StartTime { get; set; }
             public System.String TaskId { get; set; }
             public System.Func<Amazon.IoT.Model.ListAuditFindingsResponse, GetIOTAuditFindingListCmdlet, object> Select { get; set; } =

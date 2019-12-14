@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iotsecuretunneling</C2jFilename>
+    <AssemblyName>IoTSecureTunneling</AssemblyName>
+    <ServiceNounPrefix>IOTST</ServiceNounPrefix>
+    <ServiceName>AWS IoT Secure Tunneling</ServiceName>
+    <ServiceClientInterface>IAmazonIoTSecureTunneling</ServiceClientInterface>
+    <ServiceClient>AmazonIoTSecureTunnelingClient</ServiceClient>
+    <ServiceModuleGuid>10fe9ef8-ce19-482f-b7c3-eb4b0293789a</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CloseTunnel" Verb="Close" Noun="Tunnel" ShouldProcessTarget="TunnelId" PipelineParameter="TunnelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTunnel" OutputProperty="Tunnel" Verb="Get" Noun="Tunnel" PipelineParameter="TunnelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTunnels" OutputProperty="TunnelSummaries" Verb="Get" Noun="TunnelList" PipelineParameter="ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="OpenTunnel" OutputProperty="*" Verb="Open" Noun="Tunnel" ShouldProcessTarget="DestinationConfig_ThingName" PipelineParameter="DestinationConfig_ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

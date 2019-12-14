@@ -48,17 +48,6 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     public partial class NewAMSHMeshCmdlet : AmazonAppMeshClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
-        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter MeshName
         /// <summary>
         /// <para>
@@ -104,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         [Alias("Spec_EgressFilter_Type")]
         [AWSConstantClassSource("Amazon.AppMesh.EgressFilterType")]
         public Amazon.AppMesh.EgressFilterType EgressFilter_Type { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of therequest.
+        /// Up to 36 letters, numbers, hyphens, and underscores are allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

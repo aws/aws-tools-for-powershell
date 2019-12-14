@@ -199,12 +199,17 @@ $REK_SelectCompleters = {
 $REK_SelectMap = @{
     "Select"=@("Compare-REKFace",
                "New-REKCollection",
+               "New-REKProject",
+               "New-REKProjectVersion",
                "New-REKStreamProcessor",
                "Remove-REKCollection",
                "Remove-REKFace",
                "Remove-REKStreamProcessor",
                "Get-REKCollection",
+               "Get-REKProject",
+               "Get-REKProjectVersion",
                "Get-REKStreamProcessor",
+               "Find-REKCustomLabel",
                "Find-REKFace",
                "Find-REKLabel",
                "Find-REKModerationLabel",
@@ -229,7 +234,9 @@ $REK_SelectMap = @{
                "Start-REKFaceSearch",
                "Start-REKLabelDetection",
                "Start-REKPersonTracking",
+               "Start-REKProjectVersion",
                "Start-REKStreamProcessor",
+               "Stop-REKProjectVersion",
                "Stop-REKStreamProcessor")
 }
 

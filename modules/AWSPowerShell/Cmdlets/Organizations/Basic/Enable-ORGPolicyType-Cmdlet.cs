@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>The unique identifier (ID) of the root in which you want to enable a policy type.
         /// You can get the ID from the <a>ListRoots</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string
-        /// requires "r-" followed by from 4 to 32 lower-case letters or digits.</para>
+        /// requires "r-" followed by from 4 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

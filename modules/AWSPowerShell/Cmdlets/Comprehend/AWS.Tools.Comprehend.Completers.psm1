@@ -80,6 +80,13 @@ $COMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Comprehend.EndpointStatus
+        "Get-COMPEndpointList/Filter_Status"
+        {
+            $v = "CREATING","DELETING","FAILED","IN_SERVICE","UPDATING"
+            break
+        }
+
         # Amazon.Comprehend.JobStatus
         "Get-COMPDocumentClassificationJobList/Filter_JobStatus"
         {
@@ -136,7 +143,7 @@ $COMP_Completers = {
 
 $COMP_map = @{
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList")
-    "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEntityRecognizerList")
+    "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPSentimentDetectionJob")
 }
 
@@ -195,13 +202,17 @@ $COMP_SelectMap = @{
                "Find-COMPKeyPhrasesBatch",
                "Find-COMPSentimentBatch",
                "Find-COMPSyntaxBatch",
+               "Invoke-COMPDocumentClassification",
                "New-COMPDocumentClassifier",
+               "New-COMPEndpoint",
                "New-COMPEntityRecognizer",
                "Remove-COMPDocumentClassifier",
+               "Remove-COMPEndpoint",
                "Remove-COMPEntityRecognizer",
                "Get-COMPDocumentClassificationJob",
                "Get-COMPDocumentClassifier",
                "Get-COMPDominantLanguageDetectionJob",
+               "Get-COMPEndpoint",
                "Get-COMPEntitiesDetectionJob",
                "Get-COMPEntityRecognizer",
                "Get-COMPKeyPhrasesDetectionJob",
@@ -215,6 +226,7 @@ $COMP_SelectMap = @{
                "Get-COMPDocumentClassificationJobList",
                "Get-COMPDocumentClassifierList",
                "Get-COMPDominantLanguageDetectionJobList",
+               "Get-COMPEndpointList",
                "Get-COMPEntitiesDetectionJobList",
                "Get-COMPEntityRecognizerList",
                "Get-COMPKeyPhrasesDetectionJobList",
@@ -234,7 +246,8 @@ $COMP_SelectMap = @{
                "Stop-COMPTrainingDocumentClassifier",
                "Stop-COMPTrainingEntityRecognizer",
                "Add-COMPResourceTag",
-               "Remove-COMPResourceTag")
+               "Remove-COMPResourceTag",
+               "Update-COMPEndpoint")
 }
 
 _awsArgumentCompleterRegistration $COMP_SelectCompleters $COMP_SelectMap

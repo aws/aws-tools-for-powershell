@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates the published version of a dashboard.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight update-dashboard-published-version --aws-account-id 111122223333
-    /// --dashboard-id dashboard-w1 ---version-number 2</code></para>
     /// </summary>
     [Cmdlet("Update", "QSDashboardPublishedVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateDashboardPublishedVersionResponse")]
@@ -48,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the dashboard you are updating.</para>
+        /// <para>The ID of the AWS account that contains the dashboard that you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
