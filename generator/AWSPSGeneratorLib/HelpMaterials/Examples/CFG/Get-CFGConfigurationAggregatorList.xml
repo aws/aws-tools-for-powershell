@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGConfigurationAggregatorList
+
+AccountAggregationSources     : {Amazon.ConfigService.Model.AccountAggregationSource}
+ConfigurationAggregatorArn    : arn:aws:config:eu-west-1:123456789012:config-aggregator/config-aggregator-xabca1me
+ConfigurationAggregatorName   : IrelandMaster
+CreationTime                  : 8/25/2019 11:42:39 PM
+LastUpdatedTime               : 8/25/2019 11:42:39 PM
+OrganizationAggregationSource :
+
+AccountAggregationSources     : {}
+ConfigurationAggregatorArn    : arn:aws:config:eu-west-1:123456789012:config-aggregator/config-aggregator-qubqabcd
+ConfigurationAggregatorName   : raju
+CreationTime                  : 8/11/2019 8:39:25 AM
+LastUpdatedTime               : 8/11/2019 8:39:25 AM
+OrganizationAggregationSource : Amazon.ConfigService.Model.OrganizationAggregationSource</code>
+    <description>This sample returns all the aggregators for the region/account.</description>
+  </example>
+</examples>

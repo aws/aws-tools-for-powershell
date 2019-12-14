@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGComplianceSummaryByConfigRule -Select ComplianceSummary.NonCompliantResourceCount
+
+CapExceeded CappedCount
+----------- -----------
+False       9</code>
+    <description>This sample returns the number of Config rules that are non-compliant.</description>
+  </example>
+</examples>

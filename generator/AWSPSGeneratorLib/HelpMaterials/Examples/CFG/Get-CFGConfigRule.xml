@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGConfigRule | Select-Object ConfigRuleName, ConfigRuleId, ConfigRuleArn, ConfigRuleState
+
+ConfigRuleName                                    ConfigRuleId       ConfigRuleArn                                                        ConfigRuleState
+--------------                                    ------------       -------------                                                        ---------------
+ALB_REDIRECTION_CHECK                             config-rule-12iyn3 arn:aws:config:eu-west-1:123456789012:config-rule/config-rule-12iyn3 ACTIVE
+access-keys-rotated                               config-rule-aospfr arn:aws:config:eu-west-1:123456789012:config-rule/config-rule-aospfr ACTIVE
+autoscaling-group-elb-healthcheck-required        config-rule-cn1f2x arn:aws:config:eu-west-1:123456789012:config-rule/config-rule-cn1f2x ACTIVE</code>
+    <description>This sample lists config rules for the account, with selected properties.</description>
+  </example>
+</examples>
