@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code> = New-Object -TypeName Amazon.IdentityManagement.Model.Tag
+.Key = 'abac' 
+.Value = 'testing'
+Add-IAMRoleTag -RoleName AdminRoleacess -Tag </code>
+    <description>This command adds tag to Role in Identity Management Service</description>
+  </example>
+</examples>
