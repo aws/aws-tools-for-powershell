@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-AASScalableTarget -ServiceNamespace "AppStream"
+                                                                                                                       
+CreationTime      : 11/7/2019 2:30:03 AM
+MaxCapacity       : 5
+MinCapacity       : 1
+ResourceId        : fleet/Test
+RoleARN           : arn:aws:iam::012345678912:role/aws-service-role/appstream.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_AppStreamFleet
+ScalableDimension : appstream:fleet:DesiredCapacity
+ServiceNamespace  : appstream
+SuspendedState    : Amazon.ApplicationAutoScaling.Model.SuspendedState</code>
+    <description>This example will provide information about the Application Autoscaling Scalable targets in the specified namespace.</description>
+  </example>
+</examples>
