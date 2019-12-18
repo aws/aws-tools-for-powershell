@@ -86,20 +86,26 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-RAMPermissionToResourceShare', 
         'Add-RAMResourceTag', 
         'Confirm-RAMResourceShareInvitation', 
         'Connect-RAMResourceShare', 
+        'Convert-RAMPolicyBasedResourceShareToPromoted', 
         'Deny-RAMResourceShareInvitation', 
         'Disconnect-RAMResourceShare', 
         'Enable-RAMSharingWithAwsOrganization', 
         'Get-RAMPendingInvitationResourceList', 
+        'Get-RAMPermission', 
+        'Get-RAMPermissionList', 
         'Get-RAMPrincipalList', 
         'Get-RAMResourceList', 
         'Get-RAMResourcePolicy', 
         'Get-RAMResourceShare', 
         'Get-RAMResourceShareAssociation', 
         'Get-RAMResourceShareInvitation', 
+        'Get-RAMResourceSharePermissionList', 
         'New-RAMResourceShare', 
+        'Remove-RAMPermissionFromResourceShare', 
         'Remove-RAMResourceShare', 
         'Remove-RAMResourceTag', 
         'Update-RAMResourceShare')

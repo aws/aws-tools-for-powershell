@@ -68,6 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.CategoricalParameterRange[] ParameterRanges_CategoricalParameterRange { get; set; }
         #endregion
         
+        #region Parameter HyperParameterRanges_CategoricalParameterRange
+        /// <summary>
+        /// <para>
+        /// <para>The array of <a>CategoricalParameterRange</a> objects that specify ranges of categorical
+        /// hyperparameters that a hyperparameter tuning job searches.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_HyperParameterRanges_CategoricalParameterRanges")]
+        public Amazon.SageMaker.Model.CategoricalParameterRange[] HyperParameterRanges_CategoricalParameterRange { get; set; }
+        #endregion
+        
         #region Parameter ParameterRanges_ContinuousParameterRange
         /// <summary>
         /// <para>
@@ -78,6 +90,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HyperParameterTuningJobConfig_ParameterRanges_ContinuousParameterRanges")]
         public Amazon.SageMaker.Model.ContinuousParameterRange[] ParameterRanges_ContinuousParameterRange { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameterRanges_ContinuousParameterRange
+        /// <summary>
+        /// <para>
+        /// <para>The array of <a>ContinuousParameterRange</a> objects that specify ranges of continuous
+        /// hyperparameters that a hyperparameter tuning job searches.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_HyperParameterRanges_ContinuousParameterRanges")]
+        public Amazon.SageMaker.Model.ContinuousParameterRange[] HyperParameterRanges_ContinuousParameterRange { get; set; }
+        #endregion
+        
+        #region Parameter TrainingJobDefinition_DefinitionName
+        /// <summary>
+        /// <para>
+        /// <para>The job definition name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrainingJobDefinition_DefinitionName { get; set; }
         #endregion
         
         #region Parameter TrainingJobDefinition_EnableInterContainerTrafficEncryption
@@ -160,6 +194,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("HyperParameterTuningJobConfig_ParameterRanges_IntegerParameterRanges")]
         public Amazon.SageMaker.Model.IntegerParameterRange[] ParameterRanges_IntegerParameterRange { get; set; }
+        #endregion
+        
+        #region Parameter HyperParameterRanges_IntegerParameterRange
+        /// <summary>
+        /// <para>
+        /// <para>The array of <a>IntegerParameterRange</a> objects that specify ranges of integer hyperparameters
+        /// that a hyperparameter tuning job searches.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_HyperParameterRanges_IntegerParameterRanges")]
+        public Amazon.SageMaker.Model.IntegerParameterRange[] HyperParameterRanges_IntegerParameterRange { get; set; }
         #endregion
         
         #region Parameter CheckpointConfig_LocalPath
@@ -259,6 +305,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String HyperParameterTuningJobObjective_MetricName { get; set; }
         #endregion
         
+        #region Parameter TuningObjective_MetricName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the metric to use for the objective metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_TuningObjective_MetricName")]
+        public System.String TuningObjective_MetricName { get; set; }
+        #endregion
+        
         #region Parameter TrainingJobDefinition_OutputDataConfig
         /// <summary>
         /// <para>
@@ -350,9 +407,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies how hyperparameter tuning chooses the combinations of hyperparameter values
-        /// to use for the training job it launches. To use the Bayesian search stategy, set this
-        /// to <code>Bayesian</code>. To randomly search, set it to <code>Random</code>. For information
-        /// about search strategies, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
+        /// to use for the training job it launches. To use the Bayesian search strategy, set
+        /// this to <code>Bayesian</code>. To randomly search, set it to <code>Random</code>.
+        /// For information about search strategies, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
         /// Hyperparameter Tuning Works</a>.</para>
         /// </para>
         /// </summary>
@@ -386,7 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
         /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="https://docs.aws.amazon.com/https:/aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+        /// see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
         /// Tagging Strategies</a>.</para><para>Tags that you specify for the tuning job are also added to all training jobs that
         /// the tuning job launches.</para>
         /// </para>
@@ -394,6 +451,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TuningJobCompletionCriteria_TargetObjectiveMetricValue
+        /// <summary>
+        /// <para>
+        /// <para>The objective metric's value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HyperParameterTuningJobConfig_TuningJobCompletionCriteria_TargetObjectiveMetricValue")]
+        public System.Single? TuningJobCompletionCriteria_TargetObjectiveMetricValue { get; set; }
         #endregion
         
         #region Parameter AlgorithmSpecification_TrainingImage
@@ -431,6 +499,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.TrainingInputMode AlgorithmSpecification_TrainingInputMode { get; set; }
         #endregion
         
+        #region Parameter TrainingJobDefinition
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinitions")]
+        public Amazon.SageMaker.Model.HyperParameterTrainingJobDefinition[] TrainingJobDefinition { get; set; }
+        #endregion
+        
         #region Parameter HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType
         /// <summary>
         /// <para>
@@ -456,6 +535,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [Alias("HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type")]
         [AWSConstantClassSource("Amazon.SageMaker.HyperParameterTuningJobObjectiveType")]
         public Amazon.SageMaker.HyperParameterTuningJobObjectiveType HyperParameterTuningJobObjective_Type { get; set; }
+        #endregion
+        
+        #region Parameter TuningObjective_Type
+        /// <summary>
+        /// <para>
+        /// <para>Whether to minimize or maximize the objective metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TrainingJobDefinition_TuningObjective_Type")]
+        [AWSConstantClassSource("Amazon.SageMaker.HyperParameterTuningJobObjectiveType")]
+        public Amazon.SageMaker.HyperParameterTuningJobObjectiveType TuningObjective_Type { get; set; }
         #endregion
         
         #region Parameter WarmStartConfig_WarmStartType
@@ -581,6 +672,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType = this.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType;
+            context.TuningJobCompletionCriteria_TargetObjectiveMetricValue = this.TuningJobCompletionCriteria_TargetObjectiveMetricValue;
             context.HyperParameterTuningJobName = this.HyperParameterTuningJobName;
             #if MODULAR
             if (this.HyperParameterTuningJobName == null && ParameterWasBound(nameof(this.HyperParameterTuningJobName)))
@@ -601,9 +693,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.AlgorithmSpecification_TrainingInputMode = this.AlgorithmSpecification_TrainingInputMode;
             context.CheckpointConfig_LocalPath = this.CheckpointConfig_LocalPath;
             context.CheckpointConfig_S3Uri = this.CheckpointConfig_S3Uri;
+            context.TrainingJobDefinition_DefinitionName = this.TrainingJobDefinition_DefinitionName;
             context.TrainingJobDefinition_EnableInterContainerTrafficEncryption = this.TrainingJobDefinition_EnableInterContainerTrafficEncryption;
             context.TrainingJobDefinition_EnableManagedSpotTraining = this.TrainingJobDefinition_EnableManagedSpotTraining;
             context.TrainingJobDefinition_EnableNetworkIsolation = this.TrainingJobDefinition_EnableNetworkIsolation;
+            if (this.HyperParameterRanges_CategoricalParameterRange != null)
+            {
+                context.HyperParameterRanges_CategoricalParameterRange = new List<Amazon.SageMaker.Model.CategoricalParameterRange>(this.HyperParameterRanges_CategoricalParameterRange);
+            }
+            if (this.HyperParameterRanges_ContinuousParameterRange != null)
+            {
+                context.HyperParameterRanges_ContinuousParameterRange = new List<Amazon.SageMaker.Model.ContinuousParameterRange>(this.HyperParameterRanges_ContinuousParameterRange);
+            }
+            if (this.HyperParameterRanges_IntegerParameterRange != null)
+            {
+                context.HyperParameterRanges_IntegerParameterRange = new List<Amazon.SageMaker.Model.IntegerParameterRange>(this.HyperParameterRanges_IntegerParameterRange);
+            }
             if (this.TrainingJobDefinition_InputDataConfig != null)
             {
                 context.TrainingJobDefinition_InputDataConfig = new List<Amazon.SageMaker.Model.Channel>(this.TrainingJobDefinition_InputDataConfig);
@@ -621,6 +726,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.StoppingCondition_MaxRuntimeInSecond = this.StoppingCondition_MaxRuntimeInSecond;
             context.StoppingCondition_MaxWaitTimeInSecond = this.StoppingCondition_MaxWaitTimeInSecond;
+            context.TuningObjective_MetricName = this.TuningObjective_MetricName;
+            context.TuningObjective_Type = this.TuningObjective_Type;
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -628,6 +735,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (this.VpcConfig_Subnet != null)
             {
                 context.VpcConfig_Subnet = new List<System.String>(this.VpcConfig_Subnet);
+            }
+            if (this.TrainingJobDefinition != null)
+            {
+                context.TrainingJobDefinition = new List<Amazon.SageMaker.Model.HyperParameterTrainingJobDefinition>(this.TrainingJobDefinition);
             }
             if (this.WarmStartConfig_ParentHyperParameterTuningJob != null)
             {
@@ -672,6 +783,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TrainingJobEarlyStoppingType != null)
             {
                 request.HyperParameterTuningJobConfig.TrainingJobEarlyStoppingType = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TrainingJobEarlyStoppingType;
+                requestHyperParameterTuningJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.TuningJobCompletionCriteria requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = null;
+            
+             // populate TuningJobCompletionCriteria
+            var requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull = true;
+            requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = new Amazon.SageMaker.Model.TuningJobCompletionCriteria();
+            System.Single? requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue = null;
+            if (cmdletContext.TuningJobCompletionCriteria_TargetObjectiveMetricValue != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue = cmdletContext.TuningJobCompletionCriteria_TargetObjectiveMetricValue.Value;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria.TargetObjectiveMetricValue = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria_tuningJobCompletionCriteria_TargetObjectiveMetricValue.Value;
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull = false;
+            }
+             // determine if requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria should be set to null
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteriaIsNull)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria = null;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria != null)
+            {
+                request.HyperParameterTuningJobConfig.TuningJobCompletionCriteria = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TuningJobCompletionCriteria;
                 requestHyperParameterTuningJobConfigIsNull = false;
             }
             Amazon.SageMaker.Model.HyperParameterTuningJobObjective requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_HyperParameterTuningJobObjective = null;
@@ -806,6 +942,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate TrainingJobDefinition
             var requestTrainingJobDefinitionIsNull = true;
             request.TrainingJobDefinition = new Amazon.SageMaker.Model.HyperParameterTrainingJobDefinition();
+            System.String requestTrainingJobDefinition_trainingJobDefinition_DefinitionName = null;
+            if (cmdletContext.TrainingJobDefinition_DefinitionName != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_DefinitionName = cmdletContext.TrainingJobDefinition_DefinitionName;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_DefinitionName != null)
+            {
+                request.TrainingJobDefinition.DefinitionName = requestTrainingJobDefinition_trainingJobDefinition_DefinitionName;
+                requestTrainingJobDefinitionIsNull = false;
+            }
             System.Boolean? requestTrainingJobDefinition_trainingJobDefinition_EnableInterContainerTrafficEncryption = null;
             if (cmdletContext.TrainingJobDefinition_EnableInterContainerTrafficEncryption != null)
             {
@@ -956,6 +1102,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.TrainingJobDefinition.StoppingCondition = requestTrainingJobDefinition_trainingJobDefinition_StoppingCondition;
                 requestTrainingJobDefinitionIsNull = false;
             }
+            Amazon.SageMaker.Model.HyperParameterTuningJobObjective requestTrainingJobDefinition_trainingJobDefinition_TuningObjective = null;
+            
+             // populate TuningObjective
+            var requestTrainingJobDefinition_trainingJobDefinition_TuningObjectiveIsNull = true;
+            requestTrainingJobDefinition_trainingJobDefinition_TuningObjective = new Amazon.SageMaker.Model.HyperParameterTuningJobObjective();
+            System.String requestTrainingJobDefinition_trainingJobDefinition_TuningObjective_tuningObjective_MetricName = null;
+            if (cmdletContext.TuningObjective_MetricName != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_TuningObjective_tuningObjective_MetricName = cmdletContext.TuningObjective_MetricName;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_TuningObjective_tuningObjective_MetricName != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_TuningObjective.MetricName = requestTrainingJobDefinition_trainingJobDefinition_TuningObjective_tuningObjective_MetricName;
+                requestTrainingJobDefinition_trainingJobDefinition_TuningObjectiveIsNull = false;
+            }
+            Amazon.SageMaker.HyperParameterTuningJobObjectiveType requestTrainingJobDefinition_trainingJobDefinition_TuningObjective_tuningObjective_Type = null;
+            if (cmdletContext.TuningObjective_Type != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_TuningObjective_tuningObjective_Type = cmdletContext.TuningObjective_Type;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_TuningObjective_tuningObjective_Type != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_TuningObjective.Type = requestTrainingJobDefinition_trainingJobDefinition_TuningObjective_tuningObjective_Type;
+                requestTrainingJobDefinition_trainingJobDefinition_TuningObjectiveIsNull = false;
+            }
+             // determine if requestTrainingJobDefinition_trainingJobDefinition_TuningObjective should be set to null
+            if (requestTrainingJobDefinition_trainingJobDefinition_TuningObjectiveIsNull)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_TuningObjective = null;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_TuningObjective != null)
+            {
+                request.TrainingJobDefinition.TuningObjective = requestTrainingJobDefinition_trainingJobDefinition_TuningObjective;
+                requestTrainingJobDefinitionIsNull = false;
+            }
             Amazon.SageMaker.Model.VpcConfig requestTrainingJobDefinition_trainingJobDefinition_VpcConfig = null;
             
              // populate VpcConfig
@@ -989,6 +1170,51 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestTrainingJobDefinition_trainingJobDefinition_VpcConfig != null)
             {
                 request.TrainingJobDefinition.VpcConfig = requestTrainingJobDefinition_trainingJobDefinition_VpcConfig;
+                requestTrainingJobDefinitionIsNull = false;
+            }
+            Amazon.SageMaker.Model.ParameterRanges requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges = null;
+            
+             // populate HyperParameterRanges
+            var requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRangesIsNull = true;
+            requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges = new Amazon.SageMaker.Model.ParameterRanges();
+            List<Amazon.SageMaker.Model.CategoricalParameterRange> requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_CategoricalParameterRange = null;
+            if (cmdletContext.HyperParameterRanges_CategoricalParameterRange != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_CategoricalParameterRange = cmdletContext.HyperParameterRanges_CategoricalParameterRange;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_CategoricalParameterRange != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges.CategoricalParameterRanges = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_CategoricalParameterRange;
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRangesIsNull = false;
+            }
+            List<Amazon.SageMaker.Model.ContinuousParameterRange> requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_ContinuousParameterRange = null;
+            if (cmdletContext.HyperParameterRanges_ContinuousParameterRange != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_ContinuousParameterRange = cmdletContext.HyperParameterRanges_ContinuousParameterRange;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_ContinuousParameterRange != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges.ContinuousParameterRanges = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_ContinuousParameterRange;
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRangesIsNull = false;
+            }
+            List<Amazon.SageMaker.Model.IntegerParameterRange> requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_IntegerParameterRange = null;
+            if (cmdletContext.HyperParameterRanges_IntegerParameterRange != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_IntegerParameterRange = cmdletContext.HyperParameterRanges_IntegerParameterRange;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_IntegerParameterRange != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges.IntegerParameterRanges = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges_hyperParameterRanges_IntegerParameterRange;
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRangesIsNull = false;
+            }
+             // determine if requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges should be set to null
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRangesIsNull)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges = null;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges != null)
+            {
+                request.TrainingJobDefinition.HyperParameterRanges = requestTrainingJobDefinition_trainingJobDefinition_HyperParameterRanges;
                 requestTrainingJobDefinitionIsNull = false;
             }
             Amazon.SageMaker.Model.HyperParameterAlgorithmSpecification requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification = null;
@@ -1050,6 +1276,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestTrainingJobDefinitionIsNull)
             {
                 request.TrainingJobDefinition = null;
+            }
+            if (cmdletContext.TrainingJobDefinition != null)
+            {
+                request.TrainingJobDefinitions = cmdletContext.TrainingJobDefinition;
             }
             
              // populate WarmStartConfig
@@ -1150,6 +1380,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? ResourceLimits_MaxParallelTrainingJob { get; set; }
             public Amazon.SageMaker.HyperParameterTuningJobStrategyType HyperParameterTuningJobConfig_Strategy { get; set; }
             public Amazon.SageMaker.TrainingJobEarlyStoppingType HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType { get; set; }
+            public System.Single? TuningJobCompletionCriteria_TargetObjectiveMetricValue { get; set; }
             public System.String HyperParameterTuningJobName { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String AlgorithmSpecification_AlgorithmName { get; set; }
@@ -1158,9 +1389,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.TrainingInputMode AlgorithmSpecification_TrainingInputMode { get; set; }
             public System.String CheckpointConfig_LocalPath { get; set; }
             public System.String CheckpointConfig_S3Uri { get; set; }
+            public System.String TrainingJobDefinition_DefinitionName { get; set; }
             public System.Boolean? TrainingJobDefinition_EnableInterContainerTrafficEncryption { get; set; }
             public System.Boolean? TrainingJobDefinition_EnableManagedSpotTraining { get; set; }
             public System.Boolean? TrainingJobDefinition_EnableNetworkIsolation { get; set; }
+            public List<Amazon.SageMaker.Model.CategoricalParameterRange> HyperParameterRanges_CategoricalParameterRange { get; set; }
+            public List<Amazon.SageMaker.Model.ContinuousParameterRange> HyperParameterRanges_ContinuousParameterRange { get; set; }
+            public List<Amazon.SageMaker.Model.IntegerParameterRange> HyperParameterRanges_IntegerParameterRange { get; set; }
             public List<Amazon.SageMaker.Model.Channel> TrainingJobDefinition_InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig TrainingJobDefinition_OutputDataConfig { get; set; }
             public Amazon.SageMaker.Model.ResourceConfig TrainingJobDefinition_ResourceConfig { get; set; }
@@ -1168,8 +1403,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Dictionary<System.String, System.String> TrainingJobDefinition_StaticHyperParameter { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
+            public System.String TuningObjective_MetricName { get; set; }
+            public Amazon.SageMaker.HyperParameterTuningJobObjectiveType TuningObjective_Type { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }
+            public List<Amazon.SageMaker.Model.HyperParameterTrainingJobDefinition> TrainingJobDefinition { get; set; }
             public List<Amazon.SageMaker.Model.ParentHyperParameterTuningJob> WarmStartConfig_ParentHyperParameterTuningJob { get; set; }
             public Amazon.SageMaker.HyperParameterTuningJobWarmStartType WarmStartConfig_WarmStartType { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateHyperParameterTuningJobResponse, NewSMHyperParameterTuningJobCmdlet, object> Select { get; set; } =

@@ -40,7 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// can allow other users to read the website configuration by writing a bucket policy
     /// granting them the <code>S3:GetBucketWebsite</code> permission.
     /// </para><para>
-    /// The following operations are related to <code>DeleteBucketWebsite</code></para><ul><li><para><a>DeleteBucketWebsite</a></para></li><li><para><a>PutBucketWebsite</a></para></li></ul>
+    /// The following operations are related to <code>DeleteBucketWebsite</code>:
+    /// </para><ul><li><para><a>DeleteBucketWebsite</a></para></li><li><para><a>PutBucketWebsite</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketWebsite")]
     [OutputType("Amazon.S3.Model.WebsiteConfiguration")]

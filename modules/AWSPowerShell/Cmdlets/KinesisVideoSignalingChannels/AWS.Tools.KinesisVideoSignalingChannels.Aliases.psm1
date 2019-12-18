@@ -1,0 +1,3 @@
+﻿# KinesisVideoSignalingChannels
+
+Export-ModuleMember -Alias *

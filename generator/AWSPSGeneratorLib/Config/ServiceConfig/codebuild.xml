@@ -31,7 +31,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetReportGroups" OutputProperty="ReportGroups" Verb="Get" Noun="ReportGroupBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetReports" OutputProperty="Reports" Verb="Get" Noun="ReportBatch" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateProject" OutputProperty="Project" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReportGroup" OutputProperty="ReportGroup" Verb="New" Noun="ReportGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,11 +55,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReport" Verb="Remove" Noun="Report" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReportGroup" Verb="Remove" Noun="ReportGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSourceCredentials" OutputProperty="Arn" Verb="Remove" Noun="SourceCredential" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteWebhook" Verb="Remove" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTestCases" OutputProperty="TestCases" Verb="Get" Noun="TestCase" PipelineParameter="ReportArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,6 +99,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListReportGroups" OutputProperty="ReportGroups" Verb="Get" Noun="ReportGroupList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReports" OutputProperty="Reports" Verb="Get" Noun="ReportList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReportsForReportGroup" OutputProperty="Reports" Verb="Get" Noun="ReportsForReportGroupList" PipelineParameter="ReportGroupArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSourceCredentials" OutputProperty="SourceCredentialsInfos" Verb="Get" Noun="SourceCredentialList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +124,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProject" OutputProperty="Project" Verb="Update" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReportGroup" OutputProperty="ReportGroup" Verb="Update" Noun="ReportGroup" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

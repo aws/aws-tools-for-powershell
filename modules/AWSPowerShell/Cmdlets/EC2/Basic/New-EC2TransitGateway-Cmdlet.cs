@@ -130,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
         #endregion
         
+        #region Parameter Options_MulticastSupport
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether multicast is enabled on the transit gateway</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.MulticastSupportValue")]
+        public Amazon.EC2.MulticastSupportValue Options_MulticastSupport { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -199,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Options_DefaultRouteTableAssociation = this.Options_DefaultRouteTableAssociation;
             context.Options_DefaultRouteTablePropagation = this.Options_DefaultRouteTablePropagation;
             context.Options_DnsSupport = this.Options_DnsSupport;
+            context.Options_MulticastSupport = this.Options_MulticastSupport;
             context.Options_VpnEcmpSupport = this.Options_VpnEcmpSupport;
             if (this.TagSpecification != null)
             {
@@ -276,6 +288,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_DnsSupport != null)
             {
                 request.Options.DnsSupport = requestOptions_options_DnsSupport;
+                requestOptionsIsNull = false;
+            }
+            Amazon.EC2.MulticastSupportValue requestOptions_options_MulticastSupport = null;
+            if (cmdletContext.Options_MulticastSupport != null)
+            {
+                requestOptions_options_MulticastSupport = cmdletContext.Options_MulticastSupport;
+            }
+            if (requestOptions_options_MulticastSupport != null)
+            {
+                request.Options.MulticastSupport = requestOptions_options_MulticastSupport;
                 requestOptionsIsNull = false;
             }
             Amazon.EC2.VpnEcmpSupportValue requestOptions_options_VpnEcmpSupport = null;
@@ -364,6 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.DefaultRouteTableAssociationValue Options_DefaultRouteTableAssociation { get; set; }
             public Amazon.EC2.DefaultRouteTablePropagationValue Options_DefaultRouteTablePropagation { get; set; }
             public Amazon.EC2.DnsSupportValue Options_DnsSupport { get; set; }
+            public Amazon.EC2.MulticastSupportValue Options_MulticastSupport { get; set; }
             public Amazon.EC2.VpnEcmpSupportValue Options_VpnEcmpSupport { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateTransitGatewayResponse, NewEC2TransitGatewayCmdlet, object> Select { get; set; } =

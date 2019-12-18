@@ -77,19 +77,20 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         #region Parameter Tier
         /// <summary>
         /// <para>
-        /// <para>The tier of the application component. Supported tiers include <code>DOT_NET_WORKER</code>,
-        /// <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>, and <code>DEFAULT</code>.</para>
+        /// <para>The tier of the application component. Supported tiers include <code>DOT_NET_CORE</code>,
+        /// <code>DOT_NET_WORKER</code>, <code>DOT_NET_WEB</code>, <code>SQL_SERVER</code>, and
+        /// <code>DEFAULT</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Tier { get; set; }
+        [AWSConstantClassSource("Amazon.ApplicationInsights.Tier")]
+        public Amazon.ApplicationInsights.Tier Tier { get; set; }
         #endregion
         
         #region Parameter Select
@@ -249,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         {
             public System.String ComponentName { get; set; }
             public System.String ResourceGroupName { get; set; }
-            public System.String Tier { get; set; }
+            public Amazon.ApplicationInsights.Tier Tier { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.DescribeComponentConfigurationRecommendationResponse, GetCWAIComponentConfigurationRecommendationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ComponentConfiguration;
         }

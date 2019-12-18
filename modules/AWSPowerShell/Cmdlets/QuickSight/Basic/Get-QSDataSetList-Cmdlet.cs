@@ -28,12 +28,12 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all of the datasets belonging to this account in an AWS region.
+    /// Lists all of the datasets belonging to the current AWS account in an AWS Region.
     /// 
     ///  
     /// <para>
-    /// The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code></para><para>
-    /// CLI syntax: <code>aws quicksight list-data-sets --aws-account-id=111111111111</code></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSDataSetList")]
     [OutputType("Amazon.QuickSight.Model.DataSetSummary")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS Account ID.</para>
+        /// <para>The AWS account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

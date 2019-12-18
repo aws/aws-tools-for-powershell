@@ -71,8 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone for the subnet.</para><para>Default: AWS selects one for you. If you create more than one subnet in your VPC,
-        /// we may not necessarily select a different zone for each subnet.</para>
+        /// <para>The Availability Zone or Local Zone for the subnet.</para><para>Default: AWS selects one for you. If you create more than one subnet in your VPC,
+        /// we do not necessarily select a different zone for each subnet.</para><para>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
+        /// <code>us-west-2-lax-1a</code>. For information about the Regions that support Local
+        /// Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available
+        /// Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -82,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZoneId
         /// <summary>
         /// <para>
-        /// <para>The AZ ID of the subnet.</para>
+        /// <para>The AZ ID or the Local Zone ID of the subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Ipv6CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter OutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutpostArn { get; set; }
         #endregion
         
         #region Parameter VpcId
@@ -205,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.Ipv6CidrBlock = this.Ipv6CidrBlock;
+            context.OutpostArn = this.OutpostArn;
             context.VpcId = this.VpcId;
             #if MODULAR
             if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
@@ -243,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Ipv6CidrBlock != null)
             {
                 request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
+            }
+            if (cmdletContext.OutpostArn != null)
+            {
+                request.OutpostArn = cmdletContext.OutpostArn;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -313,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String AvailabilityZoneId { get; set; }
             public System.String CidrBlock { get; set; }
             public System.String Ipv6CidrBlock { get; set; }
+            public System.String OutpostArn { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateSubnetResponse, NewEC2SubnetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Subnet;

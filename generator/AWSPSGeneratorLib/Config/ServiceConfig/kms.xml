@@ -103,6 +103,14 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateDataKeyPair" OutputProperty="*" Verb="New" Noun="DataKeyPair" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateDataKeyPairWithoutPlaintext" OutputProperty="*" Verb="New" Noun="DataKeyPairWithoutPlaintext" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GenerateDataKeyWithoutPlaintext" OutputProperty="*" Verb="New" Noun="DataKeyWithoutPlaintext" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params>
                 <Param Name="NumberOfBytes" AutoRename="false" />
@@ -124,6 +132,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetParametersForImport" OutputProperty="*" Verb="Get" Noun="ParametersForImport" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPublicKey" OutputProperty="*" Verb="Get" Noun="PublicKey" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -175,6 +187,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="Sign" OutputProperty="Signature" Verb="Invoke" Noun="Signing" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="Message" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -192,6 +208,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateKeyDescription" Verb="Update" Noun="KeyDescription" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Verify" OutputProperty="SignatureValid" Verb="Test" Noun="Signature" PipelineParameter="Message" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

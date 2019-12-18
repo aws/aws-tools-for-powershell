@@ -47,6 +47,23 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class GetCPThirdPartyJobDetailCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        #region Parameter JobId
+        /// <summary>
+        /// <para>
+        /// <para>The unique system-generated ID used for identifying the job.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String JobId { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -63,23 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClientToken { get; set; }
-        #endregion
-        
-        #region Parameter JobId
-        /// <summary>
-        /// <para>
-        /// <para>The unique system-generated ID used for identifying the job.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobId { get; set; }
         #endregion
         
         #region Parameter Select

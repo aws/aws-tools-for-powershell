@@ -116,6 +116,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Require
+        /// <summary>
+        /// <para>
+        /// <para>A list of SSM documents required by a document. For example, an <code>ApplicationConfiguration</code>
+        /// document requires an <code>ApplicationConfigurationSchema</code> document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Requires")]
+        public Amazon.SimpleSystemsManagement.Model.DocumentRequires[] Require { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -238,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Require != null)
+            {
+                context.Require = new List<Amazon.SimpleSystemsManagement.Model.DocumentRequires>(this.Require);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
@@ -279,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Require != null)
+            {
+                request.Requires = cmdletContext.Require;
             }
             if (cmdletContext.Tag != null)
             {
@@ -358,6 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public Amazon.SimpleSystemsManagement.DocumentFormat DocumentFormat { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentType DocumentType { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.DocumentRequires> Require { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }
             public System.String TargetType { get; set; }
             public System.String VersionName { get; set; }

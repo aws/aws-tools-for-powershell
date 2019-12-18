@@ -45,16 +45,6 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     public partial class GetPLSServiceCmdlet : AmazonPricingClientCmdlet, IExecutor
     {
         
-        #region Parameter FormatVersion
-        /// <summary>
-        /// <para>
-        /// <para>The format version that you want the response to be in.</para><para>Valid values are: <code>aws_v1</code></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String FormatVersion { get; set; }
-        #endregion
-        
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
@@ -65,6 +55,16 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ServiceCode { get; set; }
+        #endregion
+        
+        #region Parameter FormatVersion
+        /// <summary>
+        /// <para>
+        /// <para>The format version that you want the response to be in.</para><para>Valid values are: <code>aws_v1</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FormatVersion { get; set; }
         #endregion
         
         #region Parameter MaxResult

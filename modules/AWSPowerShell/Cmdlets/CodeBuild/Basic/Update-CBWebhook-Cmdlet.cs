@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> An array of arrays of <code>WebhookFilter</code> objects used to determine if a webhook
-        /// event can trigger a build. A filter group must pcontain at least one <code>EVENT</code><code>WebhookFilter</code>. </para>
+        /// event can trigger a build. A filter group must contain at least one <code>EVENT</code><code>WebhookFilter</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

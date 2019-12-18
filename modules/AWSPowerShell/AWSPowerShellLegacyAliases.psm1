@@ -131,6 +131,11 @@ Set-Alias -Name Get-DDBTables -Value Get-DDBTableList
 Set-Alias -Name Get-GlobalTablesList -Value Get-GlobalTableList
 
 # EC2
+Set-Alias -Name Confirm-EC2EndpointConnection -Value Approve-EC2EndpointConnection
+Set-Alias -Name Confirm-EC2ReservedInstancesExchangeQuote -Value Approve-EC2ReservedInstancesExchangeQuote
+Set-Alias -Name Confirm-EC2TransitGatewayPeeringAttachment -Value Approve-EC2TransitGatewayPeeringAttachment
+Set-Alias -Name Confirm-EC2TransitGatewayVpcAttachment -Value Approve-EC2TransitGatewayVpcAttachment
+Set-Alias -Name Confirm-EC2VpcPeeringConnection -Value Approve-EC2VpcPeeringConnection
 Set-Alias -Name Edit-EC2Hosts -Value Edit-EC2Host
 Set-Alias -Name Get-EC2AccountAttributes -Value Get-EC2AccountAttribute
 Set-Alias -Name Get-EC2ExportTasks -Value Get-EC2ExportTask

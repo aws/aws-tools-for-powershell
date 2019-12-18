@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the document about which you want version information.</para>
+        /// <para>The name of the document. You can specify an Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

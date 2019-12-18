@@ -103,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
         #endregion
         
+        #region Parameter Ipv6CidrBlockNetworkBorderGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter
+        /// to limit the address to this location.</para><para> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use
+        /// this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Vpc'.
@@ -173,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.InstanceTenancy = this.InstanceTenancy;
+            context.Ipv6CidrBlockNetworkBorderGroup = this.Ipv6CidrBlockNetworkBorderGroup;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -200,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceTenancy != null)
             {
                 request.InstanceTenancy = cmdletContext.InstanceTenancy;
+            }
+            if (cmdletContext.Ipv6CidrBlockNetworkBorderGroup != null)
+            {
+                request.Ipv6CidrBlockNetworkBorderGroup = cmdletContext.Ipv6CidrBlockNetworkBorderGroup;
             }
             
             CmdletOutput output;
@@ -265,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? AmazonProvidedIpv6CidrBlock { get; set; }
             public System.String CidrBlock { get; set; }
             public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
+            public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpcResponse, NewEC2VpcCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Vpc;
         }

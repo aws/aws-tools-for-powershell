@@ -142,6 +142,11 @@ namespace AWSPowerShellGenerator.Analysis
             new AnalysisError(service, operation, $"'PipelineParameter' is not a valid parameter name, valid options are : {FormatList(candidatePipelineParameters.Select(param => param.AnalyzedName))}.");
         }
 
+        public static void NoPipelineParameterAndPipelineParameterSpecified(ConfigModel service, ServiceOperation operation)
+        {
+            new AnalysisError(service, operation, $"'PipelineParameter' must be an emtpy string when 'NoPipelineParameter' is specified.");
+        }
+
         public static void MissingPipelineConfiguration(ConfigModel service, ServiceOperation operation, IEnumerable<SimplePropertyInfo> candidateParameters)
         {
             new AnalysisError(service, operation, $"Missing 'PipelineParameter' configuration, valid options are : {FormatList(candidateParameters.Select(param => param.AnalyzedName))}. In case none of the parameters is a valid candidate, configure 'NoPipelineParameter=\"true\"'.");
@@ -159,7 +164,7 @@ namespace AWSPowerShellGenerator.Analysis
 
         public static void OutdatedShouldProcessTargetConfiguration(ConfigModel service, ServiceOperation operation, string suggestedParam)
         {
-            new AnalysisError(service, operation, $"'ShouldProcessTarget' configuration is not valid, the suggested value is {suggestedParam}.");
+            new AnalysisError(service, operation, $"'ShouldProcessTarget' configuration is not valid, the suggested value is 'ShouldProcessTarget=\"{suggestedParam}\"'.");
         }
 
         public static void InvalidShouldProcessTargetConfiguration(ConfigModel service, ServiceOperation operation, IEnumerable<SimplePropertyInfo> candidateParameters)

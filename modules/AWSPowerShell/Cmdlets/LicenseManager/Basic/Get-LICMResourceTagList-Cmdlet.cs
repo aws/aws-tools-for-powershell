@@ -28,7 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Lists tags attached to a resource.
+    /// Lists the tags for the specified license configuration.
     /// </summary>
     [Cmdlet("Get", "LICMResourceTagList")]
     [OutputType("Amazon.LicenseManager.Model.Tag")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>ARN for the resource.</para>
+        /// <para>Amazon Resource Name (ARN) of the license configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

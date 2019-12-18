@@ -28,14 +28,9 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all the assignments and the ARNs for the associated IAM policies assigned to
-    /// the specified user and the group or groups that the user belongs to.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight list-iam-policy-assignments-for-user --aws-account-id=111122223333
-    /// --user-name=user5 --namespace=default --max-result=6 --region=us-east-1 </code></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for
+    /// the IAM policies assigned to the specified user and group or groups that the user
+    /// belongs to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSIAMPolicyAssignmentsForUserList")]
     [OutputType("Amazon.QuickSight.Model.ActiveIAMPolicyAssignment")]
@@ -50,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID that contains the assignment.</para>
+        /// <para>The ID of the AWS account that contains the assignments.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -120,6 +120,28 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.String EncryptionAtRest_DataVolumeKMSKeyId { get; set; }
         #endregion
         
+        #region Parameter JmxExporter_EnabledInBroker
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether you want to enable or disable the JMX Exporter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenMonitoring_Prometheus_JmxExporter_EnabledInBroker")]
+        public System.Boolean? JmxExporter_EnabledInBroker { get; set; }
+        #endregion
+        
+        #region Parameter NodeExporter_EnabledInBroker
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether you want to enable or disable the Node Exporter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OpenMonitoring_Prometheus_NodeExporter_EnabledInBroker")]
+        public System.Boolean? NodeExporter_EnabledInBroker { get; set; }
+        #endregion
+        
         #region Parameter EnhancedMonitoring
         /// <summary>
         /// <para>
@@ -298,6 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
                 WriteWarning("You are passing $null as a value for parameter NumberOfBrokerNode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.JmxExporter_EnabledInBroker = this.JmxExporter_EnabledInBroker;
+            context.NodeExporter_EnabledInBroker = this.NodeExporter_EnabledInBroker;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -474,6 +498,80 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             {
                 request.NumberOfBrokerNodes = cmdletContext.NumberOfBrokerNode.Value;
             }
+            
+             // populate OpenMonitoring
+            var requestOpenMonitoringIsNull = true;
+            request.OpenMonitoring = new Amazon.Kafka.Model.OpenMonitoringInfo();
+            Amazon.Kafka.Model.PrometheusInfo requestOpenMonitoring_openMonitoring_Prometheus = null;
+            
+             // populate Prometheus
+            var requestOpenMonitoring_openMonitoring_PrometheusIsNull = true;
+            requestOpenMonitoring_openMonitoring_Prometheus = new Amazon.Kafka.Model.PrometheusInfo();
+            Amazon.Kafka.Model.JmxExporterInfo requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter = null;
+            
+             // populate JmxExporter
+            var requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporterIsNull = true;
+            requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter = new Amazon.Kafka.Model.JmxExporterInfo();
+            System.Boolean? requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter_jmxExporter_EnabledInBroker = null;
+            if (cmdletContext.JmxExporter_EnabledInBroker != null)
+            {
+                requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter_jmxExporter_EnabledInBroker = cmdletContext.JmxExporter_EnabledInBroker.Value;
+            }
+            if (requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter_jmxExporter_EnabledInBroker != null)
+            {
+                requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter.EnabledInBroker = requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter_jmxExporter_EnabledInBroker.Value;
+                requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporterIsNull = false;
+            }
+             // determine if requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter should be set to null
+            if (requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporterIsNull)
+            {
+                requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter = null;
+            }
+            if (requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter != null)
+            {
+                requestOpenMonitoring_openMonitoring_Prometheus.JmxExporter = requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_JmxExporter;
+                requestOpenMonitoring_openMonitoring_PrometheusIsNull = false;
+            }
+            Amazon.Kafka.Model.NodeExporterInfo requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter = null;
+            
+             // populate NodeExporter
+            var requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporterIsNull = true;
+            requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter = new Amazon.Kafka.Model.NodeExporterInfo();
+            System.Boolean? requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter_nodeExporter_EnabledInBroker = null;
+            if (cmdletContext.NodeExporter_EnabledInBroker != null)
+            {
+                requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter_nodeExporter_EnabledInBroker = cmdletContext.NodeExporter_EnabledInBroker.Value;
+            }
+            if (requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter_nodeExporter_EnabledInBroker != null)
+            {
+                requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter.EnabledInBroker = requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter_nodeExporter_EnabledInBroker.Value;
+                requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporterIsNull = false;
+            }
+             // determine if requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter should be set to null
+            if (requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporterIsNull)
+            {
+                requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter = null;
+            }
+            if (requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter != null)
+            {
+                requestOpenMonitoring_openMonitoring_Prometheus.NodeExporter = requestOpenMonitoring_openMonitoring_Prometheus_openMonitoring_Prometheus_NodeExporter;
+                requestOpenMonitoring_openMonitoring_PrometheusIsNull = false;
+            }
+             // determine if requestOpenMonitoring_openMonitoring_Prometheus should be set to null
+            if (requestOpenMonitoring_openMonitoring_PrometheusIsNull)
+            {
+                requestOpenMonitoring_openMonitoring_Prometheus = null;
+            }
+            if (requestOpenMonitoring_openMonitoring_Prometheus != null)
+            {
+                request.OpenMonitoring.Prometheus = requestOpenMonitoring_openMonitoring_Prometheus;
+                requestOpenMonitoringIsNull = false;
+            }
+             // determine if request.OpenMonitoring should be set to null
+            if (requestOpenMonitoringIsNull)
+            {
+                request.OpenMonitoring = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -550,6 +648,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public Amazon.Kafka.EnhancedMonitoring EnhancedMonitoring { get; set; }
             public System.String KafkaVersion { get; set; }
             public System.Int32? NumberOfBrokerNode { get; set; }
+            public System.Boolean? JmxExporter_EnabledInBroker { get; set; }
+            public System.Boolean? NodeExporter_EnabledInBroker { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Kafka.Model.CreateClusterResponse, NewMSKClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

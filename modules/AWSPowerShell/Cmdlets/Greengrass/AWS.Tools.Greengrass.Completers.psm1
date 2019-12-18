@@ -114,14 +114,14 @@ $GG_Completers = {
         # Amazon.Greengrass.UpdateTargetsArchitecture
         "New-GGSoftwareUpdateJob/UpdateTargetsArchitecture"
         {
-            $v = "aarch64","armv6l","armv7l","openwrt","x86_64"
+            $v = "aarch64","armv6l","armv7l","x86_64"
             break
         }
 
         # Amazon.Greengrass.UpdateTargetsOperatingSystem
         "New-GGSoftwareUpdateJob/UpdateTargetsOperatingSystem"
         {
-            $v = "amazon_linux","raspbian","ubuntu"
+            $v = "amazon_linux","openwrt","raspbian","ubuntu"
             break
         }
 

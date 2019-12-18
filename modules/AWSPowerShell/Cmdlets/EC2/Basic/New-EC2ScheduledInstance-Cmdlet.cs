@@ -85,18 +85,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.ScheduledInstancesBlockDeviceMapping[] LaunchSpecification_BlockDeviceMapping { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that ensures the idempotency of the request. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-        /// Idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter LaunchSpecification_EbsOptimized
         /// <summary>
         /// <para>
@@ -267,6 +255,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LaunchSpecification_UserData { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that ensures the idempotency of the request. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

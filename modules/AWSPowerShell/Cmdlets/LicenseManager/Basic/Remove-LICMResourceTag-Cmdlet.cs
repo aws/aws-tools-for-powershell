@@ -28,7 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Remove tags from a resource.
+    /// Removes the specified tags from the specified license configuration.
     /// </summary>
     [Cmdlet("Remove", "LICMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the resource.</para>
+        /// <para>Amazon Resource Name (ARN) of the license configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>List keys identifying tags to remove.</para>
+        /// <para>Keys identifying the tags to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

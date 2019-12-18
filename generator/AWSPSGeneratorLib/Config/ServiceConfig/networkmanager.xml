@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>networkmanager</C2jFilename>
+    <AssemblyName>NetworkManager</AssemblyName>
+    <ServiceNounPrefix>NMGR</ServiceNounPrefix>
+    <ServiceName>AWS Network Manager</ServiceName>
+    <ServiceClientInterface>IAmazonNetworkManager</ServiceClientInterface>
+    <ServiceClient>AmazonNetworkManagerClient</ServiceClient>
+    <ServiceModuleGuid>d36dcf68-2021-4d6d-adc2-d399833465f6</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateCustomerGateway" OutputProperty="CustomerGatewayAssociation" Verb="Register" Noun="CustomerGateway" ShouldProcessTarget="CustomerGatewayArn" PipelineParameter="CustomerGatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateLink" OutputProperty="LinkAssociation" Verb="Register" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDevice" OutputProperty="Device" Verb="New" Noun="Device" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlobalNetwork" OutputProperty="GlobalNetwork" Verb="New" Noun="GlobalNetwork" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLink" OutputProperty="Link" Verb="New" Noun="Link" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSite" OutputProperty="Site" Verb="New" Noun="Site" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDevice" OutputProperty="Device" Verb="Remove" Noun="Device" ShouldProcessTarget="DeviceId" PipelineParameter="DeviceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGlobalNetwork" OutputProperty="GlobalNetwork" Verb="Remove" Noun="GlobalNetwork" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLink" OutputProperty="Link" Verb="Remove" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSite" OutputProperty="Site" Verb="Remove" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterTransitGateway" OutputProperty="TransitGatewayRegistration" Verb="Unregister" Noun="TransitGateway" ShouldProcessTarget="TransitGatewayArn" PipelineParameter="TransitGatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGlobalNetworks" OutputProperty="GlobalNetworks" Verb="Get" Noun="GlobalNetwork" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateCustomerGateway" OutputProperty="CustomerGatewayAssociation" Verb="Unregister" Noun="CustomerGateway" ShouldProcessTarget="CustomerGatewayArn" PipelineParameter="CustomerGatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateLink" OutputProperty="LinkAssociation" Verb="Unregister" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCustomerGatewayAssociations" OutputProperty="CustomerGatewayAssociations" Verb="Get" Noun="CustomerGatewayAssociation" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDevices" OutputProperty="Devices" Verb="Get" Noun="Device" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLinkAssociations" OutputProperty="LinkAssociations" Verb="Get" Noun="LinkAssociation" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLinks" OutputProperty="Links" Verb="Get" Noun="Link" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSites" OutputProperty="Sites" Verb="Get" Noun="Site" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayRegistrations" OutputProperty="TransitGatewayRegistrations" Verb="Get" Noun="TransitGatewayRegistration" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterTransitGateway" OutputProperty="TransitGatewayRegistration" Verb="Register" Noun="TransitGateway" ShouldProcessTarget="TransitGatewayArn" PipelineParameter="TransitGatewayArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDevice" OutputProperty="Device" Verb="Update" Noun="Device" ShouldProcessTarget="DeviceId" PipelineParameter="DeviceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlobalNetwork" OutputProperty="GlobalNetwork" Verb="Update" Noun="GlobalNetwork" ShouldProcessTarget="GlobalNetworkId" PipelineParameter="GlobalNetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLink" OutputProperty="Link" Verb="Update" Noun="Link" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSite" OutputProperty="Site" Verb="Update" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

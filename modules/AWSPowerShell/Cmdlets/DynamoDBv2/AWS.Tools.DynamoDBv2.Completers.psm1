@@ -99,6 +99,13 @@ $DDB_Completers = {
             break
         }
 
+        # Amazon.DynamoDBv2.ContributorInsightsAction
+        "Update-DDBContributorInsight/ContributorInsightsAction"
+        {
+            $v = "DISABLE","ENABLE"
+            break
+        }
+
         # Amazon.DynamoDBv2.KeyType
         "Add-DDBKeySchema/KeyType"
         {
@@ -167,6 +174,7 @@ $DDB_map = @{
     "BackupType"=@("Get-DDBBackupList")
     "BillingMode"=@("Update-DDBTable")
     "BillingModeOverride"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
+    "ContributorInsightsAction"=@("Update-DDBContributorInsight")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
     "KeyDataType"=@("Add-DDBKeySchema")
@@ -235,6 +243,7 @@ $DDB_SelectMap = @{
                "Remove-DDBTable",
                "Get-DDBBackup",
                "Get-DDBContinuousBackup",
+               "Get-DDBContributorInsight",
                "Get-DDBEndpoint",
                "Get-DDBGlobalTable",
                "Get-DDBGlobalTableSetting",
@@ -243,6 +252,7 @@ $DDB_SelectMap = @{
                "Get-DDBTableReplicaAutoScaling",
                "Get-DDBTimeToLive",
                "Get-DDBBackupList",
+               "Get-DDBContributorInsightList",
                "Get-DDBGlobalTableList",
                "Get-DDBTableList",
                "Get-DDBResourceTag",
@@ -253,6 +263,7 @@ $DDB_SelectMap = @{
                "Write-DDBItemTransactionally",
                "Remove-DDBResourceTag",
                "Update-DDBContinuousBackup",
+               "Update-DDBContributorInsight",
                "Update-DDBGlobalTable",
                "Update-DDBGlobalTableSetting",
                "Update-DDBTable",

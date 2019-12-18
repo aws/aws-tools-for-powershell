@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>kendra</C2jFilename>
+    <AssemblyName>Kendra</AssemblyName>
+    <ServiceNounPrefix>KNDR</ServiceNounPrefix>
+    <ServiceName>Amazon Kendra</ServiceName>
+    <ServiceClientInterface>IAmazonKendra</ServiceClientInterface>
+    <ServiceClient>AmazonKendraClient</ServiceClient>
+    <ServiceModuleGuid>7dc1021b-517a-45a9-98c7-058586daa566</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchDeleteDocument" OutputProperty="FailedDocuments" Verb="Remove" Noun="DocumentBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutDocument" OutputProperty="FailedDocuments" Verb="Write" Noun="DocumentBatch" ShouldProcessTarget="IndexId" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataSource" OutputProperty="Id" Verb="New" Noun="DataSource" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFaq" OutputProperty="Id" Verb="New" Noun="Faq" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIndex" OutputProperty="Id" Verb="New" Noun="Index" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFaq" Verb="Remove" Noun="Faq" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIndex" Verb="Remove" Noun="Index" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDataSource" OutputProperty="*" Verb="Get" Noun="DataSource" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFaq" OutputProperty="*" Verb="Get" Noun="Faq" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIndex" OutputProperty="*" Verb="Get" Noun="Index" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="SummaryItems" Verb="Get" Noun="DataSourceList" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataSourceSyncJobs" OutputProperty="History" Verb="Get" Noun="DataSourceSyncJobList" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFaqs" OutputProperty="FaqSummaryItems" Verb="Get" Noun="FaqList" PipelineParameter="IndexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIndices" OutputProperty="IndexConfigurationSummaryItems" Verb="Get" Noun="IndexList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Query" OutputProperty="*" Verb="Invoke" Noun="Query" ShouldProcessTarget="IndexId" PipelineParameter="QueryText" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDataSourceSyncJob" OutputProperty="ExecutionId" Verb="Start" Noun="DataSourceSyncJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDataSourceSyncJob" Verb="Stop" Noun="DataSourceSyncJob" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubmitFeedback" Verb="Send" Noun="Feedback" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataSource" Verb="Update" Noun="DataSource" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIndex" Verb="Update" Noun="Index" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.Kendra.Model.AttributeFilter</Type>
+        <Type>Amazon.Kendra.Model.DataSourceConfiguration</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

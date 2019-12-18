@@ -64,24 +64,6 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String[] ClientList { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique string value that you supply that is used by file gateway to ensure idempotent
-        /// file share creation.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter DefaultStorageClass
         /// <summary>
         /// <para>
@@ -288,6 +270,24 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique string value that you supply that is used by file gateway to ensure idempotent
+        /// file share creation.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

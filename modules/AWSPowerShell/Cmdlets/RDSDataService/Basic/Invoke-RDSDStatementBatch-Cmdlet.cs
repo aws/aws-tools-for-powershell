@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter ParameterSet
         /// <summary>
         /// <para>
-        /// <para>The parameter set for the batch operation.</para>
+        /// <para>The parameter set for the batch operation.</para><para>The maximum number of parameters in a parameter set is 1,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

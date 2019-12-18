@@ -123,9 +123,12 @@ $RGT_SelectCompleters = {
 }
 
 $RGT_SelectMap = @{
-    "Select"=@("Get-RGTResource",
+    "Select"=@("Get-RGTReportCreation",
+               "Get-RGTComplianceSummary",
+               "Get-RGTResource",
                "Get-RGTTagKey",
                "Get-RGTTagValue",
+               "Start-RGTReportCreation",
                "Add-RGTResourceTag",
                "Remove-RGTResourceTag")
 }

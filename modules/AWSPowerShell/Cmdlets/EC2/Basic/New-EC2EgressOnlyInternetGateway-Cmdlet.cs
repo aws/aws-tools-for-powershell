@@ -42,18 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2EgressOnlyInternetGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter VpcId
         /// <summary>
         /// <para>
@@ -69,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String VpcId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// to Ensure Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

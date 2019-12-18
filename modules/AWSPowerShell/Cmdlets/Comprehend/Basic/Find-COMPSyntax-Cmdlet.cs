@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para>The language code of the input documents. You can specify any of the primary languages
+        /// <para>The language code of the input documents. You can specify any of the following languages
         /// supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French
         /// ("fr"), Italian ("it"), or Portuguese ("pt").</para>
         /// </para>

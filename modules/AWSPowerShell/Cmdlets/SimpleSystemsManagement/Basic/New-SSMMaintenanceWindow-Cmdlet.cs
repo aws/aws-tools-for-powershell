@@ -69,16 +69,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Boolean? AllowUnassociatedTarget { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>User-provided idempotency token.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Cutoff
         /// <summary>
         /// <para>
@@ -207,6 +197,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>User-provided idempotency token.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

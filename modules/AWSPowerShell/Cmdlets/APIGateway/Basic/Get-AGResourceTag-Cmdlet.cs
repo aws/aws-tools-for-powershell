@@ -40,16 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class GetAGResourceTagCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter Position
-        /// <summary>
-        /// <para>
-        /// <para>(Not currently supported) The current pagination position in the paged result set.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Position { get; set; }
-        #endregion
-        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
@@ -76,6 +66,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? Limit { get; set; }
+        #endregion
+        
+        #region Parameter Position
+        /// <summary>
+        /// <para>
+        /// <para>(Not currently supported) The current pagination position in the paged result set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Position { get; set; }
         #endregion
         
         #region Parameter Select

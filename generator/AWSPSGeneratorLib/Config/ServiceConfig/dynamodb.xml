@@ -65,6 +65,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContributorInsights" OutputProperty="*" Verb="Get" Noun="ContributorInsight" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -100,6 +104,11 @@
         <ServiceOperation MethodName="ListBackups" OutputProperty="BackupSummaries" Verb="Get" Noun="BackupList" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="ExclusiveStartBackupArn" Next="LastEvaluatedBackupArn" EmitLimit="Limit" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContributorInsights" OutputProperty="ContributorInsightsSummaries" Verb="Get" Noun="ContributorInsightList" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGlobalTables" OutputProperty="GlobalTables" Verb="Get" Noun="GlobalTableList" PipelineParameter="" NoPipelineParameter="true">
@@ -153,6 +162,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateContinuousBackups" OutputProperty="ContinuousBackupsDescription" Verb="Update" Noun="ContinuousBackup" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateContributorInsights" OutputProperty="*" Verb="Update" Noun="ContributorInsight" ShouldProcessTarget="TableName" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

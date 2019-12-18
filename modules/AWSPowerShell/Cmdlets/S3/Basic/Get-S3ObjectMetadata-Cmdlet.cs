@@ -84,11 +84,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Permissions in a Policy</a>. If the object you request does not exist, the error Amazon
     /// S3 returns depends on whether you also have the s3:ListBucket permission.
     /// </para><ul><li><para>
-    /// If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 will
-    /// return a HTTP status code 404 ("no such key") error.
+    /// If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3 returns
+    /// an HTTP status code 404 ("no such key") error.
     /// </para></li><li><para>
-    /// If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 will return
-    /// a HTTP status code 403 ("access denied") error.
+    /// If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
+    /// HTTP status code 403 ("access denied") error.
     /// </para></li></ul><para>
     /// The following operation is related to <code>HeadObject</code>:
     /// </para><ul><li><para><a>GetObject</a></para></li></ul>

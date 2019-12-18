@@ -100,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.DocumentPermissionType PermissionType { get; set; }
         #endregion
         
+        #region Parameter SharedDocumentVersion
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) The version of the document to share. If it's not specified, the system
+        /// choose the <code>Default</code> version to share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SharedDocumentVersion { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -182,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter PermissionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SharedDocumentVersion = this.SharedDocumentVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -213,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.PermissionType != null)
             {
                 request.PermissionType = cmdletContext.PermissionType;
+            }
+            if (cmdletContext.SharedDocumentVersion != null)
+            {
+                request.SharedDocumentVersion = cmdletContext.SharedDocumentVersion;
             }
             
             CmdletOutput output;
@@ -279,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<System.String> AccountIdsToRemove { get; set; }
             public System.String Name { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentPermissionType PermissionType { get; set; }
+            public System.String SharedDocumentVersion { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse, EditSSMDocumentPermissionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

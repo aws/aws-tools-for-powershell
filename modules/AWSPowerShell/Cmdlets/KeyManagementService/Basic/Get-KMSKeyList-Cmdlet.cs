@@ -28,7 +28,7 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Gets a list of all customer master keys (CMKs) in the caller's AWS account and region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of all customer master keys (CMKs) in the caller's AWS account and Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KMSKeyList")]
     [OutputType("Amazon.KeyManagementService.Model.KeyListEntry")]

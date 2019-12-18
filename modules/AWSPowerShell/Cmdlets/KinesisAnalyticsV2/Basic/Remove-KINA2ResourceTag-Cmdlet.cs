@@ -28,7 +28,9 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Removes one or more tags from a Kinesis Analytics application.
+    /// Removes one or more tags from a Kinesis Analytics application. For more information,
+    /// see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using
+    /// Tagging</a>.
     /// </summary>
     [Cmdlet("Remove", "KINA2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

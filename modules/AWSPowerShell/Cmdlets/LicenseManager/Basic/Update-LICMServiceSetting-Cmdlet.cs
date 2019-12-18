@@ -28,7 +28,7 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Updates License Manager service settings.
+    /// Updates License Manager settings for the current Region.
     /// </summary>
     [Cmdlet("Update", "LICMServiceSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter OrganizationConfiguration_EnableIntegration
         /// <summary>
         /// <para>
-        /// <para>Flag to activate AWS Organization integration.</para>
+        /// <para>Enables AWS Organization integration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter S3BucketArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the Amazon S3 bucket where License Manager information is stored.</para>
+        /// <para>Amazon Resource Name (ARN) of the Amazon S3 bucket where the License Manager information
+        /// is stored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the Amazon SNS topic used for License Manager alerts.</para>
+        /// <para>Amazon Resource Name (ARN) of the Amazon SNS topic used for License Manager alerts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

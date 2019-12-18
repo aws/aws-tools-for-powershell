@@ -79,6 +79,19 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         public System.String ResourceGroupName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>List of tags to add to the application. tag key (<code>Key</code>) and an associated
+        /// tag value (<code>Value</code>). The maximum length of a tag key is 128 characters.
+        /// The maximum length of a tag value is 256 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ApplicationInsights.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationInfo'.
@@ -149,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 WriteWarning("You are passing $null as a value for parameter ResourceGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ApplicationInsights.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             if (cmdletContext.ResourceGroupName != null)
             {
                 request.ResourceGroupName = cmdletContext.ResourceGroupName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -241,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             public System.Boolean? OpsCenterEnabled { get; set; }
             public System.String OpsItemSNSTopicArn { get; set; }
             public System.String ResourceGroupName { get; set; }
+            public List<Amazon.ApplicationInsights.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ApplicationInsights.Model.CreateApplicationResponse, NewCWAIApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ApplicationInfo;
         }

@@ -29,11 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates a dataset.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight update-data-set \</code></para><para><code>--aws-account-id=111122223333 \</code></para><para><code>--data-set-id=unique-data-set-id \</code></para><para><code>--name='My dataset' \</code></para><para><code>--import-mode=SPICE \</code></para><para><code>--physical-table-map='{</code></para><para><code> "physical-table-id": {</code></para><para><code> "RelationalTable": {</code></para><para><code> "DataSourceArn": "arn:aws:quicksight:us-west-2:111111111111:datasource/data-source-id",</code></para><para><code> "Name": "table1",</code></para><para><code> "InputColumns": [</code></para><para><code> {</code></para><para><code> "Name": "column1",</code></para><para><code> "Type": "STRING"</code></para><para><code> }</code></para><para><code> ]</code></para><para><code> }</code></para><para><code> }'</code></para>
     /// </summary>
     [Cmdlet("Update", "QSDataSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateDataSetResponse")]
@@ -47,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RowLevelPermissionDataSet_Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource name (ARN) of the permission dataset.</para>
+        /// <para>The Amazon Resource Name (ARN) of the permission dataset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS Account ID.</para>
+        /// <para>The AWS account ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ColumnGroup
         /// <summary>
         /// <para>
-        /// <para>Groupings of columns that work together in certain QuickSight features. Currently
+        /// <para>Groupings of columns that work together in certain QuickSight features. Currently,
         /// only geospatial hierarchy is supported.</para>
         /// </para>
         /// </summary>
@@ -86,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSetId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dataset you want to create. This is unique per region per AWS account.</para>
+        /// <para>The ID for the dataset that you want to update. This ID is unique per AWS Region for
+        /// each AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -103,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ImportMode
         /// <summary>
         /// <para>
-        /// <para>Indicates whether or not you want to import the data into SPICE.</para>
+        /// <para>Indicates whether you want to import the data into SPICE.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

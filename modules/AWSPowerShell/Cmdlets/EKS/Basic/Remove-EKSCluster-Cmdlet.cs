@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// prevent you from being able to delete the VPC. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html">Deleting
     /// a Cluster</a> in the <i>Amazon EKS User Guide</i>.
     /// </para><para>
-    /// If you have managed node groups attached to the cluster, you must delete them first.
-    /// For more information, see <a>DeleteNodegroup</a>.
+    /// If you have managed node groups or Fargate profiles attached to the cluster, you must
+    /// delete them first. For more information, see <a>DeleteNodegroup</a> and<a>DeleteFargateProfile</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EKSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

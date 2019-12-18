@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AddApplicationVpcConfiguration" OutputProperty="*" Verb="Add" Noun="ApplicationVpcConfiguration" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateApplication" OutputProperty="ApplicationDetail" Verb="New" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -68,6 +72,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteApplicationSnapshot" Verb="Remove" Noun="ApplicationSnapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationVpcConfiguration" OutputProperty="*" Verb="Remove" Noun="ApplicationVpcConfiguration" ShouldProcessTarget="VpcConfigurationId" PipelineParameter="VpcConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

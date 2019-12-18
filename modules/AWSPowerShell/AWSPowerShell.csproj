@@ -62,6 +62,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="AWSSDK.AccessAnalyzer">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.AccessAnalyzer.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
@@ -79,6 +82,9 @@
     </Reference>
     <Reference Include="AWSSDK.ApiGatewayV2">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ApiGatewayV2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AppConfig">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.AppConfig.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ApplicationAutoScaling.dll</HintPath>
@@ -100,6 +106,9 @@
     </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Athena.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AugmentedAIRuntime">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.AugmentedAIRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AutoScaling">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.AutoScaling.dll</HintPath>
@@ -179,6 +188,12 @@
     <Reference Include="AWSSDK.CodeDeploy">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CodeGuruProfiler">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.CodeGuruProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CodeGuruReviewer">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.CodeGuruReviewer.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CodePipeline">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
@@ -202,6 +217,9 @@
     </Reference>
     <Reference Include="AWSSDK.ComprehendMedical">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ComprehendMedical.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ComputeOptimizer">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ComputeOptimizer.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ConfigService.dll</HintPath>
@@ -254,6 +272,9 @@
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EBS">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.EBS.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.EC2">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.EC2.dll</HintPath>
     </Reference>
@@ -274,6 +295,9 @@
     </Reference>
     <Reference Include="AWSSDK.ElasticFileSystem">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ElasticFileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ElasticInference">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ElasticInference.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancing">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ElasticLoadBalancing.dll</HintPath>
@@ -302,6 +326,9 @@
     <Reference Include="AWSSDK.ForecastService">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ForecastService.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.FraudDetector">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.FraudDetector.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.FSx">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.FSx.dll</HintPath>
     </Reference>
@@ -329,6 +356,9 @@
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Imagebuilder">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Imagebuilder.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ImportExport">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.ImportExport.dll</HintPath>
     </Reference>
@@ -347,11 +377,17 @@
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.IoTJobsDataPlane.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IoTSecureTunneling">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.IoTSecureTunneling.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoTThingsGraph">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.IoTThingsGraph.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Kafka">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Kafka.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Kendra">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Kendra.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.KeyManagementService.dll</HintPath>
@@ -373,6 +409,9 @@
     </Reference>
     <Reference Include="AWSSDK.KinesisVideoMedia">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.KinesisVideoMedia.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.KinesisVideoSignalingChannels">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.KinesisVideoSignalingChannels.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LakeFormation">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.LakeFormation.dll</HintPath>
@@ -449,6 +488,9 @@
     <Reference Include="AWSSDK.Neptune">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Neptune.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NetworkManager">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.NetworkManager.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.OpsWorks.dll</HintPath>
     </Reference>
@@ -457,6 +499,9 @@
     </Reference>
     <Reference Include="AWSSDK.Organizations">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Organizations.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Outposts">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Outposts.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Personalize">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.Personalize.dll</HintPath>
@@ -617,6 +662,9 @@
     <Reference Include="AWSSDK.WAFRegional">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.WAFRegional.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.WAFV2">
+      <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.WAFV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WorkDocs">
       <HintPath>../../Include/sdk/ExtractedNuGet/net35/AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
@@ -640,6 +688,9 @@
     <PackageReference Include="PowerShellStandard.Library" Version="3.0.0-preview-02" />
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+    <Reference Include="AWSSDK.AccessAnalyzer">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.AccessAnalyzer.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
@@ -657,6 +708,9 @@
     </Reference>
     <Reference Include="AWSSDK.ApiGatewayV2">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ApiGatewayV2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AppConfig">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.AppConfig.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ApplicationAutoScaling.dll</HintPath>
@@ -678,6 +732,9 @@
     </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Athena.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AugmentedAIRuntime">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.AugmentedAIRuntime.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AutoScaling">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.AutoScaling.dll</HintPath>
@@ -757,6 +814,12 @@
     <Reference Include="AWSSDK.CodeDeploy">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CodeGuruProfiler">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.CodeGuruProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CodeGuruReviewer">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.CodeGuruReviewer.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CodePipeline">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
@@ -780,6 +843,9 @@
     </Reference>
     <Reference Include="AWSSDK.ComprehendMedical">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ComprehendMedical.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ComputeOptimizer">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ComputeOptimizer.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ConfigService.dll</HintPath>
@@ -832,6 +898,9 @@
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.EBS">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.EBS.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.EC2">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.EC2.dll</HintPath>
     </Reference>
@@ -852,6 +921,9 @@
     </Reference>
     <Reference Include="AWSSDK.ElasticFileSystem">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ElasticFileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ElasticInference">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ElasticInference.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancing">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ElasticLoadBalancing.dll</HintPath>
@@ -880,6 +952,9 @@
     <Reference Include="AWSSDK.ForecastService">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ForecastService.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.FraudDetector">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.FraudDetector.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.FSx">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.FSx.dll</HintPath>
     </Reference>
@@ -907,6 +982,9 @@
     <Reference Include="AWSSDK.IdentityManagement">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.IdentityManagement.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Imagebuilder">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Imagebuilder.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ImportExport">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.ImportExport.dll</HintPath>
     </Reference>
@@ -925,11 +1003,17 @@
     <Reference Include="AWSSDK.IoTJobsDataPlane">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.IoTJobsDataPlane.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IoTSecureTunneling">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.IoTSecureTunneling.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoTThingsGraph">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.IoTThingsGraph.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Kafka">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Kafka.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Kendra">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Kendra.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KeyManagementService">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.KeyManagementService.dll</HintPath>
@@ -951,6 +1035,9 @@
     </Reference>
     <Reference Include="AWSSDK.KinesisVideoMedia">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.KinesisVideoMedia.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.KinesisVideoSignalingChannels">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.KinesisVideoSignalingChannels.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LakeFormation">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.LakeFormation.dll</HintPath>
@@ -1027,6 +1114,9 @@
     <Reference Include="AWSSDK.Neptune">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Neptune.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.NetworkManager">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.NetworkManager.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.OpsWorks.dll</HintPath>
     </Reference>
@@ -1035,6 +1125,9 @@
     </Reference>
     <Reference Include="AWSSDK.Organizations">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Organizations.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Outposts">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Outposts.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Personalize">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Personalize.dll</HintPath>
@@ -1194,6 +1287,9 @@
     </Reference>
     <Reference Include="AWSSDK.WAFRegional">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.WAFRegional.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.WAFV2">
+      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.WAFV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkDocs">
       <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.WorkDocs.dll</HintPath>

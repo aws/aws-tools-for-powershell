@@ -60,8 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>The unique identifier (ID) of the OU or account whose parent containers you want to
         /// list. Don't specify a root.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string
         /// requires one of the following:</para><ul><li><para><b>Account</b> - A string that consists of exactly 12 digits.</para></li><li><para><b>Organizational unit (OU)</b> - A string that begins with "ou-" followed by from
-        /// 4 to 32 lower-case letters or digits (the ID of the root that contains the OU) followed
-        /// by a second "-" dash and from 8 to 32 additional lower-case letters or digits.</para></li></ul>
+        /// 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This
+        /// string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
+        /// or digits.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

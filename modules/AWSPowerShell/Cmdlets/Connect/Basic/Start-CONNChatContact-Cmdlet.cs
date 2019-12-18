@@ -63,17 +63,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Collections.Hashtable Attribute { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
@@ -143,6 +132,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

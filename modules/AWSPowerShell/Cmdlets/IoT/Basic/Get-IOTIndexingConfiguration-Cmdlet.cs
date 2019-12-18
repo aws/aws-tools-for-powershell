@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Gets the search configuration.
+    /// Gets the indexing configuration.
     /// </summary>
     [Cmdlet("Get", "IOTIndexingConfiguration")]
     [OutputType("Amazon.IoT.Model.GetIndexingConfigurationResponse")]

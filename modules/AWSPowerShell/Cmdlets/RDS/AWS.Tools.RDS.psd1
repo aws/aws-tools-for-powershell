@@ -104,6 +104,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-RDSDBClusterSnapshotAttribute', 
         'Edit-RDSDBInstance', 
         'Edit-RDSDBParameterGroup', 
+        'Edit-RDSDBProxy', 
+        'Edit-RDSDBProxyTargetGroup', 
         'Edit-RDSDBSnapshot', 
         'Edit-RDSDBSnapshotAttribute', 
         'Edit-RDSDBSubnetGroup', 
@@ -128,6 +130,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RDSDBLogFilePortion', 
         'Get-RDSDBParameter', 
         'Get-RDSDBParameterGroup', 
+        'Get-RDSDBProxy', 
+        'Get-RDSDBProxyTarget', 
+        'Get-RDSDBProxyTargetGroup', 
         'Get-RDSDBSecurityGroup', 
         'Get-RDSDBSnapshot', 
         'Get-RDSDBSnapshotAttribute', 
@@ -157,6 +162,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-RDSDBInstance', 
         'New-RDSDBInstanceReadReplica', 
         'New-RDSDBParameterGroup', 
+        'New-RDSDBProxy', 
         'New-RDSDBSecurityGroup', 
         'New-RDSDBSnapshot', 
         'New-RDSDBSubnetGroup', 
@@ -164,6 +170,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-RDSGlobalCluster', 
         'New-RDSOptionGroup', 
         'New-RDSReservedDBInstancesOfferingPurchase', 
+        'Register-RDSDBProxyTarget', 
         'Remove-RDSCustomAvailabilityZone', 
         'Remove-RDSDBCluster', 
         'Remove-RDSDBClusterEndpoint', 
@@ -172,6 +179,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-RDSDBInstance', 
         'Remove-RDSDBInstanceAutomatedBackup', 
         'Remove-RDSDBParameterGroup', 
+        'Remove-RDSDBProxy', 
         'Remove-RDSDBSecurityGroup', 
         'Remove-RDSDBSnapshot', 
         'Remove-RDSDBSubnetGroup', 
@@ -202,7 +210,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-RDSActivityStream', 
         'Stop-RDSDBCluster', 
         'Stop-RDSDBInstance', 
-        'Submit-RDSPendingMaintenanceAction')
+        'Submit-RDSPendingMaintenanceAction', 
+        'Unregister-RDSDBProxyTarget')
 
     # Variables to export from this module
     VariablesToExport = '*'

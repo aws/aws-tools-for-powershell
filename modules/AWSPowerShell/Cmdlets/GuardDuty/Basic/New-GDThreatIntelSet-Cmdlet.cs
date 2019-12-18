@@ -58,16 +58,6 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean? Activate { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>The idempotency token for the create request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter DetectorId
         /// <summary>
         /// <para>
@@ -147,6 +137,16 @@ namespace Amazon.PowerShell.Cmdlets.GD
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>The idempotency token for the create request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

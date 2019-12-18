@@ -28,8 +28,12 @@ using Amazon.LicenseManager.Model;
 namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
-    /// Deletes an existing license configuration. This action fails if the configuration
-    /// is in use.
+    /// Deletes the specified license configuration.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot delete a license configuration that is in use.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "LICMLicenseConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>Unique ID of the configuration object to delete.</para>
+        /// <para>ID of the license configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

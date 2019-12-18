@@ -47,7 +47,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeclineInvitations" OutputProperty="UnprocessedAccounts" Verb="Deny" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeclineInvitations" OutputProperty="UnprocessedAccounts" Verb="Deny" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

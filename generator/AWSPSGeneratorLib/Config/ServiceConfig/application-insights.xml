@@ -28,11 +28,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateLogPattern" OutputProperty="LogPattern" Verb="New" Noun="LogPattern" ShouldProcessTarget="PatternName" PipelineParameter="PatternName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ResourceGroupName" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteComponent" Verb="Remove" Noun="Component" ShouldProcessTarget="ComponentName" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLogPattern" Verb="Remove" Noun="LogPattern" ShouldProcessTarget="PatternName" PipelineParameter="PatternName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -49,6 +57,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeComponentConfigurationRecommendation" OutputProperty="ComponentConfiguration" Verb="Get" Noun="ComponentConfigurationRecommendation" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLogPattern" OutputProperty="LogPattern" Verb="Get" Noun="LogPattern" PipelineParameter="PatternName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,7 +84,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLogPatterns" OutputProperty="LogPatterns" Verb="Get" Noun="LogPatternList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLogPatternSets" OutputProperty="LogPatternSets" Verb="Get" Noun="LogPatternSetList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProblems" OutputProperty="ProblemList" Verb="Get" Noun="ProblemList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -85,6 +117,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateComponentConfiguration" Verb="Update" Noun="ComponentConfiguration" ShouldProcessTarget="ComponentName" PipelineParameter="ComponentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLogPattern" OutputProperty="LogPattern" Verb="Update" Noun="LogPattern" ShouldProcessTarget="PatternName" PipelineParameter="PatternName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

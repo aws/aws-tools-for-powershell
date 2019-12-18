@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFailuresForLicenseConfigurationOperations" OutputProperty="LicenseOperationFailureList" Verb="Get" Noun="FailuresForLicenseConfigurationOperationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLicenseConfigurations" OutputProperty="LicenseConfigurations" Verb="Get" Noun="LicenseConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

@@ -35,8 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// The permissions resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;relevant-aws-account-id&gt;</i>:group/default/<i>&lt;group-name&gt;</i></code>.
     /// </para><para>
     /// The response is a group object.
-    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight create-group --aws-account-id=111122223333 --namespace=default
-    /// --group-name="Sales-Management" --description="Sales Management - Forecasting" </code></para>
+    /// </para>
     /// </summary>
     [Cmdlet("New", "QSGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.Group")]

@@ -392,7 +392,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.metal","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.metal","c5.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.metal","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","i3en.12xlarge","i3en.24xlarge","i3en.2xlarge","i3en.3xlarge","i3en.6xlarge","i3en.large","i3en.metal","i3en.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.metal","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.metal","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","t3a.2xlarge","t3a.large","t3a.medium","t3a.micro","t3a.nano","t3a.small","t3a.xlarge","u-12tb1.metal","u-18tb1.metal","u-24tb1.metal","u-6tb1.metal","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.metal","z1d.xlarge"
+            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.metal","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.12xlarge","c5.18xlarge","c5.24xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.metal","c5.xlarge","c5d.12xlarge","c5d.18xlarge","c5d.24xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.metal","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","g4dn.12xlarge","g4dn.16xlarge","g4dn.2xlarge","g4dn.4xlarge","g4dn.8xlarge","g4dn.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","i3en.12xlarge","i3en.24xlarge","i3en.2xlarge","i3en.3xlarge","i3en.6xlarge","i3en.large","i3en.metal","i3en.xlarge","inf1.24xlarge","inf1.2xlarge","inf1.6xlarge","inf1.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.16xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.8xlarge","m5.large","m5.metal","m5.xlarge","m5a.12xlarge","m5a.16xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.8xlarge","m5a.large","m5a.xlarge","m5ad.12xlarge","m5ad.16xlarge","m5ad.24xlarge","m5ad.2xlarge","m5ad.4xlarge","m5ad.8xlarge","m5ad.large","m5ad.xlarge","m5d.12xlarge","m5d.16xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.8xlarge","m5d.large","m5d.metal","m5d.xlarge","m5dn.12xlarge","m5dn.16xlarge","m5dn.24xlarge","m5dn.2xlarge","m5dn.4xlarge","m5dn.8xlarge","m5dn.large","m5dn.xlarge","m5n.12xlarge","m5n.16xlarge","m5n.24xlarge","m5n.2xlarge","m5n.4xlarge","m5n.8xlarge","m5n.large","m5n.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.16xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.8xlarge","r5a.large","r5a.xlarge","r5ad.12xlarge","r5ad.16xlarge","r5ad.24xlarge","r5ad.2xlarge","r5ad.4xlarge","r5ad.8xlarge","r5ad.large","r5ad.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","r5dn.12xlarge","r5dn.16xlarge","r5dn.24xlarge","r5dn.2xlarge","r5dn.4xlarge","r5dn.8xlarge","r5dn.large","r5dn.xlarge","r5n.12xlarge","r5n.16xlarge","r5n.24xlarge","r5n.2xlarge","r5n.4xlarge","r5n.8xlarge","r5n.large","r5n.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","t3a.2xlarge","t3a.large","t3a.medium","t3a.micro","t3a.nano","t3a.small","t3a.xlarge","u-12tb1.metal","u-18tb1.metal","u-24tb1.metal","u-6tb1.metal","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.metal","z1d.xlarge"
             break
         }
 
@@ -424,6 +424,13 @@ $EC2_Completers = {
         "New-EC2FlowLog/LogDestinationType"
         {
             $v = "cloud-watch-logs","s3"
+            break
+        }
+
+        # Amazon.EC2.MulticastSupportValue
+        "New-EC2TransitGateway/Options_MulticastSupport"
+        {
+            $v = "disable","enable"
             break
         }
 
@@ -609,6 +616,16 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.UnlimitedSupportedInstanceFamily
+        {
+            ($_ -eq "Edit-EC2DefaultCreditSpecification/InstanceFamily") -Or
+            ($_ -eq "Get-EC2DefaultCreditSpecification/InstanceFamily")
+        }
+        {
+            $v = "t2","t3","t3a"
+            break
+        }
+
         # Amazon.EC2.VolumeAttributeName
         "Get-EC2VolumeAttribute/Attribute"
         {
@@ -680,6 +697,7 @@ $EC2_map = @{
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataOption")
     "HttpTokens"=@("Edit-EC2InstanceMetadataOption")
+    "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
     "InstanceInterruptionBehavior"=@("Request-EC2SpotInstance")
     "InstanceMatchCriteria"=@("Add-EC2CapacityReservation")
@@ -703,6 +721,7 @@ $EC2_map = @{
     "Options_DefaultRouteTablePropagation"=@("New-EC2TransitGateway")
     "Options_DnsSupport"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
     "Options_Ipv6Support"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
+    "Options_MulticastSupport"=@("New-EC2TransitGateway")
     "Options_VpnEcmpSupport"=@("New-EC2TransitGateway")
     "Permission"=@("New-EC2NetworkInterfacePermission")
     "Placement_Tenancy"=@("New-EC2Instance")
@@ -779,9 +798,10 @@ $EC2_SelectCompleters = {
 }
 
 $EC2_SelectMap = @{
-    "Select"=@("Confirm-EC2ReservedInstancesExchangeQuote",
-               "Confirm-EC2TransitGatewayVpcAttachment",
-               "Confirm-EC2EndpointConnection",
+    "Select"=@("Approve-EC2ReservedInstancesExchangeQuote",
+               "Approve-EC2TransitGatewayPeeringAttachment",
+               "Approve-EC2TransitGatewayVpcAttachment",
+               "Approve-EC2EndpointConnection",
                "Approve-EC2VpcPeeringConnection",
                "Start-EC2ByoipCidrAdvertisement",
                "New-EC2Address",
@@ -795,6 +815,7 @@ $EC2_SelectMap = @{
                "Register-EC2IamInstanceProfile",
                "Register-EC2RouteTable",
                "Register-EC2SubnetCidrBlock",
+               "Register-EC2TransitGatewayMulticastDomain",
                "Register-EC2TransitGatewayRouteTable",
                "Register-EC2VpcCidrBlock",
                "Add-EC2ClassicLinkVpc",
@@ -834,6 +855,8 @@ $EC2_SelectMap = @{
                "New-EC2KeyPair",
                "New-EC2LaunchTemplate",
                "New-EC2LaunchTemplateVersion",
+               "New-EC2LocalGatewayRoute",
+               "New-EC2LocalGatewayRouteTableVpcAssociation",
                "New-EC2NatGateway",
                "New-EC2NetworkAcl",
                "New-EC2NetworkAclEntry",
@@ -854,6 +877,8 @@ $EC2_SelectMap = @{
                "New-EC2TrafficMirrorSession",
                "New-EC2TrafficMirrorTarget",
                "New-EC2TransitGateway",
+               "New-EC2TransitGatewayMulticastDomain",
+               "New-EC2TransitGatewayPeeringAttachment",
                "New-EC2TransitGatewayRoute",
                "New-EC2TransitGatewayRouteTable",
                "New-EC2TransitGatewayVpcAttachment",
@@ -878,6 +903,8 @@ $EC2_SelectMap = @{
                "Remove-EC2KeyPair",
                "Remove-EC2LaunchTemplate",
                "Remove-EC2TemplateVersion",
+               "Remove-EC2LocalGatewayRoute",
+               "Remove-EC2LocalGatewayRouteTableVpcAssociation",
                "Remove-EC2NatGateway",
                "Remove-EC2NetworkAcl",
                "Remove-EC2NetworkAclEntry",
@@ -897,6 +924,8 @@ $EC2_SelectMap = @{
                "Remove-EC2TrafficMirrorSession",
                "Remove-EC2TrafficMirrorTarget",
                "Remove-EC2TransitGateway",
+               "Remove-EC2TransitGatewayMulticastDomain",
+               "Remove-EC2TransitGatewayPeeringAttachment",
                "Remove-EC2TransitGatewayRoute",
                "Remove-EC2TransitGatewayRouteTable",
                "Remove-EC2TransitGatewayVpcAttachment",
@@ -911,6 +940,8 @@ $EC2_SelectMap = @{
                "Remove-EC2VpnGateway",
                "Unregister-EC2ByoipCidr",
                "Unregister-EC2Image",
+               "Unregister-EC2TransitGatewayMulticastGroupMember",
+               "Unregister-EC2TransitGatewayMulticastGroupSource",
                "Get-EC2AccountAttribute",
                "Get-EC2Address",
                "Get-EC2AggregateIdFormat",
@@ -924,6 +955,7 @@ $EC2_SelectMap = @{
                "Get-EC2ClientVpnEndpoint",
                "Get-EC2ClientVpnRoute",
                "Get-EC2ClientVpnTargetNetwork",
+               "Get-EC2CoipPool",
                "Get-EC2CustomerGateway",
                "Get-EC2DhcpOption",
                "Get-EC2EgressOnlyInternetGatewayList",
@@ -957,6 +989,12 @@ $EC2_SelectMap = @{
                "Get-EC2KeyPair",
                "Get-EC2Template",
                "Get-EC2TemplateVersion",
+               "Get-EC2LocalGatewayRouteTable",
+               "Get-EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+               "Get-EC2LocalGatewayRouteTableVpcAssociation",
+               "Get-EC2LocalGateway",
+               "Get-EC2LocalGatewayVirtualInterfaceGroup",
+               "Get-EC2LocalGatewayVirtualInterface",
                "Get-EC2MovingAddress",
                "Get-EC2NatGateway",
                "Get-EC2NetworkAcl",
@@ -992,6 +1030,8 @@ $EC2_SelectMap = @{
                "Get-EC2TrafficMirrorSession",
                "Get-EC2TrafficMirrorTarget",
                "Get-EC2TransitGatewayAttachment",
+               "Get-EC2TransitGatewayMulticastDomain",
+               "Get-EC2TransitGatewayPeeringAttachment",
                "Get-EC2TransitGatewayRouteTable",
                "Get-EC2TransitGateway",
                "Get-EC2TransitGatewayVpcAttachment",
@@ -1028,6 +1068,7 @@ $EC2_SelectMap = @{
                "Unregister-EC2IamInstanceProfile",
                "Unregister-EC2RouteTable",
                "Unregister-EC2SubnetCidrBlock",
+               "Unregister-EC2TransitGatewayMulticastDomain",
                "Unregister-EC2TransitGatewayRouteTable",
                "Unregister-EC2VpcCidrBlock",
                "Enable-EC2EbsEncryptionByDefault",
@@ -1042,14 +1083,17 @@ $EC2_SelectMap = @{
                "Export-EC2Image",
                "Export-EC2TransitGatewayRoute",
                "Get-EC2CapacityReservationUsage",
+               "Get-EC2CoipPoolUsage",
                "Get-EC2ConsoleOutput",
                "Get-EC2ConsoleScreenshot",
+               "Get-EC2DefaultCreditSpecification",
                "Get-EC2EbsDefaultKmsKeyId",
                "Get-EC2EbsEncryptionByDefault",
                "Get-EC2HostReservationPurchasePreview",
                "Get-EC2LaunchTemplateData",
                "Get-EC2ReservedInstancesExchangeQuote",
                "Get-EC2TransitGatewayAttachmentPropagation",
+               "Get-EC2TransitGatewayMulticastDomainAssociation",
                "Get-EC2TransitGatewayRouteTableAssociation",
                "Get-EC2TransitGatewayRouteTablePropagation",
                "Import-EC2ClientVpnClientCertificateRevocationList",
@@ -1058,6 +1102,7 @@ $EC2_SelectMap = @{
                "Import-EC2Snapshot",
                "Edit-EC2CapacityReservation",
                "Edit-EC2ClientVpnEndpoint",
+               "Edit-EC2DefaultCreditSpecification",
                "Edit-EC2EbsDefaultKmsKeyId",
                "Edit-EC2Fleet",
                "Edit-EC2FpgaImageAttribute",
@@ -1101,6 +1146,9 @@ $EC2_SelectMap = @{
                "New-EC2ScheduledInstancePurchase",
                "Restart-EC2Instance",
                "Register-EC2Image",
+               "Register-EC2TransitGatewayMulticastGroupMember",
+               "Register-EC2TransitGatewayMulticastGroupSource",
+               "Deny-EC2TransitGatewayPeeringAttachment",
                "Deny-EC2TransitGatewayVpcAttachment",
                "Deny-EC2EndpointConnection",
                "Deny-EC2VpcPeeringConnection",
@@ -1127,6 +1175,8 @@ $EC2_SelectMap = @{
                "Revoke-EC2SecurityGroupIngress",
                "New-EC2Instance",
                "New-EC2ScheduledInstance",
+               "Search-EC2LocalGatewayRoute",
+               "Search-EC2TransitGatewayMulticastGroup",
                "Search-EC2TransitGatewayRoute",
                "Send-EC2DiagnosticInterrupt",
                "Start-EC2Instance",

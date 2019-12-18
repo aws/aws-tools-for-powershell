@@ -28,11 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes a user identified by its principal ID. 
-    /// 
-    ///  
-    /// <para><b>CLI Sample:</b></para><para><code>aws quicksight delete-user-by-principal-id --aws-account-id=111122223333 --namespace=default
-    /// --principal-id=ABCDEFJA26JLI7EUUOEHS </code></para>
+    /// Deletes a user identified by its principal ID.
     /// </summary>
     [Cmdlet("Remove", "QSUserByPrincipalId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteUserByPrincipalIdResponse")]

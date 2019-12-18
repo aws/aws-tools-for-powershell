@@ -51,24 +51,6 @@ namespace Amazon.PowerShell.Cmdlets.CP
         public System.String CurrentRevision_ChangeIdentifier { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>The clientToken portion of the clientId and clientToken pair used to verify that the
-        /// calling entity is allowed access to the job and its details.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter ContinuationToken
         /// <summary>
         /// <para>
@@ -161,6 +143,24 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ExecutionDetails_Summary { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>The clientToken portion of the clientId and clientToken pair used to verify that the
+        /// calling entity is allowed access to the job and its details.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

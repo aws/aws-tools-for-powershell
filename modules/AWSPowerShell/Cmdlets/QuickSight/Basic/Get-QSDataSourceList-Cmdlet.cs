@@ -28,12 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists data sources in current AWS region that belong to this AWS account.
-    /// 
-    ///  
-    /// <para>
-    /// The permissions resource is: <code>arn:aws:quicksight:region:aws-account-id:datasource/*</code></para><para>
-    /// CLI syntax: <code>aws quicksight list-data-sources --aws-account-id=111122223333</code></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists data sources in current AWS Region that belong to this AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSDataSourceList")]
     [OutputType("Amazon.QuickSight.Model.DataSource")]

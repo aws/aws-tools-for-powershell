@@ -73,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the text detection job. The <code>JobId</code> is returned
-        /// from <code>StartDocumentTextDetection</code>.</para>
+        /// from <code>StartDocumentTextDetection</code>. A <code>JobId</code> value is only valid
+        /// for 7 days.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

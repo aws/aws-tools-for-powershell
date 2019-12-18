@@ -408,6 +408,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String DynamoDB_PayloadField { get; set; }
         #endregion
         
+        #region Parameter IotSiteWise_PutAssetPropertyValueEntry
+        /// <summary>
+        /// <para>
+        /// <para>A list of asset property value entries.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_IotSiteWise_PutAssetPropertyValueEntries")]
+        public Amazon.IoT.Model.PutAssetPropertyValueEntry[] IotSiteWise_PutAssetPropertyValueEntry { get; set; }
+        #endregion
+        
         #region Parameter Republish_Qo
         /// <summary>
         /// <para>
@@ -564,6 +575,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_IotEvents_RoleArn")]
         public System.String IotEvents_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter IotSiteWise_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role that grants AWS IoT permission to send an asset property value
+        /// to AWS IoTSiteWise. (<code>"Action": "iotsitewise:BatchPutAssetPropertyValue"</code>).
+        /// The trust policy can restrict access to specific asset hierarchy paths.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_IotSiteWise_RoleArn")]
+        public System.String IotSiteWise_RoleArn { get; set; }
         #endregion
         
         #region Parameter Kinesis_RoleArn
@@ -977,6 +1001,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.IotEvents_InputName = this.IotEvents_InputName;
             context.IotEvents_MessageId = this.IotEvents_MessageId;
             context.IotEvents_RoleArn = this.IotEvents_RoleArn;
+            if (this.IotSiteWise_PutAssetPropertyValueEntry != null)
+            {
+                context.IotSiteWise_PutAssetPropertyValueEntry = new List<Amazon.IoT.Model.PutAssetPropertyValueEntry>(this.IotSiteWise_PutAssetPropertyValueEntry);
+            }
+            context.IotSiteWise_RoleArn = this.IotSiteWise_RoleArn;
             context.Kinesis_PartitionKey = this.Kinesis_PartitionKey;
             context.Kinesis_RoleArn = this.Kinesis_RoleArn;
             context.Kinesis_StreamName = this.Kinesis_StreamName;
@@ -1163,6 +1192,41 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_DynamoDBv2 != null)
             {
                 requestTopicRulePayload_topicRulePayload_ErrorAction.DynamoDBv2 = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_DynamoDBv2;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
+            Amazon.IoT.Model.IotSiteWiseAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise = null;
+            
+             // populate IotSiteWise
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWiseIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise = new Amazon.IoT.Model.IotSiteWiseAction();
+            List<Amazon.IoT.Model.PutAssetPropertyValueEntry> requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise_iotSiteWise_PutAssetPropertyValueEntry = null;
+            if (cmdletContext.IotSiteWise_PutAssetPropertyValueEntry != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise_iotSiteWise_PutAssetPropertyValueEntry = cmdletContext.IotSiteWise_PutAssetPropertyValueEntry;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise_iotSiteWise_PutAssetPropertyValueEntry != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise.PutAssetPropertyValueEntries = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise_iotSiteWise_PutAssetPropertyValueEntry;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWiseIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise_iotSiteWise_RoleArn = null;
+            if (cmdletContext.IotSiteWise_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise_iotSiteWise_RoleArn = cmdletContext.IotSiteWise_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise_iotSiteWise_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise_iotSiteWise_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWiseIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWiseIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.IotSiteWise = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotSiteWise;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
             Amazon.IoT.Model.SalesforceAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Salesforce = null;
@@ -2153,6 +2217,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String IotEvents_InputName { get; set; }
             public System.String IotEvents_MessageId { get; set; }
             public System.String IotEvents_RoleArn { get; set; }
+            public List<Amazon.IoT.Model.PutAssetPropertyValueEntry> IotSiteWise_PutAssetPropertyValueEntry { get; set; }
+            public System.String IotSiteWise_RoleArn { get; set; }
             public System.String Kinesis_PartitionKey { get; set; }
             public System.String Kinesis_RoleArn { get; set; }
             public System.String Kinesis_StreamName { get; set; }

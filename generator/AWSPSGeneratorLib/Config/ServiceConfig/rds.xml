@@ -132,6 +132,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBProxy" OutputProperty="DBProxy" Verb="New" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDBSecurityGroup" OutputProperty="DBSecurityGroup" Verb="New" Noun="DBSecurityGroup" ShouldProcessTarget="DBSecurityGroupName" PositionalParameters="DBSecurityGroupDescription" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -188,6 +192,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBProxy" OutputProperty="DBProxy" Verb="Remove" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteDBSecurityGroup" Verb="Remove" Noun="DBSecurityGroup" ShouldProcessTarget="DBSecurityGroupName" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -213,6 +221,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteOptionGroup" Verb="Remove" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PipelineParameter="OptionGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterDBProxyTargets" Verb="Unregister" Noun="DBProxyTarget" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -279,6 +291,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDBParameters" OutputProperty="Parameters" Verb="Get" Noun="DBParameter" PositionalParameters="Source" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBProxies" OutputProperty="DBProxies" Verb="Get" Noun="DBProxy" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBProxyTargetGroups" OutputProperty="TargetGroups" Verb="Get" Noun="DBProxyTargetGroup" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBProxyTargets" OutputProperty="Targets" Verb="Get" Noun="DBProxyTarget" PipelineParameter="DBProxyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -409,6 +433,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBProxy" OutputProperty="DBProxy" Verb="Edit" Noun="DBProxy" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBProxyTargetGroup" OutputProperty="DBProxyTargetGroup" Verb="Edit" Noun="DBProxyTargetGroup" ShouldProcessTarget="TargetGroupName" PipelineParameter="TargetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyDBSnapshot" OutputProperty="DBSnapshot" Verb="Edit" Noun="DBSnapshot" ShouldProcessTarget="DBSnapshotIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -446,6 +478,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RebootDBInstance" OutputProperty="DBInstance" Verb="Restart" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterDBProxyTargets" OutputProperty="DBProxyTargets" Verb="Register" Noun="DBProxyTarget" ShouldProcessTarget="DBProxyName" PipelineParameter="DBProxyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

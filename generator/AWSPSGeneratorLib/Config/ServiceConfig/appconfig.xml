@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>appconfig</C2jFilename>
+    <AssemblyName>AppConfig</AssemblyName>
+    <ServiceNounPrefix>APPC</ServiceNounPrefix>
+    <ServiceName>AWS AppConfig</ServiceName>
+    <ServiceClientInterface>IAmazonAppConfig</ServiceClientInterface>
+    <ServiceClient>AmazonAppConfigClient</ServiceClient>
+    <ServiceModuleGuid>0bccbfac-12ae-4424-aac0-75c2cc1f5361</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateApplication" OutputProperty="*" Verb="New" Noun="Application" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationProfile" OutputProperty="*" Verb="New" Noun="ConfigurationProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeploymentStrategy" OutputProperty="*" Verb="New" Noun="DeploymentStrategy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironment" OutputProperty="*" Verb="New" Noun="Environment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationProfile" Verb="Remove" Noun="ConfigurationProfile" ShouldProcessTarget="ConfigurationProfileId" PipelineParameter="ConfigurationProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeploymentStrategy" Verb="Remove" Noun="DeploymentStrategy" ShouldProcessTarget="DeploymentStrategyId" PipelineParameter="DeploymentStrategyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironment" Verb="Remove" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguration" OutputProperty="*" Verb="Get" Noun="Configuration" PipelineParameter="Configuration" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfigurationProfile" OutputProperty="*" Verb="Get" Noun="ConfigurationProfile" PipelineParameter="ConfigurationProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeployment" OutputProperty="*" Verb="Get" Noun="Deployment" PipelineParameter="DeploymentNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeploymentStrategy" OutputProperty="*" Verb="Get" Noun="DeploymentStrategy" PipelineParameter="DeploymentStrategyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironment" OutputProperty="*" Verb="Get" Noun="Environment" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Items" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurationProfiles" OutputProperty="Items" Verb="Get" Noun="ConfigurationProfileList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeployments" OutputProperty="Items" Verb="Get" Noun="DeploymentList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeploymentStrategies" OutputProperty="Items" Verb="Get" Noun="DeploymentStrategyList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironments" OutputProperty="Items" Verb="Get" Noun="EnvironmentList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDeployment" OutputProperty="*" Verb="Start" Noun="Deployment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDeployment" OutputProperty="*" Verb="Stop" Noun="Deployment" ShouldProcessTarget="DeploymentNumber" PipelineParameter="DeploymentNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" OutputProperty="*" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationProfile" OutputProperty="*" Verb="Update" Noun="ConfigurationProfile" ShouldProcessTarget="ConfigurationProfileId" PipelineParameter="ConfigurationProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeploymentStrategy" OutputProperty="*" Verb="Update" Noun="DeploymentStrategy" ShouldProcessTarget="DeploymentStrategyId" PipelineParameter="DeploymentStrategyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="*" Verb="Update" Noun="Environment" ShouldProcessTarget="EnvironmentId" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateConfiguration" Verb="Test" Noun="ConfigurationValidity" PipelineParameter="ConfigurationProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

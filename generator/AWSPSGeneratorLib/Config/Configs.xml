@@ -46,6 +46,7 @@
     <Parameter>PageSize</Parameter>
     <Parameter>Limit</Parameter>
     <Parameter>PaginationToken</Parameter>
+    <Parameter>ClientToken</Parameter>
   </MetadataParameters>
 
   <MetadataProperties>
@@ -64,6 +65,8 @@
     <Property>MaxItems</Property>
     <Property>Limit</Property>
     <Property>PaginationToken</Property>
+    <Property>ClientToken</Property>
+    <Property>RequestId</Property>
   </MetadataProperties>
 
   <!--

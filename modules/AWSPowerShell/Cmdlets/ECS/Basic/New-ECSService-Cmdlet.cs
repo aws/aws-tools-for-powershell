@@ -150,15 +150,27 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter CapacityProviderStrategy
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. Up to 32 ASCII characters are allowed.</para>
+        /// <para>The capacity provider strategy to use for the service.</para><para>A capacity provider strategy consists of one or more capacity providers along with
+        /// the <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+        /// must be associated with the cluster to be used in a capacity provider strategy. The
+        /// <a>PutClusterCapacityProviders</a> API is used to associate a capacity provider with
+        /// a cluster. Only capacity providers with an <code>ACTIVE</code> or <code>UPDATING</code>
+        /// status can be used.</para><para>If a <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+        /// parameter must be omitted. If no <code>capacityProviderStrategy</code> or <code>launchType</code>
+        /// is specified, the <code>defaultCapacityProviderStrategy</code> for the cluster is
+        /// used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
+        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
+        /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+        /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are
+        /// available to all accounts and only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
+        /// available capacity providers for a cluster after the cluster is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public Amazon.ECS.Model.CapacityProviderStrategyItem[] CapacityProviderStrategy { get; set; }
         #endregion
         
         #region Parameter Cluster
@@ -221,7 +233,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The launch type on which to run your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
-        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If a <code>launchType</code> is specified, the <code>capacityProviderStrategy</code>
+        /// parameter must be omitted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -388,8 +401,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// is used by default for your service unless you specify a role here. The service-linked
         /// role is required if your task definition uses the <code>awsvpc</code> network mode
         /// or if the service is configured to use service discovery, an external deployment controller,
-        /// or multiple target groups in which case you should not specify a role here. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+        /// multiple target groups, or Elastic Inference accelerators in which case you should
+        /// not specify a role here. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
         /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
         /// Developer Guide</i>.</para></important><para>If your specified role has a path other than <code>/</code>, then you must either
         /// specify the full role ARN (this is recommended) or prefix the role name with the path.
@@ -535,6 +548,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.DeploymentControllerType DeploymentController_Type { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. Up to 32 ASCII characters are allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Service'.
@@ -596,6 +620,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.Select = (response, cmdlet) => this.Cluster;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.CapacityProviderStrategy != null)
+            {
+                context.CapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.CapacityProviderStrategy);
+            }
             context.ClientToken = this.ClientToken;
             context.Cluster = this.Cluster;
             context.DeploymentConfiguration_MaximumPercent = this.DeploymentConfiguration_MaximumPercent;
@@ -662,6 +690,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // create request
             var request = new Amazon.ECS.Model.CreateServiceRequest();
             
+            if (cmdletContext.CapacityProviderStrategy != null)
+            {
+                request.CapacityProviderStrategy = cmdletContext.CapacityProviderStrategy;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -893,6 +925,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ECS.Model.CapacityProviderStrategyItem> CapacityProviderStrategy { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Cluster { get; set; }
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }

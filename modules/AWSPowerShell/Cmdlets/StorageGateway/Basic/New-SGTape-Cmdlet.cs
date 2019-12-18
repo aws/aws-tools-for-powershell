@@ -46,24 +46,6 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class NewSGTapeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique identifier that you use to retry a request. If you retry a request, use the
-        /// same <code>ClientToken</code> you specified in the initial request.</para><note><para>Using the same <code>ClientToken</code> prevents creating the tape multiple times.</para></note>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
@@ -182,6 +164,24 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Int64? TapeSizeInBytes { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier that you use to retry a request. If you retry a request, use the
+        /// same <code>ClientToken</code> you specified in the initial request.</para><note><para>Using the same <code>ClientToken</code> prevents creating the tape multiple times.</para></note>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

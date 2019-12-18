@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <summary>
         /// <para>
         /// <para>Specifies how to handle response payload content type conversions. Supported values
-        /// are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</para><para> CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the
-        /// corresponding binary blob.</para><para> CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded
+        /// are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</para><para>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the
+        /// corresponding binary blob.</para><para>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded
         /// string.</para><para>If this property is not defined, the response payload will be passed through from
         /// the integration response to the route response or method response without modification.</para>
         /// </para>
@@ -140,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter TemplateSelectionExpression
         /// <summary>
         /// <para>
-        /// <para>The template selection expression for the integration response.</para>
+        /// <para>The template selection expression for the integration response. Supported only for
+        /// WebSocket APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

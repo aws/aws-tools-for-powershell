@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>wafv2</C2jFilename>
+    <AssemblyName>WAFV2</AssemblyName>
+    <ServiceNounPrefix>WAF2</ServiceNounPrefix>
+    <ServiceName>AWS WAF V2</ServiceName>
+    <ServiceClientInterface>IAmazonWAFV2</ServiceClientInterface>
+    <ServiceClient>AmazonWAFV2Client</ServiceClient>
+    <ServiceModuleGuid>75aed10a-77f8-4140-868d-919d54288678</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextMarker" Next="NextMarker" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateWebACL" Verb="Add" Noun="WebACLToResource" ShouldProcessTarget="WebACLArn" PipelineParameter="WebACLArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CheckCapacity" OutputProperty="Capacity" Verb="Test" Noun="Capacity" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIPSet" OutputProperty="Summary" Verb="New" Noun="IPSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegexPatternSet" OutputProperty="Summary" Verb="New" Noun="RegexPatternSet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRuleGroup" OutputProperty="Summary" Verb="New" Noun="RuleGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWebACL" OutputProperty="Summary" Verb="New" Noun="WebACL" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIPSet" Verb="Remove" Noun="IPSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoggingConfiguration" Verb="Remove" Noun="LoggingConfiguration" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegexPatternSet" Verb="Remove" Noun="RegexPatternSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRuleGroup" Verb="Remove" Noun="RuleGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWebACL" Verb="Remove" Noun="WebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeManagedRuleGroup" OutputProperty="*" Verb="Get" Noun="ManagedRuleGroup" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWebACL" Verb="Remove" Noun="WebACLFromResource" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIPSet" OutputProperty="*" Verb="Get" Noun="IPSet" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Get" Noun="LoggingConfiguration" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRateBasedStatementManagedKeys" OutputProperty="*" Verb="Get" Noun="RateBasedStatementManagedKey" PipelineParameter="RuleName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegexPatternSet" OutputProperty="*" Verb="Get" Noun="RegexPatternSet" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRuleGroup" OutputProperty="*" Verb="Get" Noun="RuleGroup" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSampledRequests" OutputProperty="*" Verb="Get" Noun="SampledRequest" PipelineParameter="RuleMetricName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWebACL" OutputProperty="*" Verb="Get" Noun="WebACL" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWebACLForResource" OutputProperty="WebACL" Verb="Get" Noun="WebACLForResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableManagedRuleGroups" OutputProperty="ManagedRuleGroups" Verb="Get" Noun="AvailableManagedRuleGroupList" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIPSets" OutputProperty="IPSets" Verb="Get" Noun="IPSetList" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="LoggingConfigurationList" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegexPatternSets" OutputProperty="RegexPatternSets" Verb="Get" Noun="RegexPatternSetList" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourcesForWebACL" OutputProperty="ResourceArns" Verb="Get" Noun="ResourcesForWebACLList" PipelineParameter="WebACLArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="RuleGroupList" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagInfoForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWebACLs" OutputProperty="WebACLs" Verb="Get" Noun="WebACLsList" PipelineParameter="Scope" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Write" Noun="LoggingConfiguration" ShouldProcessTarget="LoggingConfiguration_ResourceArn" PipelineParameter="LoggingConfiguration_ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIPSet" OutputProperty="NextLockToken" Verb="Update" Noun="IPSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegexPatternSet" OutputProperty="NextLockToken" Verb="Update" Noun="RegexPatternSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRuleGroup" OutputProperty="NextLockToken" Verb="Update" Noun="RuleGroup" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWebACL" OutputProperty="NextLockToken" Verb="Update" Noun="WebACL" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

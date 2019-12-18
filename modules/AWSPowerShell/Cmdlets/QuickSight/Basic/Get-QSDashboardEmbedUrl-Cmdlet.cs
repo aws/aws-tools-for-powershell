@@ -28,32 +28,17 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Generates a server-side embeddable URL and authorization code. Before this can work
-    /// properly, first you need to configure the dashboards and user permissions. For more
-    /// information, see <a href="https://docs.aws.example.com/en_us/quicksight/latest/user/embedding.html">
-    /// Embedding Amazon QuickSight Dashboards</a>.
+    /// Generates a server-side embeddable URL and authorization code. For this process to
+    /// work properly, first configure the dashboards and user permissions. For more information,
+    /// see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-dashboards.html">Embedding
+    /// Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight User Guide</i> or <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/qs-dev-embedded-dashboards.html">Embedding
+    /// Amazon QuickSight Dashboards</a> in the <i>Amazon QuickSight API Reference</i>.
     /// 
     ///  
     /// <para>
     /// Currently, you can use <code>GetDashboardEmbedURL</code> only from the server, not
     /// from the user’s browser.
-    /// </para><para><b>CLI Sample:</b></para><para>
-    /// Assume the role with permissions enabled for actions: <code>quickSight:RegisterUser</code>
-    /// and <code>quicksight:GetDashboardEmbedURL</code>. You can use assume-role, assume-role-with-web-identity,
-    /// or assume-role-with-saml. 
-    /// </para><para><code>aws sts assume-role --role-arn "arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role"
-    /// --role-session-name embeddingsession</code></para><para>
-    /// If the user does not exist in QuickSight, register the user:
-    /// </para><para><code>aws quicksight register-user --aws-account-id 111122223333 --namespace default
-    /// --identity-type IAM --iam-arn "arn:aws:iam::111122223333:role/embedding_quicksight_dashboard_role"
-    /// --user-role READER --session-name "embeddingsession" --email user123@example.com --region
-    /// us-east-1</code></para><para>
-    /// Get the URL for the embedded dashboard (<code>IAM</code> identity authentication):
-    /// </para><para><code>aws quicksight get-dashboard-embed-url --aws-account-id 111122223333 --dashboard-id
-    /// 1a1ac2b2-3fc3-4b44-5e5d-c6db6778df89 --identity-type IAM</code></para><para>
-    /// Get the URL for the embedded dashboard (<code>QUICKSIGHT</code> identity authentication):
-    /// </para><para><code>aws quicksight get-dashboard-embed-url --aws-account-id 111122223333 --dashboard-id
-    /// 1a1ac2b2-3fc3-4b44-5e5d-c6db6778df89 --identity-type QUICKSIGHT --user-arn arn:aws:quicksight:us-east-1:111122223333:user/default/embedding_quicksight_dashboard_role/embeddingsession</code></para>
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "QSDashboardEmbedUrl")]
     [OutputType("System.String")]
@@ -68,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the dashboard you are embedding.</para>
+        /// <para>The ID for the AWS account that contains the dashboard that you're embedding.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dashboard, also added to IAM policy</para>
+        /// <para>The ID for the dashboard, also added to the IAM policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -102,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IdentityType
         /// <summary>
         /// <para>
-        /// <para>The authentication method the user uses to sign in (IAM only).</para>
+        /// <para>The authentication method that the user uses to sign in.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter ResetDisabled
         /// <summary>
         /// <para>
-        /// <para>Remove the reset button on embedded dashboard. The default is FALSE, which allows
+        /// <para>Remove the reset button on the embedded dashboard. The default is FALSE, which enables
         /// the reset button.</para>
         /// </para>
         /// </summary>
@@ -130,8 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SessionLifetimeInMinute
         /// <summary>
         /// <para>
-        /// <para>How many minutes the session is valid. The session lifetime must be between 15 and
-        /// 600 minutes.</para>
+        /// <para>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UndoRedoDisabled
         /// <summary>
         /// <para>
-        /// <para>Remove the undo/redo button on embedded dashboard. The default is FALSE, which enables
-        /// the undo/redo button.</para>
+        /// <para>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which
+        /// enables the undo/redo button.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,10 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code> identity type.
-        /// You can use this for any Amazon QuickSight users in your account (readers, authors,
-        /// or admins) authenticated as one of the following:</para><ul><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited non-federated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
-        /// using SAML, OpenID Connect, or IAM Federation</para></li></ul>
+        /// <para>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code>
+        /// identity type. You can use this for any Amazon QuickSight users in your account (readers,
+        /// authors, or admins) authenticated as one of the following:</para><ul><li><para>Active Directory (AD) users or group members</para></li><li><para>Invited nonfederated users</para></li><li><para>IAM users and IAM role-based sessions authenticated through Federated Single Sign-On
+        /// using SAML, OpenID Connect, or IAM federation.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

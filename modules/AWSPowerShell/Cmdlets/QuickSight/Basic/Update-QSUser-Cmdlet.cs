@@ -29,14 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates an Amazon QuickSight user.
-    /// 
-    ///  
-    /// <para>
-    /// The response is a user object that contains the user's Amazon QuickSight user name,
-    /// email address, active or inactive status in Amazon QuickSight, Amazon QuickSight role,
-    /// and Amazon Resource Name (ARN). 
-    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight update-user --user-name=Pat --role=ADMIN --email=new_address@example.com
-    /// --aws-account-id=111122223333 --namespace=default --region=us-east-1 </code></para>
     /// </summary>
     [Cmdlet("Update", "QSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.User")]

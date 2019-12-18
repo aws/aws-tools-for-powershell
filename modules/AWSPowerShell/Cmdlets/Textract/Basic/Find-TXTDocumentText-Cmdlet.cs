@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
 {
     /// <summary>
     /// Detects text in the input document. Amazon Textract can detect lines of text and the
-    /// words that make up a line of text. The input document must be an image in JPG or PNG
-    /// format. <code>DetectDocumentText</code> returns the detected text in an array of <a>Block</a>
-    /// objects. 
+    /// words that make up a line of text. The input document must be an image in JPEG or
+    /// PNG format. <code>DetectDocumentText</code> returns the detected text in an array
+    /// of <a>Block</a> objects. 
     /// 
     ///  
     /// <para>
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter Document_Byte
         /// <summary>
         /// <para>
-        /// <para>A blob of base-64 encoded documents bytes. The maximum size of a document that's provided
-        /// in a blob of bytes is 5 MB. The document bytes must be in PNG or JPG format.</para><para>If you are using an AWS SDK to call Amazon Textract, you might not need to base64-encode
+        /// <para>A blob of base64-encoded document bytes. The maximum size of a document that's provided
+        /// in a blob of bytes is 5 MB. The document bytes must be in PNG or JPEG format.</para><para>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode
         /// image bytes passed using the <code>Bytes</code> field. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
@@ -86,8 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter S3Object_Name
         /// <summary>
         /// <para>
-        /// <para>The file name of the input document. It must be an image file (.JPG or .PNG format).
-        /// Asynchronous operations also support PDF files.</para>
+        /// <para>The file name of the input document. Synchronous operations can use image files that
+        /// are in JPEG or PNG format. Asynchronous operations also support PDF format files.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

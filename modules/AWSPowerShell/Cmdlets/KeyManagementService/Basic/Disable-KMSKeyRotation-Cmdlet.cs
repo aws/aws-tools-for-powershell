@@ -29,13 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
-    /// rotation of the key material</a> for the specified customer master key (CMK). You
-    /// cannot perform this operation on a CMK in a different AWS account.
+    /// rotation of the key material</a> for the specified symmetric customer master key (CMK).
     /// 
     ///  
     /// <para>
-    /// The result of this operation varies with the key state of the CMK. For details, see
-    /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
+    ///  You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material,
+    /// or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+    /// key store</a>. You cannot perform this operation on a CMK in a different AWS account.
+    /// </para><para>
+    /// The CMK that you use for this operation must be in a compatible key state. For details,
+    /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How
     /// Key State Affects Use of a Customer Master Key</a> in the <i>AWS Key Management Service
     /// Developer Guide</i>.
     /// </para>
@@ -53,7 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key (CMK).</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// <para>Identifies a symmetric customer master key (CMK). You cannot enable automatic rotation
+        /// of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric
+        /// CMKs</a>, CMKs with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported
+        /// key material</a>, or CMKs in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
+        /// key store</a>.</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

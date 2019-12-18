@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>Specifies the <code>operationId</code> that uniquely identifies the request. You can
         /// get the ID from the response to an earlier <a>CreateAccount</a> request, or from the
         /// <a>ListCreateAccountStatus</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account
-        /// request ID string requires "car-" followed by from 8 to 32 lower-case letters or digits.</para>
+        /// request ID string requires "car-" followed by from 8 to 32 lowercase letters or digits.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

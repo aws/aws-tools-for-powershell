@@ -40,17 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTCertificateListByCACmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter AscendingOrder
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the order for results. If True, the results are returned in ascending order,
-        /// based on the creation date.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? AscendingOrder { get; set; }
-        #endregion
-        
         #region Parameter CaCertificateId
         /// <summary>
         /// <para>
@@ -67,6 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CaCertificateId { get; set; }
+        #endregion
+        
+        #region Parameter AscendingOrder
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the order for results. If True, the results are returned in ascending order,
+        /// based on the creation date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AscendingOrder { get; set; }
         #endregion
         
         #region Parameter Marker

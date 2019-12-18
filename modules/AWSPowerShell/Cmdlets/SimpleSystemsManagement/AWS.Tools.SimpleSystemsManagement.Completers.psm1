@@ -104,7 +104,7 @@ $SSM_Completers = {
             ($_ -eq "Update-SSMDocument/DocumentFormat")
         }
         {
-            $v = "JSON","YAML"
+            $v = "JSON","TEXT","YAML"
             break
         }
 
@@ -132,7 +132,7 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.DocumentType
         "New-SSMDocument/DocumentType"
         {
-            $v = "Automation","Command","Package","Policy","Session"
+            $v = "ApplicationConfiguration","ApplicationConfigurationSchema","Automation","ChangeCalendar","Command","DeploymentStrategy","Package","Policy","Session"
             break
         }
 
@@ -427,6 +427,7 @@ $SSM_SelectMap = @{
                "Get-SSMPatchProperty",
                "Get-SSMSession",
                "Get-SSMAutomationExecution",
+               "Get-SSMCalendarState",
                "Get-SSMCommandInvocationDetail",
                "Get-SSMConnectionStatus",
                "Get-SSMDefaultPatchBaseline",

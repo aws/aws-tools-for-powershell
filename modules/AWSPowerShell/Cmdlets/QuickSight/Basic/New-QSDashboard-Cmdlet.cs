@@ -29,19 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Creates a dashboard from a template. To first create a template, see the CreateTemplate
-    /// API.
+    /// API operation.
     /// 
     ///  
     /// <para>
-    /// A dashboard is an entity in QuickSight which identifies Quicksight reports, created
-    /// from analyses. QuickSight dashboards are sharable. With the right permissions, you
-    /// can create scheduled email reports from them. The <code>CreateDashboard</code>, <code>DescribeDashboard</code>
-    /// and <code>ListDashboardsByUser</code> APIs act on the dashboard entity. If you have
-    /// the correct permissions, you can create a dashboard from a template that exists in
-    /// a different AWS account.
-    /// </para><para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight create-dashboard --cli-input-json file://create-dashboard.json</code></para>
+    /// A dashboard is an entity in QuickSight that identifies QuickSight reports, created
+    /// from analyses. You can share QuickSight dashboards. With the right permissions, you
+    /// can create scheduled email reports from them. The <code>CreateDashboard</code>, <code>DescribeDashboard</code>,
+    /// and <code>ListDashboardsByUser</code> API operations act on the dashboard entity.
+    /// If you have the correct permissions, you can create a dashboard from a template that
+    /// exists in a different AWS account.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "QSDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.CreateDashboardResponse")]
@@ -55,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SourceTemplate_Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource name (ARN) of the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID where you want to create the dashboard.</para>
+        /// <para>The ID of the AWS account where you want to create the dashboard.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DashboardId
         /// <summary>
         /// <para>
-        /// <para>The ID for the dashboard, also added to IAM policy.</para>
+        /// <para>The ID for the dashboard, also added to the IAM policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -185,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>A structure that contains the permissions of the dashboard. You can use this for granting
-        /// permissions with principal and action information.</para>
+        /// <para>A structure that contains the permissions of the dashboard. You can use this structure
+        /// for granting permissions with principal and action information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

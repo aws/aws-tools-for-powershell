@@ -137,6 +137,20 @@ $ECS_Completers = {
             break
         }
 
+        # Amazon.ECS.ManagedScalingStatus
+        "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedScaling_Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.ECS.ManagedTerminationProtection
+        "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedTerminationProtection"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ECS.NetworkMode
         "Register-ECSTaskDefinition/NetworkMode"
         {
@@ -238,6 +252,8 @@ $ECS_Completers = {
 }
 
 $ECS_map = @{
+    "AutoScalingGroupProvider_ManagedScaling_Status"=@("New-ECSCapacityProvider")
+    "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider")
     "DeploymentController_Type"=@("New-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
     "IpcMode"=@("Register-ECSTaskDefinition")
@@ -305,7 +321,8 @@ $ECS_SelectCompleters = {
 }
 
 $ECS_SelectMap = @{
-    "Select"=@("New-ECSCluster",
+    "Select"=@("New-ECSCapacityProvider",
+               "New-ECSCluster",
                "New-ECSService",
                "New-ECSTaskSet",
                "Remove-ECSAccountSetting",
@@ -315,6 +332,7 @@ $ECS_SelectMap = @{
                "Remove-ECSTaskSet",
                "Unregister-ECSContainerInstance",
                "Unregister-ECSTaskDefinition",
+               "Get-ECSCapacityProvider",
                "Get-ECSClusterDetail",
                "Get-ECSContainerInstanceDetail",
                "Get-ECSService",
@@ -333,6 +351,7 @@ $ECS_SelectMap = @{
                "Write-ECSAccountSetting",
                "Write-ECSAccountSettingDefault",
                "Write-ECSAttribute",
+               "Write-ECSClusterCapacityProvider",
                "Register-ECSTaskDefinition",
                "New-ECSTask",
                "Start-ECSTask",

@@ -28,15 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates a dashboard in the AWS account.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight update-dashboard --aws-account-id 111122223333 --dashboard-id
-    /// 123123123 --dashboard-name "test-update102" --source-entity SourceTemplate={Arn=arn:aws:quicksight:us-west-2:111122223333:template/sales-report-template2}
-    /// --data-set-references DataSetPlaceholder=SalesDataSet,DataSetArn=arn:aws:quicksight:us-west-2:111122223333:dataset/0e251aef-9ebf-46e1-b852-eb4fa33c1d3a</code></para><para><code>aws quicksight update-dashboard --cli-input-json file://update-dashboard.json
-    /// </code></para>
+    /// Updates a dashboard in an AWS account.
     /// </summary>
     [Cmdlet("Update", "QSDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateDashboardResponse")]
@@ -50,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SourceTemplate_Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource name (ARN) of the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the dashboard you are updating.</para>
+        /// <para>The ID of the AWS account that contains the dashboard that you're updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

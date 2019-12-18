@@ -28,13 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists dashboards in the AWS account.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight list-dashboards --aws-account-id 111122223333 --max-results
-    /// 5 —next-token 'next-10'</code></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists dashboards in an AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSDashboardList")]
     [OutputType("Amazon.QuickSight.Model.DashboardSummary")]
@@ -49,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the dashboards you are listing.</para>
+        /// <para>The ID of the AWS account that contains the dashboards that you're listing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

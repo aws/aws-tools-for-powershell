@@ -122,6 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter OutpostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutpostArn { get; set; }
+        #endregion
+        
         #region Parameter Size
         /// <summary>
         /// <para>
@@ -241,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Encrypted = this.Encrypted;
             context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
+            context.OutpostArn = this.OutpostArn;
             context.Size = this.Size;
             context.SnapshotId = this.SnapshotId;
             if (this.TagSpecification != null)
@@ -279,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.OutpostArn != null)
+            {
+                request.OutpostArn = cmdletContext.OutpostArn;
             }
             if (cmdletContext.Size != null)
             {
@@ -361,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? Encrypted { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.String OutpostArn { get; set; }
             public System.Int32? Size { get; set; }
             public System.String SnapshotId { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

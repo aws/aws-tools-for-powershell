@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>codeguruprofiler</C2jFilename>
+    <AssemblyName>CodeGuruProfiler</AssemblyName>
+    <ServiceNounPrefix>CGP</ServiceNounPrefix>
+    <ServiceName>Amazon CodeGuru Profiler</ServiceName>
+    <ServiceClientInterface>IAmazonCodeGuruProfiler</ServiceClientInterface>
+    <ServiceClient>AmazonCodeGuruProfilerClient</ServiceClient>
+    <ServiceModuleGuid>39761516-6d1e-4075-88a4-3d86f5a2dc0e</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ConfigureAgent" OutputProperty="Configuration" Verb="Set" Noun="AgentConfiguration" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProfilingGroup" OutputProperty="ProfilingGroup" Verb="New" Noun="ProfilingGroup" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProfilingGroup" Verb="Remove" Noun="ProfilingGroup" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProfilingGroup" OutputProperty="ProfilingGroup" Verb="Get" Noun="ProfilingGroup" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfile" OutputProperty="*" Verb="Get" Noun="Profile" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfileTimes" OutputProperty="ProfileTimes" Verb="Get" Noun="ProfileTimeList" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfilingGroups" OutputProperty="*" Verb="Get" Noun="ProfilingGroupList" PipelineParameter="IncludeDescription" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PostAgentProfile" Verb="Send" Noun="AgentProfile" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="AgentProfile" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProfilingGroup" OutputProperty="ProfilingGroup" Verb="Update" Noun="ProfilingGroup" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

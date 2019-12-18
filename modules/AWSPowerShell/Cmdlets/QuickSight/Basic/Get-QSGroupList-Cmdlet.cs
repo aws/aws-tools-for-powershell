@@ -28,15 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all user groups in Amazon QuickSight. 
-    /// 
-    ///  
-    /// <para>
-    /// The permissions resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:group/default/*</code>.
-    /// </para><para>
-    /// The response is a list of group objects. 
-    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight list-groups -\-aws-account-id=111122223333 -\-namespace=default
-    /// </code></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all user groups in Amazon QuickSight.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSGroupList")]
     [OutputType("Amazon.QuickSight.Model.Group")]

@@ -28,8 +28,8 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Creates a subscription to forward real time Directory Service domain controller security
-    /// logs to the specified CloudWatch log group in your AWS account.
+    /// Creates a subscription to forward real-time Directory Service domain controller security
+    /// logs to the specified Amazon CloudWatch log group in your AWS account.
     /// </summary>
     [Cmdlet("New", "DSLogSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>Identifier (ID) of the directory to which you want to subscribe and receive real-time
-        /// logs to your specified CloudWatch log group.</para>
+        /// <para>Identifier of the directory to which you want to subscribe and receive real-time logs
+        /// to your specified CloudWatch log group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -60,19 +60,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Collections.Hashtable Attribute { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. The token is valid for 7 days after creation. If a contact is already
-        /// started, the contact ID is returned. If the contact is disconnected, a new contact
-        /// is started.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
@@ -146,6 +133,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SourcePhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. The token is valid for 7 days after creation. If a contact is already
+        /// started, the contact ID is returned. If the contact is disconnected, a new contact
+        /// is started.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

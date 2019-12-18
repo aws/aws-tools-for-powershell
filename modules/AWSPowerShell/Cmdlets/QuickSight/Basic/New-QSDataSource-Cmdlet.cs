@@ -29,12 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Creates a data source.
-    /// 
-    ///  
-    /// <para>
-    /// The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:datasource/data-source-id</code></para><para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight create-data-source \</code></para><para><code>--aws-account-id=111122223333 \</code></para><para><code>--data-source-id=unique-data-source-id \</code></para><para><code>--name='My Data Source' \</code></para><para><code>--type=POSTGRESQL \</code></para><para><code>--data-source-parameters='{ "PostgreSqlParameters": {</code></para><para><code> "Host": "my-db-host.example.com",</code></para><para><code> "Port": 1234,</code></para><para><code> "Database": "my-db" } }' \</code></para><para><code>--credentials='{ "CredentialPair": {</code></para><para><code> "Username": "username",</code></para><para><code> "Password": "password" } }'</code></para>
     /// </summary>
     [Cmdlet("New", "QSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.CreateDataSourceResponse")]
@@ -87,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RedshiftParameters_ClusterId
         /// <summary>
         /// <para>
-        /// <para>Cluster ID. This can be blank if the <code>Host</code> and <code>Port</code> are provided.</para>
+        /// <para>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code>
+        /// are provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,7 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>An ID for the data source. This is unique per AWS Region per AWS account. </para>
+        /// <para>An ID for the data source. This ID is unique per AWS Region for each AWS account.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -236,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SslProperties_DisableSsl
         /// <summary>
         /// <para>
-        /// <para>A boolean flag to control whether SSL should be disabled.</para>
+        /// <para>A Boolean option to control whether SSL should be disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -246,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AmazonElasticsearchParameters_Domain
         /// <summary>
         /// <para>
-        /// <para>The Amazon Elasticsearch domain.</para>
+        /// <para>The Amazon Elasticsearch Service domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -323,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RedshiftParameters_Host
         /// <summary>
         /// <para>
-        /// <para>Host. This can be blank if the <code>ClusterId</code> is provided.</para>
+        /// <para>Host. This field can be blank if <code>ClusterId</code> is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -516,7 +512,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RedshiftParameters_Port
         /// <summary>
         /// <para>
-        /// <para>Port. This can be blank if the <code>ClusterId</code> is provided.</para>
+        /// <para>Port. This field can be blank if the <code>ClusterId</code> is provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -605,7 +601,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the data source. Currently the supported types for this operation are:
+        /// <para>The type of the data source. Currently, the supported types for this operation are:
         /// <code>ATHENA, AURORA, AURORA_POSTGRESQL, MARIADB, MYSQL, POSTGRESQL, PRESTO, REDSHIFT,
         /// S3, SNOWFLAKE, SPARK, SQLSERVER, TERADATA</code>. Use <code>ListDataSources</code>
         /// to return a list of all data sources.</para>
@@ -625,7 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter CredentialPair_Username
         /// <summary>
         /// <para>
-        /// <para>Username.</para>
+        /// <para>User name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -636,7 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VpcConnectionProperties_VpcConnectionArn
         /// <summary>
         /// <para>
-        /// <para>VPC connection ARN.</para>
+        /// <para>The Amazon Resource Name (ARN) for the VPC connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -657,7 +653,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AthenaParameters_WorkGroup
         /// <summary>
         /// <para>
-        /// <para>The workgroup that Athena uses.</para>
+        /// <para>The workgroup that Amazon Athena uses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

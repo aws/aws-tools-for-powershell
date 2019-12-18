@@ -35,6 +35,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMultiplex" OutputProperty="Multiplex" Verb="New" Noun="Multiplex" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMultiplexProgram" OutputProperty="MultiplexProgram" Verb="New" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -48,6 +56,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInputSecurityGroup" Verb="Remove" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMultiplex" OutputProperty="*" Verb="Remove" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMultiplexProgram" OutputProperty="*" Verb="Remove" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,6 +91,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMultiplex" OutputProperty="*" Verb="Get" Noun="Multiplex" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMultiplexProgram" OutputProperty="*" Verb="Get" Noun="MultiplexProgram" PipelineParameter="ProgramName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeOffering" OutputProperty="*" Verb="Get" Noun="Offering" PipelineParameter="OfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -99,6 +123,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMultiplexes" OutputProperty="Multiplexes" Verb="Get" Noun="MultiplexList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMultiplexPrograms" OutputProperty="MultiplexPrograms" Verb="Get" Noun="MultiplexProgramList" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="OfferingList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -119,7 +151,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartMultiplex" OutputProperty="*" Verb="Start" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopChannel" OutputProperty="*" Verb="Stop" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopMultiplex" OutputProperty="*" Verb="Stop" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,6 +176,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInputSecurityGroup" OutputProperty="SecurityGroup" Verb="Update" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMultiplex" OutputProperty="Multiplex" Verb="Update" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMultiplexProgram" OutputProperty="MultiplexProgram" Verb="Update" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

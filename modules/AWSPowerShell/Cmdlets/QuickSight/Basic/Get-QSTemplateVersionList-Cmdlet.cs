@@ -28,15 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists all the versions of the templates in the Quicksight account.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para>
-    /// aws quicksight list-template-versions --aws-account-id 111122223333 --aws-account-id
-    /// 196359894473 --template-id reports-test-template
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the versions of the templates in the current Amazon QuickSight account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QSTemplateVersionList")]
     [OutputType("Amazon.QuickSight.Model.TemplateVersionSummary")]
@@ -51,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the templates you are listing.</para>
+        /// <para>The ID of the AWS account that contains the templates that you're listing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

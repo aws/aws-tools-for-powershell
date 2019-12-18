@@ -29,23 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Deletes a template.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><ul><li><para><code>aws quicksight delete-template --aws-account-id 111122223333 —-template-id
-    /// reports_test_template --version-number 2 </code></para></li><li><para><code>aws quicksight delete-template —aws-account-id 111122223333 —template-id reports_test_template
-    /// —alias-name STAGING </code></para></li><li><para><code>aws quicksight delete-template —aws-account-id 111122223333 —template-id reports_test_template
-    /// —alias-name ‘\$LATEST’ </code></para></li><li><para><code>aws quicksight delete-template --aws-account-id 111122223333 —-template-id
-    /// reports_test_template</code></para></li></ul><para>
-    /// If version number which is an optional field is not passed the template (including
-    /// all the versions) is deleted by the API, if version number is provided, the specific
-    /// template version is deleted by the API.
-    /// </para><para>
-    /// Users can explicitly describe the latest version of the template by passing <code>$LATEST</code>
-    /// to the <code>alias-name</code> parameter. <code>$LATEST</code> is an internally supported
-    /// alias, which points to the latest version of the template. 
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "QSTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteTemplateResponse")]
@@ -59,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>AWS account ID that contains the template you are deleting.</para>
+        /// <para>The ID of the AWS account that contains the template that you're deleting.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VersionNumber
         /// <summary>
         /// <para>
-        /// <para>The version number</para>
+        /// <para>Specifies the version of the template that you want to delete. If you don't provide
+        /// a version number, <code>DeleteTemplate</code> deletes all versions of the template.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

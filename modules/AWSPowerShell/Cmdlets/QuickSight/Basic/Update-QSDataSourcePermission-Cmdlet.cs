@@ -29,13 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Updates the permissions to a data source.
-    /// 
-    ///  
-    /// <para>
-    /// The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:datasource/data-source-id</code></para><para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight update-data-source-permissions \</code></para><para><code>--aws-account-id=111122223333 \</code></para><para><code>--data-source-id=unique-data-source-id \</code></para><para><code>--name='My Data Source' \</code></para><para><code>--grant-permissions='[{"Principal":"arn:aws:quicksight:us-east-1:111122223333:user/default/user1","Actions":["quicksight:DescribeDataSource","quicksight:DescribeDataSourcePermissions","quicksight:PassDataSource"]}]'
-    /// \</code></para><para><code>--revoke-permissions='[{"Principal":"arn:aws:quicksight:us-east-1:111122223333:user/default/user2","Actions":["quicksight:UpdateDataSource","quicksight:DeleteDataSource","quicksight:UpdateDataSourcePermissions"]}]'</code></para>
     /// </summary>
     [Cmdlet("Update", "QSDataSourcePermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateDataSourcePermissionsResponse")]
@@ -66,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the data source. This is unique per AWS Region per AWS account. </para>
+        /// <para>The ID of the data source. This ID is unique per AWS Region for each AWS account.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

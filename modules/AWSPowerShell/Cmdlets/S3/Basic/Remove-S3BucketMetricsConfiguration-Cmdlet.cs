@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about CloudWatch request metrics for Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
     /// Metrics with Amazon CloudWatch</a>. 
     /// </para><para>
-    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code></para><ul><li><para><a>GetBucketMetricsConfiguration</a></para></li><li><para><a>PutBucketMetricsConfiguration</a></para></li><li><para><a>ListBucketMetricsConfigurations</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
+    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:
+    /// </para><ul><li><para><a>GetBucketMetricsConfiguration</a></para></li><li><para><a>PutBucketMetricsConfiguration</a></para></li><li><para><a>ListBucketMetricsConfigurations</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cloudwatch-monitoring.html">Monitoring
     /// Metrics with Amazon CloudWatch</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketMetricsConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

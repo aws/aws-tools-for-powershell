@@ -104,6 +104,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SES2EmailIdentity', 
         'Get-SES2EmailIdentityList', 
         'Get-SES2ResourceTag', 
+        'Get-SES2SuppressedDestination', 
+        'Get-SES2SuppressedDestinationList', 
         'New-SES2ConfigurationSet', 
         'New-SES2ConfigurationSetEventDestination', 
         'New-SES2DedicatedIpPool', 
@@ -114,20 +116,24 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SES2DedicatedIpPool', 
         'Remove-SES2EmailIdentity', 
         'Remove-SES2ResourceTag', 
+        'Remove-SES2SuppressedDestination', 
         'Send-SES2Email', 
         'Update-SES2ConfigurationSetEventDestination', 
         'Write-SES2AccountDedicatedIpWarmupAttribute', 
         'Write-SES2AccountSendingAttribute', 
+        'Write-SES2AccountSuppressionAttribute', 
         'Write-SES2ConfigurationSetDeliveryOption', 
         'Write-SES2ConfigurationSetReputationOption', 
         'Write-SES2ConfigurationSetSendingOption', 
+        'Write-SES2ConfigurationSetSuppressionOption', 
         'Write-SES2ConfigurationSetTrackingOption', 
         'Write-SES2DedicatedIpInPool', 
         'Write-SES2DedicatedIpWarmupAttribute', 
         'Write-SES2DeliverabilityDashboardOption', 
         'Write-SES2EmailIdentityDkimAttribute', 
         'Write-SES2EmailIdentityFeedbackAttribute', 
-        'Write-SES2EmailIdentityMailFromAttribute')
+        'Write-SES2EmailIdentityMailFromAttribute', 
+        'Write-SES2SuppressedDestination')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -97,6 +97,13 @@ $ORG_Completers = {
             break
         }
 
+        # Amazon.Organizations.EffectivePolicyType
+        "Get-ORGEffectivePolicy/PolicyType"
+        {
+            $v = "TAG_POLICY"
+            break
+        }
+
         # Amazon.Organizations.HandshakePartyType
         "New-ORGAccountInvitation/Target_Type"
         {
@@ -130,7 +137,7 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "SERVICE_CONTROL_POLICY"
+            $v = "SERVICE_CONTROL_POLICY","TAG_POLICY"
             break
         }
 
@@ -148,7 +155,7 @@ $ORG_map = @{
     "Filter"=@("Get-ORGPolicyForTarget","Get-ORGPolicyList")
     "Filter_ActionType"=@("Get-ORGAccountHandshakeList","Get-ORGOrganizationHandshakeList")
     "IamUserAccessToBilling"=@("New-ORGAccount","New-ORGGovCloudAccount")
-    "PolicyType"=@("Disable-ORGPolicyType","Enable-ORGPolicyType")
+    "PolicyType"=@("Disable-ORGPolicyType","Enable-ORGPolicyType","Get-ORGEffectivePolicy")
     "Target_Type"=@("New-ORGAccountInvitation")
     "Type"=@("New-ORGPolicy")
 }
@@ -217,6 +224,7 @@ $ORG_SelectMap = @{
                "Remove-ORGPolicy",
                "Get-ORGAccount",
                "Get-ORGAccountCreationStatus",
+               "Get-ORGEffectivePolicy",
                "Get-ORGHandshake",
                "Get-ORGOrganization",
                "Get-ORGOrganizationalUnit",

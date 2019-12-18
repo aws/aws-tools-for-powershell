@@ -80,18 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String ClientCidrBlock { get; set; }
         #endregion
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter ConnectionLogOptions_CloudwatchLogGroup
         /// <summary>
         /// <para>
@@ -194,6 +182,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.TransportProtocol")]
         public Amazon.EC2.TransportProtocol TransportProtocol { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+        /// to Ensure Idempotency</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

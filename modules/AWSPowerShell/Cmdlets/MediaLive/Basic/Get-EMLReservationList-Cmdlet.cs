@@ -85,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
         #region Parameter Resolution
         /// <summary>
         /// <para>
-        /// Filter by resolution, 'SD', 'HD', or 'UHD'
+        /// Filter by resolution, 'SD', 'HD', 'FHD', or
+        /// 'UHD'
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// <summary>
         /// <para>
         /// Filter by resource type, 'INPUT', 'OUTPUT',
-        /// or 'CHANNEL'
+        /// 'MULTIPLEX', or 'CHANNEL'
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

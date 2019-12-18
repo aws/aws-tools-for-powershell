@@ -30,11 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <summary>
     /// Deletes the data source permanently. This action breaks all the datasets that reference
     /// the deleted data source.
-    /// 
-    ///  
-    /// <para>
-    /// CLI syntax:
-    /// </para><para><code>aws quicksight delete-data-source \</code></para><para><code>--aws-account-id=111122223333 \</code></para><para><code>--data-source-id=unique-data-source-id </code></para>
     /// </summary>
     [Cmdlet("Remove", "QSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteDataSourceResponse")]
@@ -65,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the data source. This is unique per AWS Region per AWS account.</para>
+        /// <para>The ID of the data source. This ID is unique per AWS Region for each AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

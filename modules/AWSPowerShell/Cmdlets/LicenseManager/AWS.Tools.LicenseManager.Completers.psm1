@@ -162,6 +162,7 @@ $LICM_SelectMap = @{
                "Get-LICMLicenseConfiguration",
                "Get-LICMServiceSetting",
                "Get-LICMAssociationsForLicenseConfigurationList",
+               "Get-LICMFailuresForLicenseConfigurationOperationList",
                "Get-LICMLicenseConfigurationList",
                "Get-LICMLicenseSpecificationsForResourceList",
                "Get-LICMResourceInventoryList",

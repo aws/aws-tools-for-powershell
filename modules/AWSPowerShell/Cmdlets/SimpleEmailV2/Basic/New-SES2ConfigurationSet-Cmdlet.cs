@@ -117,6 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String DeliveryOptions_SendingPoolName { get; set; }
         #endregion
         
+        #region Parameter SuppressionOptions_SuppressedReason
+        /// <summary>
+        /// <para>
+        /// <para>A list of reasons to suppress email addresses. The only valid reasons are:</para><ul><li><para><code>COMPLAINT</code> – Amazon SES will suppress an email address that receives
+        /// a complaint.</para></li><li><para><code>BOUNCE</code> – Amazon SES will suppress an email address that hard bounces.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SuppressionOptions_SuppressedReasons")]
+        public System.String[] SuppressionOptions_SuppressedReason { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -215,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             context.ReputationOptions_LastFreshStart = this.ReputationOptions_LastFreshStart;
             context.ReputationOptions_ReputationMetricsEnabled = this.ReputationOptions_ReputationMetricsEnabled;
             context.SendingOptions_SendingEnabled = this.SendingOptions_SendingEnabled;
+            if (this.SuppressionOptions_SuppressedReason != null)
+            {
+                context.SuppressionOptions_SuppressedReason = new List<System.String>(this.SuppressionOptions_SuppressedReason);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SimpleEmailV2.Model.Tag>(this.Tag);
@@ -317,6 +333,25 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             {
                 request.SendingOptions = null;
             }
+            
+             // populate SuppressionOptions
+            var requestSuppressionOptionsIsNull = true;
+            request.SuppressionOptions = new Amazon.SimpleEmailV2.Model.SuppressionOptions();
+            List<System.String> requestSuppressionOptions_suppressionOptions_SuppressedReason = null;
+            if (cmdletContext.SuppressionOptions_SuppressedReason != null)
+            {
+                requestSuppressionOptions_suppressionOptions_SuppressedReason = cmdletContext.SuppressionOptions_SuppressedReason;
+            }
+            if (requestSuppressionOptions_suppressionOptions_SuppressedReason != null)
+            {
+                request.SuppressionOptions.SuppressedReasons = requestSuppressionOptions_suppressionOptions_SuppressedReason;
+                requestSuppressionOptionsIsNull = false;
+            }
+             // determine if request.SuppressionOptions should be set to null
+            if (requestSuppressionOptionsIsNull)
+            {
+                request.SuppressionOptions = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -407,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.DateTime? ReputationOptions_LastFreshStart { get; set; }
             public System.Boolean? ReputationOptions_ReputationMetricsEnabled { get; set; }
             public System.Boolean? SendingOptions_SendingEnabled { get; set; }
+            public List<System.String> SuppressionOptions_SuppressedReason { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }
             public System.String TrackingOptions_CustomRedirectDomain { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.CreateConfigurationSetResponse, NewSES2ConfigurationSetCmdlet, object> Select { get; set; } =

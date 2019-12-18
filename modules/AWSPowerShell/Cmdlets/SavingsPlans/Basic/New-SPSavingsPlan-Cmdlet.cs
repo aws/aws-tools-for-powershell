@@ -40,17 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.SP
     public partial class NewSPSavingsPlanCmdlet : AmazonSavingsPlansClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
-        #endregion
-        
         #region Parameter Commitment
         /// <summary>
         /// <para>
@@ -107,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.SP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UpfrontPaymentAmount { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select

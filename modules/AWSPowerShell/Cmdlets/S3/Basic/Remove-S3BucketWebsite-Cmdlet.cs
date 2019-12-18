@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For more information about hosting websites, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting
     /// Websites on Amazon S3</a>. 
     /// </para><para>
-    /// The following operations are related to <code>DeleteBucketWebsite</code></para><ul><li><para><a>GetBucketWebsite</a></para></li><li><para><a>PutBucketWebsite</a></para></li></ul>
+    /// The following operations are related to <code>DeleteBucketWebsite</code>:
+    /// </para><ul><li><para><a>GetBucketWebsite</a></para></li><li><para><a>PutBucketWebsite</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3BucketWebsite", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

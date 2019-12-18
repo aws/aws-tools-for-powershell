@@ -28,8 +28,8 @@ using Amazon.RAM.Model;
 namespace Amazon.PowerShell.Cmdlets.RAM
 {
     /// <summary>
-    /// Lists the principals that you have shared resources with or the principals that have
-    /// shared resources with you.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the principals that you have shared resources with or that have shared resources
+    /// with you.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RAMPrincipalList")]
     [OutputType("Amazon.RAM.Model.Principal")]
@@ -93,8 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type.</para><para>Valid values: <code>route53resolver:ResolverRule</code> | <code>ec2:TransitGateway</code>
-        /// | <code>ec2:Subnet</code> | <code>license-manager:LicenseConfiguration</code></para>
+        /// <para>The resource type.</para><para>Valid values: <code>ec2:CapacityReservation</code> | <code>ec2:Subnet</code> | <code>ec2:TrafficMirrorTarget</code>
+        /// | <code>ec2:TransitGateway</code> | <code>license-manager:LicenseConfiguration</code>
+        /// | <code>rds:Cluster</code> | <code>route53resolver:ResolverRule</code> I <code>resource-groups:Group</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

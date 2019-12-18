@@ -28,31 +28,17 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates a template from an existing QuickSight analysis or template. The resulting
-    /// template can be used to create a dashboard.
+    /// Creates a template from an existing QuickSight analysis or template. You can use the
+    /// resulting template to create a dashboard.
     /// 
     ///  
     /// <para>
-    /// A template is an entity in QuickSight which encapsulates the metadata required to
-    /// create an analysis that can be used to create dashboard. It adds a layer of abstraction
-    /// by use placeholders to replace the dataset associated with the analysis. You can use
-    /// templates to create dashboards by replacing dataset placeholders with datasets which
-    /// follow the same schema that was used to create the source analysis and template.
-    /// </para><para>
-    /// To create a template from an existing analysis, use the analysis's ARN, <code>aws-account-id</code>,
-    /// <code>template-id</code>, <code>source-entity</code>, and <code>data-set-references</code>.
-    /// </para><para>
-    /// CLI syntax to create a template: 
-    /// </para><para><code>aws quicksight create-template —cli-input-json file://create-template.json</code></para><para>
-    /// CLI syntax to create a template from another template in the same AWS account:
-    /// </para><para><code>aws quicksight create-template --aws-account-id 111122223333 --template-id
-    /// reports_test_template --data-set-references DataSetPlaceholder=reports,DataSetArn=arn:aws:quicksight:us-west-2:111122223333:dataset/0dfc789c-81f6-4f4f-b9ac-7db2453eefc8
-    /// DataSetPlaceholder=Elblogs,DataSetArn=arn:aws:quicksight:us-west-2:111122223333:dataset/f60da323-af68-45db-9016-08e0d1d7ded5
-    /// --source-entity SourceAnalysis='{Arn=arn:aws:quicksight:us-west-2:111122223333:analysis/7fb74527-c36d-4be8-8139-ac1be4c97365}'</code></para><para>
-    /// To create template from another account’s template, you need to grant cross account
-    /// resource permission for DescribeTemplate the account that contains the template.
-    /// </para><para>
-    /// You can use a file to pass JSON to the function if you prefer. 
+    /// A <i>template</i> is an entity in QuickSight that encapsulates the metadata required
+    /// to create an analysis and that you can use to create s dashboard. A template adds
+    /// a layer of abstraction by using placeholders to replace the dataset associated with
+    /// the analysis. You can use templates to create dashboards by replacing dataset placeholders
+    /// with datasets that follow the same schema that was used to create the source analysis
+    /// and template.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SourceAnalysis_Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource name (ARN) of the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter SourceTemplate_Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource name (ARN) of the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,9 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Permission
         /// <summary>
         /// <para>
-        /// <para>A list of resource permissions to be set on the template. The shorthand syntax should
-        /// look similar to this: <code>Shorthand Syntax: Principal=string,Actions=string,string
-        /// ... </code></para>
+        /// <para>A list of resource permissions to be set on the template. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,7 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter TemplateId
         /// <summary>
         /// <para>
-        /// <para>An ID for the template you want to create. This is unique per AWS region per AWS account.</para>
+        /// <para>An ID for the template that you want to create. This template is unique per AWS Region
+        /// in each AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -171,10 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter VersionDescription
         /// <summary>
         /// <para>
-        /// <para>A description of the current template version being created. This API created the
-        /// first version of the template. Every time UpdateTemplate is called a new version is
-        /// created. Each version of the template maintains a description of the version in the
-        /// VersionDescription field.</para>
+        /// <para>A description of the current template version being created. This API operation creates
+        /// the first version of the template. Every time <code>UpdateTemplate</code> is called,
+        /// a new version is created. Each version of the template maintains a description of
+        /// the version in the <code>VersionDescription</code> field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

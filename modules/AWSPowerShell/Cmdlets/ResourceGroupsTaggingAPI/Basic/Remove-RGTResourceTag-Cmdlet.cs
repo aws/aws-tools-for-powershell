@@ -36,10 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     ///  <ul><li><para>
     /// To remove tags from a resource, you need the necessary permissions for the service
     /// that the resource belongs to as well as permissions for removing tags. For more information,
-    /// see <a href="http://docs.aws.amazon.com/ARG/latest/userguide/obtaining-permissions-for-tagging.html">Obtaining
-    /// Permissions for Tagging</a> in the <i>AWS Resource Groups User Guide</i>.
+    /// see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this
+    /// list</a>.
     /// </para></li><li><para>
-    /// You can only tag resources that are located in the specified region for the AWS account.
+    /// You can only tag resources that are located in the specified Region for the AWS account.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "RGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

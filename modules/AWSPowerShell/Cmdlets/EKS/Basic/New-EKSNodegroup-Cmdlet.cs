@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The AMI type for your node group. GPU instance types should use the <code>AL2_x86_64_GPU</code>
-        /// AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support; non-GPU
+        /// AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support. Non-GPU
         /// instances should use the <code>AL2_x86_64</code> AMI type, which uses the Amazon EKS-optimized
         /// Linux AMI.</para>
         /// </para>
@@ -229,10 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter RemoteAccess_SourceSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The security groups to allow SSH access (port 22) from on the worker nodes. If you
-        /// specify an Amazon EC2 SSH key, but you do not specify a source security group when
-        /// you create a managed node group, port 22 on the worker nodes is opened to the internet
-        /// (0.0.0.0/0). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
+        /// <para>The security groups that are allowed SSH access (port 22) to the worker nodes. If
+        /// you specify an Amazon EC2 SSH key but do not specify a source security group when
+        /// you create a managed node group, then port 22 on the worker nodes is opened to the
+        /// internet (0.0.0.0/0). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
         /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Subnet
         /// <summary>
         /// <para>
-        /// <para>The subnets to use for the AutoScaling group that is created for your node group.
+        /// <para>The subnets to use for the Auto Scaling group that is created for your node group.
         /// These subnets must have the tag key <code>kubernetes.io/cluster/CLUSTER_NAME</code>
         /// with a value of <code>shared</code>, where <code>CLUSTER_NAME</code> is replaced with
         /// the name of your cluster.</para>
