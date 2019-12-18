@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-DSResourceTag -ResourceId d-123456ijkl -TagKey myTag</code>
+    <description>This command removes the Resource Tag assigned to the specified Directory-id</description>
+  </example>
+</examples>

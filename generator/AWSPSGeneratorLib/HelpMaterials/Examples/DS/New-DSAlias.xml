@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>New-DSAlias -DirectoryId d-123456ijkl -Alias MyOrgName
+
+Alias     DirectoryId
+-----     -----------
+myorgname d-123456ijkl</code>
+    <description>This command creates an alias for a directory and assigns the alias to the specified directory-id.</description>
+  </example>
+</examples>
