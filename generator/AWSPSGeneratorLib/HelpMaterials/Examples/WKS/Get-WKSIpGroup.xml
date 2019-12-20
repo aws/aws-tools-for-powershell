@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-WKSIpGroup -Region us-east-1 -GroupId wsipg-8m1234v45
+
+GroupDesc GroupId         GroupName UserRules
+--------- -------         --------- ---------
+          wsipg-8m1234v45 TestGroup {Amazon.WorkSpaces.Model.IpRuleItem, Amazon.WorkSpaces.Model.IpRuleItem}</code>
+    <description>This sample gets the details of the specified IP Group in the specified region</description>
+  </example>
+</examples>

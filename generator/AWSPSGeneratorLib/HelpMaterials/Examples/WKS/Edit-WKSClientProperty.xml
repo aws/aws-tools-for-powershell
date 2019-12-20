@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Edit-WKSClientProperty -Region us-west-2 -ClientProperties_ReconnectEnabled "ENABLED" -ResourceId d-123414a369</code>
+    <description>This sample enables Reconnection for the Workspaces Client</description>
+  </example>
+</examples>

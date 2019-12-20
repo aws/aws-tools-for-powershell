@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>$Rule = @(
+@{IPRule = "10.1.0.0/0"; RuleDesc = "First Rule Added"},
+@{IPRule = "10.2.0.0/0"; RuleDesc = "Second Rule Added"}
+)
+
+Approve-WKSIpRule -GroupId wsipg-abcnx2fcw -UserRule $Rule</code>
+    <description>This sample adds rules to an existing IP Group</description>
+  </example>
+</examples>

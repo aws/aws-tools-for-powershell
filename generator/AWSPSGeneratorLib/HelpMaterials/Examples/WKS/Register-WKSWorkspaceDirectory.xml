@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Register-WKSWorkspaceDirectory -DirectoryId d-123412a123 -EnableWorkDoc $false</code>
+    <description>This sample registers the specified directory for Workspaces Service</description>
+  </example>
+</examples>
