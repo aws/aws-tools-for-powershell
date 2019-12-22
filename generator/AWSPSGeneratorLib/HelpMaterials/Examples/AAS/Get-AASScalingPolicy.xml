@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-AASScalingPolicy -ServiceNamespace AppStream
+
+Alarms                                   : {Appstream2-LabFleet-default-scale-out-Alarm}
+CreationTime                             : 9/3/2019 2:48:15 AM
+PolicyARN                                : arn:aws:autoscaling:us-west-2:012345678912:scalingPolicy:5659b069-b5cd-4af1-9f7f-3e956d36233e:resource/appstream/fleet/LabFleet:
+                                           policyName/default-scale-out
+PolicyName                               : default-scale-out
+PolicyType                               : StepScaling
+ResourceId                               : fleet/LabFleet
+ScalableDimension                        : appstream:fleet:DesiredCapacity
+ServiceNamespace                         : appstream
+StepScalingPolicyConfiguration           : Amazon.ApplicationAutoScaling.Model.StepScalingPolicyConfiguration
+TargetTrackingScalingPolicyConfiguration :
+
+Alarms                                   : {Appstream2-LabFleet-default-scale-in-Alarm}
+CreationTime                             : 9/3/2019 2:48:15 AM
+PolicyARN                                : arn:aws:autoscaling:us-west-2:012345678912:scalingPolicy:5659b069-b5cd-4af1-9f7f-3e956d36233e:resource/appstream/fleet/LabFleet:
+                                           policyName/default-scale-in
+PolicyName                               : default-scale-in
+PolicyType                               : StepScaling
+ResourceId                               : fleet/LabFleet
+ScalableDimension                        : appstream:fleet:DesiredCapacity
+ServiceNamespace                         : appstream
+StepScalingPolicyConfiguration           : Amazon.ApplicationAutoScaling.Model.StepScalingPolicyConfiguration
+TargetTrackingScalingPolicyConfiguration :</code>
+    <description>This cmdlet describe the Application Auto Scaling scaling policies for the specified service namespace.</description>
+  </example>
+</examples>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-AASScalingActivity -ServiceNamespace AppStream
+
+ActivityId        : 2827409f-b639-4cdb-a957-8055d5d07434
+Cause             : monitor alarm Appstream2-MyFleet-default-scale-in-Alarm in state ALARM triggered policy default-scale-in
+Description       : Setting desired capacity to 2.
+Details           :
+EndTime           : 12/14/2019 11:32:49 AM
+ResourceId        : fleet/MyFleet
+ScalableDimension : appstream:fleet:DesiredCapacity
+ServiceNamespace  : appstream
+StartTime         : 12/14/2019 11:32:14 AM
+StatusCode        : Successful
+StatusMessage     : Successfully set desired capacity to 2. Change successfully fulfilled by appstream.</code>
+    <description>Provides descriptive information about the scaling activities in the specified namespace from the previous six weeks.</description>
+  </example>
+</examples>
