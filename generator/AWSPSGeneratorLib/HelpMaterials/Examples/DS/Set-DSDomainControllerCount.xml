@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Set-DSDomainControllerCount -DirectoryId d-123456ijkl -DesiredNumber 3</code>
+    <description>This example sets the number of domain controller to 3 for specified directory-id.</description>
+  </example>
+</examples>

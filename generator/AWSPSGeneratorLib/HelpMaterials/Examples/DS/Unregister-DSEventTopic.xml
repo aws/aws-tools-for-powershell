@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Unregister-DSEventTopic -DirectoryId d-123456ijkl -TopicName snstopicname</code>
+    <description>This example removes the specefied directory as a publisher to the specified SNS topic. </description>
+  </example>
+</examples>
