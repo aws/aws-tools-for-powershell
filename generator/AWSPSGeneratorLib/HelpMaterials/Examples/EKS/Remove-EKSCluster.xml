@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-EKSCluster -Name "DEV-KUBE-CL"
+                                                                                                                                                           
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Remove-EKSCluster (DeleteCluster)" on target "DEV-KUBE-CL".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
+
+Arn                  : arn:aws:eks:us-west-2:012345678912:cluster/DEV-KUBE-CL
+CertificateAuthority : Amazon.EKS.Model.Certificate
+ClientRequestToken   :
+CreatedAt            : 12/25/2019 9:33:25 AM
+Endpoint             : https://02E6D31E3E4F8C15D7BE7F58D527776A.yl4.us-west-2.eks.amazonaws.com
+Identity             : Amazon.EKS.Model.Identity
+Logging              : Amazon.EKS.Model.Logging
+Name                 : DEV-KUBE-CL
+PlatformVersion      : eks.7
+ResourcesVpcConfig   : Amazon.EKS.Model.VpcConfigResponse
+RoleArn              : arn:aws:iam::012345678912:role/eks-iam-role
+Status               : DELETING
+Tags                 : {}
+Version              : 1.14</code>
+    <description>This cmdlet deletes the Amazon EKS cluster control plane.</description>
+  </example>
+</examples>
