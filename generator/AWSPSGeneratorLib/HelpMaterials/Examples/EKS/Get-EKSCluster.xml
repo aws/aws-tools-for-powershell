@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-EKSCluster -Name "PROD"
+                                                                                                                                                                                              
+Arn                  : arn:aws:eks:us-west-2:012345678912:cluster/PROD
+CertificateAuthority : Amazon.EKS.Model.Certificate
+ClientRequestToken   :
+CreatedAt            : 12/25/2019 6:46:17 AM
+Endpoint             : https://669608765450FBBE54D1D78A3D71B72C.gr8.us-west-2.eks.amazonaws.com
+Identity             : Amazon.EKS.Model.Identity
+Logging              : Amazon.EKS.Model.Logging
+Name                 : PROD
+PlatformVersion      : eks.7
+ResourcesVpcConfig   : Amazon.EKS.Model.VpcConfigResponse
+RoleArn              : arn:aws:iam::012345678912:role/eks-iam-role
+Status               : ACTIVE
+Tags                 : {}
+Version              : 1.14</code>
+    <description>This cmdlet returns descriptive information about an Amazon EKS cluster.</description>
+  </example>
+</examples>

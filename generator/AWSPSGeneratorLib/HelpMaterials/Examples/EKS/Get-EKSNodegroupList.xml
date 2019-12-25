@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-EKSNodegroupList -ClusterName PROD -Select *
+                                                                                                                                               
+NextToken   Nodegroups
+---------   ----------
+           {ProdEKSNodeGroup}</code>
+    <description>This cmdlet lists the Amazon EKS node groups associated with the specified cluster in your AWS account in the specified Region. </description>
+  </example>
+</examples>
