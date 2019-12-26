@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Copy-APSImage -DestinationImageName TestImageCopy -DestinationRegion us-west-1 -SourceImageName Powershell -Select *
+
+DestinationImageName
+--------------------
+TestImageCopy</code>
+    <description>This sample copies an image to other region</description>
+  </example>
+</examples>
