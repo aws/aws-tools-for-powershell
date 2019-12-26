@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-APSTagsForResourceList -ResourceArn arn:aws:appstream:us-east-1:123456789012:stack/SessionScriptTest        
+Key        Value
+---        -----
+StackState Test</code>
+    <description>This sample displays tags on an AppStream resource</description>
+  </example>
+</examples>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-APSImageList -Type PRIVATE | select DisplayName, ImageBuilderName, Visibility, arn
+
+DisplayName          ImageBuilderName      Visibility Arn
+-----------          ----------------      ---------- ---
+OfficeApps           OfficeApps            PRIVATE    arn:aws:appstream:us-east-1:123456789012:image/OfficeApps
+SessionScriptV2      SessionScriptTest     PRIVATE    arn:aws:appstream:us-east-1:123456789012:image/SessionScriptV2</code>
+    <description>This sample displays private AppStream Images</description>
+  </example>
+</examples>
