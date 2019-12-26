@@ -7,6 +7,6 @@
 ComputerAttributes                  ComputerId                                    ComputerName
 ------------------                  ----------                                    ------------
 {WindowsSamName, DistinguishedName} S-1-5-21-1191241402-978882507-2717148213-1662 ADMemberServer</code>
-    <description>This example creates a new Active Directory computer object. This commandlet does not join a computer to a domain.</description>
+    <description>This example creates a new Active Directory computer object.</description>
   </example>
 </examples>
