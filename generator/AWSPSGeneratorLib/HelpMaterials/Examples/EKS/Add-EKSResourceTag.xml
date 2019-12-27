@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>PS C:\> $EKSTags = @{Name = "EKSPRODCLUSTER"}
+  PS C:\> Add-EKSResourceTag -ResourceArn "arn:aws:eks:us-west-2:012345678912:cluster/PROD" -Tag System.Collections.Hashtable</code>
+    <description>This cmdlet associates the specified tags to a resource with the specified resourceArn.  </description>
+  </example>
+</examples>

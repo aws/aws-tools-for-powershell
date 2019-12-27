@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>New-ECSCluster -ClusterName "LAB-ECS-CL" -Setting (New-Object Amazon.ECS.Model.ClusterSetting -Property @{Name="containerInsights"; Value="enabled"})   
+            
+ActiveServicesCount               : 0
+Attachments                       : {}
+AttachmentsStatus                 :
+CapacityProviders                 : {}
+ClusterArn                        : arn:aws:ecs:us-west-2:012345678912:cluster/LAB-ECS-CL
+ClusterName                       : LAB-ECS-CL
+DefaultCapacityProviderStrategy   : {}
+PendingTasksCount                 : 0
+RegisteredContainerInstancesCount : 0
+RunningTasksCount                 : 0
+Settings                          : {containerInsights}
+Statistics                        : {}
+Status                            : ACTIVE
+Tags                              : {}</code>
+    <description>This cmdlet creates a new Amazon ECS cluster. </description>
+  </example>
+</examples>

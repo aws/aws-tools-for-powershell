@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-ECSClusterList
+
+arn:aws:ecs:us-west-2:012345678912:cluster/LAB-ECS-CL
+arn:aws:ecs:us-west-2:012345678912:cluster/LAB-ECS</code>
+    <description>This cmdlet returns a list of existing ECS clusters.</description>
+  </example>
+</examples>

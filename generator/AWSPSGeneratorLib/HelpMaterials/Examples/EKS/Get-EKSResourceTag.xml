@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>PS C:\> Get-EKSResourceTag -ResourceArn "arn:aws:eks:us-west-2:012345678912:cluster/PROD"                                                                       
+Key  Value
+---  -----
+Name EKSPRODCLUSTER</code>
+    <description>This cmdlet list the tags for an Amazon EKS resource. </description>
+  </example>
+</examples>
