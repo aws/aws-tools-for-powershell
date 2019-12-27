@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code> Start-APSImageBuilder -Name TestImage                                                                           
+AccessEndpoints             : {}
+AppstreamAgentVersion       : 06-19-2019
+Arn                         : arn:aws:appstream:us-east-1:123456789012:image-builder/TestImage
+CreatedTime                 : 1/14/2019 4:33:05 AM
+Description                 :
+DisplayName                 : TestImage
+DomainJoinInfo              :
+EnableDefaultInternetAccess : False
+IamRoleArn                  :
+ImageArn                    : arn:aws:appstream:us-east-1::image/Base-Image-Builder-05-02-2018
+ImageBuilderErrors          : {}
+InstanceType                : stream.standard.large
+Name                        : TestImage
+NetworkAccessConfiguration  : Amazon.AppStream.Model.NetworkAccessConfiguration
+Platform                    : WINDOWS
+State                       : PENDING
+StateChangeReason           :
+VpcConfig                   : Amazon.AppStream.Model.VpcConfig</code>
+    <description>This sample starts an ImageBuilder</description>
+  </example>
+</examples>

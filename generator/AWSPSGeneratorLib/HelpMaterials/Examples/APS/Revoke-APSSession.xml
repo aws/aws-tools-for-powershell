@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Revoke-APSSession -SessionId 6cd2f9a3-f948-4aa1-8014-8a7dcde14877</code>
+    <description>This sample revokes a session to AppStream fleet</description>
+  </example>
+</examples>

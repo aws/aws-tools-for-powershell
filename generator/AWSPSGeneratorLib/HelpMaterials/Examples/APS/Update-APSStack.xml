@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Update-APSStack -Name PowershellStack -ApplicationSettings_Enabled True -ApplicationSettings_SettingsGroup PowershellStack -StorageConnector (New-Object -TypeName Amazon.AppStream.Model.StorageConnector -Property @{ConnectorType="HOMEFOLDERS"})                                                                              
+AccessEndpoints     : {}
+ApplicationSettings : Amazon.AppStream.Model.ApplicationSettingsResponse
+Arn                 : arn:aws:appstream:us-east-1:123456789012:stack/PowershellStack
+CreatedTime         : 4/24/2019 8:49:29 AM
+Description         : PowershellStack
+DisplayName         : PowershellStack
+EmbedHostDomains    : {}
+FeedbackURL         :
+Name                : PowershellStack
+RedirectURL         :
+StackErrors         : {}
+StorageConnectors   : {Amazon.AppStream.Model.StorageConnector, Amazon.AppStream.Model.StorageConnector}
+UserSettings        : {Amazon.AppStream.Model.UserSetting, Amazon.AppStream.Model.UserSetting, Amazon.AppStream.Model.UserSetting, Amazon.AppStream.Model.UserSetting}</code>
+    <description>This sample updates(enables) Application settings persistence and Home Folders on a Stack </description>
+  </example>
+</examples>
