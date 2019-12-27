@@ -5,7 +5,7 @@
     <code>$tag = New-Object -TypeName Amazon.IdentityManagement.Model.Tag
 $tag.Key = 'abac'
 $tag.Value = 'testing'
-Add-IAMRoleTag -RoleName AdminRoleacess -Tag $tag</code>
-    <description>This example adds tag to Role in Identity Management Service</description>
+Add-IAMUserTag -UserName joe -Tag $tag</code>
+    <description>This example adds tag to User in Identity Management Service</description>
   </example>
 </examples>
