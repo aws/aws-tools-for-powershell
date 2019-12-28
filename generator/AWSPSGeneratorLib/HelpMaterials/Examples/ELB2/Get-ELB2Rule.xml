@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-ELB2Rule -ListenerArn 'arn:aws:elasticloadbalancing:us-east-1:123456789012:listener/app/test-alb/3651b4394dd9a24f/66e10e3aaf5b6d9b' -Region us-east-1
+
+Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+Conditions : {Amazon.ElasticLoadBalancingV2.Model.RuleCondition}
+IsDefault  : False
+Priority   : 1
+RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/test-alb/3651b4394dd9a24f/66e10e3aaf5b6d9b/2286fff5055e0f79
+
+Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+Conditions : {Amazon.ElasticLoadBalancingV2.Model.RuleCondition}
+IsDefault  : False
+Priority   : 2
+RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/test-alb/3651b4394dd9a24f/66e10e3aaf5b6d9b/14e7b036567623ba
+
+Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+Conditions : {}
+IsDefault  : True
+Priority   : default
+RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/test-alb/3651b4394dd9a24f/66e10e3aaf5b6d9b/853948cf3aa9b2bf</code>
+    <description>This example describes the listener rules for the specified Listener ARN.</description>
+  </example>
+</examples>

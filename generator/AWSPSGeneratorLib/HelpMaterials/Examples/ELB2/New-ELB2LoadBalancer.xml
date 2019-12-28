@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>$ipAddressType = New-Object  Amazon.ElasticLoadBalancingV2.IpAddressType('ipv4')
+$albScheme = New-Object Amazon.ElasticLoadBalancingV2.LoadBalancerSchemeEnum('internet-facing')
+$elbType = New-Object Amazon.ElasticLoadBalancingV2.LoadBalancerTypeEnum('Application')
+
+New-ELB2LoadBalancer -IpAddressType $ipAddressType -Name 'New-Test-ALB' -Scheme $albScheme -SecurityGroup 'sg-07c3414abb8811cbd' -subnet 'subnet-c37a67a6','subnet-fc02eea0' -Type $elbType -Region us-east-1
+
+AvailabilityZones     : {us-east-1b, us-east-1a}
+CanonicalHostedZoneId : Z35SXDOTRQ7X7K
+CreatedTime           : 12/28/19 2:58:03 PM
+DNSName               : New-Test-ALB-1391502222.us-east-1.elb.amazonaws.com
+IpAddressType         : ipv4
+LoadBalancerArn       : arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/New-Test-ALB/dab2e4d90eb51493
+LoadBalancerName      : New-Test-ALB
+Scheme                : internet-facing
+SecurityGroups        : {sg-07c3414abb8811cbd}
+State                 : Amazon.ElasticLoadBalancingV2.Model.LoadBalancerState
+Type                  : application
+VpcId                 : vpc-2cfd7000</code>
+    <description>This example creates new internet facing Application load balancer with two subnets.</description>
+  </example>
+</examples>

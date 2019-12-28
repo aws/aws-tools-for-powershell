@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>$newRuleCondition = New-Object Amazon.ElasticLoadBalancingV2.Model.RuleCondition
+
+$newPathPattern = New-Object Amazon.ElasticLoadBalancingV2.Model.PathPatternConditionConfig
+$newPathPattern.Values = '/login1','/login2','/login3'
+
+$newRuleCondition.PathPatternConfig = $newPathPattern
+$newRuleCondition.Field = 'path-pattern'
+
+Edit-ELB2Rule -RuleArn 'arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/test-alb/3651b4394dd9a24f/3873f123b98f7618/d11e4eed207fe5aa' -Condition $newRuleCondition -Region us-east-1
+
+Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+Conditions : {Amazon.ElasticLoadBalancingV2.Model.RuleCondition}
+IsDefault  : False
+Priority   : 1
+RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/test-alb/3651b4394dd9a24f/3873f123b98f7618/d11e4eed207fe5aa</code>
+    <description>This example modifes the specified Listener rule configurations.</description>
+  </example>
+</examples>

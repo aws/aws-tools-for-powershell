@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>$targetDescription = New-Object Amazon.ElasticLoadBalancingV2.Model.TargetDescription
+$targetDescription.Port = 80
+$targetDescription.Id = 'i-0672a4c4cdeae3111
+
+Register-ELB2Target -TargetGroupArn 'arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/test-tg/a4e04b3688be1970' -Target $targetDescription -Region us-east-1'</code>
+    <description>This example registers 'i-0672a4c4cdeae3111' instance with the specified target group.</description>
+  </example>
+</examples>

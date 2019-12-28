@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>$newDefaultAction = New-Object    Amazon.ElasticLoadBalancingV2.Model.Action
+
+$newFixedResponse = New-Object Amazon.ElasticLoadBalancingV2.Model.FixedResponseActionConfig
+$newFixedResponse.ContentType = 'text/plain'
+$newFixedResponse.MessageBody = 'Hello World'
+$newFixedResponse.StatusCode = '200'
+$newFixedResponse
+
+ContentType MessageBody StatusCode
+----------- ----------- ----------
+text/plain  Hello World 200
+
+$newDefaultAction.FixedResponseConfig = $newFixedResponse
+
+$newType = New-Object Amazon.ElasticLoadBalancingV2.ActionTypeEnum("fixed-response")
+
+$newDefaultAction.Type = $newType 
+
+Edit-ELB2Listener -ListenerArn 'arn:aws:elasticloadbalancing:us-east-1:123456789012:listener/app/test-alb/3651b4394dd9a24f/1dac07c21187d41e' -Port '8080' -DefaultAction $newDefaultAction -Region us-east-1
+
+Certificates    : {}
+DefaultActions  : {Amazon.ElasticLoadBalancingV2.Model.Action}
+ListenerArn     : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener/app/test-alb/3651b4394dd9a24f/1dac07c21187d41e
+LoadBalancerArn : arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/test-alb/3651b4394dd9a24f
+Port            : 8080
+Protocol        : HTTP
+SslPolicy       : </code>
+    <description>This example modifes the specified listeners default action to fixed-response.</description>
+  </example>
+</examples>

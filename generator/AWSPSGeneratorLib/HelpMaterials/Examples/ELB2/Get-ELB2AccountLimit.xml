@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-ELB2AccountLimit -Region us-east-1 
+
+Max  Name
+---  ----
+3000 target-groups
+1000 targets-per-application-load-balancer
+50   listeners-per-application-load-balancer
+100  rules-per-application-load-balancer
+50   network-load-balancers
+3000 targets-per-network-load-balancer
+500  targets-per-availability-zone-per-network-load-balancer
+50   listeners-per-network-load-balancer
+5    condition-values-per-alb-rule
+5    condition-wildcards-per-alb-rule
+100  target-groups-per-application-load-balancer
+5    target-groups-per-action-on-application-load-balancer
+1    target-groups-per-action-on-network-load-balancer
+50   application-load-balancers</code>
+    <description>This command lists ELB2 account limits for a given region.</description>
+  </example>
+</examples>
