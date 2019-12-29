@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-IAMServiceLinkedRole -RoleName AWSServiceRoleForAutoScaling_RoleNameEndsWithThis
+Output :
+task/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling_RoleNameEndsWithThis/2c8d6fe8-1a92-41cf-a37e-3fee02f8f1e8
+Get-IAMServiceLinkedRoleDeletionStatus -DeletionTaskId task/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling_RoleNameEndsWithThis/2c8d6fe8-1a92-41cf-a37e-3fee02f8f1e8</code>
+    <description>This example shows how to fetch the deletion status of a service linked role.</description>
+  </example>
+</examples>

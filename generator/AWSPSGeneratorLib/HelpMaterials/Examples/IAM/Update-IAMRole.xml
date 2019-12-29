@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Update-IAMRole -RoleName MyRoleName -Description "My testing role" -MaxSessionDuration 43200</code>
+    <description>This example updates the role description and the maximum session duration value(in seconds) for which a role's session can be requested.</description>
+  </example>
+</examples>
