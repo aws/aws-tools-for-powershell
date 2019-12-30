@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-LMVersionsByFunction -FunctionName "MylambdaFunction123" -Select Versions</code>
+    <description>This example returns the list of version specific configurations for each version of the Lambda Function.</description>
+  </example>
+</examples>
