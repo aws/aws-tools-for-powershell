@@ -2,25 +2,6 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Amazon.S3.Model.S3AccessControlList = Get-S3ACL -BucketName 's3casetestbucket' -Key 'Listec2instances.ps1'
-Amazon.S3.Model.S3AccessControlList.Owner
-
-DisplayName Id
------------ --
-testusername      9988776a6554433d22f1100112e334acb45566778899009e9887bd7f66c5f544
-
-Amazon.S3.Model.S3AccessControlList.Grants
-
-Grantee                   Permission
--------                   ----------
-Amazon.S3.Model.S3Grantee FULL_CONTROL
-Amazon.S3.Model.S3Grantee READ
-Amazon.S3.Model.S3Grantee READ_ACP
-Amazon.S3.Model.S3Grantee READ
-Amazon.S3.Model.S3Grantee READ_ACP</code>
-    <description>This command gets the details of the object owner and the permissions granted on the S3 object.</description>
-  </example>
-  <example>
     <code>Amazon.S3.Model.S3AccessControlList = Get-S3ACL -BucketName 's3testbucket' -Key 'testfile.txt'
 Amazon.S3.Model.S3AccessControlList.Owner
 

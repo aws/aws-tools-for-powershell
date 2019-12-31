@@ -2,14 +2,6 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Get-S3BucketAccelerateConfiguration -BucketName 'testbucket' -Select '*'
-
-Status
-------
-Enabled</code>
-    <description>The sample provides the status of the acceleration configuration of the given S3 bucket.</description>
-  </example>
-  <example>
     <code>Get-S3BucketAccelerateConfiguration -BucketName 's3testbucket'
                                                                            
 Value                                  
