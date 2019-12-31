@@ -2,8 +2,8 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>System.Collections.Hashtable = @{ServerSideEncryptionByDefault=@{ServerSideEncryptionAlgorithm = "AES256"}}
-Set-S3BucketEncryption -BucketName 's3testbucket' -ServerSideEncryptionConfiguration_ServerSideEncryptionRule System.Collections.Hashtable</code>
+    <code>$Encryptionconfig = @{ServerSideEncryptionByDefault = @{ServerSideEncryptionAlgorithm = "AES256"}}
+Set-S3BucketEncryption -BucketName 's3testbucket' -ServerSideEncryptionConfiguration_ServerSideEncryptionRule $Encryptionconfig</code>
     <description>This command enables default AES256 server side encryption with Amazon S3 Managed Keys(SSE-S3) on the given bucket. </description>
   </example>
 </examples>

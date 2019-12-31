@@ -2,8 +2,8 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Amazon.S3.Model.CORSConfiguration = Get-S3CORSConfiguration -BucketName 's3testbucket'
-Amazon.S3.Model.CORSConfiguration.Rules
+    <code>$CORSConfig = Get-S3CORSConfiguration -BucketName 's3testbucket'
+$CORSConfig.Rules
 
 AllowedMethods : {PUT, POST, DELETE}
 AllowedOrigins : {http://www.example1.com}
