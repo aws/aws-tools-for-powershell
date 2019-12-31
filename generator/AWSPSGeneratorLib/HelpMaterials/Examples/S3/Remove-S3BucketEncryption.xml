@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-S3BucketEncryption -BucketName 's3casetestbucket'
+
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Remove-S3BucketEncryption (DeleteBucketEncryption)" on target "s3casetestbucket".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y</code>
+    <description>This disables the encryption enabled for the S3 bucket provided.</description>
+  </example>
+</examples>

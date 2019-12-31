@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Amazon.S3.Model.CORSConfiguration = Get-S3CORSConfiguration -BucketName 's3testbucket'
+Amazon.S3.Model.CORSConfiguration.Rules
+
+AllowedMethods : {PUT, POST, DELETE}
+AllowedOrigins : {http://www.example1.com}
+Id             : 
+ExposeHeaders  : {}
+MaxAgeSeconds  : 0
+AllowedHeaders : {*}
+
+AllowedMethods : {PUT, POST, DELETE}
+AllowedOrigins : {http://www.example2.com}
+Id             : 
+ExposeHeaders  : {}
+MaxAgeSeconds  : 0
+AllowedHeaders : {*}
+
+AllowedMethods : {GET}
+AllowedOrigins : {*}
+Id             : 
+ExposeHeaders  : {}
+MaxAgeSeconds  : 0
+AllowedHeaders : {}</code>
+    <description>This command returns an object that contains all the CORS configuration rules corresponding to the given S3 Bucket.</description>
+  </example>
+</examples>

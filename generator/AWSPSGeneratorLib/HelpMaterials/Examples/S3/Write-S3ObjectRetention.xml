@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>GOVERNANCE = New-Object Amazon.S3.ObjectLockRetentionMode('Governance')
+Write-S3ObjectRetention -BucketName 's3buckettesting' -Key 'testfile.txt' -Retention_Mode GOVERNANCE -Retention_RetainUntilDate "2019-12-31T00:00:00"</code>
+    <description>The command enables governance retention mode untill the date '31st Dec 2019 00:00:00' for 'testfile.txt' object in the given S3 bucket.</description>
+  </example>
+</examples>

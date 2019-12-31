@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Amazon.S3.Model.ObjectLockConfiguration = Get-S3ObjectLockConfiguration -BucketName 's3buckettesting'
+PS /Users/testuser/S3&gt; Amazon.S3.Model.ObjectLockConfiguration.ObjectLockEnabled
+
+Value
+-----
+Enabled
+
+PS /Users/testuser/S3&gt; Amazon.S3.Model.ObjectLockConfiguration.Rule.DefaultRetention
+
+Days Mode       Years
+---- ----       -----
+1    GOVERNANCE 0</code>
+    <description>This command returns an object with details about the Object lock configuration of the given S3 bucket.</description>
+  </example>
+</examples>
