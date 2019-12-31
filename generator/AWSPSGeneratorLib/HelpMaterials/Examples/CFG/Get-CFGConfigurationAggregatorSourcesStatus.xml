@@ -12,9 +12,7 @@ ACCOUNT      SUCCEEDED        12/31/2019 7:12:53 AM 933301234567
 ACCOUNT      SUCCEEDED        12/31/2019 7:18:10 AM 933301234567
 ACCOUNT      SUCCEEDED        12/31/2019 7:25:17 AM 933301234567
 ACCOUNT      SUCCEEDED        12/31/2019 7:25:49 AM 612641234567
-ACCOUNT      SUCCEEDED        12/31/2019 7:26:11 AM 612641234567
-.
-.</code>
+ACCOUNT      SUCCEEDED        12/31/2019 7:26:11 AM 612641234567</code>
     <description>This sample displays requested fields for the sources in the given aggregator.</description>
   </example>
 </examples>
