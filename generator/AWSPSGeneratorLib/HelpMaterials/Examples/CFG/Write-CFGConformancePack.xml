@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Write-CFGConformancePack -ConformancePackName dono -DeliveryS3Bucket kt-ps-examples -TemplateBody (Get-Content C:\windows\temp\template.yaml -Raw)</code>
+    <description>This sample creates conformance pack, fetching template from the given yaml file. </description>
+  </example>
+</examples>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGConfigurationAggregatorSourcesStatus -ConfigurationAggregatorName raju | select SourceType, LastUpdateStatus, LastUpdateTime, SourceId
+
+SourceType   LastUpdateStatus LastUpdateTime        SourceId
+----------   ---------------- --------------        --------
+ORGANIZATION SUCCEEDED        12/31/2019 7:45:06 AM Organization
+ACCOUNT      SUCCEEDED        12/31/2019 7:09:38 AM 612641234567
+ACCOUNT      SUCCEEDED        12/31/2019 7:12:53 AM 933301234567
+ACCOUNT      SUCCEEDED        12/31/2019 7:18:10 AM 933301234567
+ACCOUNT      SUCCEEDED        12/31/2019 7:25:17 AM 933301234567
+ACCOUNT      SUCCEEDED        12/31/2019 7:25:49 AM 612641234567
+ACCOUNT      SUCCEEDED        12/31/2019 7:26:11 AM 612641234567
+.
+.</code>
+    <description>This sample displays requested fields for the sources in the given aggregator.</description>
+  </example>
+</examples>
