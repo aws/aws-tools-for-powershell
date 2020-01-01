@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-S3BucketLocation -BucketName 's3testbucket'                 
+
+Value
+-----
+ap-south-1</code>
+    <description>This command returns the location constraint for the bucket 's3testbucket', if a constraint exists.</description>
+  </example>
+</examples>

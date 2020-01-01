@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-S3ObjectMetadata -BucketName 's3testbucket' -Key 'ListTrusts.txt'
+
+Headers                                       : Amazon.S3.Model.HeadersCollection
+Metadata                                      : Amazon.S3.Model.MetadataCollection
+DeleteMarker                                  : 
+AcceptRanges                                  : bytes
+ContentRange                                  : 
+Expiration                                    : 
+RestoreExpiration                             : 
+RestoreInProgress                             : False
+LastModified                                  : 01/01/2020 08:02:05
+ETag                                          : "d000011112a222e333e3bb4ee5d43d21"
+MissingMeta                                   : 0
+VersionId                                     : null
+Expires                                       : 01/01/0001 00:00:00
+WebsiteRedirectLocation                       : 
+ServerSideEncryptionMethod                    : AES256
+ServerSideEncryptionCustomerMethod            : 
+ServerSideEncryptionKeyManagementServiceKeyId : 
+ReplicationStatus                             : 
+PartsCount                                    : 
+ObjectLockLegalHoldStatus                     : 
+ObjectLockMode                                : 
+ObjectLockRetainUntilDate                     : 01/01/0001 00:00:00
+StorageClass                                  : 
+RequestCharged                                : </code>
+    <description>This command returns the metadata of the object with key 'ListTrusts.txt' in the given S3 bucket.</description>
+  </example>
+</examples>
