@@ -58,8 +58,6 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 
         protected override void ProcessOutput(CmdletOutput cmdletOutput)
         {
-            base.ProcessOutput(cmdletOutput);
-
             try
             {
                 if (cmdletOutput.PipelineOutput != null && (this.AsTextArray.IsPresent || this.Raw.IsPresent))
@@ -91,6 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     cmdletOutput.ErrorResponse = e;
                 }
             }
+
+            base.ProcessOutput(cmdletOutput);
         }
     }
 }
