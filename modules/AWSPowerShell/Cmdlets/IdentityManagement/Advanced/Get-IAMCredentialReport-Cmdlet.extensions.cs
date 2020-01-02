@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 
         #region Parameter AsTextArray
         /// <summary>
-        /// If set the cmdlet will process the the memory stream contained in the service response
+        /// If set the cmdlet will process the memory stream contained in the service response
         /// to the pipeline as a series of lines of text.
         /// </summary>
         [Parameter(ValueFromPipelineByPropertyName = true)]
