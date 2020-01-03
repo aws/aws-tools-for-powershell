@@ -125,11 +125,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiMappings" OutputProperty="Items" Verb="Get" Noun="ApiMappingList" ShouldProcessTarget="" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApiMappings" OutputProperty="Items" Verb="Get" Noun="ApiMappingList" ShouldProcessTarget="" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApis" OutputProperty="Items" Verb="Get" Noun="ApiList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApis" OutputProperty="Items" Verb="Get" Noun="ApiList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -137,7 +137,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthorizers" OutputProperty="Items" Verb="Get" Noun="AuthorizerList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAuthorizers" OutputProperty="Items" Verb="Get" Noun="AuthorizerList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -145,7 +145,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployments" OutputProperty="Items" Verb="Get" Noun="DeploymentList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDeployments" OutputProperty="Items" Verb="Get" Noun="DeploymentList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -153,7 +153,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainNames" OutputProperty="Items" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDomainNames" OutputProperty="Items" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -165,11 +165,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegrationResponses" OutputProperty="Items" Verb="Get" Noun="IntegrationResponseList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIntegrationResponses" OutputProperty="Items" Verb="Get" Noun="IntegrationResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegrations" OutputProperty="Items" Verb="Get" Noun="IntegrationList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIntegrations" OutputProperty="Items" Verb="Get" Noun="IntegrationList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -177,7 +177,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModels" OutputProperty="Items" Verb="Get" Noun="ModelList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetModels" OutputProperty="Items" Verb="Get" Noun="ModelList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -193,11 +193,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRouteResponses" OutputProperty="Items" Verb="Get" Noun="RouteResponseList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRouteResponses" OutputProperty="Items" Verb="Get" Noun="RouteResponseList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRoutes" OutputProperty="Items" Verb="Get" Noun="RouteList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRoutes" OutputProperty="Items" Verb="Get" Noun="RouteList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -205,7 +205,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStages" OutputProperty="Items" Verb="Get" Noun="StageList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetStages" OutputProperty="Items" Verb="Get" Noun="StageList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

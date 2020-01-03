@@ -28,8 +28,8 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Deletes a tag or tags from a resource. You must provide the ARN of the resource from
-    /// which you want to delete the tag or tags.
+    /// Deletes tags from a resource. You must provide the ARN of the resource from which
+    /// you want to delete the tag or tags.
     /// </summary>
     [Cmdlet("Remove", "RSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For
-        /// example, <code>arn:aws:redshift:us-east-1:123456789:cluster:t1</code>. </para>
+        /// example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

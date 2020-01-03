@@ -51,11 +51,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBrokerEngineTypes" OutputProperty="BrokerEngineTypes" Verb="Get" Noun="BrokerEngineType" PipelineParameter="EngineType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBrokerEngineTypes" OutputProperty="BrokerEngineTypes" Verb="Get" Noun="BrokerEngineType" PipelineParameter="EngineType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBrokerInstanceOptions" OutputProperty="BrokerInstanceOptions" Verb="Get" Noun="BrokerInstanceOption" PipelineParameter="HostInstanceType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBrokerInstanceOptions" OutputProperty="BrokerInstanceOptions" Verb="Get" Noun="BrokerInstanceOption" PipelineParameter="HostInstanceType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -71,15 +71,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBrokers" OutputProperty="BrokerSummaries" Verb="Get" Noun="BrokerList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBrokers" OutputProperty="BrokerSummaries" Verb="Get" Noun="BrokerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="ConfigurationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -87,7 +87,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="BrokerId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="BrokerId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

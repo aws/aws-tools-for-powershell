@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>Represents the Amazon Resource Name (ARN) of the Device Farm device pool you wish
-        /// to delete.</para>
+        /// <para>Represents the Amazon Resource Name (ARN) of the Device Farm device pool to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

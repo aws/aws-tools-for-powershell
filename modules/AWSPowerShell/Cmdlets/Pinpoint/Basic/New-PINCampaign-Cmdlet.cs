@@ -301,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>The type of event that causes the campaign to be sent. Valid values are: SYSTEM, sends
         /// the campaign when a system event occurs; and, ENDPOINT, sends the campaign when an
-        /// endpoint event (<link linkend="apps-application-id-events">Events resource</link>)
+        /// endpoint event (<link linkend="apps-application-id-events">Events</link> resource)
         /// occurs.</para>
         /// </para>
         /// </summary>
@@ -1266,6 +1266,74 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String[] EventType_Value { get; set; }
         #endregion
         
+        #region Parameter EmailTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to use for the message.
+        /// If specified, this value must match the identifier for an existing template version.
+        /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
+        /// version of the template. The <i>active</i> version is typically the version of a template
+        /// that's been most recently reviewed and approved for use, depending on your workflow.
+        /// It isn't necessarily the latest version of a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_TemplateConfiguration_EmailTemplate_Version")]
+        public System.String EmailTemplate_Version { get; set; }
+        #endregion
+        
+        #region Parameter PushTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to use for the message.
+        /// If specified, this value must match the identifier for an existing template version.
+        /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
+        /// version of the template. The <i>active</i> version is typically the version of a template
+        /// that's been most recently reviewed and approved for use, depending on your workflow.
+        /// It isn't necessarily the latest version of a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_TemplateConfiguration_PushTemplate_Version")]
+        public System.String PushTemplate_Version { get; set; }
+        #endregion
+        
+        #region Parameter SMSTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to use for the message.
+        /// If specified, this value must match the identifier for an existing template version.
+        /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
+        /// version of the template. The <i>active</i> version is typically the version of a template
+        /// that's been most recently reviewed and approved for use, depending on your workflow.
+        /// It isn't necessarily the latest version of a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_TemplateConfiguration_SMSTemplate_Version")]
+        public System.String SMSTemplate_Version { get; set; }
+        #endregion
+        
+        #region Parameter VoiceTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to use for the message.
+        /// If specified, this value must match the identifier for an existing template version.
+        /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
+        /// version of the template. The <i>active</i> version is typically the version of a template
+        /// that's been most recently reviewed and approved for use, depending on your workflow.
+        /// It isn't necessarily the latest version of a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_TemplateConfiguration_VoiceTemplate_Version")]
+        public System.String VoiceTemplate_Version { get; set; }
+        #endregion
+        
         #region Parameter Hook_WebUrl
         /// <summary>
         /// <para>
@@ -1467,9 +1535,13 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 }
             }
             context.EmailTemplate_Name = this.EmailTemplate_Name;
+            context.EmailTemplate_Version = this.EmailTemplate_Version;
             context.PushTemplate_Name = this.PushTemplate_Name;
+            context.PushTemplate_Version = this.PushTemplate_Version;
             context.SMSTemplate_Name = this.SMSTemplate_Name;
+            context.SMSTemplate_Version = this.SMSTemplate_Version;
             context.VoiceTemplate_Name = this.VoiceTemplate_Name;
+            context.VoiceTemplate_Version = this.VoiceTemplate_Version;
             context.WriteCampaignRequest_TreatmentDescription = this.WriteCampaignRequest_TreatmentDescription;
             context.WriteCampaignRequest_TreatmentName = this.WriteCampaignRequest_TreatmentName;
             
@@ -1716,6 +1788,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplate.Name = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Name;
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplateIsNull = false;
             }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Version = null;
+            if (cmdletContext.EmailTemplate_Version != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Version = cmdletContext.EmailTemplate_Version;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Version != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplate.Version = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Version;
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplateIsNull = false;
+            }
              // determine if requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplate should be set to null
             if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_EmailTemplateIsNull)
             {
@@ -1739,6 +1821,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplate_pushTemplate_Name != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplate.Name = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplate_pushTemplate_Name;
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplateIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplate_pushTemplate_Version = null;
+            if (cmdletContext.PushTemplate_Version != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplate_pushTemplate_Version = cmdletContext.PushTemplate_Version;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplate_pushTemplate_Version != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplate.Version = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplate_pushTemplate_Version;
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplateIsNull = false;
             }
              // determine if requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_PushTemplate should be set to null
@@ -1766,6 +1858,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplate.Name = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Name;
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplateIsNull = false;
             }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Version = null;
+            if (cmdletContext.SMSTemplate_Version != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Version = cmdletContext.SMSTemplate_Version;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Version != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplate.Version = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Version;
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplateIsNull = false;
+            }
              // determine if requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplate should be set to null
             if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_SMSTemplateIsNull)
             {
@@ -1789,6 +1891,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Name != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate.Name = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Name;
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplateIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Version = null;
+            if (cmdletContext.VoiceTemplate_Version != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Version = cmdletContext.VoiceTemplate_Version;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Version != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate.Version = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Version;
                 requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplateIsNull = false;
             }
              // determine if requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration_writeCampaignRequest_TemplateConfiguration_VoiceTemplate should be set to null
@@ -2958,9 +3070,13 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Int32? WriteCampaignRequest_SegmentVersion { get; set; }
             public Dictionary<System.String, System.String> WriteCampaignRequest_Tag { get; set; }
             public System.String EmailTemplate_Name { get; set; }
+            public System.String EmailTemplate_Version { get; set; }
             public System.String PushTemplate_Name { get; set; }
+            public System.String PushTemplate_Version { get; set; }
             public System.String SMSTemplate_Name { get; set; }
+            public System.String SMSTemplate_Version { get; set; }
             public System.String VoiceTemplate_Name { get; set; }
+            public System.String VoiceTemplate_Version { get; set; }
             public System.String WriteCampaignRequest_TreatmentDescription { get; set; }
             public System.String WriteCampaignRequest_TreatmentName { get; set; }
             public System.Func<Amazon.Pinpoint.Model.CreateCampaignResponse, NewPINCampaignCmdlet, object> Select { get; set; } =

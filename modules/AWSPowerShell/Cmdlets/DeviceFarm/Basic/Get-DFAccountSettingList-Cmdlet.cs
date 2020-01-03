@@ -28,8 +28,8 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Returns the number of unmetered iOS and/or unmetered Android devices that have been
-    /// purchased by the account.
+    /// Returns the number of unmetered iOS or unmetered Android devices that have been purchased
+    /// by the account.
     /// </summary>
     [Cmdlet("Get", "DFAccountSettingList")]
     [OutputType("Amazon.DeviceFarm.Model.AccountSettings")]

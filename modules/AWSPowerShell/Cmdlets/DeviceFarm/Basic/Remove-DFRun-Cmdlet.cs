@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// Deletes the run, given the run ARN.
     /// 
     ///  
-    /// <para><b>Note</b> Deleting this resource does not stop an in-progress run.
+    /// <para>
+    ///  Deleting this resource does not stop an in-progress run.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "DFRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the run you wish to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) for the run to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

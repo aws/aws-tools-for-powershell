@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// except for calls between peers within a training cluster for distributed training.
         /// If you enable network isolation for training jobs that are configured to use a VPC,
         /// Amazon SageMaker downloads and uploads customer data and model artifacts through the
-        /// specified VPC, but the training container does not have network access.</para><note><para>The Semantic Segmentation built-in algorithm does not support network isolation.</para></note>
+        /// specified VPC, but the training container does not have network access.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

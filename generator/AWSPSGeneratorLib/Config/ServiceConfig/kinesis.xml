@@ -81,11 +81,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListShards" OutputProperty="Shards" Verb="Get" Noun="ShardList" PipelineParameter="StreamName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListShards" OutputProperty="Shards" Verb="Get" Noun="ShardList" PipelineParameter="StreamName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamConsumers" OutputProperty="Consumers" Verb="Get" Noun="StreamConsumerList" PipelineParameter="StreamARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStreamConsumers" OutputProperty="Consumers" Verb="Get" Noun="StreamConsumerList" PipelineParameter="StreamARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

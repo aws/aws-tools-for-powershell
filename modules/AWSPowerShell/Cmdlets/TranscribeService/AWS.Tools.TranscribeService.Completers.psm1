@@ -83,6 +83,7 @@ $TRS_Completers = {
         # Amazon.TranscribeService.LanguageCode
         {
             ($_ -eq "New-TRSVocabulary/LanguageCode") -Or
+            ($_ -eq "New-TRSVocabularyFilter/LanguageCode") -Or
             ($_ -eq "Start-TRSTranscriptionJob/LanguageCode") -Or
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
@@ -101,7 +102,14 @@ $TRS_Completers = {
         # Amazon.TranscribeService.TranscriptionJobStatus
         "Get-TRSTranscriptionJobList/Status"
         {
-            $v = "COMPLETED","FAILED","IN_PROGRESS"
+            $v = "COMPLETED","FAILED","IN_PROGRESS","QUEUED"
+            break
+        }
+
+        # Amazon.TranscribeService.VocabularyFilterMethod
+        "Start-TRSTranscriptionJob/Settings_VocabularyFilterMethod"
+        {
+            $v = "mask","remove"
             break
         }
 
@@ -121,8 +129,9 @@ $TRS_Completers = {
 }
 
 $TRS_map = @{
-    "LanguageCode"=@("New-TRSVocabulary","Start-TRSTranscriptionJob","Update-TRSVocabulary")
+    "LanguageCode"=@("New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSTranscriptionJob","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSTranscriptionJob")
+    "Settings_VocabularyFilterMethod"=@("Start-TRSTranscriptionJob")
     "StateEquals"=@("Get-TRSVocabularyList")
     "Status"=@("Get-TRSTranscriptionJobList")
 }
@@ -178,14 +187,19 @@ $TRS_SelectCompleters = {
 
 $TRS_SelectMap = @{
     "Select"=@("New-TRSVocabulary",
+               "New-TRSVocabularyFilter",
                "Remove-TRSTranscriptionJob",
                "Remove-TRSVocabulary",
+               "Remove-TRSVocabularyFilter",
                "Get-TRSTranscriptionJob",
                "Get-TRSVocabulary",
+               "Get-TRSVocabularyFilter",
                "Get-TRSTranscriptionJobList",
                "Get-TRSVocabularyList",
+               "Get-TRSVocabularyFilterList",
                "Start-TRSTranscriptionJob",
-               "Update-TRSVocabulary")
+               "Update-TRSVocabulary",
+               "Update-TRSVocabularyFilter")
 }
 
 _awsArgumentCompleterRegistration $TRS_SelectCompleters $TRS_SelectMap

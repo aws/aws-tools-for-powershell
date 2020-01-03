@@ -56,8 +56,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter MediaRegion
         /// <summary>
         /// <para>
-        /// <para>The Region in which to create the meeting. Available values: <code>us-east-1</code>,
-        /// <code>us-west-2</code>.</para>
+        /// <para>The Region in which to create the meeting. Available values: <code>ap-northeast-1</code>,
+        /// <code>ap-southeast-1</code>, <code>ap-southeast-2</code>, <code>ca-central-1</code>,
+        /// <code>eu-central-1</code>, <code>eu-north-1</code>, <code>eu-west-1</code>, <code>eu-west-2</code>,
+        /// <code>eu-west-3</code>, <code>sa-east-1</code>, <code>us-east-1</code>, <code>us-east-2</code>,
+        /// <code>us-west-1</code>, <code>us-west-2</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

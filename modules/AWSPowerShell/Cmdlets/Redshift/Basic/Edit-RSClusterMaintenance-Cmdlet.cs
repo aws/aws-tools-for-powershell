@@ -28,8 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Modifies the maintenance settings of a cluster. For example, you can defer a maintenance
-    /// window. You can also update or cancel a deferment.
+    /// Modifies the maintenance settings of a cluster.
     /// </summary>
     [Cmdlet("Edit", "RSClusterMaintenance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]

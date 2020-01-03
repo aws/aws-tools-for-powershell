@@ -48,6 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// already associated with a different instance or a network interface, you get an error
     /// unless you allow reassociation. You cannot associate an Elastic IP address with an
     /// instance or network interface that has an existing Elastic IP address.
+    /// </para><para>
+    /// You cannot associate an Elastic IP address with an interface in a different network
+    /// border group.
     /// </para><important><para>
     /// This is an idempotent operation. If you perform the operation more than once, Amazon
     /// EC2 doesn't return an error, and you may be charged for each time the Elastic IP address

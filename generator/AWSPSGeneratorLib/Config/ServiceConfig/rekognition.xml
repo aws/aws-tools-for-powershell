@@ -66,11 +66,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProjects" OutputProperty="ProjectDescriptions" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeProjects" OutputProperty="ProjectDescriptions" Verb="Get" Noun="Project" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProjectVersions" OutputProperty="ProjectVersionDescriptions" Verb="Get" Noun="ProjectVersion" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeProjectVersions" OutputProperty="ProjectVersionDescriptions" Verb="Get" Noun="ProjectVersion" PipelineParameter="ProjectArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -117,27 +117,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCelebrityRecognition" OutputProperty="*" Verb="Get" Noun="CelebrityRecognition" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetCelebrityRecognition" OutputProperty="*" Verb="Get" Noun="CelebrityRecognition" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContentModeration" OutputProperty="*" Verb="Get" Noun="ContentModeration" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetContentModeration" OutputProperty="*" Verb="Get" Noun="ContentModeration" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFaceDetection" OutputProperty="*" Verb="Get" Noun="FaceDetection" PipelineParameter="JobId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetFaceDetection" OutputProperty="*" Verb="Get" Noun="FaceDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFaceSearch" OutputProperty="*" Verb="Get" Noun="FaceSearch" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetFaceSearch" OutputProperty="*" Verb="Get" Noun="FaceSearch" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLabelDetection" OutputProperty="*" Verb="Get" Noun="LabelDetection" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetLabelDetection" OutputProperty="*" Verb="Get" Noun="LabelDetection" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPersonTracking" OutputProperty="*" Verb="Get" Noun="PersonTracking" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetPersonTracking" OutputProperty="*" Verb="Get" Noun="PersonTracking" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -150,15 +150,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollections" OutputProperty="*" Verb="Get" Noun="CollectionIdList" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListCollections" OutputProperty="*" Verb="Get" Noun="CollectionIdList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFaces" OutputProperty="*" Verb="Get" Noun="FaceList" PipelineParameter="CollectionId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListFaces" OutputProperty="*" Verb="Get" Noun="FaceList" PipelineParameter="CollectionId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamProcessors" OutputProperty="StreamProcessors" Verb="Get" Noun="StreamProcessorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStreamProcessors" OutputProperty="StreamProcessors" Verb="Get" Noun="StreamProcessorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -53,8 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking configuration(s) to retrieve. To request all existing
-        /// configurations, leave this parameter empty.</para>
+        /// <para>A unique identifier for a matchmaking configuration(s) to retrieve. You can use either
+        /// the configuration name or ARN value. To request all existing configurations, leave
+        /// this parameter empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,8 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuleSetName
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking rule set. Use this parameter to retrieve all matchmaking
-        /// configurations that use this rule set.</para>
+        /// <para>A unique identifier for a matchmaking rule set. You can use either the rule set name
+        /// or ARN value. Use this parameter to retrieve all matchmaking configurations that use
+        /// this rule set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages. This parameter is limited to 10.</para>
         /// </para>
         /// <para>
@@ -93,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this action. To start at the beginning of
         /// the result set, do not specify a value.</para>
         /// </para>

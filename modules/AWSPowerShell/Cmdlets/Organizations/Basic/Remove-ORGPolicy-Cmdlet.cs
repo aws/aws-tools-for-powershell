@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>The unique identifier (ID) of the policy that you want to delete. You can get the
         /// ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a> operations.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string
-        /// requires "p-" followed by from 8 to 128 lowercase letters or digits.</para>
+        /// requires "p-" followed by from 8 to 128 lowercase or uppercase letters, digits, or
+        /// the underscore character (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

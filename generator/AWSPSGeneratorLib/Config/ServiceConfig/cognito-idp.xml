@@ -79,17 +79,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AdminListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceListAdmin" PipelineParameter="Username" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AdminListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceListAdmin" PipelineParameter="Username" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AdminListGroupsForUser" OutputProperty="Groups" Verb="Get" Noun="GroupsForUserAdmin" PipelineParameter="Username" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AdminListGroupsForUser" OutputProperty="Groups" Verb="Get" Noun="GroupsForUserAdmin" PipelineParameter="Username" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="AdminListUserAuthEvents" OutputProperty="AuthEvents" Verb="Get" Noun="UserAuthEventListAdmin" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AdminListUserAuthEvents" OutputProperty="AuthEvents" Verb="Get" Noun="UserAuthEventListAdmin" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -293,21 +293,21 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="AccessToken" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="AccessToken" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="Providers" Verb="Get" Noun="IdentityProviderList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdentityProviders" OutputProperty="Providers" Verb="Get" Noun="IdentityProviderList" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceServers" OutputProperty="ResourceServers" Verb="Get" Noun="ResourceServerList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceServers" OutputProperty="ResourceServers" Verb="Get" Noun="ResourceServerList" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -315,25 +315,25 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserImportJobs" OutputProperty="UserImportJobs" Verb="Get" Noun="UserImportJobList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserImportJobs" OutputProperty="UserImportJobs" Verb="Get" Noun="UserImportJobList" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="MaxResults" ServicePageSize="60" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserPoolClients" OutputProperty="UserPoolClients" Verb="Get" Noun="UserPoolClientList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserPoolClients" OutputProperty="UserPoolClients" Verb="Get" Noun="UserPoolClientList" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserPools" OutputProperty="UserPools" Verb="Get" Noun="UserPoolList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserPools" OutputProperty="UserPools" Verb="Get" Noun="UserPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="UserPoolId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsersInGroup" OutputProperty="Users" Verb="Get" Noun="UsersInGroup" PipelineParameter="GroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsersInGroup" OutputProperty="Users" Verb="Get" Noun="UsersInGroup" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" PageSizeIsRequired="true" />
             <TypesNotToFlatten />

@@ -62,10 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet that contains the instance you want access to. The fleet
-        /// can be in any of the following statuses: <code>ACTIVATING</code>, <code>ACTIVE</code>,
-        /// or <code>ERROR</code>. Fleets with an <code>ERROR</code> status may be accessible
-        /// for a short time before they are deleted.</para>
+        /// <para>A unique identifier for a fleet that contains the instance you want access to. You
+        /// can use either the fleet ID or ARN value. The fleet can be in any of the following
+        /// statuses: <code>ACTIVATING</code>, <code>ACTIVE</code>, or <code>ERROR</code>. Fleets
+        /// with an <code>ERROR</code> status may be accessible for a short time before they are
+        /// deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for an instance you want to get access to. You can access an instance
+        /// <para>A unique identifier for an instance you want to get access to. You can access an instance
         /// in any status.</para>
         /// </para>
         /// </summary>

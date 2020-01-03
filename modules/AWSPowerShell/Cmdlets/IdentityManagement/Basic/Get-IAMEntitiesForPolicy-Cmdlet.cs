@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxItems")]
-        public int? MaxItem { get; set; }
+        public System.Int32? MaxItem { get; set; }
         #endregion
         
         #region Parameter Select
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             if (cmdletContext.MaxItem != null)
             {
-                request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxItem.Value);
+                request.MaxItems = cmdletContext.MaxItem.Value;
             }
             if (cmdletContext.PathPrefix != null)
             {
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             if (cmdletContext.MaxItem != null)
             {
-                request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxItem.Value);
+                request.MaxItems = cmdletContext.MaxItem.Value;
             }
             if (cmdletContext.PathPrefix != null)
             {
@@ -374,7 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             public Amazon.IdentityManagement.EntityType EntityFilter { get; set; }
             public System.String Marker { get; set; }
-            public int? MaxItem { get; set; }
+            public System.Int32? MaxItem { get; set; }
             public System.String PathPrefix { get; set; }
             public System.String PolicyArn { get; set; }
             public Amazon.IdentityManagement.PolicyUsageType PolicyUsageFilter { get; set; }

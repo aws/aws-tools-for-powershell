@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with an alias. Alias names do not need to be
+        /// <para>A descriptive label that is associated with an alias. Alias names do not need to be
         /// unique.</para>
         /// </para>
         /// </summary>
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RoutingStrategyType
         /// <summary>
         /// <para>
-        /// <para>Type of routing to filter results on. Use this parameter to retrieve only aliases
-        /// of a certain type. To retrieve all aliases, leave this parameter empty.</para><para>Possible routing types include the following:</para><ul><li><para><b>SIMPLE</b> -- The alias resolves to one specific fleet. Use this type when routing
+        /// <para>The routing type to filter results on. Use this parameter to retrieve only aliases
+        /// with a certain routing type. To retrieve all aliases, leave this parameter empty.</para><para>Possible routing types include the following:</para><ul><li><para><b>SIMPLE</b> -- The alias resolves to one specific fleet. Use this type when routing
         /// to active fleets.</para></li><li><para><b>TERMINAL</b> -- The alias does not resolve to a fleet but instead can be used
         /// to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException
         /// with the <a>RoutingStrategy</a> message embedded.</para></li></ul>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// <para>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this action. To start at the beginning of
         /// the result set, do not specify a value.</para>
         /// </para>

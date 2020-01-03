@@ -27,7 +27,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflictBatch" PipelineParameter="RepositoryName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="BatchDescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflictBatch" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,7 +95,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="DescribeMergeConflicts" OutputProperty="*" Verb="Get" Noun="FileMergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,7 +155,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMergeConflicts" OutputProperty="*" Verb="Get" Noun="MergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetMergeConflicts" OutputProperty="*" Verb="Get" Noun="MergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -54,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter EngineAttribute
         /// <summary>
         /// <para>
-        /// <para>Engine attributes that are specific to the server on which you want to run maintenance.
-        /// </para>
+        /// <para>Engine attributes that are specific to the server on which you want to run maintenance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

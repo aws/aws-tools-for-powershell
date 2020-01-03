@@ -107,27 +107,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeploymentJobs" OutputProperty="DeploymentJobs" Verb="Get" Noun="DeploymentJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDeploymentJobs" OutputProperty="DeploymentJobs" Verb="Get" Noun="DeploymentJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetDetails" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetDetails" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRobotApplications" OutputProperty="RobotApplicationSummaries" Verb="Get" Noun="RobotApplicationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRobotApplications" OutputProperty="RobotApplicationSummaries" Verb="Get" Noun="RobotApplicationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRobots" OutputProperty="Robots" Verb="Get" Noun="RobotList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRobots" OutputProperty="Robots" Verb="Get" Noun="RobotList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSimulationApplications" OutputProperty="SimulationApplicationSummaries" Verb="Get" Noun="SimulationApplicationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSimulationApplications" OutputProperty="SimulationApplicationSummaries" Verb="Get" Noun="SimulationApplicationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSimulationJobs" OutputProperty="SimulationJobSummaries" Verb="Get" Noun="SimulationJobSummary" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSimulationJobs" OutputProperty="SimulationJobSummaries" Verb="Get" Noun="SimulationJobSummary" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

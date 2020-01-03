@@ -136,35 +136,35 @@
         </ServiceOperation>
         <ServiceOperation MethodName="InvokeAsync" OutputProperty="Status" Verb="Invoke" Noun="FunctionAsync" ShouldProcessTarget="FunctionName" PositionalParameters="InvokeArgs" PipelineParameter="FunctionName" NoPipelineParameter="false" ReplacementObsoleteMessage="This Cmdlet is deprecated. We recommend to use the Invoke-LMFunction Cmdlet instead." ConfirmImpact="Low">
             <Params>
-                <Param Name="InvokeArgs" DefaultValue="{}" />
+                <Param Name="InvokeArgs" NewName="InvokeArg" DefaultValue="{}" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="FunctionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventSourceMappings" OutputProperty="EventSourceMappings" Verb="Get" Noun="EventSourceMappingList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyAlias="Get-LMEventSourceMappings">
+        <ServiceOperation MethodName="ListEventSourceMappings" OutputProperty="EventSourceMappings" Verb="Get" Noun="EventSourceMappingList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMEventSourceMappings">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctionEventInvokeConfigs" OutputProperty="FunctionEventInvokeConfigs" Verb="Get" Noun="FunctionEventInvokeConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFunctionEventInvokeConfigs" OutputProperty="FunctionEventInvokeConfigs" Verb="Get" Noun="FunctionEventInvokeConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-LMFunctions">
+        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-LMFunctions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLayers" OutputProperty="Layers" Verb="Get" Noun="LayerList" PipelineParameter="CompatibleRuntime" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLayers" OutputProperty="Layers" Verb="Get" Noun="LayerList" PipelineParameter="CompatibleRuntime" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLayerVersions" OutputProperty="LayerVersions" Verb="Get" Noun="LayerVersionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListLayerVersions" OutputProperty="LayerVersions" Verb="Get" Noun="LayerVersionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisionedConcurrencyConfigs" OutputProperty="ProvisionedConcurrencyConfigs" Verb="Get" Noun="ProvisionedConcurrencyConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProvisionedConcurrencyConfigs" OutputProperty="ProvisionedConcurrencyConfigs" Verb="Get" Noun="ProvisionedConcurrencyConfigList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -172,7 +172,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVersionsByFunction" OutputProperty="Versions" Verb="Get" Noun="VersionsByFunction" PipelineParameter="FunctionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVersionsByFunction" OutputProperty="Versions" Verb="Get" Noun="VersionsByFunction" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

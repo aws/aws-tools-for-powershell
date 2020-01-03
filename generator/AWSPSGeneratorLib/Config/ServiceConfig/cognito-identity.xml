@@ -65,7 +65,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityPools" OutputProperty="IdentityPools" Verb="Get" Noun="IdentityPoolList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdentityPools" OutputProperty="IdentityPools" Verb="Get" Noun="IdentityPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

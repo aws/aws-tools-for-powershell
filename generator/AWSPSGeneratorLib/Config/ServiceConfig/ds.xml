@@ -107,11 +107,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectories" OutputProperty="DirectoryDescriptions" Verb="Get" Noun="Directory" PipelineParameter="DirectoryIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDirectories" OutputProperty="DirectoryDescriptions" Verb="Get" Noun="Directory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomainControllers" OutputProperty="DomainControllers" Verb="Get" Noun="DomainControllerList" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDomainControllers" OutputProperty="DomainControllers" Verb="Get" Noun="DomainControllerList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,19 +119,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLDAPSSettings" OutputProperty="LDAPSSettingsInfo" Verb="Get" Noun="LDAPSSetting" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLDAPSSettings" OutputProperty="LDAPSSettingsInfo" Verb="Get" Noun="LDAPSSetting" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSharedDirectories" OutputProperty="SharedDirectories" Verb="Get" Noun="SharedDirectory" PipelineParameter="OwnerDirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSharedDirectories" OutputProperty="SharedDirectories" Verb="Get" Noun="SharedDirectory" PipelineParameter="OwnerDirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrusts" OutputProperty="Trusts" Verb="Get" Noun="Trust" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTrusts" OutputProperty="Trusts" Verb="Get" Noun="Trust" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -167,23 +167,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificatesInfo" Verb="Get" Noun="CertificateList" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificatesInfo" Verb="Get" Noun="CertificateList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIpRoutes" OutputProperty="IpRoutesInfo" Verb="Get" Noun="IpRouteList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyAlias="Get-DSIpRoutes">
+        <ServiceOperation MethodName="ListIpRoutes" OutputProperty="IpRoutesInfo" Verb="Get" Noun="IpRouteList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-DSIpRoutes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLogSubscriptions" OutputProperty="LogSubscriptions" Verb="Get" Noun="LogSubscriptionList" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLogSubscriptions" OutputProperty="LogSubscriptions" Verb="Get" Noun="LogSubscriptionList" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchemaExtensions" OutputProperty="SchemaExtensionsInfo" Verb="Get" Noun="SchemaExtension" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSchemaExtensions" OutputProperty="SchemaExtensionsInfo" Verb="Get" Noun="SchemaExtension" PipelineParameter="DirectoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

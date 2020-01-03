@@ -28,7 +28,7 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Used to delete a suppressed email destination from your suppression list.
+    /// Removes an email address from the suppression list for your account.
     /// </summary>
     [Cmdlet("Remove", "SES2SuppressedDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailAddress
         /// <summary>
         /// <para>
-        /// <para>The suppressed email destination to delete.</para>
+        /// <para>The suppressed email destination to remove from the account suppression list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

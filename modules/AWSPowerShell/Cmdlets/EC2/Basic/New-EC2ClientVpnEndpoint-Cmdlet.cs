@@ -184,6 +184,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.TransportProtocol TransportProtocol { get; set; }
         #endregion
         
+        #region Parameter VpnPort
+        /// <summary>
+        /// <para>
+        /// <para>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</para><para>Valid Values: <code>443</code> | <code>1194</code></para><para>Default Value: <code>443</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? VpnPort { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -296,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
             context.TransportProtocol = this.TransportProtocol;
+            context.VpnPort = this.VpnPort;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -387,6 +398,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.TransportProtocol = cmdletContext.TransportProtocol;
             }
+            if (cmdletContext.VpnPort != null)
+            {
+                request.VpnPort = cmdletContext.VpnPort.Value;
+            }
             
             CmdletOutput output;
             
@@ -460,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? SplitTunnel { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.TransportProtocol TransportProtocol { get; set; }
+            public System.Int32? VpnPort { get; set; }
             public System.Func<Amazon.EC2.Model.CreateClientVpnEndpointResponse, NewEC2ClientVpnEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

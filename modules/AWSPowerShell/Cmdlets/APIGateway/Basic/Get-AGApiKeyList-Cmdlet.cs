@@ -80,8 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems")]
-        public int? Limit { get; set; }
+        public System.Int32? Limit { get; set; }
         #endregion
         
         #region Parameter Position
@@ -170,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.NameQuery != null)
             {
@@ -240,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.NameQuery != null)
             {
@@ -314,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public System.String CustomerId { get; set; }
             public System.Boolean? IncludeValue { get; set; }
-            public int? Limit { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String NameQuery { get; set; }
             public System.String Position { get; set; }
             public System.Func<Amazon.APIGateway.Model.GetApiKeysResponse, GetAGApiKeyListCmdlet, object> Select { get; set; } =

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Retrieves all active game sessions that match a set of search criteria and sorts them
     /// in a specified order. You can search or sort by the following game session attributes:
     /// 
-    ///  <ul><li><para><b>gameSessionId</b> -- Unique identifier for the game session. You can use either
+    ///  <ul><li><para><b>gameSessionId</b> -- A unique identifier for the game session. You can use either
     /// a <code>GameSessionId</code> or <code>GameSessionArn</code> value. 
     /// </para></li><li><para><b>gameSessionName</b> -- Name assigned to a game session. This value is set when
     /// requesting a new game session with <a>CreateGameSession</a> or updating with <a>UpdateGameSession</a>.
@@ -85,8 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for an alias associated with the fleet to search for active game
-        /// sessions. Each request must reference either a fleet ID or alias ID, but not both.</para>
+        /// <para>A unique identifier for an alias associated with the fleet to search for active game
+        /// sessions. You can use either the alias ID or ARN value. Each request must reference
+        /// either a fleet ID or alias ID, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,8 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to search for active game sessions. Each request must
-        /// reference either a fleet ID or alias ID, but not both.</para>
+        /// <para>A unique identifier for a fleet to search for active game sessions. You can use either
+        /// the fleet ID or ARN value. Each request must reference either a fleet ID or alias
+        /// ID, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -151,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages. The maximum number of results returned
         /// is 20, even if this value is not set or is set higher than 20. </para>
         /// </para>

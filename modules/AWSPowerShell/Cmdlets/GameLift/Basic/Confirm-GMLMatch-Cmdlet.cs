@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a player delivering the response. This parameter can include
+        /// <para>A unique identifier for a player delivering the response. This parameter can include
         /// one or multiple player IDs.</para>
         /// </para>
         /// </summary>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter TicketId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking ticket. The ticket must be in status <code>REQUIRES_ACCEPTANCE</code>;
+        /// <para>A unique identifier for a matchmaking ticket. The ticket must be in status <code>REQUIRES_ACCEPTANCE</code>;
         /// otherwise this request will fail.</para>
         /// </para>
         /// </summary>

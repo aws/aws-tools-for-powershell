@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// interfaces per instance.</para></li><li><para><code>network-info.network-performance</code> - Describes the network performance.</para></li><li><para><code>processor-info.sustained-clock-speed-in-ghz</code> - The CPU clock speed, in
         /// GHz.</para></li><li><para><code>vcpu-info.default-cores</code> - The default number of cores for the instance
         /// type.</para></li><li><para><code>vcpu-info.default-threads-per-core</code> - The default number of threads per
-        /// cores for the instance type.</para></li><li><para><code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance
+        /// core for the instance type.</para></li><li><para><code>vcpu-info.default-vcpus</code> - The default number of vCPUs for the instance
         /// type.</para></li></ul>
         /// </para>
         /// </summary>

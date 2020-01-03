@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The source type, such as cluster or parameter group, to which the described event
-        /// categories apply.</para><para>Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.</para>
+        /// categories apply.</para><para>Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group,
+        /// and scheduled-action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

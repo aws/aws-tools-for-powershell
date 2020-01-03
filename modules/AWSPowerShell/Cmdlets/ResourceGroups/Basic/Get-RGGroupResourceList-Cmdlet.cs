@@ -77,11 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <para>The maximum number of group member ARNs that are returned in a single call by ListGroupResources,
         /// in paginated output. By default, this number is 50.</para>
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>50</b>'.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -168,17 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 WriteWarning("You are passing $null as a value for parameter GroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (ParameterWasBound(nameof(this.MaxResult)))
-            {
-                context.MaxResult = this.MaxResult;
-            }
-            #if MODULAR
-            else
-            {
-                WriteVerbose("MaxResult parameter unset, using default value of '50'");
-                context.MaxResult = 50;
-            }
-            #endif
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -211,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -277,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -347,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         {
             public List<Amazon.ResourceGroups.Model.ResourceFilter> Filter { get; set; }
             public System.String GroupName { get; set; }
-            public int? MaxResult { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ResourceGroups.Model.ListGroupResourcesResponse, GetRGGroupResourceListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

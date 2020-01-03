@@ -28,9 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Provisions an address range for use with your AWS resources through bring your own
-    /// IP addresses (BYOIP) and creates a corresponding address pool. After the address range
-    /// is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
+    /// Provisions an IPv4 or IPv6 address range for use with your AWS resources through bring
+    /// your own IP addresses (BYOIP) and creates a corresponding address pool. After the
+    /// address range is provisioned, it is ready to be advertised using <a>AdvertiseByoipCidr</a>.
     /// 
     ///  
     /// <para>
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Provisioning an address range is an asynchronous operation, so the call returns immediately,
     /// but the address range is not ready to use until its status changes from <code>pending-provision</code>
     /// to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
-    /// To allocate an Elastic IP address from your address pool, use <a>AllocateAddress</a>
+    /// To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a>
     /// with either the specific address from the address pool or the ID of the address pool.
     /// </para>
     /// </summary>
@@ -60,9 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Cidr
         /// <summary>
         /// <para>
-        /// <para>The public IPv4 address range, in CIDR notation. The most specific prefix that you
-        /// can specify is /24. The address range cannot overlap with another address range that
-        /// you've brought to this or another Region.</para>
+        /// <para>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix
+        /// that you can specify is /24. The most specific IPv6 prefix you can specify is /56.
+        /// The address range cannot overlap with another address range that you've brought to
+        /// this or another Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,6 +95,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CidrAuthorizationContext_Message { get; set; }
+        #endregion
+        
+        #region Parameter PubliclyAdvertisable
+        /// <summary>
+        /// <para>
+        /// <para>(IPv6 only) Indicate whether the address range will be publicly advertised to the
+        /// internet.</para><para>Default: true</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PubliclyAdvertisable { get; set; }
         #endregion
         
         #region Parameter CidrAuthorizationContext_Signature
@@ -177,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CidrAuthorizationContext_Message = this.CidrAuthorizationContext_Message;
             context.CidrAuthorizationContext_Signature = this.CidrAuthorizationContext_Signature;
             context.Description = this.Description;
+            context.PubliclyAdvertisable = this.PubliclyAdvertisable;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -229,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.PubliclyAdvertisable != null)
+            {
+                request.PubliclyAdvertisable = cmdletContext.PubliclyAdvertisable.Value;
             }
             
             CmdletOutput output;
@@ -295,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CidrAuthorizationContext_Message { get; set; }
             public System.String CidrAuthorizationContext_Signature { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? PubliclyAdvertisable { get; set; }
             public System.Func<Amazon.EC2.Model.ProvisionByoipCidrResponse, RegisterEC2ByoipCidrCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ByoipCidr;
         }

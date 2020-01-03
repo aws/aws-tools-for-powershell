@@ -95,35 +95,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="AliasList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroupMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMailboxPermissions" OutputProperty="Permissions" Verb="Get" Noun="MailboxPermissionList" PipelineParameter="EntityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMailboxPermissions" OutputProperty="Permissions" Verb="Get" Noun="MailboxPermissionList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizations" OutputProperty="OrganizationSummaries" Verb="Get" Noun="OrganizationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOrganizations" OutputProperty="OrganizationSummaries" Verb="Get" Noun="OrganizationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceDelegates" OutputProperty="Delegates" Verb="Get" Noun="DelegateList" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceDelegates" OutputProperty="Delegates" Verb="Get" Noun="DelegateList" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="OrganizationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

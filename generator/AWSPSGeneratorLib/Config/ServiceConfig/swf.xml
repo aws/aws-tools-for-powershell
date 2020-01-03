@@ -63,19 +63,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflowExecutionHistory" OutputProperty="History.Events" OutputWrapper="History" Verb="Get" Noun="WorkflowExecutionHistory" PipelineParameter="Execution_RunId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkflowExecutionHistory" OutputProperty="History.Events" OutputWrapper="History" Verb="Get" Noun="WorkflowExecutionHistory" PipelineParameter="Execution_RunId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActivityTypes" OutputProperty="ActivityTypeInfos.TypeInfos" OutputWrapper="ActivityTypeInfos" Verb="Get" Noun="ActivityTypeList" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListActivityTypes" OutputProperty="ActivityTypeInfos.TypeInfos" OutputWrapper="ActivityTypeInfos" Verb="Get" Noun="ActivityTypeList" PipelineParameter="Domain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClosedWorkflowExecutions" OutputProperty="WorkflowExecutionInfos.ExecutionInfos" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="ClosedWorkflowExecutionList" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClosedWorkflowExecutions" OutputProperty="WorkflowExecutionInfos.ExecutionInfos" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="ClosedWorkflowExecutionList" PipelineParameter="Domain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomains" OutputProperty="DomainInfos.Infos" OutputWrapper="DomainInfos" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDomains" OutputProperty="DomainInfos.Infos" OutputWrapper="DomainInfos" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -87,7 +87,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflowTypes" OutputProperty="WorkflowTypeInfos.TypeInfos" OutputWrapper="WorkflowTypeInfos" Verb="Get" Noun="WorkflowTypeList" PipelineParameter="Domain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkflowTypes" OutputProperty="WorkflowTypeInfos.TypeInfos" OutputWrapper="WorkflowTypeInfos" Verb="Get" Noun="WorkflowTypeList" PipelineParameter="Domain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

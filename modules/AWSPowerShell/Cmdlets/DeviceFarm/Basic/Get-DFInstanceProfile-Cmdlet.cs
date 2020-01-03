@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of your instance profile.</para>
+        /// <para>The Amazon Resource Name (ARN) of an instance profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

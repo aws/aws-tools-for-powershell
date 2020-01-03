@@ -63,11 +63,24 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         public System.String CampaignArn { get; set; }
         #endregion
         
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>The contextual metadata to use when getting recommendations. Contextual metadata includes
+        /// any interaction information that might be relevant when getting a user's recommendations,
+        /// such as the user's current location or device type. For more information, see Contextual
+        /// Metadata.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Context { get; set; }
+        #endregion
+        
         #region Parameter InputList
         /// <summary>
         /// <para>
         /// <para>A list of items (itemId's) to rank. If an item was not included in the training dataset,
-        /// the item is appended to the end of the reranked list.</para>
+        /// the item is appended to the end of the reranked list. The maximum is 500.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,6 +163,14 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                 WriteWarning("You are passing $null as a value for parameter CampaignArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Context != null)
+            {
+                context.Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Context.Keys)
+                {
+                    context.Context.Add((String)hashKey, (String)(this.Context[hashKey]));
+                }
+            }
             if (this.InputList != null)
             {
                 context.InputList = new List<System.String>(this.InputList);
@@ -186,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             if (cmdletContext.CampaignArn != null)
             {
                 request.CampaignArn = cmdletContext.CampaignArn;
+            }
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
             }
             if (cmdletContext.InputList != null)
             {
@@ -257,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CampaignArn { get; set; }
+            public Dictionary<System.String, System.String> Context { get; set; }
             public List<System.String> InputList { get; set; }
             public System.String UserId { get; set; }
             public System.Func<Amazon.PersonalizeRuntime.Model.GetPersonalizedRankingResponse, GetPERSRPersonalizedRankingCmdlet, object> Select { get; set; } =

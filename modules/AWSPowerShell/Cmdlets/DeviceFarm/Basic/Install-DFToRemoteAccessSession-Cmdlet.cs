@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter AppArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the app about which you are requesting information.</para>
+        /// <para>The ARN of the app about which you are requesting information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

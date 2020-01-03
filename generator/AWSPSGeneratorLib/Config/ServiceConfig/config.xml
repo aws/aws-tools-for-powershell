@@ -90,11 +90,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAggregateComplianceByConfigRules" OutputProperty="AggregateComplianceByConfigRules" Verb="Get" Noun="AggregateComplianceByConfigRuleList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeAggregateComplianceByConfigRules" OutputProperty="AggregateComplianceByConfigRules" Verb="Get" Noun="AggregateComplianceByConfigRuleList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAggregationAuthorizations" OutputProperty="AggregationAuthorizations" Verb="Get" Noun="AggregationAuthorizationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeAggregationAuthorizations" OutputProperty="AggregationAuthorizations" Verb="Get" Noun="AggregationAuthorizationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -102,11 +102,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeComplianceByResource" OutputProperty="ComplianceByResources" Verb="Get" Noun="ComplianceByResource" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeComplianceByResource" OutputProperty="ComplianceByResources" Verb="Get" Noun="ComplianceByResource" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus" OutputProperty="ConfigRulesEvaluationStatus" Verb="Get" Noun="ConfigRuleEvaluationStatus" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus" OutputProperty="ConfigRulesEvaluationStatus" Verb="Get" Noun="ConfigRuleEvaluationStatus" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,11 +114,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationAggregators" OutputProperty="ConfigurationAggregators" Verb="Get" Noun="ConfigurationAggregatorList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeConfigurationAggregators" OutputProperty="ConfigurationAggregators" Verb="Get" Noun="ConfigurationAggregatorList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationAggregatorSourcesStatus" OutputProperty="AggregatedSourceStatusList" Verb="Get" Noun="ConfigurationAggregatorSourcesStatus" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeConfigurationAggregatorSourcesStatus" OutputProperty="AggregatedSourceStatusList" Verb="Get" Noun="ConfigurationAggregatorSourcesStatus" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -130,15 +130,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConformancePackCompliance" OutputProperty="ConformancePackRuleComplianceList" Verb="Get" Noun="ConformancePackCompliance" PipelineParameter="ConformancePackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConformancePackCompliance" OutputProperty="ConformancePackRuleComplianceList" Verb="Get" Noun="ConformancePackCompliance" PipelineParameter="ConformancePackName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConformancePacks" OutputProperty="ConformancePackDetails" Verb="Get" Noun="ConformancePack" PipelineParameter="ConformancePackNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConformancePacks" OutputProperty="ConformancePackDetails" Verb="Get" Noun="ConformancePack" PipelineParameter="ConformancePackNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConformancePackStatus" OutputProperty="ConformancePackStatusDetails" Verb="Get" Noun="ConformancePackStatus" PipelineParameter="ConformancePackNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeConformancePackStatus" OutputProperty="ConformancePackStatusDetails" Verb="Get" Noun="ConformancePackStatus" PipelineParameter="ConformancePackNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -150,23 +150,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganizationConfigRules" OutputProperty="OrganizationConfigRules" Verb="Get" Noun="OrganizationConfigRule" PipelineParameter="OrganizationConfigRuleNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOrganizationConfigRules" OutputProperty="OrganizationConfigRules" Verb="Get" Noun="OrganizationConfigRule" PipelineParameter="OrganizationConfigRuleNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganizationConfigRuleStatuses" OutputProperty="OrganizationConfigRuleStatuses" Verb="Get" Noun="OrganizationConfigRuleStatus" PipelineParameter="OrganizationConfigRuleNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOrganizationConfigRuleStatuses" OutputProperty="OrganizationConfigRuleStatuses" Verb="Get" Noun="OrganizationConfigRuleStatus" PipelineParameter="OrganizationConfigRuleNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganizationConformancePacks" OutputProperty="OrganizationConformancePacks" Verb="Get" Noun="OrganizationConformancePack" PipelineParameter="OrganizationConformancePackNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOrganizationConformancePacks" OutputProperty="OrganizationConformancePacks" Verb="Get" Noun="OrganizationConformancePack" PipelineParameter="OrganizationConformancePackNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrganizationConformancePackStatuses" OutputProperty="OrganizationConformancePackStatuses" Verb="Get" Noun="OrganizationConformancePackStatus" PipelineParameter="OrganizationConformancePackNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeOrganizationConformancePackStatuses" OutputProperty="OrganizationConformancePackStatuses" Verb="Get" Noun="OrganizationConformancePackStatus" PipelineParameter="OrganizationConformancePackNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePendingAggregationRequests" OutputProperty="PendingAggregationRequests" Verb="Get" Noun="PendingAggregationRequestList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribePendingAggregationRequests" OutputProperty="PendingAggregationRequests" Verb="Get" Noun="PendingAggregationRequestList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -174,11 +174,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRemediationExceptions" OutputProperty="RemediationExceptions" Verb="Get" Noun="RemediationException" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRemediationExceptions" OutputProperty="RemediationExceptions" Verb="Get" Noun="RemediationException" PipelineParameter="ConfigRuleName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRemediationExecutionStatus" OutputProperty="RemediationExecutionStatuses" Verb="Get" Noun="RemediationExecutionStatus" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRemediationExecutionStatus" OutputProperty="RemediationExecutionStatuses" Verb="Get" Noun="RemediationExecutionStatus" PipelineParameter="ConfigRuleName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -186,15 +186,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAggregateComplianceDetailsByConfigRule" OutputProperty="AggregateEvaluationResults" Verb="Get" Noun="AggregateComplianceDetailsByConfigRule" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetAggregateComplianceDetailsByConfigRule" OutputProperty="AggregateEvaluationResults" Verb="Get" Noun="AggregateComplianceDetailsByConfigRule" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAggregateConfigRuleComplianceSummary" OutputProperty="*" Verb="Get" Noun="AggregateConfigRuleComplianceSummary" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetAggregateConfigRuleComplianceSummary" OutputProperty="*" Verb="Get" Noun="AggregateConfigRuleComplianceSummary" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAggregateDiscoveredResourceCounts" OutputProperty="*" Verb="Get" Noun="AggregateDiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetAggregateDiscoveredResourceCounts" OutputProperty="*" Verb="Get" Noun="AggregateDiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -202,7 +202,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComplianceDetailsByConfigRule" OutputProperty="EvaluationResults" Verb="Get" Noun="ComplianceDetailsByConfigRule" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetComplianceDetailsByConfigRule" OutputProperty="EvaluationResults" Verb="Get" Noun="ComplianceDetailsByConfigRule" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -218,39 +218,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConformancePackComplianceDetails" OutputProperty="ConformancePackRuleEvaluationResults" Verb="Get" Noun="ConformancePackComplianceDetail" PipelineParameter="ConformancePackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConformancePackComplianceDetails" OutputProperty="ConformancePackRuleEvaluationResults" Verb="Get" Noun="ConformancePackComplianceDetail" PipelineParameter="ConformancePackName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConformancePackComplianceSummary" OutputProperty="ConformancePackComplianceSummaryList" Verb="Get" Noun="ConformancePackComplianceSummary" PipelineParameter="ConformancePackNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConformancePackComplianceSummary" OutputProperty="ConformancePackComplianceSummaryList" Verb="Get" Noun="ConformancePackComplianceSummary" PipelineParameter="ConformancePackNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDiscoveredResourceCounts" OutputProperty="ResourceCounts" Verb="Get" Noun="DiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetDiscoveredResourceCounts" OutputProperty="ResourceCounts" Verb="Get" Noun="DiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOrganizationConfigRuleDetailedStatus" OutputProperty="OrganizationConfigRuleDetailedStatus" Verb="Get" Noun="OrganizationConfigRuleDetailedStatus" PipelineParameter="OrganizationConfigRuleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOrganizationConfigRuleDetailedStatus" OutputProperty="OrganizationConfigRuleDetailedStatus" Verb="Get" Noun="OrganizationConfigRuleDetailedStatus" PipelineParameter="OrganizationConfigRuleName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOrganizationConformancePackDetailedStatus" OutputProperty="OrganizationConformancePackDetailedStatuses" Verb="Get" Noun="OrganizationConformancePackDetailedStatus" PipelineParameter="OrganizationConformancePackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOrganizationConformancePackDetailedStatus" OutputProperty="OrganizationConformancePackDetailedStatuses" Verb="Get" Noun="OrganizationConformancePackDetailedStatus" PipelineParameter="OrganizationConformancePackName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceConfigHistory" OutputProperty="ConfigurationItems" Verb="Get" Noun="ResourceConfigHistory" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetResourceConfigHistory" OutputProperty="ConfigurationItems" Verb="Get" Noun="ResourceConfigHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAggregateDiscoveredResources" OutputProperty="ResourceIdentifiers" Verb="Get" Noun="AggregateDiscoveredResourceList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAggregateDiscoveredResources" OutputProperty="ResourceIdentifiers" Verb="Get" Noun="AggregateDiscoveredResourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="ResourceIdentifiers" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="ResourceIdentifiers" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -310,7 +310,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SelectResourceConfig" OutputProperty="Results" Verb="Select" Noun="ResourceConfig" ShouldProcessTarget="Expression" PipelineParameter="Expression" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SelectResourceConfig" OutputProperty="Results" Verb="Select" Noun="ResourceConfig" ShouldProcessTarget="Expression" PipelineParameter="Expression" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

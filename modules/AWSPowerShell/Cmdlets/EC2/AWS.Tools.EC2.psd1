@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The EC2 module of AWS Tools for PowerShell lets developers and administrators manage Amazon Elastic Compute Cloud (EC2) from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -169,6 +169,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2AccountAttribute', 
         'Get-EC2Address', 
         'Get-EC2AggregateIdFormat', 
+        'Get-EC2AssociatedIpv6PoolCidr', 
         'Get-EC2AvailabilityZone', 
         'Get-EC2BundleTask', 
         'Get-EC2ByoipCidr', 
@@ -224,6 +225,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2InstanceType', 
         'Get-EC2InstanceTypeOffering', 
         'Get-EC2InternetGateway', 
+        'Get-EC2Ipv6Pool', 
         'Get-EC2KeyPair', 
         'Get-EC2LaunchTemplateData', 
         'Get-EC2LocalGateway', 
@@ -454,6 +456,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-EC2ByoipCidrAdvertisement', 
         'Start-EC2Instance', 
         'Start-EC2InstanceMonitoring', 
+        'Start-EC2VpcEndpointServicePrivateDnsVerification', 
         'Stop-EC2BundleTask', 
         'Stop-EC2ByoipCidrAdvertisement', 
         'Stop-EC2ClientVpnConnection', 

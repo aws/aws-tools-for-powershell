@@ -61,11 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <para>
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>100</b>'.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems")]
-        public int? Limit { get; set; }
+        public System.Int32? Limit { get; set; }
         #endregion
         
         #region Parameter NextMarker
@@ -140,17 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (ParameterWasBound(nameof(this.Limit)))
-            {
-                context.Limit = this.Limit;
-            }
-            #if MODULAR
-            else
-            {
-                WriteVerbose("Limit parameter unset, using default value of '100'");
-                context.Limit = 100;
-            }
-            #endif
+            context.Limit = this.Limit;
             context.NextMarker = this.NextMarker;
             context.ResourceARN = this.ResourceARN;
             #if MODULAR
@@ -182,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.ResourceARN != null)
             {
@@ -244,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.NextMarker != null)
             {
@@ -316,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? Limit { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String NextMarker { get; set; }
             public System.String ResourceARN { get; set; }
             public System.Func<Amazon.WAF.Model.ListTagsForResourceResponse, GetWAFResourceTagCmdlet, object> Select { get; set; } =

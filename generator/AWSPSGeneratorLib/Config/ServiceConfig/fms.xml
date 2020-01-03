@@ -51,19 +51,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProtectionStatus" OutputProperty="*" Verb="Get" Noun="ProtectionStatus" PipelineParameter="PolicyId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetProtectionStatus" OutputProperty="*" Verb="Get" Noun="ProtectionStatus" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComplianceStatus" OutputProperty="PolicyComplianceStatusList" Verb="Get" Noun="ComplianceStatusList" PipelineParameter="PolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListComplianceStatus" OutputProperty="PolicyComplianceStatusList" Verb="Get" Noun="ComplianceStatusList" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMemberAccounts" OutputProperty="MemberAccounts" Verb="Get" Noun="MemberAccountList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMemberAccounts" OutputProperty="MemberAccounts" Verb="Get" Noun="MemberAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicies" OutputProperty="PolicyList" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="PolicyList" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,6 +76,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutPolicy" OutputProperty="*" Verb="Set" Noun="Policy" ShouldProcessTarget="Policy" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

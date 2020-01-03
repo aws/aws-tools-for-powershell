@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// <para>
     ///  This operation requires permissions for the <code>elasticfilesystem:DescribeTags</code>
     /// action. 
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "EFSTag")]
     [OutputType("Amazon.ElasticFileSystem.Model.Tag")]
@@ -46,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         "This cmdlet returns a collection of Amazon.ElasticFileSystem.Model.Tag objects.",
         "The service call response (type Amazon.ElasticFileSystem.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Use ListTagsForResource.")]
     public partial class GetEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
@@ -87,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>(Optional) The maximum number of file system tags to return in the response. Currently,
-        /// this number is automatically set to 10, and other values are ignored. The response
-        /// is paginated at 10 per page if you have more than 10 tags.</para>
+        /// this number is automatically set to 100, and other values are ignored. The response
+        /// is paginated at 100 per page if you have more than 100 tags.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

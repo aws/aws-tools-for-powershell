@@ -97,7 +97,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -117,7 +117,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancerDescriptions" Verb="Get" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancerDescriptions" Verb="Get" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

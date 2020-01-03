@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with game session queue. Queue names must be
-        /// unique within each region.</para>
+        /// <para>A descriptive label that is associated with game session queue. Queue names must be
+        /// unique within each Region. You can use either the queue ID or ARN value. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Updates information about an existing private device instance.
+    /// Updates information about a private device instance.
     /// </summary>
     [Cmdlet("Update", "DFDeviceInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.DeviceInstance")]
@@ -71,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter ProfileArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the profile that you want to associate with the
-        /// device instance.</para>
+        /// <para>The ARN of the profile that you want to associate with the device instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

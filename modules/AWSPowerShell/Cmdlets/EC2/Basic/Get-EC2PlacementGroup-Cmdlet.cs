@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter GroupId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the placement groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GroupIds")]
+        public System.String[] GroupId { get; set; }
+        #endregion
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>
@@ -115,6 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            if (this.GroupId != null)
+            {
+                context.GroupId = new List<System.String>(this.GroupId);
+            }
             if (this.GroupName != null)
             {
                 context.GroupName = new List<System.String>(this.GroupName);
@@ -138,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.GroupId != null)
+            {
+                request.GroupIds = cmdletContext.GroupId;
             }
             if (cmdletContext.GroupName != null)
             {
@@ -205,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public List<System.String> GroupId { get; set; }
             public List<System.String> GroupName { get; set; }
             public System.Func<Amazon.EC2.Model.DescribePlacementGroupsResponse, GetEC2PlacementGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PlacementGroups;

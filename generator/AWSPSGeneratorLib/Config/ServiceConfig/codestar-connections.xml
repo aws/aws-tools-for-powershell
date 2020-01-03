@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>codestar-connections</C2jFilename>
+    <AssemblyName>CodeStarconnections</AssemblyName>
+    <ServiceNounPrefix>CSTC</ServiceNounPrefix>
+    <ServiceName>AWS CodeStar Connections</ServiceName>
+    <ServiceClientInterface>IAmazonCodeStarconnections</ServiceClientInterface>
+    <ServiceClient>AmazonCodeStarconnectionsClient</ServiceClient>
+    <ServiceModuleGuid>5973736e-f999-4703-a3bf-bb71dd70dbf0</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateConnection" OutputProperty="ConnectionArn" Verb="New" Noun="Connection" ShouldProcessTarget="ConnectionName" PipelineParameter="ConnectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionArn" PipelineParameter="ConnectionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnection" OutputProperty="Connection" Verb="Get" Noun="Connection" PipelineParameter="ConnectionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnections" OutputProperty="Connections" Verb="Get" Noun="ConnectionList" PipelineParameter="ProviderTypeFilter" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

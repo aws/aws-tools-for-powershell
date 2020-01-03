@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request
     /// is successful, a ticket object is returned for each requested ID that currently exists.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html">
-    /// Add FlexMatch to a Game Client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguidematch-notification.html">
+    /// Add FlexMatch to a Game Client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
     /// Set Up FlexMatch Event Notification</a></para><para><b>Related operations</b></para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLMatchmaking")]
@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter TicketId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking ticket. You can include up to 10 ID values. </para>
+        /// <para>A unique identifier for a matchmaking ticket. You can include up to 10 ID values.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

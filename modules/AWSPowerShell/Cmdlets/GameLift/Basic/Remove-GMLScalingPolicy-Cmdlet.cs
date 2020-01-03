@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to be deleted.</para>
+        /// <para>A unique identifier for a fleet to be deleted. You can use either the fleet ID or
+        /// ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a scaling policy. Policy names do not need
-        /// to be unique.</para>
+        /// <para>A descriptive label that is associated with a scaling policy. Policy names do not
+        /// need to be unique.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

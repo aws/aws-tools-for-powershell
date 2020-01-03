@@ -29,26 +29,26 @@ namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
     /// Creates an AWS Fargate profile for your Amazon EKS cluster. You must have at least
-    /// one Fargate profile in a cluster to be able to schedule pods on Fargate infrastructure.
+    /// one Fargate profile in a cluster to be able to run pods on Fargate.
     /// 
     ///  
     /// <para>
-    /// The Fargate profile allows an administrator to declare which pods run on Fargate infrastructure
-    /// and specify which pods run on which Fargate profile. This declaration is done through
+    /// The Fargate profile allows an administrator to declare which pods run on Fargate and
+    /// specify which pods run on which Fargate profile. This declaration is done through
     /// the profile’s selectors. Each profile can have up to five selectors that contain a
     /// namespace and labels. A namespace is required for every selector. The label field
     /// consists of multiple optional key-value pairs. Pods that match the selectors are scheduled
-    /// on Fargate infrastructure. If a to-be-scheduled pod matches any of the selectors in
-    /// the Fargate profile, then that pod is scheduled on Fargate infrastructure.
+    /// on Fargate. If a to-be-scheduled pod matches any of the selectors in the Fargate profile,
+    /// then that pod is run on Fargate.
     /// </para><para>
     /// When you create a Fargate profile, you must specify a pod execution role to use with
     /// the pods that are scheduled with the profile. This role is added to the cluster's
     /// Kubernetes <a href="https://kubernetes.io/docs/admin/authorization/rbac/">Role Based
     /// Access Control</a> (RBAC) for authorization so that the <code>kubelet</code> that
-    /// is running on the Fargate infrastructure can register with your Amazon EKS cluster.
-    /// This role is what allows Fargate infrastructure to appear in your cluster as nodes.
-    /// The pod execution role also provides IAM permissions to the Fargate infrastructure
-    /// to allow read access to Amazon ECR image repositories. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod
+    /// is running on the Fargate infrastructure can register with your Amazon EKS cluster
+    /// so that it can appear in your cluster as a node. The pod execution role also provides
+    /// IAM permissions to the Fargate infrastructure to allow read access to Amazon ECR image
+    /// repositories. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod
     /// Execution Role</a> in the <i>Amazon EKS User Guide</i>.
     /// </para><para>
     /// Fargate profiles are immutable. However, you can create a new updated profile to replace
@@ -155,9 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter Subnet
         /// <summary>
         /// <para>
-        /// <para>The IDs of subnets to launch Fargate pods into. At this time, Fargate pods are not
-        /// assigned public IP addresses, so only private subnets (with no direct route to an
-        /// Internet Gateway) are accepted for this parameter.</para>
+        /// <para>The IDs of subnets to launch your pods into. At this time, pods running on Fargate
+        /// are not assigned public IP addresses, so only private subnets (with no direct route
+        /// to an Internet Gateway) are accepted for this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

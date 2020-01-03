@@ -28,16 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns two sets of metadata key-value pairs. The first set lists the metadata that
-    /// the recovery point was created with. The second set lists the metadata key-value pairs
-    /// that are required to restore the recovery point.
-    /// 
-    ///  
-    /// <para>
-    /// These sets can be the same, or the restore metadata set can contain different values
-    /// if the target service to be restored has changed since the recovery point was created
-    /// and now requires additional or different information in order to be restored.
-    /// </para>
+    /// Returns a set of metadata key-value pairs that were used to create the backup.
     /// </summary>
     [Cmdlet("Get", "BAKRecoveryPointRestoreMetadata")]
     [OutputType("Amazon.Backup.Model.GetRecoveryPointRestoreMetadataResponse")]

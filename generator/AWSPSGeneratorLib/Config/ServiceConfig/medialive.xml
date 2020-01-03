@@ -107,35 +107,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSchedule" OutputProperty="ScheduleActions" Verb="Get" Noun="Schedule" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSchedule" OutputProperty="ScheduleActions" Verb="Get" Noun="Schedule" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputs" OutputProperty="Inputs" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInputs" OutputProperty="Inputs" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputSecurityGroups" OutputProperty="InputSecurityGroups" Verb="Get" Noun="InputSecurityGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInputSecurityGroups" OutputProperty="InputSecurityGroups" Verb="Get" Noun="InputSecurityGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultiplexes" OutputProperty="Multiplexes" Verb="Get" Noun="MultiplexList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMultiplexes" OutputProperty="Multiplexes" Verb="Get" Noun="MultiplexList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultiplexPrograms" OutputProperty="MultiplexPrograms" Verb="Get" Noun="MultiplexProgramList" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMultiplexPrograms" OutputProperty="MultiplexPrograms" Verb="Get" Noun="MultiplexProgramList" PipelineParameter="MultiplexId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="OfferingList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="OfferingList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReservations" OutputProperty="Reservations" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListReservations" OutputProperty="Reservations" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -130,9 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The name of the instance snapshot on which you are basing your new instances. Use
-        /// the get instance snapshots operation to return information about your existing snapshots.</para><para>This parameter cannot be defined together with the <code>source instance name</code>
+        /// the get instance snapshots operation to return information about your existing snapshots.</para><para>Constraint:</para><ul><li><para>This parameter cannot be defined together with the <code>source instance name</code>
         /// parameter. The <code>instance snapshot name</code> and <code>source instance name</code>
-        /// parameters are mutually exclusive.</para>
+        /// parameters are mutually exclusive.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,12 +152,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter RestoreDate
         /// <summary>
         /// <para>
-        /// <para>The date of the automatic snapshot to use for the new instance.</para><para>Use the <code>get auto snapshots</code> operation to identify the dates of the available
-        /// automatic snapshots.</para><para>Constraints:</para><ul><li><para>Must be specified in <code>YYYY-MM-DD</code> format.</para></li><li><para>This parameter cannot be defined together with the <code>use latest restorable auto
+        /// <para>The date of the automatic snapshot to use for the new instance. Use the <code>get
+        /// auto snapshots</code> operation to identify the dates of the available automatic snapshots.</para><para>Constraints:</para><ul><li><para>Must be specified in <code>YYYY-MM-DD</code> format.</para></li><li><para>This parameter cannot be defined together with the <code>use latest restorable auto
         /// snapshot</code> parameter. The <code>restore date</code> and <code>use latest restorable
-        /// auto snapshot</code> parameters are mutually exclusive.</para></li></ul><note><para>Define this parameter only when creating a new instance from an automatic snapshot.
+        /// auto snapshot</code> parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
         /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
-        /// Dev Guide</a>.</para></note>
+        /// Dev Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,11 +167,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SourceInstanceName
         /// <summary>
         /// <para>
-        /// <para>The name of the source instance from which the source automatic snapshot was created.</para><para>This parameter cannot be defined together with the <code>instance snapshot name</code>
+        /// <para>The name of the source instance from which the source automatic snapshot was created.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <code>instance snapshot name</code>
         /// parameter. The <code>source instance name</code> and <code>instance snapshot name</code>
-        /// parameters are mutually exclusive.</para><note><para>Define this parameter only when creating a new instance from an automatic snapshot.
+        /// parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
         /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
-        /// Dev Guide</a>.</para></note>
+        /// Dev Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,11 +192,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter UseLatestRestorableAutoSnapshot
         /// <summary>
         /// <para>
-        /// <para>A Boolean value to indicate whether to use the latest available automatic snapshot.</para><para>This parameter cannot be defined together with the <code>restore date</code> parameter.
+        /// <para>A Boolean value to indicate whether to use the latest available automatic snapshot.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <code>restore date</code> parameter.
         /// The <code>use latest restorable auto snapshot</code> and <code>restore date</code>
-        /// parameters are mutually exclusive.</para><note><para>Define this parameter only when creating a new instance from an automatic snapshot.
+        /// parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new instance from an automatic snapshot.
         /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
-        /// Dev Guide</a>.</para></note>
+        /// Dev Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

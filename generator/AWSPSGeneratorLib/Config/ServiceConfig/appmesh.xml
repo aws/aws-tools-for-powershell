@@ -108,27 +108,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMeshes" OutputProperty="Meshes" Verb="Get" Noun="MeshList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMeshes" OutputProperty="Meshes" Verb="Get" Noun="MeshList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoutes" OutputProperty="Routes" Verb="Get" Noun="RouteList" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRoutes" OutputProperty="Routes" Verb="Get" Noun="RouteList" PipelineParameter="VirtualRouterName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualNodes" OutputProperty="VirtualNodes" Verb="Get" Noun="VirtualNodeList" PipelineParameter="MeshName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVirtualNodes" OutputProperty="VirtualNodes" Verb="Get" Noun="VirtualNodeList" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualRouters" OutputProperty="VirtualRouters" Verb="Get" Noun="VirtualRouterList" PipelineParameter="MeshName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVirtualRouters" OutputProperty="VirtualRouters" Verb="Get" Noun="VirtualRouterList" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualServices" OutputProperty="VirtualServices" Verb="Get" Noun="VirtualServiceList" PipelineParameter="MeshName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVirtualServices" OutputProperty="VirtualServices" Verb="Get" Noun="VirtualServiceList" PipelineParameter="MeshName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -99,27 +99,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="ArtifactList" PipelineParameter="AppId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="ArtifactList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackendEnvironments" OutputProperty="BackendEnvironments" Verb="Get" Noun="BackendEnvironmentList" PipelineParameter="AppId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBackendEnvironments" OutputProperty="BackendEnvironments" Verb="Get" Noun="BackendEnvironmentList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBranches" OutputProperty="Branches" Verb="Get" Noun="BranchList" PipelineParameter="AppId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBranches" OutputProperty="Branches" Verb="Get" Noun="BranchList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainAssociations" OutputProperty="DomainAssociations" Verb="Get" Noun="DomainAssociationList" PipelineParameter="AppId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDomainAssociations" OutputProperty="DomainAssociations" Verb="Get" Noun="DomainAssociationList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaries" Verb="Get" Noun="JobList" PipelineParameter="BranchName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaries" Verb="Get" Noun="JobList" PipelineParameter="BranchName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,7 +127,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWebhooks" OutputProperty="Webhooks" Verb="Get" Noun="WebhookList" PipelineParameter="AppId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWebhooks" OutputProperty="Webhooks" Verb="Get" Noun="WebhookList" PipelineParameter="AppId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

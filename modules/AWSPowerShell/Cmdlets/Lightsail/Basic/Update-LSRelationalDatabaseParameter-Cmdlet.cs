@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     ///  
     /// <para>
     /// Parameter updates don't cause outages; therefore, their application is not subject
-    /// to the preferred maintenance window. However, there are two ways in which paramater
+    /// to the preferred maintenance window. However, there are two ways in which parameter
     /// updates are applied: <code>dynamic</code> or <code>pending-reboot</code>. Parameters
     /// marked with a <code>dynamic</code> apply type are applied immediately. Parameters
     /// marked with a <code>pending-reboot</code> apply type are applied only after the database

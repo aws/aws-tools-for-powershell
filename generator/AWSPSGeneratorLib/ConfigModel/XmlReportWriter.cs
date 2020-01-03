@@ -34,7 +34,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 //We only include services with errors, new operations or operations requiring a configuration update
                 var configModelsToOutput = models.Where(configModel =>
                         configModel.AnalysisErrors.Any() ||
-                        configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.AnalysisErrors.Any()).Any())
+                        configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.IsConfigurationOverridden || op.AnalysisErrors.Any()).Any())
                     .ToArray();
 
                 var doc = new XDocument();
@@ -72,14 +72,19 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
                     foreach (var operation in operations)
                     {
-                        //We only include in the report new operations (IsAutoConfiguring=true) and operations requiring configuration updated
-                        if (operation.operation.IsAutoConfiguring || operation.operation.AnalysisErrors.Any())
+                        //We only include in the report new operations (IsAutoConfiguring=true) and operations requiring configuration updated. We also retain in the report
+                        //any operation that was manually configured.
+                        if (operation.operation.IsAutoConfiguring || operation.operation.IsConfigurationOverridden || operation.operation.AnalysisErrors.Any())
                         {
                             var firstOperationChildElement = operation.element.Elements().FirstOrDefault();
 
                             if (operation.operation.IsAutoConfiguring)
                             {
                                 operation.element.AddFirst(new XComment($"INFO - This is a new cmdlet."));
+                            }
+                            if (operation.operation.IsConfigurationOverridden)
+                            {
+                                operation.element.AddFirst(new XComment($"INFO - The configuration of this cmdlet is being changed through overrides."));
                             }
                             foreach (var error in operation.operation.AnalysisErrors)
                             {

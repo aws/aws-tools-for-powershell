@@ -31,7 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// Deletes an AWS Device Farm project, given the project ARN.
     /// 
     ///  
-    /// <para><b>Note</b> Deleting this resource does not stop an in-progress run.
+    /// <para>
+    ///  Deleting this resource does not stop an in-progress run.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "DFProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -47,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>Represents the Amazon Resource Name (ARN) of the Device Farm project you wish to delete.</para>
+        /// <para>Represents the Amazon Resource Name (ARN) of the Device Farm project to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

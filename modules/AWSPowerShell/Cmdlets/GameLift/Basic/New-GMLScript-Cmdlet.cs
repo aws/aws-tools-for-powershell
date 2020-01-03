@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>Amazon S3 bucket identifier. This is the name of the S3 bucket.</para>
+        /// <para>An Amazon S3 bucket identifier. This is the name of the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Key
         /// <summary>
         /// <para>
-        /// <para>Name of the zip file containing the build files or script files. </para>
+        /// <para>The name of the zip file that contains the build files or script files. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a script. Script names do not need to be
-        /// unique. You can use <a>UpdateScript</a> to change this value later. </para>
+        /// <para>A descriptive label that is associated with a script. Script names do not need to
+        /// be unique. You can use <a>UpdateScript</a> to change this value later. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -99,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_ObjectVersion
         /// <summary>
         /// <para>
-        /// <para>Version of the file, if object versioning is turned on for the bucket. Amazon GameLift
-        /// uses this information when retrieving files from an S3 bucket that you own. Use this
-        /// parameter to specify a specific version of the file; if not set, the latest version
-        /// of the file is retrieved. </para>
+        /// <para>The version of the file, if object versioning is turned on for the bucket. Amazon
+        /// GameLift uses this information when retrieving files from an S3 bucket that you own.
+        /// Use this parameter to specify a specific version of the file. If not set, the latest
+        /// version of the file is retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_RoleArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
+        /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
         /// for an IAM role that allows Amazon GameLift to access the S3 bucket.</para>
         /// </para>
         /// </summary>
@@ -120,11 +120,28 @@ namespace Amazon.PowerShell.Cmdlets.GML
         public System.String StorageLocation_RoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of labels to assign to the new script resource. Tags are developer-defined
+        /// key-value pairs. Tagging AWS resources are useful for resource management, access
+        /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// Tagging AWS Resources</a> in the <i>AWS General Reference</i>. Once the resource is
+        /// created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
+        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
+        /// the AWS General Reference for actual tagging limits.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.GameLift.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version that is associated with a build or script. Version strings do not need to
-        /// be unique. You can use <a>UpdateScript</a> to change this value later. </para>
+        /// <para>The version that is associated with a build or script. Version strings do not need
+        /// to be unique. You can use <a>UpdateScript</a> to change this value later. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +151,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ZipFile
         /// <summary>
         /// <para>
-        /// <para>Data object containing your Realtime scripts and dependencies as a zip file. The zip
-        /// file can have one or multiple files. Maximum size of a zip file is 5 MB.</para><para>When using the AWS CLI tool to create a script, this parameter is set to the zip file
+        /// <para>A data object containing your Realtime scripts and dependencies as a zip file. The
+        /// zip file can have one or multiple files. Maximum size of a zip file is 5 MB.</para><para>When using the AWS CLI tool to create a script, this parameter is set to the zip file
         /// name. It must be prepended with the string "fileb://" to indicate that the file data
         /// is a binary object. For example: <code>--zip-file fileb://myRealtimeScript.zip</code>.</para>
         /// </para>
@@ -212,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             context.StorageLocation_Key = this.StorageLocation_Key;
             context.StorageLocation_ObjectVersion = this.StorageLocation_ObjectVersion;
             context.StorageLocation_RoleArn = this.StorageLocation_RoleArn;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.GameLift.Model.Tag>(this.Tag);
+            }
             context.Version = this.Version;
             context.ZipFile = this.ZipFile;
             
@@ -286,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 if (requestStorageLocationIsNull)
                 {
                     request.StorageLocation = null;
+                }
+                if (cmdletContext.Tag != null)
+                {
+                    request.Tags = cmdletContext.Tag;
                 }
                 if (cmdletContext.Version != null)
                 {
@@ -370,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String StorageLocation_Key { get; set; }
             public System.String StorageLocation_ObjectVersion { get; set; }
             public System.String StorageLocation_RoleArn { get; set; }
+            public List<Amazon.GameLift.Model.Tag> Tag { get; set; }
             public System.String Version { get; set; }
             public byte[] ZipFile { get; set; }
             public System.Func<Amazon.GameLift.Model.CreateScriptResponse, NewGMLScriptCmdlet, object> Select { get; set; } =

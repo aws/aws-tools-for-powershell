@@ -98,11 +98,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The instance ID.</para><note><para><code>InstanceId</code> has been deprecated. To specify an instance ID for an association,
-        /// use the <code>Targets</code> parameter. If you use the parameter <code>InstanceId</code>,
-        /// you cannot use the parameters <code>AssociationName</code>, <code>DocumentVersion</code>,
-        /// <code>MaxErrors</code>, <code>MaxConcurrency</code>, <code>OutputLocation</code>,
-        /// or <code>ScheduleExpression</code>. To use these parameters, you must use the <code>Targets</code>
-        /// parameter.</para></note>
+        /// use the <code>Targets</code> parameter. Requests that include the parameter <code>InstanceID</code>
+        /// with SSM documents that use schema version 2.0 or later will fail. In addition, if
+        /// you use the parameter <code>InstanceId</code>, you cannot use the parameters <code>AssociationName</code>,
+        /// <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>,
+        /// <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters,
+        /// you must use the <code>Targets</code> parameter.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

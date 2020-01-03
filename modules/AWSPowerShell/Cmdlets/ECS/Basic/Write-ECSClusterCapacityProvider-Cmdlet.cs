@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter CapacityProvider
         /// <summary>
         /// <para>
-        /// <para>The short name or full Amazon Resource Name (ARN) of one or more capacity providers
-        /// to associate with the cluster.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
+        /// <para>The name of one or more capacity providers to associate with the cluster.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
         /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
         /// API operation.</para><para>To use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
         /// <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers are

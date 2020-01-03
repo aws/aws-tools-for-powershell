@@ -149,12 +149,19 @@ $HLTH_SelectCompleters = {
 }
 
 $HLTH_SelectMap = @{
-    "Select"=@("Get-HLTHAffectedEntity",
+    "Select"=@("Get-HLTHAffectedAccountsForOrganization",
+               "Get-HLTHAffectedEntity",
+               "Get-HLTHAffectedEntitiesForOrganization",
                "Get-HLTHEntityAggregate",
                "Get-HLTHEventAggregate",
                "Get-HLTHEventDetail",
+               "Get-HLTHEventDetailsForOrganization",
                "Get-HLTHEvent",
-               "Get-HLTHEventType")
+               "Get-HLTHEventsForOrganization",
+               "Get-HLTHEventType",
+               "Get-HLTHHealthServiceStatusForOrganization",
+               "Disable-HLTHHealthServiceAccessForOrganization",
+               "Enable-HLTHHealthServiceAccessForOrganization")
 }
 
 _awsArgumentCompleterRegistration $HLTH_SelectCompleters $HLTH_SelectMap

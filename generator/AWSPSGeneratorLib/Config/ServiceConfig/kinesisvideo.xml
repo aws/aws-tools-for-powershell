@@ -51,11 +51,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSignalingChannels" OutputProperty="ChannelInfoList" Verb="Get" Noun="SignalingChannelList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListSignalingChannels" OutputProperty="ChannelInfoList" Verb="Get" Noun="SignalingChannelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" OutputProperty="StreamInfoList" Verb="Get" Noun="StreamList" PipelineParameter="StreamNameCondition" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStreams" OutputProperty="StreamInfoList" Verb="Get" Noun="StreamList" PipelineParameter="StreamNameCondition" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

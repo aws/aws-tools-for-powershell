@@ -23,7 +23,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinition" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CURReportDefinitions">
+        <ServiceOperation MethodName="DescribeReportDefinitions" OutputProperty="ReportDefinitions" Verb="Get" Noun="ReportDefinition" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CURReportDefinitions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

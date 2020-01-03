@@ -31,7 +31,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListItems" OutputProperty="Items" Verb="Get" Noun="ItemList" PipelineParameter="Path" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListItems" OutputProperty="Items" Verb="Get" Noun="ItemList" PipelineParameter="Path" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Specifies which devices and operating systems users can use to access their Workspaces.
+    /// Specifies which devices and operating systems users can use to access their WorkSpaces.
     /// For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html#control-device-access">
     /// Control Device Access</a>.
     /// </summary>

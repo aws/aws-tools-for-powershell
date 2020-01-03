@@ -98,6 +98,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Handler { get; set; }
         #endregion
         
+        #region Parameter IsLayersSet
+        /// <summary>
+        /// <para>
+        /// This property is set to true if the property <seealso cref="P:Amazon.Lambda.Model.UpdateFunctionConfigurationRequest.Layers" />
+        /// is set; false otherwise.
+        /// This property can be used to determine if the related property
+        /// was returned by a service response or if the related property
+        /// should be sent to the service during a service call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsLayersSet { get; set; }
+        #endregion
+        
         #region Parameter Environment_IsVariablesSet
         /// <summary>
         /// <para>
@@ -331,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.Layer = new List<System.String>(this.Layer);
             }
+            context.IsLayersSet = this.IsLayersSet;
             context.MemorySize = this.MemorySize;
             context.RevisionId = this.RevisionId;
             context.Role = this.Role;
@@ -428,6 +443,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Layer != null)
             {
                 request.Layers = cmdletContext.Layer;
+            }
+            if (cmdletContext.IsLayersSet != null)
+            {
+                request.IsLayersSet = cmdletContext.IsLayersSet.Value;
             }
             if (cmdletContext.MemorySize != null)
             {
@@ -566,6 +585,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Handler { get; set; }
             public System.String KMSKeyArn { get; set; }
             public List<System.String> Layer { get; set; }
+            public System.Boolean? IsLayersSet { get; set; }
             public System.Int32? MemorySize { get; set; }
             public System.String RevisionId { get; set; }
             public System.String Role { get; set; }

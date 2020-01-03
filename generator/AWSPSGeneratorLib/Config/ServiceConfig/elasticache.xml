@@ -118,27 +118,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheClusters" OutputProperty="CacheClusters" Verb="Get" Noun="CacheCluster" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCacheClusters" OutputProperty="CacheClusters" Verb="Get" Noun="CacheCluster" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheEngineVersions" OutputProperty="CacheEngineVersions" Verb="Get" Noun="CacheEngineVersion" PositionalParameters="EngineVersion;CacheParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" LegacyAlias="Get-ECCacheEngineVersions">
+        <ServiceOperation MethodName="DescribeCacheEngineVersions" OutputProperty="CacheEngineVersions" Verb="Get" Noun="CacheEngineVersion" PositionalParameters="EngineVersion;CacheParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECCacheEngineVersions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheParameterGroups" OutputProperty="CacheParameterGroups" Verb="Get" Noun="CacheParameterGroup" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCacheParameterGroups" OutputProperty="CacheParameterGroups" Verb="Get" Noun="CacheParameterGroup" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheParameters" OutputProperty="*" Verb="Get" Noun="CacheParameter" PositionalParameters="Source" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="DescribeCacheParameters" OutputProperty="*" Verb="Get" Noun="CacheParameter" PositionalParameters="Source" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheSecurityGroups" OutputProperty="CacheSecurityGroups" Verb="Get" Noun="CacheSecurityGroup" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCacheSecurityGroups" OutputProperty="CacheSecurityGroups" Verb="Get" Noun="CacheSecurityGroup" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheSubnetGroups" OutputProperty="CacheSubnetGroups" Verb="Get" Noun="CacheSubnetGroup" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" LegacyAlias="Get-ECCacheSubnetGroups">
+        <ServiceOperation MethodName="DescribeCacheSubnetGroups" OutputProperty="CacheSubnetGroups" Verb="Get" Noun="CacheSubnetGroup" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECCacheSubnetGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -146,7 +146,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
@@ -155,27 +155,27 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationGroups" OutputProperty="ReplicationGroups" Verb="Get" Noun="ReplicationGroup" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyAlias="Get-ECReplicationGroups">
+        <ServiceOperation MethodName="DescribeReplicationGroups" OutputProperty="ReplicationGroups" Verb="Get" Noun="ReplicationGroup" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECReplicationGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedCacheNodes" OutputProperty="ReservedCacheNodes" Verb="Get" Noun="ReservedCacheNode" PositionalParameters="ReservedCacheNodesOfferingId;CacheNodeType" PipelineParameter="ReservedCacheNodeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReservedCacheNodes" OutputProperty="ReservedCacheNodes" Verb="Get" Noun="ReservedCacheNode" PositionalParameters="ReservedCacheNodesOfferingId;CacheNodeType" PipelineParameter="ReservedCacheNodeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" OutputProperty="ReservedCacheNodesOfferings" Verb="Get" Noun="ReservedCacheNodesOffering" PositionalParameters="CacheNodeType" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" OutputProperty="ReservedCacheNodesOfferings" Verb="Get" Noun="ReservedCacheNodesOffering" PositionalParameters="CacheNodeType" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceUpdates" OutputProperty="ServiceUpdates" Verb="Get" Noun="ServiceUpdate" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeServiceUpdates" OutputProperty="ServiceUpdates" Verb="Get" Noun="ServiceUpdate" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyAlias="Get-ECSnapshots">
+        <ServiceOperation MethodName="DescribeSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="Snapshot" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECSnapshots">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUpdateActions" OutputProperty="UpdateActions" Verb="Get" Noun="UpdateAction" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeUpdateActions" OutputProperty="UpdateActions" Verb="Get" Noun="UpdateAction" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

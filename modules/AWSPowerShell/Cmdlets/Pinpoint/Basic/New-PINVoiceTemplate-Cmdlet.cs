@@ -28,8 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Creates a message template that you can use in messages that are sent through the
-    /// voice channel.
+    /// Creates a message template for messages that are sent through the voice channel.
     /// </summary>
     [Cmdlet("New", "PINVoiceTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.CreateTemplateMessageBody")]

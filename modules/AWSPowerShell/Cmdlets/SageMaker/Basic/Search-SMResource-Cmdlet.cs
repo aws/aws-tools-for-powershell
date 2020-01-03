@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// You can query against the following value types: numerical, text, Booleans, and timestamps.
+    /// You can query against the following value types: numeric, text, Boolean, and timestamp.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "SMResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -87,8 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon SageMaker resource to search for. Currently, the only valid
-        /// <code>Resource</code> value is <code>TrainingJob</code>.</para>
+        /// <para>The name of the Amazon SageMaker resource to search for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

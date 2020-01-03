@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet alias. Specify the alias you want to update.</para>
+        /// <para>A unique identifier for the alias that you want to update. You can use either the
+        /// alias ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Human-readable description of an alias.</para>
+        /// <para>A human-readable description of the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RoutingStrategy_FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet that the alias points to.</para>
+        /// <para>The unique identifier for a fleet that the alias points to. This value is the fleet
+        /// ID, not the fleet ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RoutingStrategy_Message
         /// <summary>
         /// <para>
-        /// <para>Message text to be used with a terminal routing strategy.</para>
+        /// <para>The message text to be used with a terminal routing strategy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with an alias. Alias names do not need to be
+        /// <para>A descriptive label that is associated with an alias. Alias names do not need to be
         /// unique.</para>
         /// </para>
         /// </summary>
@@ -106,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RoutingStrategy_Type
         /// <summary>
         /// <para>
-        /// <para>Type of routing strategy.</para><para>Possible routing types include the following:</para><ul><li><para><b>SIMPLE</b> -- The alias resolves to one specific fleet. Use this type when routing
-        /// to active fleets.</para></li><li><para><b>TERMINAL</b> -- The alias does not resolve to a fleet but instead can be used
-        /// to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException
+        /// <para>The type of routing strategy for the alias.</para><para>Possible routing types include the following:</para><ul><li><para><b>SIMPLE</b> - The alias resolves to one specific fleet. Use this type when routing
+        /// to active fleets.</para></li><li><para><b>TERMINAL</b> - The alias does not resolve to a fleet but instead can be used to
+        /// display a message to the user. A terminal alias throws a TerminalRoutingStrategyException
         /// with the <a>RoutingStrategy</a> message embedded.</para></li></ul>
         /// </para>
         /// </summary>

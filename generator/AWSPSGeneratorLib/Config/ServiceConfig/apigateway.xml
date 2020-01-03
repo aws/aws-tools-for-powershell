@@ -185,7 +185,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiKeys" OutputProperty="*" Verb="Get" Noun="ApiKeyList" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetApiKeys" OutputProperty="*" Verb="Get" Noun="ApiKeyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -193,7 +193,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthorizers" OutputProperty="Items" Verb="Get" Noun="AuthorizerList" PipelineParameter="RestApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAuthorizers" OutputProperty="Items" Verb="Get" Noun="AuthorizerList" PipelineParameter="RestApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -201,7 +201,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBasePathMappings" OutputProperty="Items" Verb="Get" Noun="BasePathMappingList" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBasePathMappings" OutputProperty="Items" Verb="Get" Noun="BasePathMappingList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -209,7 +209,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetClientCertificates" OutputProperty="Items" Verb="Get" Noun="ClientCertificateList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetClientCertificates" OutputProperty="Items" Verb="Get" Noun="ClientCertificateList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -217,7 +217,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployments" OutputProperty="Items" Verb="Get" Noun="DeploymentList" PipelineParameter="RestApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDeployments" OutputProperty="Items" Verb="Get" Noun="DeploymentList" PipelineParameter="RestApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -225,7 +225,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentationParts" OutputProperty="Items" Verb="Get" Noun="DocumentationPartList" PipelineParameter="RestApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDocumentationParts" OutputProperty="Items" Verb="Get" Noun="DocumentationPartList" PipelineParameter="RestApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -233,7 +233,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentationVersions" OutputProperty="Items" Verb="Get" Noun="DocumentationVersionList" PipelineParameter="RestApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDocumentationVersions" OutputProperty="Items" Verb="Get" Noun="DocumentationVersionList" PipelineParameter="RestApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -241,7 +241,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainNames" OutputProperty="Items" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDomainNames" OutputProperty="Items" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -253,7 +253,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGatewayResponses" OutputProperty="Items" Verb="Get" Noun="GatewayResponseList" PipelineParameter="RestApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetGatewayResponses" OutputProperty="Items" Verb="Get" Noun="GatewayResponseList" PipelineParameter="RestApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -277,7 +277,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModels" OutputProperty="Items" Verb="Get" Noun="ModelList" PipelineParameter="RestApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetModels" OutputProperty="Items" Verb="Get" Noun="ModelList" PipelineParameter="RestApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -289,7 +289,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRequestValidators" OutputProperty="Items" Verb="Get" Noun="ValidatorList" PipelineParameter="RestApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRequestValidators" OutputProperty="Items" Verb="Get" Noun="ValidatorList" PipelineParameter="RestApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -297,7 +297,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResources" OutputProperty="Items" Verb="Get" Noun="ResourceList" PipelineParameter="RestApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResources" OutputProperty="Items" Verb="Get" Noun="ResourceList" PipelineParameter="RestApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -305,7 +305,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRestApis" OutputProperty="Items" Verb="Get" Noun="RestApiList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetRestApis" OutputProperty="Items" Verb="Get" Noun="RestApiList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -317,7 +317,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSdkTypes" OutputProperty="Items" Verb="Get" Noun="SdkTypeList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSdkTypes" OutputProperty="Items" Verb="Get" Noun="SdkTypeList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -333,7 +333,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsage" OutputProperty="*" Verb="Get" Noun="Usage" PipelineParameter="UsagePlanId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetUsage" OutputProperty="*" Verb="Get" Noun="Usage" PipelineParameter="UsagePlanId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -345,11 +345,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsagePlanKeys" OutputProperty="Items" Verb="Get" Noun="UsagePlanKeyList" PipelineParameter="UsagePlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUsagePlanKeys" OutputProperty="Items" Verb="Get" Noun="UsagePlanKeyList" PipelineParameter="UsagePlanId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsagePlans" OutputProperty="Items" Verb="Get" Noun="UsagePlanList" PipelineParameter="KeyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUsagePlans" OutputProperty="Items" Verb="Get" Noun="UsagePlanList" PipelineParameter="KeyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -357,7 +357,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVpcLinks" OutputProperty="Items" Verb="Get" Noun="VpcLinkList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetVpcLinks" OutputProperty="Items" Verb="Get" Noun="VpcLinkList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

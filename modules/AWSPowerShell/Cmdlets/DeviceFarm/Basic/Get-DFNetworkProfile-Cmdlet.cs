@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the network profile you want to return information
-        /// about.</para>
+        /// <para>The ARN of the network profile to return information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

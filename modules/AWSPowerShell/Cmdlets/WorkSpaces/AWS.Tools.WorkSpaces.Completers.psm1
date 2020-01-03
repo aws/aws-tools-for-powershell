@@ -255,6 +255,7 @@ $WKS_SelectMap = @{
                "Unregister-WKSIpGroup",
                "Import-WKSWorkspaceImage",
                "Get-WKSAvailableManagementCidrRangeList",
+               "Start-WKSWorkspaceMigration",
                "Edit-WKSAccount",
                "Edit-WKSClientProperty",
                "Edit-WKSSelfservicePermission",

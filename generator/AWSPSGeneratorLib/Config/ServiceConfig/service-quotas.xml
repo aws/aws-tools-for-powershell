@@ -51,27 +51,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAWSDefaultServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="AWSDefaultServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAWSDefaultServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="AWSDefaultServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistory" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistory" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistoryByQuota" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryByQuotaList" PipelineParameter="QuotaCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRequestedServiceQuotaChangeHistoryByQuota" OutputProperty="RequestedQuotas" Verb="Get" Noun="RequestedServiceQuotaChangeHistoryByQuotaList" PipelineParameter="QuotaCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceQuotaIncreaseRequestsInTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplateList" Verb="Get" Noun="ServiceQuotaIncreaseRequestsInTemplateList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServiceQuotaIncreaseRequestsInTemplate" OutputProperty="ServiceQuotaIncreaseRequestInTemplateList" Verb="Get" Noun="ServiceQuotaIncreaseRequestsInTemplateList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="ServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServiceQuotas" OutputProperty="Quotas" Verb="Get" Noun="ServiceQuotaList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServices" OutputProperty="Services" Verb="Get" Noun="ServiceList" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServices" OutputProperty="Services" Verb="Get" Noun="ServiceList" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

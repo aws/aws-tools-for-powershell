@@ -160,19 +160,28 @@ $EFS_SelectCompleters = {
 }
 
 $EFS_SelectMap = @{
-    "Select"=@("New-EFSFileSystem",
+    "Select"=@("New-EFSAccessPoint",
+               "New-EFSFileSystem",
                "New-EFSMountTarget",
                "New-EFSTag",
+               "Remove-EFSAccessPoint",
                "Remove-EFSFileSystem",
+               "Remove-EFSFileSystemPolicy",
                "Remove-EFSMountTarget",
                "Remove-EFSTag",
+               "Get-EFSAccessPoint",
+               "Get-EFSFileSystemPolicy",
                "Get-EFSFileSystem",
                "Get-EFSLifecycleConfiguration",
                "Get-EFSMountTarget",
                "Get-EFSMountTargetSecurityGroup",
                "Get-EFSTag",
+               "Get-EFSResourceTag",
                "Edit-EFSMountTargetSecurityGroup",
+               "Write-EFSFileSystemPolicy",
                "Write-EFSLifecycleConfiguration",
+               "Add-EFSResourceTag",
+               "Remove-EFSResourceTag",
                "Update-EFSFileSystem")
 }
 

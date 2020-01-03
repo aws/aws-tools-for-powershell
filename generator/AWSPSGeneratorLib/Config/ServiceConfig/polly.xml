@@ -40,7 +40,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSpeechSynthesisTasks" OutputProperty="SynthesisTasks" Verb="Get" Noun="SpeechSynthesisTaskList" PipelineParameter="Status" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSpeechSynthesisTasks" OutputProperty="SynthesisTasks" Verb="Get" Noun="SpeechSynthesisTaskList" PipelineParameter="Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

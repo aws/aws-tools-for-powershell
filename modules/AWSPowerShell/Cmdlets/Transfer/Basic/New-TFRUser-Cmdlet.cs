@@ -67,7 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// provides access to paths in <code>Target</code>. The following is an example.</para><para><code>'[ "/bucket2/documentation", { "Entry": "your-personal-report.pdf", "Target":
         /// "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code></para><para>In most cases, you can use this value instead of the scope down policy to lock your
         /// user down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
-        /// to '/' and set <code>Target</code> to the HomeDirectory parameter value. </para>
+        /// to '/' and set <code>Target</code> to the HomeDirectory parameter value. </para><note><para>If the target of a logical directory entry does not exist in S3, the entry will be
+        /// ignored. As a workaround, you can use the S3 api to create 0 byte objects as place
+        /// holders for your directory. If using the CLI, use the s3api call instead of s3 so
+        /// you can use the put-object operation. For example, you use the following: <code>aws
+        /// s3api put-object --bucket bucketname --key path/to/folder/</code>. Make sure that
+        /// the end of the key name ends in a / for it to be considered a folder. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

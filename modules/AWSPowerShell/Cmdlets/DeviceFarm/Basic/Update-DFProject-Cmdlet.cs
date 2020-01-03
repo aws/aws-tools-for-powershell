@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the project whose name you wish to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of the project whose name to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter DefaultJobTimeoutMinute
         /// <summary>
         /// <para>
-        /// <para>The number of minutes a test run in the project will execute before it times out.</para>
+        /// <para>The number of minutes a test run in the project executes before it times out.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A string representing the new name of the project that you are updating.</para>
+        /// <para>A string that represents the new name of the project that you are updating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

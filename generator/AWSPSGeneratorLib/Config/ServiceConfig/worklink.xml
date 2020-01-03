@@ -83,23 +83,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDevices" OutputProperty="Devices" Verb="Get" Noun="DeviceList" PipelineParameter="FleetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="FleetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetSummaryList" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetSummaryList" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWebsiteAuthorizationProviders" OutputProperty="WebsiteAuthorizationProviders" Verb="Get" Noun="WebsiteAuthorizationProviderList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWebsiteAuthorizationProviders" OutputProperty="WebsiteAuthorizationProviders" Verb="Get" Noun="WebsiteAuthorizationProviderList" PipelineParameter="FleetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWebsiteCertificateAuthorities" OutputProperty="WebsiteCertificateAuthorities" Verb="Get" Noun="WebsiteCertificateAuthorityList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWebsiteCertificateAuthorities" OutputProperty="WebsiteCertificateAuthorities" Verb="Get" Noun="WebsiteCertificateAuthorityList" PipelineParameter="FleetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

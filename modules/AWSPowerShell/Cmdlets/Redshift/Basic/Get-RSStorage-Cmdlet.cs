@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Returns the total amount of snapshot usage and provisioned storage in megabytes.
+    /// Returns account level backups storage size and provisional storage.
     /// </summary>
     [Cmdlet("Get", "RSStorage")]
     [OutputType("Amazon.Redshift.Model.DescribeStorageResponse")]

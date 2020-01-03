@@ -97,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String DBClusterParameterGroupName { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether the DB cluster has deletion protection enabled. The
+        /// database can't be deleted when deletion protection is enabled. By default, deletion
+        /// protection is disabled. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter CloudwatchLogsExportConfiguration_DisableLogType
         /// <summary>
         /// <para>
@@ -133,9 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to which you want to upgrade. Changing this
-        /// parameter results in an outage. The change is applied during the next maintenance
-        /// window unless the ApplyImmediately parameter is set to true.</para><para>For a list of valid engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>.</para>
+        /// <para>The version number of the database engine. Currently, setting this parameter has no
+        /// effect. To upgrade your database engine to the most recent release, use the <a>ApplyPendingMaintenanceAction</a>
+        /// API.</para><para>For a list of valid engine versions, see <a>CreateDBInstance</a>, or call <a>DescribeDBEngineVersions</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,13 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>A value that indicates that the DB cluster should be associated with the specified
-        /// option group. Changing this parameter doesn't result in an outage except in the following
-        /// case, and the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
-        /// parameter is set to <code>true</code> for this request. If the parameter change results
-        /// in an option group that enables OEM, this change can cause a brief (sub-second) period
-        /// during which new connections are rejected but existing connections are not interrupted.</para><para>Permanent options can't be removed from an option group. The option group can't be
-        /// removed from a DB cluster once it is associated with a DB cluster.</para>
+        /// <para><i>(Not supported by Neptune)</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,6 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             }
             #endif
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
+            context.DeletionProtection = this.DeletionProtection;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EngineVersion = this.EngineVersion;
             context.MasterUserPassword = this.MasterUserPassword;
@@ -376,6 +383,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.DBClusterParameterGroupName != null)
             {
                 request.DBClusterParameterGroupName = cmdletContext.DBClusterParameterGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -480,6 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public List<System.String> CloudwatchLogsExportConfiguration_EnableLogType { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String MasterUserPassword { get; set; }

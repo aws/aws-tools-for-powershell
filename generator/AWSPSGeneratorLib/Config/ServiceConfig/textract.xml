@@ -27,11 +27,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentAnalysis" OutputProperty="*" Verb="Get" Noun="DocumentAnalysis" PipelineParameter="JobId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetDocumentAnalysis" OutputProperty="*" Verb="Get" Noun="DocumentAnalysis" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentTextDetection" OutputProperty="*" Verb="Get" Noun="DocumentTextDetection" PipelineParameter="JobId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetDocumentTextDetection" OutputProperty="*" Verb="Get" Noun="DocumentTextDetection" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

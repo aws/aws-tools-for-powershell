@@ -28,9 +28,11 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Lists the trial components in your account. You can filter the list to show only components
-    /// that were created in a specific time range. You can sort the list by trial component
-    /// name or creation time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the trial components in your account. You can sort the list by trial component
+    /// name or creation time. You can filter the list to show only components that were created
+    /// in a specific time range. You can also filter on one of the following:
+    /// 
+    ///  <ul><li><para><code>ExperimentName</code></para></li><li><para><code>SourceArn</code></para></li><li><para><code>TrialName</code></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMTrialComponentList")]
     [OutputType("Amazon.SageMaker.Model.TrialComponentSummary")]
@@ -62,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.DateTime? CreatedBefore { get; set; }
         #endregion
         
+        #region Parameter ExperimentName
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only components that are part of the specified experiment. If
+        /// you specify <code>ExperimentName</code>, you can't filter by <code>SourceArn</code>
+        /// or <code>TrialName</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExperimentName { get; set; }
+        #endregion
+        
         #region Parameter SortBy
         /// <summary>
         /// <para>
@@ -88,17 +102,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A filter that returns only components that have the specified source Amazon Resource
-        /// Name (ARN).</para>
+        /// Name (ARN). If you specify <code>SourceArn</code>, you can't filter by <code>ExperimentName</code>
+        /// or <code>TrialName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SourceArn { get; set; }
         #endregion
         
+        #region Parameter TrialName
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only components that are part of the specified trial. If you
+        /// specify <code>TrialName</code>, you can't filter by <code>ExperimentName</code> or
+        /// <code>SourceArn</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrialName { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of components to return in the response.</para>
+        /// <para>The maximum number of components to return in the response. The default value is 10.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -164,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.CreatedAfter = this.CreatedAfter;
             context.CreatedBefore = this.CreatedBefore;
+            context.ExperimentName = this.ExperimentName;
             if (ParameterWasBound(nameof(this.MaxResult)))
             {
                 context.MaxResult = this.MaxResult;
@@ -188,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             context.SourceArn = this.SourceArn;
+            context.TrialName = this.TrialName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -215,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.CreatedBefore = cmdletContext.CreatedBefore.Value;
             }
+            if (cmdletContext.ExperimentName != null)
+            {
+                request.ExperimentName = cmdletContext.ExperimentName;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -230,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SourceArn != null)
             {
                 request.SourceArn = cmdletContext.SourceArn;
+            }
+            if (cmdletContext.TrialName != null)
+            {
+                request.TrialName = cmdletContext.TrialName;
             }
             
             // Initialize loop variant and commence piping
@@ -294,6 +331,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.CreatedBefore = cmdletContext.CreatedBefore.Value;
             }
+            if (cmdletContext.ExperimentName != null)
+            {
+                request.ExperimentName = cmdletContext.ExperimentName;
+            }
             if (cmdletContext.SortBy != null)
             {
                 request.SortBy = cmdletContext.SortBy;
@@ -305,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SourceArn != null)
             {
                 request.SourceArn = cmdletContext.SourceArn;
+            }
+            if (cmdletContext.TrialName != null)
+            {
+                request.TrialName = cmdletContext.TrialName;
             }
             
             // Initialize loop variants and commence piping
@@ -431,11 +476,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.DateTime? CreatedAfter { get; set; }
             public System.DateTime? CreatedBefore { get; set; }
+            public System.String ExperimentName { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.SageMaker.SortTrialComponentsBy SortBy { get; set; }
             public Amazon.SageMaker.SortOrder SortOrder { get; set; }
             public System.String SourceArn { get; set; }
+            public System.String TrialName { get; set; }
             public System.Func<Amazon.SageMaker.Model.ListTrialComponentsResponse, GetSMTrialComponentListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrialComponentSummaries;
         }

@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ScriptId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a Realtime script to retrieve properties for.</para>
+        /// <para>A unique identifier for a Realtime script to retrieve properties for. You can use
+        /// either the script ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

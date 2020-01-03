@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the remote access session you wish to stop.</para>
+        /// <para>The Amazon Resource Name (ARN) of the remote access session to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

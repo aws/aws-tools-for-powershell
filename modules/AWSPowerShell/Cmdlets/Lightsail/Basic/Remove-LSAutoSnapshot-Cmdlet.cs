@@ -28,7 +28,9 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Deletes an automatic snapshot for an instance or disk.
+    /// Deletes an automatic snapshot of an instance or disk. For more information, see the
+    /// <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
+    /// Dev Guide</a>.
     /// </summary>
     [Cmdlet("Remove", "LSAutoSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -43,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Date
         /// <summary>
         /// <para>
-        /// <para>The date of the automatic snapshot to delete in <code>YYYY-MM-DD</code> format.</para><para>Use the <code>get auto snapshots</code> operation to get the available automatic snapshots
+        /// <para>The date of the automatic snapshot to delete in <code>YYYY-MM-DD</code> format. Use
+        /// the <code>get auto snapshots</code> operation to get the available automatic snapshots
         /// for a resource.</para>
         /// </para>
         /// </summary>
@@ -61,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ResourceName
         /// <summary>
         /// <para>
-        /// <para>The name of the source resource from which to delete the automatic snapshot.</para>
+        /// <para>The name of the source instance or disk from which to delete the automatic snapshot.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

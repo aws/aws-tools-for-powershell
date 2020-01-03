@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet. This value must match the fleet ID referenced in the
-        /// VPC peering connection record.</para>
+        /// <para>A unique identifier for a fleet. This fleet specified must match the fleet referenced
+        /// in the VPC peering connection record. You can use either the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter VpcPeeringConnectionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a VPC peering connection. This value is included in the <a>VpcPeeringConnection</a>
+        /// <para>A unique identifier for a VPC peering connection. This value is included in the <a>VpcPeeringConnection</a>
         /// object, which can be retrieved by calling <a>DescribeVpcPeeringConnections</a>.</para>
         /// </para>
         /// </summary>

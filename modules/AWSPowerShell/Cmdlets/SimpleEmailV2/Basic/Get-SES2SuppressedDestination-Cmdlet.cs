@@ -28,7 +28,8 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Used to fetch a single suppressed email destination from your suppression list.
+    /// Retrieves information about a specific email address that's on the suppression list
+    /// for your account.
     /// </summary>
     [Cmdlet("Get", "SES2SuppressedDestination")]
     [OutputType("Amazon.SimpleEmailV2.Model.SuppressedDestination")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailAddress
         /// <summary>
         /// <para>
-        /// <para>Email destination to fetch from the suppression list.</para>
+        /// <para>The email address that's on the account suppression list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

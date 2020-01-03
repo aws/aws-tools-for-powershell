@@ -28,8 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Updates information about an existing Amazon Virtual Private Cloud (VPC) endpoint
-    /// configuration.
+    /// Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.
     /// </summary>
     [Cmdlet("Update", "DFVPCEConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.VPCEConfiguration")]
@@ -61,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter ServiceDnsName
         /// <summary>
         /// <para>
-        /// <para>The DNS (domain) name used to connect to your private service in your Amazon VPC.
-        /// The DNS name must not already be in use on the Internet.</para>
+        /// <para>The DNS (domain) name used to connect to your private service in your VPC. The DNS
+        /// name must not already be in use on the internet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter VpceConfigurationDescription
         /// <summary>
         /// <para>
-        /// <para>An optional description, providing more details about your VPC endpoint configuration.</para>
+        /// <para>An optional description that provides details about your VPC endpoint configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter VpceConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The friendly name you give to your VPC endpoint configuration, to manage your configurations
+        /// <para>The friendly name you give to your VPC endpoint configuration to manage your configurations
         /// more easily.</para>
         /// </para>
         /// </summary>
@@ -93,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter VpceServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of the VPC endpoint service running inside your AWS account that you want
-        /// Device Farm to test.</para>
+        /// <para>The name of the VPC endpoint service running in your AWS account that you want Device
+        /// Farm to test.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

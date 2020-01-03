@@ -22,7 +22,7 @@
     <AssemblyVersion>0.0.0.0</AssemblyVersion>
     <FileVersion>0.0.0.0</FileVersion>
     <Product>AWS Tools for PowerShell</Product>
-    <Copyright>Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.</Copyright>
+    <Copyright>Copyright 2012-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.</Copyright>
     <Company>Amazon.com, Inc</Company>
     <PackageProjectUrl>https://github.com/aws/aws-tools-for-powershell</PackageProjectUrl>
   </PropertyGroup>
@@ -44,10 +44,10 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <Reference Include="AWSSDK.Core">
-      <HintPath>../../../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Core.dll</HintPath>
+      <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoTJobsDataPlane">
-      <HintPath>../../../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.IoTJobsDataPlane.dll</HintPath>
+      <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTJobsDataPlane.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -65,6 +65,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCopyJob" OutputProperty="CopyJob" Verb="Get" Noun="CopyJob" PipelineParameter="CopyJobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeProtectedResource" OutputProperty="*" Verb="Get" Noun="ProtectedResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -113,47 +117,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupJobs" OutputProperty="BackupJobs" Verb="Get" Noun="BackupJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListBackupJobs" OutputProperty="BackupJobs" Verb="Get" Noun="BackupJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupPlans" OutputProperty="BackupPlansList" Verb="Get" Noun="BackupPlanList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListBackupPlans" OutputProperty="BackupPlansList" Verb="Get" Noun="BackupPlanList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupPlanTemplates" OutputProperty="BackupPlanTemplatesList" Verb="Get" Noun="BackupPlanTemplateList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListBackupPlanTemplates" OutputProperty="BackupPlanTemplatesList" Verb="Get" Noun="BackupPlanTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupPlanVersions" OutputProperty="BackupPlanVersionsList" Verb="Get" Noun="BackupPlanVersionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBackupPlanVersions" OutputProperty="BackupPlanVersionsList" Verb="Get" Noun="BackupPlanVersionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupSelections" OutputProperty="BackupSelectionsList" Verb="Get" Noun="BackupSelectionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBackupSelections" OutputProperty="BackupSelectionsList" Verb="Get" Noun="BackupSelectionList" PipelineParameter="BackupPlanId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackupVaults" OutputProperty="BackupVaultList" Verb="Get" Noun="BackupVaultList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBackupVaults" OutputProperty="BackupVaultList" Verb="Get" Noun="BackupVaultList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCopyJobs" OutputProperty="CopyJobs" Verb="Get" Noun="CopyJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecoveryPointsByBackupVault" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProtectedResources" OutputProperty="Results" Verb="Get" Noun="ProtectedResourceList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecoveryPointsByResource" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRecoveryPointsByBackupVault" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByBackupVaultList" PipelineParameter="BackupVaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRestoreJobs" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRecoveryPointsByResource" OutputProperty="RecoveryPoints" Verb="Get" Noun="RecoveryPointsByResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRestoreJobs" OutputProperty="RestoreJobs" Verb="Get" Noun="RestoreJobList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -166,6 +174,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartBackupJob" OutputProperty="*" Verb="Start" Noun="BackupJob" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCopyJob" OutputProperty="*" Verb="Start" Noun="CopyJob" ShouldProcessTarget="SourceBackupVaultName" PipelineParameter="SourceBackupVaultName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

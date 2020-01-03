@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.PolicyLevel != null)
             {
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -354,7 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String HITId { get; set; }
-            public int? MaxResult { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> PolicyLevel { get; set; }
             public System.Boolean? RetrieveAction { get; set; }

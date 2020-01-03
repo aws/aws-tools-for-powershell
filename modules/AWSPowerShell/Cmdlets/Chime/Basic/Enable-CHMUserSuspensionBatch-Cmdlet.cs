@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// 
     ///  
     /// <para>
-    /// Users suspended from a <code>Team</code> account are dissasociated from the account,
+    /// Users suspended from a <code>Team</code> account are disassociated from the account,
     /// but they can continue to use Amazon Chime as free users. To remove the suspension
     /// from suspended <code>Team</code> account users, invite them to the <code>Team</code>
     /// account again. You can use the <a>InviteUsers</a> action to do so.

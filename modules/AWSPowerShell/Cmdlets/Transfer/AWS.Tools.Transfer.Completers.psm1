@@ -86,7 +86,7 @@ $TFR_Completers = {
             ($_ -eq "Update-TFRServer/EndpointType")
         }
         {
-            $v = "PUBLIC","VPC_ENDPOINT"
+            $v = "PUBLIC","VPC","VPC_ENDPOINT"
             break
         }
 

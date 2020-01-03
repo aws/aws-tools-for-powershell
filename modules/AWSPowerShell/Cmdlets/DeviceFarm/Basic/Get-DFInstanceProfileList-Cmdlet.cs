@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>An integer specifying the maximum number of items you want to return in the API response.</para>
+        /// <para>An integer that specifies the maximum number of items you want to return in the API
+        /// response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

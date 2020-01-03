@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter CharacterSetName
         /// <summary>
         /// <para>
-        /// <para>Indicates that the DB instance should be associated with the specified CharacterSet.</para><para>Not applicable. The character set is managed by the DB cluster. For more information,
-        /// see <a>CreateDBCluster</a>.</para>
+        /// <para><i>(Not supported by Neptune)</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -195,6 +194,20 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
+        /// database can't be deleted when deletion protection is enabled. By default, deletion
+        /// protection is disabled. </para><para>You can enable or disable deletion protection for the DB cluster. For more information,
+        /// see <a>CreateDBCluster</a>. DB instances in a DB cluster can be deleted even when
+        /// deletion protection is enabled for the DB cluster. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter Domain
         /// <summary>
         /// <para>
@@ -240,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>True to enable Performance Insights for the DB instance, and otherwise false.</para>
+        /// <para><i>(Not supported by Neptune)</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,7 +281,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use.</para>
+        /// <para>The version number of the database engine to use. Currently, setting this parameter
+        /// has no effect.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -374,9 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>Indicates that the DB instance should be associated with the specified option group.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
-        /// be removed from an option group, and that option group can't be removed from a DB
-        /// instance once it is associated with a DB instance</para>
+        /// <para><i>(Not supported by Neptune)</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -386,9 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key
-        /// ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for
-        /// the KMS encryption key.</para>
+        /// <para><i>(Not supported by Neptune)</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -614,6 +624,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 context.DBSecurityGroup = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
             if (this.EnableCloudwatchLogsExport != null)
@@ -727,6 +738,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.Domain != null)
             {
@@ -920,6 +935,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.String DBParameterGroupName { get; set; }
             public List<System.String> DBSecurityGroup { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }

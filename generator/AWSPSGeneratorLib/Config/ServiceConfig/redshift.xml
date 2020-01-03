@@ -159,27 +159,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterDbRevisions" OutputProperty="ClusterDbRevisions" Verb="Get" Noun="ClusterDbRevision" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeClusterDbRevisions" OutputProperty="ClusterDbRevisions" Verb="Get" Noun="ClusterDbRevision" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterParameterGroups" OutputProperty="ParameterGroups" Verb="Get" Noun="ClusterParameterGroup" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterParameterGroups">
+        <ServiceOperation MethodName="DescribeClusterParameterGroups" OutputProperty="ParameterGroups" Verb="Get" Noun="ClusterParameterGroup" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSClusterParameterGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterParameters" OutputProperty="Parameters" Verb="Get" Noun="ClusterParameter" PositionalParameters="Source" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterParameters">
+        <ServiceOperation MethodName="DescribeClusterParameters" OutputProperty="Parameters" Verb="Get" Noun="ClusterParameter" PositionalParameters="Source" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSClusterParameters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusters" OutputProperty="Clusters" Verb="Get" Noun="Cluster" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RSClusters">
+        <ServiceOperation MethodName="DescribeClusters" OutputProperty="Clusters" Verb="Get" Noun="Cluster" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSClusters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterSecurityGroups" OutputProperty="ClusterSecurityGroups" Verb="Get" Noun="ClusterSecurityGroup" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterSecurityGroups">
+        <ServiceOperation MethodName="DescribeClusterSecurityGroups" OutputProperty="ClusterSecurityGroups" Verb="Get" Noun="ClusterSecurityGroup" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSClusterSecurityGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="ClusterSnapshot" PositionalParameters="SnapshotIdentifier;SnapshotType" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RSClusterSnapshots">
+        <ServiceOperation MethodName="DescribeClusterSnapshots" OutputProperty="Snapshots" Verb="Get" Noun="ClusterSnapshot" PositionalParameters="SnapshotIdentifier;SnapshotType" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSClusterSnapshots">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
@@ -188,19 +188,19 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterSubnetGroups" OutputProperty="ClusterSubnetGroups" Verb="Get" Noun="ClusterSubnetGroup" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterSubnetGroups">
+        <ServiceOperation MethodName="DescribeClusterSubnetGroups" OutputProperty="ClusterSubnetGroups" Verb="Get" Noun="ClusterSubnetGroup" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSClusterSubnetGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterTracks" OutputProperty="MaintenanceTracks" Verb="Get" Noun="ClusterTrack" PipelineParameter="MaintenanceTrackName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeClusterTracks" OutputProperty="MaintenanceTracks" Verb="Get" Noun="ClusterTrack" PipelineParameter="MaintenanceTrackName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterVersions" OutputProperty="ClusterVersions" Verb="Get" Noun="ClusterVersion" PositionalParameters="ClusterParameterGroupFamily" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyAlias="Get-RSClusterVersions">
+        <ServiceOperation MethodName="DescribeClusterVersions" OutputProperty="ClusterVersions" Verb="Get" Noun="ClusterVersion" PositionalParameters="ClusterParameterGroupFamily" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSClusterVersions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDefaultClusterParameters" OutputProperty="DefaultClusterParameters.Parameters" OutputWrapper="DefaultClusterParameters" Verb="Get" Noun="DefaultClusterParameter" PipelineParameter="ParameterGroupFamily" NoPipelineParameter="false" LegacyAlias="Get-RSDefaultClusterParameters">
+        <ServiceOperation MethodName="DescribeDefaultClusterParameters" OutputProperty="DefaultClusterParameters.Parameters" OutputWrapper="DefaultClusterParameters" Verb="Get" Noun="DefaultClusterParameter" PipelineParameter="ParameterGroupFamily" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSDefaultClusterParameters">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -208,7 +208,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RSEvents">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSEvents">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
@@ -217,15 +217,15 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSEventSubscriptions">
+        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSEventSubscriptions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHsmClientCertificates" OutputProperty="HsmClientCertificates" Verb="Get" Noun="HsmClientCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSHsmClientCertificates">
+        <ServiceOperation MethodName="DescribeHsmClientCertificates" OutputProperty="HsmClientCertificates" Verb="Get" Noun="HsmClientCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSHsmClientCertificates">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHsmConfigurations" OutputProperty="HsmConfigurations" Verb="Get" Noun="HsmConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSHsmConfigurations">
+        <ServiceOperation MethodName="DescribeHsmConfigurations" OutputProperty="HsmConfigurations" Verb="Get" Noun="HsmConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSHsmConfigurations">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -233,19 +233,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNodeConfigurationOptions" OutputProperty="NodeConfigurationOptionList" Verb="Get" Noun="NodeConfigurationOption" PipelineParameter="ActionType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNodeConfigurationOptions" OutputProperty="NodeConfigurationOptionList" Verb="Get" Noun="NodeConfigurationOption" PipelineParameter="ActionType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrderableClusterOptions" OutputProperty="OrderableClusterOptions" Verb="Get" Noun="OrderableClusterOption" PositionalParameters="NodeType" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyAlias="Get-RSOrderableClusterOptions">
+        <ServiceOperation MethodName="DescribeOrderableClusterOptions" OutputProperty="OrderableClusterOptions" Verb="Get" Noun="OrderableClusterOption" PositionalParameters="NodeType" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSOrderableClusterOptions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedNodeOfferings" OutputProperty="ReservedNodeOfferings" Verb="Get" Noun="ReservedNodeOffering" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false" LegacyAlias="Get-RSReservedNodeOfferings">
+        <ServiceOperation MethodName="DescribeReservedNodeOfferings" OutputProperty="ReservedNodeOfferings" Verb="Get" Noun="ReservedNodeOffering" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSReservedNodeOfferings">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedNodes" OutputProperty="ReservedNodes" Verb="Get" Noun="ReservedNode" PipelineParameter="ReservedNodeId" NoPipelineParameter="false" LegacyAlias="Get-RSReservedNodes">
+        <ServiceOperation MethodName="DescribeReservedNodes" OutputProperty="ReservedNodes" Verb="Get" Noun="ReservedNode" PipelineParameter="ReservedNodeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSReservedNodes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -253,15 +253,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshotCopyGrants" OutputProperty="SnapshotCopyGrants" Verb="Get" Noun="SnapshotCopyGrant" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeSnapshotCopyGrants" OutputProperty="SnapshotCopyGrants" Verb="Get" Noun="SnapshotCopyGrant" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshotSchedules" OutputProperty="SnapshotSchedules" Verb="Get" Noun="SnapshotSchedule" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSnapshotSchedules" OutputProperty="SnapshotSchedules" Verb="Get" Noun="SnapshotSchedule" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -269,11 +269,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTableRestoreStatus" OutputProperty="TableRestoreStatusDetails" Verb="Get" Noun="TableRestoreStatus" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTableRestoreStatus" OutputProperty="TableRestoreStatusDetails" Verb="Get" Noun="TableRestoreStatus" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="TaggedResources" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSTags">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="TaggedResources" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-RSTags">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -297,7 +297,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservedNodeExchangeOfferings" OutputProperty="ReservedNodeOfferings" Verb="Get" Noun="ReservedNodeExchangeOffering" PipelineParameter="ReservedNodeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReservedNodeExchangeOfferings" OutputProperty="ReservedNodeOfferings" Verb="Get" Noun="ReservedNodeExchangeOffering" PipelineParameter="ReservedNodeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

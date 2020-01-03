@@ -38,7 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// in the key are not related to the caller or CMK that is used to encrypt the data key.
     /// </para><para>
     /// To generate a data key, specify the symmetric CMK that will be used to encrypt the
-    /// data key. You cannot use an asymmetric CMK to generate data keys.
+    /// data key. You cannot use an asymmetric CMK to generate data keys. To get the type
+    /// of your CMK, use the <a>DescribeKey</a> operation.
     /// </para><para>
     /// You must also specify the length of the data key. Use either the <code>KeySpec</code>
     /// or <code>NumberOfBytes</code> parameters (but not both). For 128-bit and 256-bit data

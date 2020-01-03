@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// queues, use the pagination parameters to retrieve results as a set of sequential pages.
     /// If successful, a <a>GameSessionQueue</a> object is returned for each requested queue.
     /// When specifying a list of queues, objects are returned only for queues that currently
-    /// exist in the region.
+    /// exist in the Region.
     /// 
     ///  <ul><li><para><a>CreateGameSessionQueue</a></para></li><li><para><a>DescribeGameSessionQueues</a></para></li><li><para><a>UpdateGameSessionQueue</a></para></li><li><para><a>DeleteGameSessionQueue</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>List of queue names to retrieve information for. To request settings for all queues,
-        /// leave this parameter empty.</para>
+        /// <para>A list of queue names to retrieve information for. You can use either the queue ID
+        /// or ARN value. To request settings for all queues, leave this parameter empty. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this action. To start at the beginning of
         /// the result set, do not specify a value.</para>
         /// </para>

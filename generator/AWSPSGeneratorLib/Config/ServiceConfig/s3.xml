@@ -251,15 +251,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjects" OutputProperty="S3Objects" Verb="Get" Noun="Object" PipelineParameter="BucketName" NoPipelineParameter="false" PositionalParameters="Prefix" DefaultParameterSet="GetMultipleObjects">
-            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxKeys" ServicePageSize="1000" />
+        <ServiceOperation MethodName="ListObjects" OutputProperty="S3Objects" Verb="Get" Noun="Object" PositionalParameters="Prefix" PipelineParameter="BucketName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" DefaultParameterSet="GetMultipleObjects">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
                 <Param Name="Delimiter" ParameterSetName="GetMultipleObjects" />
-                <Param Name="MaxKeys" ParameterSetName="GetMultipleObjects" />
+                <Param Name="MaxKeys" NewName="MaxKey" ParameterSetName="GetMultipleObjects" />
                 <Param Name="Marker" ParameterSetName="GetMultipleObjects" />
-                <Param Name="Prefix" ParameterSetName="GetMultipleObjects" Alias="KeyPrefix" />
+                <Param Name="Prefix" Alias="KeyPrefix" ParameterSetName="GetMultipleObjects" />
             </Params>
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxKeys" ServicePageSize="1000" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListObjectsV2" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
@@ -277,9 +277,9 @@
         <ServiceOperation MethodName="PutACL" Verb="Set" Noun="ACL" ShouldProcessTarget="Key" PositionalParameters="Key;AccessControlList_Owner_Id;AccessControlList_Owner_DisplayName;AccessControlList_Grants;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
-                <Param Name="AccessControlList_Owner_Id" Alias="OwnerId;ACL_Owner_Id" />
-                <Param Name="AccessControlList_Owner_DisplayName" Alias="OwnerDisplayName;ACL_Owner_DisplayName" />
-                <Param Name="AccessControlList_Grants" Alias="Grant;Grants;ACL_Grants" />
+                <Param Name="AccessControlList_Owner_Id" NewName="Owner_Id" Alias="OwnerId;ACL_Owner_Id" />
+                <Param Name="AccessControlList_Owner_DisplayName" NewName="Owner_DisplayName" Alias="OwnerDisplayName;ACL_Owner_DisplayName" />
+                <Param Name="AccessControlList_Grants" NewName="AccessControlList_Grant" Alias="Grant;Grants;ACL_Grants" />
                 <Param Name="CannedACL" Alias="CannedACLName" />
             </Params>
             <TypesNotToFlatten />

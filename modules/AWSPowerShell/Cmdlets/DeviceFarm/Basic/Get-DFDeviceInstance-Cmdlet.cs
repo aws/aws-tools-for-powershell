@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Returns information about a device instance belonging to a private device fleet.
+    /// Returns information about a device instance that belongs to a private device fleet.
     /// </summary>
     [Cmdlet("Get", "DFDeviceInstance")]
     [OutputType("Amazon.DeviceFarm.Model.DeviceInstance")]

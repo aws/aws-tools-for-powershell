@@ -148,8 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems")]
-        public int? Limit { get; set; }
+        public System.Int32? Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -281,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -369,7 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -457,7 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.String FilterPattern { get; set; }
             [System.ObsoleteAttribute]
             public System.Boolean? Interleaved { get; set; }
-            public int? Limit { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String LogGroupName { get; set; }
             public System.String LogStreamNamePrefix { get; set; }
             public List<System.String> LogStreamName { get; set; }

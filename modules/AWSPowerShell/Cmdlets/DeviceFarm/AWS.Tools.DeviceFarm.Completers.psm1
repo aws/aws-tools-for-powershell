@@ -123,6 +123,20 @@ $DF_Completers = {
             break
         }
 
+        # Amazon.DeviceFarm.TestGridSessionArtifactCategory
+        "Get-DFTestGridSessionArtifactList/Type"
+        {
+            $v = "LOG","VIDEO"
+            break
+        }
+
+        # Amazon.DeviceFarm.TestGridSessionStatus
+        "Get-DFTestGridSessionList/Status"
+        {
+            $v = "ACTIVE","CLOSED","ERRORED"
+            break
+        }
+
         # Amazon.DeviceFarm.TestType
         {
             ($_ -eq "Get-DFDevicePoolCompatibility/Test_Type") -Or
@@ -155,9 +169,10 @@ $DF_Completers = {
 $DF_map = @{
     "Configuration_BillingMethod"=@("Get-DFDevicePoolCompatibility","New-DFRemoteAccessSession","Submit-DFTestRun")
     "InteractionMode"=@("New-DFRemoteAccessSession")
+    "Status"=@("Get-DFTestGridSessionList")
     "Test_Type"=@("Get-DFDevicePoolCompatibility","Submit-DFTestRun")
     "TestType"=@("Get-DFDevicePoolCompatibility")
-    "Type"=@("Get-DFArtifactList","Get-DFDevicePoolList","Get-DFNetworkProfileList","Get-DFUploadList","New-DFNetworkProfile","New-DFUpload","Update-DFNetworkProfile")
+    "Type"=@("Get-DFArtifactList","Get-DFDevicePoolList","Get-DFNetworkProfileList","Get-DFTestGridSessionArtifactList","Get-DFUploadList","New-DFNetworkProfile","New-DFUpload","Update-DFNetworkProfile")
 }
 
 _awsArgumentCompleterRegistration $DF_Completers $DF_map
@@ -215,6 +230,8 @@ $DF_SelectMap = @{
                "New-DFNetworkProfile",
                "New-DFProject",
                "New-DFRemoteAccessSession",
+               "New-DFTestGridProject",
+               "New-DFTestGridUrl",
                "New-DFUpload",
                "New-DFVPCEConfiguration",
                "Remove-DFDevicePool",
@@ -223,6 +240,7 @@ $DF_SelectMap = @{
                "Remove-DFProject",
                "Remove-DFRemoteAccessSession",
                "Remove-DFRun",
+               "Remove-DFTestGridProject",
                "Remove-DFUpload",
                "Remove-DFVPCEConfiguration",
                "Get-DFAccountSettingList",
@@ -239,6 +257,8 @@ $DF_SelectMap = @{
                "Get-DFRun",
                "Get-DFSuite",
                "Get-DFTest",
+               "Get-DFTestGridProject",
+               "Get-DFTestGridSession",
                "Get-DFUpload",
                "Get-DFVPCEConfiguration",
                "Install-DFToRemoteAccessSession",
@@ -258,6 +278,10 @@ $DF_SelectMap = @{
                "Get-DFSampleList",
                "Get-DFSuiteList",
                "Get-DFResourceTag",
+               "Get-DFTestGridProjectList",
+               "Get-DFTestGridSessionActionList",
+               "Get-DFTestGridSessionArtifactList",
+               "Get-DFTestGridSessionList",
                "Get-DFTestList",
                "Get-DFUniqueProblemList",
                "Get-DFUploadList",
@@ -275,6 +299,7 @@ $DF_SelectMap = @{
                "Update-DFInstanceProfile",
                "Update-DFNetworkProfile",
                "Update-DFProject",
+               "Update-DFTestGridProject",
                "Update-DFUpload",
                "Update-DFVPCEConfiguration")
 }

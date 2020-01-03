@@ -162,7 +162,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisionedProductPlan" OutputProperty="*" Verb="Get" Noun="ProvisionedProductPlan" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="DescribeProvisionedProductPlan" OutputProperty="*" Verb="Get" Noun="ProvisionedProductPlan" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -176,7 +176,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRecord" OutputProperty="*" Verb="Get" Noun="Record" PipelineParameter="Id" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="DescribeRecord" OutputProperty="*" Verb="Get" Noun="Record" PipelineParameter="Id" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -232,23 +232,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAcceptedPortfolioShares" OutputProperty="PortfolioDetails" Verb="Get" Noun="AcceptedPortfolioShareList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAcceptedPortfolioShares" OutputProperty="PortfolioDetails" Verb="Get" Noun="AcceptedPortfolioShareList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBudgetsForResource" OutputProperty="Budgets" Verb="Get" Noun="BudgetsForResource" PipelineParameter="ResourceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBudgetsForResource" OutputProperty="Budgets" Verb="Get" Noun="BudgetsForResource" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConstraintsForPortfolio" OutputProperty="ConstraintDetails" Verb="Get" Noun="ConstrainsForPortfolioList" PipelineParameter="PortfolioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConstraintsForPortfolio" OutputProperty="ConstraintDetails" Verb="Get" Noun="ConstrainsForPortfolioList" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLaunchPaths" OutputProperty="LaunchPathSummaries" Verb="Get" Noun="LaunchPath" PipelineParameter="ProductId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLaunchPaths" OutputProperty="LaunchPathSummaries" Verb="Get" Noun="LaunchPath" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationPortfolioAccess" OutputProperty="OrganizationNodes" Verb="Get" Noun="OrganizationPortfolioAccessList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListOrganizationPortfolioAccess" OutputProperty="OrganizationNodes" Verb="Get" Noun="OrganizationPortfolioAccessList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -256,19 +256,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortfolios" OutputProperty="PortfolioDetails" Verb="Get" Noun="PortfolioList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListPortfolios" OutputProperty="PortfolioDetails" Verb="Get" Noun="PortfolioList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortfoliosForProduct" OutputProperty="PortfolioDetails" Verb="Get" Noun="ProductPortfolioList" PipelineParameter="ProductId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPortfoliosForProduct" OutputProperty="PortfolioDetails" Verb="Get" Noun="ProductPortfolioList" PipelineParameter="ProductId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipalsForPortfolio" OutputProperty="Principals" Verb="Get" Noun="PrincipalsForPortfolio" PipelineParameter="PortfolioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPrincipalsForPortfolio" OutputProperty="Principals" Verb="Get" Noun="PrincipalsForPortfolio" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisionedProductPlans" OutputProperty="ProvisionedProductPlans" Verb="Get" Noun="ProvisionedProductPlanList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListProvisionedProductPlans" OutputProperty="ProvisionedProductPlans" Verb="Get" Noun="ProvisionedProductPlanList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -276,32 +276,32 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisioningArtifactsForServiceAction" OutputProperty="ProvisioningArtifactViews" Verb="Get" Noun="ProvisioningArtifactsForServiceActionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListProvisioningArtifactsForServiceAction" OutputProperty="ProvisioningArtifactViews" Verb="Get" Noun="ProvisioningArtifactsForServiceActionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecordHistory" OutputProperty="RecordDetails" Verb="Get" Noun="RecordHistory" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListRecordHistory" OutputProperty="RecordDetails" Verb="Get" Noun="RecordHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourcesForTagOption" OutputProperty="ResourceDetails" Verb="Get" Noun="ResourcesForTagOption" PipelineParameter="TagOptionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourcesForTagOption" OutputProperty="ResourceDetails" Verb="Get" Noun="ResourcesForTagOption" PipelineParameter="TagOptionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceActions" OutputProperty="ServiceActionSummaries" Verb="Get" Noun="ServiceActionList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListServiceActions" OutputProperty="ServiceActionSummaries" Verb="Get" Noun="ServiceActionList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceActionsForProvisioningArtifact" OutputProperty="ServiceActionSummaries" Verb="Get" Noun="ServiceActionsForProvisioningArtifactList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListServiceActionsForProvisioningArtifact" OutputProperty="ServiceActionSummaries" Verb="Get" Noun="ServiceActionsForProvisioningArtifactList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackInstancesForProvisionedProduct" OutputProperty="StackInstances" Verb="Get" Noun="StackInstancesForProvisionedProduct" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStackInstancesForProvisionedProduct" OutputProperty="StackInstances" Verb="Get" Noun="StackInstancesForProvisionedProduct" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagOptions" OutputProperty="TagOptionDetails" Verb="Get" Noun="TagOptionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTagOptions" OutputProperty="TagOptionDetails" Verb="Get" Noun="TagOptionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" />
             <TypesNotToFlatten />
@@ -314,19 +314,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ScanProvisionedProducts" OutputProperty="ProvisionedProducts" Verb="Get" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ScanProvisionedProducts" OutputProperty="ProvisionedProducts" Verb="Get" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProducts" OutputProperty="*" Verb="Find" Noun="Product" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="SearchProducts" OutputProperty="*" Verb="Find" Noun="Product" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProductsAsAdmin" OutputProperty="ProductViewDetails" Verb="Find" Noun="ProductsAsAdmin" PipelineParameter="PortfolioId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchProductsAsAdmin" OutputProperty="ProductViewDetails" Verb="Find" Noun="ProductsAsAdmin" PipelineParameter="PortfolioId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProvisionedProducts" OutputProperty="ProvisionedProducts" Verb="Find" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchProvisionedProducts" OutputProperty="ProvisionedProducts" Verb="Find" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

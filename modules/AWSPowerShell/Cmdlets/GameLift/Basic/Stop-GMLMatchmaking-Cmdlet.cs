@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter TicketId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking ticket.</para>
+        /// <para>A unique identifier for a matchmaking ticket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

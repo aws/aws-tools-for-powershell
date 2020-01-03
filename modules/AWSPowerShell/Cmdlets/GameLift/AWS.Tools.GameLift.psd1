@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The GameLift module of AWS Tools for PowerShell lets developers and administrators manage Amazon GameLift Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-GMLResourceTag', 
         'Confirm-GMLMatch', 
         'Find-GMLGameSession', 
         'Get-GMLAlias', 
@@ -110,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GMLMatchmakingConfiguration', 
         'Get-GMLMatchmakingRuleSet', 
         'Get-GMLPlayerSession', 
+        'Get-GMLResourceTag', 
         'Get-GMLRuntimeConfiguration', 
         'Get-GMLScalingPolicy', 
         'Get-GMLScript', 
@@ -133,6 +135,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-GMLGameSessionQueue', 
         'Remove-GMLMatchmakingConfiguration', 
         'Remove-GMLMatchmakingRuleSet', 
+        'Remove-GMLResourceTag', 
         'Remove-GMLScalingPolicy', 
         'Remove-GMLScript', 
         'Remove-GMLVpcPeeringAuthorization', 

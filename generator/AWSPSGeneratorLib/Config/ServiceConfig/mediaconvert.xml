@@ -55,7 +55,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="Mode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="Mode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -81,21 +81,21 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="Queue" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="Queue" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="Queue" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="JobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="Category" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJobTemplates" OutputProperty="JobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="Category" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPresets" OutputProperty="Presets" Verb="Get" Noun="PresetList" PipelineParameter="Category" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPresets" OutputProperty="Presets" Verb="Get" Noun="PresetList" PipelineParameter="Category" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueues" OutputProperty="Queues" Verb="Get" Noun="QueueList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListQueues" OutputProperty="Queues" Verb="Get" Noun="QueueList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

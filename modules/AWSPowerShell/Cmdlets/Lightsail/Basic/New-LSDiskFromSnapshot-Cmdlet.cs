@@ -102,9 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The name of the disk snapshot (e.g., <code>my-snapshot</code>) from which to create
-        /// the new storage disk.</para><para>This parameter cannot be defined together with the <code>source disk name</code> parameter.
+        /// the new storage disk.</para><para>Constraint:</para><ul><li><para>This parameter cannot be defined together with the <code>source disk name</code> parameter.
         /// The <code>disk snapshot name</code> and <code>source disk name</code> parameters are
-        /// mutually exclusive.</para>
+        /// mutually exclusive.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -114,12 +114,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter RestoreDate
         /// <summary>
         /// <para>
-        /// <para>The date of the automatic snapshot to use for the new disk.</para><para>Use the <code>get auto snapshots</code> operation to identify the dates of the available
-        /// automatic snapshots.</para><para>Constraints:</para><ul><li><para>Must be specified in <code>YYYY-MM-DD</code> format.</para></li><li><para>This parameter cannot be defined together with the <code>use latest restorable auto
+        /// <para>The date of the automatic snapshot to use for the new disk. Use the <code>get auto
+        /// snapshots</code> operation to identify the dates of the available automatic snapshots.</para><para>Constraints:</para><ul><li><para>Must be specified in <code>YYYY-MM-DD</code> format.</para></li><li><para>This parameter cannot be defined together with the <code>use latest restorable auto
         /// snapshot</code> parameter. The <code>restore date</code> and <code>use latest restorable
-        /// auto snapshot</code> parameters are mutually exclusive.</para></li></ul><note><para>Define this parameter only when creating a new disk from an automatic snapshot. For
+        /// auto snapshot</code> parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new disk from an automatic snapshot. For
         /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
-        /// Dev Guide</a>.</para></note>
+        /// Dev Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,11 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SourceDiskName
         /// <summary>
         /// <para>
-        /// <para>The name of the source disk from which the source automatic snapshot was created.</para><para>This parameter cannot be defined together with the <code>disk snapshot name</code>
+        /// <para>The name of the source disk from which the source automatic snapshot was created.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <code>disk snapshot name</code>
         /// parameter. The <code>source disk name</code> and <code>disk snapshot name</code> parameters
-        /// are mutually exclusive.</para><note><para>Define this parameter only when creating a new disk from an automatic snapshot. For
+        /// are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new disk from an automatic snapshot. For
         /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
-        /// Dev Guide</a>.</para></note>
+        /// Dev Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,11 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter UseLatestRestorableAutoSnapshot
         /// <summary>
         /// <para>
-        /// <para>A Boolean value to indicate whether to use the latest available automatic snapshot.</para><para>This parameter cannot be defined together with the <code>restore date</code> parameter.
+        /// <para>A Boolean value to indicate whether to use the latest available automatic snapshot.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <code>restore date</code> parameter.
         /// The <code>use latest restorable auto snapshot</code> and <code>restore date</code>
-        /// parameters are mutually exclusive.</para><note><para>Define this parameter only when creating a new disk from an automatic snapshot. For
+        /// parameters are mutually exclusive.</para></li><li><para>Define this parameter only when creating a new disk from an automatic snapshot. For
         /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
-        /// Dev Guide</a>.</para></note>
+        /// Dev Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>Amazon S3 bucket identifier. This is the name of the S3 bucket.</para>
+        /// <para>An Amazon S3 bucket identifier. This is the name of the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Key
         /// <summary>
         /// <para>
-        /// <para>Name of the zip file containing the build files or script files. </para>
+        /// <para>The name of the zip file that contains the build files or script files. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a script. Script names do not need to be
-        /// unique.</para>
+        /// <para>A descriptive label that is associated with a script. Script names do not need to
+        /// be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_ObjectVersion
         /// <summary>
         /// <para>
-        /// <para>Version of the file, if object versioning is turned on for the bucket. Amazon GameLift
-        /// uses this information when retrieving files from an S3 bucket that you own. Use this
-        /// parameter to specify a specific version of the file; if not set, the latest version
-        /// of the file is retrieved. </para>
+        /// <para>The version of the file, if object versioning is turned on for the bucket. Amazon
+        /// GameLift uses this information when retrieving files from an S3 bucket that you own.
+        /// Use this parameter to specify a specific version of the file. If not set, the latest
+        /// version of the file is retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_RoleArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
+        /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
         /// for an IAM role that allows Amazon GameLift to access the S3 bucket.</para>
         /// </para>
         /// </summary>
@@ -115,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ScriptId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a Realtime script to update.</para>
+        /// <para>A unique identifier for a Realtime script to update. You can use either the script
+        /// ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version that is associated with a build or script. Version strings do not need to
-        /// be unique.</para>
+        /// <para>The version that is associated with a build or script. Version strings do not need
+        /// to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ZipFile
         /// <summary>
         /// <para>
-        /// <para>Data object containing your Realtime scripts and dependencies as a zip file. The zip
-        /// file can have one or multiple files. Maximum size of a zip file is 5 MB.</para><para>When using the AWS CLI tool to create a script, this parameter is set to the zip file
+        /// <para>A data object containing your Realtime scripts and dependencies as a zip file. The
+        /// zip file can have one or multiple files. Maximum size of a zip file is 5 MB.</para><para>When using the AWS CLI tool to create a script, this parameter is set to the zip file
         /// name. It must be prepended with the string "fileb://" to indicate that the file data
         /// is a binary object. For example: <code>--zip-file fileb://myRealtimeScript.zip</code>.</para>
         /// </para>

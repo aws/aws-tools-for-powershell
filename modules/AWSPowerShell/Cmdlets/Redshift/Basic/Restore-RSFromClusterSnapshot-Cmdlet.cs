@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 Availability Zone in which to restore the cluster.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Example: <code>us-east-1a</code></para>
+        /// <para>The Amazon EC2 Availability Zone in which to restore the cluster.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Example: <code>us-east-2a</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

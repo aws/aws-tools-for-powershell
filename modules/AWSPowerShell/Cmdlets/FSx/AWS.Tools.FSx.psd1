@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The FSx module of AWS Tools for PowerShell lets developers and administrators manage Amazon FSx from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -88,14 +88,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-FSXResourceTag', 
         'Get-FSXBackup', 
+        'Get-FSXDataRepositoryTask', 
         'Get-FSXFileSystem', 
         'Get-FSXResourceTagList', 
         'New-FSXBackup', 
+        'New-FSXDataRepositoryTask', 
         'New-FSXFileSystem', 
         'New-FSXFileSystemFromBackup', 
         'Remove-FSXBackup', 
         'Remove-FSXFileSystem', 
         'Remove-FSXResourceTag', 
+        'Stop-FSXDataRepositoryTask', 
         'Update-FSXFileSystem')
 
     # Variables to export from this module

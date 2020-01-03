@@ -49,8 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking rule set to be deleted. (Note: The rule set name
-        /// is different from the optional "name" field in the rule set body.) </para>
+        /// <para>A unique identifier for a matchmaking rule set to be deleted. (Note: The rule set
+        /// name is different from the optional "name" field in the rule set body.) You can use
+        /// either the rule set name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

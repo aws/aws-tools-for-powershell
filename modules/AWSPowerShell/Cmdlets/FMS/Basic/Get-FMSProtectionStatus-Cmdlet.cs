@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.MemberAccountId != null)
             {
@@ -296,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.MemberAccountId != null)
             {
@@ -377,7 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
-            public int? MaxResult { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String MemberAccountId { get; set; }
             public System.String NextToken { get; set; }
             public System.String PolicyId { get; set; }

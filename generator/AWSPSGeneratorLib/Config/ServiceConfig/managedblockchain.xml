@@ -60,27 +60,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="NetworkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="NodeList" PipelineParameter="MemberId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="NodeList" PipelineParameter="MemberId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProposals" OutputProperty="Proposals" Verb="Get" Noun="ProposalList" PipelineParameter="NetworkId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProposals" OutputProperty="Proposals" Verb="Get" Noun="ProposalList" PipelineParameter="NetworkId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProposalVotes" OutputProperty="ProposalVotes" Verb="Get" Noun="ProposalVoteList" PipelineParameter="ProposalId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProposalVotes" OutputProperty="ProposalVotes" Verb="Get" Noun="ProposalVoteList" PipelineParameter="ProposalId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

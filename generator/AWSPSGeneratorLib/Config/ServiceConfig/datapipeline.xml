@@ -9,7 +9,7 @@
     <ServiceClient>AmazonDataPipelineClient</ServiceClient>
     <ServiceModuleGuid>68abcdca-cfe8-4bf4-bc5e-c290185f5a96</ServiceModuleGuid>
     <PipelineParameter>PipelineId</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" TruncatedFlag="HasMoreResults" />
+    <AutoIterate Start="Marker" Next="Marker" />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Report" To="Update" />

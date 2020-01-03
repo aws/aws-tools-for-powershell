@@ -75,7 +75,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBotAliases" OutputProperty="BotAliases" Verb="Get" Noun="BotAliasList" PipelineParameter="BotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBotAliases" OutputProperty="BotAliases" Verb="Get" Noun="BotAliasList" PipelineParameter="BotName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,15 +83,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBotChannelAssociations" OutputProperty="BotChannelAssociations" Verb="Get" Noun="BotChannelAssociationList" PipelineParameter="BotName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBotChannelAssociations" OutputProperty="BotChannelAssociations" Verb="Get" Noun="BotChannelAssociationList" PipelineParameter="BotName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBotVersions" OutputProperty="Bots" Verb="Get" Noun="BotVersionList" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetBotVersions" OutputProperty="Bots" Verb="Get" Noun="BotVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,11 +99,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBuiltinIntents" OutputProperty="Intents" Verb="Get" Noun="BuiltinIntentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetBuiltinIntents" OutputProperty="Intents" Verb="Get" Noun="BuiltinIntentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBuiltinSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="BuiltinSlotType" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetBuiltinSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="BuiltinSlotType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,11 +119,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntents" OutputProperty="Intents" Verb="Get" Noun="IntentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetIntents" OutputProperty="Intents" Verb="Get" Noun="IntentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntentVersions" OutputProperty="Intents" Verb="Get" Noun="IntentVersion" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetIntentVersions" OutputProperty="Intents" Verb="Get" Noun="IntentVersion" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,11 +131,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetSlotTypes" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSlotTypeVersions" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeVersionList" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSlotTypeVersions" OutputProperty="SlotTypes" Verb="Get" Noun="SlotTypeVersionList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

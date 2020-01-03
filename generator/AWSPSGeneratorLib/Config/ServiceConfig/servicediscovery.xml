@@ -55,7 +55,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstancesHealthStatus" OutputProperty="Status" Verb="Get" Noun="InstancesHealthStatus" PipelineParameter="ServiceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInstancesHealthStatus" OutputProperty="Status" Verb="Get" Noun="InstancesHealthStatus" PipelineParameter="ServiceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -71,19 +71,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PipelineParameter="ServiceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PipelineParameter="ServiceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNamespaces" OutputProperty="Namespaces" Verb="Get" Noun="NamespaceList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListNamespaces" OutputProperty="Namespaces" Verb="Get" Noun="NamespaceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOperations" OutputProperty="Operations" Verb="Get" Noun="OperationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListOperations" OutputProperty="Operations" Verb="Get" Noun="OperationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServices" OutputProperty="Services" Verb="Get" Noun="ServiceList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListServices" OutputProperty="Services" Verb="Get" Noun="ServiceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

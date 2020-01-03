@@ -35,23 +35,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociationsForLicenseConfiguration" OutputProperty="LicenseConfigurationAssociations" Verb="Get" Noun="AssociationsForLicenseConfigurationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssociationsForLicenseConfiguration" OutputProperty="LicenseConfigurationAssociations" Verb="Get" Noun="AssociationsForLicenseConfigurationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFailuresForLicenseConfigurationOperations" OutputProperty="LicenseOperationFailureList" Verb="Get" Noun="FailuresForLicenseConfigurationOperationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFailuresForLicenseConfigurationOperations" OutputProperty="LicenseOperationFailureList" Verb="Get" Noun="FailuresForLicenseConfigurationOperationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLicenseConfigurations" OutputProperty="LicenseConfigurations" Verb="Get" Noun="LicenseConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListLicenseConfigurations" OutputProperty="LicenseConfigurations" Verb="Get" Noun="LicenseConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLicenseSpecificationsForResource" OutputProperty="LicenseSpecifications" Verb="Get" Noun="LicenseSpecificationsForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLicenseSpecificationsForResource" OutputProperty="LicenseSpecifications" Verb="Get" Noun="LicenseSpecificationsForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceInventory" OutputProperty="ResourceInventoryList" Verb="Get" Noun="ResourceInventoryList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListResourceInventory" OutputProperty="ResourceInventoryList" Verb="Get" Noun="ResourceInventoryList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,7 +59,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsageForLicenseConfiguration" OutputProperty="LicenseConfigurationUsageList" Verb="Get" Noun="UsageForLicenseConfigurationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsageForLicenseConfiguration" OutputProperty="LicenseConfigurationUsageList" Verb="Get" Noun="UsageForLicenseConfigurationList" PipelineParameter="LicenseConfigurationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

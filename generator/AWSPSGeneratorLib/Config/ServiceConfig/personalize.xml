@@ -131,43 +131,43 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBatchInferenceJobs" OutputProperty="BatchInferenceJobs" Verb="Get" Noun="BatchInferenceJobList" PipelineParameter="SolutionVersionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBatchInferenceJobs" OutputProperty="BatchInferenceJobs" Verb="Get" Noun="BatchInferenceJobList" PipelineParameter="SolutionVersionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCampaigns" OutputProperty="Campaigns" Verb="Get" Noun="CampaignList" PipelineParameter="SolutionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCampaigns" OutputProperty="Campaigns" Verb="Get" Noun="CampaignList" PipelineParameter="SolutionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="DatasetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="DatasetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventTrackers" OutputProperty="EventTrackers" Verb="Get" Noun="EventTrackerList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEventTrackers" OutputProperty="EventTrackers" Verb="Get" Noun="EventTrackerList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecipes" OutputProperty="Recipes" Verb="Get" Noun="RecipeList" PipelineParameter="RecipeProvider" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRecipes" OutputProperty="Recipes" Verb="Get" Noun="RecipeList" PipelineParameter="RecipeProvider" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSchemas" OutputProperty="Schemas" Verb="Get" Noun="SchemaList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSchemas" OutputProperty="Schemas" Verb="Get" Noun="SchemaList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSolutions" OutputProperty="Solutions" Verb="Get" Noun="SolutionList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSolutions" OutputProperty="Solutions" Verb="Get" Noun="SolutionList" PipelineParameter="DatasetGroupArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSolutionVersions" OutputProperty="SolutionVersions" Verb="Get" Noun="SolutionVersionList" PipelineParameter="SolutionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSolutionVersions" OutputProperty="SolutionVersions" Verb="Get" Noun="SolutionVersionList" PipelineParameter="SolutionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -104,6 +104,32 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ConversationLogs_IamRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role with permission to write to your CloudWatch
+        /// Logs for text logs and your S3 bucket for audio logs. If audio encryption is enabled,
+        /// this role also provides access permission for the AWS KMS key used for encrypting
+        /// audio logs. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/conversation-logs-role-and-policy.html">Creating
+        /// an IAM Role and Policy for Conversation Logs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConversationLogs_IamRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ConversationLogs_LogSetting
+        /// <summary>
+        /// <para>
+        /// <para>The settings for your conversation logs. You can log the conversation text, conversation
+        /// audio, or both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ConversationLogs_LogSettings")]
+        public Amazon.LexModelBuildingService.Model.LogSettingsRequest[] ConversationLogs_LogSetting { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -197,6 +223,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             }
             #endif
             context.Checksum = this.Checksum;
+            context.ConversationLogs_IamRoleArn = this.ConversationLogs_IamRoleArn;
+            if (this.ConversationLogs_LogSetting != null)
+            {
+                context.ConversationLogs_LogSetting = new List<Amazon.LexModelBuildingService.Model.LogSettingsRequest>(this.ConversationLogs_LogSetting);
+            }
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -232,6 +263,35 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (cmdletContext.Checksum != null)
             {
                 request.Checksum = cmdletContext.Checksum;
+            }
+            
+             // populate ConversationLogs
+            var requestConversationLogsIsNull = true;
+            request.ConversationLogs = new Amazon.LexModelBuildingService.Model.ConversationLogsRequest();
+            System.String requestConversationLogs_conversationLogs_IamRoleArn = null;
+            if (cmdletContext.ConversationLogs_IamRoleArn != null)
+            {
+                requestConversationLogs_conversationLogs_IamRoleArn = cmdletContext.ConversationLogs_IamRoleArn;
+            }
+            if (requestConversationLogs_conversationLogs_IamRoleArn != null)
+            {
+                request.ConversationLogs.IamRoleArn = requestConversationLogs_conversationLogs_IamRoleArn;
+                requestConversationLogsIsNull = false;
+            }
+            List<Amazon.LexModelBuildingService.Model.LogSettingsRequest> requestConversationLogs_conversationLogs_LogSetting = null;
+            if (cmdletContext.ConversationLogs_LogSetting != null)
+            {
+                requestConversationLogs_conversationLogs_LogSetting = cmdletContext.ConversationLogs_LogSetting;
+            }
+            if (requestConversationLogs_conversationLogs_LogSetting != null)
+            {
+                request.ConversationLogs.LogSettings = requestConversationLogs_conversationLogs_LogSetting;
+                requestConversationLogsIsNull = false;
+            }
+             // determine if request.ConversationLogs should be set to null
+            if (requestConversationLogsIsNull)
+            {
+                request.ConversationLogs = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -305,6 +365,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public System.String BotName { get; set; }
             public System.String BotVersion { get; set; }
             public System.String Checksum { get; set; }
+            public System.String ConversationLogs_IamRoleArn { get; set; }
+            public List<Amazon.LexModelBuildingService.Model.LogSettingsRequest> ConversationLogs_LogSetting { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.LexModelBuildingService.Model.PutBotAliasResponse, WriteLMBBotAliasCmdlet, object> Select { get; set; } =

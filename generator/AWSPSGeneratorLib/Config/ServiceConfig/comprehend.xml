@@ -123,35 +123,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentClassificationJobs" OutputProperty="DocumentClassificationJobPropertiesList" Verb="Get" Noun="DocumentClassificationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDocumentClassificationJobs" OutputProperty="DocumentClassificationJobPropertiesList" Verb="Get" Noun="DocumentClassificationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentClassifiers" OutputProperty="DocumentClassifierPropertiesList" Verb="Get" Noun="DocumentClassifierList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDocumentClassifiers" OutputProperty="DocumentClassifierPropertiesList" Verb="Get" Noun="DocumentClassifierList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" OutputProperty="DominantLanguageDetectionJobPropertiesList" Verb="Get" Noun="DominantLanguageDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" OutputProperty="DominantLanguageDetectionJobPropertiesList" Verb="Get" Noun="DominantLanguageDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpoints" OutputProperty="EndpointPropertiesList" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListEndpoints" OutputProperty="EndpointPropertiesList" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitiesDetectionJobs" OutputProperty="EntitiesDetectionJobPropertiesList" Verb="Get" Noun="EntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEntitiesDetectionJobs" OutputProperty="EntitiesDetectionJobPropertiesList" Verb="Get" Noun="EntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntityRecognizers" OutputProperty="EntityRecognizerPropertiesList" Verb="Get" Noun="EntityRecognizerList" PipelineParameter="Filter_Status" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEntityRecognizers" OutputProperty="EntityRecognizerPropertiesList" Verb="Get" Noun="EntityRecognizerList" PipelineParameter="Filter_Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeyPhrasesDetectionJobs" OutputProperty="KeyPhrasesDetectionJobPropertiesList" Verb="Get" Noun="KeyPhrasesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListKeyPhrasesDetectionJobs" OutputProperty="KeyPhrasesDetectionJobPropertiesList" Verb="Get" Noun="KeyPhrasesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSentimentDetectionJobs" OutputProperty="SentimentDetectionJobPropertiesList" Verb="Get" Noun="SentimentDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSentimentDetectionJobs" OutputProperty="SentimentDetectionJobPropertiesList" Verb="Get" Noun="SentimentDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -159,7 +159,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicsDetectionJobs" OutputProperty="TopicsDetectionJobPropertiesList" Verb="Get" Noun="TopicsDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTopicsDetectionJobs" OutputProperty="TopicsDetectionJobPropertiesList" Verb="Get" Noun="TopicsDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

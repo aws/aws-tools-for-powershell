@@ -28,7 +28,12 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns information about provisioned RDS instances. This API supports pagination.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about provisioned RDS instances. This API supports pagination.
+    /// 
+    ///  <note><para>
+    /// This operation can also return information for Amazon Neptune DB instances and Amazon
+    /// DocumentDB instances.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSDBInstance")]
     [OutputType("Amazon.RDS.Model.DBInstance")]

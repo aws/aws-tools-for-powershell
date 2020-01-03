@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlacementId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a game session placement to cancel.</para>
+        /// <para>A unique identifier for a game session placement to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

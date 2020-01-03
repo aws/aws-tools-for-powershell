@@ -47,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet alias. Specify the alias you want to delete.</para>
+        /// <para>A unique identifier of the alias that you want to delete. You can use either the alias
+        /// ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

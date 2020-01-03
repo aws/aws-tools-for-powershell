@@ -122,6 +122,18 @@ $CHM_Completers = {
             break
         }
 
+        # Amazon.Chime.UserType
+        {
+            ($_ -eq "Get-CHMUserList/UserType") -Or
+            ($_ -eq "New-CHMUser/UserType") -Or
+            ($_ -eq "Send-CHMUserInvitation/UserType") -Or
+            ($_ -eq "Update-CHMUser/UserType")
+        }
+        {
+            $v = "PrivateUser","SharedDevice"
+            break
+        }
+
         # Amazon.Chime.VoiceConnectorAwsRegion
         "New-CHMVoiceConnector/AwsRegion"
         {
@@ -144,6 +156,7 @@ $CHM_map = @{
     "ProductType"=@("Get-CHMPhoneNumberList","New-CHMPhoneNumberOrder","Update-CHMPhoneNumber")
     "Role"=@("New-CHMRoomMembership","Update-CHMRoomMembership")
     "Status"=@("Get-CHMPhoneNumberList")
+    "UserType"=@("Get-CHMUserList","New-CHMUser","Send-CHMUserInvitation","Update-CHMUser")
 }
 
 _awsArgumentCompleterRegistration $CHM_Completers $CHM_map
@@ -199,6 +212,7 @@ $CHM_SelectMap = @{
     "Select"=@("Add-CHMPhoneNumbersToVoiceConnector",
                "Add-CHMPhoneNumbersToVoiceConnectorGroup",
                "Add-CHMPhoneNumberToUser",
+               "Add-CHMSigninDelegateGroupsToAccount",
                "New-CHMAttendeeBatch",
                "New-CHMRoomMembershipBatch",
                "Remove-CHMPhoneNumberBatch",
@@ -213,6 +227,7 @@ $CHM_SelectMap = @{
                "New-CHMPhoneNumberOrder",
                "New-CHMRoom",
                "New-CHMRoomMembership",
+               "New-CHMUser",
                "New-CHMVoiceConnector",
                "New-CHMVoiceConnectorGroup",
                "Remove-CHMAccount",
@@ -231,6 +246,7 @@ $CHM_SelectMap = @{
                "Remove-CHMPhoneNumberFromUser",
                "Remove-CHMPhoneNumbersFromVoiceConnector",
                "Remove-CHMPhoneNumbersFromVoiceConnectorGroup",
+               "Remove-CHMSigninDelegateGroupsFromAccount",
                "Get-CHMAccount",
                "Get-CHMAccountSetting",
                "Get-CHMAttendee",

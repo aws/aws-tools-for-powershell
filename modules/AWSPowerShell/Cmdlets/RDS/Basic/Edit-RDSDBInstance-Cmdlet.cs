@@ -131,6 +131,23 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String CACertificateIdentifier { get; set; }
         #endregion
         
+        #region Parameter CertificateRotationRestart
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS
+        /// certificate.</para><para>By default, the DB instance is restarted when you rotate your SSL/TLS certificate.
+        /// The certificate is not updated until the DB instance is restarted.</para><important><para>Set this parameter only if you are <i>not</i> using SSL/TLS to connect to the DB instance.</para></important><para>If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions
+        /// for your DB engine to rotate your SSL/TLS certificate:</para><ul><li><para>For more information about rotating your SSL/TLS certificate for RDS DB engines, see
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+        /// Rotating Your SSL/TLS Certificate.</a> in the <i>Amazon RDS User Guide.</i></para></li><li><para>For more information about rotating your SSL/TLS certificate for Aurora DB engines,
+        /// see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+        /// Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide.</i></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CertificateRotationRestart { get; set; }
+        #endregion
+        
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
@@ -711,6 +728,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
+            context.CertificateRotationRestart = this.CertificateRotationRestart;
             if (this.CloudwatchLogsExportConfiguration_DisableLogType != null)
             {
                 context.CloudwatchLogsExportConfiguration_DisableLogType = new List<System.String>(this.CloudwatchLogsExportConfiguration_DisableLogType);
@@ -807,6 +825,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CACertificateIdentifier != null)
             {
                 request.CACertificateIdentifier = cmdletContext.CACertificateIdentifier;
+            }
+            if (cmdletContext.CertificateRotationRestart != null)
+            {
+                request.CertificateRotationRestart = cmdletContext.CertificateRotationRestart.Value;
             }
             
              // populate CloudwatchLogsExportConfiguration
@@ -1040,6 +1062,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CACertificateIdentifier { get; set; }
+            public System.Boolean? CertificateRotationRestart { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_EnableLogType { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }

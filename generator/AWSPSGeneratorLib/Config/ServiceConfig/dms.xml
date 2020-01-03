@@ -81,19 +81,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="Filters" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnections" OutputProperty="Connections" Verb="Get" Noun="Connection" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeConnections" OutputProperty="Connections" Verb="Get" Noun="Connection" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="Endpoint" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpointTypes" OutputProperty="SupportedEndpointTypes" Verb="Get" Noun="EndpointType" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeEndpointTypes" OutputProperty="SupportedEndpointTypes" Verb="Get" Noun="EndpointType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -101,19 +101,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEventSubscriptions" OutputProperty="EventSubscriptionsList" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrderableReplicationInstances" OutputProperty="OrderableReplicationInstances" Verb="Get" Noun="OrderableReplicationInstance" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeOrderableReplicationInstances" OutputProperty="OrderableReplicationInstances" Verb="Get" Noun="OrderableReplicationInstance" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePendingMaintenanceActions" OutputProperty="PendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePendingMaintenanceActions" OutputProperty="PendingMaintenanceActions" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -121,31 +121,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationInstances" OutputProperty="ReplicationInstances" Verb="Get" Noun="ReplicationInstance" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeReplicationInstances" OutputProperty="ReplicationInstances" Verb="Get" Noun="ReplicationInstance" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationInstanceTaskLogs" OutputProperty="ReplicationInstanceTaskLogs" Verb="Get" Noun="ReplicationInstanceTaskLog" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReplicationInstanceTaskLogs" OutputProperty="ReplicationInstanceTaskLogs" Verb="Get" Noun="ReplicationInstanceTaskLog" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationSubnetGroups" OutputProperty="ReplicationSubnetGroups" Verb="Get" Noun="ReplicationSubnetGroup" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeReplicationSubnetGroups" OutputProperty="ReplicationSubnetGroups" Verb="Get" Noun="ReplicationSubnetGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationTaskAssessmentResults" OutputProperty="*" Verb="Get" Noun="ReplicationTaskAssessmentResult" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="DescribeReplicationTaskAssessmentResults" OutputProperty="*" Verb="Get" Noun="ReplicationTaskAssessmentResult" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationTasks" OutputProperty="ReplicationTasks" Verb="Get" Noun="ReplicationTask" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeReplicationTasks" OutputProperty="ReplicationTasks" Verb="Get" Noun="ReplicationTask" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSchemas" OutputProperty="Schemas" Verb="Get" Noun="Schema" PipelineParameter="EndpointArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSchemas" OutputProperty="Schemas" Verb="Get" Noun="Schema" PipelineParameter="EndpointArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTableStatistics" OutputProperty="*" Verb="Get" Noun="TableStatistic" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="DescribeTableStatistics" OutputProperty="*" Verb="Get" Noun="TableStatistic" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

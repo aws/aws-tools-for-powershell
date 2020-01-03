@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
     /// Modifies the settings for a snapshot.
+    /// 
+    ///  
+    /// <para>
+    /// This exanmple modifies the manual retention period setting for a cluster snapshot.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "RSClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Snapshot")]

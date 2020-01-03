@@ -89,6 +89,16 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         public System.String[] SubnetId { get; set; }
         #endregion
         
+        #region Parameter TagList
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CloudHSMV2.Model.Tag[] TagList { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
@@ -148,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                 WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagList != null)
+            {
+                context.TagList = new List<Amazon.CloudHSMV2.Model.Tag>(this.TagList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             if (cmdletContext.SubnetId != null)
             {
                 request.SubnetIds = cmdletContext.SubnetId;
+            }
+            if (cmdletContext.TagList != null)
+            {
+                request.TagList = cmdletContext.TagList;
             }
             
             CmdletOutput output;
@@ -240,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             public System.String HsmType { get; set; }
             public System.String SourceBackupId { get; set; }
             public List<System.String> SubnetId { get; set; }
+            public List<Amazon.CloudHSMV2.Model.Tag> TagList { get; set; }
             public System.Func<Amazon.CloudHSMV2.Model.CreateClusterResponse, NewHSM2ClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Cluster;
         }

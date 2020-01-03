@@ -53,15 +53,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImages" OutputProperty="ImageDetails" Verb="Get" Noun="ImageMetadata" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeImages" OutputProperty="ImageDetails" Verb="Get" Noun="ImageMetadata" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImageScanFindings" OutputProperty="*" Verb="Get" Noun="ImageScanFinding" PipelineParameter="RepositoryName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="DescribeImageScanFindings" OutputProperty="*" Verb="Get" Noun="ImageScanFinding" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRepositories" OutputProperty="Repositories" Verb="Get" Noun="Repository" PipelineParameter="RepositoryNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRepositories" OutputProperty="Repositories" Verb="Get" Noun="Repository" PipelineParameter="RepositoryNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="MaxResults" NewName="MaxResult" Alias="MaxItems" />
             </Params>
@@ -79,7 +79,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecyclePolicyPreview" OutputProperty="*" Verb="Get" Noun="LifecyclePolicyPreview" PipelineParameter="RepositoryName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetLifecyclePolicyPreview" OutputProperty="*" Verb="Get" Noun="LifecyclePolicyPreview" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,7 +91,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListImages" OutputProperty="ImageIds" Verb="Get" Noun="Image" PipelineParameter="RepositoryName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListImages" OutputProperty="ImageIds" Verb="Get" Noun="Image" PipelineParameter="RepositoryName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

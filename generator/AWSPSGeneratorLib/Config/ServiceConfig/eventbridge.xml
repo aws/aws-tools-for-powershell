@@ -73,27 +73,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventBuses" OutputProperty="EventBuses" Verb="Get" Noun="EventBusList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEventBuses" OutputProperty="EventBuses" Verb="Get" Noun="EventBusList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventSources" OutputProperty="EventSources" Verb="Get" Noun="EventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEventSources" OutputProperty="EventSources" Verb="Get" Noun="EventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPartnerEventSourceAccounts" OutputProperty="PartnerEventSourceAccounts" Verb="Get" Noun="PartnerEventSourceAccountList" PipelineParameter="EventSourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPartnerEventSourceAccounts" OutputProperty="PartnerEventSourceAccounts" Verb="Get" Noun="PartnerEventSourceAccountList" PipelineParameter="EventSourceName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPartnerEventSources" OutputProperty="PartnerEventSources" Verb="Get" Noun="PartnerEventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPartnerEventSources" OutputProperty="PartnerEventSources" Verb="Get" Noun="PartnerEventSourceList" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuleNamesByTarget" OutputProperty="RuleNames" Verb="Get" Noun="RuleNamesByTarget" PipelineParameter="TargetArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRuleNamesByTarget" OutputProperty="RuleNames" Verb="Get" Noun="RuleNamesByTarget" PipelineParameter="TargetArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="NamePrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -101,7 +101,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetsByRule" OutputProperty="Targets" Verb="Get" Noun="TargetsByRule" PipelineParameter="Rule" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTargetsByRule" OutputProperty="Targets" Verb="Get" Noun="TargetsByRule" PipelineParameter="Rule" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

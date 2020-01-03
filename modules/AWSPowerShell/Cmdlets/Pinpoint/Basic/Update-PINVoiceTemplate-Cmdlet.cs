@@ -28,8 +28,8 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Updates an existing message template that you can use in messages that are sent through
-    /// the voice channel.
+    /// Updates an existing message template for messages that are sent through the voice
+    /// channel.
     /// </summary>
     [Cmdlet("Update", "PINVoiceTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.MessageBody")]
@@ -50,6 +50,21 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String VoiceTemplateRequest_Body { get; set; }
+        #endregion
+        
+        #region Parameter CreateNewVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to save the updates as a new version of the message template. Valid
+        /// values are: true, save the updates as a new version; and, false, save the updates
+        /// to the latest existing version of the template.</para><para> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates
+        /// to the latest existing version of the template. If you specify a value of true for
+        /// this parameter, don't specify a value for the version parameter. Otherwise, an error
+        /// will occur.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CreateNewVersion { get; set; }
         #endregion
         
         #region Parameter VoiceTemplateRequest_DefaultSubstitution
@@ -120,6 +135,23 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TemplateName { get; set; }
+        #endregion
+        
+        #region Parameter Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to update, retrieve
+        /// information about, or delete. To retrieve identifiers and other information for all
+        /// the versions of a template, use the <link linkend="templates-template-name-template-type-versions">Template
+        /// Versions</link> resource.</para><para>If specified, this value must match the identifier of an existing template version.
+        /// If specified for an update operation, this value must match the identifier of the
+        /// latest existing version of the template. This restriction helps ensure that race conditions
+        /// don't occur.</para><para>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</para><ul><li><para>For a get operation, retrieves information about the active version of the template.</para></li><li><para>For an update operation, saves the updates to the latest existing version of the template,
+        /// if the create-new-version parameter isn't used or is set to false.</para></li><li><para>For a delete operation, deletes the template, including all versions of the template.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Version { get; set; }
         #endregion
         
         #region Parameter VoiceTemplateRequest_VoiceId
@@ -195,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.Select = (response, cmdlet) => this.TemplateName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CreateNewVersion = this.CreateNewVersion;
             context.TemplateName = this.TemplateName;
             #if MODULAR
             if (this.TemplateName == null && ParameterWasBound(nameof(this.TemplateName)))
@@ -202,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 WriteWarning("You are passing $null as a value for parameter TemplateName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Version = this.Version;
             context.VoiceTemplateRequest_Body = this.VoiceTemplateRequest_Body;
             context.VoiceTemplateRequest_DefaultSubstitution = this.VoiceTemplateRequest_DefaultSubstitution;
             context.VoiceTemplateRequest_LanguageCode = this.VoiceTemplateRequest_LanguageCode;
@@ -231,9 +265,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             // create request
             var request = new Amazon.Pinpoint.Model.UpdateVoiceTemplateRequest();
             
+            if (cmdletContext.CreateNewVersion != null)
+            {
+                request.CreateNewVersion = cmdletContext.CreateNewVersion.Value;
+            }
             if (cmdletContext.TemplateName != null)
             {
                 request.TemplateName = cmdletContext.TemplateName;
+            }
+            if (cmdletContext.Version != null)
+            {
+                request.Version = cmdletContext.Version;
             }
             
              // populate VoiceTemplateRequest
@@ -365,7 +407,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CreateNewVersion { get; set; }
             public System.String TemplateName { get; set; }
+            public System.String Version { get; set; }
             public System.String VoiceTemplateRequest_Body { get; set; }
             public System.String VoiceTemplateRequest_DefaultSubstitution { get; set; }
             public System.String VoiceTemplateRequest_LanguageCode { get; set; }

@@ -252,6 +252,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.FleetCapacityReservationUsageStrategy
+        "New-EC2Fleet/OnDemandOptions_CapacityReservationOptions_UsageStrategy"
+        {
+            $v = "use-capacity-reservations-first"
+            break
+        }
+
         # Amazon.EC2.FleetEventType
         "Get-EC2FleetHistory/EventType"
         {
@@ -715,6 +722,7 @@ $EC2_map = @{
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OnDemandOptions_AllocationStrategy"=@("New-EC2Fleet")
+    "OnDemandOptions_CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "OperationType"=@("Edit-EC2FpgaImageAttribute","Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
     "Options_AutoAcceptSharedAttachments"=@("New-EC2TransitGateway")
     "Options_DefaultRouteTableAssociation"=@("New-EC2TransitGateway")
@@ -986,6 +994,7 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceTypeOffering",
                "Get-EC2InstanceType",
                "Get-EC2InternetGateway",
+               "Get-EC2Ipv6Pool",
                "Get-EC2KeyPair",
                "Get-EC2Template",
                "Get-EC2TemplateVersion",
@@ -1082,6 +1091,7 @@ $EC2_SelectMap = @{
                "Export-EC2ClientVpnClientConfiguration",
                "Export-EC2Image",
                "Export-EC2TransitGatewayRoute",
+               "Get-EC2AssociatedIpv6PoolCidr",
                "Get-EC2CapacityReservationUsage",
                "Get-EC2CoipPoolUsage",
                "Get-EC2ConsoleOutput",
@@ -1180,6 +1190,7 @@ $EC2_SelectMap = @{
                "Search-EC2TransitGatewayRoute",
                "Send-EC2DiagnosticInterrupt",
                "Start-EC2Instance",
+               "Start-EC2VpcEndpointServicePrivateDnsVerification",
                "Stop-EC2Instance",
                "Stop-EC2ClientVpnConnection",
                "Remove-EC2Instance",

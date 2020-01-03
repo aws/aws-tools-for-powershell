@@ -19,7 +19,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeAffectedEntities" OutputProperty="Entities" Verb="Get" Noun="AffectedEntity" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeAffectedAccountsForOrganization" OutputProperty="AffectedAccounts" Verb="Get" Noun="AffectedAccountsForOrganization" PipelineParameter="EventArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAffectedEntities" OutputProperty="Entities" Verb="Get" Noun="AffectedEntity" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAffectedEntitiesForOrganization" OutputProperty="*" Verb="Get" Noun="AffectedEntitiesForOrganization" PipelineParameter="Locale" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -27,7 +35,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventAggregates" OutputProperty="EventAggregates" Verb="Get" Noun="EventAggregate" PipelineParameter="AggregateField" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEventAggregates" OutputProperty="EventAggregates" Verb="Get" Noun="EventAggregate" PipelineParameter="AggregateField" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -35,11 +43,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeEventDetailsForOrganization" OutputProperty="*" Verb="Get" Noun="EventDetailsForOrganization" PipelineParameter="Locale" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventTypes" OutputProperty="EventTypes" Verb="Get" Noun="EventType" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventsForOrganization" OutputProperty="Events" Verb="Get" Noun="EventsForOrganization" PipelineParameter="Locale" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventTypes" OutputProperty="EventTypes" Verb="Get" Noun="EventType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHealthServiceStatusForOrganization" OutputProperty="HealthServiceAccessStatusForOrganization" Verb="Get" Noun="HealthServiceStatusForOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableHealthServiceAccessForOrganization" Verb="Disable" Noun="HealthServiceAccessForOrganization" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableHealthServiceAccessForOrganization" Verb="Enable" Noun="HealthServiceAccessForOrganization" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

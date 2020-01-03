@@ -91,11 +91,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationSummaries" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationSnapshots" OutputProperty="SnapshotSummaries" Verb="Get" Noun="ApplicationSnapshotList" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationSnapshots" OutputProperty="SnapshotSummaries" Verb="Get" Noun="ApplicationSnapshotList" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

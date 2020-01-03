@@ -45,15 +45,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeComputeEnvironments" OutputProperty="ComputeEnvironments" Verb="Get" Noun="ComputeEnvironment" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeComputeEnvironments" OutputProperty="ComputeEnvironments" Verb="Get" Noun="ComputeEnvironment" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobDefinitions" OutputProperty="JobDefinitions" Verb="Get" Noun="JobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeJobDefinitions" OutputProperty="JobDefinitions" Verb="Get" Noun="JobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobQueues" OutputProperty="JobQueues" Verb="Get" Noun="JobQueue" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeJobQueues" OutputProperty="JobQueues" Verb="Get" Noun="JobQueue" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -61,7 +61,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaryList" Verb="Get" Noun="JobList" PipelineParameter="JobQueue" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaryList" Verb="Get" Noun="JobList" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

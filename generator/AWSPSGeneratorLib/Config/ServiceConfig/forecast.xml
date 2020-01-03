@@ -95,27 +95,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDatasetGroups" OutputProperty="DatasetGroups" Verb="Get" Noun="DatasetGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListDatasetImportJobs" OutputProperty="DatasetImportJobs" Verb="Get" Noun="DatasetImportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListForecastExportJobs" OutputProperty="ForecastExportJobs" Verb="Get" Noun="ForecastExportJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListForecastExportJobs" OutputProperty="ForecastExportJobs" Verb="Get" Noun="ForecastExportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListForecasts" OutputProperty="Forecasts" Verb="Get" Noun="ForecastList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListForecasts" OutputProperty="Forecasts" Verb="Get" Noun="ForecastList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPredictors" OutputProperty="Predictors" Verb="Get" Noun="PredictorList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListPredictors" OutputProperty="Predictors" Verb="Get" Noun="PredictorList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

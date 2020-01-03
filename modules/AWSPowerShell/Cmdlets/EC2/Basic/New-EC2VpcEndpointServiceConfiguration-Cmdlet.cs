@@ -37,6 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// To create an endpoint service configuration, you must first create a Network Load
     /// Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC
     /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
+    /// </para><para>
+    /// If you set the private DNS name, you must prove that you own the private DNS domain
+    /// name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC
+    /// Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private
+    /// Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpcEndpointServiceConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AcceptanceRequired
         /// <summary>
         /// <para>
-        /// <para>Indicate whether requests from service consumers to create an endpoint to your service
+        /// <para>Indicates whether requests from service consumers to create an endpoint to your service
         /// must be accepted. To accept a request, use <a>AcceptVpcEndpointConnections</a>.</para>
         /// </para>
         /// </summary>
@@ -77,11 +82,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] NetworkLoadBalancerArn { get; set; }
         #endregion
         
+        #region Parameter PrivateDnsName
+        /// <summary>
+        /// <para>
+        /// <para>The private DNS name to assign to the VPC endpoint service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PrivateDnsName { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
         /// to Ensure Idempotency</a>.</para>
         /// </para>
         /// </summary>
@@ -162,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter NetworkLoadBalancerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PrivateDnsName = this.PrivateDnsName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.NetworkLoadBalancerArn != null)
             {
                 request.NetworkLoadBalancerArns = cmdletContext.NetworkLoadBalancerArn;
+            }
+            if (cmdletContext.PrivateDnsName != null)
+            {
+                request.PrivateDnsName = cmdletContext.PrivateDnsName;
             }
             
             CmdletOutput output;
@@ -254,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? AcceptanceRequired { get; set; }
             public System.String ClientToken { get; set; }
             public List<System.String> NetworkLoadBalancerArn { get; set; }
+            public System.String PrivateDnsName { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpcEndpointServiceConfigurationResponse, NewEC2VpcEndpointServiceConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

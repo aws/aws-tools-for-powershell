@@ -51,15 +51,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJournalS3Exports" OutputProperty="JournalS3Exports" Verb="Get" Noun="JournalS3ExportList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJournalS3Exports" OutputProperty="JournalS3Exports" Verb="Get" Noun="JournalS3ExportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJournalS3ExportsForLedger" OutputProperty="JournalS3Exports" Verb="Get" Noun="JournalS3ExportsForLedgerList" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJournalS3ExportsForLedger" OutputProperty="JournalS3Exports" Verb="Get" Noun="JournalS3ExportsForLedgerList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLedgers" OutputProperty="Ledgers" Verb="Get" Noun="LedgerList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLedgers" OutputProperty="Ledgers" Verb="Get" Noun="LedgerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -71,12 +71,6 @@ namespace AWSPowerShellGenerator.Analysis
             new AnalysisError(service, operation, $"The specified 'OutputProperty=\"{operation.OutputProperty}\"' doesn't exist in the class returned by the service operation.");
         }
 
-
-        public static void PaginatedCmdletShouldReturnSingleProperty(ConfigModel service, ServiceOperation operation)
-        {
-            new AnalysisError(service, operation, $"The cmdlet is configured for automatic pagination but has 'OutputProperty={(operation.OutputProperty == null ? "null" : "\"\"")}'. If all output properties, except for one paginated list, are unlikely to be useful to users, change the 'OutputProperty' configuration to reference that list. Otherwise, add 'DisableLegacyPagination=\"true\"' to the operation configuration.");
-        }
-
         public static void InvalidPassThruConfiguration(ConfigModel service, ServiceOperation operation)
         {
             new AnalysisError(service, operation, $"Invalid 'PassThru' configuration.");

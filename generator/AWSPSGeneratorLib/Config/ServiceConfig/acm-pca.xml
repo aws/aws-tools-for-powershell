@@ -67,15 +67,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificateAuthorities" OutputProperty="CertificateAuthorities" Verb="Get" Noun="CertificateAuthorityList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCertificateAuthorities" OutputProperty="CertificateAuthorities" Verb="Get" Noun="CertificateAuthorityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="CertificateAuthorityTagList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="CertificateAuthorityTagList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

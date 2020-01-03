@@ -168,6 +168,8 @@ $CMPM_SelectMap = @{
                "Find-CMPMMedicalEntity",
                "Find-CMPMMedicalEntityV2",
                "Find-CMPMPersonalHealthInformation",
+               "Find-CMPMICD10CM",
+               "Find-CMPMRxNorm",
                "Get-CMPMEntitiesDetectionV2JobList",
                "Get-CMPMPersonalHealthInformationDetectionJobList",
                "Start-CMPMEntitiesDetectionV2Job",

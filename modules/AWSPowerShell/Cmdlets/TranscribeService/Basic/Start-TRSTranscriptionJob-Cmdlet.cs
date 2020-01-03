@@ -40,6 +40,21 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     public partial class StartTRSTranscriptionJobCmdlet : AmazonTranscribeServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter JobExecutionSettings_AllowDeferredExecution
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a job should be queued by Amazon Transcribe when the concurrent
+        /// execution limit is exceeded. When the <code>AllowDeferredExecution</code> field is
+        /// true, jobs are queued and will be executed when the number of executing jobs falls
+        /// below the concurrent execution limit. If the field is false, Amazon Transcribe returns
+        /// a <code>LimitExceededException</code> exception.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
+        /// <code>DataAccessRoleArn</code> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? JobExecutionSettings_AllowDeferredExecution { get; set; }
+        #endregion
+        
         #region Parameter Settings_ChannelIdentification
         /// <summary>
         /// <para>
@@ -52,6 +67,20 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? Settings_ChannelIdentification { get; set; }
+        #endregion
+        
+        #region Parameter JobExecutionSettings_DataAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains
+        /// the input files. Amazon Transcribe will assume this role to read queued media files.
+        /// If you have specified an output S3 bucket for the transcription results, this role
+        /// should have access to the output bucket as well.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
+        /// <code>DataAccessRoleArn</code> field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JobExecutionSettings_DataAccessRoleArn { get; set; }
         #endregion
         
         #region Parameter LanguageCode
@@ -217,6 +246,30 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String TranscriptionJobName { get; set; }
         #endregion
         
+        #region Parameter Settings_VocabularyFilterMethod
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>mask</code> to remove filtered text from the transcript and replace it
+        /// with three asterisks ("***") as placeholder text. Set to <code>remove</code> to remove
+        /// filtered text from the transcript without using placeholder text.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TranscribeService.VocabularyFilterMethod")]
+        public Amazon.TranscribeService.VocabularyFilterMethod Settings_VocabularyFilterMethod { get; set; }
+        #endregion
+        
+        #region Parameter Settings_VocabularyFilterName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the vocabulary filter to use when transcribing the audio. The filter that
+        /// you specify must have the same language code as the transcription job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Settings_VocabularyFilterName { get; set; }
+        #endregion
+        
         #region Parameter Settings_VocabularyName
         /// <summary>
         /// <para>
@@ -288,6 +341,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.Select = (response, cmdlet) => this.TranscriptionJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.JobExecutionSettings_AllowDeferredExecution = this.JobExecutionSettings_AllowDeferredExecution;
+            context.JobExecutionSettings_DataAccessRoleArn = this.JobExecutionSettings_DataAccessRoleArn;
             context.LanguageCode = this.LanguageCode;
             #if MODULAR
             if (this.LanguageCode == null && ParameterWasBound(nameof(this.LanguageCode)))
@@ -305,6 +360,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.Settings_MaxSpeakerLabel = this.Settings_MaxSpeakerLabel;
             context.Settings_ShowAlternative = this.Settings_ShowAlternative;
             context.Settings_ShowSpeakerLabel = this.Settings_ShowSpeakerLabel;
+            context.Settings_VocabularyFilterMethod = this.Settings_VocabularyFilterMethod;
+            context.Settings_VocabularyFilterName = this.Settings_VocabularyFilterName;
             context.Settings_VocabularyName = this.Settings_VocabularyName;
             context.TranscriptionJobName = this.TranscriptionJobName;
             #if MODULAR
@@ -329,6 +386,35 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             // create request
             var request = new Amazon.TranscribeService.Model.StartTranscriptionJobRequest();
             
+            
+             // populate JobExecutionSettings
+            var requestJobExecutionSettingsIsNull = true;
+            request.JobExecutionSettings = new Amazon.TranscribeService.Model.JobExecutionSettings();
+            System.Boolean? requestJobExecutionSettings_jobExecutionSettings_AllowDeferredExecution = null;
+            if (cmdletContext.JobExecutionSettings_AllowDeferredExecution != null)
+            {
+                requestJobExecutionSettings_jobExecutionSettings_AllowDeferredExecution = cmdletContext.JobExecutionSettings_AllowDeferredExecution.Value;
+            }
+            if (requestJobExecutionSettings_jobExecutionSettings_AllowDeferredExecution != null)
+            {
+                request.JobExecutionSettings.AllowDeferredExecution = requestJobExecutionSettings_jobExecutionSettings_AllowDeferredExecution.Value;
+                requestJobExecutionSettingsIsNull = false;
+            }
+            System.String requestJobExecutionSettings_jobExecutionSettings_DataAccessRoleArn = null;
+            if (cmdletContext.JobExecutionSettings_DataAccessRoleArn != null)
+            {
+                requestJobExecutionSettings_jobExecutionSettings_DataAccessRoleArn = cmdletContext.JobExecutionSettings_DataAccessRoleArn;
+            }
+            if (requestJobExecutionSettings_jobExecutionSettings_DataAccessRoleArn != null)
+            {
+                request.JobExecutionSettings.DataAccessRoleArn = requestJobExecutionSettings_jobExecutionSettings_DataAccessRoleArn;
+                requestJobExecutionSettingsIsNull = false;
+            }
+             // determine if request.JobExecutionSettings should be set to null
+            if (requestJobExecutionSettingsIsNull)
+            {
+                request.JobExecutionSettings = null;
+            }
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
@@ -422,6 +508,26 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 request.Settings.ShowSpeakerLabels = requestSettings_settings_ShowSpeakerLabel.Value;
                 requestSettingsIsNull = false;
             }
+            Amazon.TranscribeService.VocabularyFilterMethod requestSettings_settings_VocabularyFilterMethod = null;
+            if (cmdletContext.Settings_VocabularyFilterMethod != null)
+            {
+                requestSettings_settings_VocabularyFilterMethod = cmdletContext.Settings_VocabularyFilterMethod;
+            }
+            if (requestSettings_settings_VocabularyFilterMethod != null)
+            {
+                request.Settings.VocabularyFilterMethod = requestSettings_settings_VocabularyFilterMethod;
+                requestSettingsIsNull = false;
+            }
+            System.String requestSettings_settings_VocabularyFilterName = null;
+            if (cmdletContext.Settings_VocabularyFilterName != null)
+            {
+                requestSettings_settings_VocabularyFilterName = cmdletContext.Settings_VocabularyFilterName;
+            }
+            if (requestSettings_settings_VocabularyFilterName != null)
+            {
+                request.Settings.VocabularyFilterName = requestSettings_settings_VocabularyFilterName;
+                requestSettingsIsNull = false;
+            }
             System.String requestSettings_settings_VocabularyName = null;
             if (cmdletContext.Settings_VocabularyName != null)
             {
@@ -502,6 +608,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? JobExecutionSettings_AllowDeferredExecution { get; set; }
+            public System.String JobExecutionSettings_DataAccessRoleArn { get; set; }
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
             public System.String Media_MediaFileUri { get; set; }
             public Amazon.TranscribeService.MediaFormat MediaFormat { get; set; }
@@ -513,6 +621,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.Int32? Settings_MaxSpeakerLabel { get; set; }
             public System.Boolean? Settings_ShowAlternative { get; set; }
             public System.Boolean? Settings_ShowSpeakerLabel { get; set; }
+            public Amazon.TranscribeService.VocabularyFilterMethod Settings_VocabularyFilterMethod { get; set; }
+            public System.String Settings_VocabularyFilterName { get; set; }
             public System.String Settings_VocabularyName { get; set; }
             public System.String TranscriptionJobName { get; set; }
             public System.Func<Amazon.TranscribeService.Model.StartTranscriptionJobResponse, StartTRSTranscriptionJobCmdlet, object> Select { get; set; } =

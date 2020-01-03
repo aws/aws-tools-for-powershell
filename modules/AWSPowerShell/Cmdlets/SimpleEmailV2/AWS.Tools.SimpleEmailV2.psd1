@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The SimpleEmailV2 module of AWS Tools for PowerShell lets developers and administrators manage Amazon Simple Email Service V2 (SES V2) from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
@@ -131,6 +131,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-SES2DedicatedIpWarmupAttribute', 
         'Write-SES2DeliverabilityDashboardOption', 
         'Write-SES2EmailIdentityDkimAttribute', 
+        'Write-SES2EmailIdentityDkimSigningAttribute', 
         'Write-SES2EmailIdentityFeedbackAttribute', 
         'Write-SES2EmailIdentityMailFromAttribute', 
         'Write-SES2SuppressedDestination')

@@ -111,27 +111,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApiKeys" OutputProperty="ApiKeys" Verb="Get" Noun="ApiKeyList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApiKeys" OutputProperty="ApiKeys" Verb="Get" Noun="ApiKeyList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDataSources" OutputProperty="DataSources" Verb="Get" Noun="DataSourceList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFunctions" OutputProperty="Functions" Verb="Get" Noun="FunctionList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGraphqlApis" OutputProperty="GraphqlApis" Verb="Get" Noun="GraphqlApiList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGraphqlApis" OutputProperty="GraphqlApis" Verb="Get" Noun="GraphqlApiList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolvers" OutputProperty="Resolvers" Verb="Get" Noun="ResolverList" PipelineParameter="TypeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResolvers" OutputProperty="Resolvers" Verb="Get" Noun="ResolverList" PipelineParameter="TypeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolversByFunction" OutputProperty="Resolvers" Verb="Get" Noun="ResolverListByFunction" PipelineParameter="FunctionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResolversByFunction" OutputProperty="Resolvers" Verb="Get" Noun="ResolverListByFunction" PipelineParameter="FunctionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,7 +139,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypes" OutputProperty="Types" Verb="Get" Noun="TypeList" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTypes" OutputProperty="Types" Verb="Get" Noun="TypeList" PipelineParameter="ApiId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

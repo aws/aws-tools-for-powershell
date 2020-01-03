@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Stops advertising an IPv4 address range that is provisioned as an address pool.
+    /// Stops advertising an address range that is provisioned as an address pool.
     /// 
     ///  
     /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Cidr
         /// <summary>
         /// <para>
-        /// <para>The public IPv4 address range, in CIDR notation.</para>
+        /// <para>The address range, in CIDR notation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

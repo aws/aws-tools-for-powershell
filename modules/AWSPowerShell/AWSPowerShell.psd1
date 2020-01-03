@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright 2012-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The AWS Tools for Windows PowerShell lets developers and administrators manage their AWS services from the Windows PowerShell scripting environment.
@@ -100,6 +100,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.CodeGuruReviewer.dll',
         'AWSSDK.CodePipeline.dll',
         'AWSSDK.CodeStar.dll',
+        'AWSSDK.CodeStarconnections.dll',
         'AWSSDK.CodeStarNotifications.dll',
         'AWSSDK.CognitoIdentity.dll',
         'AWSSDK.CognitoIdentityProvider.dll',
@@ -118,6 +119,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.DataPipeline.dll',
         'AWSSDK.DataSync.dll',
         'AWSSDK.DAX.dll',
+        'AWSSDK.Detective.dll',
         'AWSSDK.DeviceFarm.dll',
         'AWSSDK.DirectConnect.dll',
         'AWSSDK.DirectoryService.dll',

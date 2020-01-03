@@ -31,7 +31,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectors" OutputProperty="DetectorSummaries" Verb="Get" Noun="DetectorList" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDetectors" OutputProperty="DetectorSummaries" Verb="Get" Noun="DetectorList" PipelineParameter="DetectorModelName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

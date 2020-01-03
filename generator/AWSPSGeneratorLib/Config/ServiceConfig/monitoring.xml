@@ -41,7 +41,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarmHistory" OutputProperty="AlarmHistoryItems" Verb="Get" Noun="AlarmHistory" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAlarmHistory" OutputProperty="AlarmHistoryItems" Verb="Get" Noun="AlarmHistory" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="EndDateUtc" NewName="UtcEndDate" AutoApplyAlias="false" />
                 <Param Name="EndDate" ExclusiveParameters="UtcEndDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndDate instead." />
@@ -50,7 +50,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarms" OutputProperty="MetricAlarms" Verb="Get" Noun="Alarm" PipelineParameter="AlarmNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAlarms" OutputProperty="MetricAlarms" Verb="Get" Noun="Alarm" PipelineParameter="AlarmNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -90,7 +90,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricData" OutputProperty="*" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetMetricData" OutputProperty="*" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />

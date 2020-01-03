@@ -53,23 +53,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProjects" OutputProperty="Projects" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForProject" OutputProperty="Tags" Verb="Get" Noun="TagsForProject" PipelineParameter="Id" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForProject" OutputProperty="Tags" Verb="Get" Noun="TagsForProject" PipelineParameter="Id" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTeamMembers" OutputProperty="TeamMembers" Verb="Get" Noun="TeamMemberList" PipelineParameter="ProjectId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTeamMembers" OutputProperty="TeamMembers" Verb="Get" Noun="TeamMemberList" PipelineParameter="ProjectId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserProfiles" OutputProperty="UserProfiles" Verb="Get" Noun="UserProfileList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserProfiles" OutputProperty="UserProfiles" Verb="Get" Noun="UserProfileList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -10,7 +10,7 @@
     <ServiceModuleGuid>1748b4bc-1117-4cfb-9b5e-b80026f1b165</ServiceModuleGuid>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter>UserName</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated" />
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxItems" />
     <VerbMappings>
         <Map From="Change" To="Edit" />
         <Map From="List" To="Get" />
@@ -248,7 +248,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountAuthorizationDetails" OutputProperty="*" Verb="Get" Noun="AccountAuthorizationDetail" PipelineParameter="Filter" NoPipelineParameter="false" DisableLegacyPagination="true" LegacyAlias="Get-IAMAccountAuthorizationDetails">
+        <ServiceOperation MethodName="GetAccountAuthorizationDetails" OutputProperty="*" Verb="Get" Noun="AccountAuthorizationDetail" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="DisablePagination" LegacyAlias="Get-IAMAccountAuthorizationDetails">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -272,7 +272,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetGroup" OutputProperty="*" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -292,7 +292,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOrganizationsAccessReport" OutputProperty="*" Verb="Get" Noun="OrganizationsAccessReport" PipelineParameter="JobId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetOrganizationsAccessReport" OutputProperty="*" Verb="Get" Noun="OrganizationsAccessReport" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -320,11 +320,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceLastAccessedDetails" OutputProperty="*" Verb="Get" Noun="ServiceLastAccessedDetail" PipelineParameter="JobId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetServiceLastAccessedDetails" OutputProperty="*" Verb="Get" Noun="ServiceLastAccessedDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceLastAccessedDetailsWithEntities" OutputProperty="*" Verb="Get" Noun="ServiceLastAccessedDetailWithEntity" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetServiceLastAccessedDetailsWithEntities" OutputProperty="*" Verb="Get" Noun="ServiceLastAccessedDetailWithEntity" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -344,51 +344,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccessKeys" OutputProperty="AccessKeyMetadata" Verb="Get" Noun="AccessKey" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccessKeys" OutputProperty="AccessKeyMetadata" Verb="Get" Noun="AccessKey" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountAliases" OutputProperty="AccountAliases" Verb="Get" Noun="AccountAlias" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccountAliases" OutputProperty="AccountAliases" Verb="Get" Noun="AccountAlias" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttachedGroupPolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedGroupPolicyList" PositionalParameters="GroupName" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-IAMAttachedGroupPolicies">
+        <ServiceOperation MethodName="ListAttachedGroupPolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedGroupPolicyList" PositionalParameters="GroupName" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMAttachedGroupPolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttachedRolePolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedRolePolicyList" PositionalParameters="RoleName" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-IAMAttachedRolePolicies">
+        <ServiceOperation MethodName="ListAttachedRolePolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedRolePolicyList" PositionalParameters="RoleName" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMAttachedRolePolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttachedUserPolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedUserPolicyList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyAlias="Get-IAMAttachedUserPolicies">
+        <ServiceOperation MethodName="ListAttachedUserPolicies" OutputProperty="AttachedPolicies" Verb="Get" Noun="AttachedUserPolicyList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMAttachedUserPolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitiesForPolicy" OutputProperty="*" Verb="Get" Noun="EntitiesForPolicy" PositionalParameters="PolicyArn" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListEntitiesForPolicy" OutputProperty="*" Verb="Get" Noun="EntitiesForPolicy" PositionalParameters="PolicyArn" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="GroupPolicyList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyAlias="Get-IAMGroupPolicies">
+        <ServiceOperation MethodName="ListGroupPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="GroupPolicyList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMGroupPolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMGroups">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMGroups">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupsForUser" OutputProperty="Groups" Verb="Get" Noun="GroupForUser" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroupsForUser" OutputProperty="Groups" Verb="Get" Noun="GroupForUser" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceProfiles" OutputProperty="InstanceProfiles" Verb="Get" Noun="InstanceProfileList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMInstanceProfiles">
+        <ServiceOperation MethodName="ListInstanceProfiles" OutputProperty="InstanceProfiles" Verb="Get" Noun="InstanceProfileList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMInstanceProfiles">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceProfilesForRole" OutputProperty="InstanceProfiles" Verb="Get" Noun="InstanceProfileForRole" PipelineParameter="RoleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInstanceProfilesForRole" OutputProperty="InstanceProfiles" Verb="Get" Noun="InstanceProfileForRole" PipelineParameter="RoleName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMFADevices" OutputProperty="MFADevices" Verb="Get" Noun="MFADevice" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMFADevices" OutputProperty="MFADevices" Verb="Get" Noun="MFADevice" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -396,7 +396,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-IAMPolicies">
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMPolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -404,19 +404,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicyVersions" OutputProperty="Versions" Verb="Get" Noun="PolicyVersionList" PipelineParameter="PolicyArn" NoPipelineParameter="false" LegacyAlias="Get-IAMPolicyVersions">
+        <ServiceOperation MethodName="ListPolicyVersions" OutputProperty="Versions" Verb="Get" Noun="PolicyVersionList" PipelineParameter="PolicyArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMPolicyVersions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRolePolicies" OutputProperty="PolicyNames" Verb="Get" Noun="RolePolicyList" PipelineParameter="RoleName" NoPipelineParameter="false" LegacyAlias="Get-IAMRolePolicies">
+        <ServiceOperation MethodName="ListRolePolicies" OutputProperty="PolicyNames" Verb="Get" Noun="RolePolicyList" PipelineParameter="RoleName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMRolePolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoles" OutputProperty="Roles" Verb="Get" Noun="RoleList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMRoles">
+        <ServiceOperation MethodName="ListRoles" OutputProperty="Roles" Verb="Get" Noun="RoleList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMRoles">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoleTags" OutputProperty="Tags" Verb="Get" Noun="RoleTagList" PipelineParameter="RoleName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRoleTags" OutputProperty="Tags" Verb="Get" Noun="RoleTagList" PipelineParameter="RoleName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -424,7 +424,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServerCertificates" OutputProperty="ServerCertificateMetadataList" Verb="Get" Noun="ServerCertificateList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMServerCertificates">
+        <ServiceOperation MethodName="ListServerCertificates" OutputProperty="ServerCertificateMetadataList" Verb="Get" Noun="ServerCertificateList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMServerCertificates">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -432,27 +432,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSigningCertificates" OutputProperty="Certificates" Verb="Get" Noun="SigningCertificate" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSigningCertificates" OutputProperty="Certificates" Verb="Get" Noun="SigningCertificate" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSSHPublicKeys" OutputProperty="SSHPublicKeys" Verb="Get" Noun="SSHPublicKeyList" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSSHPublicKeys" OutputProperty="SSHPublicKeys" Verb="Get" Noun="SSHPublicKeyList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="UserPolicyList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyAlias="Get-IAMUserPolicies">
+        <ServiceOperation MethodName="ListUserPolicies" OutputProperty="PolicyNames" Verb="Get" Noun="UserPolicyList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMUserPolicies">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyAlias="Get-IAMUsers">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="PathPrefix" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-IAMUsers">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserTags" OutputProperty="Tags" Verb="Get" Noun="UserTagList" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserTags" OutputProperty="Tags" Verb="Get" Noun="UserTagList" PipelineParameter="UserName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVirtualMFADevices" OutputProperty="VirtualMFADevices" Verb="Get" Noun="VirtualMFADevice" PipelineParameter="AssignmentStatus" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVirtualMFADevices" OutputProperty="VirtualMFADevices" Verb="Get" Noun="VirtualMFADevice" PipelineParameter="AssignmentStatus" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -504,11 +504,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SimulateCustomPolicy" OutputProperty="EvaluationResults" Verb="Test" Noun="CustomPolicy" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SimulateCustomPolicy" OutputProperty="EvaluationResults" Verb="Test" Noun="CustomPolicy" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SimulatePrincipalPolicy" OutputProperty="EvaluationResults" Verb="Test" Noun="PrincipalPolicy" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SimulatePrincipalPolicy" OutputProperty="EvaluationResults" Verb="Test" Noun="PrincipalPolicy" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

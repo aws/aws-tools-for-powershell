@@ -55,12 +55,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="MaxItems" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="Applications" Verb="Get" Noun="ApplicationList" PipelineParameter="MaxItems" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplicationVersions" OutputProperty="Versions" Verb="Get" Noun="ApplicationVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationVersions" OutputProperty="Versions" Verb="Get" Noun="ApplicationVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" />
             <TypesNotToFlatten />

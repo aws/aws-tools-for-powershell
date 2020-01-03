@@ -28,8 +28,8 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Creates a message template that you can use in messages that are sent through a push
-    /// notification channel.
+    /// Creates a message template for messages that are sent through a push notification
+    /// channel.
     /// </summary>
     [Cmdlet("New", "PINPushTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.CreateTemplateMessageBody")]

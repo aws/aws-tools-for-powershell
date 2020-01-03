@@ -31,7 +31,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCostAndUsage" OutputProperty="*" Verb="Get" Noun="CostAndUsage" PipelineParameter="TimePeriod" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetCostAndUsage" OutputProperty="*" Verb="Get" Noun="CostAndUsage" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -43,27 +43,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDimensionValues" OutputProperty="*" Verb="Get" Noun="DimensionValue" PipelineParameter="TimePeriod" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetDimensionValues" OutputProperty="*" Verb="Get" Noun="DimensionValue" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationCoverage" OutputProperty="*" Verb="Get" Noun="ReservationCoverage" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetReservationCoverage" OutputProperty="*" Verb="Get" Noun="ReservationCoverage" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationPurchaseRecommendation" OutputProperty="*" Verb="Get" Noun="ReservationPurchaseRecommendation" PipelineParameter="Service" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetReservationPurchaseRecommendation" OutputProperty="*" Verb="Get" Noun="ReservationPurchaseRecommendation" PipelineParameter="Service" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationUtilization" OutputProperty="*" Verb="Get" Noun="ReservationUtilization" PipelineParameter="TimePeriod" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetReservationUtilization" OutputProperty="*" Verb="Get" Noun="ReservationUtilization" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRightsizingRecommendation" OutputProperty="*" Verb="Get" Noun="RightsizingRecommendation" PipelineParameter="Service" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetRightsizingRecommendation" OutputProperty="*" Verb="Get" Noun="RightsizingRecommendation" PipelineParameter="Service" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSavingsPlansCoverage" OutputProperty="SavingsPlansCoverages" Verb="Get" Noun="SavingsPlansCoverage" PipelineParameter="TimePeriod" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSavingsPlansCoverage" OutputProperty="SavingsPlansCoverages" Verb="Get" Noun="SavingsPlansCoverage" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
@@ -76,12 +76,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSavingsPlansUtilizationDetails" OutputProperty="SavingsPlansUtilizationDetails" Verb="Get" Noun="SavingsPlansUtilizationDetail" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetSavingsPlansUtilizationDetails" OutputProperty="SavingsPlansUtilizationDetails" Verb="Get" Noun="SavingsPlansUtilizationDetail" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTags" OutputProperty="*" Verb="Get" Noun="Tag" PipelineParameter="TimePeriod" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetTags" OutputProperty="*" Verb="Get" Noun="Tag" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

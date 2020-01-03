@@ -89,7 +89,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChangeSet" OutputProperty="*" Verb="Get" Noun="ChangeSet" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="DescribeChangeSet" OutputProperty="*" Verb="Get" Noun="ChangeSet" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -181,7 +181,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackInstances" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceList" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStackInstances" OutputProperty="Summaries" Verb="Get" Noun="StackInstanceList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
@@ -194,17 +194,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSetOperationResults" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationResultList" PipelineParameter="OperationId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStackSetOperationResults" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationResultList" PipelineParameter="OperationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSetOperations" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationList" PipelineParameter="StackSetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStackSetOperations" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationList" PipelineParameter="StackSetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStackSets" OutputProperty="Summaries" Verb="Get" Noun="StackSetList" PipelineParameter="Status" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStackSets" OutputProperty="Summaries" Verb="Get" Noun="StackSetList" PipelineParameter="Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />

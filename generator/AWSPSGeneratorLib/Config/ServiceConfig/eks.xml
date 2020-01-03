@@ -59,15 +59,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFargateProfiles" OutputProperty="FargateProfileNames" Verb="Get" Noun="FargateProfileList" PipelineParameter="ClusterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFargateProfiles" OutputProperty="FargateProfileNames" Verb="Get" Noun="FargateProfileList" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNodegroups" OutputProperty="Nodegroups" Verb="Get" Noun="NodegroupList" PipelineParameter="ClusterName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNodegroups" OutputProperty="Nodegroups" Verb="Get" Noun="NodegroupList" PipelineParameter="ClusterName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,7 +75,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUpdates" OutputProperty="UpdateIds" Verb="Get" Noun="UpdateList" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUpdates" OutputProperty="UpdateIds" Verb="Get" Noun="UpdateList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

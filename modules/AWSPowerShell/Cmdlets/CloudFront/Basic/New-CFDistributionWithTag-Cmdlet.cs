@@ -43,10 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>If you want viewers to use HTTPS to request your objects and you're using an alternate
-        /// domain name, you must choose the type of certificate that you want to use. Specify
-        /// the following value if ACM provided your certificate:</para><ul><li><para><code>&lt;ACMCertificateArn&gt;<i>ARN for ACM SSL/TLS certificate</i>&lt;ACMCertificateArn&gt;</code>
-        /// where <code><i>ARN for ACM SSL/TLS certificate</i></code> is the ARN for the ACM
-        /// SSL/TLS certificate that you want to use for this distribution.</para></li></ul><para>If you specify <code>ACMCertificateArn</code>, you must also specify a value for <code>SSLSupportMethod</code>.</para>
+        /// domain name, you must choose the type of certificate that you want to use. If ACM
+        /// provided your certificate, specify the Amazon Resource Name (ARN) for the ACM certificate
+        /// that you want to use for this distribution. CloudFront only supports ACM certificates
+        /// in the US East (N. Virginia) Region (us-east-1).</para><para>If you specify an ACM certificate ARN, you must also specify an SSL support method
+        /// (<code>sni-only</code> or <code>vip</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>If you're using the CloudFront domain name for your distribution, such as <code>d111111abcdef8.cloudfront.net</code>,
-        /// specify the following value:</para><ul><li><para><code>&lt;CloudFrontDefaultCertificate&gt;true&lt;CloudFrontDefaultCertificate&gt;
-        /// </code></para></li></ul>
+        /// specify this value as <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,11 +276,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>If you want viewers to use HTTPS to request your objects and you're using an alternate
-        /// domain name, you must choose the type of certificate that you want to use. Specify
-        /// the following value if you purchased your certificate from a third-party certificate
-        /// authority:</para><ul><li><para><code>&lt;IAMCertificateId&gt;<i>IAM certificate ID</i>&lt;IAMCertificateId&gt;</code>
-        /// where <code><i>IAM certificate ID</i></code> is the ID that IAM returned when you
-        /// added the certificate to the IAM certificate store.</para></li></ul><para>If you specify <code>IAMCertificateId</code>, you must also specify a value for <code>SSLSupportMethod</code>.</para>
+        /// domain name, you must choose the type of certificate that you want to use. If you
+        /// purchased your certificate from a third-party certificate authority and uploaded it
+        /// to the IAM certificate store, specify the certificate ID that you want to use for
+        /// this distribution.</para><para>If you specify a certificate ID, you must also specify an SSL support method (<code>sni-only</code>
+        /// or <code>vip</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -536,12 +536,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>Specify the security policy that you want CloudFront to use for HTTPS connections.
-        /// A security policy determines two settings:</para><ul><li><para>The minimum SSL/TLS protocol that CloudFront uses to communicate with viewers</para></li><li><para>The cipher that CloudFront uses to encrypt the content that it returns to viewers</para></li></ul><note><para>On the CloudFront console, this setting is called <b>Security policy</b>.</para></note><para>We recommend that you specify <code>TLSv1.1_2016</code> unless your users are using
+        /// A security policy determines two settings:</para><ul><li><para>The minimum SSL/TLS protocol that CloudFront uses to communicate with viewers.</para></li><li><para>The cipher that CloudFront uses to encrypt the content that it returns to viewers.</para></li></ul><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>We recommend that you specify <code>TLSv1.1_2016</code> unless your viewers are using
         /// browsers or devices that do not support TLSv1.1 or later.</para><para>When both of the following are true, you must specify <code>TLSv1</code> or later
-        /// for the security policy: </para><ul><li><para>You're using a custom certificate: you specified a value for <code>ACMCertificateArn</code>
-        /// or for <code>IAMCertificateId</code></para></li><li><para>You're using SNI: you specified <code>sni-only</code> for <code>SSLSupportMethod</code></para></li></ul><para>If you specify <code>true</code> for <code>CloudFrontDefaultCertificate</code>, CloudFront
+        /// for the security policy: </para><ul><li><para>You're using a custom certificate; that is, you specified a value for <code>ACMCertificateArn</code>
+        /// or for <code>IAMCertificateId</code>.</para></li><li><para>You're using SNI; that is, you specified <code>sni-only</code> for <code>SSLSupportMethod</code>.</para></li></ul><para>If you specify <code>true</code> for <code>CloudFrontDefaultCertificate</code>, CloudFront
         /// automatically sets the security policy to <code>TLSv1</code> regardless of the value
-        /// that you specify for <code>MinimumProtocolVersion</code>.</para><para>For information about the relationship between the security policy that you choose
+        /// that you specify here.</para><para>For information about the relationship between the security policy that you choose
         /// and the protocols and ciphers that CloudFront uses to communicate with viewers, see
         /// <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers">
         /// Supported SSL/TLS Protocols and Ciphers for Communication Between Viewers and CloudFront</a>
@@ -856,16 +856,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>If you specify a value for <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-ACMCertificateArn">ACMCertificateArn</a>
         /// or for <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-IAMCertificateId">IAMCertificateId</a>,
         /// you must also specify how you want CloudFront to serve HTTPS requests: using a method
-        /// that works for browsers and clients released after 2010 or one that works for all
+        /// that works for browsers and clients released after 2010, or one that works for all
         /// clients.</para><ul><li><para><code>sni-only</code>: CloudFront can respond to HTTPS requests from viewers that
         /// support Server Name Indication (SNI). All modern browsers support SNI, but there are
         /// a few that don't. For a current list of the browsers that support SNI, see the <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Wikipedia entry Server
-        /// Name Indication</a>. To learn about options to explore if you have users with browsers
+        /// Name Indication</a>. To learn about options to explore if you have viewers with browsers
         /// that don't include SNI support, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-https-dedicated-ip-or-sni.html">Choosing
         /// How CloudFront Serves HTTPS Requests</a> in the <i>Amazon CloudFront Developer Guide</i>.</para></li><li><para><code>vip</code>: CloudFront uses dedicated IP addresses for your content and can
         /// respond to HTTPS requests from any viewer. However, there are additional monthly charges.
         /// For details, including specific pricing information, see <a href="http://aws.amazon.com/cloudfront/custom-ssl-domains/">Custom
-        /// SSL options for Amazon CloudFront</a> on the AWS marketing site.</para></li></ul><para>Don't specify a value for <code>SSLSupportMethod</code> if you specified <code>&lt;CloudFrontDefaultCertificate&gt;true&lt;CloudFrontDefaultCertificate&gt;</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-https-dedicated-ip-or-sni.html">Choosing
+        /// SSL options for Amazon CloudFront</a> on the AWS marketing site.</para></li></ul><para>Don't specify a value here if you specified <code>CloudFrontDefaultCertificate</code>
+        /// as <code>true</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-https-dedicated-ip-or-sni.html">Choosing
         /// How CloudFront Serves HTTPS Requests</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -931,13 +932,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A unique identifier that specifies the AWS WAF web ACL, if any, to associate with
-        /// this distribution.</para><para>AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
+        /// this distribution. To specify a web ACL created using the latest version of AWS WAF,
+        /// use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+        /// To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</para><para>AWS WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
         /// that are forwarded to CloudFront, and lets you control access to your content. Based
         /// on conditions that you specify, such as the IP addresses that requests originate from
         /// or the values of query strings, CloudFront responds to requests either with the requested
         /// content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront
         /// to return a custom error page when a request is blocked. For more information about
-        /// AWS WAF, see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
+        /// AWS WAF, see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
         /// WAF Developer Guide</a>. </para>
         /// </para>
         /// </summary>

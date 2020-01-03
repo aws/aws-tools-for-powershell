@@ -106,8 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobDefinition
         /// <summary>
         /// <para>
-        /// <para>The job definition used by this job. This value can be either a <code>name:revision</code>
-        /// or the Amazon Resource Name (ARN) for the job definition.</para>
+        /// <para>The job definition used by this job. This value can be one of <code>name</code>, <code>name:revision</code>,
+        /// or the Amazon Resource Name (ARN) for the job definition. If <code>name</code> is
+        /// specified without a revision then the latest active revision is used.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

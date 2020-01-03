@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Demographic_Make
         /// <summary>
         /// <para>
-        /// <para>The manufacturer of the endpoint device, such as Apple or Samsung.</para>
+        /// <para>The manufacturer of the endpoint device, such as apple or samsung.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Demographic_Model
         /// <summary>
         /// <para>
-        /// <para>The model name or number of the endpoint device, such as iPhone.</para>
+        /// <para>The model name or number of the endpoint device, such as iPhone or SM-G900F.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Demographic_Platform
         /// <summary>
         /// <para>
-        /// <para>The platform of the endpoint device, such as iOS or Android.</para>
+        /// <para>The platform of the endpoint device, such as ios.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -76,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public System.String[] UserEmailList { get; set; }
         #endregion
         
+        #region Parameter UserType
+        /// <summary>
+        /// <para>
+        /// <para>The user type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Chime.UserType")]
+        public Amazon.Chime.UserType UserType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Invites'.
@@ -154,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter UserEmailList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UserType = this.UserType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.UserEmailList != null)
             {
                 request.UserEmailList = cmdletContext.UserEmailList;
+            }
+            if (cmdletContext.UserType != null)
+            {
+                request.UserType = cmdletContext.UserType;
             }
             
             CmdletOutput output;
@@ -241,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         {
             public System.String AccountId { get; set; }
             public List<System.String> UserEmailList { get; set; }
+            public Amazon.Chime.UserType UserType { get; set; }
             public System.Func<Amazon.Chime.Model.InviteUsersResponse, SendCHMUserInvitationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Invites;
         }

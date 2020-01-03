@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Updates the network profile with specific settings.
+    /// Updates the network profile.
     /// </summary>
     [Cmdlet("Update", "DFNetworkProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.NetworkProfile")]
@@ -124,8 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of network profile you wish to return information about. Valid values are
-        /// listed below.</para>
+        /// <para>The type of network profile to return information about. Valid values are listed here.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

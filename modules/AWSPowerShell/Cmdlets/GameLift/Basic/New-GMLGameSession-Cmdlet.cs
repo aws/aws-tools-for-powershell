@@ -70,8 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for an alias associated with the fleet to create a game session
-        /// in. Each request must reference either a fleet ID or alias ID, but not both.</para>
+        /// <para>A unique identifier for an alias associated with the fleet to create a game session
+        /// in. You can use either the alias ID or ARN value. Each request must reference either
+        /// a fleet ID or alias ID, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter CreatorId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a player or entity creating the game session. This ID is used
+        /// <para>A unique identifier for a player or entity creating the game session. This ID is used
         /// to enforce a resource protection policy (if one exists) that limits the number of
         /// concurrent active game sessions one player can have.</para>
         /// </para>
@@ -93,8 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to create a game session in. Each request must reference
-        /// either a fleet ID or alias ID, but not both.</para>
+        /// <para>A unique identifier for a fleet to create a game session in. You can use either the
+        /// fleet ID or ARN value. Each request must reference either a fleet ID or alias ID,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MaximumPlayerSessionCount
         /// <summary>
         /// <para>
-        /// <para>Maximum number of players that can be connected simultaneously to the game session.</para>
+        /// <para>The maximum number of players that can be connected simultaneously to the game session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -176,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a game session. Session names do not need
+        /// <para>A descriptive label that is associated with a game session. Session names do not need
         /// to be unique.</para>
         /// </para>
         /// </summary>

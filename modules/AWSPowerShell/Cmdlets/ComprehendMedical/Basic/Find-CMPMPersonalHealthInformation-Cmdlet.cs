@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
         /// <summary>
         /// <para>
         /// <para> A UTF-8 text string containing the clinical content being examined for PHI entities.
-        /// Each string must contain fewer than 20,000 bytes of characters. </para>
+        /// Each string must contain fewer than 20,000 bytes of characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

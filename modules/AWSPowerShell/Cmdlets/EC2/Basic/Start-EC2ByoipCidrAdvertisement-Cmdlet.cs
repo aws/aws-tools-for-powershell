@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Advertises an IPv4 address range that is provisioned for use with your AWS resources
-    /// through bring your own IP addresses (BYOIP).
+    /// Advertises an IPv4 or IPv6 address range that is provisioned for use with your AWS
+    /// resources through bring your own IP addresses (BYOIP).
     /// 
     ///  
     /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Cidr
         /// <summary>
         /// <para>
-        /// <para>The IPv4 address range, in CIDR notation. This must be the exact range that you provisioned.
+        /// <para>The address range, in CIDR notation. This must be the exact range that you provisioned.
         /// You can't advertise only a portion of the provisioned range.</para>
         /// </para>
         /// </summary>

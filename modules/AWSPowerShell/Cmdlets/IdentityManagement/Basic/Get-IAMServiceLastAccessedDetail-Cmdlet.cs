@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxItems")]
-        public int? MaxItem { get; set; }
+        public System.Int32? MaxItem { get; set; }
         #endregion
         
         #region Parameter Select
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             if (cmdletContext.MaxItem != null)
             {
-                request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxItem.Value);
+                request.MaxItems = cmdletContext.MaxItem.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             if (cmdletContext.MaxItem != null)
             {
-                request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxItem.Value);
+                request.MaxItems = cmdletContext.MaxItem.Value;
             }
             
             CmdletOutput output;
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             public System.String JobId { get; set; }
             public System.String Marker { get; set; }
-            public int? MaxItem { get; set; }
+            public System.Int32? MaxItem { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.GetServiceLastAccessedDetailsResponse, GetIAMServiceLastAccessedDetailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

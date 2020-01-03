@@ -225,43 +225,43 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBusinessReportSchedules" OutputProperty="BusinessReportSchedules" Verb="Get" Noun="BusinessReportScheduleList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBusinessReportSchedules" OutputProperty="BusinessReportSchedules" Verb="Get" Noun="BusinessReportScheduleList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConferenceProviders" OutputProperty="ConferenceProviders" Verb="Get" Noun="ConferenceProviderList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConferenceProviders" OutputProperty="ConferenceProviders" Verb="Get" Noun="ConferenceProviderList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeviceEvents" OutputProperty="DeviceEvents" Verb="Get" Noun="DeviceEventList" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDeviceEvents" OutputProperty="DeviceEvents" Verb="Get" Noun="DeviceEventList" PipelineParameter="DeviceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGatewayGroups" OutputProperty="GatewayGroups" Verb="Get" Noun="GatewayGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGatewayGroups" OutputProperty="GatewayGroups" Verb="Get" Noun="GatewayGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="GatewayList" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="GatewayList" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSkills" OutputProperty="SkillSummaries" Verb="Get" Noun="SkillList" PipelineParameter="SkillGroupArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSkills" OutputProperty="SkillSummaries" Verb="Get" Noun="SkillList" PipelineParameter="SkillGroupArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSkillsStoreCategories" OutputProperty="CategoryList" Verb="Get" Noun="SkillsStoreCategoryList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSkillsStoreCategories" OutputProperty="CategoryList" Verb="Get" Noun="SkillsStoreCategoryList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSkillsStoreSkillsByCategory" OutputProperty="SkillsStoreSkills" Verb="Get" Noun="SkillsStoreSkillListByCategory" PipelineParameter="CategoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSkillsStoreSkillsByCategory" OutputProperty="SkillsStoreSkills" Verb="Get" Noun="SkillsStoreSkillListByCategory" PipelineParameter="CategoryId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSmartHomeAppliances" OutputProperty="SmartHomeAppliances" Verb="Get" Noun="SmartHomeApplianceList" PipelineParameter="RoomArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSmartHomeAppliances" OutputProperty="SmartHomeAppliances" Verb="Get" Noun="SmartHomeApplianceList" PipelineParameter="RoomArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="TagList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="TagList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -297,35 +297,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchAddressBooks" OutputProperty="AddressBooks" Verb="Search" Noun="AddressBook" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchAddressBooks" OutputProperty="AddressBooks" Verb="Search" Noun="AddressBook" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchContacts" OutputProperty="Contacts" Verb="Search" Noun="Contact" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchContacts" OutputProperty="Contacts" Verb="Search" Noun="Contact" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchDevices" OutputProperty="Devices" Verb="Find" Noun="Device" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchDevices" OutputProperty="Devices" Verb="Find" Noun="Device" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchNetworkProfiles" OutputProperty="NetworkProfiles" Verb="Search" Noun="NetworkProfile" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchNetworkProfiles" OutputProperty="NetworkProfiles" Verb="Search" Noun="NetworkProfile" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProfiles" OutputProperty="Profiles" Verb="Find" Noun="Profile" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchProfiles" OutputProperty="Profiles" Verb="Find" Noun="Profile" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchRooms" OutputProperty="Rooms" Verb="Find" Noun="Room" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchRooms" OutputProperty="Rooms" Verb="Find" Noun="Room" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchSkillGroups" OutputProperty="SkillGroups" Verb="Find" Noun="SkillGroup" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchSkillGroups" OutputProperty="SkillGroups" Verb="Find" Noun="SkillGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchUsers" OutputProperty="Users" Verb="Find" Noun="User" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchUsers" OutputProperty="Users" Verb="Find" Noun="User" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

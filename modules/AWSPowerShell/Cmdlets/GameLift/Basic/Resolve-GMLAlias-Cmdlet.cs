@@ -28,7 +28,7 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the fleet ID that a specified alias is currently pointing to.
+    /// Retrieves the fleet ID that an alias is currently pointing to.
     /// 
     ///  <ul><li><para><a>CreateAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>DescribeAlias</a></para></li><li><para><a>UpdateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ResolveAlias</a></para></li></ul>
     /// </summary>
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the alias you want to resolve.</para>
+        /// <para>The unique identifier of the alias that you want to retrieve a fleet ID for. You can
+        /// use either the alias ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

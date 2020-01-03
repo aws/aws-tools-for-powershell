@@ -210,35 +210,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActivatedRulesInRuleGroup" OutputProperty="ActivatedRules" Verb="Get" Noun="ActivatedRulesInRuleGroupList" PipelineParameter="RuleGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListActivatedRulesInRuleGroup" OutputProperty="ActivatedRules" Verb="Get" Noun="ActivatedRulesInRuleGroupList" PipelineParameter="RuleGroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListByteMatchSets" OutputProperty="ByteMatchSets" Verb="Get" Noun="ByteMatchSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListByteMatchSets" OutputProperty="ByteMatchSets" Verb="Get" Noun="ByteMatchSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGeoMatchSets" OutputProperty="GeoMatchSets" Verb="Get" Noun="GeoMatchSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGeoMatchSets" OutputProperty="GeoMatchSets" Verb="Get" Noun="GeoMatchSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIPSets" OutputProperty="IPSets" Verb="Get" Noun="IPSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIPSets" OutputProperty="IPSets" Verb="Get" Noun="IPSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="LoggingConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLoggingConfigurations" OutputProperty="LoggingConfigurations" Verb="Get" Noun="LoggingConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRateBasedRules" OutputProperty="Rules" Verb="Get" Noun="RateBasedRuleList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRateBasedRules" OutputProperty="Rules" Verb="Get" Noun="RateBasedRuleList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRegexMatchSets" OutputProperty="RegexMatchSets" Verb="Get" Noun="RegexMatchSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRegexMatchSets" OutputProperty="RegexMatchSets" Verb="Get" Noun="RegexMatchSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRegexPatternSets" OutputProperty="RegexPatternSets" Verb="Get" Noun="RegexPatternSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRegexPatternSets" OutputProperty="RegexPatternSets" Verb="Get" Noun="RegexPatternSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -246,35 +246,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="RuleGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="RuleGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRules" OutputProperty="Rules" Verb="Get" Noun="RuleList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRules" OutputProperty="Rules" Verb="Get" Noun="RuleList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSizeConstraintSets" OutputProperty="SizeConstraintSets" Verb="Get" Noun="SizeConstraintSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSizeConstraintSets" OutputProperty="SizeConstraintSets" Verb="Get" Noun="SizeConstraintSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSqlInjectionMatchSets" OutputProperty="SqlInjectionMatchSets" Verb="Get" Noun="SqlInjectionMatchSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSqlInjectionMatchSets" OutputProperty="SqlInjectionMatchSets" Verb="Get" Noun="SqlInjectionMatchSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSubscribedRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="SubscribedRuleGroup" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSubscribedRuleGroups" OutputProperty="RuleGroups" Verb="Get" Noun="SubscribedRuleGroup" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWebACLs" OutputProperty="WebACLs" Verb="Get" Noun="WebACLList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWebACLs" OutputProperty="WebACLs" Verb="Get" Noun="WebACLList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListXssMatchSets" OutputProperty="XssMatchSets" Verb="Get" Noun="XssMatchSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListXssMatchSets" OutputProperty="XssMatchSets" Verb="Get" Noun="XssMatchSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

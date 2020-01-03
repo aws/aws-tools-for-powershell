@@ -89,6 +89,18 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether the DB cluster has deletion protection enabled. The
+        /// database can't be deleted when deletion protection is enabled. By default, deletion
+        /// protection is disabled. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
@@ -133,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the option group for the new DB cluster.</para>
+        /// <para><i>(Not supported by Neptune)</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -310,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             #endif
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.DeletionProtection = this.DeletionProtection;
             if (this.EnableCloudwatchLogsExport != null)
             {
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
@@ -366,6 +379,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.EnableCloudwatchLogsExport != null)
             {
@@ -481,6 +498,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String KmsKeyId { get; set; }

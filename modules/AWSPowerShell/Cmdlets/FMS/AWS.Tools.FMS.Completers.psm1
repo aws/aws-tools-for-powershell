@@ -135,8 +135,11 @@ $FMS_SelectMap = @{
                "Get-FMSComplianceStatusList",
                "Get-FMSMemberAccountList",
                "Get-FMSPolicyList",
+               "Get-FMSResourceTag",
                "Write-FMSNotificationChannel",
-               "Set-FMSPolicy")
+               "Set-FMSPolicy",
+               "Add-FMSResourceTag",
+               "Remove-FMSResourceTag")
 }
 
 _awsArgumentCompleterRegistration $FMS_SelectCompleters $FMS_SelectMap

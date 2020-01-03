@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Update an uploaded test specification (test spec).
+    /// Updates an uploaded test spec.
     /// </summary>
     [Cmdlet("Update", "DFUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.Upload")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The upload's content type (for example, "application/x-yaml").</para>
+        /// <para>The upload's content type (for example, <code>application/x-yaml</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter EditContent
         /// <summary>
         /// <para>
-        /// <para>Set to true if the YAML file has changed and needs to be updated; otherwise, set to
-        /// false.</para>
+        /// <para>Set to true if the YAML file has changed and must be updated. Otherwise, set to false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,9 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The upload's test spec file name. The name should not contain the '/' character. The
-        /// test spec file name must end with the <code>.yaml</code> or <code>.yml</code> file
-        /// extension.</para>
+        /// <para>The upload's test spec file name. The name must not contain any forward slashes (/).
+        /// The test spec file name must end with the <code>.yaml</code> or <code>.yml</code>
+        /// file extension.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

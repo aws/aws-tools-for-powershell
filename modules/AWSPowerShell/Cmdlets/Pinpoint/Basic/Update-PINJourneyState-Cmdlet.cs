@@ -28,7 +28,7 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Cancels an active journey.
+    /// Cancels (stops) an active journey.
     /// </summary>
     [Cmdlet("Update", "PINJourneyState", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.JourneyResponse")]

@@ -51,15 +51,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="IdentityId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDatasets" OutputProperty="Datasets" Verb="Get" Noun="DatasetList" PipelineParameter="IdentityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityPoolUsage" OutputProperty="IdentityPoolUsages" Verb="Get" Noun="IdentityPoolUsageList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListIdentityPoolUsage" OutputProperty="IdentityPoolUsages" Verb="Get" Noun="IdentityPoolUsageList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecords" OutputProperty="*" Verb="Get" Noun="RecordList" PipelineParameter="DatasetName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListRecords" OutputProperty="*" Verb="Get" Noun="RecordList" PipelineParameter="DatasetName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

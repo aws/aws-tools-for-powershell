@@ -90,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// including the new principal in a key policy because the new principal might not be
         /// immediately visible to AWS KMS. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
         /// that I make are not always immediately visible</a> in the <i>AWS Identity and Access
-        /// Management User Guide</i>.</para></li></ul><para>The key policy size limit is 32 kilobytes (32768 bytes).</para>
+        /// Management User Guide</i>.</para></li></ul><para>The key policy cannot exceed 32 kilobytes (32768 bytes). For more information, see
+        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/resource-limits.html">Resource
+        /// Quotas</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -186,15 +186,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTapeArchives" OutputProperty="TapeArchives" Verb="Get" Noun="TapeArchiveList" PipelineParameter="TapeARNs" NoPipelineParameter="false" LegacyAlias="Get-SGTapeArchives">
+        <ServiceOperation MethodName="DescribeTapeArchives" OutputProperty="TapeArchives" Verb="Get" Noun="TapeArchiveList" PipelineParameter="TapeARNs" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-SGTapeArchives">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTapeRecoveryPoints" OutputProperty="TapeRecoveryPointInfos" Verb="Get" Noun="TapeRecoveryPointList" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyAlias="Get-SGTapeRecoveryPoints">
+        <ServiceOperation MethodName="DescribeTapeRecoveryPoints" OutputProperty="TapeRecoveryPointInfos" Verb="Get" Noun="TapeRecoveryPointList" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-SGTapeRecoveryPoints">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTapes" OutputProperty="Tapes" Verb="Get" Noun="TapeList" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyAlias="Get-SGTapes">
+        <ServiceOperation MethodName="DescribeTapes" OutputProperty="Tapes" Verb="Get" Noun="TapeList" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-SGTapes">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -202,7 +202,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVTLDevices" OutputProperty="VTLDevices" Verb="Get" Noun="VTLDevice" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyAlias="Get-SGVTLDevices">
+        <ServiceOperation MethodName="DescribeVTLDevices" OutputProperty="VTLDevices" Verb="Get" Noun="VTLDevice" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-SGVTLDevices">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -222,12 +222,12 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFileShares" OutputProperty="FileShareInfoList" Verb="Get" Noun="FileShareList" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFileShares" OutputProperty="FileShareInfoList" Verb="Get" Noun="FileShareList" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="Gateway" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGateways" OutputProperty="Gateways" Verb="Get" Noun="Gateway" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -235,11 +235,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyAlias="Get-SGResourceTags">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-SGResourceTags">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTapes" OutputProperty="TapeInfos" Verb="Get" Noun="Tape" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTapes" OutputProperty="TapeInfos" Verb="Get" Noun="Tape" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -251,7 +251,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVolumes" OutputProperty="VolumeInfos" Verb="Get" Noun="Volume" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVolumes" OutputProperty="VolumeInfos" Verb="Get" Noun="Volume" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

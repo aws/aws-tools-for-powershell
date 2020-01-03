@@ -64,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TerminologyData_File
         /// <summary>
         /// <para>
-        /// <para>The file containing the custom terminology data.</para>
+        /// <para>The file containing the custom terminology data. Your version of the AWS SDK performs
+        /// a Base64-encoding on this field before sending a request to the AWS service. Users
+        /// of the SDK should not perform Base64-encoding themselves.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

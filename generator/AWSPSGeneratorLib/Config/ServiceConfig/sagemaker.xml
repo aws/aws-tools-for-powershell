@@ -307,6 +307,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkforce" OutputProperty="Workforce" Verb="Get" Noun="Workforce" PipelineParameter="WorkforceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkteam" OutputProperty="Workteam" Verb="Get" Noun="Workteam" PipelineParameter="WorkteamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -319,127 +323,127 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAlgorithms" OutputProperty="AlgorithmSummaryList" Verb="Get" Noun="AlgorithmList" PipelineParameter="NameContains" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAlgorithms" OutputProperty="AlgorithmSummaryList" Verb="Get" Noun="AlgorithmList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAutoMLJobs" OutputProperty="AutoMLJobSummaries" Verb="Get" Noun="AutoMLJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAutoMLJobs" OutputProperty="AutoMLJobSummaries" Verb="Get" Noun="AutoMLJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCandidatesForAutoMLJob" OutputProperty="Candidates" Verb="Get" Noun="CandidatesForAutoMLJobList" PipelineParameter="AutoMLJobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCandidatesForAutoMLJob" OutputProperty="Candidates" Verb="Get" Noun="CandidatesForAutoMLJobList" PipelineParameter="AutoMLJobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCodeRepositories" OutputProperty="CodeRepositorySummaryList" Verb="Get" Noun="CodeRepositoryList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCodeRepositories" OutputProperty="CodeRepositorySummaryList" Verb="Get" Noun="CodeRepositoryList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCompilationJobs" OutputProperty="CompilationJobSummaries" Verb="Get" Noun="CompilationJobList" PipelineParameter="NameContains" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCompilationJobs" OutputProperty="CompilationJobSummaries" Verb="Get" Noun="CompilationJobList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpointConfigs" OutputProperty="EndpointConfigs" Verb="Get" Noun="ConfigList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListEndpointConfigs" OutputProperty="EndpointConfigs" Verb="Get" Noun="ConfigList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExperiments" OutputProperty="ExperimentSummaries" Verb="Get" Noun="ExperimentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListExperiments" OutputProperty="ExperimentSummaries" Verb="Get" Noun="ExperimentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlowDefinitions" OutputProperty="FlowDefinitionSummaries" Verb="Get" Noun="FlowDefinitionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListFlowDefinitions" OutputProperty="FlowDefinitionSummaries" Verb="Get" Noun="FlowDefinitionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHumanTaskUis" OutputProperty="HumanTaskUiSummaries" Verb="Get" Noun="HumanTaskUiList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListHumanTaskUis" OutputProperty="HumanTaskUiSummaries" Verb="Get" Noun="HumanTaskUiList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHyperParameterTuningJobs" OutputProperty="HyperParameterTuningJobSummaries" Verb="Get" Noun="HyperParameterTuningJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListHyperParameterTuningJobs" OutputProperty="HyperParameterTuningJobSummaries" Verb="Get" Noun="HyperParameterTuningJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLabelingJobs" OutputProperty="LabelingJobSummaryList" Verb="Get" Noun="LabelingJobList" PipelineParameter="NameContains" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLabelingJobs" OutputProperty="LabelingJobSummaryList" Verb="Get" Noun="LabelingJobList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLabelingJobsForWorkteam" OutputProperty="LabelingJobSummaryList" Verb="Get" Noun="LabelingJobListForWorkteam" PipelineParameter="WorkteamArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLabelingJobsForWorkteam" OutputProperty="LabelingJobSummaryList" Verb="Get" Noun="LabelingJobListForWorkteam" PipelineParameter="WorkteamArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModelPackages" OutputProperty="ModelPackageSummaryList" Verb="Get" Noun="ModelPackageList" PipelineParameter="NameContains" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListModelPackages" OutputProperty="ModelPackageSummaryList" Verb="Get" Noun="ModelPackageList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModels" OutputProperty="Models" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListModels" OutputProperty="Models" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMonitoringExecutions" OutputProperty="MonitoringExecutionSummaries" Verb="Get" Noun="MonitoringExecutionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListMonitoringExecutions" OutputProperty="MonitoringExecutionSummaries" Verb="Get" Noun="MonitoringExecutionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMonitoringSchedules" OutputProperty="MonitoringScheduleSummaries" Verb="Get" Noun="MonitoringScheduleList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListMonitoringSchedules" OutputProperty="MonitoringScheduleSummaries" Verb="Get" Noun="MonitoringScheduleList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotebookInstanceLifecycleConfigs" OutputProperty="NotebookInstanceLifecycleConfigs" Verb="Get" Noun="NotebookInstanceLifecycleConfigList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListNotebookInstanceLifecycleConfigs" OutputProperty="NotebookInstanceLifecycleConfigs" Verb="Get" Noun="NotebookInstanceLifecycleConfigList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotebookInstances" OutputProperty="NotebookInstances" Verb="Get" Noun="NotebookInstanceList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListNotebookInstances" OutputProperty="NotebookInstances" Verb="Get" Noun="NotebookInstanceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProcessingJobs" OutputProperty="ProcessingJobSummaries" Verb="Get" Noun="ProcessingJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListProcessingJobs" OutputProperty="ProcessingJobSummaries" Verb="Get" Noun="ProcessingJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSubscribedWorkteams" OutputProperty="SubscribedWorkteams" Verb="Get" Noun="SubscribedWorkteamList" PipelineParameter="NameContains" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSubscribedWorkteams" OutputProperty="SubscribedWorkteams" Verb="Get" Noun="SubscribedWorkteamList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrainingJobs" OutputProperty="TrainingJobSummaries" Verb="Get" Noun="TrainingJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTrainingJobs" OutputProperty="TrainingJobSummaries" Verb="Get" Noun="TrainingJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrainingJobsForHyperParameterTuningJob" OutputProperty="TrainingJobSummaries" Verb="Get" Noun="TrainingJobsForHyperParameterTuningJobList" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrainingJobsForHyperParameterTuningJob" OutputProperty="TrainingJobSummaries" Verb="Get" Noun="TrainingJobsForHyperParameterTuningJobList" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTransformJobs" OutputProperty="TransformJobSummaries" Verb="Get" Noun="TransformJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTransformJobs" OutputProperty="TransformJobSummaries" Verb="Get" Noun="TransformJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrialComponents" OutputProperty="TrialComponentSummaries" Verb="Get" Noun="TrialComponentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTrialComponents" OutputProperty="TrialComponentSummaries" Verb="Get" Noun="TrialComponentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrials" OutputProperty="TrialSummaries" Verb="Get" Noun="TrialList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTrials" OutputProperty="TrialSummaries" Verb="Get" Noun="TrialList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserProfiles" OutputProperty="UserProfiles" Verb="Get" Noun="UserProfileList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListUserProfiles" OutputProperty="UserProfiles" Verb="Get" Noun="UserProfileList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkteams" OutputProperty="Workteams" Verb="Get" Noun="WorkteamList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListWorkteams" OutputProperty="Workteams" Verb="Get" Noun="WorkteamList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -447,7 +451,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="Search" OutputProperty="Results" Verb="Search" Noun="Resource" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
+        <ServiceOperation MethodName="Search" OutputProperty="Results" Verb="Search" Noun="Resource" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -536,6 +540,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUserProfile" OutputProperty="UserProfileArn" Verb="Update" Noun="UserProfile" ShouldProcessTarget="UserProfileName" PipelineParameter="UserProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkforce" OutputProperty="Workforce" Verb="Update" Noun="Workforce" ShouldProcessTarget="WorkforceName" PipelineParameter="WorkforceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

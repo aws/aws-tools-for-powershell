@@ -28,7 +28,7 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Used to fetch a list suppressed email destinations from your suppression list.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list of email addresses that are on the suppression list for your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SES2SuppressedDestinationList")]
     [OutputType("Amazon.SimpleEmailV2.Model.SuppressedDestinationSummary")]
@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EndDate
         /// <summary>
         /// <para>
-        /// <para>Filters email destinations suppressed after the given time.</para>
+        /// <para>Used to filter the list of suppressed email destinations so that it only includes
+        /// addresses that were added to the list before a specific date. The date that you specify
+        /// should be in Unix time format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>Filters email destinations suppressed by the given reasons.</para>
+        /// <para>The factors that caused the email address to be added to .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter StartDate
         /// <summary>
         /// <para>
-        /// <para>Filters email destinations suppressed before the given time.</para>
+        /// <para>Used to filter the list of suppressed email destinations so that it only includes
+        /// addresses that were added to the list after a specific date. The date that you specify
+        /// should be in Unix time format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>A token returned from a previous call to <code>ListSuppressedDestinations</code> to
-        /// indicate the position in the list of suppressed email destinations.</para>
+        /// indicate the position in the list of suppressed email addresses.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

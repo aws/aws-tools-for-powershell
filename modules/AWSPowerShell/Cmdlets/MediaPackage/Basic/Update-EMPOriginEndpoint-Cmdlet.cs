@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class UpdateEMPOriginEndpointCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
+        #region Parameter Authorization_CdnIdentifierSecret
+        /// <summary>
+        /// <para>
+        /// The Amazon Resource Name (ARN) for
+        /// the secret in Secrets Manager that your Content Distribution Network (CDN) uses for
+        /// authorization to access your endpoint.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Authorization_CdnIdentifierSecret { get; set; }
+        #endregion
+        
         #region Parameter SpekeKeyProvider_CertificateArn
         /// <summary>
         /// <para>
@@ -204,6 +216,17 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         public System.String SpekeKeyProvider_RoleArn { get; set; }
         #endregion
         
+        #region Parameter Authorization_SecretsRoleArn
+        /// <summary>
+        /// <para>
+        /// The Amazon Resource Name (ARN) for the
+        /// IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Authorization_SecretsRoleArn { get; set; }
+        #endregion
+        
         #region Parameter CmafPackage_SegmentDurationSecond
         /// <summary>
         /// <para>
@@ -360,6 +383,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Authorization_CdnIdentifierSecret = this.Authorization_CdnIdentifierSecret;
+            context.Authorization_SecretsRoleArn = this.Authorization_SecretsRoleArn;
             context.Encryption_KeyRotationIntervalSecond = this.Encryption_KeyRotationIntervalSecond;
             context.SpekeKeyProvider_CertificateArn = this.SpekeKeyProvider_CertificateArn;
             context.SpekeKeyProvider_ResourceId = this.SpekeKeyProvider_ResourceId;
@@ -413,6 +438,35 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             // create request
             var request = new Amazon.MediaPackage.Model.UpdateOriginEndpointRequest();
             
+            
+             // populate Authorization
+            var requestAuthorizationIsNull = true;
+            request.Authorization = new Amazon.MediaPackage.Model.Authorization();
+            System.String requestAuthorization_authorization_CdnIdentifierSecret = null;
+            if (cmdletContext.Authorization_CdnIdentifierSecret != null)
+            {
+                requestAuthorization_authorization_CdnIdentifierSecret = cmdletContext.Authorization_CdnIdentifierSecret;
+            }
+            if (requestAuthorization_authorization_CdnIdentifierSecret != null)
+            {
+                request.Authorization.CdnIdentifierSecret = requestAuthorization_authorization_CdnIdentifierSecret;
+                requestAuthorizationIsNull = false;
+            }
+            System.String requestAuthorization_authorization_SecretsRoleArn = null;
+            if (cmdletContext.Authorization_SecretsRoleArn != null)
+            {
+                requestAuthorization_authorization_SecretsRoleArn = cmdletContext.Authorization_SecretsRoleArn;
+            }
+            if (requestAuthorization_authorization_SecretsRoleArn != null)
+            {
+                request.Authorization.SecretsRoleArn = requestAuthorization_authorization_SecretsRoleArn;
+                requestAuthorizationIsNull = false;
+            }
+             // determine if request.Authorization should be set to null
+            if (requestAuthorizationIsNull)
+            {
+                request.Authorization = null;
+            }
             
              // populate CmafPackage
             var requestCmafPackageIsNull = true;
@@ -688,6 +742,8 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Authorization_CdnIdentifierSecret { get; set; }
+            public System.String Authorization_SecretsRoleArn { get; set; }
             public System.Int32? Encryption_KeyRotationIntervalSecond { get; set; }
             public System.String SpekeKeyProvider_CertificateArn { get; set; }
             public System.String SpekeKeyProvider_ResourceId { get; set; }

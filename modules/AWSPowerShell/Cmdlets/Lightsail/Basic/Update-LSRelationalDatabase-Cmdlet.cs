@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.Boolean? ApplyImmediately { get; set; }
         #endregion
         
+        #region Parameter CaCertificateIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the certificate that needs to be associated with the database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CaCertificateIdentifier { get; set; }
+        #endregion
+        
         #region Parameter DisableBackupRetention
         /// <summary>
         /// <para>
@@ -223,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ApplyImmediately = this.ApplyImmediately;
+            context.CaCertificateIdentifier = this.CaCertificateIdentifier;
             context.DisableBackupRetention = this.DisableBackupRetention;
             context.EnableBackupRetention = this.EnableBackupRetention;
             context.MasterUserPassword = this.MasterUserPassword;
@@ -256,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.ApplyImmediately != null)
             {
                 request.ApplyImmediately = cmdletContext.ApplyImmediately.Value;
+            }
+            if (cmdletContext.CaCertificateIdentifier != null)
+            {
+                request.CaCertificateIdentifier = cmdletContext.CaCertificateIdentifier;
             }
             if (cmdletContext.DisableBackupRetention != null)
             {
@@ -351,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ApplyImmediately { get; set; }
+            public System.String CaCertificateIdentifier { get; set; }
             public System.Boolean? DisableBackupRetention { get; set; }
             public System.Boolean? EnableBackupRetention { get; set; }
             public System.String MasterUserPassword { get; set; }

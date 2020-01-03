@@ -47,27 +47,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusters" OutputProperty="Clusters" Verb="Get" Noun="Cluster" PipelineParameter="ClusterNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeClusters" OutputProperty="Clusters" Verb="Get" Noun="Cluster" PipelineParameter="ClusterNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDefaultParameters" OutputProperty="Parameters" Verb="Get" Noun="DefaultParameter" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDefaultParameters" OutputProperty="Parameters" Verb="Get" Noun="DefaultParameter" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeParameterGroups" OutputProperty="ParameterGroups" Verb="Get" Noun="ParameterGroup" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeParameterGroups" OutputProperty="ParameterGroups" Verb="Get" Noun="ParameterGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeParameters" OutputProperty="Parameters" Verb="Get" Noun="Parameter" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeParameters" OutputProperty="Parameters" Verb="Get" Noun="Parameter" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubnetGroups" OutputProperty="SubnetGroups" Verb="Get" Noun="SubnetGroup" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeSubnetGroups" OutputProperty="SubnetGroups" Verb="Get" Noun="SubnetGroup" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

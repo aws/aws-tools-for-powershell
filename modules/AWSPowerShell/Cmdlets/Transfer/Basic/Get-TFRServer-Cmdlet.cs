@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// 
     ///  
     /// <para>
-    /// The response contains a description of the server's properties.
+    /// The response contains a description of the server's properties. When you set <code>EndpointType</code>
+    /// to VPC, the response will contain the <code>EndpointDetails</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "TFRServer")]

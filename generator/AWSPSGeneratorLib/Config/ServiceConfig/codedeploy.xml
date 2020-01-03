@@ -153,7 +153,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeploymentGroups" OutputProperty="*" Verb="Get" Noun="DeploymentGroupList" PipelineParameter="ApplicationName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListDeploymentGroups" OutputProperty="*" Verb="Get" Noun="DeploymentGroupList" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

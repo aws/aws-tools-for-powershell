@@ -101,7 +101,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBackups" OutputProperty="BackupSummaries" Verb="Get" Noun="BackupList" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBackups" OutputProperty="BackupSummaries" Verb="Get" Noun="BackupList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="ExclusiveStartBackupArn" Next="LastEvaluatedBackupArn" EmitLimit="Limit" />
             <TypesNotToFlatten />
@@ -111,12 +111,12 @@
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGlobalTables" OutputProperty="GlobalTables" Verb="Get" Noun="GlobalTableList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListGlobalTables" OutputProperty="GlobalTables" Verb="Get" Noun="GlobalTableList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="ExclusiveStartGlobalTableName" Next="LastEvaluatedGlobalTableName" EmitLimit="Limit" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTables" OutputProperty="TableNames" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-DDBTables">
+        <ServiceOperation MethodName="ListTables" OutputProperty="TableNames" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-DDBTables">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

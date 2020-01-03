@@ -55,19 +55,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExecutionHistory" OutputProperty="Events" Verb="Get" Noun="ExecutionHistory" PipelineParameter="ExecutionArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetExecutionHistory" OutputProperty="Events" Verb="Get" Noun="ExecutionHistory" PipelineParameter="ExecutionArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActivities" OutputProperty="Activities" Verb="Get" Noun="ActivityList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListActivities" OutputProperty="Activities" Verb="Get" Noun="ActivityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExecutions" OutputProperty="Executions" Verb="Get" Noun="ExecutionList" PipelineParameter="StateMachineArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStateMachines" OutputProperty="StateMachines" Verb="Get" Noun="StateMachineList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListStateMachines" OutputProperty="StateMachines" Verb="Get" Noun="StateMachineList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

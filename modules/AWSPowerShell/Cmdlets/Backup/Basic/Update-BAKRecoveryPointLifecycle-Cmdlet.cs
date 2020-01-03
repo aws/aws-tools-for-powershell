@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies the number of days after creation that a recovery point is deleted. Must
-        /// be greater than <code>MoveToColdStorageAfterDays</code>.</para>
+        /// be greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

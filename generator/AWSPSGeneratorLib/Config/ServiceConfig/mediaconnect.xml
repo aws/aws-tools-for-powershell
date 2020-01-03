@@ -39,11 +39,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="EntitlementList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListEntitlements" OutputProperty="Entitlements" Verb="Get" Noun="EntitlementList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

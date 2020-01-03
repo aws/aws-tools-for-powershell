@@ -123,15 +123,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetAttributes" OutputProperty="FleetAttributes" Verb="Get" Noun="FleetAttribute" PipelineParameter="FleetIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleetAttributes" OutputProperty="FleetAttributes" Verb="Get" Noun="FleetAttribute" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetCapacity" OutputProperty="FleetCapacity" Verb="Get" Noun="FleetCapacity" PipelineParameter="FleetIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleetCapacity" OutputProperty="FleetCapacity" Verb="Get" Noun="FleetCapacity" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetEvents" OutputProperty="Events" Verb="Get" Noun="FleetEvent" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeFleetEvents" OutputProperty="Events" Verb="Get" Noun="FleetEvent" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -139,11 +139,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetUtilization" OutputProperty="FleetUtilization" Verb="Get" Noun="FleetUtilization" PipelineParameter="FleetIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeFleetUtilization" OutputProperty="FleetUtilization" Verb="Get" Noun="FleetUtilization" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameSessionDetails" OutputProperty="GameSessionDetails" Verb="Get" Noun="GameSessionDetail" PipelineParameter="GameSessionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGameSessionDetails" OutputProperty="GameSessionDetails" Verb="Get" Noun="GameSessionDetail" PipelineParameter="GameSessionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,15 +151,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameSessionQueues" OutputProperty="GameSessionQueues" Verb="Get" Noun="GameSessionQueue" PipelineParameter="Names" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeGameSessionQueues" OutputProperty="GameSessionQueues" Verb="Get" Noun="GameSessionQueue" PipelineParameter="Names" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGameSessions" OutputProperty="GameSessions" Verb="Get" Noun="GameSession" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeGameSessions" OutputProperty="GameSessions" Verb="Get" Noun="GameSession" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstances" OutputProperty="Instances" Verb="Get" Noun="Instance" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeInstances" OutputProperty="Instances" Verb="Get" Noun="Instance" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -167,15 +167,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMatchmakingConfigurations" OutputProperty="Configurations" Verb="Get" Noun="MatchmakingConfiguration" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeMatchmakingConfigurations" OutputProperty="Configurations" Verb="Get" Noun="MatchmakingConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMatchmakingRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="MatchmakingRuleSet" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeMatchmakingRuleSets" OutputProperty="RuleSets" Verb="Get" Noun="MatchmakingRuleSet" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePlayerSessions" OutputProperty="PlayerSessions" Verb="Get" Noun="PlayerSession" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribePlayerSessions" OutputProperty="PlayerSessions" Verb="Get" Noun="PlayerSession" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -183,7 +183,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,19 +207,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="Alias" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAliases" OutputProperty="Aliases" Verb="Get" Noun="Alias" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuilds" OutputProperty="Builds" Verb="Get" Noun="Build" PipelineParameter="Status" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBuilds" OutputProperty="Builds" Verb="Get" Noun="Build" PipelineParameter="Status" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetIds" Verb="Get" Noun="Fleet" PipelineParameter="BuildId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFleets" OutputProperty="FleetIds" Verb="Get" Noun="Fleet" PipelineParameter="BuildId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListScripts" OutputProperty="Scripts" Verb="Get" Noun="ScriptList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListScripts" OutputProperty="Scripts" Verb="Get" Noun="ScriptList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -235,7 +239,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchGameSessions" OutputProperty="GameSessions" Verb="Find" Noun="GameSession" PipelineParameter="FleetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="SearchGameSessions" OutputProperty="GameSessions" Verb="Find" Noun="GameSession" PipelineParameter="FleetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -264,6 +268,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopMatchmaking" Verb="Stop" Noun="Matchmaking" ShouldProcessTarget="TicketId" PipelineParameter="TicketId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

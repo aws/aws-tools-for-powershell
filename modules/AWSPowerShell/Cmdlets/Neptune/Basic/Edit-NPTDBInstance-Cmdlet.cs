@@ -57,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <summary>
         /// <para>
         /// <para>Indicates that major version upgrades are allowed. Changing this parameter doesn't
-        /// result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints: This parameter must be set to true when specifying a value for the EngineVersion
-        /// parameter that is a different major version than the DB instance's current version.</para>
+        /// result in an outage and the change is asynchronously applied as soon as possible.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,6 +207,18 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.String DBSubnetGroupName { get; set; }
         #endregion
         
+        #region Parameter DeletionProtection
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
+        /// database can't be deleted when deletion protection is enabled. By default, deletion
+        /// protection is disabled. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DeletionProtection { get; set; }
+        #endregion
+        
         #region Parameter CloudwatchLogsExportConfiguration_DisableLogType
         /// <summary>
         /// <para>
@@ -265,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>Not supported.</para>
+        /// <para><i>(Not supported by Neptune)</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,13 +287,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para> The version number of the database engine to upgrade to. Changing this parameter
-        /// results in an outage and the change is applied during the next maintenance window
-        /// unless the <code>ApplyImmediately</code> parameter is set to <code>true</code> for
-        /// this request.</para><para>For major version upgrades, if a nondefault DB parameter group is currently in use,
-        /// a new DB parameter group in the DB parameter group family for the new engine version
-        /// must be specified. The new DB parameter group can be the default for that DB parameter
-        /// group family.</para>
+        /// <para>The version number of the database engine to upgrade to. Currently, setting this parameter
+        /// has no effect. To upgrade your database engine to the most recent release, use the
+        /// <a>ApplyPendingMaintenanceAction</a> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,14 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para> Indicates that the DB instance should be associated with the specified option group.
-        /// Changing this parameter doesn't result in an outage except in the following case and
-        /// the change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
-        /// parameter is set to <code>true</code> for this request. If the parameter change results
-        /// in an option group that enables OEM, this change can cause a brief (sub-second) period
-        /// during which new connections are rejected but existing connections are not interrupted.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
-        /// be removed from an option group, and that option group can't be removed from a DB
-        /// instance once it is associated with a DB instance</para>
+        /// <para><i>(Not supported by Neptune)</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -392,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>Not supported.</para>
+        /// <para><i>(Not supported by Neptune)</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -585,6 +585,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 context.DBSecurityGroup = new List<System.String>(this.DBSecurityGroup);
             }
             context.DBSubnetGroupName = this.DBSubnetGroupName;
+            context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
@@ -708,6 +709,10 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             if (cmdletContext.DBSubnetGroupName != null)
             {
                 request.DBSubnetGroupName = cmdletContext.DBSubnetGroupName;
+            }
+            if (cmdletContext.DeletionProtection != null)
+            {
+                request.DeletionProtection = cmdletContext.DeletionProtection.Value;
             }
             if (cmdletContext.Domain != null)
             {
@@ -875,6 +880,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             public System.Int32? DBPortNumber { get; set; }
             public List<System.String> DBSecurityGroup { get; set; }
             public System.String DBSubnetGroupName { get; set; }
+            public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to update.</para>
+        /// <para>A unique identifier for the game session to update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MaximumPlayerSessionCount
         /// <summary>
         /// <para>
-        /// <para>Maximum number of players that can be connected simultaneously to the game session.</para>
+        /// <para>The maximum number of players that can be connected simultaneously to the game session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a game session. Session names do not need
+        /// <para>A descriptive label that is associated with a game session. Session names do not need
         /// to be unique.</para>
         /// </para>
         /// </summary>

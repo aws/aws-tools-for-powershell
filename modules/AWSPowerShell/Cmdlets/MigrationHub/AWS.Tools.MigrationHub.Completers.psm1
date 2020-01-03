@@ -158,6 +158,7 @@ $MH_SelectMap = @{
                "Remove-MHCreatedArtifact",
                "Remove-MHDiscoveredResource",
                "Import-MHMigrationTask",
+               "Get-MHApplicationStateList",
                "Get-MHCreatedArtifactList",
                "Get-MHDiscoveredResourceList",
                "Get-MHMigrationTaskList",

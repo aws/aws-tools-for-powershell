@@ -145,6 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? SplitTunnel { get; set; }
         #endregion
         
+        #region Parameter VpnPort
+        /// <summary>
+        /// <para>
+        /// <para>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</para><para>Valid Values: <code>443</code> | <code>1194</code></para><para>Default Value: <code>443</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? VpnPort { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Return'.
@@ -224,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.DnsServers_Enabled = this.DnsServers_Enabled;
             context.ServerCertificateArn = this.ServerCertificateArn;
             context.SplitTunnel = this.SplitTunnel;
+            context.VpnPort = this.VpnPort;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -324,6 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.SplitTunnel = cmdletContext.SplitTunnel.Value;
             }
+            if (cmdletContext.VpnPort != null)
+            {
+                request.VpnPort = cmdletContext.VpnPort.Value;
+            }
             
             CmdletOutput output;
             
@@ -394,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? DnsServers_Enabled { get; set; }
             public System.String ServerCertificateArn { get; set; }
             public System.Boolean? SplitTunnel { get; set; }
+            public System.Int32? VpnPort { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyClientVpnEndpointResponse, EditEC2ClientVpnEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;
         }

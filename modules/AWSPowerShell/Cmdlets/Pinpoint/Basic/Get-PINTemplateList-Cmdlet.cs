@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter TemplateType
         /// <summary>
         /// <para>
-        /// <para>The type of message template to include in the results. Valid values are: EMAIL, SMS,
-        /// PUSH, and VOICE. To include all types of templates in the results, don't include this
+        /// <para>The type of message template to include in the results. Valid values are: EMAIL, PUSH,
+        /// SMS, and VOICE. To include all types of templates in the results, don't include this
         /// parameter in your request.</para>
         /// </para>
         /// </summary>

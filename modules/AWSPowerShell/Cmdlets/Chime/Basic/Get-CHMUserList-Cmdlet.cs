@@ -68,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public System.String UserEmail { get; set; }
         #endregion
         
+        #region Parameter UserType
+        /// <summary>
+        /// <para>
+        /// <para>The user type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Chime.UserType")]
+        public Amazon.Chime.UserType UserType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -183,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             #endif
             context.NextToken = this.NextToken;
             context.UserEmail = this.UserEmail;
+            context.UserType = this.UserType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -215,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.UserEmail != null)
             {
                 request.UserEmail = cmdletContext.UserEmail;
+            }
+            if (cmdletContext.UserType != null)
+            {
+                request.UserType = cmdletContext.UserType;
             }
             
             // Initialize loop variant and commence piping
@@ -278,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.UserEmail != null)
             {
                 request.UserEmail = cmdletContext.UserEmail;
+            }
+            if (cmdletContext.UserType != null)
+            {
+                request.UserType = cmdletContext.UserType;
             }
             
             // Initialize loop variants and commence piping
@@ -406,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String UserEmail { get; set; }
+            public Amazon.Chime.UserType UserType { get; set; }
             public System.Func<Amazon.Chime.Model.ListUsersResponse, GetCHMUserListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Users;
         }

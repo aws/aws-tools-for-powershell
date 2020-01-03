@@ -75,7 +75,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpGroups" OutputProperty="Result" Verb="Get" Noun="IpGroup" PipelineParameter="GroupIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIpGroups" OutputProperty="Result" Verb="Get" Noun="IpGroup" PipelineParameter="GroupIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -93,11 +93,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceImages" OutputProperty="Images" Verb="Get" Noun="WorkspaceImage" PipelineParameter="ImageIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeWorkspaceImages" OutputProperty="Images" Verb="Get" Noun="WorkspaceImage" PipelineParameter="ImageIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="Workspace" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaces">
+        <ServiceOperation MethodName="DescribeWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="Workspace" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-WKSWorkspaces">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
             <TypesNotToFlatten />
@@ -118,7 +118,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableManagementCidrRanges" OutputProperty="ManagementCidrRanges" Verb="Get" Noun="AvailableManagementCidrRangeList" PipelineParameter="ManagementCidrRangeConstraint" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAvailableManagementCidrRanges" OutputProperty="ManagementCidrRanges" Verb="Get" Noun="AvailableManagementCidrRangeList" PipelineParameter="ManagementCidrRangeConstraint" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="MigrateWorkspace" OutputProperty="*" Verb="Start" Noun="WorkspaceMigration" ShouldProcessTarget="SourceWorkspaceId" PipelineParameter="SourceWorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -51,23 +51,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusterOperations" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClusterOperations" OutputProperty="ClusterOperationInfoList" Verb="Get" Noun="ClusterOperationList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterInfoList" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="Arn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfigurationRevisions" OutputProperty="Revisions" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="Arn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNodes" OutputProperty="NodeInfoList" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNodes" OutputProperty="NodeInfoList" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves the details for FlexMatch matchmaking rule sets. You can request all existing
-    /// rule sets for the region, or provide a list of one or more rule set names. When requesting
+    /// rule sets for the Region, or provide a list of one or more rule set names. When requesting
     /// multiple items, use the pagination parameters to retrieve results as a set of sequential
     /// pages. If successful, a rule set is returned for each requested name. 
     /// 
@@ -50,8 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>List of one or more matchmaking rule set names to retrieve details for. (Note: The
-        /// rule set name is different from the optional "name" field in the rule set body.) </para>
+        /// <para>A list of one or more matchmaking rule set names to retrieve details for. (Note: The
+        /// rule set name is different from the optional "name" field in the rule set body.) You
+        /// can use either the rule set name or ARN value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// <para>
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
+        /// <para>A token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this action. To start at the beginning of
         /// the result set, do not specify a value.</para>
         /// </para>

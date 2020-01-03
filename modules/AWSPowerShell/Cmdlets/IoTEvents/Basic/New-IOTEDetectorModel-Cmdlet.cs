@@ -70,9 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
         #region Parameter EvaluationMethod
         /// <summary>
         /// <para>
-        /// <para>When set to <code>SERIAL</code>, variables are updated and event conditions evaluated
-        /// in the order that the events are defined. When set to <code>BATCH</code>, variables
-        /// are updated and events performed only after all event conditions are evaluated.</para>
+        /// <para>Information about the order in which events are evaluated and how actions are executed.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>The input attribute key used to identify a device or system to create a detector (an
-        /// instance of the detector model) and then to route each input received to the appropriate
+        /// <para>The input attribute key used to identify a device or system in order to create a detector
+        /// (an instance of the detector model) and then to route each input received to the appropriate
         /// detector (instance). This parameter uses a JSON-path expression to specify the attribute-value
         /// pair in the message payload of each input that is used to identify the device associated
         /// with the input.</para>

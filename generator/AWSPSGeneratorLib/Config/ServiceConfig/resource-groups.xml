@@ -45,17 +45,17 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupResources" OutputProperty="*" Verb="Get" Noun="GroupResourceList" PipelineParameter="GroupName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListGroupResources" OutputProperty="*" Verb="Get" Noun="GroupResourceList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params>
                 <Param Name="GroupName" Alias="Name" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="GroupIdentifiers" Verb="Get" Noun="GroupList" PipelineParameter="Filters" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="GroupIdentifiers" Verb="Get" Noun="GroupList" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchResources" OutputProperty="*" Verb="Find" Noun="Resource" PipelineParameter="ResourceQuery" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="SearchResources" OutputProperty="*" Verb="Find" Noun="Resource" PipelineParameter="ResourceQuery" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

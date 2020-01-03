@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking configuration</para>
+        /// <para>A unique identifier for a matchmaking configuration. You can use either the configuration
+        /// name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

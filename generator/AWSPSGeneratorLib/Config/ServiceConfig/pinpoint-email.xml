@@ -75,7 +75,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDedicatedIps" OutputProperty="DedicatedIps" Verb="Get" Noun="DedicatedIpList" PipelineParameter="PoolName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDedicatedIps" OutputProperty="DedicatedIps" Verb="Get" Noun="DedicatedIpList" PipelineParameter="PoolName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -99,23 +99,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDedicatedIpPools" OutputProperty="DedicatedIpPools" Verb="Get" Noun="DedicatedIpPoolList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDedicatedIpPools" OutputProperty="DedicatedIpPools" Verb="Get" Noun="DedicatedIpPoolList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeliverabilityTestReports" OutputProperty="DeliverabilityTestReports" Verb="Get" Noun="DeliverabilityTestReportList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDeliverabilityTestReports" OutputProperty="DeliverabilityTestReports" Verb="Get" Noun="DeliverabilityTestReportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainDeliverabilityCampaigns" OutputProperty="DomainDeliverabilityCampaigns" Verb="Get" Noun="DomainDeliverabilityCampaignList" PipelineParameter="SubscribedDomain" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDomainDeliverabilityCampaigns" OutputProperty="DomainDeliverabilityCampaigns" Verb="Get" Noun="DomainDeliverabilityCampaignList" PipelineParameter="SubscribedDomain" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEmailIdentities" OutputProperty="EmailIdentities" Verb="Get" Noun="EmailIdentityList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEmailIdentities" OutputProperty="EmailIdentities" Verb="Get" Noun="EmailIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

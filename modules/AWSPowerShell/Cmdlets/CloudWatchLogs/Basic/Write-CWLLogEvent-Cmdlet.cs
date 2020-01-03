@@ -34,9 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <para>
     /// You must include the sequence token obtained from the response of the previous call.
     /// An upload in a newly created log stream does not require a sequence token. You can
-    /// also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code>
-    /// twice within a narrow time period using the same value for <code>sequenceToken</code>,
-    /// both calls may be successful, or one may be rejected.
+    /// also get the sequence token in the <code>expectedSequenceToken</code> field from <code>InvalidSequenceTokenException</code>.
+    /// If you call <code>PutLogEvents</code> twice within a narrow time period using the
+    /// same value for <code>sequenceToken</code>, both calls may be successful, or one may
+    /// be rejected.
     /// </para><para>
     /// The batch of events must satisfy the following constraints:
     /// </para><ul><li><para>
@@ -54,10 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.)
     /// 
     /// </para></li><li><para>
-    /// The maximum number of log events in a batch is 10,000.
-    /// </para></li><li><para>
     /// A batch of log events in a single request cannot span more than 24 hours. Otherwise,
     /// the operation fails.
+    /// </para></li><li><para>
+    /// The maximum number of log events in a batch is 10,000.
+    /// </para></li><li><para>
+    /// There is a quota of 5 requests per second per log stream. Additional requests are
+    /// throttled. This quota can't be changed.
     /// </para></li></ul><para>
     /// If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause
     /// is an invalid AWS access key ID or secret key. 

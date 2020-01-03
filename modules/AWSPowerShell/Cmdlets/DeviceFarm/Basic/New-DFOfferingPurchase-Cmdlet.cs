@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// Immediately purchases offerings for an AWS account. Offerings renew with the latest
     /// total purchased quantity for an offering, unless the renewal was overridden. The API
     /// returns a <code>NotEligible</code> error if the user is not permitted to invoke the
-    /// operation. Please contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>
-    /// if you believe that you should be able to invoke this operation.
+    /// operation. If you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.
     /// </summary>
     [Cmdlet("New", "DFOfferingPurchase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.OfferingTransaction")]
@@ -67,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of device slots you wish to purchase in an offering request.</para>
+        /// <para>The number of device slots to purchase in an offering request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

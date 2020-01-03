@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxRecords")]
-        public int? MaxRecord { get; set; }
+        [Alias("MaxRecords")]
+        public System.Int32? MaxRecord { get; set; }
         #endregion
         
         #region Parameter Select
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             if (cmdletContext.MaxRecord != null)
             {
-                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
+                request.MaxRecords = cmdletContext.MaxRecord.Value;
             }
             if (cmdletContext.Source != null)
             {
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             if (cmdletContext.MaxRecord != null)
             {
-                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
+                request.MaxRecords = cmdletContext.MaxRecord.Value;
             }
             if (cmdletContext.Source != null)
             {
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             public System.String CacheParameterGroupName { get; set; }
             public System.String Marker { get; set; }
-            public int? MaxRecord { get; set; }
+            public System.Int32? MaxRecord { get; set; }
             public System.String Source { get; set; }
             public System.Func<Amazon.ElastiCache.Model.DescribeCacheParametersResponse, GetECCacheParameterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

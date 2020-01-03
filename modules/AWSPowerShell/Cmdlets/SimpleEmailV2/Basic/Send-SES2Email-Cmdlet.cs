@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// Sends an email message. You can use the Amazon SES API v2 to send two types of messages:
     /// 
     ///  <ul><li><para><b>Simple</b> – A standard email message. When you create this type of message, you
-    /// specify the sender, the recipient, and the message body, and the Amazon SES API v2
-    /// assembles the message for you.
+    /// specify the sender, the recipient, and the message body, and Amazon SES assembles
+    /// the message for you.
     /// </para></li><li><para><b>Raw</b> – A raw, MIME-formatted email message. When you send this type of email,
     /// you have to specify all of the message headers, as well as the message body. You can
     /// use this message type to send messages that contain attachments. The message that
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
-        /// the Amazon SES API v2 uses 7-bit ASCII by default. If the text includes characters
-        /// outside of the ASCII range, you have to specify a character set. For example, you
-        /// could specify <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of
+        /// the ASCII range, you have to specify a character set. For example, you could specify
+        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
-        /// the Amazon SES API v2 uses 7-bit ASCII by default. If the text includes characters
-        /// outside of the ASCII range, you have to specify a character set. For example, you
-        /// could specify <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of
+        /// the ASCII range, you have to specify a character set. For example, you could specify
+        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// <summary>
         /// <para>
         /// <para>The character set for the content. Because of the constraints of the SMTP protocol,
-        /// the Amazon SES API v2 uses 7-bit ASCII by default. If the text includes characters
-        /// outside of the ASCII range, you have to specify a character set. For example, you
-        /// could specify <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
+        /// Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of
+        /// the ASCII range, you have to specify a character set. For example, you could specify
+        /// <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Raw_Data
         /// <summary>
         /// <para>
-        /// <para>The raw email message. The message has to meet the following criteria:</para><ul><li><para>The message has to contain a header and a body, separated by one blank line.</para></li><li><para>All of the required header fields must be present in the message.</para></li><li><para>Each part of a multipart MIME message must be formatted properly.</para></li><li><para>Attachments must be in a file format that the Amazon SES API v2 supports. </para></li><li><para>The entire message must be Base64 encoded.</para></li><li><para>If any of the MIME parts in your message contain content that is outside of the 7-bit
+        /// <para>The raw email message. The message has to meet the following criteria:</para><ul><li><para>The message has to contain a header and a body, separated by one blank line.</para></li><li><para>All of the required header fields must be present in the message.</para></li><li><para>Each part of a multipart MIME message must be formatted properly.</para></li><li><para>Attachments must be in a file format that the Amazon SES supports.</para></li><li><para>The entire message must be Base64 encoded.</para></li><li><para>If any of the MIME parts in your message contain content that is outside of the 7-bit
         /// ASCII character range, you should encode that content to ensure that recipients' email
         /// clients render the message properly.</para></li><li><para>The length of any single line of text in the message can't exceed 1,000 characters.
         /// This restriction is defined in <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</para></li></ul>

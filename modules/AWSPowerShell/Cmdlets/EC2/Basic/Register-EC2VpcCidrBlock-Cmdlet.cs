@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block,
-    /// or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size
-    /// is fixed at /56.
+    /// an Amazon-provided IPv6 CIDR block, or an IPv6 CIDR block from an IPv6 address pool
+    /// that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).
+    /// The IPv6 CIDR block size is fixed at /56.
     /// 
     ///  
     /// <para>
@@ -69,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CidrBlock { get; set; }
         #endregion
         
+        #region Parameter Ipv6CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code>
+        /// in the request.</para><para>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv6CidrBlock { get; set; }
+        #endregion
+        
         #region Parameter Ipv6CidrBlockNetworkBorderGroup
         /// <summary>
         /// <para>
@@ -79,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6Pool
+        /// <summary>
+        /// <para>
+        /// <para>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv6Pool { get; set; }
         #endregion
         
         #region Parameter VpcId
@@ -161,7 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AmazonProvidedIpv6CidrBlock = this.AmazonProvidedIpv6CidrBlock;
             context.CidrBlock = this.CidrBlock;
+            context.Ipv6CidrBlock = this.Ipv6CidrBlock;
             context.Ipv6CidrBlockNetworkBorderGroup = this.Ipv6CidrBlockNetworkBorderGroup;
+            context.Ipv6Pool = this.Ipv6Pool;
             context.VpcId = this.VpcId;
             #if MODULAR
             if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
@@ -193,9 +217,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.CidrBlock = cmdletContext.CidrBlock;
             }
+            if (cmdletContext.Ipv6CidrBlock != null)
+            {
+                request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
+            }
             if (cmdletContext.Ipv6CidrBlockNetworkBorderGroup != null)
             {
                 request.Ipv6CidrBlockNetworkBorderGroup = cmdletContext.Ipv6CidrBlockNetworkBorderGroup;
+            }
+            if (cmdletContext.Ipv6Pool != null)
+            {
+                request.Ipv6Pool = cmdletContext.Ipv6Pool;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -264,7 +296,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? AmazonProvidedIpv6CidrBlock { get; set; }
             public System.String CidrBlock { get; set; }
+            public System.String Ipv6CidrBlock { get; set; }
             public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
+            public System.String Ipv6Pool { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.AssociateVpcCidrBlockResponse, RegisterEC2VpcCidrBlockCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

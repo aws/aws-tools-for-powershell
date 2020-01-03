@@ -67,6 +67,19 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         public System.String CampaignArn { get; set; }
         #endregion
         
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>The contextual metadata to use when getting recommendations. Contextual metadata includes
+        /// any interaction information that might be relevant when getting a user's recommendations,
+        /// such as the user's current location or device type. For more information, see Contextual
+        /// Metadata.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Context { get; set; }
+        #endregion
+        
         #region Parameter ItemId
         /// <summary>
         /// <para>
@@ -80,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         #region Parameter NumResult
         /// <summary>
         /// <para>
-        /// <para>The number of results to return. The default is 25. The maximum is 100.</para>
+        /// <para>The number of results to return. The default is 25. The maximum is 500.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,6 +163,14 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                 WriteWarning("You are passing $null as a value for parameter CampaignArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Context != null)
+            {
+                context.Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Context.Keys)
+                {
+                    context.Context.Add((String)hashKey, (String)(this.Context[hashKey]));
+                }
+            }
             context.ItemId = this.ItemId;
             context.NumResult = this.NumResult;
             context.UserId = this.UserId;
@@ -172,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             if (cmdletContext.CampaignArn != null)
             {
                 request.CampaignArn = cmdletContext.CampaignArn;
+            }
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
             }
             if (cmdletContext.ItemId != null)
             {
@@ -247,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CampaignArn { get; set; }
+            public Dictionary<System.String, System.String> Context { get; set; }
             public System.String ItemId { get; set; }
             public System.Int32? NumResult { get; set; }
             public System.String UserId { get; set; }

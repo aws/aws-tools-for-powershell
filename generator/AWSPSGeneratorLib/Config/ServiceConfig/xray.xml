@@ -19,7 +19,7 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetTraces" OutputProperty="*" Verb="Get" Noun="TraceBatch" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="BatchGetTraces" OutputProperty="*" Verb="Get" Noun="TraceBatch" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,7 +63,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServiceGraph" OutputProperty="*" Verb="Get" Noun="ServiceGraph" PipelineParameter="StartTime" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetServiceGraph" OutputProperty="*" Verb="Get" Noun="ServiceGraph" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,7 +75,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTraceSummaries" OutputProperty="*" Verb="Get" Noun="TraceSummary" PipelineParameter="StartTime" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetTraceSummaries" OutputProperty="*" Verb="Get" Noun="TraceSummary" PipelineParameter="StartTime" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

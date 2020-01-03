@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// for partner actions only.
     /// 
     ///  <important><para>
-    /// When this API is called, AWS CodePipeline returns temporary credentials for the Amazon
-    /// S3 bucket used to store artifacts for the pipeline, if the action requires access
-    /// to that Amazon S3 bucket for input or output artifacts.
+    /// When this API is called, AWS CodePipeline returns temporary credentials for the S3
+    /// bucket used to store artifacts for the pipeline, if the action requires access to
+    /// that S3 bucket for input or output artifacts.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "CPActionableThirdPartyJobList")]

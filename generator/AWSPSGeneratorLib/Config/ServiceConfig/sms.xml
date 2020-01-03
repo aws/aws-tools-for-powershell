@@ -71,19 +71,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnectors" OutputProperty="ConnectorList" Verb="Get" Noun="Connector" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetConnectors" OutputProperty="ConnectorList" Verb="Get" Noun="Connector" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReplicationJobs" OutputProperty="ReplicationJobList" Verb="Get" Noun="ReplicationJob" PipelineParameter="ReplicationJobId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetReplicationJobs" OutputProperty="ReplicationJobList" Verb="Get" Noun="ReplicationJob" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReplicationRuns" OutputProperty="*" Verb="Get" Noun="ReplicationRun" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetReplicationRuns" OutputProperty="*" Verb="Get" Noun="ReplicationRun" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServers" OutputProperty="*" Verb="Get" Noun="Server" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetServers" OutputProperty="*" Verb="Get" Noun="Server" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -95,7 +95,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="AppIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApps" OutputProperty="Apps" Verb="Get" Noun="AppList" PipelineParameter="AppIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

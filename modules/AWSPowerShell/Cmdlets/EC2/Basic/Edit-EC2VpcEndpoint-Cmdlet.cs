@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PrivateDnsEnabled
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) Indicate whether a private hosted zone is associated with the
+        /// <para>(Interface endpoint) Indicates whether a private hosted zone is associated with the
         /// VPC.</para>
         /// </para>
         /// </summary>

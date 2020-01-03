@@ -80,10 +80,31 @@ $FSX_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.FSx.DataRepositoryTaskType
+        "New-FSXDataRepositoryTask/Type"
+        {
+            $v = "EXPORT_TO_REPOSITORY"
+            break
+        }
+
         # Amazon.FSx.FileSystemType
         "New-FSXFileSystem/FileSystemType"
         {
             $v = "LUSTRE","WINDOWS"
+            break
+        }
+
+        # Amazon.FSx.ReportFormat
+        "New-FSXDataRepositoryTask/Report_Format"
+        {
+            $v = "REPORT_CSV_20191124"
+            break
+        }
+
+        # Amazon.FSx.ReportScope
+        "New-FSXDataRepositoryTask/Report_Scope"
+        {
+            $v = "FAILED_FILES_ONLY"
             break
         }
 
@@ -97,6 +118,9 @@ $FSX_Completers = {
 
 $FSX_map = @{
     "FileSystemType"=@("New-FSXFileSystem")
+    "Report_Format"=@("New-FSXDataRepositoryTask")
+    "Report_Scope"=@("New-FSXDataRepositoryTask")
+    "Type"=@("New-FSXDataRepositoryTask")
 }
 
 _awsArgumentCompleterRegistration $FSX_Completers $FSX_map
@@ -149,12 +173,15 @@ $FSX_SelectCompleters = {
 }
 
 $FSX_SelectMap = @{
-    "Select"=@("New-FSXBackup",
+    "Select"=@("Stop-FSXDataRepositoryTask",
+               "New-FSXBackup",
+               "New-FSXDataRepositoryTask",
                "New-FSXFileSystem",
                "New-FSXFileSystemFromBackup",
                "Remove-FSXBackup",
                "Remove-FSXFileSystem",
                "Get-FSXBackup",
+               "Get-FSXDataRepositoryTask",
                "Get-FSXFileSystem",
                "Get-FSXResourceTagList",
                "Add-FSXResourceTag",

@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Defines the maximum number of data objects that can be labeled by human workers at
         /// the same time. Also referred to as batch size. Each object may have more than one
-        /// worker at one time.</para>
+        /// worker at one time. The default value is 1000 objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -372,7 +372,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The length of time that a task remains available for labeling by human workers. <b>If
         /// you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43200)</b>.
-        /// For private and vendor workforces, the maximum is as listed.</para>
+        /// The default value is 864000 seconds (1 day). For private and vendor workforces, the
+        /// maximum is as listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

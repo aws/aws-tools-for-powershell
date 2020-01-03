@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Specifies the number of days after creation that a recovery point is deleted. Must
-        /// be greater than <code>MoveToColdStorageAfterDays</code>.</para>
+        /// be greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,12 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A customer chosen string that can be used to distinguish between calls to <code>StartBackupJob</code>.
-        /// Idempotency tokens time out after one hour. Therefore, if you call <code>StartBackupJob</code>
-        /// multiple times with the same idempotency token within one hour, AWS Backup recognizes
-        /// that you are requesting only one backup job and initiates only one. If you change
-        /// the idempotency token for each call, AWS Backup recognizes that you are requesting
-        /// to start multiple backups.</para>
+        /// <para>A customer chosen string that can be used to distinguish between calls to <code>StartBackupJob</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

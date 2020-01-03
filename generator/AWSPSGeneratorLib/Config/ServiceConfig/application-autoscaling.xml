@@ -31,19 +31,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalableTargets" OutputProperty="ScalableTargets" Verb="Get" Noun="ScalableTarget" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScalableTargets" OutputProperty="ScalableTargets" Verb="Get" Noun="ScalableTarget" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="ScalingActivities" Verb="Get" Noun="ScalingActivity" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="ScalingActivities" Verb="Get" Noun="ScalingActivity" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScalingPolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="ScalingPolicy" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

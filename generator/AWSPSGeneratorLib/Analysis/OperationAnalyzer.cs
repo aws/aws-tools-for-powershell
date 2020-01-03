@@ -147,48 +147,17 @@ namespace AWSPowerShellGenerator.Analysis
                 {
                     //If autoiteration also has configured a field name for EmitLimit (input parameter idicating the max number of items
                     //to be returned by the service) and the EmitLimit parameter is actually present in the input type
-                    if (!String.IsNullOrEmpty(autoIteration.EmitLimit) &&
-                        AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.EmitLimit))
-                    {
-                        //If autoiteration also has configured a field name for TruncatedFlag (output value idicating if more data is availabe
-                        //but was not returned due to pagination) and the TruncatedFlag value is present in the returned type
-                        if (String.IsNullOrEmpty(autoIteration.TruncatedFlag) || !AreResultFieldsPresent(ReturnType, autoIteration.TruncatedFlag))
-                        {
-                            autoIteration.TruncatedFlag = null;
-                        }
-                    }
-                    else
+                    if (String.IsNullOrEmpty(autoIteration.EmitLimit) ||
+                        CurrentOperation.LegacyPagination != ServiceOperation.LegacyPaginationType.UseEmitLimit ||
+                        !AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.EmitLimit))
                     {
                         autoIteration.EmitLimit = null;
-                        autoIteration.TruncatedFlag = null;
                     }
 
                     return autoIteration;
                 }
 
                 return null;
-            }
-        }
-
-        /// <summary>
-        /// The iteration code pattern that should be generated for the operation, if any.
-        /// </summary>
-        public AutoIteration.AutoIteratePattern IterationPattern
-        {
-            get
-            {
-                var autoIteration = AutoIterateSettings;
-
-                if (autoIteration != null)
-                {
-                    if (!String.IsNullOrEmpty(autoIteration.EmitLimit))
-                    {
-                        return AutoIteration.AutoIteratePattern.Pattern2;
-                    }
-                    return AutoIteration.AutoIteratePattern.Pattern1;
-                }
-
-                return AutoIteration.AutoIteratePattern.None;
             }
         }
 
@@ -1267,8 +1236,7 @@ namespace AWSPowerShellGenerator.Analysis
                 Func<PropertyInfo, bool> isNotMetadataProperty = p =>
                     !AllModels.MetadataPropertyNames.Contains(p.Name) &&
                     !CurrentModel.MetadataPropertyNames.Contains(p.Name) &&
-                    autoIterateSettings?.Next != p.Name &&
-                    autoIterateSettings?.TruncatedFlag != p.Name;
+                    autoIterateSettings?.Next != p.Name;
 
                 var nonMetadataProperties = allOutputProperties.Where(isNotMetadataProperty).ToArray();
 
@@ -1312,11 +1280,6 @@ namespace AWSPowerShellGenerator.Analysis
             }
             else
             {
-                if (autoIterateSettings != null && !CurrentOperation.DisableLegacyPagination && (CurrentOperation.OutputProperty == "" || CurrentOperation.OutputProperty == CurrentOperation.OutputWrapper))
-                {
-                    AnalysisError.PaginatedCmdletShouldReturnSingleProperty(CurrentModel, CurrentOperation);
-                }
-
                 if (CurrentOperation.OutputProperty == "*") //returns response
                 {
                     cmdletReturnType = ResponseType;

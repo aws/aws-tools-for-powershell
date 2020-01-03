@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// AWS creates a unique AWS managed CMK in each Region for use with encryption by default.
-    /// If you change the default CMK to a customer managed CMK, it is used instead of the
-    /// AWS managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use <a>ResetEbsDefaultKmsKeyId</a>.
+    /// If you change the default CMK to a symmetric customer managed CMK, it is used instead
+    /// of the AWS managed CMK. To reset the default CMK to the AWS managed CMK for EBS, use
+    /// <a>ResetEbsDefaultKmsKeyId</a>. Amazon EBS does not support asymmetric CMKs.
     /// </para><para>
     /// If you delete or disable the customer managed CMK that you specified for use with
     /// encryption by default, your instances will fail to launch.
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// to use for Amazon EBS encryption. If this parameter is not specified, your AWS managed
         /// CMK for EBS is used. If <code>KmsKeyId</code> is specified, the encrypted state must
         /// be <code>true</code>.</para><para>You can specify the CMK using any of the following:</para><ul><li><para>Key ID. For example, key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</para></li><li><para>Alias ARN. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</para></li></ul><para>AWS authenticates the CMK asynchronously. Therefore, if you specify an ID, alias,
-        /// or ARN that is not valid, the action can appear to complete, but eventually fails.</para>
+        /// or ARN that is not valid, the action can appear to complete, but eventually fails.</para><para>Amazon EBS does not support asymmetric CMKs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

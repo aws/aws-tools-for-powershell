@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter AwsJobPresignedUrlConfig_ExpiresInSec
+        /// <summary>
+        /// <para>
+        /// <para>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default
+        /// value is 1800 seconds. Pre-signed URLs are generated when a request for the job document
+        /// is received.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? AwsJobPresignedUrlConfig_ExpiresInSec { get; set; }
+        #endregion
+        
         #region Parameter File
         /// <summary>
         /// <para>
@@ -103,6 +115,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OtaUpdateId { get; set; }
+        #endregion
+        
+        #region Parameter Protocol
+        /// <summary>
+        /// <para>
+        /// <para>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT],
+        /// [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose
+        /// the protocol.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Protocols")]
+        public System.String[] Protocol { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -237,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 }
             }
             context.AwsJobExecutionsRolloutConfig_MaximumPerMinute = this.AwsJobExecutionsRolloutConfig_MaximumPerMinute;
+            context.AwsJobPresignedUrlConfig_ExpiresInSec = this.AwsJobPresignedUrlConfig_ExpiresInSec;
             context.Description = this.Description;
             if (this.File != null)
             {
@@ -255,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter OtaUpdateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Protocol != null)
+            {
+                context.Protocol = new List<System.String>(this.Protocol);
+            }
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -316,6 +346,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.AwsJobExecutionsRolloutConfig = null;
             }
+            
+             // populate AwsJobPresignedUrlConfig
+            var requestAwsJobPresignedUrlConfigIsNull = true;
+            request.AwsJobPresignedUrlConfig = new Amazon.IoT.Model.AwsJobPresignedUrlConfig();
+            System.Int64? requestAwsJobPresignedUrlConfig_awsJobPresignedUrlConfig_ExpiresInSec = null;
+            if (cmdletContext.AwsJobPresignedUrlConfig_ExpiresInSec != null)
+            {
+                requestAwsJobPresignedUrlConfig_awsJobPresignedUrlConfig_ExpiresInSec = cmdletContext.AwsJobPresignedUrlConfig_ExpiresInSec.Value;
+            }
+            if (requestAwsJobPresignedUrlConfig_awsJobPresignedUrlConfig_ExpiresInSec != null)
+            {
+                request.AwsJobPresignedUrlConfig.ExpiresInSec = requestAwsJobPresignedUrlConfig_awsJobPresignedUrlConfig_ExpiresInSec.Value;
+                requestAwsJobPresignedUrlConfigIsNull = false;
+            }
+             // determine if request.AwsJobPresignedUrlConfig should be set to null
+            if (requestAwsJobPresignedUrlConfigIsNull)
+            {
+                request.AwsJobPresignedUrlConfig = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -327,6 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.OtaUpdateId != null)
             {
                 request.OtaUpdateId = cmdletContext.OtaUpdateId;
+            }
+            if (cmdletContext.Protocol != null)
+            {
+                request.Protocols = cmdletContext.Protocol;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -407,9 +460,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public Dictionary<System.String, System.String> AdditionalParameter { get; set; }
             public System.Int32? AwsJobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
+            public System.Int64? AwsJobPresignedUrlConfig_ExpiresInSec { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.IoT.Model.OTAUpdateFile> File { get; set; }
             public System.String OtaUpdateId { get; set; }
+            public List<System.String> Protocol { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public List<System.String> Target { get; set; }

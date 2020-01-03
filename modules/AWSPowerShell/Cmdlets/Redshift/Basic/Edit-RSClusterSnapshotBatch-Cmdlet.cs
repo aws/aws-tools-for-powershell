@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Modifies the settings for a list of snapshots.
+    /// Modifies the settings for a set of cluster snapshots.
     /// </summary>
     [Cmdlet("Edit", "RSClusterSnapshotBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.BatchModifyClusterSnapshotsResponse")]

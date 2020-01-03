@@ -48,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BuildId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a build to retrieve properties for.</para>
+        /// <para>A unique identifier for a build to retrieve properties for. You can use either the
+        /// build ID or ARN value. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

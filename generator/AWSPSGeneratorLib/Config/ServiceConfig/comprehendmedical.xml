@@ -38,6 +38,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="InferICD10CM" OutputProperty="Entities" Verb="Find" Noun="ICD10CM" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InferRxNorm" OutputProperty="Entities" Verb="Find" Noun="RxNorm" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEntitiesDetectionV2Jobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="EntitiesDetectionV2JobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

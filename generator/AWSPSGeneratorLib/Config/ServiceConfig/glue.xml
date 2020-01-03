@@ -199,7 +199,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetClassifiers" OutputProperty="Classifiers" Verb="Get" Noun="ClassifierList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetClassifiers" OutputProperty="Classifiers" Verb="Get" Noun="ClassifierList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -207,7 +207,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnections" OutputProperty="ConnectionList" Verb="Get" Noun="ConnectionList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetConnections" OutputProperty="ConnectionList" Verb="Get" Noun="ConnectionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,11 +215,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCrawlerMetrics" OutputProperty="CrawlerMetricsList" Verb="Get" Noun="CrawlerMetricList" PipelineParameter="CrawlerNameList" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCrawlerMetrics" OutputProperty="CrawlerMetricsList" Verb="Get" Noun="CrawlerMetricList" PipelineParameter="CrawlerNameList" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCrawlers" OutputProperty="Crawlers" Verb="Get" Noun="CrawlerList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCrawlers" OutputProperty="Crawlers" Verb="Get" Noun="CrawlerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -227,7 +227,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDatabases" OutputProperty="DatabaseList" Verb="Get" Noun="DatabaseList" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDatabases" OutputProperty="DatabaseList" Verb="Get" Noun="DatabaseList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -243,7 +243,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevEndpoints" OutputProperty="DevEndpoints" Verb="Get" Noun="DevEndpointList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetDevEndpoints" OutputProperty="DevEndpoints" Verb="Get" Noun="DevEndpointList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -259,11 +259,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="JobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJobRuns" OutputProperty="JobRuns" Verb="Get" Noun="JobRunList" PipelineParameter="JobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetJobs" OutputProperty="Jobs" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -275,7 +275,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLTaskRuns" OutputProperty="TaskRuns" Verb="Get" Noun="MLTaskRunList" PipelineParameter="TransformId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMLTaskRuns" OutputProperty="TaskRuns" Verb="Get" Noun="MLTaskRunList" PipelineParameter="TransformId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -283,7 +283,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLTransforms" OutputProperty="Transforms" Verb="Get" Noun="MLTransformList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetMLTransforms" OutputProperty="Transforms" Verb="Get" Noun="MLTransformList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -291,7 +291,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPartitions" OutputProperty="Partitions" Verb="Get" Noun="PartitionList" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetPartitions" OutputProperty="Partitions" Verb="Get" Noun="PartitionList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -307,7 +307,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -315,7 +315,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTables" OutputProperty="TableList" Verb="Get" Noun="TableList" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTables" OutputProperty="TableList" Verb="Get" Noun="TableList" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -323,7 +323,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTableVersions" OutputProperty="TableVersions" Verb="Get" Noun="TableVersionList" PipelineParameter="TableName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetTableVersions" OutputProperty="TableVersions" Verb="Get" Noun="TableVersionList" PipelineParameter="TableName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -335,7 +335,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTriggers" OutputProperty="Triggers" Verb="Get" Noun="TriggerList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetTriggers" OutputProperty="Triggers" Verb="Get" Noun="TriggerList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -343,7 +343,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUserDefinedFunctions" OutputProperty="UserDefinedFunctions" Verb="Get" Noun="UserDefinedFunctionList" PipelineParameter="DatabaseName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUserDefinedFunctions" OutputProperty="UserDefinedFunctions" Verb="Get" Noun="UserDefinedFunctionList" PipelineParameter="DatabaseName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -359,7 +359,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflowRuns" OutputProperty="Runs" Verb="Get" Noun="WorkflowRunList" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetWorkflowRuns" OutputProperty="Runs" Verb="Get" Noun="WorkflowRunList" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -367,23 +367,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCrawlers" OutputProperty="CrawlerNames" Verb="Get" Noun="CrawlerNameList" PipelineParameter="Tags" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCrawlers" OutputProperty="CrawlerNames" Verb="Get" Noun="CrawlerNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevEndpoints" OutputProperty="DevEndpointNames" Verb="Get" Noun="DevEndpointNameList" PipelineParameter="Tags" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDevEndpoints" OutputProperty="DevEndpointNames" Verb="Get" Noun="DevEndpointNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobNames" Verb="Get" Noun="JobNameList" PipelineParameter="Tags" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobNames" Verb="Get" Noun="JobNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTriggers" OutputProperty="TriggerNames" Verb="Get" Noun="TriggerNameList" PipelineParameter="DependentJobName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTriggers" OutputProperty="TriggerNames" Verb="Get" Noun="TriggerNameList" PipelineParameter="DependentJobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Workflows" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkflows" OutputProperty="Workflows" Verb="Get" Noun="WorkflowList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -403,7 +403,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchTables" OutputProperty="TableList" Verb="Find" Noun="Table" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="SearchTables" OutputProperty="TableList" Verb="Find" Noun="Table" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

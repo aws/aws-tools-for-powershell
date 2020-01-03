@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for an alias associated with the fleet to retrieve all game sessions
-        /// for. </para>
+        /// <para>A unique identifier for an alias associated with the fleet to retrieve all game sessions
+        /// for. You can use either the alias ID or ARN value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to retrieve all game sessions for.</para>
+        /// <para>A unique identifier for a fleet to retrieve all game sessions for. You can use either
+        /// the fleet ID or ARN value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to retrieve. You can use either a <code>GameSessionId</code>
-        /// or <code>GameSessionArn</code> value. </para>
+        /// <para>A unique identifier for the game session to retrieve. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages.</para>
         /// </para>
         /// <para>

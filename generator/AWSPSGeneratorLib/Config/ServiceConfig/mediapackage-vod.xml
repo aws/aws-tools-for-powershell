@@ -55,15 +55,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssets" OutputProperty="Assets" Verb="Get" Noun="AssetList" PipelineParameter="PackagingGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAssets" OutputProperty="Assets" Verb="Get" Noun="AssetList" PipelineParameter="PackagingGroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPackagingConfigurations" OutputProperty="PackagingConfigurations" Verb="Get" Noun="PackagingConfigurationList" PipelineParameter="PackagingGroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPackagingConfigurations" OutputProperty="PackagingConfigurations" Verb="Get" Noun="PackagingConfigurationList" PipelineParameter="PackagingGroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPackagingGroups" OutputProperty="PackagingGroups" Verb="Get" Noun="PackagingGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPackagingGroups" OutputProperty="PackagingGroups" Verb="Get" Noun="PackagingGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.XR
     /// <summary>
     /// Retrieves a document that describes services that process incoming requests, and downstream
     /// services that they call as a result. Root services process incoming requests and make
-    /// calls to downstream services. Root services are applications that use the AWS X-Ray
-    /// SDK. Downstream services can be other applications, AWS resources, HTTP web APIs,
-    /// or SQL databases.<br/><br/>In the AWS.Tools.XRay module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// calls to downstream services. Root services are applications that use the <a href="https://docs.aws.amazon.com/xray/index.html">AWS
+    /// X-Ray SDK</a>. Downstream services can be other applications, AWS resources, HTTP
+    /// web APIs, or SQL databases.<br/><br/>In the AWS.Tools.XRay module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "XRServiceGraph")]
     [OutputType("Amazon.XRay.Model.GetServiceGraphResponse")]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token. Not used.</para>
+        /// <para>Pagination token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.XRay module, this parameter is only used if you are manually controlling output pagination of the service API call.

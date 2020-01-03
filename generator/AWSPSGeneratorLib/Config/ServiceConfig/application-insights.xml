@@ -76,23 +76,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationInfoList" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplications" OutputProperty="ApplicationInfoList" Verb="Get" Noun="ApplicationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComponents" OutputProperty="ApplicationComponentList" Verb="Get" Noun="ComponentList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListComponents" OutputProperty="ApplicationComponentList" Verb="Get" Noun="ComponentList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLogPatterns" OutputProperty="LogPatterns" Verb="Get" Noun="LogPatternList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfigurationHistory" OutputProperty="EventList" Verb="Get" Noun="ConfigurationHistoryList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLogPatternSets" OutputProperty="LogPatternSets" Verb="Get" Noun="LogPatternSetList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLogPatterns" OutputProperty="LogPatterns" Verb="Get" Noun="LogPatternList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProblems" OutputProperty="ProblemList" Verb="Get" Noun="ProblemList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLogPatternSets" OutputProperty="LogPatternSets" Verb="Get" Noun="LogPatternSetList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProblems" OutputProperty="ProblemList" Verb="Get" Noun="ProblemList" PipelineParameter="ResourceGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

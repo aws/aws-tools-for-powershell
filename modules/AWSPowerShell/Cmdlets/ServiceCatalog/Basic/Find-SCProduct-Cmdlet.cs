@@ -90,8 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems")]
-        public int? PageSize { get; set; }
+        public System.Int32? PageSize { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -201,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             }
             if (cmdletContext.PageSize != null)
             {
-                request.PageSize = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.PageSize.Value);
+                request.PageSize = cmdletContext.PageSize.Value;
             }
             if (cmdletContext.SortBy != null)
             {
@@ -275,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             }
             if (cmdletContext.PageSize != null)
             {
-                request.PageSize = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.PageSize.Value);
+                request.PageSize = cmdletContext.PageSize.Value;
             }
             if (cmdletContext.PageToken != null)
             {
@@ -353,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             public System.String AcceptLanguage { get; set; }
             public Dictionary<System.String, List<System.String>> Filter { get; set; }
-            public int? PageSize { get; set; }
+            public System.Int32? PageSize { get; set; }
             public System.String PageToken { get; set; }
             public Amazon.ServiceCatalog.ProductViewSortBy SortBy { get; set; }
             public Amazon.ServiceCatalog.SortOrder SortOrder { get; set; }

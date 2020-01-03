@@ -47,15 +47,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectorModels" OutputProperty="DetectorModelSummaries" Verb="Get" Noun="DetectorModelList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDetectorModels" OutputProperty="DetectorModelSummaries" Verb="Get" Noun="DetectorModelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectorModelVersions" OutputProperty="DetectorModelVersionSummaries" Verb="Get" Noun="DetectorModelVersionList" PipelineParameter="DetectorModelName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDetectorModelVersions" OutputProperty="DetectorModelVersionSummaries" Verb="Get" Noun="DetectorModelVersionList" PipelineParameter="DetectorModelName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputs" OutputProperty="InputSummaries" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInputs" OutputProperty="InputSummaries" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

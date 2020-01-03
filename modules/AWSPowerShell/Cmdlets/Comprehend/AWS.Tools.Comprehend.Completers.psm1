@@ -80,6 +80,13 @@ $COMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Comprehend.DocumentClassifierMode
+        "New-COMPDocumentClassifier/Mode"
+        {
+            $v = "MULTI_CLASS","MULTI_LABEL"
+            break
+        }
+
         # Amazon.Comprehend.EndpointStatus
         "Get-COMPEndpointList/Filter_Status"
         {
@@ -145,6 +152,7 @@ $COMP_map = @{
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList")
     "Filter_Status"=@("Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList")
     "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPSentimentDetectionJob")
+    "Mode"=@("New-COMPDocumentClassifier")
 }
 
 _awsArgumentCompleterRegistration $COMP_Completers $COMP_map

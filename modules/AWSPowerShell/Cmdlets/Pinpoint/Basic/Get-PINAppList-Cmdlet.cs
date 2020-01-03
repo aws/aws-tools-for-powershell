@@ -28,7 +28,8 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Retrieves information about all of your applications.
+    /// Retrieves information about all the applications that are associated with your Amazon
+    /// Pinpoint account.
     /// </summary>
     [Cmdlet("Get", "PINAppList")]
     [OutputType("Amazon.Pinpoint.Model.ApplicationsResponse")]

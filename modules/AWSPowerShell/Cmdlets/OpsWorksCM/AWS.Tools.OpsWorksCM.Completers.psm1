@@ -135,8 +135,11 @@ $OWCM_SelectMap = @{
                "Get-OWCMServerList",
                "Remove-OWCMNode",
                "Export-OWCMServerEngineAttribute",
+               "Get-OWCMResourceTag",
                "Restore-OWCMServer",
                "Start-OWCMMaintenance",
+               "Add-OWCMResourceTag",
+               "Remove-OWCMResourceTag",
                "Update-OWCMServer",
                "Update-OWCMServerEngineAttribute")
 }

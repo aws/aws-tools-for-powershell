@@ -75,11 +75,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttacks" OutputProperty="AttackSummaries" Verb="Get" Noun="AttackList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAttacks" OutputProperty="AttackSummaries" Verb="Get" Noun="AttackList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProtections" OutputProperty="Protections" Verb="Get" Noun="ProtectionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListProtections" OutputProperty="Protections" Verb="Get" Noun="ProtectionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

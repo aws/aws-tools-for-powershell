@@ -143,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to apply this policy to. The fleet cannot be in any
-        /// of the following statuses: ERROR or DELETING.</para>
+        /// <para>A unique identifier for a fleet to apply this policy to. You can use either the fleet
+        /// ID or ARN value. The fleet cannot be in any of the following statuses: ERROR or DELETING.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -191,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a scaling policy. Policy names do not need
-        /// to be unique. A fleet can have only one scaling policy with the same name.</para>
+        /// <para>A descriptive label that is associated with a scaling policy. Policy names do not
+        /// need to be unique. A fleet can have only one scaling policy with the same name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -209,9 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>Type of scaling policy to create. For a target-based policy, set the parameter <i>MetricName</i>
-        /// to 'PercentAvailableGameSessions' and specify a <i>TargetConfiguration</i>. For a
-        /// rule-based policy set the following parameters: <i>MetricName</i>, <i>ComparisonOperator</i>,
+        /// <para>The type of scaling policy to create. For a target-based policy, set the parameter
+        /// <i>MetricName</i> to 'PercentAvailableGameSessions' and specify a <i>TargetConfiguration</i>.
+        /// For a rule-based policy set the following parameters: <i>MetricName</i>, <i>ComparisonOperator</i>,
         /// <i>Threshold</i>, <i>EvaluationPeriods</i>, <i>ScalingAdjustmentType</i>, and <i>ScalingAdjustment</i>.</para>
         /// </para>
         /// </summary>
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ScalingAdjustmentType
         /// <summary>
         /// <para>
-        /// <para>Type of adjustment to make to a fleet's instance count (see <a>FleetCapacity</a>):</para><ul><li><para><b>ChangeInCapacity</b> -- add (or subtract) the scaling adjustment value from the
+        /// <para>The type of adjustment to make to a fleet's instance count (see <a>FleetCapacity</a>):</para><ul><li><para><b>ChangeInCapacity</b> -- add (or subtract) the scaling adjustment value from the
         /// current instance count. Positive values scale up while negative values scale down.</para></li><li><para><b>ExactCapacity</b> -- set the instance count to the scaling adjustment value.</para></li><li><para><b>PercentChangeInCapacity</b> -- increase or reduce the current instance count by
         /// the scaling adjustment, read as a percentage. Positive values scale up while negative
         /// values scale down; for example, a value of "-10" scales the fleet down by 10%.</para></li></ul>

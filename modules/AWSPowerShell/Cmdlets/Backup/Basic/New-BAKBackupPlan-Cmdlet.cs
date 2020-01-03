@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// 
     ///  
     /// <para>
-    /// If you call <code>CreateBackupPlan</code> with a plan that already exists, the existing
-    /// <code>backupPlanId</code> is returned.
+    /// If you call <code>CreateBackupPlan</code> with a plan that already exists, an <code>AlreadyExistsException</code>
+    /// is returned.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BAKBackupPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

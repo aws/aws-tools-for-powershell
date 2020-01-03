@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ResourceName
         /// <summary>
         /// <para>
-        /// <para>The name of the source resource from which to disable the add-on.</para>
+        /// <para>The name of the source resource for which to disable the add-on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

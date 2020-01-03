@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Isolates the model container. No inbound or outbound network calls can be made to
-        /// or from the model container.</para><note><para>The Semantic Segmentation built-in algorithm does not support network isolation.</para></note>
+        /// or from the model container.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuleSetBody
         /// <summary>
         /// <para>
-        /// <para>Collection of matchmaking rules to validate, formatted as a JSON string.</para>
+        /// <para>A collection of matchmaking rules to validate, formatted as a JSON string.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

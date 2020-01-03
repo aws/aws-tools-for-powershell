@@ -90,11 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The maximum number of items to return for this call. The call also returns a token
         /// that you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>50</b>'.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -180,17 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (ParameterWasBound(nameof(this.MaxResult)))
-            {
-                context.MaxResult = this.MaxResult;
-            }
-            #if MODULAR
-            else
-            {
-                WriteVerbose("MaxResult parameter unset, using default value of '50'");
-                context.MaxResult = 50;
-            }
-            #endif
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.TypeName = this.TypeName;
             #if MODULAR
@@ -230,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.TypeName != null)
             {
@@ -300,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -374,7 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public List<Amazon.SimpleSystemsManagement.Model.InventoryFilter> Filter { get; set; }
             public System.String InstanceId { get; set; }
-            public int? MaxResult { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String TypeName { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.ListInventoryEntriesResponse, GetSSMInventoryEntryListCmdlet, object> Select { get; set; } =

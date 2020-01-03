@@ -28,9 +28,17 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Deletes the specified cluster. You must deregister all container instances from this
-    /// cluster before you may delete it. You can list the container instances in a cluster
-    /// with <a>ListContainerInstances</a> and deregister them with <a>DeregisterContainerInstance</a>.
+    /// Deletes the specified cluster. The cluster will transition to the <code>INACTIVE</code>
+    /// state. Clusters with an <code>INACTIVE</code> status may remain discoverable in your
+    /// account for a period of time. However, this behavior is subject to change in the future,
+    /// so you should not rely on <code>INACTIVE</code> clusters persisting.
+    /// 
+    ///  
+    /// <para>
+    /// You must deregister all container instances from this cluster before you may delete
+    /// it. You can list the container instances in a cluster with <a>ListContainerInstances</a>
+    /// and deregister them with <a>DeregisterContainerInstance</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "ECSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECS.Model.Cluster")]

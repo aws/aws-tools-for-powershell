@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Modify a scheduled action.
+    /// Modifies a scheduled action.
     /// </summary>
     [Cmdlet("Edit", "RSScheduledAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.ModifyScheduledActionResponse")]

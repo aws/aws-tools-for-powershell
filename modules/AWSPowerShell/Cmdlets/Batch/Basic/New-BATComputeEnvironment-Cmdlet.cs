@@ -88,12 +88,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// EC2 service limits</a>. If this is not specified, the default is <code>BEST_FIT</code>,
         /// which will use only the best fitting instance type, waiting for additional capacity
         /// if it's not available. This allocation strategy keeps costs lower but can limit scaling.
-        /// <code>BEST_FIT_PROGRESSIVE</code> will select an additional instance type that is
-        /// large enough to meet the requirements of the jobs in the queue, with a preference
-        /// for an instance type with a lower cost. <code>SPOT_CAPACITY_OPTIMIZED</code> is only
-        /// available for Spot Instance compute resources and will select an additional instance
-        /// type that is large enough to meet the requirements of the jobs in the queue, with
-        /// a preference for an instance type that is less likely to be interrupted.</para>
+        /// If you are using Spot Fleets with <code>BEST_FIT</code> then the Spot Fleet IAM Role
+        /// must be specified. <code>BEST_FIT_PROGRESSIVE</code> will select additional instance
+        /// types that are large enough to meet the requirements of the jobs in the queue, with
+        /// a preference for instance types with a lower cost per vCPU. <code>SPOT_CAPACITY_OPTIMIZED</code>
+        /// is only available for Spot Instance compute resources and will select additional instance
+        /// types that are large enough to meet the requirements of the jobs in the queue, with
+        /// a preference for instance types that are less likely to be interrupted. For more information,
+        /// see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html&#xD;&#xA;            ">Allocation Strategies</a> in the <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -295,7 +297,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a
-        /// <code>SPOT</code> compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
+        /// <code>SPOT</code> compute environment. This role is required if the allocation strategy
+        /// set to <code>BEST_FIT</code> or if the allocation strategy is not specified. For more
+        /// information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
         /// EC2 Spot Fleet Role</a> in the <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>

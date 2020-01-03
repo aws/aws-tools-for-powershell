@@ -132,6 +132,19 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Boolean? S3Logs_EncryptionDisabled { get; set; }
         #endregion
         
+        #region Parameter EncryptionKeyOverride
+        /// <summary>
+        /// <para>
+        /// <para>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides
+        /// the one specified in the build project. The CMK key encrypts the build output artifacts.</para><note><para> You can use a cross-account KMS key to encrypt the build output artifacts if your
+        /// service role has permission to that key. </para></note><para>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available,
+        /// the CMK's alias (using the format <code>alias/<i>alias-name</i></code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionKeyOverride { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentTypeOverride
         /// <summary>
         /// <para>
@@ -702,6 +715,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.CacheOverride_Type = this.CacheOverride_Type;
             context.CertificateOverride = this.CertificateOverride;
             context.ComputeTypeOverride = this.ComputeTypeOverride;
+            context.EncryptionKeyOverride = this.EncryptionKeyOverride;
             context.EnvironmentTypeOverride = this.EnvironmentTypeOverride;
             if (this.EnvironmentVariablesOverride != null)
             {
@@ -915,6 +929,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.ComputeTypeOverride != null)
             {
                 request.ComputeTypeOverride = cmdletContext.ComputeTypeOverride;
+            }
+            if (cmdletContext.EncryptionKeyOverride != null)
+            {
+                request.EncryptionKeyOverride = cmdletContext.EncryptionKeyOverride;
             }
             if (cmdletContext.EnvironmentTypeOverride != null)
             {
@@ -1244,6 +1262,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.CacheType CacheOverride_Type { get; set; }
             public System.String CertificateOverride { get; set; }
             public Amazon.CodeBuild.ComputeType ComputeTypeOverride { get; set; }
+            public System.String EncryptionKeyOverride { get; set; }
             public Amazon.CodeBuild.EnvironmentType EnvironmentTypeOverride { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> EnvironmentVariablesOverride { get; set; }
             public System.Int32? GitCloneDepthOverride { get; set; }

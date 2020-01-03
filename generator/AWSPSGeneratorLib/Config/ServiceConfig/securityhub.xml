@@ -67,7 +67,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeActionTargets" OutputProperty="ActionTargets" Verb="Get" Noun="ActionTarget" PipelineParameter="ActionTargetArns" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeActionTargets" OutputProperty="ActionTargets" Verb="Get" Noun="ActionTarget" PipelineParameter="ActionTargetArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,7 +75,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProducts" OutputProperty="Products" Verb="Get" Noun="Product" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeProducts" OutputProperty="Products" Verb="Get" Noun="Product" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStandardsControls" OutputProperty="Controls" Verb="Get" Noun="StandardsControl" PipelineParameter="StandardsSubscriptionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -103,11 +107,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEnabledStandards" OutputProperty="StandardsSubscriptions" Verb="Get" Noun="EnabledStandard" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetEnabledStandards" OutputProperty="StandardsSubscriptions" Verb="Get" Noun="EnabledStandard" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFindings" OutputProperty="Findings" Verb="Get" Noun="Finding" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetFindings" OutputProperty="Findings" Verb="Get" Noun="Finding" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,7 +119,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInsights" OutputProperty="Insights" Verb="Get" Noun="Insight" PipelineParameter="InsightArns" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInsights" OutputProperty="Insights" Verb="Get" Noun="Insight" PipelineParameter="InsightArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,15 +139,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnabledProductsForImport" OutputProperty="ProductSubscriptions" Verb="Get" Noun="EnabledProductsForImportList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEnabledProductsForImport" OutputProperty="ProductSubscriptions" Verb="Get" Noun="EnabledProductsForImportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -168,6 +172,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInsight" Verb="Update" Noun="Insight" ShouldProcessTarget="InsightArn" PipelineParameter="InsightArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStandardsControl" Verb="Update" Noun="StandardsControl" ShouldProcessTarget="StandardsControlArn" PipelineParameter="StandardsControlArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

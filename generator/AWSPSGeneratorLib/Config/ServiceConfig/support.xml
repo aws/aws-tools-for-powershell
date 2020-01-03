@@ -36,11 +36,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCases" OutputProperty="Cases" Verb="Get" Noun="Case" PipelineParameter="CaseIdList" NoPipelineParameter="false" LegacyAlias="Get-ASACases">
+        <ServiceOperation MethodName="DescribeCases" OutputProperty="Cases" Verb="Get" Noun="Case" PipelineParameter="CaseIdList" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACases">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCommunications" OutputProperty="Communications" Verb="Get" Noun="Communication" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyAlias="Get-ASACommunications">
+        <ServiceOperation MethodName="DescribeCommunications" OutputProperty="Communications" Verb="Get" Noun="Communication" PipelineParameter="CaseId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ASACommunications">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

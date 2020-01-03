@@ -1,0 +1,3 @@
+﻿# Detective
+
+Export-ModuleMember -Alias *

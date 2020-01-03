@@ -59,15 +59,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccelerators" OutputProperty="Accelerators" Verb="Get" Noun="AcceleratorList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAccelerators" OutputProperty="Accelerators" Verb="Get" Noun="AcceleratorList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpointGroups" OutputProperty="EndpointGroups" Verb="Get" Noun="EndpointGroupList" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEndpointGroups" OutputProperty="EndpointGroups" Verb="Get" Noun="EndpointGroupList" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListListeners" OutputProperty="Listeners" Verb="Get" Noun="ListenerList" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListListeners" OutputProperty="Listeners" Verb="Get" Noun="ListenerList" PipelineParameter="AcceleratorArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

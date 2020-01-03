@@ -80,6 +80,13 @@ $CWAI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ApplicationInsights.ConfigurationEventStatus
+        "Get-CWAIConfigurationHistoryList/EventStatus"
+        {
+            $v = "ERROR","INFO","WARN"
+            break
+        }
+
         # Amazon.ApplicationInsights.Tier
         {
             ($_ -eq "Get-CWAIComponentConfigurationRecommendation/Tier") -Or
@@ -99,6 +106,7 @@ $CWAI_Completers = {
 }
 
 $CWAI_map = @{
+    "EventStatus"=@("Get-CWAIConfigurationHistoryList")
     "Tier"=@("Get-CWAIComponentConfigurationRecommendation","Update-CWAIComponentConfiguration")
 }
 
@@ -168,6 +176,7 @@ $CWAI_SelectMap = @{
                "Get-CWAIProblemObservation",
                "Get-CWAIApplicationList",
                "Get-CWAIComponentList",
+               "Get-CWAIConfigurationHistoryList",
                "Get-CWAILogPatternList",
                "Get-CWAILogPatternSetList",
                "Get-CWAIProblemList",

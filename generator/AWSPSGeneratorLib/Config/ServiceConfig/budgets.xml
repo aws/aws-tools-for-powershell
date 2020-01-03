@@ -47,19 +47,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" OutputProperty="BudgetPerformanceHistory" Verb="Get" Noun="BudgetPerformanceHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" OutputProperty="BudgetPerformanceHistory" Verb="Get" Noun="BudgetPerformanceHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgets" OutputProperty="Budgets" Verb="Get" Noun="BudgetList" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeBudgets" OutputProperty="Budgets" Verb="Get" Noun="BudgetList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotificationsForBudget" OutputProperty="Notifications" Verb="Get" Noun="NotificationsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNotificationsForBudget" OutputProperty="Notifications" Verb="Get" Noun="NotificationsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubscribersForNotification" OutputProperty="Subscribers" Verb="Get" Noun="SubscribersForNotification" PipelineParameter="BudgetName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSubscribersForNotification" OutputProperty="Subscribers" Verb="Get" Noun="SubscribersForNotification" PipelineParameter="BudgetName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

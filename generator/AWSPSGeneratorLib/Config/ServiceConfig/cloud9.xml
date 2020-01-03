@@ -35,7 +35,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEnvironmentMemberships" OutputProperty="Memberships" Verb="Get" Noun="EnvironmentMembershipList" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEnvironmentMemberships" OutputProperty="Memberships" Verb="Get" Noun="EnvironmentMembershipList" PipelineParameter="EnvironmentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,7 +47,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnvironments" OutputProperty="EnvironmentIds" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListEnvironments" OutputProperty="EnvironmentIds" Verb="Get" Noun="EnvironmentList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -87,6 +87,13 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.DkimSigningAttributesOrigin
+        "Write-SES2EmailIdentityDkimSigningAttribute/SigningAttributesOrigin"
+        {
+            $v = "AWS_SES","EXTERNAL"
+            break
+        }
+
         # Amazon.SimpleEmailV2.SuppressionListReason
         "Write-SES2SuppressedDestination/Reason"
         {
@@ -116,6 +123,7 @@ $SES2_map = @{
     "BehaviorOnMxFailure"=@("Write-SES2EmailIdentityMailFromAttribute")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
     "Reason"=@("Write-SES2SuppressedDestination")
+    "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
 }
 
@@ -210,6 +218,7 @@ $SES2_SelectMap = @{
                "Write-SES2DedicatedIpWarmupAttribute",
                "Write-SES2DeliverabilityDashboardOption",
                "Write-SES2EmailIdentityDkimAttribute",
+               "Write-SES2EmailIdentityDkimSigningAttribute",
                "Write-SES2EmailIdentityFeedbackAttribute",
                "Write-SES2EmailIdentityMailFromAttribute",
                "Write-SES2SuppressedDestination",

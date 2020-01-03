@@ -28,26 +28,24 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates the current run-time configuration for the specified fleet, which tells Amazon
+    /// Updates the current runtime configuration for the specified fleet, which tells Amazon
     /// GameLift how to launch server processes on instances in the fleet. You can update
-    /// a fleet's run-time configuration at any time after the fleet is created; it does not
+    /// a fleet's runtime configuration at any time after the fleet is created; it does not
     /// need to be in an <code>ACTIVE</code> status.
     /// 
     ///  
     /// <para>
-    /// To update run-time configuration, specify the fleet ID and provide a <code>RuntimeConfiguration</code>
+    /// To update runtime configuration, specify the fleet ID and provide a <code>RuntimeConfiguration</code>
     /// object with an updated set of server process configurations.
     /// </para><para>
-    /// Each instance in a Amazon GameLift fleet checks regularly for an updated run-time
-    /// configuration and changes how it launches server processes to comply with the latest
-    /// version. Existing server processes are not affected by the update; run-time configuration
-    /// changes are applied gradually as existing processes shut down and new processes are
-    /// launched during Amazon GameLift's normal process recycling activity.
+    /// Each instance in a Amazon GameLift fleet checks regularly for an updated runtime configuration
+    /// and changes how it launches server processes to comply with the latest version. Existing
+    /// server processes are not affected by the update; runtime configuration changes are
+    /// applied gradually as existing processes shut down and new processes are launched during
+    /// Amazon GameLift's normal process recycling activity.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
     /// Working with Fleets</a>.
-    /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
+    /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para>
     /// Update fleets:
     /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
     /// Manage fleet actions:
@@ -66,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to update run-time configuration for.</para>
+        /// <para>A unique identifier for a fleet to update runtime configuration for. You can use either
+        /// the fleet ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_GameSessionActivationTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>Maximum amount of time (in seconds) that a game session can remain in status <code>ACTIVATING</code>.
+        /// <para>The maximum amount of time (in seconds) that a game session can remain in status <code>ACTIVATING</code>.
         /// If the game session is not active before the timeout, activation is terminated and
         /// the game session status is changed to <code>TERMINATED</code>.</para>
         /// </para>
@@ -96,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>Maximum number of game sessions with status <code>ACTIVATING</code> to allow on an
-        /// instance simultaneously. This setting limits the amount of instance resources that
+        /// <para>The maximum number of game sessions with status <code>ACTIVATING</code> to allow on
+        /// an instance simultaneously. This setting limits the amount of instance resources that
         /// can be used for new game activations at any one time.</para>
         /// </para>
         /// </summary>
@@ -109,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_ServerProcess
         /// <summary>
         /// <para>
-        /// <para>Collection of server process configurations that describe which server processes to
-        /// run on each instance in a fleet.</para>
+        /// <para>A collection of server process configurations that describe which server processes
+        /// to run on each instance in a fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

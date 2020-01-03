@@ -44,11 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// in preference order.
     /// </para><para>
     /// Alternatively, when requesting a game session with players, you can also provide latency
-    /// data for each player in relevant regions. Latency data indicates the performance lag
-    /// a player experiences when connected to a fleet in the region. Amazon GameLift uses
-    /// latency data to reorder the list of destinations to place the game session in a region
+    /// data for each player in relevant Regions. Latency data indicates the performance lag
+    /// a player experiences when connected to a fleet in the Region. Amazon GameLift uses
+    /// latency data to reorder the list of destinations to place the game session in a Region
     /// with minimal lag. If latency data is provided for multiple players, Amazon GameLift
-    /// calculates each region's average lag for all players and reorders to get the best
+    /// calculates each Region's average lag for all players and reorders to get the best
     /// game play across all players. 
     /// </para><para>
     /// To place a new game session request, specify the following:
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// To track the status of a placement request, call <a>DescribeGameSessionPlacement</a>
     /// and check the request's status. If the status is <code>FULFILLED</code>, a new game
-    /// session has been created and a game session ARN and region are referenced. If the
+    /// session has been created and a game session ARN and Region are referenced. If the
     /// placement request times out, you can resubmit the request or retry it with a different
     /// queue. 
     /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionName
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a game session. Session names do not need
+        /// <para>A descriptive label that is associated with a game session. Session names do not need
         /// to be unique.</para>
         /// </para>
         /// </summary>
@@ -137,7 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionQueueName
         /// <summary>
         /// <para>
-        /// <para>Name of the queue to use to place the new game session.</para>
+        /// <para>Name of the queue to use to place the new game session. You can use either the qieue
+        /// name or ARN value. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -154,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MaximumPlayerSessionCount
         /// <summary>
         /// <para>
-        /// <para>Maximum number of players that can be connected simultaneously to the game session.</para>
+        /// <para>The maximum number of players that can be connected simultaneously to the game session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -170,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlacementId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier to assign to the new game session placement. This value is developer-defined.
-        /// The value must be unique across all regions and cannot be reused unless you are resubmitting
+        /// <para>A unique identifier to assign to the new game session placement. This value is developer-defined.
+        /// The value must be unique across all Regions and cannot be reused unless you are resubmitting
         /// a canceled or timed-out placement request.</para>
         /// </para>
         /// </summary>
@@ -190,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Set of values, expressed in milliseconds, indicating the amount of latency that a
-        /// player experiences when connected to AWS regions. This information is used to try
+        /// player experiences when connected to AWS Regions. This information is used to try
         /// to place the new game session where it can offer the best possible gameplay experience
         /// for the players. </para>
         /// </para>

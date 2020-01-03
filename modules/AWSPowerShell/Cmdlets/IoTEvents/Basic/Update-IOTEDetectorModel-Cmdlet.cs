@@ -71,9 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTE
         #region Parameter EvaluationMethod
         /// <summary>
         /// <para>
-        /// <para>When set to <code>SERIAL</code>, variables are updated and event conditions evaluated
-        /// in the order that the events are defined. When set to <code>BATCH</code>, variables
-        /// are updated and events performed only after all event conditions are evaluated.</para>
+        /// <para>Information about the order in which events are evaluated and how actions are executed.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

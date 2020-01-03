@@ -183,6 +183,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutEmailIdentityDkimSigningAttributes" OutputProperty="*" Verb="Write" Noun="EmailIdentityDkimSigningAttribute" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutEmailIdentityFeedbackAttributes" Verb="Write" Noun="EmailIdentityFeedbackAttribute" ShouldProcessTarget="EmailIdentity" PipelineParameter="EmailIdentity" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

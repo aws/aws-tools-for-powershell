@@ -201,7 +201,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectParents" OutputProperty="*" Verb="Get" Noun="ObjectParent" PipelineParameter="DirectoryArn" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListObjectParents" OutputProperty="*" Verb="Get" Noun="ObjectParent" PipelineParameter="DirectoryArn" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,10 +28,10 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Copies a manual instance or disk snapshot as another manual snapshot, or copies an
-    /// automatic instance or disk snapshot as a manual snapshot. This operation can also
-    /// be used to copy a manual or automatic snapshot of an instance or a disk from one AWS
-    /// Region to another in Amazon Lightsail.
+    /// Copies a manual snapshot of an instance or disk as another manual snapshot, or copies
+    /// an automatic snapshot of an instance or disk as a manual snapshot. This operation
+    /// can also be used to copy a manual or automatic snapshot of an instance or a disk from
+    /// one AWS Region to another in Amazon Lightsail.
     /// 
     ///  
     /// <para>
@@ -42,9 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <code>source resource name</code>, <code>target snapshot name</code>, and either the
     /// <code>restore date</code> or the <code>use latest restorable auto snapshot</code>
     /// parameters.
-    /// </para><note><para>
-    /// Database snapshots cannot be copied at this time.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Copy", "LSSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -59,12 +57,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter RestoreDate
         /// <summary>
         /// <para>
-        /// <para>The date of the automatic snapshot to copy for the new manual snapshot.</para><para>Use the <code>get auto snapshots</code> operation to identify the dates of the available
-        /// automatic snapshots.</para><para>Constraints:</para><ul><li><para>Must be specified in <code>YYYY-MM-DD</code> format.</para></li><li><para>This parameter cannot be defined together with the <code>use latest restorable auto
+        /// <para>The date of the source automatic snapshot to copy. Use the <code>get auto snapshots</code>
+        /// operation to identify the dates of the available automatic snapshots.</para><para>Constraints:</para><ul><li><para>Must be specified in <code>YYYY-MM-DD</code> format.</para></li><li><para>This parameter cannot be defined together with the <code>use latest restorable auto
         /// snapshot</code> parameter. The <code>restore date</code> and <code>use latest restorable
-        /// auto snapshot</code> parameters are mutually exclusive.</para></li></ul><note><para>Define this parameter only when copying an automatic snapshot as a manual snapshot.
-        /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
-        /// Dev Guide</a>.</para></note>
+        /// auto snapshot</code> parameters are mutually exclusive.</para></li><li><para>Define this parameter only when copying an automatic snapshot as a manual snapshot.
+        /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots">Lightsail
+        /// Dev Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SourceResourceName
         /// <summary>
         /// <para>
-        /// <para>The name of the source resource from which the automatic snapshot was created.</para><note><para>Define this parameter only when copying an automatic snapshot as a manual snapshot.
-        /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
-        /// Dev Guide</a>.</para></note>
+        /// <para>The name of the source instance or disk from which the source automatic snapshot was
+        /// created.</para><para>Constraint:</para><ul><li><para>Define this parameter only when copying an automatic snapshot as a manual snapshot.
+        /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots">Lightsail
+        /// Dev Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter SourceSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the source instance or disk snapshot to be copied.</para><note><para>Define this parameter only when copying a manual snapshot as another manual snapshot.</para></note>
+        /// <para>The name of the source manual snapshot to copy.</para><para>Constraint:</para><ul><li><para>Define this parameter only when copying a manual snapshot as another manual snapshot.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter TargetSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the new instance or disk snapshot to be created as a copy.</para>
+        /// <para>The name of the new manual snapshot to be created as a copy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,11 +129,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter UseLatestRestorableAutoSnapshot
         /// <summary>
         /// <para>
-        /// <para>A Boolean value to indicate whether to use the latest available automatic snapshot.</para><para>This parameter cannot be defined together with the <code>restore date</code> parameter.
+        /// <para>A Boolean value to indicate whether to use the latest available automatic snapshot
+        /// of the specified source instance or disk.</para><para>Constraints:</para><ul><li><para>This parameter cannot be defined together with the <code>restore date</code> parameter.
         /// The <code>use latest restorable auto snapshot</code> and <code>restore date</code>
-        /// parameters are mutually exclusive.</para><note><para>Define this parameter only when copying an automatic snapshot as a manual snapshot.
-        /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
-        /// Dev Guide</a>.</para></note>
+        /// parameters are mutually exclusive.</para></li><li><para>Define this parameter only when copying an automatic snapshot as a manual snapshot.
+        /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-keeping-automatic-snapshots">Lightsail
+        /// Dev Guide</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

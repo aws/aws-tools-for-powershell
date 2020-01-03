@@ -1,4 +1,190 @@
-﻿### 4.0.2.0 (2019-12-13)
+﻿### 4.0.3.0 (2020-01-21)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.668.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Backup
+    * Added cmdlet Get-BAKCopyJob leveraging the DescribeCopyJob service API.
+    * Added cmdlet Get-BAKCopyJobList leveraging the ListCopyJobs service API.
+    * Added cmdlet Start-BAKCopyJob leveraging the StartCopyJob service API.
+  * Amazon Chime
+    * Added cmdlet Add-CHMSigninDelegateGroupsToAccount leveraging the AssociateSigninDelegateGroupsWithAccount service API.
+    * Added cmdlet New-CHMUser leveraging the CreateUser service API.
+    * Added cmdlet Remove-CHMSigninDelegateGroupsFromAccount leveraging the DisassociateSigninDelegateGroupsFromAccount service API.
+    * Modified cmdlet Get-CHMUserList: added parameter UserType.
+    * Modified cmdlet Send-CHMUserInvitation: added parameter UserType.
+    * Modified cmdlet Update-CHMUser: added parameters AlexaForBusinessMetadata_AlexaForBusinessRoomArn, AlexaForBusinessMetadata_IsAlexaForBusinessEnabled and UserType.
+  * Amazon CloudHSM V2
+    * Modified cmdlet Copy-HSM2BackupToRegion: added parameter TagList.
+    * Modified cmdlet New-HSM2Cluster: added parameter TagList.
+  * Amazon CloudWatch Application Insights
+    * Added cmdlet Get-CWAIConfigurationHistoryList leveraging the ListConfigurationHistory service API.
+  * Amazon CodeBuild
+    * Added cmdlet Get-CBResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Get-CBSharedProjectList leveraging the ListSharedProjects service API.
+    * Added cmdlet Get-CBSharedReportGroupList leveraging the ListSharedReportGroups service API.
+    * Added cmdlet Remove-CBResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-CBResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet Start-CBBuild: added parameter EncryptionKeyOverride.
+  * Amazon CodePipeline
+    * Added cmdlet Stop-CPPipelineExecution leveraging the StopPipelineExecution service API.
+  * Amazon CodeStar Connections. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CSTC and can be listed using the command 'Get-AWSCmdletName -Service CSTC'.
+  * Amazon Comprehend
+    * Modified cmdlet New-COMPDocumentClassifier: added parameters InputDataConfig_LabelDelimiter and Mode.
+  * Amazon Comprehend Medical
+    * Added cmdlet Find-CMPMICD10CM leveraging the InferICD10CM service API.
+    * Added cmdlet Find-CMPMRxNorm leveraging the InferRxNorm service API.
+  * Amazon Detective. Added cmdlets to support the service. Cmdlets for the service have the noun prefix DTCT and can be listed using the command 'Get-AWSCmdletName -Service DTCT'.
+  * Amazon Device Farm
+    * Added cmdlet Get-DFTestGridProject leveraging the GetTestGridProject service API.
+    * Added cmdlet Get-DFTestGridProjectList leveraging the ListTestGridProjects service API.
+    * Added cmdlet Get-DFTestGridSession leveraging the GetTestGridSession service API.
+    * Added cmdlet Get-DFTestGridSessionActionList leveraging the ListTestGridSessionActions service API.
+    * Added cmdlet Get-DFTestGridSessionArtifactList leveraging the ListTestGridSessionArtifacts service API.
+    * Added cmdlet Get-DFTestGridSessionList leveraging the ListTestGridSessions service API.
+    * Added cmdlet New-DFTestGridProject leveraging the CreateTestGridProject service API.
+    * Added cmdlet New-DFTestGridUrl leveraging the CreateTestGridUrl service API.
+    * Added cmdlet Remove-DFTestGridProject leveraging the DeleteTestGridProject service API.
+    * Added cmdlet Update-DFTestGridProject leveraging the UpdateTestGridProject service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2AssociatedIpv6PoolCidr leveraging the GetAssociatedIpv6PoolCidrs service API.
+    * Added cmdlet Get-EC2Ipv6Pool leveraging the DescribeIpv6Pools service API.
+    * Added cmdlet Start-EC2VpcEndpointServicePrivateDnsVerification leveraging the StartVpcEndpointServicePrivateDnsVerification service API.
+    * Modified cmdlet Edit-EC2ClientVpnEndpoint: added parameter VpnPort.
+    * Modified cmdlet Edit-EC2VpcEndpointServiceConfiguration: added parameters PrivateDnsName and RemovePrivateDnsName.
+    * Modified cmdlet Get-EC2EgressOnlyInternetGatewayList: added parameter Filter.
+    * Modified cmdlet Get-EC2ExportTask: added parameter Filter.
+    * Modified cmdlet Get-EC2KeyPair: added parameter KeyPairId.
+    * Modified cmdlet Get-EC2PlacementGroup: added parameter GroupId.
+    * Modified cmdlet New-EC2ClientVpnEndpoint: added parameter VpnPort.
+    * Modified cmdlet New-EC2Fleet: added parameter CapacityReservationOptions_UsageStrategy.
+    * Modified cmdlet New-EC2Vpc: added parameters Ipv6CidrBlock and Ipv6Pool.
+    * Modified cmdlet New-EC2VpcEndpointServiceConfiguration: added parameter PrivateDnsName.
+    * Modified cmdlet Register-EC2ByoipCidr: added parameter PubliclyAdvertisable.
+    * Modified cmdlet Register-EC2VpcCidrBlock: added parameters Ipv6CidrBlock and Ipv6Pool.
+  * Amazon Elastic File System
+    * Added cmdlet Add-EFSResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-EFSAccessPoint leveraging the DescribeAccessPoints service API.
+    * Added cmdlet Get-EFSFileSystemPolicy leveraging the DescribeFileSystemPolicy service API.
+    * Added cmdlet Get-EFSResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet New-EFSAccessPoint leveraging the CreateAccessPoint service API.
+    * Added cmdlet Remove-EFSAccessPoint leveraging the DeleteAccessPoint service API.
+    * Added cmdlet Remove-EFSFileSystemPolicy leveraging the DeleteFileSystemPolicy service API.
+    * Added cmdlet Remove-EFSResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Write-EFSFileSystemPolicy leveraging the PutFileSystemPolicy service API.
+    * Modified cmdlet Get-EFSMountTarget: added parameter AccessPointId.
+  * Amazon Elemental MediaPackage
+    * Modified cmdlet New-EMPOriginEndpoint: added parameters Authorization_CdnIdentifierSecret and Authorization_SecretsRoleArn.
+    * Modified cmdlet Update-EMPOriginEndpoint: added parameters Authorization_CdnIdentifierSecret and Authorization_SecretsRoleArn.
+  * Amazon Firewall Management Service
+    * Added cmdlet Add-FMSResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-FMSResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-FMSResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Set-FMSPolicy: added parameter TagList.
+  * Amazon FSx
+    * Added cmdlet Get-FSXDataRepositoryTask leveraging the DescribeDataRepositoryTasks service API.
+    * Added cmdlet New-FSXDataRepositoryTask leveraging the CreateDataRepositoryTask service API.
+    * Added cmdlet Stop-FSXDataRepositoryTask leveraging the CancelDataRepositoryTask service API.
+  * Amazon GameLift Service
+    * Added cmdlet Add-GMLResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-GMLResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-GMLResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-GMLAlias: added parameter Tag.
+    * Modified cmdlet New-GMLBuild: added parameter Tag.
+    * Modified cmdlet New-GMLFleet: added parameter Tag.
+    * Modified cmdlet New-GMLGameSessionQueue: added parameter Tag.
+    * Modified cmdlet New-GMLMatchmakingConfiguration: added parameter Tag.
+    * Modified cmdlet New-GMLMatchmakingRuleSet: added parameter Tag.
+    * Modified cmdlet New-GMLScript: added parameter Tag.
+  * Amazon Health
+    * Added cmdlet Disable-HLTHHealthServiceAccessForOrganization leveraging the DisableHealthServiceAccessForOrganization service API.
+    * Added cmdlet Enable-HLTHHealthServiceAccessForOrganization leveraging the EnableHealthServiceAccessForOrganization service API.
+    * Added cmdlet Get-HLTHAffectedAccountsForOrganization leveraging the DescribeAffectedAccountsForOrganization service API.
+    * Added cmdlet Get-HLTHAffectedEntitiesForOrganization leveraging the DescribeAffectedEntitiesForOrganization service API.
+    * Added cmdlet Get-HLTHEventDetailsForOrganization leveraging the DescribeEventDetailsForOrganization service API.
+    * Added cmdlet Get-HLTHEventsForOrganization leveraging the DescribeEventsForOrganization service API.
+    * Added cmdlet Get-HLTHHealthServiceStatusForOrganization leveraging the DescribeHealthServiceStatusForOrganization service API.
+  * Amazon IoT
+    * Modified cmdlet New-IOTOTAUpdate: added parameters AwsJobPresignedUrlConfig_ExpiresInSec and Protocol.
+  * Amazon Lambda
+    * Modified cmdlet Update-LMFunctionConfiguration: added parameter IsLayersSet.
+  * Amazon Lex Model Building Service
+    * Modified cmdlet Write-LMBBotAlias: added parameters ConversationLogs_IamRoleArn and ConversationLogs_LogSetting.
+  * Amazon Lightsail
+    * Modified cmdlet Update-LSRelationalDatabase: added parameter CaCertificateIdentifier.
+  * Amazon Migration Hub
+    * Added cmdlet Get-MHApplicationStateList leveraging the ListApplicationStates service API.
+  * Amazon MQ
+    * Modified cmdlet Get-MQBrokerInstanceOption: added parameter StorageType.
+    * Modified cmdlet New-MQBroker: added parameter StorageType.
+  * Amazon Neptune
+    * Modified cmdlet Edit-NPTDBCluster: added parameter DeletionProtection.
+    * Modified cmdlet Edit-NPTDBInstance: added parameter DeletionProtection.
+    * Modified cmdlet New-NPTDBCluster: added parameter DeletionProtection.
+    * Modified cmdlet New-NPTDBInstance: added parameter DeletionProtection.
+    * Modified cmdlet Restore-NPTDBClusterFromSnapshot: added parameter DeletionProtection.
+    * Modified cmdlet Restore-NPTDBClusterToPointInTime: added parameter DeletionProtection.
+  * Amazon OpsWorksCM
+    * Added cmdlet Add-OWCMResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-OWCMResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-OWCMResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-OWCMBackup: added parameter Tag.
+    * Modified cmdlet New-OWCMServer: added parameter Tag.
+  * Amazon Personalize Runtime
+    * Modified cmdlet Get-PERSRPersonalizedRanking: added parameter Context.
+    * Modified cmdlet Get-PERSRRecommendation: added parameter Context.
+  * Amazon Pinpoint
+    * Added cmdlet Get-PINTemplateVersionList leveraging the ListTemplateVersions service API.
+    * Added cmdlet Update-PINTemplateActiveVersion leveraging the UpdateTemplateActiveVersion service API.
+    * Modified cmdlet Get-PINEmailTemplate: added parameter Version.
+    * Modified cmdlet Get-PINPushTemplate: added parameter Version.
+    * Modified cmdlet Get-PINSmsTemplate: added parameter Version.
+    * Modified cmdlet Get-PINVoiceTemplate: added parameter Version.
+    * Modified cmdlet New-PINCampaign: added parameters EmailTemplate_Version, PushTemplate_Version, SMSTemplate_Version and VoiceTemplate_Version.
+    * Modified cmdlet Remove-PINEmailTemplate: added parameter Version.
+    * Modified cmdlet Remove-PINPushTemplate: added parameter Version.
+    * Modified cmdlet Remove-PINSmsTemplate: added parameter Version.
+    * Modified cmdlet Remove-PINVoiceTemplate: added parameter Version.
+    * Modified cmdlet Send-PINMessage: added parameters EmailTemplate_Version, PushTemplate_Version, SMSTemplate_Version and VoiceTemplate_Version.
+    * Modified cmdlet Send-PINUserMessageBatch: added parameters EmailTemplate_Version, PushTemplate_Version, SMSTemplate_Version and VoiceTemplate_Version.
+    * Modified cmdlet Update-PINCampaign: added parameters EmailTemplate_Version, PushTemplate_Version, SMSTemplate_Version and VoiceTemplate_Version.
+    * Modified cmdlet Update-PINEmailTemplate: added parameters CreateNewVersion and Version.
+    * Modified cmdlet Update-PINPushTemplate: added parameters CreateNewVersion and Version.
+    * Modified cmdlet Update-PINSmsTemplate: added parameters CreateNewVersion and Version.
+    * Modified cmdlet Update-PINVoiceTemplate: added parameters CreateNewVersion and Version.
+  * Amazon Relational Database Service
+    * Added cmdlet Edit-RDSCertificate leveraging the ModifyCertificates service API.
+    * Modified cmdlet Edit-RDSDBInstance: added parameter CertificateRotationRestart.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMWorkforce leveraging the DescribeWorkforce service API.
+    * Added cmdlet Update-SMWorkforce leveraging the UpdateWorkforce service API.
+    * Modified cmdlet Get-SMTrialComponentList: added parameters ExperimentName and TrialName.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBStandardsControl leveraging the DescribeStandardsControls service API.
+    * Added cmdlet Update-SHUBStandardsControl leveraging the UpdateStandardsControl service API.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Added cmdlet Write-SES2EmailIdentityDkimSigningAttribute leveraging the PutEmailIdentityDkimSigningAttributes service API.
+    * Modified cmdlet New-SES2EmailIdentity: added parameters DkimSigningAttributes_DomainSigningPrivateKey and DkimSigningAttributes_DomainSigningSelector.
+  * Amazon Systems Manager
+    * Modified cmdlet Register-SSMTaskWithMaintenanceWindow: added parameters CloudWatchOutputConfig_CloudWatchLogGroupName, CloudWatchOutputConfig_CloudWatchOutputEnabled and RunCommand_DocumentVersion.
+    * Modified cmdlet Start-SSMAutomationExecution: added parameter Tag.
+    * Modified cmdlet Update-SSMMaintenanceWindowTask: added parameters CloudWatchOutputConfig_CloudWatchLogGroupName, CloudWatchOutputConfig_CloudWatchOutputEnabled and RunCommand_DocumentVersion.
+  * Amazon Transcribe Service
+    * Added cmdlet Get-TRSVocabularyFilter leveraging the GetVocabularyFilter service API.
+    * Added cmdlet Get-TRSVocabularyFilterList leveraging the ListVocabularyFilters service API.
+    * Added cmdlet New-TRSVocabularyFilter leveraging the CreateVocabularyFilter service API.
+    * Added cmdlet Remove-TRSVocabularyFilter leveraging the DeleteVocabularyFilter service API.
+    * Added cmdlet Update-TRSVocabularyFilter leveraging the UpdateVocabularyFilter service API.
+    * Modified cmdlet Start-TRSTranscriptionJob: added parameters JobExecutionSettings_AllowDeferredExecution, JobExecutionSettings_DataAccessRoleArn, Settings_VocabularyFilterMethod and Settings_VocabularyFilterName.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameters EndpointDetails_AddressAllocationId, EndpointDetails_SubnetId and EndpointDetails_VpcId.
+    * Modified cmdlet Update-TFRServer: added parameters EndpointDetails_AddressAllocationId, EndpointDetails_SubnetId and EndpointDetails_VpcId.
+  * Amazon Translate
+    * Added cmdlet Get-TRNTextTranslationJob leveraging the DescribeTextTranslationJob service API.
+    * Added cmdlet Get-TRNTextTranslationJobList leveraging the ListTextTranslationJobs service API.
+    * Added cmdlet Start-TRNTextTranslationJob leveraging the StartTextTranslationJob service API.
+    * Added cmdlet Stop-TRNTextTranslationJob leveraging the StopTextTranslationJob service API.
+  * Amazon WorkSpaces
+    * Added cmdlet Start-WKSWorkspaceMigration leveraging the MigrateWorkspace service API.
+
+### 4.0.2.0 (2019-12-13)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.3.648.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Improving speed of AWS.Tools.Installer's Install-AWSPowerShellModule and Update-AWSPowerShellModule, adding support for running AWS.Tools in strict mode.
   * Amazon Alexa For Business

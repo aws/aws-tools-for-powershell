@@ -322,6 +322,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplateVersions" OutputProperty="TemplateVersionsResponse" Verb="Get" Noun="TemplateVersionList" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PhoneNumberValidate" OutputProperty="NumberValidateResponse" Verb="Confirm" Noun="PhoneNumber" ShouldProcessTarget="NumberValidateRequest" PipelineParameter="NumberValidateRequest" NoPipelineParameter="false">
             <Params>
                 <Param Name="NumberValidateRequest" NewName="PhoneNumber" />
@@ -429,6 +433,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateSmsTemplate" OutputProperty="MessageBody" Verb="Update" Noun="SmsTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTemplateActiveVersion" OutputProperty="MessageBody" Verb="Update" Noun="TemplateActiveVersion" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

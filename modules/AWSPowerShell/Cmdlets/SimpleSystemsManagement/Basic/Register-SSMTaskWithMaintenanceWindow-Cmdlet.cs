@@ -53,6 +53,30 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String Lambda_ClientContext { get; set; }
         #endregion
         
+        #region Parameter CloudWatchOutputConfig_CloudWatchLogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the CloudWatch log group where you want to send command output. If you
+        /// don't specify a group name, Systems Manager automatically creates a log group for
+        /// you. The log group uses the following naming format: aws/ssm/<i>SystemsManagerDocumentName</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaskInvocationParameters_RunCommand_CloudWatchOutputConfig_CloudWatchLogGroupName")]
+        public System.String CloudWatchOutputConfig_CloudWatchLogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchOutputConfig_CloudWatchOutputEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables Systems Manager to send command output to CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaskInvocationParameters_RunCommand_CloudWatchOutputConfig_CloudWatchOutputEnabled")]
+        public System.Boolean? CloudWatchOutputConfig_CloudWatchOutputEnabled { get; set; }
+        #endregion
+        
         #region Parameter RunCommand_Comment
         /// <summary>
         /// <para>
@@ -107,6 +131,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TaskInvocationParameters_Automation_DocumentVersion")]
         public System.String Automation_DocumentVersion { get; set; }
+        #endregion
+        
+        #region Parameter RunCommand_DocumentVersion
+        /// <summary>
+        /// <para>
+        /// <para>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST,
+        /// or a specific version number. If you run commands by using the AWS CLI, then you must
+        /// escape the first two options by using a backslash. If you specify a version number,
+        /// then you don't need to use the backslash. For example:</para><para>--document-version "\$DEFAULT"</para><para>--document-version "\$LATEST"</para><para>--document-version "3"</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaskInvocationParameters_RunCommand_DocumentVersion")]
+        public System.String RunCommand_DocumentVersion { get; set; }
         #endregion
         
         #region Parameter StepFunctions_Input
@@ -597,9 +635,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.Lambda_ClientContext = this.Lambda_ClientContext;
             context.Lambda_Payload = this.Lambda_Payload;
             context.Lambda_Qualifier = this.Lambda_Qualifier;
+            context.CloudWatchOutputConfig_CloudWatchLogGroupName = this.CloudWatchOutputConfig_CloudWatchLogGroupName;
+            context.CloudWatchOutputConfig_CloudWatchOutputEnabled = this.CloudWatchOutputConfig_CloudWatchOutputEnabled;
             context.RunCommand_Comment = this.RunCommand_Comment;
             context.RunCommand_DocumentHash = this.RunCommand_DocumentHash;
             context.RunCommand_DocumentHashType = this.RunCommand_DocumentHashType;
+            context.RunCommand_DocumentVersion = this.RunCommand_DocumentVersion;
             context.NotificationConfig_NotificationArn = this.NotificationConfig_NotificationArn;
             if (this.NotificationConfig_NotificationEvent != null)
             {
@@ -904,6 +945,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     requestTaskInvocationParameters_taskInvocationParameters_RunCommand.DocumentHashType = requestTaskInvocationParameters_taskInvocationParameters_RunCommand_runCommand_DocumentHashType;
                     requestTaskInvocationParameters_taskInvocationParameters_RunCommandIsNull = false;
                 }
+                System.String requestTaskInvocationParameters_taskInvocationParameters_RunCommand_runCommand_DocumentVersion = null;
+                if (cmdletContext.RunCommand_DocumentVersion != null)
+                {
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand_runCommand_DocumentVersion = cmdletContext.RunCommand_DocumentVersion;
+                }
+                if (requestTaskInvocationParameters_taskInvocationParameters_RunCommand_runCommand_DocumentVersion != null)
+                {
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand.DocumentVersion = requestTaskInvocationParameters_taskInvocationParameters_RunCommand_runCommand_DocumentVersion;
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommandIsNull = false;
+                }
                 System.String requestTaskInvocationParameters_taskInvocationParameters_RunCommand_runCommand_OutputS3BucketName = null;
                 if (cmdletContext.RunCommand_OutputS3BucketName != null)
                 {
@@ -952,6 +1003,41 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 if (requestTaskInvocationParameters_taskInvocationParameters_RunCommand_runCommand_TimeoutSecond != null)
                 {
                     requestTaskInvocationParameters_taskInvocationParameters_RunCommand.TimeoutSeconds = requestTaskInvocationParameters_taskInvocationParameters_RunCommand_runCommand_TimeoutSecond.Value;
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommandIsNull = false;
+                }
+                Amazon.SimpleSystemsManagement.Model.CloudWatchOutputConfig requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig = null;
+                
+                 // populate CloudWatchOutputConfig
+                var requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfigIsNull = true;
+                requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig = new Amazon.SimpleSystemsManagement.Model.CloudWatchOutputConfig();
+                System.String requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchLogGroupName = null;
+                if (cmdletContext.CloudWatchOutputConfig_CloudWatchLogGroupName != null)
+                {
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchLogGroupName = cmdletContext.CloudWatchOutputConfig_CloudWatchLogGroupName;
+                }
+                if (requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchLogGroupName != null)
+                {
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig.CloudWatchLogGroupName = requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchLogGroupName;
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfigIsNull = false;
+                }
+                System.Boolean? requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchOutputEnabled = null;
+                if (cmdletContext.CloudWatchOutputConfig_CloudWatchOutputEnabled != null)
+                {
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchOutputEnabled = cmdletContext.CloudWatchOutputConfig_CloudWatchOutputEnabled.Value;
+                }
+                if (requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchOutputEnabled != null)
+                {
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig.CloudWatchOutputEnabled = requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig_cloudWatchOutputConfig_CloudWatchOutputEnabled.Value;
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfigIsNull = false;
+                }
+                 // determine if requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig should be set to null
+                if (requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfigIsNull)
+                {
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig = null;
+                }
+                if (requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig != null)
+                {
+                    requestTaskInvocationParameters_taskInvocationParameters_RunCommand.CloudWatchOutputConfig = requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_CloudWatchOutputConfig;
                     requestTaskInvocationParameters_taskInvocationParameters_RunCommandIsNull = false;
                 }
                 Amazon.SimpleSystemsManagement.Model.NotificationConfig requestTaskInvocationParameters_taskInvocationParameters_RunCommand_taskInvocationParameters_RunCommand_NotificationConfig = null;
@@ -1112,9 +1198,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String Lambda_ClientContext { get; set; }
             public byte[] Lambda_Payload { get; set; }
             public System.String Lambda_Qualifier { get; set; }
+            public System.String CloudWatchOutputConfig_CloudWatchLogGroupName { get; set; }
+            public System.Boolean? CloudWatchOutputConfig_CloudWatchOutputEnabled { get; set; }
             public System.String RunCommand_Comment { get; set; }
             public System.String RunCommand_DocumentHash { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentHashType RunCommand_DocumentHashType { get; set; }
+            public System.String RunCommand_DocumentVersion { get; set; }
             public System.String NotificationConfig_NotificationArn { get; set; }
             public List<System.String> NotificationConfig_NotificationEvent { get; set; }
             public Amazon.SimpleSystemsManagement.NotificationType NotificationConfig_NotificationType { get; set; }

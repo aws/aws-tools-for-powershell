@@ -40,8 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     /// use the <code>DetectEntitiesV2</code> operation in all new applications.
     /// </para><para>
     /// The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and <code>Direction</code>
-    /// entities as attributes instead of types. It does not return the <code>Quality</code>
-    /// or <code>Quantity</code> entities.
+    /// entities as attributes instead of types. 
     /// </para>
     /// </summary>
     [Cmdlet("Find", "CMPMMedicalEntityV2")]

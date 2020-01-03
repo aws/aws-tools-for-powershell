@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.RegistryId != null)
             {
@@ -339,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -417,7 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         {
             public System.String ImageId_ImageDigest { get; set; }
             public System.String ImageId_ImageTag { get; set; }
-            public int? MaxResult { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String RegistryId { get; set; }
             public System.String RepositoryName { get; set; }

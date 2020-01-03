@@ -247,6 +247,16 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.SharedResourceSortByType
+        {
+            ($_ -eq "Get-CBSharedProjectList/SortBy") -Or
+            ($_ -eq "Get-CBSharedReportGroupList/SortBy")
+        }
+        {
+            $v = "ARN","MODIFIED_TIME"
+            break
+        }
+
         # Amazon.CodeBuild.SortOrderType
         {
             ($_ -eq "Get-CBBuildIdList/SortOrder") -Or
@@ -254,7 +264,9 @@ $CB_Completers = {
             ($_ -eq "Get-CBProjectList/SortOrder") -Or
             ($_ -eq "Get-CBReportGroupList/SortOrder") -Or
             ($_ -eq "Get-CBReportList/SortOrder") -Or
-            ($_ -eq "Get-CBReportsForReportGroupList/SortOrder")
+            ($_ -eq "Get-CBReportsForReportGroupList/SortOrder") -Or
+            ($_ -eq "Get-CBSharedProjectList/SortOrder") -Or
+            ($_ -eq "Get-CBSharedReportGroupList/SortOrder")
         }
         {
             $v = "ASCENDING","DESCENDING"
@@ -317,8 +329,8 @@ $CB_map = @{
     "LogsConfigOverride_S3Logs_Status"=@("Start-CBBuild")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBuild")
     "ServerType"=@("Import-CBSourceCredential")
-    "SortBy"=@("Get-CBProjectList","Get-CBReportGroupList")
-    "SortOrder"=@("Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList")
+    "SortBy"=@("Get-CBProjectList","Get-CBReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
+    "SortOrder"=@("Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
     "Source_Auth_Type"=@("New-CBProject","Update-CBProject")
     "Source_Type"=@("New-CBProject","Update-CBProject")
     "SourceAuthOverride_Type"=@("Start-CBBuild")
@@ -387,9 +399,11 @@ $CB_SelectMap = @{
                "Remove-CBProject",
                "Remove-CBReport",
                "Remove-CBReportGroup",
+               "Remove-CBResourcePolicy",
                "Remove-CBSourceCredential",
                "Remove-CBWebhook",
                "Get-CBTestCase",
+               "Get-CBResourcePolicy",
                "Import-CBSourceCredential",
                "Reset-CBProjectCache",
                "Get-CBBuildIdList",
@@ -399,7 +413,10 @@ $CB_SelectMap = @{
                "Get-CBReportGroupList",
                "Get-CBReportList",
                "Get-CBReportsForReportGroupList",
+               "Get-CBSharedProjectList",
+               "Get-CBSharedReportGroupList",
                "Get-CBSourceCredentialList",
+               "Write-CBResourcePolicy",
                "Start-CBBuild",
                "Stop-CBBuild",
                "Update-CBProject",

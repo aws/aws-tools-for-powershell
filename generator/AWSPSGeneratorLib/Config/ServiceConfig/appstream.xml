@@ -99,7 +99,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectoryConfigs" OutputProperty="DirectoryConfigs" Verb="Get" Noun="DirectoryConfigList" PipelineParameter="DirectoryNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDirectoryConfigs" OutputProperty="DirectoryConfigs" Verb="Get" Noun="DirectoryConfigList" PipelineParameter="DirectoryNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
@@ -112,7 +112,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImagePermissions" OutputProperty="SharedImagePermissionsList" Verb="Get" Noun="ImagePermission" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeImagePermissions" OutputProperty="SharedImagePermissionsList" Verb="Get" Noun="ImagePermission" PipelineParameter="Name" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />

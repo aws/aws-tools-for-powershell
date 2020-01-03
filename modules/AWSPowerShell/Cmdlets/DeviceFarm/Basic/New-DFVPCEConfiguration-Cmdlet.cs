@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter VpceConfigurationDescription
         /// <summary>
         /// <para>
-        /// <para>An optional description, providing more details about your VPC endpoint configuration.</para>
+        /// <para>An optional description that provides details about your VPC endpoint configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter VpceServiceName
         /// <summary>
         /// <para>
-        /// <para>The name of the VPC endpoint service running inside your AWS account that you want
-        /// Device Farm to test.</para>
+        /// <para>The name of the VPC endpoint service running in your AWS account that you want Device
+        /// Farm to test.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

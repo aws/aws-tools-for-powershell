@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet</para>
+        /// <para>A unique identifier for a fleet to stop actions on. You can use either the fleet ID
+        /// or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -54,14 +54,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         public void Write(IndentedTextWriter writer)
         {
             var analyzedResult = MethodAnalysis.AnalyzedResult;
+            var autoIteration = MethodAnalysis.AutoIterateSettings;
 
             var customParamEmitters = new List<IParamEmitter>();
 
             var methodInfo = MethodAnalysis.Method;
             var methodDocumentation = DocumentationUtils.GetMethodDocumentation(methodInfo.DeclaringType, Operation.MethodName, MethodAnalysis.AssemblyDocumentation);
 
-            if (MethodAnalysis.IterationPattern != AutoIteration.AutoIteratePattern.None)
-                methodDocumentation += $"<br/><br/>{(Operation.DisableLegacyPagination ? $"In the AWS.Tools.{ServiceConfig.AssemblyName} module, t" : "T")}his cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.";
+            if (autoIteration != null)
+                methodDocumentation += $"<br/><br/>{(Operation.LegacyPagination == ServiceOperation.LegacyPaginationType.DisablePagination ? $"In the AWS.Tools.{ServiceConfig.AssemblyName} module, t" : "T")}his cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.";
 
             if (GetOperationObsoleteMessage(methodInfo) != null)
                 methodDocumentation += "<br/><br/>This operation is deprecated.";
@@ -171,40 +172,32 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("#region IExecutor Members");
                     writer.WriteLine();
 
-                    var rootSimpleProperties = MethodAnalysis.RequestProperties;
-
-                    switch (MethodAnalysis.IterationPattern)
+                    if (autoIteration != null)
                     {
-                        case AutoIteration.AutoIteratePattern.Pattern1:
-                            if (Operation.DisableLegacyPagination)
-                            {
+                        switch (Operation.LegacyPagination)
+                        {
+                            case ServiceOperation.LegacyPaginationType.DisablePagination:
                                 writer.WriteLine("#if MODULAR");
-                            }
-                            WriteIExecutorIterPattern1(writer);
-                            if (Operation.DisableLegacyPagination)
-                            {
+                                WriteIExecutorIterPattern1(writer);
                                 writer.WriteLine("#else");
                                 WriteIExecutor(writer);
                                 writer.WriteLine("#endif");
-                            }
-                            break;
-                        case AutoIteration.AutoIteratePattern.Pattern2:
-                            writer.WriteLine("#if MODULAR");
-                            WriteIExecutorIterPattern1(writer);
-                            writer.WriteLine("#else");
-                            if (Operation.DisableLegacyPagination)
-                            {
-                                WriteIExecutor(writer);
-                            }
-                            else
-                            {
+                                break;
+                            case ServiceOperation.LegacyPaginationType.UseEmitLimit:
+                                writer.WriteLine("#if MODULAR");
+                                WriteIExecutorIterPattern1(writer);
+                                writer.WriteLine("#else");
                                 WriteIExecutorIterPattern2(writer);
-                            }
-                            writer.WriteLine("#endif");
-                            break;
-                        case AutoIteration.AutoIteratePattern.None:
-                            WriteIExecutor(writer);
-                            break;
+                                writer.WriteLine("#endif");
+                                break;
+                            case ServiceOperation.LegacyPaginationType.Default:
+                                WriteIExecutorIterPattern1(writer);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        WriteIExecutor(writer);
                     }
 
                     writer.WriteLine();
@@ -423,11 +416,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             if (MethodAnalysis.AutoIterateSettings?.Start == property.Name)
             {
                 paramDoc += Environment.NewLine + "<para>" +
-                            Environment.NewLine + $"<br/><b>Note:</b> {(Operation.DisableLegacyPagination ? "In the AWS.Tools." + ServiceConfig.AssemblyName + " module, t" : "T")}his parameter is only used if you are manually controlling output pagination of the service API call." +
+                            Environment.NewLine + $"<br/><b>Note:</b> {(Operation.LegacyPagination == ServiceOperation.LegacyPaginationType.DisablePagination ? "In the AWS.Tools." + ServiceConfig.AssemblyName + " module, t" : "T")}his parameter is only used if you are manually controlling output pagination of the service API call." +
                             Environment.NewLine + $"<br/>In order to manually control output pagination, use '-{property.CmdletParameterName} $null' for the first call and '-{property.CmdletParameterName} $AWSHistory.LastServiceResponse.{MethodAnalysis.AutoIterateSettings.Next}' for subsequent calls." +
                             Environment.NewLine + "</para>";
             }
-            else if (MethodAnalysis.AutoIterateSettings?.EmitLimit == property.Name && !Operation.DisableLegacyPagination)
+            else if (MethodAnalysis.AutoIterateSettings?.EmitLimit == property.Name)
             {
                 paramDoc += Environment.NewLine + "<para>" +
                             Environment.NewLine + "<br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet." +
@@ -495,7 +488,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
         public void WriteNoAutoIterationSwitchParam(IndentedTextWriter writer)
         {
-            if (MethodAnalysis.IterationPattern == AutoIteration.AutoIteratePattern.None)
+            var autoIteration = MethodAnalysis.AutoIterateSettings;
+
+            if (autoIteration == null)
             {
                 return;
             }
@@ -508,7 +503,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             // file we can easily find them
             writer.WriteLine();
             writer.WriteLine("#region Parameter NoAutoIteration");
-            if (Operation.DisableLegacyPagination)
+            if (Operation.LegacyPagination == ServiceOperation.LegacyPaginationType.DisablePagination)
             {
                 writer.WriteLine("#if MODULAR");
             }
@@ -519,7 +514,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("/// </summary>");
             writer.WriteLine("[System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]");
             writer.WriteLine("public SwitchParameter NoAutoIteration { get; set; }");
-            if (Operation.DisableLegacyPagination)
+            if (Operation.LegacyPagination == ServiceOperation.LegacyPaginationType.DisablePagination)
             {
                 writer.WriteLine("#endif");
             }
@@ -1062,7 +1057,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.CloseRegion();
                         writer.WriteLine($"#endif");
                     }
-                    if (property.Name == MethodAnalysis.AutoIterateSettings?.EmitLimit && !Operation.DisableLegacyPagination)
+                    if (property.Name == MethodAnalysis.AutoIterateSettings?.EmitLimit)
                     {
                         writer.WriteLine($"#if !MODULAR");
                         writer.WriteLine($"if (ParameterWasBound(nameof(this.{property.CmdletParameterName})) && this.{property.CmdletParameterName}.HasValue)");
@@ -1219,7 +1214,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="writer"></param>
         private void WriteIExecutorIterPattern1(IndentedTextWriter writer)
         {
-            var analyzedResult = MethodAnalysis.AnalyzedResult;
             var requestType = MethodAnalysis.RequestType;
             var autoIteration = MethodAnalysis.AutoIterateSettings;
 

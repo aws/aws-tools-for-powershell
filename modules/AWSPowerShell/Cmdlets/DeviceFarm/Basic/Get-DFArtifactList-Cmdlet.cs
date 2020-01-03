@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Run, Job, Suite, or Test ARN.</para>
+        /// <para>The run, job, suite, or test ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The artifacts' type.</para><para>Allowed values include:</para><ul><li><para>FILE: The artifacts are files.</para></li><li><para>LOG: The artifacts are logs.</para></li><li><para>SCREENSHOT: The artifacts are screenshots.</para></li></ul>
+        /// <para>The artifacts' type.</para><para>Allowed values include:</para><ul><li><para>FILE</para></li><li><para>LOG</para></li><li><para>SCREENSHOT</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

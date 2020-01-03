@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] ExportTaskId { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>the filters for the export tasks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ExportTasks'.
@@ -100,6 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.ExportTaskId = new List<System.String>(this.ExportTaskId);
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,6 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ExportTaskId != null)
             {
                 request.ExportTaskIds = cmdletContext.ExportTaskId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             
             CmdletOutput output;
@@ -182,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ExportTaskId { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public System.Func<Amazon.EC2.Model.DescribeExportTasksResponse, GetEC2ExportTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ExportTasks;
         }

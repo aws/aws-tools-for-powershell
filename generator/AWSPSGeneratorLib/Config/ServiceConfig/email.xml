@@ -165,16 +165,16 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConfigurationSets" OutputProperty="ConfigurationSets" Verb="Get" Noun="ConfigurationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomVerificationEmailTemplates" OutputProperty="CustomVerificationEmailTemplates" Verb="Get" Noun="CustomVerificationEmailTemplateList" PipelineParameter="MaxResults" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCustomVerificationEmailTemplates" OutputProperty="CustomVerificationEmailTemplates" Verb="Get" Noun="CustomVerificationEmailTemplateList" PipelineParameter="MaxResults" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentities" OutputProperty="Identities" Verb="Get" Noun="Identity" PipelineParameter="IdentityType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdentities" OutputProperty="Identities" Verb="Get" Noun="Identity" PipelineParameter="IdentityType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -190,7 +190,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplatesMetadata" Verb="Get" Noun="TemplateList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplatesMetadata" Verb="Get" Noun="TemplateList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Pagination token. Not used.</para>
+        /// <para>Pagination token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.XRay module, this parameter is only used if you are manually controlling output pagination of the service API call.

@@ -191,12 +191,23 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// The list of security groups (1 minimum,
-        /// 5 maximum) that authorize connections to brokers.
+        /// 5 maximum) that authorizes connections to brokers.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SecurityGroups")]
         public System.String[] SecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// The broker's storage type.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MQ.BrokerStorageType")]
+        public Amazon.MQ.BrokerStorageType StorageType { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -328,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 context.SecurityGroup = new List<System.String>(this.SecurityGroup);
             }
+            context.StorageType = this.StorageType;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -462,6 +474,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 request.SecurityGroups = cmdletContext.SecurityGroup;
             }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
+            }
             if (cmdletContext.SubnetId != null)
             {
                 request.SubnetIds = cmdletContext.SubnetId;
@@ -550,6 +566,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public Amazon.MQ.Model.WeeklyStartTime MaintenanceWindowStartTime { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> SecurityGroup { get; set; }
+            public Amazon.MQ.BrokerStorageType StorageType { get; set; }
             public List<System.String> SubnetId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public List<Amazon.MQ.Model.User> User { get; set; }

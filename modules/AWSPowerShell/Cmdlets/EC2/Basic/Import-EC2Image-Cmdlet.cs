@@ -108,11 +108,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK)
-        /// to use when creating the encrypted AMI. This parameter is only required if you want
-        /// to use a non-default CMK; if this parameter is not specified, the default CMK for
-        /// EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag
-        /// must also be set. </para><para>The CMK identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// <para>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master
+        /// key (CMK) to use when creating the encrypted AMI. This parameter is only required
+        /// if you want to use a non-default CMK; if this parameter is not specified, the default
+        /// CMK for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code>
+        /// flag must also be set. </para><para>The CMK identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed
         /// by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code>
         /// namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</para></li><li><para>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
         /// by the Region of the CMK, the AWS account ID of the CMK owner, the <code>key</code>
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
         /// </para></li></ul><para>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call
         /// may appear to complete even though you provided an invalid identifier. This action
-        /// will eventually report failure. </para><para>The specified CMK must exist in the Region that the AMI is being copied to.</para>
+        /// will eventually report failure. </para><para>The specified CMK must exist in the Region that the AMI is being copied to.</para><para>Amazon EBS does not support asymmetric CMKs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

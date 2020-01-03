@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// You can optionally request an Amazon-provided IPv6 CIDR block for the VPC. The IPv6
-    /// CIDR block uses a /56 prefix length, and is allocated from Amazon's pool of IPv6 addresses.
-    /// You cannot choose the IPv6 range for your VPC.
+    /// You can optionally request an IPv6 CIDR block for the VPC. You can request an Amazon-provided
+    /// IPv6 CIDR block from Amazon's pool of IPv6 addresses, or an IPv6 CIDR block from an
+    /// IPv6 address pool that you provisioned through bring your own IP addresses (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">BYOIP</a>).
     /// </para><para>
     /// By default, each instance you launch in the VPC has the default DHCP options, which
     /// include only a default DNS server that we provide (AmazonProvidedDNS). For more information,
@@ -103,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
         #endregion
         
+        #region Parameter Ipv6CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code>
+        /// in the request.</para><para>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv6CidrBlock { get; set; }
+        #endregion
+        
         #region Parameter Ipv6CidrBlockNetworkBorderGroup
         /// <summary>
         /// <para>
@@ -113,6 +124,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
+        #endregion
+        
+        #region Parameter Ipv6Pool
+        /// <summary>
+        /// <para>
+        /// <para>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Ipv6Pool { get; set; }
         #endregion
         
         #region Parameter Select
@@ -185,7 +206,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.InstanceTenancy = this.InstanceTenancy;
+            context.Ipv6CidrBlock = this.Ipv6CidrBlock;
             context.Ipv6CidrBlockNetworkBorderGroup = this.Ipv6CidrBlockNetworkBorderGroup;
+            context.Ipv6Pool = this.Ipv6Pool;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -214,9 +237,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.InstanceTenancy = cmdletContext.InstanceTenancy;
             }
+            if (cmdletContext.Ipv6CidrBlock != null)
+            {
+                request.Ipv6CidrBlock = cmdletContext.Ipv6CidrBlock;
+            }
             if (cmdletContext.Ipv6CidrBlockNetworkBorderGroup != null)
             {
                 request.Ipv6CidrBlockNetworkBorderGroup = cmdletContext.Ipv6CidrBlockNetworkBorderGroup;
+            }
+            if (cmdletContext.Ipv6Pool != null)
+            {
+                request.Ipv6Pool = cmdletContext.Ipv6Pool;
             }
             
             CmdletOutput output;
@@ -282,7 +313,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? AmazonProvidedIpv6CidrBlock { get; set; }
             public System.String CidrBlock { get; set; }
             public Amazon.EC2.Tenancy InstanceTenancy { get; set; }
+            public System.String Ipv6CidrBlock { get; set; }
             public System.String Ipv6CidrBlockNetworkBorderGroup { get; set; }
+            public System.String Ipv6Pool { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpcResponse, NewEC2VpcCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Vpc;
         }

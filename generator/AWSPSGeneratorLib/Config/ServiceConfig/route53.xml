@@ -10,7 +10,7 @@
     <ServiceModuleGuid>cb4f18e6-65c6-416a-9d13-9233b88c850b</ServiceModuleGuid>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter />
-    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated" ServicePageSize="100" PageSizeIsRequired="true" />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" ServicePageSize="100" PageSizeIsRequired="true" />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Change" To="Edit" />
@@ -186,33 +186,33 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHealthChecks" OutputProperty="HealthChecks" Verb="Get" Noun="HealthCheckList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-R53HealthChecks">
+        <ServiceOperation MethodName="ListHealthChecks" OutputProperty="HealthChecks" Verb="Get" Noun="HealthCheckList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53HealthChecks">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHostedZones" OutputProperty="HostedZones" Verb="Get" Noun="HostedZoneList" PipelineParameter="DelegationSetId" NoPipelineParameter="false" LegacyAlias="Get-R53HostedZones">
+        <ServiceOperation MethodName="ListHostedZones" OutputProperty="HostedZones" Verb="Get" Noun="HostedZoneList" PipelineParameter="DelegationSetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53HostedZones">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListHostedZonesByName" OutputProperty="HostedZones" Verb="Get" Noun="HostedZonesByName" Exclude="true" PipelineParameter="" NoPipelineParameter="true">
-            <AutoIterate Start="DNSName;HostedZoneId" Next="NextDNSName;NextHostedZoneId" EmitLimit="MaxItems" ServicePageSize="100" />
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
+            <AutoIterate Start="DNSName;HostedZoneId" Next="NextDNSName;NextHostedZoneId" EmitLimit="MaxItems" ServicePageSize="100" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueryLoggingConfigs" OutputProperty="QueryLoggingConfigs" Verb="Get" Noun="QueryLoggingConfigList" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQueryLoggingConfigs" OutputProperty="QueryLoggingConfigs" Verb="Get" Noun="QueryLoggingConfigList" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceRecordSets" OutputProperty="*" Verb="Get" Noun="ResourceRecordSet" PositionalParameters="StartRecordName;StartRecordType" PipelineParameter="HostedZoneId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListResourceRecordSets" OutputProperty="*" Verb="Get" Noun="ResourceRecordSet" PositionalParameters="StartRecordName;StartRecordType" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReusableDelegationSets" OutputProperty="DelegationSets" Verb="Get" Noun="ReusableDelegationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-R53ReusableDelegationSets">
+        <ServiceOperation MethodName="ListReusableDelegationSets" OutputProperty="DelegationSets" Verb="Get" Noun="ReusableDelegationSetList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53ReusableDelegationSets">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -224,28 +224,28 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicies" OutputProperty="TrafficPolicySummaries" Verb="Get" Noun="TrafficPolicyList" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-R53TrafficPolicies">
+        <ServiceOperation MethodName="ListTrafficPolicies" OutputProperty="TrafficPolicySummaries" Verb="Get" Noun="TrafficPolicyList" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53TrafficPolicies">
             <Params />
-            <AutoIterate Start="TrafficPolicyIdMarker" Next="TrafficPolicyIdMarker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated" ServicePageSize="100" PageSizeIsRequired="true" />
+            <AutoIterate Start="TrafficPolicyIdMarker" Next="TrafficPolicyIdMarker" EmitLimit="MaxItems" ServicePageSize="100" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyInstances" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstanceList" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true" LegacyAlias="Get-R53TrafficPolicyInstances">
+        <ServiceOperation MethodName="ListTrafficPolicyInstances" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstanceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination" LegacyAlias="Get-R53TrafficPolicyInstances">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyInstancesByHostedZone" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstancesByHostedZone" PipelineParameter="HostedZoneId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListTrafficPolicyInstancesByHostedZone" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstancesByHostedZone" PipelineParameter="HostedZoneId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params>
                 <Param Name="HostedZoneId" Alias="Id" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyInstancesByPolicy" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstancesByPolicy" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListTrafficPolicyInstancesByPolicy" OutputProperty="*" Verb="Get" Noun="TrafficPolicyInstancesByPolicy" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyVersions" OutputProperty="TrafficPolicies" Verb="Get" Noun="TrafficPolicyVersionList" ShouldProcessTarget="" PipelineParameter="Id" NoPipelineParameter="false" LegacyAlias="Get-R53TrafficPolicyVersions">
+        <ServiceOperation MethodName="ListTrafficPolicyVersions" OutputProperty="TrafficPolicies" Verb="Get" Noun="TrafficPolicyVersionList" ShouldProcessTarget="" PipelineParameter="Id" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-R53TrafficPolicyVersions">
             <Params />
-            <AutoIterate Start="TrafficPolicyVersionMarker" Next="TrafficPolicyVersionMarker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated" ServicePageSize="100" PageSizeIsRequired="true" />
+            <AutoIterate Start="TrafficPolicyVersionMarker" Next="TrafficPolicyVersionMarker" EmitLimit="MaxItems" ServicePageSize="100" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListVPCAssociationAuthorizations" OutputProperty="*" Verb="Get" Noun="VPCAssociationAuthorizationList" PipelineParameter="HostedZoneId" NoPipelineParameter="false">

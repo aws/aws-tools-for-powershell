@@ -123,6 +123,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Collections.Hashtable Parameter { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Optional metadata that you assign to a resource. You can specify a maximum of five
+        /// tags for an automation. Tags enable you to categorize a resource in different ways,
+        /// such as by purpose, owner, or environment. For example, you might want to tag an automation
+        /// to identify an environment or operating system. In this case, you could specify the
+        /// following key name/value pairs:</para><ul><li><para><code>Key=environment,Value=test</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li></ul><note><para>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetLocation
         /// <summary>
         /// <para>
@@ -276,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     context.Parameter.Add((String)hashKey, valueSet);
                 }
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
+            }
             if (this.TargetLocation != null)
             {
                 context.TargetLocation = new List<Amazon.SimpleSystemsManagement.Model.TargetLocation>(this.TargetLocation);
@@ -353,6 +372,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Parameter != null)
             {
                 request.Parameters = cmdletContext.Parameter;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TargetLocation != null)
             {
@@ -438,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String MaxError { get; set; }
             public Amazon.SimpleSystemsManagement.ExecutionMode Mode { get; set; }
             public Dictionary<System.String, List<System.String>> Parameter { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.TargetLocation> TargetLocation { get; set; }
             public List<Dictionary<System.String, List<System.String>>> TargetMap { get; set; }
             public System.String TargetParameterName { get; set; }

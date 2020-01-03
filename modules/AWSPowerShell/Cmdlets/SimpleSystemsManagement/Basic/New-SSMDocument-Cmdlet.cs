@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentFormat
         /// <summary>
         /// <para>
-        /// <para>Specify the document format for the request. The document format can be either JSON
-        /// or YAML. JSON is the default format.</para>
+        /// <para>Specify the document format for the request. The document format can be JSON, YAML,
+        /// or TEXT. JSON is the default format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentType
         /// <summary>
         /// <para>
-        /// <para>The type of document to create. Valid document types include: <code>Command</code>,
-        /// <code>Policy</code>, <code>Automation</code>, <code>Session</code>, and <code>Package</code>.</para>
+        /// <para>The type of document to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

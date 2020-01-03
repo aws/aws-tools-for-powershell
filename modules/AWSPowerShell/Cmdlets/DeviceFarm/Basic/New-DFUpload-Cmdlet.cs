@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The upload's content type (for example, "application/octet-stream").</para>
+        /// <para>The upload's content type (for example, <code>application/octet-stream</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -53,10 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The upload's file name. The name should not contain the '/' character. If uploading
-        /// an iOS app, the file name needs to end with the <code>.ipa</code> extension. If uploading
-        /// an Android app, the file name needs to end with the <code>.apk</code> extension. For
-        /// all others, the file name must end with the <code>.zip</code> file extension.</para>
+        /// <para>The upload's file name. The name should not contain any forward slashes (<code>/</code>).
+        /// If you are uploading an iOS app, the file name must end with the <code>.ipa</code>
+        /// extension. If you are uploading an Android app, the file name must end with the <code>.apk</code>
+        /// extension. For all others, the file name must end with the <code>.zip</code> file
+        /// extension.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,11 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The upload's upload type.</para><para>Must be one of the following values:</para><ul><li><para>ANDROID_APP: An Android upload.</para></li><li><para>IOS_APP: An iOS upload.</para></li><li><para>WEB_APP: A web application upload.</para></li><li><para>EXTERNAL_DATA: An external data upload.</para></li><li><para>APPIUM_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload.</para></li><li><para>APPIUM_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload.</para></li><li><para>APPIUM_PYTHON_TEST_PACKAGE: An Appium Python test package upload.</para></li><li><para>APPIUM_NODE_TEST_PACKAGE: An Appium Node.js test package upload.</para></li><li><para>APPIUM_RUBY_TEST_PACKAGE: An Appium Ruby test package upload.</para></li><li><para>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE: An Appium Java JUnit test package upload for a
-        /// web app.</para></li><li><para>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE: An Appium Java TestNG test package upload for
-        /// a web app.</para></li><li><para>APPIUM_WEB_PYTHON_TEST_PACKAGE: An Appium Python test package upload for a web app.</para></li><li><para>APPIUM_WEB_NODE_TEST_PACKAGE: An Appium Node.js test package upload for a web app.</para></li><li><para>APPIUM_WEB_RUBY_TEST_PACKAGE: An Appium Ruby test package upload for a web app.</para></li><li><para>CALABASH_TEST_PACKAGE: A Calabash test package upload.</para></li><li><para>INSTRUMENTATION_TEST_PACKAGE: An instrumentation upload.</para></li><li><para>UIAUTOMATION_TEST_PACKAGE: A uiautomation test package upload.</para></li><li><para>UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.</para></li><li><para>XCTEST_TEST_PACKAGE: An Xcode test package upload.</para></li><li><para>XCTEST_UI_TEST_PACKAGE: An Xcode UI test package upload.</para></li><li><para>APPIUM_JAVA_JUNIT_TEST_SPEC: An Appium Java JUnit test spec upload.</para></li><li><para>APPIUM_JAVA_TESTNG_TEST_SPEC: An Appium Java TestNG test spec upload.</para></li><li><para>APPIUM_PYTHON_TEST_SPEC: An Appium Python test spec upload.</para></li><li><para>APPIUM_NODE_TEST_SPEC: An Appium Node.js test spec upload.</para></li><li><para>APPIUM_RUBY_TEST_SPEC: An Appium Ruby test spec upload.</para></li><li><para>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC: An Appium Java JUnit test spec upload for a web app.</para></li><li><para>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC: An Appium Java TestNG test spec upload for a web
-        /// app.</para></li><li><para>APPIUM_WEB_PYTHON_TEST_SPEC: An Appium Python test spec upload for a web app.</para></li><li><para>APPIUM_WEB_NODE_TEST_SPEC: An Appium Node.js test spec upload for a web app.</para></li><li><para>APPIUM_WEB_RUBY_TEST_SPEC: An Appium Ruby test spec upload for a web app.</para></li><li><para>INSTRUMENTATION_TEST_SPEC: An instrumentation test spec upload.</para></li><li><para>XCTEST_UI_TEST_SPEC: An Xcode UI test spec upload.</para></li></ul><para><b>Note</b> If you call <code>CreateUpload</code> with <code>WEB_APP</code> specified,
-        /// AWS Device Farm throws an <code>ArgumentException</code> error.</para>
+        /// <para>The upload's upload type.</para><para>Must be one of the following values:</para><ul><li><para>ANDROID_APP</para></li><li><para>IOS_APP</para></li><li><para>WEB_APP</para></li><li><para>EXTERNAL_DATA</para></li><li><para>APPIUM_JAVA_JUNIT_TEST_PACKAGE</para></li><li><para>APPIUM_JAVA_TESTNG_TEST_PACKAGE</para></li><li><para>APPIUM_PYTHON_TEST_PACKAGE</para></li><li><para>APPIUM_NODE_TEST_PACKAGE</para></li><li><para>APPIUM_RUBY_TEST_PACKAGE</para></li><li><para>APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE</para></li><li><para>APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE</para></li><li><para>APPIUM_WEB_PYTHON_TEST_PACKAGE</para></li><li><para>APPIUM_WEB_NODE_TEST_PACKAGE</para></li><li><para>APPIUM_WEB_RUBY_TEST_PACKAGE</para></li><li><para>CALABASH_TEST_PACKAGE</para></li><li><para>INSTRUMENTATION_TEST_PACKAGE</para></li><li><para>UIAUTOMATION_TEST_PACKAGE</para></li><li><para>UIAUTOMATOR_TEST_PACKAGE</para></li><li><para>XCTEST_TEST_PACKAGE</para></li><li><para>XCTEST_UI_TEST_PACKAGE</para></li><li><para>APPIUM_JAVA_JUNIT_TEST_SPEC</para></li><li><para>APPIUM_JAVA_TESTNG_TEST_SPEC</para></li><li><para>APPIUM_PYTHON_TEST_SPEC</para></li><li><para>APPIUM_NODE_TEST_SPEC</para></li><li><para>APPIUM_RUBY_TEST_SPEC</para></li><li><para>APPIUM_WEB_JAVA_JUNIT_TEST_SPEC</para></li><li><para>APPIUM_WEB_JAVA_TESTNG_TEST_SPEC</para></li><li><para>APPIUM_WEB_PYTHON_TEST_SPEC</para></li><li><para>APPIUM_WEB_NODE_TEST_SPEC</para></li><li><para>APPIUM_WEB_RUBY_TEST_SPEC</para></li><li><para>INSTRUMENTATION_TEST_SPEC</para></li><li><para>XCTEST_UI_TEST_SPEC</para></li></ul><para> If you call <code>CreateUpload</code> with <code>WEB_APP</code> specified, AWS Device
+        /// Farm throws an <code>ArgumentException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

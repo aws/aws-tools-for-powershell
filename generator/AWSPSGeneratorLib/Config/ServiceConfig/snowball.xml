@@ -47,7 +47,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAddresses" OutputProperty="Addresses" Verb="Get" Noun="AddressList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAddresses" OutputProperty="Addresses" Verb="Get" Noun="AddressList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,19 +75,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusterJobs" OutputProperty="JobListEntries" Verb="Get" Noun="ClusterJobList" PipelineParameter="ClusterId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClusterJobs" OutputProperty="JobListEntries" Verb="Get" Noun="ClusterJobList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterListEntries" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListClusters" OutputProperty="ClusterListEntries" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCompatibleImages" OutputProperty="CompatibleImages" Verb="Get" Noun="CompatibleImageList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCompatibleImages" OutputProperty="CompatibleImages" Verb="Get" Noun="CompatibleImageList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobListEntries" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobListEntries" Verb="Get" Noun="JobList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -65,7 +65,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContainers" OutputProperty="Containers" Verb="Get" Noun="ContainerList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContainers" OutputProperty="Containers" Verb="Get" Noun="ContainerList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

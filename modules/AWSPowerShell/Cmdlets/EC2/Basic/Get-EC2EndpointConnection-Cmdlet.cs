@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum number of results to return for the request in a single page. The remaining
         /// results of the initial request can be seen by sending another request with the returned
-        /// <code>NextToken</code> value. This value can be between 5 and 1000; if <code>MaxResults</code>
-        /// is given a value larger than 1000, only 1000 results are returned.</para>
+        /// <code>NextToken</code> value. This value can be between 5 and 1,000; if <code>MaxResults</code>
+        /// is given a value larger than 1,000, only 1,000 results are returned.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

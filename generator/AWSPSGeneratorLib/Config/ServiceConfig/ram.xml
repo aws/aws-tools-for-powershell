@@ -57,39 +57,39 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicies" OutputProperty="Policies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArns" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicies" OutputProperty="Policies" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceShareAssociations" OutputProperty="ResourceShareAssociations" Verb="Get" Noun="ResourceShareAssociation" PipelineParameter="AssociationType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourceShareAssociations" OutputProperty="ResourceShareAssociations" Verb="Get" Noun="ResourceShareAssociation" PipelineParameter="AssociationType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceShareInvitations" OutputProperty="ResourceShareInvitations" Verb="Get" Noun="ResourceShareInvitation" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetResourceShareInvitations" OutputProperty="ResourceShareInvitations" Verb="Get" Noun="ResourceShareInvitation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceShares" OutputProperty="ResourceShares" Verb="Get" Noun="ResourceShare" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourceShares" OutputProperty="ResourceShares" Verb="Get" Noun="ResourceShare" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPendingInvitationResources" OutputProperty="Resources" Verb="Get" Noun="PendingInvitationResourceList" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPendingInvitationResources" OutputProperty="Resources" Verb="Get" Noun="PendingInvitationResourceList" PipelineParameter="ResourceShareInvitationArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="ResourceType" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="Permissions" Verb="Get" Noun="PermissionList" PipelineParameter="ResourceType" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipals" OutputProperty="Principals" Verb="Get" Noun="PrincipalList" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPrincipals" OutputProperty="Principals" Verb="Get" Noun="PrincipalList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="ResourceOwner" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResources" OutputProperty="Resources" Verb="Get" Noun="ResourceList" PipelineParameter="ResourceOwner" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceSharePermissions" OutputProperty="Permissions" Verb="Get" Noun="ResourceSharePermissionList" PipelineParameter="ResourceShareArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceSharePermissions" OutputProperty="Permissions" Verb="Get" Noun="ResourceSharePermissionList" PipelineParameter="ResourceShareArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

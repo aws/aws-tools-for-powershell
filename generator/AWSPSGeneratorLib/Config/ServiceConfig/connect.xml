@@ -43,7 +43,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCurrentMetricData" OutputProperty="*" Verb="Get" Noun="CurrentMetricData" PipelineParameter="InstanceId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetCurrentMetricData" OutputProperty="*" Verb="Get" Noun="CurrentMetricData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -51,31 +51,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricData" OutputProperty="MetricResults" Verb="Get" Noun="MetricData" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetMetricData" OutputProperty="MetricResults" Verb="Get" Noun="MetricData" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContactFlows" OutputProperty="ContactFlowSummaryList" Verb="Get" Noun="ContactFlowList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListContactFlows" OutputProperty="ContactFlowSummaryList" Verb="Get" Noun="ContactFlowList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHoursOfOperations" OutputProperty="HoursOfOperationSummaryList" Verb="Get" Noun="HoursOfOperationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListHoursOfOperations" OutputProperty="HoursOfOperationSummaryList" Verb="Get" Noun="HoursOfOperationList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPhoneNumbers" OutputProperty="PhoneNumberSummaryList" Verb="Get" Noun="PhoneNumberList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPhoneNumbers" OutputProperty="PhoneNumberSummaryList" Verb="Get" Noun="PhoneNumberList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueues" OutputProperty="QueueSummaryList" Verb="Get" Noun="QueueList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQueues" OutputProperty="QueueSummaryList" Verb="Get" Noun="QueueList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoutingProfiles" OutputProperty="RoutingProfileSummaryList" Verb="Get" Noun="RoutingProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRoutingProfiles" OutputProperty="RoutingProfileSummaryList" Verb="Get" Noun="RoutingProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileSummaryList" Verb="Get" Noun="SecurityProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileSummaryList" Verb="Get" Noun="SecurityProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,11 +83,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUserHierarchyGroups" OutputProperty="UserHierarchyGroupSummaryList" Verb="Get" Noun="UserHierarchyGroupList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUserHierarchyGroups" OutputProperty="UserHierarchyGroupSummaryList" Verb="Get" Noun="UserHierarchyGroupList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="UserSummaryList" Verb="Get" Noun="UserList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="UserSummaryList" Verb="Get" Noun="UserList" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

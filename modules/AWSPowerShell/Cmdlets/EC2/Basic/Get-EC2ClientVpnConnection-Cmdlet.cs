@@ -61,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Filter names and values are case-sensitive.</para>
+        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>connection-id</code> - The ID of the connection.</para></li><li><para><code>username</code> - For Active Directory client authentication, the user name
+        /// of the client who established the client connection.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

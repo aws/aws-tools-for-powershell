@@ -65,14 +65,14 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>The AWS AWS KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the
         /// Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption
-        /// key.</para><para>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code>
-        /// parameter, Amazon Neptune encrypts the target DB cluster snapshot using the specified
-        /// KMS encryption key.</para><para>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify
+        /// key.</para><para>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify
         /// a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key.
         /// If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster
         /// snapshot is encrypted with the same KMS key as the source DB cluster snapshot.</para><para>If you copy an encrypted DB cluster snapshot that is shared from another AWS account,
         /// then you must specify a value for <code>KmsKeyId</code>.</para><para> KMS encryption keys are specific to the AWS Region that they are created in, and
-        /// you can't use encryption keys from one AWS Region in another AWS Region.</para>
+        /// you can't use encryption keys from one AWS Region in another AWS Region.</para><para>You cannot encrypt an unencrypted DB cluster snapshot when you copy it. If you try
+        /// to copy an unencrypted DB cluster snapshot and specify a value for the KmsKeyId parameter,
+        /// an error is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

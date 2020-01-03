@@ -62,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</para>
+        /// <para>The tags. Each WorkSpaces resource can have a maximum of 50 tags. If you want to add
+        /// new tags to a set of existing tags, you must submit all of the existing tags along
+        /// with the new ones.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

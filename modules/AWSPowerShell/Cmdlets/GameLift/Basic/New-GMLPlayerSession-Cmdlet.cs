@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to add players to.</para>
+        /// <para>A unique identifier for the game session to add players to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

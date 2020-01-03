@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSigninDelegateGroupsWithAccount" Verb="Add" Noun="SigninDelegateGroupsToAccount" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchCreateAttendee" OutputProperty="*" Verb="New" Noun="AttendeeBatch" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -84,6 +88,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRoomMembership" OutputProperty="RoomMembership" Verb="New" Noun="RoomMembership" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUser" OutputProperty="User" Verb="New" Noun="User" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -156,6 +164,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociatePhoneNumbersFromVoiceConnectorGroup" OutputProperty="PhoneNumberErrors" Verb="Remove" Noun="PhoneNumbersFromVoiceConnectorGroup" ShouldProcessTarget="VoiceConnectorGroupId" PipelineParameter="VoiceConnectorGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSigninDelegateGroupsFromAccount" Verb="Remove" Noun="SigninDelegateGroupsFromAccount" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -243,47 +255,47 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccounts" OutputProperty="Accounts" Verb="Get" Noun="AccountList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAccounts" OutputProperty="Accounts" Verb="Get" Noun="AccountList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttendees" OutputProperty="Attendees" Verb="Get" Noun="AttendeeList" PipelineParameter="MeetingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAttendees" OutputProperty="Attendees" Verb="Get" Noun="AttendeeList" PipelineParameter="MeetingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMeetings" OutputProperty="Meetings" Verb="Get" Noun="MeetingList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMeetings" OutputProperty="Meetings" Verb="Get" Noun="MeetingList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPhoneNumberOrders" OutputProperty="PhoneNumberOrders" Verb="Get" Noun="PhoneNumberOrderList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPhoneNumberOrders" OutputProperty="PhoneNumberOrders" Verb="Get" Noun="PhoneNumberOrderList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPhoneNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="PhoneNumberList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListPhoneNumbers" OutputProperty="PhoneNumbers" Verb="Get" Noun="PhoneNumberList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoomMemberships" OutputProperty="RoomMemberships" Verb="Get" Noun="RoomMembershipList" PipelineParameter="RoomId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRoomMemberships" OutputProperty="RoomMemberships" Verb="Get" Noun="RoomMembershipList" PipelineParameter="RoomId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRooms" OutputProperty="Rooms" Verb="Get" Noun="RoomList" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRooms" OutputProperty="Rooms" Verb="Get" Noun="RoomList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListUsers" OutputProperty="Users" Verb="Get" Noun="UserList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVoiceConnectorGroups" OutputProperty="VoiceConnectorGroups" Verb="Get" Noun="VoiceConnectorGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVoiceConnectorGroups" OutputProperty="VoiceConnectorGroups" Verb="Get" Noun="VoiceConnectorGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVoiceConnectors" OutputProperty="VoiceConnectors" Verb="Get" Noun="VoiceConnectorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVoiceConnectors" OutputProperty="VoiceConnectors" Verb="Get" Noun="VoiceConnectorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

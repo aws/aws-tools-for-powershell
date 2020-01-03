@@ -101,6 +101,21 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String OutputDataConfig_KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter InputDataConfig_LabelDelimiter
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the delimiter used to separate each label for training a multi-label classifier.
+        /// The default delimiter between labels is a pipe (|). You can use a different character
+        /// as a delimiter (if it's an allowed character) by specifying it under Delimiter for
+        /// labels. If the training documents use a delimiter other than the default or the delimiter
+        /// you specify, the labels on that line will be combined to make a single unique label,
+        /// such as LABELLABELLABEL.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InputDataConfig_LabelDelimiter { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
@@ -118,6 +133,21 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Comprehend.LanguageCode")]
         public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
+        #endregion
+        
+        #region Parameter Mode
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the mode in which the classifier will be trained. The classifier can be
+        /// trained in multi-class mode, which identifies one and only one class for each document,
+        /// or multi-label mode, which identifies one or more labels for each document. In multi-label
+        /// mode, multiple labels for an individual document are separated by a delimiter. The
+        /// default delimiter between labels is a pipe (|).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Comprehend.DocumentClassifierMode")]
+        public Amazon.Comprehend.DocumentClassifierMode Mode { get; set; }
         #endregion
         
         #region Parameter InputDataConfig_S3Uri
@@ -290,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 WriteWarning("You are passing $null as a value for parameter DocumentClassifierName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InputDataConfig_LabelDelimiter = this.InputDataConfig_LabelDelimiter;
             context.InputDataConfig_S3Uri = this.InputDataConfig_S3Uri;
             #if MODULAR
             if (this.InputDataConfig_S3Uri == null && ParameterWasBound(nameof(this.InputDataConfig_S3Uri)))
@@ -304,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 WriteWarning("You are passing $null as a value for parameter LanguageCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Mode = this.Mode;
             context.OutputDataConfig_KmsKeyId = this.OutputDataConfig_KmsKeyId;
             context.OutputDataConfig_S3Uri = this.OutputDataConfig_S3Uri;
             if (this.Tag != null)
@@ -351,6 +383,16 @@ namespace Amazon.PowerShell.Cmdlets.COMP
              // populate InputDataConfig
             var requestInputDataConfigIsNull = true;
             request.InputDataConfig = new Amazon.Comprehend.Model.DocumentClassifierInputDataConfig();
+            System.String requestInputDataConfig_inputDataConfig_LabelDelimiter = null;
+            if (cmdletContext.InputDataConfig_LabelDelimiter != null)
+            {
+                requestInputDataConfig_inputDataConfig_LabelDelimiter = cmdletContext.InputDataConfig_LabelDelimiter;
+            }
+            if (requestInputDataConfig_inputDataConfig_LabelDelimiter != null)
+            {
+                request.InputDataConfig.LabelDelimiter = requestInputDataConfig_inputDataConfig_LabelDelimiter;
+                requestInputDataConfigIsNull = false;
+            }
             System.String requestInputDataConfig_inputDataConfig_S3Uri = null;
             if (cmdletContext.InputDataConfig_S3Uri != null)
             {
@@ -369,6 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
+            }
+            if (cmdletContext.Mode != null)
+            {
+                request.Mode = cmdletContext.Mode;
             }
             
              // populate OutputDataConfig
@@ -500,8 +546,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String ClientRequestToken { get; set; }
             public System.String DataAccessRoleArn { get; set; }
             public System.String DocumentClassifierName { get; set; }
+            public System.String InputDataConfig_LabelDelimiter { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
+            public Amazon.Comprehend.DocumentClassifierMode Mode { get; set; }
             public System.String OutputDataConfig_KmsKeyId { get; set; }
             public System.String OutputDataConfig_S3Uri { get; set; }
             public List<Amazon.Comprehend.Model.Tag> Tag { get; set; }

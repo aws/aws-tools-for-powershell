@@ -39,7 +39,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEffectivePermissionsForPath" OutputProperty="Permissions" Verb="Get" Noun="EffectivePermissionsForPath" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetEffectivePermissionsForPath" OutputProperty="Permissions" Verb="Get" Noun="EffectivePermissionsForPath" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,11 +47,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPermissions" OutputProperty="PrincipalResourcePermissions" Verb="Get" Noun="PermissionList" PipelineParameter="CatalogId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPermissions" OutputProperty="PrincipalResourcePermissions" Verb="Get" Noun="PermissionList" PipelineParameter="CatalogId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResources" OutputProperty="ResourceInfoList" Verb="Get" Noun="ResourceList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListResources" OutputProperty="ResourceInfoList" Verb="Get" Noun="ResourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

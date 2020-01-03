@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PropertyNameQuery_PropertyNameHint
         /// <summary>
         /// <para>
-        /// <para>Text that is part of a property's name. The property names of hyperparameter, metric,
-        /// and tag key names that begin with the specified text in the <code>PropertyNameHint</code>.</para>
+        /// <para>Text that begins a property's name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon SageMaker resource to Search for. The only valid <code>Resource</code>
-        /// value is <code>TrainingJob</code>.</para>
+        /// <para>The name of the Amazon SageMaker resource to Search for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -46,6 +46,19 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class UpdateTFRServerCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        #region Parameter EndpointDetails_AddressAllocationId
+        /// <summary>
+        /// <para>
+        /// <para>A list of address allocation IDs that are required to attach an Elastic IP address
+        /// to your SFTP server's endpoint. This is only valid in the <code>UpdateServer</code>
+        /// API.</para><note><para>This property can only be use when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EndpointDetails_AddressAllocationIds")]
+        public System.String[] EndpointDetails_AddressAllocationId { get; set; }
+        #endregion
+        
         #region Parameter EndpointType
         /// <summary>
         /// <para>
@@ -112,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String ServerId { get; set; }
         #endregion
         
+        #region Parameter EndpointDetails_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>A list of subnet IDs that are required to host your SFTP server endpoint in your VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EndpointDetails_SubnetIds")]
+        public System.String[] EndpointDetails_SubnetId { get; set; }
+        #endregion
+        
         #region Parameter IdentityProviderDetails_Url
         /// <summary>
         /// <para>
@@ -131,6 +155,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EndpointDetails_VpcEndpointId { get; set; }
+        #endregion
+        
+        #region Parameter EndpointDetails_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be
+        /// hosted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EndpointDetails_VpcId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -194,7 +229,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 context.Select = (response, cmdlet) => this.ServerId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.EndpointDetails_AddressAllocationId != null)
+            {
+                context.EndpointDetails_AddressAllocationId = new List<System.String>(this.EndpointDetails_AddressAllocationId);
+            }
+            if (this.EndpointDetails_SubnetId != null)
+            {
+                context.EndpointDetails_SubnetId = new List<System.String>(this.EndpointDetails_SubnetId);
+            }
             context.EndpointDetails_VpcEndpointId = this.EndpointDetails_VpcEndpointId;
+            context.EndpointDetails_VpcId = this.EndpointDetails_VpcId;
             context.EndpointType = this.EndpointType;
             context.HostKey = this.HostKey;
             context.IdentityProviderDetails_InvocationRole = this.IdentityProviderDetails_InvocationRole;
@@ -227,6 +271,26 @@ namespace Amazon.PowerShell.Cmdlets.TFR
              // populate EndpointDetails
             var requestEndpointDetailsIsNull = true;
             request.EndpointDetails = new Amazon.Transfer.Model.EndpointDetails();
+            List<System.String> requestEndpointDetails_endpointDetails_AddressAllocationId = null;
+            if (cmdletContext.EndpointDetails_AddressAllocationId != null)
+            {
+                requestEndpointDetails_endpointDetails_AddressAllocationId = cmdletContext.EndpointDetails_AddressAllocationId;
+            }
+            if (requestEndpointDetails_endpointDetails_AddressAllocationId != null)
+            {
+                request.EndpointDetails.AddressAllocationIds = requestEndpointDetails_endpointDetails_AddressAllocationId;
+                requestEndpointDetailsIsNull = false;
+            }
+            List<System.String> requestEndpointDetails_endpointDetails_SubnetId = null;
+            if (cmdletContext.EndpointDetails_SubnetId != null)
+            {
+                requestEndpointDetails_endpointDetails_SubnetId = cmdletContext.EndpointDetails_SubnetId;
+            }
+            if (requestEndpointDetails_endpointDetails_SubnetId != null)
+            {
+                request.EndpointDetails.SubnetIds = requestEndpointDetails_endpointDetails_SubnetId;
+                requestEndpointDetailsIsNull = false;
+            }
             System.String requestEndpointDetails_endpointDetails_VpcEndpointId = null;
             if (cmdletContext.EndpointDetails_VpcEndpointId != null)
             {
@@ -235,6 +299,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (requestEndpointDetails_endpointDetails_VpcEndpointId != null)
             {
                 request.EndpointDetails.VpcEndpointId = requestEndpointDetails_endpointDetails_VpcEndpointId;
+                requestEndpointDetailsIsNull = false;
+            }
+            System.String requestEndpointDetails_endpointDetails_VpcId = null;
+            if (cmdletContext.EndpointDetails_VpcId != null)
+            {
+                requestEndpointDetails_endpointDetails_VpcId = cmdletContext.EndpointDetails_VpcId;
+            }
+            if (requestEndpointDetails_endpointDetails_VpcId != null)
+            {
+                request.EndpointDetails.VpcId = requestEndpointDetails_endpointDetails_VpcId;
                 requestEndpointDetailsIsNull = false;
             }
              // determine if request.EndpointDetails should be set to null
@@ -348,7 +422,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> EndpointDetails_AddressAllocationId { get; set; }
+            public List<System.String> EndpointDetails_SubnetId { get; set; }
             public System.String EndpointDetails_VpcEndpointId { get; set; }
+            public System.String EndpointDetails_VpcId { get; set; }
             public Amazon.Transfer.EndpointType EndpointType { get; set; }
             public System.String HostKey { get; set; }
             public System.String IdentityProviderDetails_InvocationRole { get; set; }

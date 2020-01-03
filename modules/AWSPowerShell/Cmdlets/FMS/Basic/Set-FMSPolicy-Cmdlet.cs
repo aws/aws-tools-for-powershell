@@ -76,6 +76,16 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         public Amazon.FMS.Model.Policy Policy { get; set; }
         #endregion
         
+        #region Parameter TagList
+        /// <summary>
+        /// <para>
+        /// <para>The tags to add to the AWS resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.FMS.Model.Tag[] TagList { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -144,6 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.FMS
                 WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagList != null)
+            {
+                context.TagList = new List<Amazon.FMS.Model.Tag>(this.TagList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             if (cmdletContext.Policy != null)
             {
                 request.Policy = cmdletContext.Policy;
+            }
+            if (cmdletContext.TagList != null)
+            {
+                request.TagList = cmdletContext.TagList;
             }
             
             CmdletOutput output;
@@ -226,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.FMS.Model.Policy Policy { get; set; }
+            public List<Amazon.FMS.Model.Tag> TagList { get; set; }
             public System.Func<Amazon.FMS.Model.PutPolicyResponse, SetFMSPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

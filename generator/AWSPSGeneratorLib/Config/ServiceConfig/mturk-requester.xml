@@ -99,43 +99,43 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssignmentsForHIT" OutputProperty="Assignments" Verb="Get" Noun="HITAssignmentList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListAssignmentsForHIT" OutputProperty="Assignments" Verb="Get" Noun="HITAssignmentList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBonusPayments" OutputProperty="BonusPayments" Verb="Get" Noun="BonusPaymentList" PipelineParameter="HITId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBonusPayments" OutputProperty="BonusPayments" Verb="Get" Noun="BonusPaymentList" PipelineParameter="HITId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHITs" OutputProperty="HITs" Verb="Get" Noun="HITList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListHITs" OutputProperty="HITs" Verb="Get" Noun="HITList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHITsForQualificationType" OutputProperty="HITs" Verb="Get" Noun="HITListForQualificationType" PipelineParameter="QualificationTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListHITsForQualificationType" OutputProperty="HITs" Verb="Get" Noun="HITListForQualificationType" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQualificationRequests" OutputProperty="QualificationRequests" Verb="Get" Noun="QualificationRequestList" PipelineParameter="QualificationTypeId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQualificationRequests" OutputProperty="QualificationRequests" Verb="Get" Noun="QualificationRequestList" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQualificationTypes" OutputProperty="QualificationTypes" Verb="Get" Noun="QualificationTypeList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListQualificationTypes" OutputProperty="QualificationTypes" Verb="Get" Noun="QualificationTypeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReviewableHITs" OutputProperty="HITs" Verb="Get" Noun="ReviewableHITList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListReviewableHITs" OutputProperty="HITs" Verb="Get" Noun="ReviewableHITList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReviewPolicyResultsForHIT" OutputProperty="*" Verb="Get" Noun="ReviewPolicyResultList" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListReviewPolicyResultsForHIT" OutputProperty="*" Verb="Get" Noun="ReviewPolicyResultList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkerBlocks" OutputProperty="WorkerBlocks" Verb="Get" Noun="WorkerBlockList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkerBlocks" OutputProperty="WorkerBlocks" Verb="Get" Noun="WorkerBlockList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkersWithQualificationType" OutputProperty="Qualifications" Verb="Get" Noun="WorkersWithQualificationType" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListWorkersWithQualificationType" OutputProperty="Qualifications" Verb="Get" Noun="WorkersWithQualificationType" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

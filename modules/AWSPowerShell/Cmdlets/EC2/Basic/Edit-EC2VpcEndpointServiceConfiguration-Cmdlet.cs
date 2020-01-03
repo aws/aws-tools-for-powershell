@@ -32,6 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// the Network Load Balancers for your service, and you can specify whether acceptance
     /// is required for requests to connect to your endpoint service through an interface
     /// VPC endpoint.
+    /// 
+    ///  
+    /// <para>
+    /// If you set or modify the private DNS name, you must prove that you own the private
+    /// DNS domain name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC
+    /// Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private
+    /// Cloud User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2VpcEndpointServiceConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -46,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AcceptanceRequired
         /// <summary>
         /// <para>
-        /// <para>Indicate whether requests to create an endpoint to your service must be accepted.</para>
+        /// <para>Indicates whether requests to create an endpoint to your service must be accepted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AddNetworkLoadBalancerArn { get; set; }
         #endregion
         
+        #region Parameter PrivateDnsName
+        /// <summary>
+        /// <para>
+        /// <para>The private DNS name to assign to the endpoint service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PrivateDnsName { get; set; }
+        #endregion
+        
         #region Parameter RemoveNetworkLoadBalancerArn
         /// <summary>
         /// <para>
@@ -75,6 +93,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RemoveNetworkLoadBalancerArns")]
         public System.String[] RemoveNetworkLoadBalancerArn { get; set; }
+        #endregion
+        
+        #region Parameter RemovePrivateDnsName
+        /// <summary>
+        /// <para>
+        /// <para>Removes the private DNS name of the endpoint service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RemovePrivateDnsName { get; set; }
         #endregion
         
         #region Parameter ServiceId
@@ -160,10 +188,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AddNetworkLoadBalancerArn = new List<System.String>(this.AddNetworkLoadBalancerArn);
             }
+            context.PrivateDnsName = this.PrivateDnsName;
             if (this.RemoveNetworkLoadBalancerArn != null)
             {
                 context.RemoveNetworkLoadBalancerArn = new List<System.String>(this.RemoveNetworkLoadBalancerArn);
             }
+            context.RemovePrivateDnsName = this.RemovePrivateDnsName;
             context.ServiceId = this.ServiceId;
             #if MODULAR
             if (this.ServiceId == null && ParameterWasBound(nameof(this.ServiceId)))
@@ -195,9 +225,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.AddNetworkLoadBalancerArns = cmdletContext.AddNetworkLoadBalancerArn;
             }
+            if (cmdletContext.PrivateDnsName != null)
+            {
+                request.PrivateDnsName = cmdletContext.PrivateDnsName;
+            }
             if (cmdletContext.RemoveNetworkLoadBalancerArn != null)
             {
                 request.RemoveNetworkLoadBalancerArns = cmdletContext.RemoveNetworkLoadBalancerArn;
+            }
+            if (cmdletContext.RemovePrivateDnsName != null)
+            {
+                request.RemovePrivateDnsName = cmdletContext.RemovePrivateDnsName.Value;
             }
             if (cmdletContext.ServiceId != null)
             {
@@ -266,7 +304,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Boolean? AcceptanceRequired { get; set; }
             public List<System.String> AddNetworkLoadBalancerArn { get; set; }
+            public System.String PrivateDnsName { get; set; }
             public List<System.String> RemoveNetworkLoadBalancerArn { get; set; }
+            public System.Boolean? RemovePrivateDnsName { get; set; }
             public System.String ServiceId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpcEndpointServiceConfigurationResponse, EditEC2VpcEndpointServiceConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;

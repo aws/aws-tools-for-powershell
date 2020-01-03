@@ -93,14 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CreationToken { get; set; }
         #endregion
         
@@ -235,12 +228,6 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CreationToken = this.CreationToken;
-            #if MODULAR
-            if (this.CreationToken == null && ParameterWasBound(nameof(this.CreationToken)))
-            {
-                WriteWarning("You are passing $null as a value for parameter CreationToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Encrypted = this.Encrypted;
             context.KmsKeyId = this.KmsKeyId;
             context.PerformanceMode = this.PerformanceMode;

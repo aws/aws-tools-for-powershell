@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this request. The request returns a token
-        /// that you can specify in a subsequent call to get the next set of results.</para>
+        /// that you can specify in a subsequent call to get the next set of results. You cannot
+        /// specify this parameter and the network interface IDs parameter in the same request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

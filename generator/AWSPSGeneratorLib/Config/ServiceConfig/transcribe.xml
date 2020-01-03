@@ -25,11 +25,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVocabularyFilter" OutputProperty="*" Verb="New" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTranscriptionJob" Verb="Remove" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVocabulary" Verb="Remove" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVocabularyFilter" Verb="Remove" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -41,11 +49,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTranscriptionJobs" OutputProperty="TranscriptionJobSummaries" Verb="Get" Noun="TranscriptionJobList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetVocabularyFilter" OutputProperty="*" Verb="Get" Noun="VocabularyFilter" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVocabularies" OutputProperty="Vocabularies" Verb="Get" Noun="VocabularyList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListTranscriptionJobs" OutputProperty="TranscriptionJobSummaries" Verb="Get" Noun="TranscriptionJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVocabularies" OutputProperty="Vocabularies" Verb="Get" Noun="VocabularyList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVocabularyFilters" OutputProperty="VocabularyFilters" Verb="Get" Noun="VocabularyFilterList" PipelineParameter="NameContains" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -54,6 +70,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVocabulary" OutputProperty="*" Verb="Update" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVocabularyFilter" OutputProperty="*" Verb="Update" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

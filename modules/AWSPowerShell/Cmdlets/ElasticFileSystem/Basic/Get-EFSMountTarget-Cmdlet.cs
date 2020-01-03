@@ -49,11 +49,24 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     public partial class GetEFSMountTargetCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         
+        #region Parameter AccessPointId
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) The ID of the access point whose mount targets that you want to list. It
+        /// must be included in your request if a <code>FileSystemId</code> or <code>MountTargetId</code>
+        /// is not included in your request. Accepts either an access point ID or ARN as input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccessPointId { get; set; }
+        #endregion
+        
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
         /// <para>(Optional) ID of the file system whose mount targets you want to list (String). It
-        /// must be included in your request if <code>MountTargetId</code> is not included.</para>
+        /// must be included in your request if an <code>AccessPointId</code> or <code>MountTargetId</code>
+        /// is not included. Accepts either a file system ID or ARN as input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>(Optional) ID of the mount target that you want to have described (String). It must
-        /// be included in your request if <code>FileSystemId</code> is not included.</para>
+        /// be included in your request if <code>FileSystemId</code> is not included. Accepts
+        /// either a mount target ID or ARN as input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>
         /// <para>(Optional) Maximum number of mount targets to return in the response. Currently, this
         /// number is automatically set to 10, and other values are ignored. The response is paginated
-        /// at 10 per page if you have more than 10 mount targets.</para>
+        /// at 100 per page if you have more than 100 mount targets.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -161,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 context.Select = (response, cmdlet) => this.FileSystemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessPointId = this.AccessPointId;
             context.FileSystemId = this.FileSystemId;
             context.Marker = this.Marker;
             context.MaxItem = this.MaxItem;
@@ -195,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             // create request and set iteration invariants
             var request = new Amazon.ElasticFileSystem.Model.DescribeMountTargetsRequest();
             
+            if (cmdletContext.AccessPointId != null)
+            {
+                request.AccessPointId = cmdletContext.AccessPointId;
+            }
             if (cmdletContext.FileSystemId != null)
             {
                 request.FileSystemId = cmdletContext.FileSystemId;
@@ -262,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             
             // create request and set iteration invariants
             var request = new Amazon.ElasticFileSystem.Model.DescribeMountTargetsRequest();
+            if (cmdletContext.AccessPointId != null)
+            {
+                request.AccessPointId = cmdletContext.AccessPointId;
+            }
             if (cmdletContext.FileSystemId != null)
             {
                 request.FileSystemId = cmdletContext.FileSystemId;
@@ -382,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AccessPointId { get; set; }
             public System.String FileSystemId { get; set; }
             public System.String Marker { get; set; }
             public int? MaxItem { get; set; }

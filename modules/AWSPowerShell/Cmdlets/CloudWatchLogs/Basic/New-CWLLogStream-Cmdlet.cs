@@ -33,6 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     ///  
     /// <para>
     /// There is no limit on the number of log streams that you can create for a log group.
+    /// There is a limit of 50 TPS on <code>CreateLogStream</code> operations, after which
+    /// transactions are throttled.
     /// </para><para>
     /// You must use the following guidelines when naming a log stream:
     /// </para><ul><li><para>

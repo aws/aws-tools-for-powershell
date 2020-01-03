@@ -161,7 +161,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnectorDefinitionVersion" OutputProperty="*" Verb="Get" Noun="ConnectorDefinitionVersion" PipelineParameter="ConnectorDefinitionVersionId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetConnectorDefinitionVersion" OutputProperty="*" Verb="Get" Noun="ConnectorDefinitionVersion" PipelineParameter="ConnectorDefinitionVersionId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -181,7 +181,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeviceDefinitionVersion" OutputProperty="*" Verb="Get" Noun="DeviceDefinitionVersion" PipelineParameter="DeviceDefinitionVersionId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetDeviceDefinitionVersion" OutputProperty="*" Verb="Get" Noun="DeviceDefinitionVersion" PipelineParameter="DeviceDefinitionVersionId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -189,7 +189,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunctionDefinitionVersion" OutputProperty="*" Verb="Get" Noun="FunctionDefinitionVersion" PipelineParameter="FunctionDefinitionVersionId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetFunctionDefinitionVersion" OutputProperty="*" Verb="Get" Noun="FunctionDefinitionVersion" PipelineParameter="FunctionDefinitionVersionId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -233,51 +233,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSubscriptionDefinitionVersion" OutputProperty="*" Verb="Get" Noun="SubscriptionDefinitionVersion" PipelineParameter="SubscriptionDefinitionVersionId" NoPipelineParameter="false" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetSubscriptionDefinitionVersion" OutputProperty="*" Verb="Get" Noun="SubscriptionDefinitionVersion" PipelineParameter="SubscriptionDefinitionVersionId" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBulkDeploymentDetailedReports" OutputProperty="Deployments" Verb="Get" Noun="BulkDeploymentDetailedReportList" PipelineParameter="BulkDeploymentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBulkDeploymentDetailedReports" OutputProperty="Deployments" Verb="Get" Noun="BulkDeploymentDetailedReportList" PipelineParameter="BulkDeploymentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBulkDeployments" OutputProperty="BulkDeployments" Verb="Get" Noun="BulkDeploymentList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBulkDeployments" OutputProperty="BulkDeployments" Verb="Get" Noun="BulkDeploymentList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConnectorDefinitions" OutputProperty="Definitions" Verb="Get" Noun="ConnectorDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConnectorDefinitions" OutputProperty="Definitions" Verb="Get" Noun="ConnectorDefinitionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConnectorDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="ConnectorDefinitionVersionList" PipelineParameter="ConnectorDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListConnectorDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="ConnectorDefinitionVersionList" PipelineParameter="ConnectorDefinitionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCoreDefinitions" OutputProperty="Definitions" Verb="Get" Noun="CoreDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCoreDefinitions" OutputProperty="Definitions" Verb="Get" Noun="CoreDefinitionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCoreDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="CoreDefinitionVersionList" PipelineParameter="CoreDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCoreDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="CoreDefinitionVersionList" PipelineParameter="CoreDefinitionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDeployments" OutputProperty="Deployments" Verb="Get" Noun="DeploymentList" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeviceDefinitions" OutputProperty="Definitions" Verb="Get" Noun="DeviceDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDeviceDefinitions" OutputProperty="Definitions" Verb="Get" Noun="DeviceDefinitionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeviceDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="DeviceDefinitionVersionList" PipelineParameter="DeviceDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDeviceDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="DeviceDefinitionVersionList" PipelineParameter="DeviceDefinitionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctionDefinitions" OutputProperty="Definitions" Verb="Get" Noun="FunctionDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFunctionDefinitions" OutputProperty="Definitions" Verb="Get" Noun="FunctionDefinitionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctionDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="FunctionDefinitionVersionList" PipelineParameter="FunctionDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFunctionDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="FunctionDefinitionVersionList" PipelineParameter="FunctionDefinitionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -285,35 +285,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroups" OutputProperty="Groups" Verb="Get" Noun="GroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupVersions" OutputProperty="Versions" Verb="Get" Noun="GroupVersionList" PipelineParameter="GroupId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListGroupVersions" OutputProperty="Versions" Verb="Get" Noun="GroupVersionList" PipelineParameter="GroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLoggerDefinitions" OutputProperty="Definitions" Verb="Get" Noun="LoggerDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLoggerDefinitions" OutputProperty="Definitions" Verb="Get" Noun="LoggerDefinitionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLoggerDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="LoggerDefinitionVersionList" PipelineParameter="LoggerDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListLoggerDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="LoggerDefinitionVersionList" PipelineParameter="LoggerDefinitionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceDefinitions" OutputProperty="Definitions" Verb="Get" Noun="ResourceDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceDefinitions" OutputProperty="Definitions" Verb="Get" Noun="ResourceDefinitionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="ResourceDefinitionVersionList" PipelineParameter="ResourceDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResourceDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="ResourceDefinitionVersionList" PipelineParameter="ResourceDefinitionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSubscriptionDefinitions" OutputProperty="Definitions" Verb="Get" Noun="SubscriptionDefinitionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSubscriptionDefinitions" OutputProperty="Definitions" Verb="Get" Noun="SubscriptionDefinitionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSubscriptionDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="SubscriptionDefinitionVersionList" PipelineParameter="SubscriptionDefinitionId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListSubscriptionDefinitionVersions" OutputProperty="Versions" Verb="Get" Noun="SubscriptionDefinitionVersionList" PipelineParameter="SubscriptionDefinitionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

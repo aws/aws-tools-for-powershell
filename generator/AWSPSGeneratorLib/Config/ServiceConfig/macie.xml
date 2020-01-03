@@ -35,11 +35,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMemberAccounts" OutputProperty="MemberAccounts" Verb="Get" Noun="MemberAccountList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMemberAccounts" OutputProperty="MemberAccounts" Verb="Get" Noun="MemberAccountList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListS3Resources" OutputProperty="S3Resources" Verb="Get" Noun="S3ResourceList" PipelineParameter="MemberAccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListS3Resources" OutputProperty="S3Resources" Verb="Get" Noun="S3ResourceList" PipelineParameter="MemberAccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

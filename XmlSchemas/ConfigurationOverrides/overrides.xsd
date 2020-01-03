@@ -22,8 +22,6 @@
                   <xsd:attribute name="Next" type="xsd:string" use="required" />
                   <xsd:attribute name="EmitLimit" type="xsd:string" use="optional" />
                   <xsd:attribute name="ServicePageSize" type="xsd:int" use="optional" />
-                  <xsd:attribute name="Exclusions" type="xsd:string" use="optional" />
-                  <xsd:attribute name="TruncatedFlag" type="xsd:string" use="optional" />
                   <xsd:attribute name="PageSizeIsRequired" type="xsd:boolean" use="optional" />
                 </xsd:complexType>
               </xsd:element>
@@ -134,9 +132,10 @@
                                     <xsd:attribute name="ExclusiveParameters" type="xsd:string" use="optional" />
                                     <xsd:attribute name="ReplacementObsoleteMessage" type="xsd:string" use="optional" />
                                     <xsd:attribute name="AutoRename" type="xsd:boolean" use="optional" />
+                                    <xsd:attribute name="ParameterSetName" type="xsd:string" use="optional" />
                                     <xsd:attribute name="AutoConvert" type="xsd:string" use="optional" />
+                                    <xsd:attribute name="Mandatory" type="xsd:boolean" use="optional" />
                                     <xsd:attribute name="DefaultValue" type="xsd:string" use="optional" />
-                                    <xsd:attribute name="Exclude" type="xsd:boolean" use="optional" />
                                     <xsd:attribute name="ParameterReplacementDocumentation" type="xsd:string" use="optional" />
                                   </xsd:complexType>
                                 </xsd:element>
@@ -154,11 +153,10 @@
                           </xsd:element>
                           <xsd:element minOccurs="0" name="AutoIterate">
                             <xsd:complexType>
-                              <xsd:attribute name="Start" type="xsd:string" use="optional" />
-                              <xsd:attribute name="Next" type="xsd:string" use="optional" />
+                              <xsd:attribute name="Start" type="xsd:string" use="required" />
+                              <xsd:attribute name="Next" type="xsd:string" use="required" />
                               <xsd:attribute name="EmitLimit" type="xsd:string" use="optional" />
-                              <xsd:attribute name="ServicePageSize" type="xsd:short" use="optional" />
-                              <xsd:attribute name="TruncatedFlag" type="xsd:string" use="optional" />
+                              <xsd:attribute name="ServicePageSize" type="xsd:int" use="optional" />
                               <xsd:attribute name="PageSizeIsRequired" type="xsd:boolean" use="optional" />
                             </xsd:complexType>
                           </xsd:element>
@@ -175,18 +173,21 @@
                         <xsd:attribute name="Verb" type="xsd:string" use="required" />
                         <xsd:attribute name="Noun" type="xsd:string" use="required" />
                         <xsd:attribute name="ShouldProcessTarget" type="xsd:string" use="optional" />
-                        <xsd:attribute name="PositionalParameters" type="xsd:string" use="optional" />
                         <xsd:attribute name="PipelineParameter" type="xsd:string" use="required" />
                         <xsd:attribute name="NoPipelineParameter" type="xsd:boolean" use="required" />
+                        <xsd:attribute name="PositionalParameters" type="xsd:string" use="optional" />
+                        <xsd:attribute name="LegacyPagination" type="xsd:string" use="optional" />
                         <xsd:attribute name="AnonymousShouldProcessTarget" type="xsd:boolean" use="optional" />
-                        <xsd:attribute name="RemapMemoryStreamParameters" type="xsd:boolean" use="optional" />
-                        <xsd:attribute name="Exclude" type="xsd:boolean" use="optional" />
                         <xsd:attribute name="LegacyAlias" type="xsd:string" use="optional" />
+                        <xsd:attribute name="LegacyPaginationCountParameter" type="xsd:string" use="optional" />
                         <xsd:attribute name="OutputWrapper" type="xsd:string" use="optional" />
+                        <xsd:attribute name="Exclude" type="xsd:boolean" use="optional" />
                         <xsd:attribute name="AnonymousAuthentication" type="xsd:string" use="optional" />
                         <xsd:attribute name="ShouldProcessMsgNoun" type="xsd:string" use="optional" />
+                        <xsd:attribute name="DefaultParameterSet" type="xsd:string" use="optional" />
                         <xsd:attribute name="IgnoreSupportsShouldProcess" type="xsd:boolean" use="optional" />
-                        <xsd:attribute name="DisableLegacyPagination" type="xsd:boolean" use="optional" />
+                        <xsd:attribute name="ConfirmImpact" type="xsd:string" use="optional" />
+                        <xsd:attribute name="ReplacementObsoleteMessage" type="xsd:string" use="optional" />
                       </xsd:complexType>
                     </xsd:element>
                   </xsd:sequence>

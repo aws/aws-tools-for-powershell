@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Creates a new snapshot schedule.
+    /// Creates a snapshot schedule with the rate of every 12 hours.
     /// </summary>
     [Cmdlet("New", "RSSnapshotSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.CreateSnapshotScheduleResponse")]

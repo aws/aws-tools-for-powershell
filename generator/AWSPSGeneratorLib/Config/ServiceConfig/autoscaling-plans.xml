@@ -27,11 +27,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPlanResources" OutputProperty="ScalingPlanResources" Verb="Get" Noun="ScalingPlanResource" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScalingPlanResources" OutputProperty="ScalingPlanResources" Verb="Get" Noun="ScalingPlanResource" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPlans" OutputProperty="ScalingPlans" Verb="Get" Noun="ScalingPlan" PipelineParameter="ScalingPlanNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScalingPlans" OutputProperty="ScalingPlans" Verb="Get" Noun="ScalingPlan" PipelineParameter="ScalingPlanNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

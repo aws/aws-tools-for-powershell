@@ -258,7 +258,7 @@ $SM_Completers = {
         # Amazon.SageMaker.Framework
         "New-SMCompilationJob/InputConfig_Framework"
         {
-            $v = "MXNET","ONNX","PYTORCH","TENSORFLOW","XGBOOST"
+            $v = "KERAS","MXNET","ONNX","PYTORCH","TENSORFLOW","XGBOOST"
             break
         }
 
@@ -790,6 +790,7 @@ $SM_SelectMap = @{
                "Get-SMTrial",
                "Get-SMTrialComponent",
                "Get-SMUserProfile",
+               "Get-SMWorkforce",
                "Get-SMWorkteam",
                "Unregister-SMTrialComponent",
                "Get-SMSearchSuggestion",
@@ -848,6 +849,7 @@ $SM_SelectMap = @{
                "Update-SMTrial",
                "Update-SMTrialComponent",
                "Update-SMUserProfile",
+               "Update-SMWorkforce",
                "Update-SMWorkteam")
 }
 

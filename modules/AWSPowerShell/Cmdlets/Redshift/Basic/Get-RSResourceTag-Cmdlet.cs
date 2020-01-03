@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
-        /// example, <code>arn:aws:redshift:us-east-1:123456789:cluster:t1</code>. </para>
+        /// example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

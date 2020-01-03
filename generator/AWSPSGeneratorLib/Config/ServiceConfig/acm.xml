@@ -43,7 +43,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificateSummaryList" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListCertificates" OutputProperty="CertificateSummaryList" Verb="Get" Noun="CertificateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to retrieve player sessions for.</para>
+        /// <para>A unique identifier for the game session to retrieve player sessions for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a player to retrieve player sessions for.</para>
+        /// <para>A unique identifier for a player to retrieve player sessions for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a player session to retrieve.</para>
+        /// <para>A unique identifier for a player session to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
+        /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages. If a player session ID is specified,
         /// this parameter is ignored.</para>
         /// </para>

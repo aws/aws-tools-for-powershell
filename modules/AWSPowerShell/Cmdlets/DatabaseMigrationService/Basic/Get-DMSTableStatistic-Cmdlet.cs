@@ -100,11 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
         /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 500.</para>
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>100</b>'.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxRecords")]
-        public int? MaxRecord { get; set; }
+        [Alias("MaxRecords")]
+        public System.Int32? MaxRecord { get; set; }
         #endregion
         
         #region Parameter Select
@@ -169,17 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 context.Filter = new List<Amazon.DatabaseMigrationService.Model.Filter>(this.Filter);
             }
             context.Marker = this.Marker;
-            if (ParameterWasBound(nameof(this.MaxRecord)))
-            {
-                context.MaxRecord = this.MaxRecord;
-            }
-            #if MODULAR
-            else
-            {
-                WriteVerbose("MaxRecord parameter unset, using default value of '100'");
-                context.MaxRecord = 100;
-            }
-            #endif
+            context.MaxRecord = this.MaxRecord;
             context.ReplicationTaskArn = this.ReplicationTaskArn;
             #if MODULAR
             if (this.ReplicationTaskArn == null && ParameterWasBound(nameof(this.ReplicationTaskArn)))
@@ -214,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             }
             if (cmdletContext.MaxRecord != null)
             {
-                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
+                request.MaxRecords = cmdletContext.MaxRecord.Value;
             }
             if (cmdletContext.ReplicationTaskArn != null)
             {
@@ -284,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             }
             if (cmdletContext.MaxRecord != null)
             {
-                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
+                request.MaxRecords = cmdletContext.MaxRecord.Value;
             }
             if (cmdletContext.ReplicationTaskArn != null)
             {
@@ -354,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             public List<Amazon.DatabaseMigrationService.Model.Filter> Filter { get; set; }
             public System.String Marker { get; set; }
-            public int? MaxRecord { get; set; }
+            public System.Int32? MaxRecord { get; set; }
             public System.String ReplicationTaskArn { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.DescribeTableStatisticsResponse, GetDMSTableStatisticCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

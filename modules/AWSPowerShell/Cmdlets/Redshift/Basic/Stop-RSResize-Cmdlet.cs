@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Cancels a resize operation.
+    /// Cancels a resize operation for a cluster.
     /// </summary>
     [Cmdlet("Stop", "RSResize", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.CancelResizeResponse")]

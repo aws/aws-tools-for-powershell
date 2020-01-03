@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// pools specified by the EC2 Fleet.</para><para>If the allocation strategy is <code>lowest-price</code>, EC2 Fleet launches instances
         /// from the Spot Instance pools with the lowest price. This is the default allocation
         /// strategy.</para><para>If the allocation strategy is <code>diversified</code>, EC2 Fleet launches instances
-        /// from all the Spot Instance pools that you specify.</para><para>If the allocation strategy is <code>capacity-optimized</code>, EC2 Fleet launches
+        /// from all of the Spot Instance pools that you specify.</para><para>If the allocation strategy is <code>capacity-optimized</code>, EC2 Fleet launches
         /// instances from Spot Instance pools with optimal capacity for the number of instances
         /// that are launching.</para>
         /// </para>
@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates that the fleet launches all On-Demand Instances into a single Availability
-        /// Zone.</para>
+        /// Zone. Supported only for fleets of type <code>instant</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotOptions_SingleAvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</para>
+        /// <para>Indicates that the fleet launches all Spot Instances into a single Availability Zone.
+        /// Supported only for fleets of type <code>instant</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates that the fleet uses a single instance type to launch all On-Demand Instances
-        /// in the fleet.</para>
+        /// in the fleet. Supported only for fleets of type <code>instant</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates that the fleet uses a single instance type to launch all Spot Instances
-        /// in the fleet.</para>
+        /// in the fleet. Supported only for fleets of type <code>instant</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -321,6 +322,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.FleetType Type { get; set; }
         #endregion
         
+        #region Parameter CapacityReservationOptions_UsageStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.</para><para>If you specify <code>use-capacity-reservations-first</code>, the fleet uses unused
+        /// Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity.
+        /// If multiple instance pools have unused Capacity Reservations, the On-Demand allocation
+        /// strategy (<code>lowest-price</code> or <code>prioritized</code>) is applied. If the
+        /// number of unused Capacity Reservations is less than the On-Demand target capacity,
+        /// the remaining On-Demand target capacity is launched according to the On-Demand allocation
+        /// strategy (<code>lowest-price</code> or <code>prioritized</code>).</para><para>If you do not specify a value, the fleet fulfils the On-Demand capacity according
+        /// to the chosen On-Demand allocation strategy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDemandOptions_CapacityReservationOptions_UsageStrategy")]
+        [AWSConstantClassSource("Amazon.EC2.FleetCapacityReservationUsageStrategy")]
+        public Amazon.EC2.FleetCapacityReservationUsageStrategy CapacityReservationOptions_UsageStrategy { get; set; }
+        #endregion
+        
         #region Parameter UtcValidFrom
         /// <summary>
         /// <para>
@@ -347,8 +367,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// Idempotency</a>.</para>
         /// </para>
         /// </summary>
@@ -467,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.OnDemandOptions_AllocationStrategy = this.OnDemandOptions_AllocationStrategy;
+            context.CapacityReservationOptions_UsageStrategy = this.CapacityReservationOptions_UsageStrategy;
             context.OnDemandOptions_MaxTotalPrice = this.OnDemandOptions_MaxTotalPrice;
             context.OnDemandOptions_MinTargetCapacity = this.OnDemandOptions_MinTargetCapacity;
             context.OnDemandOptions_SingleAvailabilityZone = this.OnDemandOptions_SingleAvailabilityZone;
@@ -583,6 +604,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOnDemandOptions_onDemandOptions_SingleInstanceType != null)
             {
                 request.OnDemandOptions.SingleInstanceType = requestOnDemandOptions_onDemandOptions_SingleInstanceType.Value;
+                requestOnDemandOptionsIsNull = false;
+            }
+            Amazon.EC2.Model.CapacityReservationOptionsRequest requestOnDemandOptions_onDemandOptions_CapacityReservationOptions = null;
+            
+             // populate CapacityReservationOptions
+            var requestOnDemandOptions_onDemandOptions_CapacityReservationOptionsIsNull = true;
+            requestOnDemandOptions_onDemandOptions_CapacityReservationOptions = new Amazon.EC2.Model.CapacityReservationOptionsRequest();
+            Amazon.EC2.FleetCapacityReservationUsageStrategy requestOnDemandOptions_onDemandOptions_CapacityReservationOptions_capacityReservationOptions_UsageStrategy = null;
+            if (cmdletContext.CapacityReservationOptions_UsageStrategy != null)
+            {
+                requestOnDemandOptions_onDemandOptions_CapacityReservationOptions_capacityReservationOptions_UsageStrategy = cmdletContext.CapacityReservationOptions_UsageStrategy;
+            }
+            if (requestOnDemandOptions_onDemandOptions_CapacityReservationOptions_capacityReservationOptions_UsageStrategy != null)
+            {
+                requestOnDemandOptions_onDemandOptions_CapacityReservationOptions.UsageStrategy = requestOnDemandOptions_onDemandOptions_CapacityReservationOptions_capacityReservationOptions_UsageStrategy;
+                requestOnDemandOptions_onDemandOptions_CapacityReservationOptionsIsNull = false;
+            }
+             // determine if requestOnDemandOptions_onDemandOptions_CapacityReservationOptions should be set to null
+            if (requestOnDemandOptions_onDemandOptions_CapacityReservationOptionsIsNull)
+            {
+                requestOnDemandOptions_onDemandOptions_CapacityReservationOptions = null;
+            }
+            if (requestOnDemandOptions_onDemandOptions_CapacityReservationOptions != null)
+            {
+                request.OnDemandOptions.CapacityReservationOptions = requestOnDemandOptions_onDemandOptions_CapacityReservationOptions;
                 requestOnDemandOptionsIsNull = false;
             }
              // determine if request.OnDemandOptions should be set to null
@@ -827,6 +873,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.FleetExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
             public List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest> LaunchTemplateConfig { get; set; }
             public Amazon.EC2.FleetOnDemandAllocationStrategy OnDemandOptions_AllocationStrategy { get; set; }
+            public Amazon.EC2.FleetCapacityReservationUsageStrategy CapacityReservationOptions_UsageStrategy { get; set; }
             public System.String OnDemandOptions_MaxTotalPrice { get; set; }
             public System.Int32? OnDemandOptions_MinTargetCapacity { get; set; }
             public System.Boolean? OnDemandOptions_SingleAvailabilityZone { get; set; }

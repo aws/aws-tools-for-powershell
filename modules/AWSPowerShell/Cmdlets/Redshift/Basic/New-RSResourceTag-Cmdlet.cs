@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Adds one or more tags to a specified resource.
+    /// Adds tags to a cluster.
     /// 
     ///  
     /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) to which you want to add the tag or tags. For example,
-        /// <code>arn:aws:redshift:us-east-1:123456789:cluster:t1</code>. </para>
+        /// <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

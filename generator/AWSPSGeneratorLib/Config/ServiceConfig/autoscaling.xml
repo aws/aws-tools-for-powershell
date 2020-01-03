@@ -112,11 +112,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAutoScalingGroups" OutputProperty="AutoScalingGroups" Verb="Get" Noun="AutoScalingGroup" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAutoScalingGroups" OutputProperty="AutoScalingGroups" Verb="Get" Noun="AutoScalingGroup" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAutoScalingInstances" OutputProperty="AutoScalingInstances" Verb="Get" Noun="AutoScalingInstance" PipelineParameter="InstanceIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAutoScalingInstances" OutputProperty="AutoScalingInstances" Verb="Get" Noun="AutoScalingInstance" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -124,7 +124,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLaunchConfigurations" OutputProperty="LaunchConfigurations" Verb="Get" Noun="LaunchConfiguration" PipelineParameter="LaunchConfigurationNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLaunchConfigurations" OutputProperty="LaunchConfigurations" Verb="Get" Noun="LaunchConfiguration" PipelineParameter="LaunchConfigurationNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,11 +136,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancerTargetGroups" OutputProperty="LoadBalancerTargetGroups" Verb="Get" Noun="LoadBalancerTargetGroup" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeLoadBalancerTargetGroups" OutputProperty="LoadBalancerTargetGroups" Verb="Get" Noun="LoadBalancerTargetGroup" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -148,15 +148,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotificationConfigurations" OutputProperty="NotificationConfigurations" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeNotificationConfigurations" OutputProperty="NotificationConfigurations" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="Policy" PositionalParameters="PolicyNames" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribePolicies" OutputProperty="ScalingPolicies" Verb="Get" Noun="Policy" PositionalParameters="PolicyNames" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="Activities" Verb="Get" Noun="ScalingActivity" PositionalParameters="ActivityIds" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScalingActivities" OutputProperty="Activities" Verb="Get" Noun="ScalingActivity" PositionalParameters="ActivityIds" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,7 +164,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledUpdateGroupActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeScheduledActions" OutputProperty="ScheduledUpdateGroupActions" Verb="Get" Noun="ScheduledAction" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
@@ -173,7 +173,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="Filters" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

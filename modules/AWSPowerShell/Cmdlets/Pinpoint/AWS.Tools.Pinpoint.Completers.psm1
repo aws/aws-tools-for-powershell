@@ -419,6 +419,7 @@ $PIN_SelectMap = @{
                "Get-PINJourneyList",
                "Get-PINResourceTag",
                "Get-PINTemplateList",
+               "Get-PINTemplateVersionList",
                "Confirm-PINPhoneNumber",
                "Write-PINEvent",
                "Write-PINEventStream",
@@ -446,6 +447,7 @@ $PIN_SelectMap = @{
                "Update-PINSegment",
                "Update-PINSmsChannel",
                "Update-PINSmsTemplate",
+               "Update-PINTemplateActiveVersion",
                "Update-PINVoiceChannel",
                "Update-PINVoiceTemplate")
 }

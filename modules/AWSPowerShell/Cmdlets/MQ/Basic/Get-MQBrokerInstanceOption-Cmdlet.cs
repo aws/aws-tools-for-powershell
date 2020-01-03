@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public System.String HostInstanceType { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// Filter response by storage type.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -172,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             }
             #endif
             context.NextToken = this.NextToken;
+            context.StorageType = this.StorageType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -204,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
             }
             
             // Initialize loop variant and commence piping
@@ -267,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.HostInstanceType != null)
             {
                 request.HostInstanceType = cmdletContext.HostInstanceType;
+            }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
             }
             
             // Initialize loop variants and commence piping
@@ -395,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public System.String HostInstanceType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String StorageType { get; set; }
             public System.Func<Amazon.MQ.Model.DescribeBrokerInstanceOptionsResponse, GetMQBrokerInstanceOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.BrokerInstanceOptions;
         }

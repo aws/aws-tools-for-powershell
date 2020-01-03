@@ -28,7 +28,7 @@ using Amazon.DeviceFarm.Model;
 namespace Amazon.PowerShell.Cmdlets.DF
 {
     /// <summary>
-    /// Creates a new project.
+    /// Creates a project.
     /// </summary>
     [Cmdlet("New", "DFProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.Project")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>Sets the execution timeout value (in minutes) for a project. All test runs in this
-        /// project will use the specified execution timeout value unless overridden when scheduling
+        /// project use the specified execution timeout value unless overridden when scheduling
         /// a run.</para>
         /// </para>
         /// </summary>

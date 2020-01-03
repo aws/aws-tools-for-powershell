@@ -251,6 +251,7 @@ $RDS_SelectMap = @{
                "Start-RDSDBClusterFailover",
                "Import-RDSInstallationMedia",
                "Get-RDSTagForResource",
+               "Edit-RDSCertificate",
                "Edit-RDSCurrentDBClusterCapacity",
                "Edit-RDSDBCluster",
                "Edit-RDSDBClusterEndpoint",

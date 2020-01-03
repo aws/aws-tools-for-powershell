@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.SortBy != null)
             {
@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -342,7 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String JobId { get; set; }
-            public int? MaxResult { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.Rekognition.PersonTrackingSortBy SortBy { get; set; }
             public System.Func<Amazon.Rekognition.Model.GetPersonTrackingResponse, GetREKPersonTrackingCmdlet, object> Select { get; set; } =

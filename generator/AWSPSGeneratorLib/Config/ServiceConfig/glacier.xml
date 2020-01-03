@@ -116,11 +116,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" OutputProperty="JobList" Verb="Get" Noun="JobList" PipelineParameter="VaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListJobs" OutputProperty="JobList" Verb="Get" Noun="JobList" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultipartUploads" OutputProperty="UploadsList" Verb="Get" Noun="MultipartUploadList" PipelineParameter="VaultName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMultipartUploads" OutputProperty="UploadsList" Verb="Get" Noun="MultipartUploadList" PipelineParameter="VaultName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="UploadIdMarker" Next="Marker" EmitLimit="Limit" ServicePageSize="50" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
@@ -137,7 +137,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVaults" OutputProperty="VaultList" Verb="Get" Noun="VaultList" PipelineParameter="AccountId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVaults" OutputProperty="VaultList" Verb="Get" Noun="VaultList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

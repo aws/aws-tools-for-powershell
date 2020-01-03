@@ -51,15 +51,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHarvestJobs" OutputProperty="HarvestJobs" Verb="Get" Noun="HarvestJobList" PipelineParameter="IncludeChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListHarvestJobs" OutputProperty="HarvestJobs" Verb="Get" Noun="HarvestJobList" PipelineParameter="IncludeChannelId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOriginEndpoints" OutputProperty="OriginEndpoints" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOriginEndpoints" OutputProperty="OriginEndpoints" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

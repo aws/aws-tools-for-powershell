@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// Returns a list of offering promotions. Each offering promotion record contains the
     /// ID and description of the promotion. The API returns a <code>NotEligible</code> error
     /// if the caller is not permitted to invoke the operation. Contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>
-    /// if you believe that you should be able to invoke this operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// if you must be able to invoke this operation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DFOfferingPromotion")]
     [OutputType("Amazon.DeviceFarm.Model.OfferingPromotion")]

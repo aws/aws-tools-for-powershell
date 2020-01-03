@@ -87,7 +87,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionSummary" PipelineParameter="PipelineName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionSummary" PipelineParameter="PipelineName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
             <TypesNotToFlatten />
@@ -149,6 +149,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartPipelineExecution" OutputProperty="PipelineExecutionId" Verb="Start" Noun="PipelineExecution" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopPipelineExecution" OutputProperty="PipelineExecutionId" Verb="Stop" Noun="PipelineExecution" ShouldProcessTarget="PipelineExecutionId" PipelineParameter="PipelineExecutionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

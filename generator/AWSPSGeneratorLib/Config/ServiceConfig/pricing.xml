@@ -21,15 +21,15 @@
         <Property>FormatVersion</Property>
     </MetadataProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeServices" OutputProperty="Services" Verb="Get" Noun="Service" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAttributeValues" OutputProperty="AttributeValues" Verb="Get" Noun="AttributeValue" PipelineParameter="AttributeName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAttributeValues" OutputProperty="AttributeValues" Verb="Get" Noun="AttributeValue" PipelineParameter="AttributeName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProducts" OutputProperty="PriceList" Verb="Get" Noun="Product" PipelineParameter="ServiceCode" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetProducts" OutputProperty="PriceList" Verb="Get" Noun="Product" PipelineParameter="ServiceCode" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

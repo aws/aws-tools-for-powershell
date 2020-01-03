@@ -127,51 +127,51 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccounts" OutputProperty="Accounts" Verb="Get" Noun="AccountList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccounts" OutputProperty="Accounts" Verb="Get" Noun="AccountList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccountsForParent" OutputProperty="Accounts" Verb="Get" Noun="AccountForParent" PipelineParameter="ParentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAccountsForParent" OutputProperty="Accounts" Verb="Get" Noun="AccountForParent" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAWSServiceAccessForOrganization" OutputProperty="EnabledServicePrincipals" Verb="Get" Noun="AWSServiceAccessForOrganization" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListAWSServiceAccessForOrganization" OutputProperty="EnabledServicePrincipals" Verb="Get" Noun="AWSServiceAccessForOrganization" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChildren" OutputProperty="Children" Verb="Get" Noun="Child" PipelineParameter="ParentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListChildren" OutputProperty="Children" Verb="Get" Noun="Child" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCreateAccountStatus" OutputProperty="CreateAccountStatuses" Verb="Get" Noun="AccountCreationStatusList" PipelineParameter="States" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCreateAccountStatus" OutputProperty="CreateAccountStatuses" Verb="Get" Noun="AccountCreationStatusList" PipelineParameter="States" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHandshakesForAccount" OutputProperty="Handshakes" Verb="Get" Noun="AccountHandshakeList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListHandshakesForAccount" OutputProperty="Handshakes" Verb="Get" Noun="AccountHandshakeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHandshakesForOrganization" OutputProperty="Handshakes" Verb="Get" Noun="OrganizationHandshakeList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListHandshakesForOrganization" OutputProperty="Handshakes" Verb="Get" Noun="OrganizationHandshakeList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationalUnitsForParent" OutputProperty="OrganizationalUnits" Verb="Get" Noun="OrganizationalUnitList" PipelineParameter="ParentId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListOrganizationalUnitsForParent" OutputProperty="OrganizationalUnits" Verb="Get" Noun="OrganizationalUnitList" PipelineParameter="ParentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListParents" OutputProperty="Parents" Verb="Get" Noun="Parent" PipelineParameter="ChildId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListParents" OutputProperty="Parents" Verb="Get" Noun="Parent" PipelineParameter="ChildId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="Filter" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPolicies" OutputProperty="Policies" Verb="Get" Noun="PolicyList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPoliciesForTarget" OutputProperty="Policies" Verb="Get" Noun="PolicyForTarget" PipelineParameter="TargetId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPoliciesForTarget" OutputProperty="Policies" Verb="Get" Noun="PolicyForTarget" PipelineParameter="TargetId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRoots" OutputProperty="Roots" Verb="Get" Noun="Root" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListRoots" OutputProperty="Roots" Verb="Get" Noun="Root" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -179,7 +179,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTargetsForPolicy" OutputProperty="Targets" Verb="Get" Noun="TargetForPolicy" PipelineParameter="PolicyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTargetsForPolicy" OutputProperty="Targets" Verb="Get" Noun="TargetForPolicy" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -39,11 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// When you verify an email address, Amazon SES sends an email to the address. Your email
     /// address is verified as soon as you follow the link in the verification email. 
     /// </para><para>
-    /// When you verify a domain, this operation provides a set of DKIM tokens, which you
-    /// can convert into CNAME tokens. You add these CNAME tokens to the DNS configuration
-    /// for your domain. Your domain is verified when Amazon SES detects these records in
-    /// the DNS configuration for your domain. For some DNS providers, it can take 72 hours
-    /// or more to complete the domain verification process.
+    /// When you verify a domain without specifying the <code>DkimSigningAttributes</code>
+    /// object, this operation provides a set of DKIM tokens. You can convert these tokens
+    /// into CNAME records, which you then add to the DNS configuration for your domain. Your
+    /// domain is verified when Amazon SES detects these records in the DNS configuration
+    /// for your domain. This verification method is known as <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+    /// DKIM</a>.
+    /// </para><para>
+    /// Alternatively, you can perform the verification process by providing your own public-private
+    /// key pair. This verification method is known as Bring Your Own DKIM (BYODKIM). To use
+    /// BYODKIM, your call to the <code>CreateEmailIdentity</code> operation has to include
+    /// the <code>DkimSigningAttributes</code> object. When you specify this object, you provide
+    /// a selector (a component of the DNS record name that identifies the public key that
+    /// you want to use for DKIM authentication) and a private key.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SES2EmailIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,6 +62,27 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     )]
     public partial class NewSES2EmailIdentityCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter DkimSigningAttributes_DomainSigningPrivateKey
+        /// <summary>
+        /// <para>
+        /// <para>A private key that's used to generate a DKIM signature.</para><para>The private key must use 1024-bit RSA encryption, and must be encoded using base64
+        /// encoding.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DkimSigningAttributes_DomainSigningPrivateKey { get; set; }
+        #endregion
+        
+        #region Parameter DkimSigningAttributes_DomainSigningSelector
+        /// <summary>
+        /// <para>
+        /// <para>A string that's used to identify a public key in the DNS configuration for a domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DkimSigningAttributes_DomainSigningSelector { get; set; }
+        #endregion
         
         #region Parameter EmailIdentity
         /// <summary>
@@ -145,6 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Select = (response, cmdlet) => this.EmailIdentity;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DkimSigningAttributes_DomainSigningPrivateKey = this.DkimSigningAttributes_DomainSigningPrivateKey;
+            context.DkimSigningAttributes_DomainSigningSelector = this.DkimSigningAttributes_DomainSigningSelector;
             context.EmailIdentity = this.EmailIdentity;
             #if MODULAR
             if (this.EmailIdentity == null && ParameterWasBound(nameof(this.EmailIdentity)))
@@ -172,6 +203,35 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             // create request
             var request = new Amazon.SimpleEmailV2.Model.CreateEmailIdentityRequest();
             
+            
+             // populate DkimSigningAttributes
+            var requestDkimSigningAttributesIsNull = true;
+            request.DkimSigningAttributes = new Amazon.SimpleEmailV2.Model.DkimSigningAttributes();
+            System.String requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningPrivateKey = null;
+            if (cmdletContext.DkimSigningAttributes_DomainSigningPrivateKey != null)
+            {
+                requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningPrivateKey = cmdletContext.DkimSigningAttributes_DomainSigningPrivateKey;
+            }
+            if (requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningPrivateKey != null)
+            {
+                request.DkimSigningAttributes.DomainSigningPrivateKey = requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningPrivateKey;
+                requestDkimSigningAttributesIsNull = false;
+            }
+            System.String requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningSelector = null;
+            if (cmdletContext.DkimSigningAttributes_DomainSigningSelector != null)
+            {
+                requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningSelector = cmdletContext.DkimSigningAttributes_DomainSigningSelector;
+            }
+            if (requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningSelector != null)
+            {
+                request.DkimSigningAttributes.DomainSigningSelector = requestDkimSigningAttributes_dkimSigningAttributes_DomainSigningSelector;
+                requestDkimSigningAttributesIsNull = false;
+            }
+             // determine if request.DkimSigningAttributes should be set to null
+            if (requestDkimSigningAttributesIsNull)
+            {
+                request.DkimSigningAttributes = null;
+            }
             if (cmdletContext.EmailIdentity != null)
             {
                 request.EmailIdentity = cmdletContext.EmailIdentity;
@@ -241,6 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DkimSigningAttributes_DomainSigningPrivateKey { get; set; }
+            public System.String DkimSigningAttributes_DomainSigningSelector { get; set; }
             public System.String EmailIdentity { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.CreateEmailIdentityResponse, NewSES2EmailIdentityCmdlet, object> Select { get; set; } =

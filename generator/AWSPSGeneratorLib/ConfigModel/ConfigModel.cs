@@ -1008,9 +1008,19 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         public AutoIteration AutoIterate;
 
+        public enum LegacyPaginationType
+        {
+            Default,
+            DisablePagination,
+            UseEmitLimit
+        }
+
+        /// <summary>
+        /// For AWSPowerShell and AWSPowerShell.NetCore, emit legacy pagination code using EmitLimit
+        /// </summary>
         [XmlAttribute]
-        [DefaultValue(false)]
-        public bool DisableLegacyPagination;
+        [DefaultValue(LegacyPaginationType.Default)]
+        public LegacyPaginationType LegacyPagination;
 
         [XmlAttribute]
         public string LegacyPaginationCountParameter;
@@ -1103,6 +1113,12 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         [XmlIgnore]
         public bool IsAutoConfiguring;
+
+        /// <summary>
+        /// Set when the user has provided an override for the configuration of this operation
+        /// </summary>
+        [XmlIgnore]
+        public bool IsConfigurationOverridden;
 
         /// <summary>
         /// Set when auto-configuring if we detect an SDK 'List' verb. We'll
@@ -1306,26 +1322,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
         private const string EmitLimitAlias = "MaxItems";
 
         /// <summary>
-        /// Indicates the codegen pattern to follow
-        /// </summary>
-        public enum AutoIteratePattern
-        {
-            None = 0,
-
-            /// <summary>
-            /// Only page marker tokens, iterate until Next is empty.
-            /// 'AutoIterate Start="NextToken" Next="NextToken"'
-            /// </summary>
-            Pattern1,
-
-            /// <summary>
-            /// Page marker tokens and ability to control data size; iterate until Next is empty.
-            /// 'AutoIterate EmitLimit="MaxRecords" Start="Marker" Next="Marker"'
-            /// </summary>
-            Pattern2
-        }
-
-        /// <summary>
         /// The field in the request class that indicates where the service
         /// should start returning results from
         /// </summary>
@@ -1346,13 +1342,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         [XmlAttribute]
         public string EmitLimit;
-
-        /// <summary>
-        /// Some services can use a 'IsTruncated' flag to indicate more data;
-        /// we prefer to detect a non-empty 'next' marker
-        /// </summary>
-        [XmlAttribute]
-        public string TruncatedFlag;
 
         /// <summary>
         /// The service's max records per call value; not all services have one
@@ -1394,7 +1383,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 Next = chosenSettings.Next,
                 ServicePageSize = chosenSettings.ServicePageSize,
                 EmitLimit = chosenSettings.EmitLimit,
-                TruncatedFlag = chosenSettings.TruncatedFlag,
                 PageSizeIsRequired = chosenSettings.PageSizeIsRequired
             };
         }

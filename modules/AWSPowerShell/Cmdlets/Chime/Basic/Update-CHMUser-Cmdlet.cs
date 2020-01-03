@@ -58,6 +58,26 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public System.String AccountId { get; set; }
         #endregion
         
+        #region Parameter AlexaForBusinessMetadata_AlexaForBusinessRoomArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the room resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AlexaForBusinessMetadata_AlexaForBusinessRoomArn { get; set; }
+        #endregion
+        
+        #region Parameter AlexaForBusinessMetadata_IsAlexaForBusinessEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Starts or stops Alexa for Business.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AlexaForBusinessMetadata_IsAlexaForBusinessEnabled { get; set; }
+        #endregion
+        
         #region Parameter LicenseType
         /// <summary>
         /// <para>
@@ -85,6 +105,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserId { get; set; }
+        #endregion
+        
+        #region Parameter UserType
+        /// <summary>
+        /// <para>
+        /// <para>The user type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Chime.UserType")]
+        public Amazon.Chime.UserType UserType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -155,6 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AlexaForBusinessMetadata_AlexaForBusinessRoomArn = this.AlexaForBusinessMetadata_AlexaForBusinessRoomArn;
+            context.AlexaForBusinessMetadata_IsAlexaForBusinessEnabled = this.AlexaForBusinessMetadata_IsAlexaForBusinessEnabled;
             context.LicenseType = this.LicenseType;
             context.UserId = this.UserId;
             #if MODULAR
@@ -163,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UserType = this.UserType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -183,6 +217,35 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             {
                 request.AccountId = cmdletContext.AccountId;
             }
+            
+             // populate AlexaForBusinessMetadata
+            var requestAlexaForBusinessMetadataIsNull = true;
+            request.AlexaForBusinessMetadata = new Amazon.Chime.Model.AlexaForBusinessMetadata();
+            System.String requestAlexaForBusinessMetadata_alexaForBusinessMetadata_AlexaForBusinessRoomArn = null;
+            if (cmdletContext.AlexaForBusinessMetadata_AlexaForBusinessRoomArn != null)
+            {
+                requestAlexaForBusinessMetadata_alexaForBusinessMetadata_AlexaForBusinessRoomArn = cmdletContext.AlexaForBusinessMetadata_AlexaForBusinessRoomArn;
+            }
+            if (requestAlexaForBusinessMetadata_alexaForBusinessMetadata_AlexaForBusinessRoomArn != null)
+            {
+                request.AlexaForBusinessMetadata.AlexaForBusinessRoomArn = requestAlexaForBusinessMetadata_alexaForBusinessMetadata_AlexaForBusinessRoomArn;
+                requestAlexaForBusinessMetadataIsNull = false;
+            }
+            System.Boolean? requestAlexaForBusinessMetadata_alexaForBusinessMetadata_IsAlexaForBusinessEnabled = null;
+            if (cmdletContext.AlexaForBusinessMetadata_IsAlexaForBusinessEnabled != null)
+            {
+                requestAlexaForBusinessMetadata_alexaForBusinessMetadata_IsAlexaForBusinessEnabled = cmdletContext.AlexaForBusinessMetadata_IsAlexaForBusinessEnabled.Value;
+            }
+            if (requestAlexaForBusinessMetadata_alexaForBusinessMetadata_IsAlexaForBusinessEnabled != null)
+            {
+                request.AlexaForBusinessMetadata.IsAlexaForBusinessEnabled = requestAlexaForBusinessMetadata_alexaForBusinessMetadata_IsAlexaForBusinessEnabled.Value;
+                requestAlexaForBusinessMetadataIsNull = false;
+            }
+             // determine if request.AlexaForBusinessMetadata should be set to null
+            if (requestAlexaForBusinessMetadataIsNull)
+            {
+                request.AlexaForBusinessMetadata = null;
+            }
             if (cmdletContext.LicenseType != null)
             {
                 request.LicenseType = cmdletContext.LicenseType;
@@ -190,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.UserId != null)
             {
                 request.UserId = cmdletContext.UserId;
+            }
+            if (cmdletContext.UserType != null)
+            {
+                request.UserType = cmdletContext.UserType;
             }
             
             CmdletOutput output;
@@ -253,8 +320,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
+            public System.String AlexaForBusinessMetadata_AlexaForBusinessRoomArn { get; set; }
+            public System.Boolean? AlexaForBusinessMetadata_IsAlexaForBusinessEnabled { get; set; }
             public Amazon.Chime.License LicenseType { get; set; }
             public System.String UserId { get; set; }
+            public Amazon.Chime.UserType UserType { get; set; }
             public System.Func<Amazon.Chime.Model.UpdateUserResponse, UpdateCHMUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.User;
         }

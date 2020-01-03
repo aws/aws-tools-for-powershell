@@ -87,6 +87,13 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.CopyJobState
+        "Get-BAKCopyJobList/ByState"
+        {
+            $v = "COMPLETED","CREATED","FAILED","RUNNING"
+            break
+        }
+
 
     }
 
@@ -96,7 +103,7 @@ $BAK_Completers = {
 }
 
 $BAK_map = @{
-    "ByState"=@("Get-BAKBackupJobList")
+    "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
 }
 
 _awsArgumentCompleterRegistration $BAK_Completers $BAK_map
@@ -160,6 +167,7 @@ $BAK_SelectMap = @{
                "Remove-BAKRecoveryPoint",
                "Get-BAKBackupJob",
                "Get-BAKBackupVault",
+               "Get-BAKCopyJob",
                "Get-BAKProtectedResource",
                "Get-BAKRecoveryPoint",
                "Get-BAKRestoreJob",
@@ -178,6 +186,7 @@ $BAK_SelectMap = @{
                "Get-BAKBackupPlanVersionList",
                "Get-BAKBackupSelectionList",
                "Get-BAKBackupVaultList",
+               "Get-BAKCopyJobList",
                "Get-BAKProtectedResourceList",
                "Get-BAKRecoveryPointsByBackupVaultList",
                "Get-BAKRecoveryPointsByResourceList",
@@ -186,6 +195,7 @@ $BAK_SelectMap = @{
                "Write-BAKBackupVaultAccessPolicy",
                "Write-BAKBackupVaultNotification",
                "Start-BAKBackupJob",
+               "Start-BAKCopyJob",
                "Start-BAKRestoreJob",
                "Stop-BAKBackupJob",
                "Add-BAKResourceTag",

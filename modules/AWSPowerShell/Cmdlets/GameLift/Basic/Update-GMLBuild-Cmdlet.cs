@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BuildId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a build to update.</para>
+        /// <para>A unique identifier for a build to update. You can use either the build ID or ARN
+        /// value. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a build. Build names do not need to be unique.
-        /// </para>
+        /// <para>A descriptive label that is associated with a build. Build names do not need to be
+        /// unique. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version that is associated with a build or script. Version strings do not need to
-        /// be unique.</para>
+        /// <para>Version information that is associated with a build or script. Version strings do
+        /// not need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

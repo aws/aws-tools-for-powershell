@@ -108,8 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems")]
-        public int? Limit { get; set; }
+        public System.Int32? Limit { get; set; }
         #endregion
         
         #region Parameter Position
@@ -239,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.StartDate != null)
             {
@@ -313,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.Position != null)
             {
@@ -391,7 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public System.String EndDate { get; set; }
             public System.String KeyId { get; set; }
-            public int? Limit { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String Position { get; set; }
             public System.String StartDate { get; set; }
             public System.String UsagePlanId { get; set; }

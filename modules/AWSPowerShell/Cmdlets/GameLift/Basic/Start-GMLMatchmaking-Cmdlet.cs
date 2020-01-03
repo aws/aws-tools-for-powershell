@@ -104,7 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Name of the matchmaking configuration to use for this request. Matchmaking configurations
-        /// must exist in the same region as this request.</para>
+        /// must exist in the same Region as this request. You can use either the configuration
+        /// name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter TicketId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon
+        /// <para>A unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon
         /// GameLift will generate one in the form of a UUID. Use this identifier to track the
         /// matchmaking ticket status and retrieve match results.</para>
         /// </para>

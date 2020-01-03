@@ -83,6 +83,20 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         public System.String ServerName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server
+        /// backup.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
+        /// numbers, or separators, or the following special characters: <code>+ - = . _ : /</code></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
+        /// or separators, or the following special characters: <code>+ - = . _ : /</code></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for tag-supported AWS OpsWorks-CM resources.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.OpsWorksCM.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Backup'.
@@ -152,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
                 WriteWarning("You are passing $null as a value for parameter ServerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.OpsWorksCM.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             if (cmdletContext.ServerName != null)
             {
                 request.ServerName = cmdletContext.ServerName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -239,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         {
             public System.String Description { get; set; }
             public System.String ServerName { get; set; }
+            public List<Amazon.OpsWorksCM.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.OpsWorksCM.Model.CreateBackupResponse, NewOWCMBackupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Backup;
         }

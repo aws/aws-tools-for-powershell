@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the network profile you want to delete.</para>
+        /// <para>The ARN of the network profile to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

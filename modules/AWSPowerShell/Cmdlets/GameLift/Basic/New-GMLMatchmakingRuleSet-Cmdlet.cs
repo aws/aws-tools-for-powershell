@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of
-    /// match to create, such as the number and size of teams, and sets the parameters for
-    /// acceptable player matches, such as minimum skill level or character type. A rule set
-    /// is used by a <a>MatchmakingConfiguration</a>. 
+    /// match to create, such as the number and size of teams. It also sets the parameters
+    /// for acceptable player matches, such as minimum skill level or character type. A rule
+    /// set is used by a <a>MatchmakingConfiguration</a>. 
     /// 
     ///  
     /// <para>
     /// To create a matchmaking rule set, provide unique rule set name and the rule set body
-    /// in JSON format. Rule sets must be defined in the same region as the matchmaking configuration
+    /// in JSON format. Rule sets must be defined in the same Region as the matchmaking configuration
     /// they are used with.
     /// </para><para>
     /// Since matchmaking rule sets cannot be edited, it is a good idea to check the rule
@@ -59,9 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking rule set. A matchmaking configuration identifies
-        /// the rule set it uses by this name value. (Note: The rule set name is different from
-        /// the optional "name" field in the rule set body.) </para>
+        /// <para>A unique identifier for a matchmaking rule set. A matchmaking configuration identifies
+        /// the rule set it uses by this name value. Note that the rule set name is different
+        /// from the optional <code>name</code> field in the rule set body.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuleSetBody
         /// <summary>
         /// <para>
-        /// <para>Collection of matchmaking rules, formatted as a JSON string. Comments are not allowed
+        /// <para>A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed
         /// in JSON, but most elements support a description field.</para>
         /// </para>
         /// </summary>
@@ -91,6 +91,23 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RuleSetBody { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined
+        /// key-value pairs. Tagging AWS resources are useful for resource management, access
+        /// management and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// Tagging AWS Resources</a> in the <i>AWS General Reference</i>. Once the resource is
+        /// created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
+        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
+        /// the AWS General Reference for actual tagging limits.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.GameLift.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -168,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 WriteWarning("You are passing $null as a value for parameter RuleSetBody which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.GameLift.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.RuleSetBody != null)
             {
                 request.RuleSetBody = cmdletContext.RuleSetBody;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -255,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             public System.String Name { get; set; }
             public System.String RuleSetBody { get; set; }
+            public List<Amazon.GameLift.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.GameLift.Model.CreateMatchmakingRuleSetResponse, NewGMLMatchmakingRuleSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RuleSet;
         }

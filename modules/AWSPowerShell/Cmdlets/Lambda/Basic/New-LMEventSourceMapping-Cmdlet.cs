@@ -48,6 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// age.
     /// </para></li><li><para><code>MaximumRetryAttempts</code> - Discard records after the specified number of
     /// retries.
+    /// </para></li><li><para><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -109,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems","MaxResults")]
-        public int? MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.SecretId != null)
             {
@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             }
             if (cmdletContext.MaxResult != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -363,7 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? IncludeDeprecated { get; set; }
-            public int? MaxResult { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String SecretId { get; set; }
             public System.Func<Amazon.SecretsManager.Model.ListSecretVersionIdsResponse, GetSECSecretVersionIdListCmdlet, object> Select { get; set; } =

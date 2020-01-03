@@ -68,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] KeyName { get; set; }
         #endregion
         
+        #region Parameter KeyPairId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the key pairs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KeyPairIds")]
+        public System.String[] KeyPairId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'KeyPairs'.
@@ -121,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.KeyName = new List<System.String>(this.KeyName);
             }
+            if (this.KeyPairId != null)
+            {
+                context.KeyPairId = new List<System.String>(this.KeyPairId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -144,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.KeyName != null)
             {
                 request.KeyNames = cmdletContext.KeyName;
+            }
+            if (cmdletContext.KeyPairId != null)
+            {
+                request.KeyPairIds = cmdletContext.KeyPairId;
             }
             
             CmdletOutput output;
@@ -208,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public List<System.String> KeyName { get; set; }
+            public List<System.String> KeyPairId { get; set; }
             public System.Func<Amazon.EC2.Model.DescribeKeyPairsResponse, GetEC2KeyPairCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.KeyPairs;
         }

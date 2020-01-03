@@ -72,15 +72,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeAccountLimits" OutputProperty="Limits" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeListenerCertificates" OutputProperty="Certificates" Verb="Get" Noun="ListenerCertificate" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeListenerCertificates" OutputProperty="Certificates" Verb="Get" Noun="ListenerCertificate" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeListeners" OutputProperty="Listeners" Verb="Get" Noun="Listener" PipelineParameter="ListenerArns" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeListeners" OutputProperty="Listeners" Verb="Get" Noun="Listener" PipelineParameter="ListenerArns" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -88,15 +88,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeLoadBalancers" OutputProperty="LoadBalancers" Verb="Get" Noun="LoadBalancer" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRules" OutputProperty="Rules" Verb="Get" Noun="Rule" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSSLPolicies" OutputProperty="SslPolicies" Verb="Get" Noun="SSLPolicy" PipelineParameter="Names" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeSSLPolicies" OutputProperty="SslPolicies" Verb="Get" Noun="SSLPolicy" PipelineParameter="Names" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,7 +108,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTargetGroups" OutputProperty="TargetGroups" Verb="Get" Noun="TargetGroup" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeTargetGroups" OutputProperty="TargetGroups" Verb="Get" Noun="TargetGroup" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

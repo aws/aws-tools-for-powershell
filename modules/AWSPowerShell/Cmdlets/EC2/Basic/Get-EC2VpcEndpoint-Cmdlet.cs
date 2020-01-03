@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>service-name</code>: The name of the service.</para></li><li><para><code>vpc-id</code>: The ID of the VPC in which the endpoint resides.</para></li><li><para><code>vpc-endpoint-id</code>: The ID of the endpoint.</para></li><li><para><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code>
+        /// <para>One or more filters.</para><ul><li><para><code>service-name</code> - The name of the service.</para></li><li><para><code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</para></li><li><para><code>vpc-endpoint-id</code> - The ID of the endpoint.</para></li><li><para><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code>
         /// | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>
         /// | <code>rejected</code> | <code>failed</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to return for this request. The request returns a token
-        /// that you can specify in a subsequent call to get the next set of results.</para><para>Constraint: If the value is greater than 1000, we return only 1000 items.</para>
+        /// that you can specify in a subsequent call to get the next set of results.</para><para>Constraint: If the value is greater than 1,000, we return only 1,000 items.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

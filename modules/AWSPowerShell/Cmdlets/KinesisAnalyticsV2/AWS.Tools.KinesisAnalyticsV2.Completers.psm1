@@ -83,7 +83,7 @@ $KINA2_Completers = {
         # Amazon.KinesisAnalyticsV2.RuntimeEnvironment
         "New-KINA2Application/RuntimeEnvironment"
         {
-            $v = "FLINK-1_6","SQL-1_0"
+            $v = "FLINK-1_6","FLINK-1_8","SQL-1_0"
             break
         }
 

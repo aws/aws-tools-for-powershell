@@ -55,11 +55,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedElasticsearchInstanceOfferings" OutputProperty="ReservedElasticsearchInstanceOfferings" Verb="Get" Noun="ReservedElasticsearchInstanceOfferingList" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReservedElasticsearchInstanceOfferings" OutputProperty="ReservedElasticsearchInstanceOfferings" Verb="Get" Noun="ReservedElasticsearchInstanceOfferingList" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedElasticsearchInstances" OutputProperty="ReservedElasticsearchInstances" Verb="Get" Noun="ReservedElasticsearchInstanceList" PipelineParameter="ReservedElasticsearchInstanceId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeReservedElasticsearchInstances" OutputProperty="ReservedElasticsearchInstances" Verb="Get" Noun="ReservedElasticsearchInstanceList" PipelineParameter="ReservedElasticsearchInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,7 +67,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetUpgradeHistory" OutputProperty="UpgradeHistories" Verb="Get" Noun="UpgradeHistory" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,11 +79,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListElasticsearchInstanceTypes" OutputProperty="ElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListElasticsearchInstanceTypes" OutputProperty="ElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListElasticsearchVersions" OutputProperty="ElasticsearchVersions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListElasticsearchVersions" OutputProperty="ElasticsearchVersions" Verb="Get" Noun="VersionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

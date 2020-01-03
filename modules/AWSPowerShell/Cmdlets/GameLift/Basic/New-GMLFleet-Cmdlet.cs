@@ -38,15 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <para>
     /// To create a new fleet, you must provide the following: (1) a fleet name, (2) an EC2
     /// instance type and fleet type (spot or on-demand), (3) the build ID for your game build
-    /// or script ID if using Realtime Servers, and (4) a run-time configuration, which determines
+    /// or script ID if using Realtime Servers, and (4) a runtime configuration, which determines
     /// how game servers will run on each instance in the fleet. 
-    /// </para><note><para>
-    /// When creating a Realtime Servers fleet, we recommend using a minimal version of the
-    /// Realtime script (see this <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-script.html#realtime-script-examples">
-    /// working code example </a>). This will make it much easier to troubleshoot any fleet
-    /// creation issues. Once the fleet is active, you can update your Realtime script as
-    /// needed.
-    /// </para></note><para>
+    /// </para><para>
     /// If the <code>CreateFleet</code> call is successful, Amazon GameLift performs the following
     /// tasks. You can track the process of a fleet by checking the fleet status or by monitoring
     /// fleet creation events:
@@ -55,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// Begins writing events to the fleet event log, which can be accessed in the Amazon
     /// GameLift console.
-    /// </para><para>
+    /// </para></li><li><para>
     /// Sets the fleet's target capacity to 1 (desired instances), which triggers Amazon GameLift
     /// to start one new EC2 instance.
     /// </para></li><li><para>
@@ -63,18 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <code>DOWNLOADING</code>, <code>VALIDATING</code>, <code>BUILDING</code>. 
     /// </para></li><li><para>
     /// Starts launching server processes on the instance. If the fleet is configured to run
-    /// multiple server processes per instance, Amazon GameLift staggers each launch by a
-    /// few seconds. Status: <code>ACTIVATING</code>.
+    /// multiple server processes per instance, Amazon GameLift staggers each process launch
+    /// by a few seconds. Status: <code>ACTIVATING</code>.
     /// </para></li><li><para>
     /// Sets the fleet's status to <code>ACTIVE</code> as soon as one server process is ready
     /// to host a game session.
     /// </para></li></ul><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-    /// Working with Fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">
-    /// Debug Fleet Creation Issues</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
-    /// Update fleets:
-    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
+    /// Setting Up Fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">
+    /// Debug Fleet Creation Issues</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para>
     /// Manage fleet actions:
     /// </para><ul><li><para><a>StartFleetActions</a></para></li><li><para><a>StopFleetActions</a></para></li></ul></li></ul>
     /// </summary>
@@ -91,9 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BuildId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a build to be deployed on the new fleet. The custom game server
-        /// build must have been successfully uploaded to Amazon GameLift and be in a <code>READY</code>
-        /// status. This fleet setting cannot be changed once the fleet is created.</para>
+        /// <para>A unique identifier for a build to be deployed on the new fleet. You can use either
+        /// the build ID or ARN value. The custom game server build must have been successfully
+        /// uploaded to Amazon GameLift and be in a <code>READY</code> status. This fleet setting
+        /// cannot be changed once the fleet is created. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -103,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter CertificateConfiguration_CertificateType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Indicates whether a TLS/SSL certificate was generated for a fleet. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Human-readable description of a fleet.</para>
+        /// <para>A human-readable description of a fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,11 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Range of IP addresses and port settings that permit inbound traffic to access game
-        /// sessions that running on the fleet. For fleets using a custom game build, this parameter
-        /// is required before game sessions running on the fleet can accept connections. For
-        /// Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges for
-        /// use by the Realtime servers. You can specify multiple permission settings or add more
-        /// by updating the fleet.</para>
+        /// sessions that are running on the fleet. For fleets using a custom game build, this
+        /// parameter is required before game sessions running on the fleet can accept connections.
+        /// For Realtime Servers fleets, Amazon GameLift automatically sets TCP and UDP ranges
+        /// for use by the Realtime servers. You can specify multiple permission settings or add
+        /// more by updating the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter EC2InstanceType
         /// <summary>
         /// <para>
-        /// <para>Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance
+        /// <para>The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance
         /// type determines the computing resources of each instance in the fleet, including CPU,
         /// memory, storage, and networking capacity. Amazon GameLift supports the following EC2
         /// instance types. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2
@@ -161,10 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetType
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to use on-demand instances or spot instances for this fleet. If
-        /// empty, the default is ON_DEMAND. Both categories of instances use identical hardware
-        /// and configurations based on the instance type selected for this fleet. Learn more
-        /// about <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot">
+        /// <para>Indicates whether to use On-Demand instances or Spot instances for this fleet. If
+        /// empty, the default is <code>ON_DEMAND</code>. Both categories of instances use identical
+        /// hardware and configurations based on the instance type selected for this fleet. Learn
+        /// more about <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot">
         /// On-Demand versus Spot Instances</a>. </para>
         /// </para>
         /// </summary>
@@ -176,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_GameSessionActivationTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>Maximum amount of time (in seconds) that a game session can remain in status <code>ACTIVATING</code>.
+        /// <para>The maximum amount of time (in seconds) that a game session can remain in status <code>ACTIVATING</code>.
         /// If the game session is not active before the timeout, activation is terminated and
         /// the game session status is changed to <code>TERMINATED</code>.</para>
         /// </para>
@@ -189,10 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceRoleArn
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for an AWS IAM role that manages access to your AWS services. With
-        /// an instance role ARN set, any application that runs on an instance in this fleet can
-        /// assume the role, including install scripts, server processes, daemons (background
-        /// processes). Create a role or look up a role's ARN using the <a href="https://console.aws.amazon.com/iam/">IAM
+        /// <para>A unique identifier for an AWS IAM role that manages access to your AWS services.
+        /// With an instance role ARN set, any application that runs on an instance in this fleet
+        /// can assume the role, including install scripts, server processes, and daemons (background
+        /// processes). Create a role or look up a role's ARN from the <a href="https://console.aws.amazon.com/iam/">IAM
         /// dashboard</a> in the AWS Management Console. Learn more about using on-box credentials
         /// for your game servers at <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
         /// Access external resources from a game server</a>.</para>
@@ -220,8 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>Maximum number of game sessions with status <code>ACTIVATING</code> to allow on an
-        /// instance simultaneously. This setting limits the amount of instance resources that
+        /// <para>The maximum number of game sessions with status <code>ACTIVATING</code> to allow on
+        /// an instance simultaneously. This setting limits the amount of instance resources that
         /// can be used for new game activations at any one time.</para>
         /// </para>
         /// </summary>
@@ -233,10 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MetricGroup
         /// <summary>
         /// <para>
-        /// <para>Name of an Amazon CloudWatch metric group to add this fleet to. A metric group aggregates
-        /// the metrics for all fleets in the group. Specify an existing metric group name, or
-        /// provide a new name to create a new metric group. A fleet can only be included in one
-        /// metric group at a time. </para>
+        /// <para>The name of an Amazon CloudWatch metric group to add this fleet to. A metric group
+        /// aggregates the metrics for all fleets in the group. Specify an existing metric group
+        /// name, or provide a new name to create a new metric group. A fleet can only be included
+        /// in one metric group at a time. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,7 +238,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a fleet. Fleet names do not need to be unique.</para>
+        /// <para>A descriptive label that is associated with a fleet. Fleet names do not need to be
+        /// unique.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -264,11 +256,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NewGameSessionProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>Game session protection policy to apply to all instances in this fleet. If this parameter
-        /// is not set, instances in this fleet default to no protection. You can change a fleet's
-        /// protection policy using <a>UpdateFleetAttributes</a>, but this change will only affect
-        /// sessions created after the policy change. You can also set protection for individual
-        /// instances using <a>UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <code>ACTIVE</code> status,
+        /// <para>A game session protection policy to apply to all instances in this fleet. If this
+        /// parameter is not set, instances in this fleet default to no protection. You can change
+        /// a fleet's protection policy using <a>UpdateFleetAttributes</a>, but this change will
+        /// only affect sessions created after the policy change. You can also set protection
+        /// for individual instances using <a>UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> - The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> - If the game session is in an <code>ACTIVE</code> status,
         /// it cannot be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>
@@ -280,8 +272,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResourceCreationLimitPolicy_NewGameSessionsPerCreator
         /// <summary>
         /// <para>
-        /// <para>Maximum number of game sessions that an individual can create during the policy period.
-        /// </para>
+        /// <para>The maximum number of game sessions that an individual can create during the policy
+        /// period. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -291,8 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PeerVpcAwsAccountId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the AWS account with the VPC that you want to peer your Amazon
-        /// GameLift fleet with. You can find your Account ID in the AWS Management Console under
+        /// <para>A unique identifier for the AWS account with the VPC that you want to peer your Amazon
+        /// GameLift fleet with. You can find your account ID in the AWS Management Console under
         /// account settings. </para>
         /// </para>
         /// </summary>
@@ -303,10 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PeerVpcId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a VPC with resources to be accessed by your Amazon GameLift
-        /// fleet. The VPC must be in the same region where your fleet is deployed. Look up a
-        /// VPC ID using the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in
-        /// the AWS Management Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+        /// <para>A unique identifier for a VPC with resources to be accessed by your Amazon GameLift
+        /// fleet. The VPC must be in the same Region as your fleet. To look up a VPC ID, use
+        /// the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in the AWS Management
+        /// Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
         /// Peering with Amazon GameLift Fleets</a>. </para>
         /// </para>
         /// </summary>
@@ -317,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResourceCreationLimitPolicy_PolicyPeriodInMinute
         /// <summary>
         /// <para>
-        /// <para>Time span used in evaluating the resource creation limit policy. </para>
+        /// <para>The time span used in evaluating the resource creation limit policy. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -328,9 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ScriptId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a Realtime script to be deployed on the new fleet. The Realtime
-        /// script must have been successfully uploaded to Amazon GameLift. This fleet setting
-        /// cannot be changed once the fleet is created.</para>
+        /// <para>A unique identifier for a Realtime script to be deployed on the new fleet. You can
+        /// use either the script ID or ARN value. The Realtime script must have been successfully
+        /// uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is
+        /// created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -342,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>This parameter is no longer used. Instead, specify server launch parameters in the
         /// <code>RuntimeConfiguration</code> parameter. (Requests that specify a server launch
-        /// path and launch parameters instead of a run-time configuration will continue to work.)</para>
+        /// path and launch parameters instead of a runtime configuration will continue to work.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,8 +347,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>This parameter is no longer used. Instead, specify a server launch path using the
-        /// <code>RuntimeConfiguration</code> parameter. (Requests that specify a server launch
-        /// path and launch parameters instead of a run-time configuration will continue to work.)</para>
+        /// <code>RuntimeConfiguration</code> parameter. Requests that specify a server launch
+        /// path and launch parameters instead of a runtime configuration will continue to work.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -365,13 +358,30 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_ServerProcess
         /// <summary>
         /// <para>
-        /// <para>Collection of server process configurations that describe which server processes to
-        /// run on each instance in a fleet.</para>
+        /// <para>A collection of server process configurations that describe which server processes
+        /// to run on each instance in a fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RuntimeConfiguration_ServerProcesses")]
         public Amazon.GameLift.Model.ServerProcess[] RuntimeConfiguration_ServerProcess { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of labels to assign to the new fleet resource. Tags are developer-defined key-value
+        /// pairs. Tagging AWS resources are useful for resource management, access management
+        /// and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// Tagging AWS Resources</a> in the <i>AWS General Reference</i>. Once the resource is
+        /// created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
+        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
+        /// the AWS General Reference for actual tagging limits.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.GameLift.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -480,6 +490,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             context.ScriptId = this.ScriptId;
             context.ServerLaunchParameter = this.ServerLaunchParameter;
             context.ServerLaunchPath = this.ServerLaunchPath;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.GameLift.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -643,6 +657,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 request.ServerLaunchPath = cmdletContext.ServerLaunchPath;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -725,6 +743,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String ScriptId { get; set; }
             public System.String ServerLaunchParameter { get; set; }
             public System.String ServerLaunchPath { get; set; }
+            public List<Amazon.GameLift.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.GameLift.Model.CreateFleetResponse, NewGMLFleetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.FleetAttributes;
         }

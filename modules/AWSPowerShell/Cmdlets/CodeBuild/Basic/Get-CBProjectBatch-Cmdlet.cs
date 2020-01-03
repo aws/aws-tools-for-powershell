@@ -42,7 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The names of the build projects.</para>
+        /// <para>The names or ARNs of the build projects. To get information about a project shared
+        /// with your AWS account, its ARN must be specified. You cannot specify a shared project
+        /// using its name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

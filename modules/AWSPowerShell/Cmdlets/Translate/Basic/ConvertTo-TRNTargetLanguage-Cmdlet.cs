@@ -28,58 +28,8 @@ using Amazon.Translate.Model;
 namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
-    /// Translates input text from the source language to the target language. It is not necessary
-    /// to use English (en) as either the source or the target language but not all language
-    /// combinations are supported by Amazon Translate. For more information, see <a href="http://docs.aws.amazon.com/translate/latest/dg/pairs.html">Supported
-    /// Language Pairs</a>.
-    /// 
-    ///  <ul><li><para>
-    /// Arabic (ar)
-    /// </para></li><li><para>
-    /// Chinese (Simplified) (zh)
-    /// </para></li><li><para>
-    /// Chinese (Traditional) (zh-TW)
-    /// </para></li><li><para>
-    /// Czech (cs)
-    /// </para></li><li><para>
-    /// Danish (da)
-    /// </para></li><li><para>
-    /// Dutch (nl)
-    /// </para></li><li><para>
-    /// English (en)
-    /// </para></li><li><para>
-    /// Finnish (fi)
-    /// </para></li><li><para>
-    /// French (fr)
-    /// </para></li><li><para>
-    /// German (de)
-    /// </para></li><li><para>
-    /// Hebrew (he)
-    /// </para></li><li><para>
-    /// Indonesian (id)
-    /// </para></li><li><para>
-    /// Italian (it)
-    /// </para></li><li><para>
-    /// Japanese (ja)
-    /// </para></li><li><para>
-    /// Korean (ko)
-    /// </para></li><li><para>
-    /// Polish (pl)
-    /// </para></li><li><para>
-    /// Portuguese (pt)
-    /// </para></li><li><para>
-    /// Russian (ru)
-    /// </para></li><li><para>
-    /// Spanish (es)
-    /// </para></li><li><para>
-    /// Swedish (sv)
-    /// </para></li><li><para>
-    /// Turkish (tr)
-    /// </para></li></ul><para>
-    /// To have Amazon Translate determine the source language of your text, you can specify
-    /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
-    /// Amazon Translate will call Amazon Comprehend to determine the source language.
-    /// </para>
+    /// Translates input text from the source language to the target language. For a list
+    /// of available languages and language codes, see <a>what-is-languages</a>.
     /// </summary>
     [Cmdlet("ConvertTo", "TRNTargetLanguage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Translate.Model.TranslateTextResponse")]
@@ -94,9 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         /// <summary>
         /// <para>
         /// <para>The language code for the language of the source text. The language must be a language
-        /// supported by Amazon Translate. </para><para>To have Amazon Translate determine the source language of your text, you can specify
+        /// supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</para><para>To have Amazon Translate determine the source language of your text, you can specify
         /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
-        /// Amazon Translate will call Amazon Comprehend to determine the source language.</para>
+        /// Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
+        /// Comprehend</a> to determine the source language.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,8 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TerminologyName
         /// <summary>
         /// <para>
-        /// <para>The TerminologyNames list that is taken as input to the TranslateText request. This
-        /// has a minimum length of 0 and a maximum length of 1.</para>
+        /// <para>The name of the terminology list file to be used in the TranslateText request. You
+        /// can use 1 terminology list at most in a <code>TranslateText</code> request. Terminology
+        /// lists can contain a maximum of 256 terms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

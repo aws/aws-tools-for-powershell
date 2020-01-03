@@ -51,6 +51,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] EgressOnlyInternetGatewayId { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>One or more filters.</para><ul><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// resource. Use the tag key in the filter name and the tag value as the filter value.
+        /// For example, to find all resources that have a tag with the key <code>Owner</code>
+        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
+        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -121,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.EgressOnlyInternetGatewayId = new List<System.String>(this.EgressOnlyInternetGatewayId);
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -154,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.EgressOnlyInternetGatewayId != null)
             {
                 request.EgressOnlyInternetGatewayIds = cmdletContext.EgressOnlyInternetGatewayId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -217,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.EgressOnlyInternetGatewayId != null)
             {
                 request.EgressOnlyInternetGatewayIds = cmdletContext.EgressOnlyInternetGatewayId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             
             // Initialize loop variants and commence piping
@@ -338,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> EgressOnlyInternetGatewayId { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.EC2.Model.DescribeEgressOnlyInternetGatewaysResponse, GetEC2EgressOnlyInternetGatewayListCmdlet, object> Select { get; set; } =

@@ -1375,6 +1375,74 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCMMessage_Url { get; set; }
         #endregion
         
+        #region Parameter EmailTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to use for the message.
+        /// If specified, this value must match the identifier for an existing template version.
+        /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
+        /// version of the template. The <i>active</i> version is typically the version of a template
+        /// that's been most recently reviewed and approved for use, depending on your workflow.
+        /// It isn't necessarily the latest version of a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MessageRequest_TemplateConfiguration_EmailTemplate_Version")]
+        public System.String EmailTemplate_Version { get; set; }
+        #endregion
+        
+        #region Parameter PushTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to use for the message.
+        /// If specified, this value must match the identifier for an existing template version.
+        /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
+        /// version of the template. The <i>active</i> version is typically the version of a template
+        /// that's been most recently reviewed and approved for use, depending on your workflow.
+        /// It isn't necessarily the latest version of a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MessageRequest_TemplateConfiguration_PushTemplate_Version")]
+        public System.String PushTemplate_Version { get; set; }
+        #endregion
+        
+        #region Parameter SMSTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to use for the message.
+        /// If specified, this value must match the identifier for an existing template version.
+        /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
+        /// version of the template. The <i>active</i> version is typically the version of a template
+        /// that's been most recently reviewed and approved for use, depending on your workflow.
+        /// It isn't necessarily the latest version of a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MessageRequest_TemplateConfiguration_SMSTemplate_Version")]
+        public System.String SMSTemplate_Version { get; set; }
+        #endregion
+        
+        #region Parameter VoiceTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the version of the message template to use for the message.
+        /// If specified, this value must match the identifier for an existing template version.
+        /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
+        /// version of the template. The <i>active</i> version is typically the version of a template
+        /// that's been most recently reviewed and approved for use, depending on your workflow.
+        /// It isn't necessarily the latest version of a template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MessageRequest_TemplateConfiguration_VoiceTemplate_Version")]
+        public System.String VoiceTemplate_Version { get; set; }
+        #endregion
+        
         #region Parameter VoiceMessage_VoiceId
         /// <summary>
         /// <para>
@@ -1787,9 +1855,13 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             context.VoiceMessage_VoiceId = this.VoiceMessage_VoiceId;
             context.EmailTemplate_Name = this.EmailTemplate_Name;
+            context.EmailTemplate_Version = this.EmailTemplate_Version;
             context.PushTemplate_Name = this.PushTemplate_Name;
+            context.PushTemplate_Version = this.PushTemplate_Version;
             context.SMSTemplate_Name = this.SMSTemplate_Name;
+            context.SMSTemplate_Version = this.SMSTemplate_Version;
             context.VoiceTemplate_Name = this.VoiceTemplate_Name;
+            context.VoiceTemplate_Version = this.VoiceTemplate_Version;
             context.MessageRequest_TraceId = this.MessageRequest_TraceId;
             
             // allow further manipulation of loaded context prior to processing
@@ -1879,6 +1951,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplate.Name = requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Name;
                     requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplateIsNull = false;
                 }
+                System.String requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Version = null;
+                if (cmdletContext.EmailTemplate_Version != null)
+                {
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Version = cmdletContext.EmailTemplate_Version;
+                }
+                if (requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Version != null)
+                {
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplate.Version = requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplate_emailTemplate_Version;
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplateIsNull = false;
+                }
                  // determine if requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplate should be set to null
                 if (requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_EmailTemplateIsNull)
                 {
@@ -1902,6 +1984,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplate_pushTemplate_Name != null)
                 {
                     requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplate.Name = requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplate_pushTemplate_Name;
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplateIsNull = false;
+                }
+                System.String requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplate_pushTemplate_Version = null;
+                if (cmdletContext.PushTemplate_Version != null)
+                {
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplate_pushTemplate_Version = cmdletContext.PushTemplate_Version;
+                }
+                if (requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplate_pushTemplate_Version != null)
+                {
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplate.Version = requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplate_pushTemplate_Version;
                     requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplateIsNull = false;
                 }
                  // determine if requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_PushTemplate should be set to null
@@ -1929,6 +2021,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplate.Name = requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Name;
                     requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplateIsNull = false;
                 }
+                System.String requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Version = null;
+                if (cmdletContext.SMSTemplate_Version != null)
+                {
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Version = cmdletContext.SMSTemplate_Version;
+                }
+                if (requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Version != null)
+                {
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplate.Version = requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplate_sMSTemplate_Version;
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplateIsNull = false;
+                }
                  // determine if requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplate should be set to null
                 if (requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_SMSTemplateIsNull)
                 {
@@ -1952,6 +2054,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 if (requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Name != null)
                 {
                     requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplate.Name = requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Name;
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplateIsNull = false;
+                }
+                System.String requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Version = null;
+                if (cmdletContext.VoiceTemplate_Version != null)
+                {
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Version = cmdletContext.VoiceTemplate_Version;
+                }
+                if (requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Version != null)
+                {
+                    requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplate.Version = requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplate_voiceTemplate_Version;
                     requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplateIsNull = false;
                 }
                  // determine if requestMessageRequest_messageRequest_TemplateConfiguration_messageRequest_TemplateConfiguration_VoiceTemplate should be set to null
@@ -3346,9 +3458,13 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public Dictionary<System.String, List<System.String>> VoiceMessage_Substitution { get; set; }
             public System.String VoiceMessage_VoiceId { get; set; }
             public System.String EmailTemplate_Name { get; set; }
+            public System.String EmailTemplate_Version { get; set; }
             public System.String PushTemplate_Name { get; set; }
+            public System.String PushTemplate_Version { get; set; }
             public System.String SMSTemplate_Name { get; set; }
+            public System.String SMSTemplate_Version { get; set; }
             public System.String VoiceTemplate_Name { get; set; }
+            public System.String VoiceTemplate_Version { get; set; }
             public System.String MessageRequest_TraceId { get; set; }
             public System.Func<Amazon.Pinpoint.Model.SendMessagesResponse, SendPINMessageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MessageResponse;

@@ -50,6 +50,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
             var modelOperations = configModel.ServiceOperationsList.ToDictionary(a => a.MethodName, a => a);
             foreach (var operationOverride in serviceOverride.ServiceOperationsList)
             {
+                operationOverride.IsConfigurationOverridden = true;
                 if (modelOperations.ContainsKey(operationOverride.MethodName))
                 {
                     modelOperations[operationOverride.MethodName] = operationOverride;

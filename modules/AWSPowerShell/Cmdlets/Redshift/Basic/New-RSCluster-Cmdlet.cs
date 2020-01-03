@@ -28,7 +28,7 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Creates a new cluster.
+    /// Creates a new cluster with the specified parameters.
     /// 
     ///  
     /// <para>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// cluster. For example, if you have several EC2 instances running in a specific Availability
         /// Zone, then you might want the cluster to be provisioned in the same zone in order
         /// to decrease network latency.</para><para>Default: A random, system-chosen Availability Zone in the region that is specified
-        /// by the endpoint.</para><para>Example: <code>us-east-1d</code></para><para>Constraint: The specified Availability Zone must be in the same region as the current
+        /// by the endpoint.</para><para>Example: <code>us-east-2d</code></para><para>Constraint: The specified Availability Zone must be in the same region as the current
         /// endpoint.</para>
         /// </para>
         /// </summary>
@@ -338,9 +338,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The node type to be provisioned for the cluster. For information about node types,
         /// go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
-        /// </para><para>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>ds2.xlarge</code>
-        /// | <code>ds2.8xlarge</code> | <code>dc1.large</code> | <code>dc1.8xlarge</code> | <code>dc2.large</code>
-        /// | <code>dc2.8xlarge</code></para>
+        /// </para><para>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>dc1.large</code>
+        /// | <code>dc1.8xlarge</code> | <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>ra3.16xlarge</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

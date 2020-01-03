@@ -42,7 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// action, which returns a list of file systems in your account. If you pass the file
     /// system ID for a deleted file system, the <a>DescribeFileSystems</a> returns a <code>FileSystemNotFound</code>
     /// error.
-    /// </para><important><para>
+    /// </para><note><para>
+    /// Deleting an Amazon FSx for Lustre file system will fail with a 400 BadRequest if a
+    /// data repository task is in a <code>PENDING</code> or <code>EXECUTING</code> state.
+    /// </para></note><important><para>
     /// The data in a deleted file system is also deleted and can't be recovered by any means.
     /// </para></important>
     /// </summary>

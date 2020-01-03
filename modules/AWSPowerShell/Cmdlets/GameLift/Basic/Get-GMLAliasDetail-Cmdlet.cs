@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter AliasId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet alias. Specify the alias you want to retrieve.</para>
+        /// <para>The unique identifier for the fleet alias that you want to retrieve. You can use either
+        /// the alias ID or ARN value. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

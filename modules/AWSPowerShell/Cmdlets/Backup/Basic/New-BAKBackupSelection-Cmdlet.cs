@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     ///  
     /// <para>
     /// For example, consider the following patterns:
-    /// </para><ul><li><para><code>Resources: "arn:aws:ec2:region:account-id:volume/volume-id"</code></para></li><li><para><code>ConditionKey:"department"</code></para><para><code>ConditionValue:"finance"</code></para><para><code>ConditionType:"StringEquals"</code></para></li><li><para><code>ConditionKey:"importance"</code></para><para><code>ConditionValue:"critical"</code></para><para><code>ConditionType:"StringEquals"</code></para></li></ul><para>
+    /// </para><ul><li><para><code>Resources: "arn:aws:ec2:region:account-id:volume/volume-id"</code></para></li><li><para><code>ConditionKey:"department"</code></para><para><code>ConditionValue:"finance"</code></para><para><code>ConditionType:"STRINGEQUALS"</code></para></li><li><para><code>ConditionKey:"importance"</code></para><para><code>ConditionValue:"critical"</code></para><para><code>ConditionType:"STRINGEQUALS"</code></para></li></ul><para>
     /// Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS) volumes
     /// that are tagged as <code>"department=finance"</code>, <code>"importance=critical"</code>,
     /// in addition to an EBS volume with the specified volume Id.
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>An array of conditions used to specify a set of resources to assign to a backup plan;
-        /// for example, <code>"StringEquals": {"ec2:ResourceTag/Department": "accounting"</code>.</para>
+        /// for example, <code>"STRINGEQUALS": {"ec2:ResourceTag/Department": "accounting"</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,9 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_Resource
         /// <summary>
         /// <para>
-        /// <para>An array of strings that either contain Amazon Resource Names (ARNs) or match patterns
-        /// such as "<code>arn:aws:ec2:us-east-1:123456789012:volume/*</code>" of resources to
-        /// assign to a backup plan.</para>
+        /// <para>An array of strings that contain Amazon Resource Names (ARNs) of resources to assign
+        /// to a backup plan.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

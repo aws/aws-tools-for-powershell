@@ -28,7 +28,7 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Puts (overwrites) an email destination in your suppression list.
+    /// Adds an email address to the suppression list for your account.
     /// </summary>
     [Cmdlet("Write", "SES2SuppressedDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter EmailAddress
         /// <summary>
         /// <para>
-        /// <para>Email destination to be suppressed.</para>
+        /// <para>The email address that should be added to the suppression list for your account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>Reason for which the email destination is suppressed.</para>
+        /// <para>The factors that should cause the email address to be added to the suppression list
+        /// for your account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

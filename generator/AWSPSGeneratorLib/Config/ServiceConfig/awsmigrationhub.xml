@@ -55,19 +55,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCreatedArtifacts" OutputProperty="CreatedArtifactList" Verb="Get" Noun="CreatedArtifactList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListApplicationStates" OutputProperty="ApplicationStateList" Verb="Get" Noun="ApplicationStateList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="DiscoveredResourceList" Verb="Get" Noun="DiscoveredResourceList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCreatedArtifacts" OutputProperty="CreatedArtifactList" Verb="Get" Noun="CreatedArtifactList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMigrationTasks" OutputProperty="MigrationTaskSummaryList" Verb="Get" Noun="MigrationTaskList" PipelineParameter="ResourceName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDiscoveredResources" OutputProperty="DiscoveredResourceList" Verb="Get" Noun="DiscoveredResourceList" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProgressUpdateStreams" OutputProperty="ProgressUpdateStreamSummaryList" Verb="Get" Noun="ProgressUpdateStream" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMigrationTasks" OutputProperty="MigrationTaskSummaryList" Verb="Get" Noun="MigrationTaskList" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProgressUpdateStreams" OutputProperty="ProgressUpdateStreamSummaryList" Verb="Get" Noun="ProgressUpdateStream" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name you wish to specify for the new network profile.</para>
+        /// <para>The name for the new network profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of network profile you wish to create. Valid values are listed below.</para>
+        /// <para>The type of network profile to create. Valid values are listed here.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

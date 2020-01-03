@@ -28,7 +28,7 @@ using Amazon.SimpleEmailV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
-    /// Change your account's suppression preferences for your account.
+    /// Change the settings for the account-level suppression list.
     /// </summary>
     [Cmdlet("Write", "SES2AccountSuppressionAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,8 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         #region Parameter SuppressedReason
         /// <summary>
         /// <para>
-        /// <para>A list of reasons to suppress email addresses. The only valid reasons are:</para><ul><li><para><code>COMPLAINT</code> – Amazon SES will suppress an email address that receives
-        /// a complaint.</para></li><li><para><code>BOUNCE</code> – Amazon SES will suppress an email address that hard bounces.</para></li></ul>
+        /// <para>A list that contains the reasons that email addresses will be automatically added
+        /// to the suppression list for your account. This list can contain any or all of the
+        /// following:</para><ul><li><para><code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list
+        /// for your account when a message sent to that address results in a complaint.</para></li><li><para><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for
+        /// your account when a message sent to that address results in a hard bounce.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

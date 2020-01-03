@@ -87,6 +87,13 @@ $TRN_Completers = {
             break
         }
 
+        # Amazon.Translate.JobStatus
+        "Get-TRNTextTranslationJobList/Filter_JobStatus"
+        {
+            $v = "COMPLETED","COMPLETED_WITH_ERROR","FAILED","IN_PROGRESS","STOPPED","STOP_REQUESTED","SUBMITTED"
+            break
+        }
+
         # Amazon.Translate.MergeStrategy
         "Import-TRNTerminology/MergeStrategy"
         {
@@ -114,6 +121,7 @@ $TRN_Completers = {
 
 $TRN_map = @{
     "EncryptionKey_Type"=@("Import-TRNTerminology")
+    "Filter_JobStatus"=@("Get-TRNTextTranslationJobList")
     "MergeStrategy"=@("Import-TRNTerminology")
     "TerminologyData_Format"=@("Import-TRNTerminology")
     "TerminologyDataFormat"=@("Get-TRNTerminology")
@@ -170,9 +178,13 @@ $TRN_SelectCompleters = {
 
 $TRN_SelectMap = @{
     "Select"=@("Remove-TRNTerminology",
+               "Get-TRNTextTranslationJob",
                "Get-TRNTerminology",
                "Import-TRNTerminology",
                "Get-TRNTerminologyList",
+               "Get-TRNTextTranslationJobList",
+               "Start-TRNTextTranslationJob",
+               "Stop-TRNTextTranslationJob",
                "ConvertTo-TRNTargetLanguage")
 }
 

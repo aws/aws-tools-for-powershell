@@ -11,7 +11,6 @@
     <PipelineParameter>Arn</PipelineParameter>
     <AutoIterate Start="NextToken" Next="NextToken" />
     <VerbMappings>
-        <Map From="List" To="Get" />
         <Map From="Schedule" To="Invoke" />
     </VerbMappings>
     <NounMappings />
@@ -39,6 +38,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRemoteAccessSession" OutputProperty="RemoteAccessSession" Verb="New" Noun="RemoteAccessSession" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTestGridProject" OutputProperty="TestGridProject" Verb="New" Noun="TestGridProject" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTestGridUrl" OutputProperty="Url" Verb="New" Noun="TestGridUrl" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -71,6 +78,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRun" Verb="Remove" Noun="Run" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTestGridProject" Verb="Remove" Noun="TestGridProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,7 +125,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOfferingStatus" OutputProperty="*" Verb="Get" Noun="OfferingStatus" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="GetOfferingStatus" OutputProperty="*" Verb="Get" Noun="OfferingStatus" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -135,6 +146,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTest" OutputProperty="Test" Verb="Get" Noun="Test" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTestGridProject" OutputProperty="TestGridProject" Verb="Get" Noun="TestGridProject" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTestGridSession" OutputProperty="TestGridSession" Verb="Get" Noun="TestGridSession" PipelineParameter="SessionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -214,6 +233,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTestGridProjects" OutputProperty="TestGridProjects" Verb="Get" Noun="TestGridProjectList" PipelineParameter="MaxResult" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestGridSessionActions" OutputProperty="Actions" Verb="Get" Noun="TestGridSessionActionList" PipelineParameter="SessionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestGridSessionArtifacts" OutputProperty="Artifacts" Verb="Get" Noun="TestGridSessionArtifactList" PipelineParameter="SessionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTestGridSessions" OutputProperty="TestGridSessions" Verb="Get" Noun="TestGridSessionList" PipelineParameter="ProjectArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTests" OutputProperty="Tests" Verb="Get" Noun="TestList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -279,6 +314,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProject" OutputProperty="Project" Verb="Update" Noun="Project" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTestGridProject" OutputProperty="TestGridProject" Verb="Update" Noun="TestGridProject" ShouldProcessTarget="ProjectArn" PipelineParameter="ProjectArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

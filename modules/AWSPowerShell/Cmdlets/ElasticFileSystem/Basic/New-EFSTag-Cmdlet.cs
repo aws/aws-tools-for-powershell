@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// <para>
     /// This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
     /// action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("New", "EFSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,6 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ElasticFileSystem.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Use TagResource.")]
     public partial class NewEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         

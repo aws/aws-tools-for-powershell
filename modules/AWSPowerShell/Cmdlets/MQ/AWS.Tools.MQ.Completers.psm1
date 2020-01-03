@@ -80,6 +80,13 @@ $MQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MQ.BrokerStorageType
+        "New-MQBroker/StorageType"
+        {
+            $v = "EBS","EFS"
+            break
+        }
+
         # Amazon.MQ.DeploymentMode
         "New-MQBroker/DeploymentMode"
         {
@@ -108,6 +115,7 @@ $MQ_Completers = {
 $MQ_map = @{
     "DeploymentMode"=@("New-MQBroker")
     "EngineType"=@("New-MQBroker","New-MQConfiguration")
+    "StorageType"=@("New-MQBroker")
 }
 
 _awsArgumentCompleterRegistration $MQ_Completers $MQ_map

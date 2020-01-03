@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// <para>
     /// This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
     /// action.
-    /// </para>
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Remove", "EFSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -46,6 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         "This cmdlet does not generate any output." +
         "The service response (type Amazon.ElasticFileSystem.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Use UntagResource.")]
     public partial class RemoveEFSTagCmdlet : AmazonElasticFileSystemClientCmdlet, IExecutor
     {
         

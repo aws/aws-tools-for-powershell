@@ -111,7 +111,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplicationVersions" OutputProperty="ApplicationVersions" Verb="Get" Noun="ApplicationVersion" PositionalParameters="VersionLabels" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyAlias="Get-EBApplicationVersions">
+        <ServiceOperation MethodName="DescribeApplicationVersions" OutputProperty="ApplicationVersions" Verb="Get" Noun="ApplicationVersion" PositionalParameters="VersionLabels" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-EBApplicationVersions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,7 +127,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" OutputProperty="ManagedActionHistoryItems" Verb="Get" Noun="EnvironmentManagedActionHistory" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" OutputProperty="ManagedActionHistoryItems" Verb="Get" Noun="EnvironmentManagedActionHistory" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" ServicePageSize="1000" PageSizeIsRequired="true" />
             <TypesNotToFlatten />
@@ -140,14 +140,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEnvironments" OutputProperty="Environments" Verb="Get" Noun="Environment" PositionalParameters="EnvironmentIds;VersionLabel" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEnvironments" OutputProperty="Environments" Verb="Get" Noun="Environment" PositionalParameters="EnvironmentIds;VersionLabel" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="IncludedDeletedBackToUtc" NewName="UtcIncludedDeletedBackTo" AutoApplyAlias="false" />
                 <Param Name="IncludedDeletedBackTo" ExclusiveParameters="UtcIncludedDeletedBackTo" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcIncludedDeletedBackTo instead." />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeEvents" OutputProperty="Events" Verb="Get" Noun="Event" PipelineParameter="ApplicationName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
@@ -168,7 +168,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPlatformVersions" OutputProperty="PlatformSummaryList" Verb="Get" Noun="PlatformVersion" PipelineParameter="Filters" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPlatformVersions" OutputProperty="PlatformSummaryList" Verb="Get" Noun="PlatformVersion" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

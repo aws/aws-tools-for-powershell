@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTextTranslationJob" OutputProperty="TextTranslationJobProperties" Verb="Get" Noun="TextTranslationJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTerminology" OutputProperty="*" Verb="Get" Noun="Terminology" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -31,7 +35,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTerminologies" OutputProperty="TerminologyPropertiesList" Verb="Get" Noun="TerminologyList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTerminologies" OutputProperty="TerminologyPropertiesList" Verb="Get" Noun="TerminologyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTextTranslationJobs" OutputProperty="TextTranslationJobPropertiesList" Verb="Get" Noun="TextTranslationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTextTranslationJob" OutputProperty="*" Verb="Start" Noun="TextTranslationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTextTranslationJob" OutputProperty="*" Verb="Stop" Noun="TextTranslationJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

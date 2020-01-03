@@ -80,6 +80,13 @@ $SHUB_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.SecurityHub.ControlStatus
+        "Update-SHUBStandardsControl/ControlStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SecurityHub.RecordState
         "Update-SHUBFinding/RecordState"
         {
@@ -96,6 +103,7 @@ $SHUB_Completers = {
 }
 
 $SHUB_map = @{
+    "ControlStatus"=@("Update-SHUBStandardsControl")
     "RecordState"=@("Update-SHUBFinding")
 }
 
@@ -164,6 +172,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBActionTarget",
                "Get-SHUBHub",
                "Get-SHUBProduct",
+               "Get-SHUBStandardsControl",
                "Disable-SHUBImportFindingsForProduct",
                "Disable-SHUBSecurityHub",
                "Remove-SHUBMasterAccountAssociation",
@@ -186,7 +195,8 @@ $SHUB_SelectMap = @{
                "Remove-SHUBResourceTag",
                "Update-SHUBActionTarget",
                "Update-SHUBFinding",
-               "Update-SHUBInsight")
+               "Update-SHUBInsight",
+               "Update-SHUBStandardsControl")
 }
 
 _awsArgumentCompleterRegistration $SHUB_SelectCompleters $SHUB_SelectMap

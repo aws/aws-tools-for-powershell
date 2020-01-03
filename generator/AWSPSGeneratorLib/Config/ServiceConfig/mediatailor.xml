@@ -27,7 +27,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPlaybackConfigurations" OutputProperty="Items" Verb="Get" Noun="PlaybackConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPlaybackConfigurations" OutputProperty="Items" Verb="Get" Noun="PlaybackConfigurationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ScriptId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a Realtime script to delete.</para>
+        /// <para>A unique identifier for a Realtime script to delete. You can use either the script
+        /// ID or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to get logs for.</para>
+        /// <para>A unique identifier for the game session to get logs for. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

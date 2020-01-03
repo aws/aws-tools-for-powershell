@@ -28,8 +28,8 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns the available automatic snapshots for the specified resource name. For more
-    /// information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
+    /// Returns the available automatic snapshots for an instance or disk. For more information,
+    /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail
     /// Dev Guide</a>.
     /// </summary>
     [Cmdlet("Get", "LSAutoSnapshot")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter ResourceName
         /// <summary>
         /// <para>
-        /// <para>The name of the source resource from which to get automatic snapshot information.</para>
+        /// <para>The name of the source instance or disk from which to get automatic snapshot information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

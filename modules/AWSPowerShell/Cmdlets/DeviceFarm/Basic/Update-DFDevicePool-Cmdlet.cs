@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Device Farm device pool you wish to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Device Farm device pool to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// you set this parameter to <code>true</code>, the <code>maxDevices</code> parameter
         /// does not apply, and Device Farm does not limit the number of devices that it adds
         /// to your device pool. In this case, Device Farm adds all available devices that meet
-        /// the criteria that are specified for the <code>rules</code> parameter.</para><para>If you use this parameter in your request, you cannot use the <code>maxDevices</code>
+        /// the criteria specified in the <code>rules</code> parameter.</para><para>If you use this parameter in your request, you cannot use the <code>maxDevices</code>
         /// parameter in the same request.</para>
         /// </para>
         /// </summary>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the device pool you wish to update.</para>
+        /// <para>A description of the device pool to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A string representing the name of the device pool you wish to update.</para>
+        /// <para>A string that represents the name of the device pool to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,9 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para>Represents the rules you wish to modify for the device pool. Updating rules is optional;
-        /// however, if you choose to update rules for your request, the update will replace the
-        /// existing rules.</para>
+        /// <para>Represents the rules to modify for the device pool. Updating rules is optional. If
+        /// you update rules for your request, the update replaces the existing rules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

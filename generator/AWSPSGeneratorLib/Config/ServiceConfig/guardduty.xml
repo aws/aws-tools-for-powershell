@@ -139,31 +139,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectors" OutputProperty="DetectorIds" Verb="Get" Noun="DetectorList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDetectors" OutputProperty="DetectorIds" Verb="Get" Noun="DetectorList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFilters" OutputProperty="FilterNames" Verb="Get" Noun="FilterList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFilters" OutputProperty="FilterNames" Verb="Get" Noun="FilterList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingIds" Verb="Get" Noun="FindingList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFindings" OutputProperty="FindingIds" Verb="Get" Noun="FindingList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListInvitations" OutputProperty="Invitations" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIPSets" OutputProperty="IpSetIds" Verb="Get" Noun="IPSetList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIPSets" OutputProperty="IpSetIds" Verb="Get" Noun="IPSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPublishingDestinations" OutputProperty="Destinations" Verb="Get" Noun="PublishingDestinationList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPublishingDestinations" OutputProperty="Destinations" Verb="Get" Noun="PublishingDestinationList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -171,7 +171,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThreatIntelSets" OutputProperty="ThreatIntelSetIds" Verb="Get" Noun="ThreatIntelSetList" PipelineParameter="DetectorId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListThreatIntelSets" OutputProperty="ThreatIntelSetIds" Verb="Get" Noun="ThreatIntelSetList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

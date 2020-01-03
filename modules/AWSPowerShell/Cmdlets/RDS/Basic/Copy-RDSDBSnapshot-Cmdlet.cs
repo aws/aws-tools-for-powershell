@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// where you call the <code>CopyDBSnapshot</code> action is the destination AWS Region
     /// for the DB snapshot copy. 
     /// </para><para>
-    /// For more information about copying snapshots, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html">Copying
+    /// For more information about copying snapshots, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying
     /// a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
     [Cmdlet("Copy", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

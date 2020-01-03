@@ -124,8 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems")]
-        public int? Limit { get; set; }
+        public System.Int32? Limit { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -249,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.Order != null)
             {
@@ -331,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.Marker != null)
             {
@@ -414,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             public System.String AuthenticationToken { get; set; }
             public System.String FolderId { get; set; }
             public System.String Include { get; set; }
-            public int? Limit { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String Marker { get; set; }
             public Amazon.WorkDocs.OrderType Order { get; set; }
             public Amazon.WorkDocs.ResourceSortType Sort { get; set; }

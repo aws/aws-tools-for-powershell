@@ -102,8 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxItems")]
-        public int? Limit { get; set; }
+        public System.Int32? Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -228,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -323,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -395,7 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public System.String Filters_AccountId { get; set; }
             public System.String Filters_AwsRegion { get; set; }
             public Amazon.ConfigService.ConfigRuleComplianceSummaryGroupKey GroupByKey { get; set; }
-            public int? Limit { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.ConfigService.Model.GetAggregateConfigRuleComplianceSummaryResponse, GetCFGAggregateConfigRuleComplianceSummaryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

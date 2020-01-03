@@ -67,23 +67,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverEndpointIpAddresses" OutputProperty="IpAddresses" Verb="Get" Noun="ResolverEndpointIpAddressList" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListResolverEndpointIpAddresses" OutputProperty="IpAddresses" Verb="Get" Noun="ResolverEndpointIpAddressList" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverEndpoints" OutputProperty="ResolverEndpoints" Verb="Get" Noun="ResolverEndpointList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListResolverEndpoints" OutputProperty="ResolverEndpoints" Verb="Get" Noun="ResolverEndpointList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverRuleAssociations" OutputProperty="ResolverRuleAssociations" Verb="Get" Noun="ResolverRuleAssociationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListResolverRuleAssociations" OutputProperty="ResolverRuleAssociations" Verb="Get" Noun="ResolverRuleAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverRules" OutputProperty="ResolverRules" Verb="Get" Noun="ResolverRuleList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListResolverRules" OutputProperty="ResolverRules" Verb="Get" Noun="ResolverRuleList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

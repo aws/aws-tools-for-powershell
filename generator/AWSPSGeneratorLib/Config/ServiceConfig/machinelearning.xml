@@ -93,19 +93,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBatchPredictions" OutputProperty="Results" Verb="Get" Noun="BatchPredictionList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-MLBatchPredictions">
+        <ServiceOperation MethodName="DescribeBatchPredictions" OutputProperty="Results" Verb="Get" Noun="BatchPredictionList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLBatchPredictions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSources" OutputProperty="Results" Verb="Get" Noun="DataSourceList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-MLDataSources">
+        <ServiceOperation MethodName="DescribeDataSources" OutputProperty="Results" Verb="Get" Noun="DataSourceList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLDataSources">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvaluations" OutputProperty="Results" Verb="Get" Noun="EvaluationList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-MLEvaluations">
+        <ServiceOperation MethodName="DescribeEvaluations" OutputProperty="Results" Verb="Get" Noun="EvaluationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLEvaluations">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMLModels" OutputProperty="Results" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-MLModels">
+        <ServiceOperation MethodName="DescribeMLModels" OutputProperty="Results" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit" LegacyAlias="Get-MLModels">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -51,7 +51,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResults" OutputProperty="ResultSet" Verb="Get" Noun="QueryResult" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyPaginationCountParameter="ResultSet.Rows.Count">
+        <ServiceOperation MethodName="GetQueryResults" OutputProperty="ResultSet" Verb="Get" Noun="QueryResult" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyPaginationCountParameter="ResultSet.Rows.Count">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,19 +59,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNamedQueries" OutputProperty="NamedQueryIds" Verb="Get" Noun="NamedQueryList" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListNamedQueries" OutputProperty="NamedQueryIds" Verb="Get" Noun="NamedQueryList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueryExecutions" OutputProperty="QueryExecutionIds" Verb="Get" Noun="QueryExecutionList" PipelineParameter="WorkGroup" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListQueryExecutions" OutputProperty="QueryExecutionIds" Verb="Get" Noun="QueryExecutionList" PipelineParameter="WorkGroup" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkGroups" OutputProperty="WorkGroups" Verb="Get" Noun="WorkGroupList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListWorkGroups" OutputProperty="WorkGroups" Verb="Get" Noun="WorkGroupList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

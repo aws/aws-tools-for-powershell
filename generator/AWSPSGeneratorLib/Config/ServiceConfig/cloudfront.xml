@@ -135,35 +135,35 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities" OutputProperty="CloudFrontOriginAccessIdentityList.Items" OutputWrapper="CloudFrontOriginAccessIdentityList" Verb="Get" Noun="CloudFrontOriginAccessIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFCloudFrontOriginAccessIdentities">
+        <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities" OutputProperty="CloudFrontOriginAccessIdentityList.Items" OutputWrapper="CloudFrontOriginAccessIdentityList" Verb="Get" Noun="CloudFrontOriginAccessIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFCloudFrontOriginAccessIdentities">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDistributions" OutputProperty="DistributionList.Items" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFDistributions">
+        <ServiceOperation MethodName="ListDistributions" OutputProperty="DistributionList.Items" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFDistributions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDistributionsByWebACLId" OutputProperty="DistributionList.Items" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionListByWebACLId" PipelineParameter="WebACLId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListDistributionsByWebACLId" OutputProperty="DistributionList.Items" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionListByWebACLId" PipelineParameter="WebACLId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFieldLevelEncryptionConfigs" OutputProperty="FieldLevelEncryptionList.Items" OutputWrapper="FieldLevelEncryptionList" Verb="Get" Noun="FieldLevelEncryptionConfigList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFieldLevelEncryptionConfigs" OutputProperty="FieldLevelEncryptionList.Items" OutputWrapper="FieldLevelEncryptionList" Verb="Get" Noun="FieldLevelEncryptionConfigList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFieldLevelEncryptionProfiles" OutputProperty="FieldLevelEncryptionProfileList.Items" OutputWrapper="FieldLevelEncryptionProfileList" Verb="Get" Noun="FieldLevelEncryptionProfileList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListFieldLevelEncryptionProfiles" OutputProperty="FieldLevelEncryptionProfileList.Items" OutputWrapper="FieldLevelEncryptionProfileList" Verb="Get" Noun="FieldLevelEncryptionProfileList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvalidations" OutputProperty="InvalidationList.Items" OutputWrapper="InvalidationList" Verb="Get" Noun="InvalidationList" PipelineParameter="DistributionId" NoPipelineParameter="false" LegacyAlias="Get-CFInvalidations">
+        <ServiceOperation MethodName="ListInvalidations" OutputProperty="InvalidationList.Items" OutputWrapper="InvalidationList" Verb="Get" Noun="InvalidationList" PipelineParameter="DistributionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFInvalidations">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeyList.Items" OutputWrapper="PublicKeyList" Verb="Get" Noun="PublicKeyList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeyList.Items" OutputWrapper="PublicKeyList" Verb="Get" Noun="PublicKeyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamingDistributions" OutputProperty="StreamingDistributionList.Items" OutputWrapper="StreamingDistributionList" Verb="Get" Noun="StreamingDistributionList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CFStreamingDistributions">
+        <ServiceOperation MethodName="ListStreamingDistributions" OutputProperty="StreamingDistributionList.Items" OutputWrapper="StreamingDistributionList" Verb="Get" Noun="StreamingDistributionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFStreamingDistributions">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

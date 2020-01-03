@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>connection-notification-arn</code> - The ARN of SNS topic for the notification.</para></li><li><para><code>connection-notification-id</code> - The ID of the notification.</para></li><li><para><code>connection-notification-state</code> - The state of the notification (<code>Enabled</code>
+        /// <para>One or more filters.</para><ul><li><para><code>connection-notification-arn</code> - The ARN of the SNS topic for the notification.</para></li><li><para><code>connection-notification-id</code> - The ID of the notification.</para></li><li><para><code>connection-notification-state</code> - The state of the notification (<code>Enabled</code>
         /// | <code>Disabled</code>).</para></li><li><para><code>connection-notification-type</code> - The type of notification (<code>Topic</code>).</para></li><li><para><code>service-id</code> - The ID of the endpoint service.</para></li><li><para><code>vpc-endpoint-id</code> - The ID of the VPC endpoint.</para></li></ul>
         /// </para>
         /// </summary>

@@ -47,7 +47,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAgents" OutputProperty="AgentsInfo" Verb="Get" Noun="Agent" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeAgents" OutputProperty="AgentsInfo" Verb="Get" Noun="Agent" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,23 +55,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContinuousExports" OutputProperty="Descriptions" Verb="Get" Noun="ContinuousExport" PipelineParameter="ExportIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeContinuousExports" OutputProperty="Descriptions" Verb="Get" Noun="ContinuousExport" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportConfigurations" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportConfiguration" PipelineParameter="ExportIds" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeExportConfigurations" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportConfiguration" PipelineParameter="ExportIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportTask" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportsInfo" Verb="Get" Noun="ExportTask" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImportTasks" OutputProperty="Tasks" Verb="Get" Noun="ImportTask" PipelineParameter="Filters" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeImportTasks" OutputProperty="Tasks" Verb="Get" Noun="ImportTask" PipelineParameter="Filters" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeTags" OutputProperty="Tags" Verb="Get" Noun="Tag" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -87,11 +87,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListConfigurations" OutputProperty="Configurations" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServerNeighbors" OutputProperty="*" Verb="Get" Noun="ServerNeighborList" PipelineParameter="" NoPipelineParameter="true" DisableLegacyPagination="true">
+        <ServiceOperation MethodName="ListServerNeighbors" OutputProperty="*" Verb="Get" Noun="ServerNeighborList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

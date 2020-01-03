@@ -160,19 +160,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociationProposals" OutputProperty="DirectConnectGatewayAssociationProposals" Verb="Get" Noun="DirectConnectGatewayAssociationProposal" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociationProposals" OutputProperty="DirectConnectGatewayAssociationProposals" Verb="Get" Noun="DirectConnectGatewayAssociationProposal" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" OutputProperty="DirectConnectGatewayAssociations" Verb="Get" Noun="GatewayAssociation" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" OutputProperty="DirectConnectGatewayAssociations" Verb="Get" Noun="GatewayAssociation" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAttachments" OutputProperty="DirectConnectGatewayAttachments" Verb="Get" Noun="GatewayAttachment" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAttachments" OutputProperty="DirectConnectGatewayAttachments" Verb="Get" Noun="GatewayAttachment" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGateways" OutputProperty="DirectConnectGateways" Verb="Get" Noun="Gateway" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeDirectConnectGateways" OutputProperty="DirectConnectGateways" Verb="Get" Noun="Gateway" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

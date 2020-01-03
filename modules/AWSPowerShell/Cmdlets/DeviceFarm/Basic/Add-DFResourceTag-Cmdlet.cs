@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// Associates the specified tags to a resource with the specified <code>resourceArn</code>.
     /// If existing tags on a resource are not specified in the request parameters, they are
     /// not changed. When a resource is deleted, the tags associated with that resource are
-    /// deleted as well.
+    /// also deleted.
     /// </summary>
     [Cmdlet("Add", "DFResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource(s) to which to add tags. You can associate
-        /// tags with the following Device Farm resources: <code>PROJECT</code>, <code>RUN</code>,
-        /// <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
+        /// <para>The Amazon Resource Name (ARN) of the resource or resources to which to add tags.
+        /// You can associate tags with the following Device Farm resources: <code>PROJECT</code>,
+        /// <code>RUN</code>, <code>NETWORK_PROFILE</code>, <code>INSTANCE_PROFILE</code>, <code>DEVICE_INSTANCE</code>,
         /// <code>SESSION</code>, <code>DEVICE_POOL</code>, <code>DEVICE</code>, and <code>VPCE_CONFIGURATION</code>.</para>
         /// </para>
         /// </summary>
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can
-        /// have a maximum character length of 128 characters, and tag values can have a maximum
-        /// length of 256 characters.</para>
+        /// have a maximum character length of 128 characters. Tag values can have a maximum length
+        /// of 256 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

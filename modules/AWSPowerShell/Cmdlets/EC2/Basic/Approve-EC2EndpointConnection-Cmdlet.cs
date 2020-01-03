@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ServiceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the endpoint service.</para>
+        /// <para>The ID of the VPC endpoint service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
