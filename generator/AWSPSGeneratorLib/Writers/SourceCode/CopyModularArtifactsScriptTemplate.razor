@@ -17,7 +17,7 @@ $commonModuleFolder = "$rootFolder/modules/ModularAWSPowerShell"
 $installerModuleFolder = "$rootFolder/modules/Installer"
 $monolithicModuleFolder = "$rootFolder/modules/AWSPowerShell"
 $serviceProjectsFolder = "$monolithicModuleFolder/Cmdlets"
-$nugetFolder = "$rootFolder/Include/sdk/nuget"
+$assembliesFolder = "$rootFolder/Include/sdk/assemblies"
 
 $moduleFilesSuffixes = @@('.Completers.psm1', '.Aliases.psm1', '.psd1')
 $binFilesSuffixes = @@('.dll', '.XML', '.dll-Help.xml', '.Format.ps1xml')
@@ -28,7 +28,7 @@ If (Test-Path $modularDeploymentFolder)
 }
 New-Item -Path $modularDeploymentFolder -ItemType Directory
 
-dotnet $generatorAssemblyPath -rp $rootFolder -t formats -an AWS.Tools.Common -ml $commonModuleFolder/$releaseBitPath -sdk $nugetFolder
+dotnet $generatorAssemblyPath -rp $rootFolder -t formats -an AWS.Tools.Common -ml $commonModuleFolder/$releaseBitPath -sdk $assembliesFolder
 If ($LASTEXITCODE){
   Throw "Formats Generator returned error $LASTEXITCODE for Common"
 }
@@ -55,7 +55,7 @@ foreach ($project in $projectNameList)
 {
     $projectDeploymentFolder = "$modularDeploymentFolder/AWS.Tools.$project"
     $projectFolder = "$serviceProjectsFolder/$project"
-    dotnet $generatorAssemblyPath -rp $rootFolder -t formats -an AWS.Tools.$project -ml $projectFolder/$releaseBitPath -sdk $nugetFolder
+    dotnet $generatorAssemblyPath -rp $rootFolder -t formats -an AWS.Tools.$project -ml $projectFolder/$releaseBitPath -sdk $assembliesFolder
     If ($LASTEXITCODE){
       Throw "Formats Generator returned error $LASTEXITCODE for $project"
     }

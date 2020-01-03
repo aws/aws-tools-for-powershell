@@ -166,11 +166,11 @@ namespace AWSPowerShellGenerator
             },    
             new ArgDeclaration
             {
-                OptionName = "sdknugetfolder", 
+                OptionName = "sdkassembliesfolder", 
                 ShortName = "sdk", 
                 HasValue = true,
-                Parse = (arguments, argValue) => arguments.ParsedOptions.SdkNugetFolder = argValue, 
-                HelpText = "The folder containing the built sdk nupkg files to be used in generating cmdlets."
+                Parse = (arguments, argValue) => arguments.ParsedOptions.SdkAssembliesFolder = argValue, 
+                HelpText = "The folder containing the built sdk assemblies to be used in generating cmdlets."
             },
             new ArgDeclaration
             {

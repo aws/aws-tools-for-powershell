@@ -46,15 +46,15 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
     <Reference Include="AWSSDK.Core">
-      <HintPath>../../../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.Core.dll</HintPath>
+      <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.@ServiceConfig.AssemblyName">
-      <HintPath>../../../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.@(ServiceConfig.AssemblyName).dll</HintPath>
+      <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/AWSSDK.@(ServiceConfig.AssemblyName).dll</HintPath>
     </Reference>
 @foreach (var dependency in ServiceConfig.SDKDependencies)
 {
 @:    <Reference Include="AWSSDK.@dependency">
-@:      <HintPath>../../../../Include/sdk/ExtractedNuGet/netstandard2.0/AWSSDK.@(dependency).dll</HintPath>
+@:      <HintPath>../../../../Include/sdk/assemblies/netstandard2.0/AWSSDK.@(dependency).dll</HintPath>
 @:    </Reference>
 }
   </ItemGroup>

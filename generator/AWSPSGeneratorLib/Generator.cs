@@ -69,7 +69,7 @@ namespace AWSPowerShellGenerator
 
             var fqRootPath = Path.GetFullPath(options.RootPath);
 
-            var sdkNugetFolder = Path.GetFullPath(options.SdkNugetFolder);
+            var sdkAssembliesFolder = Path.GetFullPath(options.SdkAssembliesFolder);
             var awsPowerShellSourcePath = Path.Combine(fqRootPath, ModulesSubFolder, AWSPowerShellModuleName);
 
             var deploymentArtifactsPath = Path.Combine(fqRootPath, options.GetEditionOutputFolder(DeploymentArtifactsSubFolder));
@@ -80,7 +80,7 @@ namespace AWSPowerShellGenerator
 
                 var cmdletGenerator = new CmdletGenerator
                 {
-                    SdkNugetFolder = sdkNugetFolder,
+                    SdkAssembliesFolder = sdkAssembliesFolder,
                     OutputFolder = awsPowerShellSourcePath,
                     Options = options
                 };
@@ -113,7 +113,7 @@ namespace AWSPowerShellGenerator
                     .Where(assembly => assembly.Name.StartsWith("AWSSDK.", StringComparison.OrdinalIgnoreCase) &&
                                        (includeCore || !assembly.Name.Equals("AWSSDK.Core", StringComparison.OrdinalIgnoreCase)))
                     .ToArray();
-                targetAssemblies.AddRange(sdkAssemblies.Select(assembly => Assembly.LoadFrom(Path.Combine(sdkNugetFolder, "..", GenerationSources.ExtractedNugetFolderName, GenerationSources.DotNetPlatformNetStandard20, assembly.Name + ".dll"))));
+                targetAssemblies.AddRange(sdkAssemblies.Select(assembly => Assembly.LoadFrom(Path.Combine(sdkAssembliesFolder, GenerationSources.DotNetPlatformNetStandard20, assembly.Name + ".dll"))));
                 targetAssemblies.AddRange(AppDomain.CurrentDomain.GetAssemblies().Where(assembly => sdkAssemblies.Contains(assembly.GetName())));
 
                 var formatsGenerator = new FormatGenerator

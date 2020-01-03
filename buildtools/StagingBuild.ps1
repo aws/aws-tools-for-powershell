@@ -1,7 +1,7 @@
 param (
   [Parameter()]
   [ValidateNotNullOrEmpty()]
-  [string] $SdkArtifactsZipUri,
+  [string] $SdkVersionsFileUri,
 
   [Parameter()]
   [ValidateNotNullOrEmpty()]
@@ -10,16 +10,13 @@ param (
   [Parameter()]
   [ValidateNotNullOrEmpty()]
   [string] $BuildS3Bucket,
-
+    
   [Parameter()]
   [ValidateNotNullOrEmpty()]
   [string] $S3Prefix,
 
   [Parameter()]
   [string] $Configuration = 'Release',
-
-  [Parameter()]
-  [bool] $S3Download = $true,
 
   [Parameter()]
   [string] $AWSPowerShellVersion = '4.0.2.0'
@@ -35,21 +32,10 @@ if (-not (Get-Module -ListAvailable -Name AWS.Tools.S3 | Where-Object { $_.Versi
 }
 Import-Module -Name AWS.Tools.S3 -RequiredVersion $AWSPowerShellVersion
 
-If ($S3Download) {
-  $s3Uri = $null
-  if (-Not [Amazon.S3.Util.AmazonS3Uri]::TryParseAmazonS3Uri($SdkArtifactsZipUri, [ref] $s3Uri)) {
-    Throw "Couldn't parse S3 URI $SdkArtifactsZipUri"
-  }
-  Write-Host "Downloading $($s3Uri.Bucket) $($s3Uri.Key)"
-  Read-S3Object -BucketName $s3Uri.Bucket -Key $s3Uri.Key -File ./Include/sdk.zip
-}
-Else {
-  Write-Host "Downloading $SdkArtifactsZipUri"
-  Invoke-WebRequest -Uri $SdkArtifactsZipUri -OutFile ./Include/sdk.zip
-}
-Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdk -Force
+Write-Host "Downloading $SdkVersionsFileUri"
+Invoke-WebRequest -Uri $SdkVersionsFileUri -OutFile ./Include/sdk/_sdk-versions.json
 
-dotnet msbuild ./buildtools/build.proj /t:preview-build /p:CleanSdkReferences=false /p:BreakOnNewOperations=true /p:Configuration=$Configuration
+dotnet msbuild ./buildtools/build.proj /t:preview-build /p:BreakOnNewOperations=true /p:Configuration=$Configuration
 $BuildResult = $LASTEXITCODE
 
 Write-Host "Saving new S3 artifacts in $BuildS3Bucket/$S3Prefix"

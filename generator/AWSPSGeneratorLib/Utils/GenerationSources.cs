@@ -30,17 +30,16 @@ namespace AWSPowerShellGenerator.Utils
         /// <summary>
         /// The default location that nupkg files will be loaded from
         /// </summary>
-        public string SdkNugetFolder { get; }
+        public string SdkAssembliesFolder { get; }
 
         public const string SDKAssemblyNamePrefix = "AWSSDK.";
-        public const string ExtractedNugetFolderName = "ExtractedNuGet";
         public const string DotNetPlatformNet35 = "net35";
         public const string DotNetPlatformNetStandard20 = "netstandard2.0";
 
         private const string AWSPowerShellCommonGuid = "e5b05bf3-9eee-47b2-81f2-41ddc0501b86";
         private const string AWSPowerShellNetCoreGuid = "cb0b9b96-f3f2-4eff-b7f4-cbe0a9203683";
         private const string AWSPowerShellGuid = "21f083f2-4c41-4b5d-88ec-7d24c9e88769";
-        private readonly new string[] AwsToolsCommonSdkAssemblies = { "AWSSDK.Core", "AWSSDK.SecurityToken" };
+        private readonly string[] AwsToolsCommonSdkAssemblies = { "AWSSDK.Core", "AWSSDK.SecurityToken" };
 
         //All paths are relative to the AwsPowerShellModuleFolder
         public static readonly string AWSPowerShellModularSolutionFilename = Path.Combine("..", "..", "solutions", "ModularAWSPowerShell.sln");
@@ -69,10 +68,10 @@ namespace AWSPowerShellGenerator.Utils
 
         public string ModuleVersionNumber { get; }
 
-        public GenerationSources(string awsPowerShellModuleFolder, string sdkNugetFolder, string versionNumber)
+        public GenerationSources(string awsPowerShellModuleFolder, string sdkAssembliesFolder, string versionNumber)
         {
             AwsPowerShellModuleFolder = awsPowerShellModuleFolder;
-            SdkNugetFolder = sdkNugetFolder;
+            SdkAssembliesFolder = sdkAssembliesFolder;
 
             Func<string, string> sanitizeInteger = (string s) =>
             {
@@ -105,19 +104,19 @@ namespace AWSPowerShellGenerator.Utils
         /// assemblies without adding them to the list of assemblies to be referenced</param>
         public (Assembly Assembly, XmlDocument Ndoc, IEnumerable<string> Dependencies) Load(string baseName, bool addAsReference = true)
         {
-            if (string.IsNullOrEmpty(SdkNugetFolder))
+            if (string.IsNullOrEmpty(SdkAssembliesFolder))
             {
                 throw new InvalidOperationException("Expected 'SdkNugetFolder' to have been set prior to calling Load(...)");
             }
 
-            var extractFolder = Path.Combine(SdkNugetFolder, "..", ExtractedNugetFolderName);
+            SdkVersionsUtils.EnsureSdkLibraryIsAvailable(baseName, SdkAssembliesFolder, PlatformsToExtractLibrariesFor);
+            var dependencies = SdkVersionsUtils.GetDependencies(SdkAssembliesFolder, baseName);
 
-            var dependencies = NuGetUtils.ExtractSourceLibrary(baseName, SdkNugetFolder, extractFolder, PlatformsToExtractLibrariesFor);
 
             if (addAsReference)
             {
-                var assemblyFile = Path.Combine(extractFolder, DotNetPlatformNetStandard20, $"{baseName}.dll");
-                var ndocFile = Path.Combine(extractFolder, DotNetPlatformNetStandard20, $"{baseName}.xml");
+                var assemblyFile = Path.Combine(SdkAssembliesFolder, DotNetPlatformNetStandard20, $"{baseName}.dll");
+                var ndocFile = Path.Combine(SdkAssembliesFolder, DotNetPlatformNetStandard20, $"{baseName}.xml");
                 try
                 {
                     var assembly = Assembly.LoadFrom(assemblyFile);

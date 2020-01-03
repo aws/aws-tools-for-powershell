@@ -45,9 +45,9 @@ namespace AWSPowerShellGenerator
         public bool BreakOnNewOperations { get; set; } = false;
 
         /// <summary>
-        /// The folder containing the SDK nupkg files.
+        /// The folder containing the platform-specific folders with SDK assemblies.
         /// </summary>
-        public string SdkNugetFolder { get; set; }
+        public string SdkAssembliesFolder { get; set; }
 
         /// <summary>
         /// Name of the assembly to analyze, doesn't include the extension.
@@ -177,7 +177,7 @@ namespace AWSPowerShellGenerator
             Tasks = new HashSet<string> { GeneratorTasknames.GenerateCmdlets };
 
             RootPath = Path.Combine("..", "..", "..", ".."); // relative to bin/debug folder of the generator assembly
-            SdkNugetFolder = Path.Combine(RootPath,  "include", "sdk", "nuget");
+            SdkAssembliesFolder = Path.Combine(RootPath,  "include", "sdk", "nuget");
 
             CNNorth1RegionDocsDomain = "docs.amazonaws.cn";
 
@@ -191,7 +191,7 @@ namespace AWSPowerShellGenerator
             CreateNewCmdlets = rhs.CreateNewCmdlets;
             BreakOnNewOperations = rhs.BreakOnNewOperations;
             Tasks = rhs.Tasks;
-            SdkNugetFolder = rhs.SdkNugetFolder;
+            SdkAssembliesFolder = rhs.SdkAssembliesFolder;
             RootPath = rhs.RootPath;
             CNNorth1RegionDocsDomain = rhs.CNNorth1RegionDocsDomain;
             Edition = rhs.Edition;

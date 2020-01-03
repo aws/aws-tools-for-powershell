@@ -67,7 +67,7 @@
 @foreach (var assembly in Assemblies)
 {
 @:    <Reference Include="@assembly">
-@:      <HintPath>../../Include/sdk/ExtractedNuGet/net35/@(assembly).dll</HintPath>
+@:      <HintPath>../../Include/sdk/assemblies/net35/@(assembly).dll</HintPath>
 @:    </Reference>
 }
   </ItemGroup>
@@ -78,7 +78,7 @@
 @foreach (var assembly in Assemblies)
 {
 @:    <Reference Include="@assembly">
-@:      <HintPath>../../Include/sdk/ExtractedNuGet/netstandard2.0/@(assembly).dll</HintPath>
+@:      <HintPath>../../Include/sdk/assemblies/netstandard2.0/@(assembly).dll</HintPath>
 @:    </Reference>
 }
   </ItemGroup>

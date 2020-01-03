@@ -12,7 +12,7 @@
         <!-- perform a release build by default -->
         <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
 
-        <!-- deletes the Include/sdk/NuGet and Include/sdk/ExtractedNuGet folders; set to false if the content of these folders is pre-filled in with the packages to be used by the build -->
+        <!-- deletes the Include/sdk/assemblies folders; set to false if the content of these folders is pre-filled in with the packages to be used by the build -->
         <CleanSdkReferences Condition="'$(CleanSdkReferences)'==''">true</CleanSdkReferences>
 
         <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
@@ -25,7 +25,7 @@
         <!-- expected location of SDK assemblies to be consumed by generator; these should have been fetched via
              the get-references (=> get-reference-sdk) target
         -->
-        <SDKNuGetFolder Condition="'$(SDKNuGetFolder)'==''">$(RootPath)/Include/sdk/nuget</SDKNuGetFolder>
+        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)/Include/sdk/assemblies</SDKAssembliesFolder>
 
         <!-- the domain in which the China (Beijing), cn-north-1, doc assets are hosted (injected into docs) -->
         <CNNorth1RegionDocsDomain Condition="'$(CNNorth1RegionDocsDomain)'==''">docs.amazonaws.cn</CNNorth1RegionDocsDomain>
@@ -80,13 +80,8 @@
     </Target>
 
     <Target Name="clean-sdk-references" Condition="'$(CleanSdkReferences)'">
-        <RemoveDir Directories="$(SDKNuGetFolder)/../ExtractedNuGet" />
-        <ItemGroup>
-            <FilesToClean Include="$(SDKNuGetFolder)/**/*"/>
-        </ItemGroup>
-        <Delete Files="@(FilesToClean)" />
-    
-        <MakeDir Directories="$(SDKNuGetFolder)"/>
+        <RemoveDir Directories="$(SDKAssembliesFolder)" />
+        <MakeDir Directories="$(SDKAssembliesFolder)"/>
     </Target>
     
     <Target Name="build-generator">
@@ -96,7 +91,7 @@
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator">
         <Message Text="Generating cmdlets for all services"/>
-        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(PatchNumber)" />
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(PatchNumber)" />
     </Target>
 
     <Target Name="build-modules" DependsOnTargets="build-netcore-module;build-desktop-module;build-modular-modules" />
@@ -111,7 +106,7 @@
         <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental ../solutions/AWSPowerShell.sln"/>   
 
         <Message Text="Generating custom view formats ps1xml file"/>
-        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t formats -e coreclr" />
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t formats -e coreclr" />
     </Target>
 
     <Target Name="build-modular-modules" DependsOnTargets="create-cmdlets">
@@ -123,7 +118,7 @@
 
     <Target Name="create-pshelp" DependsOnTargets="build-netcore-module">
         <Message Text="Generating native PowerShell help file"/>
-        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t pshelp -e coreclr" />
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t pshelp -e coreclr" />
 
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.dll-Help.xml" DestinationFiles="$(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll-Help.xml" />
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.dll-Help.xml" DestinationFiles="$(DesktopDeploymentArtifacts)/AWSPowerShell.dll-Help.xml" />
@@ -131,7 +126,7 @@
 
     <Target Name="create-webhelp" DependsOnTargets="build-netcore-module">
         <Message Text="Generating web cmdlet reference"/>
-        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t webhelp -e coreclr" />
+        <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t webhelp -e coreclr" />
 
         <CallTarget Targets="package-webhelp"/>
     </Target>
@@ -162,7 +157,7 @@
         <Message Text="Consolidating Desktop edition artifacts from $(DesktopBuildFolder) to $(DesktopDeploymentArtifacts)"/>
        
         <ItemGroup>
-            <SDKAssemblies Include="$(SDKNuGetFolder)/../ExtractedNuGet/net35/AWSSDK.*.dll" />
+            <SDKAssemblies Include="$(SDKAssembliesFolder)/net35/AWSSDK.*.dll" />
         </ItemGroup>
         <Copy SourceFiles="@(SDKAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
@@ -186,7 +181,7 @@
         <Message Text="Consolidating CoreCLR edition artifacts from $(NetCoreBuildFolder) to $(NetCoreDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <NetCoreSDKAssemblies Include="$(SDKNuGetFolder)/../ExtractedNuGet/netstandard2.0/AWSSDK.*.dll" />
+            <NetCoreSDKAssemblies Include="$(SDKAssembliesFolder)/netstandard2.0/AWSSDK.*.dll" />
         </ItemGroup>
         <Copy SourceFiles="@(NetCoreSDKAssemblies)" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 

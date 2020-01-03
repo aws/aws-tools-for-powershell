@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AWSPSGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "-sdk  $(ProjectDir)../../Include/sdk/assemblies/ -rp $(ProjectDir)/../../ -t cmdlets -cnc true -scg false -bno true "
+    }
+  }
+}

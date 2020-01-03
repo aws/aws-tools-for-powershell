@@ -35,3 +35,6 @@ tests/Temp/**
 PSGalleryDownloads
 /ReleaseNotesDraft.txt
 /report.xml
+/_report.xml
+/overrides.xml
+/AWSPowerShell.NetCore.zip

@@ -68,7 +68,7 @@ namespace AWSPowerShellGenerator.Generators
         /// The location of the SDK assemblies to generate against; we also expect to
         /// find the assembly ndoc files here too
         /// </summary>
-        public string SdkNugetFolder { get; set; }
+        public string SdkAssembliesFolder { get; set; }
 
         public Type SdkBaseRequestType { get; set; }
 
@@ -198,7 +198,7 @@ namespace AWSPowerShellGenerator.Generators
 
             XmlOverridesMerger.ApplyOverrides(Options.RootPath, ModelCollection, serviceConfigurationsFolder);
 
-            SourceArtifacts = new GenerationSources(OutputFolder, SdkNugetFolder, Options.VersionNumber);
+            SourceArtifacts = new GenerationSources(OutputFolder, SdkAssembliesFolder, Options.VersionNumber);
             LoadCoreSDKRuntimeMaterials();
             LoadSpecialServiceAssemblies();
 
