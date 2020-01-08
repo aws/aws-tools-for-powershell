@@ -2,14 +2,14 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>$s3ACL = Get-S3ACL -BucketName 's3casetestbucket' -key 'initialize.ps1'
-$s3ACL.Owner
+    <code>PS C:\> $s3ACL = Get-S3ACL -BucketName 's3casetestbucket' -key 'initialize.ps1'
+PS C:\> $s3ACL.Owner
 
 DisplayName Id
 ----------- --
 testusername      9988776a6554433d22f1100112e334acb45566778899009e9887bd7f66c5f544
 
-$s3ACL.Grants
+PS C:\> $s3ACL.Grants
 
 Grantee                   Permission
 -------                   ----------

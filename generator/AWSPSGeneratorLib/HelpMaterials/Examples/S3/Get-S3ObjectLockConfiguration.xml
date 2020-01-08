@@ -2,14 +2,14 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>$OLockConfig = Get-S3ObjectLockConfiguration -BucketName 's3buckettesting'
-$OLockConfig.ObjectLockEnabled
+    <code>PS C:\> $OLockConfig = Get-S3ObjectLockConfiguration -BucketName 's3buckettesting'
+PS C:\> $OLockConfig.ObjectLockEnabled
 
 Value
 -----
 Enabled
 
-$OLockConfig.Rule.DefaultRetention
+PS C:\> $OLockConfig.Rule.DefaultRetention
 
 Days Mode       Years
 ---- ----       -----
