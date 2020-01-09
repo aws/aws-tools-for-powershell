@@ -3,7 +3,7 @@
 <examples>
   <example>
     <code>PS C:\> $EKSTags = @{Name = "EKSPRODCLUSTER"}
-  PS C:\> Add-EKSResourceTag -ResourceArn "arn:aws:eks:us-west-2:012345678912:cluster/PROD" -Tag System.Collections.Hashtable</code>
+  PS C:\> Add-EKSResourceTag -ResourceArn "arn:aws:eks:us-west-2:012345678912:cluster/PROD" -Tag $EKSTags </code>
     <description>This cmdlet associates the specified tags to a resource with the specified resourceArn.  </description>
   </example>
 </examples>
