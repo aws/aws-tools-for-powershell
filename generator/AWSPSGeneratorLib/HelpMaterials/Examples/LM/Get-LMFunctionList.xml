@@ -2,14 +2,13 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Get-LMFunctionList | Sort-Object -Property CodeSize | Select-Object FunctionName, RunTime, Timeout  
+    <code>Get-LMFunctionList | Sort-Object -Property CodeSize | Select-Object FunctionName, RunTime, Timeout, CodeSize 
 
-FunctionName                                                 Runtime   Timeout
-------------                                                 -------   -------
-test                                                         python2.7       3
-asg-state-change-lambda                                      python2.7       3
-asg-state-change-lambda-csxyujsknc                           python2.7       3
-Test-ABC1TRDY-SesVerifyEmailFunction-12345                   python2.7      30</code>
+FunctionName                                                 Runtime   Timeout CodeSize
+------------                                                 -------   ------- --------
+test                                                         python2.7       3      243
+MylambdaFunction123                                          python3.8     600      659
+myfuncpython1                                                python3.8     303      675</code>
     <description>This sample displays all the Lambda functions with sorted code size</description>
   </example>
 </examples>
