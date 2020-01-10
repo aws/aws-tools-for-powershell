@@ -2,8 +2,8 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>$results = Get-IAMServiceLastAccessedDetailWithEntity -JobId f0b7a819-eab0-929b-dc26-ca598911cb9f -ServiceNamespace ec2
-$results
+    <code>PS C:\> $results = Get-IAMServiceLastAccessedDetailWithEntity -JobId f0b7a819-eab0-929b-dc26-ca598911cb9f -ServiceNamespace ec2
+PS C:\> $results
 Output:
 EntityDetailsList : {Amazon.IdentityManagement.Model.EntityDetails}
 Error             : 
@@ -12,12 +12,12 @@ JobCompletionDate : 12/29/19 11:19:31 AM
 JobCreationDate   : 12/29/19 11:19:31 AM
 JobStatus         : COMPLETED
 Marker            : 
-$results.EntityDetailsList
+PS C:\> $results.EntityDetailsList
 Output:
 EntityInfo                                 LastAuthenticated
 ----------                                 -----------------
 Amazon.IdentityManagement.Model.EntityInfo 11/16/19 3:47:00 PM
-$results.EntityInfo
+PS C:\> $results.EntityInfo
 Output:
 Arn  : arn:aws:iam::123456789012:user/TestUser
 Id   : AIDA4NBK5CXF5TZHU1234

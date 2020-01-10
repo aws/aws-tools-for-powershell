@@ -2,10 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>$tag = New-Object -TypeName Amazon.IdentityManagement.Model.Tag
-$tag.Key = 'abac'
-$tag.Value = 'testing'
-Add-IAMUserTag -UserName joe -Tag $tag</code>
+    <code>Add-IAMUserTag -UserName joe -Tag @{ Key = 'abac'; Value = 'testing'}</code>
     <description>This example adds tag to User in Identity Management Service</description>
   </example>
 </examples>
