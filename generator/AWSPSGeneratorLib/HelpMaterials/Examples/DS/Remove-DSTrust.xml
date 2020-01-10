@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Remove-DSTrust -TrustId (Get-DSTrust -DirectoryId d-123456ijkl).TrustId
+    <code>Get-DSTrust -DirectoryId d-123456ijkl -Select Trusts.TrustId | Remove-DSTrust
 t-9067157123</code>
     <description>This example removes the exsisting trust relationhip between your AWS Managed AD Directory and an external domain.</description>
   </example>

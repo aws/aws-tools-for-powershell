@@ -2,10 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>$tag = New-Object Amazon.DirectoryService.Model.Tag
-$tag.Key = "myTag"
-$tag.Value = "mytgValue"
-Add-DSResourceTag -ResourceId d-123456ijkl -Tag $tag</code>
+    <code>Add-DSResourceTag -ResourceId d-123456ijkl -Tag @{Key="myTag"; Value="mytgValue"}</code>
     <description>This command adds the Resource Tag to the specified Directory-id</description>
   </example>
 </examples>
