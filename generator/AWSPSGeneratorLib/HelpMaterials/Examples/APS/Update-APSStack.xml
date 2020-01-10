@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Update-APSStack -Name PowershellStack -ApplicationSettings_Enabled True -ApplicationSettings_SettingsGroup PowershellStack -StorageConnector (New-Object -TypeName Amazon.AppStream.Model.StorageConnector -Property @{ConnectorType="HOMEFOLDERS"})                                                                              
+    <code>Update-APSStack -Name PowershellStack -ApplicationSettings_Enabled $True -ApplicationSettings_SettingsGroup PowershellStack -StorageConnector (New-Object -TypeName Amazon.AppStream.Model.StorageConnector -Property @{ConnectorType="HOMEFOLDERS"})                                                                              
 AccessEndpoints     : {}
 ApplicationSettings : Amazon.AppStream.Model.ApplicationSettingsResponse
 Arn                 : arn:aws:appstream:us-east-1:123456789012:stack/PowershellStack

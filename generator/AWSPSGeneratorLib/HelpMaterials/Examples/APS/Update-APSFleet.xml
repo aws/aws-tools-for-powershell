@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Update-APSFleet -Name PowershellFleet -EnableDefaultInternetAccess True -DisconnectTimeoutInSecond 950         
+    <code>Update-APSFleet -Name PowershellFleet -EnableDefaultInternetAccess $True -DisconnectTimeoutInSecond 950         
 Arn                            : arn:aws:appstream:us-east-1:123456789012:fleet/PowershellFleet
 ComputeCapacityStatus          : Amazon.AppStream.Model.ComputeCapacityStatus
 CreatedTime                    : 4/24/2019 8:39:41 AM

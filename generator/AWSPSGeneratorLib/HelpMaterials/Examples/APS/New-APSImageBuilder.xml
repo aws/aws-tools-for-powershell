@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>New-APSImageBuilder -InstanceType stream.standard.medium -Name TestIB -DisplayName TestIB -ImageName AppStream-WinServer2012R2-12-12-2019 -EnableDefaultInternetAccess True -VpcConfig_SubnetId subnet-a1234cfd -VpcConfig_SecurityGroupIds sg-2d012a34 -Region us-west-2                                                         
+    <code>New-APSImageBuilder -InstanceType stream.standard.medium -Name TestIB -DisplayName TestIB -ImageName AppStream-WinServer2012R2-12-12-2019 -EnableDefaultInternetAccess $True -VpcConfig_SubnetId subnet-a1234cfd -VpcConfig_SecurityGroupIds sg-2d012a34 -Region us-west-2                                                         
 AccessEndpoints             : {}
 AppstreamAgentVersion       : 12-16-2019
 Arn                         : arn:aws:appstream:us-west-2:123456789012:image-builder/TestIB

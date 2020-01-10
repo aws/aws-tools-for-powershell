@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>New-APSStack -Name TestStack -DisplayName TestStack -ApplicationSettings_Enabled True -ApplicationSettings_SettingsGroup TestStack -Region us-west-2                                                                                                                                                                              
+    <code>New-APSStack -Name TestStack -DisplayName TestStack -ApplicationSettings_Enabled $True -ApplicationSettings_SettingsGroup TestStack -Region us-west-2                                                                                                                                                                              
 AccessEndpoints     : {}
 ApplicationSettings : Amazon.AppStream.Model.ApplicationSettingsResponse
 Arn                 : arn:aws:appstream:us-west-2:123456789012:stack/TestStack
