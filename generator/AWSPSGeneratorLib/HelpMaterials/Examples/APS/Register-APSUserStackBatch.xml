@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Register-APSUserStackBatch -UserStackAssociation (New-Object -TypeName Amazon.AppStream.Model.UserStackAssociation -Property @{AuthenticationType="USERPOOL";SendEmailNotification="False";StackName="PowershellStack";UserName="TestUser1@lab.com"})</code>
+    <code>Register-APSUserStackBatch -UserStackAssociation (New-Object -TypeName Amazon.AppStream.Model.UserStackAssociation -Property @{AuthenticationType="USERPOOL";SendEmailNotification=$False;StackName="PowershellStack";UserName="TestUser1@lab.com"})</code>
     <description>This sample assigns stack to a user in USERPOOL</description>
   </example>
 </examples>
