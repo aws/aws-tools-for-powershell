@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-DSSnapshot -DirectoryId d-123456ijkl
+
+DirectoryId : d-123456ijkl
+Name        :
+SnapshotId  : s-9064bd1234
+StartTime   : 12/13/2019 6:33:01 PM
+Status      : Completed
+Type        : Auto
+
+DirectoryId : d-123456ijkl
+Name        :
+SnapshotId  : s-9064bb4321
+StartTime   : 12/9/2019 9:48:11 PM
+Status      : Completed
+Type        : Auto</code>
+    <description>This command gets information about the specified directory snapshots that belong to this account.</description>
+  </example>
+</examples>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-DSTrust -DirectoryId d-123456abcd
+
+CreatedDateTime          : 7/5/2019 4:55:42 AM
+DirectoryId              : d-123456abcd
+LastUpdatedDateTime      : 7/5/2019 4:56:04 AM
+RemoteDomainName         : contoso.com
+SelectiveAuth            : Disabled
+StateLastUpdatedDateTime : 7/5/2019 4:56:04 AM
+TrustDirection           : One-Way: Incoming
+TrustId                  : t-9067157123
+TrustState               : Created
+TrustStateReason         :
+TrustType                : Forest</code>
+    <description>This command gets the information of trust relationships created for specified directory-id.</description>
+  </example>
+</examples>

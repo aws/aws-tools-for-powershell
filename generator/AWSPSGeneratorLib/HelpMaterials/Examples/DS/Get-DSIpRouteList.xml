@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-DSIpRouteList -DirectoryId d-123456ijkl
+
+AddedDateTime       : 12/13/2019 12:27:22 PM
+CidrIp              : 203.0.113.5/32
+Description         : Public IP of On-Prem DNS Server
+DirectoryId         : d-123456ijkl
+IpRouteStatusMsg    : Added
+IpRouteStatusReason :</code>
+    <description>This command gets the public IP address blocks configured in Directory IP Routing</description>
+  </example>
+</examples>

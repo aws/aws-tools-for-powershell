@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-DSSharedDirectory -OwnerDirectoryId d-123456ijkl -SharedDirectoryId d-9067012345
+
+CreatedDateTime     : 12/30/2019 4:34:37 AM
+LastUpdatedDateTime : 12/30/2019 4:35:22 AM
+OwnerAccountId      : 123456781234
+OwnerDirectoryId    : d-123456ijkl
+SharedAccountId     : 123456784321
+SharedDirectoryId   : d-9067012345
+ShareMethod         : HANDSHAKE
+ShareNotes          : This is a test Sharing
+ShareStatus         : Shared</code>
+    <description>This example gets the shared directories of your AWS Account</description>
+  </example>
+</examples>

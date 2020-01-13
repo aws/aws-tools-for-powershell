@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Confirm-DSSharedDirectory -SharedDirectoryId d-9067012345
+
+CreatedDateTime     : 12/30/2019 4:20:27 AM
+LastUpdatedDateTime : 12/30/2019 4:21:40 AM
+OwnerAccountId      : 123456781234
+OwnerDirectoryId    : d-123456ijkl
+SharedAccountId     : 123456784321
+SharedDirectoryId   : d-9067012345
+ShareMethod         :
+ShareNotes          : This is test sharing
+ShareStatus         : Sharing</code>
+    <description>This example accepts a directory sharing request sent from the directory owner AWS account.</description>
+  </example>
+</examples>

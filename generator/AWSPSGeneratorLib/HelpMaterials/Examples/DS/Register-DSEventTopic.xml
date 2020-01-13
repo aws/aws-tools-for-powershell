@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Register-DSEventTopic -DirectoryId d-123456ijkl -TopicName snstopicname</code>
+    <description>This example associate a directory as a publisher with an SNS topic.</description>
+  </example>
+</examples>

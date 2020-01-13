@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-DSSnapshotLimit -DirectoryId d-123456ijkl
+
+ManualSnapshotsCurrentCount ManualSnapshotsLimit ManualSnapshotsLimitReached
+--------------------------- -------------------- ---------------------------
+0                           5                    False</code>
+    <description>This command gets the manual snapshot limits for a specified directory.</description>
+  </example>
+</examples>

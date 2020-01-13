@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>New-DSComputer -DirectoryId d-123456ijkl -ComputerName ADMemberServer -Password $Password
+
+ComputerAttributes                  ComputerId                                    ComputerName
+------------------                  ----------                                    ------------
+{WindowsSamName, DistinguishedName} S-1-5-21-1191241402-978882507-2717148213-1662 ADMemberServer</code>
+    <description>This example creates a new Active Directory computer object.</description>
+  </example>
+</examples>

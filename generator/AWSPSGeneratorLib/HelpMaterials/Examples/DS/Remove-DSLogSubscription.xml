@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-DSLogSubscription -DirectoryId d-123456ijkl</code>
+    <description>This command removes the Log Subscription of specified Directory-id</description>
+  </example>
+</examples>
