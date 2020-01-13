@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGConformancePack
+
+ConformancePackArn             : arn:aws:config:eu-west-1:123456789012:conformance-pack/dono/conformance-pack-p0acq8bpz
+ConformancePackId              : conformance-pack-p0acabcde
+ConformancePackInputParameters : {}
+ConformancePackName            : dono
+CreatedBy                      :
+DeliveryS3Bucket               : kt-ps-examples
+DeliveryS3KeyPrefix            :
+LastUpdateRequestedTime        : 12/31/2019 8:45:31 AM</code>
+    <description>This sample lists all conformance packs.</description>
+  </example>
+</examples>

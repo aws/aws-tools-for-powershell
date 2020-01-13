@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-CFGComplianceSummaryByResourceType -Select ComplianceSummariesByResourceType.ComplianceSummary | ConvertTo-Json
+{
+  "ComplianceSummaryTimestamp": "2019-12-14T06:14:49.778Z",
+  "CompliantResourceCount": {
+    "CapExceeded": false,
+    "CappedCount": 2
+  },
+  "NonCompliantResourceCount": {
+    "CapExceeded": true,
+    "CappedCount": 100
+  }
+}</code>
+    <description>This sample returns the number of resources that are compliant or noncompliant and converts the output to json.</description>
+  </example>
+</examples>
