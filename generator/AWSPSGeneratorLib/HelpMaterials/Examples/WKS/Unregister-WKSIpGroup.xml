@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Unregister-WKSIpGroup -GroupId wsipg-12abcdphq -DirectoryId d-123454b123</code>
+    <description>This sample unregisters the specified IP Group from the specified Directory</description>
+  </example>
+</examples>

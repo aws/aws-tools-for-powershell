@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Register-WKSIpGroup -GroupId wsipg-23ahsdres -DirectoryId d-123412e123</code>
+    <description>This sample registers the specified IP Group with the specified Directory</description>
+  </example>
+</examples>

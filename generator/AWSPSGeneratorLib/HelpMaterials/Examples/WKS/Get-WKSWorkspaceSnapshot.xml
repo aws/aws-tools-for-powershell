@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-WKSWorkspaceSnapshot -WorkspaceId ws-w361s100v
+
+RebuildSnapshots                   RestoreSnapshots
+----------------                   ----------------
+{Amazon.WorkSpaces.Model.Snapshot} {Amazon.WorkSpaces.Model.Snapshot}</code>
+    <description>This sample shows the timestamp of the most recent snapshot created for the specified Workspace</description>
+  </example>
+</examples>

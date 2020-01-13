@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Edit-WKSWorkspaceProperty -WorkspaceId ws-w361s100v -Region us-west-2 -WorkspaceProperties_RunningMode AUTO_STOP</code>
+    <description>This Sample changes the Workspace Running Mode Property to Auto Stop for the specified Workspace</description>
+  </example>
+</examples>
