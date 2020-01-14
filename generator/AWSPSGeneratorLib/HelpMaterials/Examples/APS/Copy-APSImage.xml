@@ -2,10 +2,8 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Copy-APSImage -DestinationImageName TestImageCopy -DestinationRegion us-west-1 -SourceImageName Powershell
+    <code>Copy-APSImage -DestinationImageName TestImageCopy -DestinationRegion us-west-2 -SourceImageName Powershell
 
-DestinationImageName
---------------------
 TestImageCopy</code>
     <description>This sample copies an image to other region</description>
   </example>
