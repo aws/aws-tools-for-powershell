@@ -2,8 +2,8 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>$json =  Get-LMPolicy -FunctionName "MylambdaFunction123" -Select Policy | ConvertFrom-Json| Select-Object -ExpandProperty Statement
-C:\> Remove-LMPermission -FunctionName "MylambdaFunction123" -StatementId $json[0].Sid</code>
+    <code>PS C:\> $policy =  Get-LMPolicy -FunctionName "MylambdaFunction123" -Select Policy | ConvertFrom-Json| Select-Object -ExpandProperty Statement
+PS C:\> Remove-LMPermission -FunctionName "MylambdaFunction123" -StatementId $policy[0].Sid</code>
     <description>This example removes the function policy for the specified StatementId of a Lambda Function.</description>
   </example>
 </examples>

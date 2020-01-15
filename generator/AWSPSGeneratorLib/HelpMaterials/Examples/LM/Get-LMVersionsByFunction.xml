@@ -2,7 +2,14 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Get-LMVersionsByFunction -FunctionName "MylambdaFunction123" -Select Versions</code>
+    <code>Get-LMVersionsByFunction -FunctionName "MylambdaFunction123"          
+
+FunctionName        Runtime   MemorySize Timeout CodeSize LastModified                 RoleName
+------------        -------   ---------- ------- -------- ------------                 --------
+MylambdaFunction123 python3.8        128     600      659 2020-01-10T03:20:56.390+0000 lambda
+MylambdaFunction123 python3.8        128       5     1426 2019-12-25T09:19:02.238+0000 lambda
+MylambdaFunction123 python3.8        128       5     1426 2019-12-25T09:39:36.779+0000 lambda
+MylambdaFunction123 python3.8        128     600     1426 2019-12-25T09:52:59.872+0000 lambda</code>
     <description>This example returns the list of version specific configurations for each version of the Lambda Function.</description>
   </example>
 </examples>

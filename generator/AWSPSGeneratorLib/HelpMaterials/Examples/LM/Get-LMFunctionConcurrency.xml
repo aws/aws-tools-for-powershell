@@ -2,7 +2,11 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Get-LMFunctionConcurrency -FunctionName "MylambdaFunction123" -Select *</code>
+    <code>Get-LMFunctionConcurrency -FunctionName "MylambdaFunction123" -Select *
+
+ReservedConcurrentExecutions
+----------------------------
+100</code>
     <description>This examples gets the Reserved concurrency for the Lambda Function</description>
   </example>
 </examples>
