@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-LMAccountSetting | Select-Object @{Name="TotalCodeSizeLimit";Expression={$_.AccountLimit.TotalCodeSize}}, @{Name="TotalCodeSizeUsed";Expression={$_.AccountUsage.TotalCodeSize}}
+
+TotalCodeSizeLimit TotalCodeSizeUsed
+------------------ -----------------
+       80530636800          15078795</code>
+    <description>This sample displays to compare the Account Limit and Account Usage</description>
+  </example>
+</examples>

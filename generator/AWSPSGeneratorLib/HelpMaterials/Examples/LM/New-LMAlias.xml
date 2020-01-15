@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>New-LMAlias -FunctionName "MylambdaFunction123" -RoutingConfig_AdditionalVersionWeight @{Name="1";Value="0.6} -Description "Alias for version 4" -FunctionVersion 4 -Name "PowershellAlias"</code>
+    <description>This example creates a New Lambda Alias for specified version and routing configuration to specify the percentage of invocation requests that it receives.</description>
+  </example>
+</examples>

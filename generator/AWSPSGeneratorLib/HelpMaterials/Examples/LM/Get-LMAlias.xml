@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-LMAlias -FunctionName "MylambdaFunction123" -Name "newlabel1" -Select RoutingConfig
+
+AdditionalVersionWeights
+------------------------
+{[1, 0.6]}</code>
+    <description>This example retrieves the Routing Config weights for a specific Lambda Function Alias.</description>
+  </example>
+</examples>
