@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-R53CheckerIpRanges   
+15.177.0.0/18
+54.183.255.128/26
+54.228.16.0/26
+54.232.40.64/26
+54.241.32.64/26
+54.243.31.192/26
+54.244.52.192/26
+54.245.168.0/26
+54.248.220.0/26
+54.250.253.192/26
+54.251.31.128/26
+54.252.79.128/26
+54.252.254.192/26
+54.255.254.192/26
+107.23.255.0/26
+176.34.159.192/26
+177.71.207.128/26</code>
+    <description>This example provides CIDR ranges of Route53 Health checkers.</description>
+  </example>
+</examples>
