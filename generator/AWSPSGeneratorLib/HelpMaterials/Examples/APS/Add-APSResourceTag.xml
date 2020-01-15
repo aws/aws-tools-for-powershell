@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Add-APSResourceTag -ResourceArn arn:aws:appstream:us-east-1:123456789012:stack/SessionScriptTest -Tag @{StackState='Test'} -Select ^Tag
+
+Name                           Value
+----                           -----
+StackState                     Test</code>
+    <description>This sample adds a resource Tag to AppStream resource</description>
+  </example>
+</examples>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Enable-APSUser -AuthenticationType USERPOOL -UserName TestUser@lab.com</code>
+    <description>This sample enables a disabled user in USERPOOL</description>
+  </example>
+</examples>

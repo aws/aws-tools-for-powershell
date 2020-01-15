@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Unregister-APSFleet -StackName TestStack -FleetName TestFleet -Region us-west-2</code>
+    <description>This sample unregisters a fleet from stack</description>
+  </example>
+</examples>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>New-APSStreamingURL -StackName SessionScriptTest -FleetName SessionScriptNew -UserId TestUser                   
+Expires                StreamingURL
+-------                ------------
+12/27/2019 12:43:37 PM https://appstream2.us-east-1.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiRU5EX1VTRVIiLCJleHBpcmVzIjoiMTU3NzQ1MDYxNyIsImF3c0FjY291bnRJZCI6IjM5MzQwMzgxMTQwNyIsInVzZXJJZCI6IlRlc3RVc2</code>
+    <description>This sample creates a streaming URL of Stack</description>
+  </example>
+</examples>

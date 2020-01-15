@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>New-APSImageBuilderStreamingURL -Name TestIB -Validity 7200 -Region us-west-2                                   
+Expires               StreamingURL
+-------               ------------
+12/27/2019 1:49:13 PM https://appstream2.us-west-2.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiQURNSU4iLCJleHBpcmVzIjoiMTU3NzQ1NDU1MyIsImF3c0FjY291bnRJZCI6IjM5MzQwMzgxMTQwNyIsInVzZXJJZCI6ImFkbWluIiwiY2F</code>
+    <description>This sample creates an ImageBuilder streaming URL with validity of 2 hours</description>
+  </example>
+</examples>

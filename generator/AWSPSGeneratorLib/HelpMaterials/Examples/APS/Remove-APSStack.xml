@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-APSStack -Name TestStack -Region us-west-2                                                               
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Remove-APSStack (DeleteStack)" on target "TestStack".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A</code>
+    <description>This sample deletes a Stack</description>
+  </example>
+</examples>

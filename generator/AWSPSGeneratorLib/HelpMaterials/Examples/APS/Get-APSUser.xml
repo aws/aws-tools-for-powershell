@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code> Get-APSUser -AuthenticationType USERPOOL | Select-Object UserName, AuthenticationType, Enabled
+
+UserName                   AuthenticationType Enabled
+--------                   ------------------ -------
+foo1@contoso.com USERPOOL              True
+foo2@contoso.com        USERPOOL              True
+foo3@contoso.com    USERPOOL              True
+foo4@contoso.com   USERPOOL              True
+foo5@contoso.com         USERPOOL              True</code>
+    <description>This Sample displays list of users with enabled status</description>
+  </example>
+</examples>

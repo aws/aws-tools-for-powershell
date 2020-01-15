@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-APSImagePermission -Name Powershell  | select SharedAccountId, @{n="AllowFleet";e={$_.ImagePermissions.AllowFleet}}, @{n="AllowImageBuilder";e={$_.ImagePermissions.AllowImageBuilder}}
+
+SharedAccountId AllowFleet AllowImageBuilder
+--------------- ---------- -----------------
+123456789012          True              True</code>
+    <description>This sample displays Image permissions on a shared AppStream Image</description>
+  </example>
+</examples>

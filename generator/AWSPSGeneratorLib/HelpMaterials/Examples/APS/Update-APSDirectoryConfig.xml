@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Update-APSDirectoryConfig -ServiceAccountCredentials_AccountName contoso\ServiceAccount -ServiceAccountCredentials_AccountPassword MyPass@1$@# -DirectoryName contoso.com -OrganizationalUnitDistinguishedName "OU=AppStreamNew,OU=Contoso,DC=Contoso,DC=com"
+
+CreatedTime           DirectoryName OrganizationalUnitDistinguishedNames           ServiceAccountCredentials
+-----------           ------------- ------------------------------------           -------------------------
+12/27/2019 3:50:02 PM contoso.com   {OU=AppStreamNew,OU=Contoso,DC=Contoso,DC=com} Amazon.AppStream.Model.ServiceAccountCredentials</code>
+    <description>This sample updates the Directory configuration created in AppStream</description>
+  </example>
+</examples>

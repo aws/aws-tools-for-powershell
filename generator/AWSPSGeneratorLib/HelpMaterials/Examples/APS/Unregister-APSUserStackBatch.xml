@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code> Unregister-APSUserStackBatch -UserStackAssociation @{AuthenticationType="USERPOOL";SendEmailNotification=$False;StackName="PowershellStack";UserName="TestUser1@lab.com"}</code>
+    <description>This sample removes an user from an assigned Stack</description>
+  </example>
+</examples>

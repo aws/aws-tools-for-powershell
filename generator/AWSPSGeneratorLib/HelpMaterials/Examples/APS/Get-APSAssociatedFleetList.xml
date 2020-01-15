@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-APSAssociatedFleetList -StackName PowershellStack
+
+PowershellFleet</code>
+    <description>This sample displays fleet associated with a stack</description>
+  </example>
+</examples>

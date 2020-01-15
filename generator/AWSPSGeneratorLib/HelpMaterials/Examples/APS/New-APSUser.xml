@@ -2,7 +2,8 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>New-APSUser -AuthenticationType USERPOOL -FirstName 'kt' -LastName 'aws' -MessageAction SUPPRESS -UserName kt-aws@amazon.com</code>
-    <description>This example creates a user in USERPOOL</description>
+    <code>New-APSUser -UserName Test@lab.com -AuthenticationType USERPOOL -FirstName 'kt' -LastName 'aws' -Select ^UserName
+Test@lab.com</code>
+    <description>This sample creates a user in USERPOOL</description>
   </example>
 </examples>

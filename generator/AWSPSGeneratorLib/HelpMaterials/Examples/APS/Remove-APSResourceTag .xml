@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-APSResourceTag -ResourceArn arn:aws:appstream:us-east-1:123456789012:stack/SessionScriptTest -TagKey StackState                                                                                                                                                                                                             
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Remove-APSResourceTag (UntagResource)" on target "arn:aws:appstream:us-east-1:123456789012:stack/SessionScriptTest".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A</code>
+    <description>This sample removes a resource tag from AppStream resource</description>
+  </example>
+</examples>

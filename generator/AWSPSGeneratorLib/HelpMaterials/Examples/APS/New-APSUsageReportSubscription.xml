@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>New-APSUsageReportSubscription                                                                                  
+S3BucketName                                   Schedule
+------------                                   --------
+appstream-logs-us-east-1-123456789012-sik2hnxe DAILY</code>
+    <description>This sample enables AppStream Usage Reports</description>
+  </example>
+</examples>
