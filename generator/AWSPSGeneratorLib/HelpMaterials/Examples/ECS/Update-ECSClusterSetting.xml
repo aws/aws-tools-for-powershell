@@ -3,7 +3,7 @@
 <examples>
   <example>
     <code>
-Update-ECSClusterSetting -Cluster "LAB-ECS-CL" -Setting (New-Object Amazon.ECS.Model.ClusterSetting -Property @{Name="containerInsights"; Value="disabled"})                                                                                                                                                                        
+Update-ECSClusterSetting -Cluster "LAB-ECS-CL" -Setting @{Name="containerInsights"; Value="disabled"}                                                                                                                                                                        
 
 ActiveServicesCount               : 0
 Attachments                       : {}

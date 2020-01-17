@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>New-ECSCluster -ClusterName "LAB-ECS-CL" -Setting (New-Object Amazon.ECS.Model.ClusterSetting -Property @{Name="containerInsights"; Value="enabled"})   
+    <code>New-ECSCluster -ClusterName "LAB-ECS-CL" -Setting @{Name="containerInsights"; Value="enabled"}
             
 ActiveServicesCount               : 0
 Attachments                       : {}

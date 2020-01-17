@@ -3,22 +3,7 @@
 <examples>
   <example>
     <code>
-PS C:\> $stepadjustment  = New-Object Amazon.ApplicationAutoScaling.Model.StepAdjustment
-PS C:\> $stepadjustment 
-
-MetricIntervalLowerBound MetricIntervalUpperBound ScalingAdjustment
------------------------- ------------------------ -----------------
-0                             0                        0
-
-PS C:\> $stepadjustment.ScalingAdjustment = -1
-PS C:\> $stepadjustment.MetricIntervalUpperBound = 0
-PS C:\> $stepadjustment
-
-MetricIntervalLowerBound MetricIntervalUpperBound ScalingAdjustment
------------------------- ------------------------ -----------------
-0                        0                        -1
-
-PS C:\> Set-AASScalingPolicy -ServiceNamespace AppStream -PolicyName ASFleetScaleInPolicy -PolicyType StepScaling -ResourceId fleet/MyFleet -ScalableDimension appstream:fleet:DesiredCapacity -StepScalingPolicyConfiguration_AdjustmentType ChangeInCapacity -StepScalingPolicyConfiguration_Cooldown 360 -StepScalingPolicyConfiguration_MetricAggregationType Average -StepScalingPolicyConfiguration_StepAdjustments $stepadjustment
+PS C:\> Set-AASScalingPolicy -ServiceNamespace AppStream -PolicyName ASFleetScaleInPolicy -PolicyType StepScaling -ResourceId fleet/MyFleet -ScalableDimension appstream:fleet:DesiredCapacity -StepScalingPolicyConfiguration_AdjustmentType ChangeInCapacity -StepScalingPolicyConfiguration_Cooldown 360 -StepScalingPolicyConfiguration_MetricAggregationType Average -StepScalingPolicyConfiguration_StepAdjustments @{ScalingAdjustment = -1; MetricIntervalUpperBound = 0}
 
 Alarms    PolicyARN
 ------    ---------
