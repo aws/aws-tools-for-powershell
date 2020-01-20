@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-S3ObjectTagSet -Key 'testfile.txt' -BucketName 'testbucket123'                                                           
+Key  Value
+---  -----
+test value</code>
+    <description>The sample returns the tags associated with the object present on the given S3 bucket.</description>
+  </example>
+</examples>

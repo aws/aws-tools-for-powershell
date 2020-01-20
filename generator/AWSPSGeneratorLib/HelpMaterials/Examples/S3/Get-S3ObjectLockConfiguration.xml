@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>PS C:\>Get-S3ObjectLockConfiguration -BucketName 's3buckettesting' -Select ObjectLockConfiguration.ObjectLockEnabled
+
+Value
+-----
+Enabled
+
+</code>
+    <description>This command returns the value 'Enabled' if Object lock configuration is enabled for the given S3 bucket.</description>
+  </example>
+</examples>

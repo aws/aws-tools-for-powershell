@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Write-S3BucketWebsite -BucketName 's3testbucket' -WebsiteConfiguration_IndexDocumentSuffix 'index.html' -WebsiteConfiguration_ErrorDocument 'error.html'</code>
+    <description>The command enables website hosting for the given bucket with the index document as 'index.html' and error document as 'error.html'.</description>
+  </example>
+</examples>

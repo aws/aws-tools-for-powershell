@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-S3Version -BucketName 's3testbucket'
+
+IsTruncated         : False
+KeyMarker           : 
+VersionIdMarker     : 
+NextKeyMarker       : 
+NextVersionIdMarker : 
+Versions            : {EC2.txt, EC2MicrosoftWindowsGuide.txt, ListDirectories.json, ListTrusts.json…}
+Name                : s3testbucket
+Prefix              : 
+MaxKeys             : 1000
+CommonPrefixes      : {}
+Delimiter           : </code>
+    <description>This command returns the metadata about all of the versions of objects in the given S3 bucket.</description>
+  </example>
+</examples>
