@@ -3,7 +3,7 @@
 <examples>
   <example>
     <code>Get-EKSClusterList
-                                                                                                                                    PROD
+ PROD
 </code>
     <description>This cmdlet lists the Amazon EKS clusters in your AWS account in the specified Region.</description>
   </example>

@@ -2,9 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>
-Update-ECSClusterSetting -Cluster "LAB-ECS-CL" -Setting @{Name="containerInsights"; Value="disabled"}                                                                                                                                                                        
-
+    <code>Update-ECSClusterSetting -Cluster "LAB-ECS-CL" -Setting @{Name="containerInsights"; Value="disabled"}                                                                                                                                                                        
 ActiveServicesCount               : 0
 Attachments                       : {}
 AttachmentsStatus                 :
