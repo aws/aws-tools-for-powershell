@@ -248,7 +248,7 @@ namespace AWSPowerShellGenerator.Generators
                         writer.WriteElementString("name", parameter.CmdletParameterName);
                         writer.WriteStartElement("description");
                         {
-                            writer.WriteUnescapedElementString("para", parameter.PowershellDocumentation);
+                            writer.WriteRawElementString("para", parameter.PowershellDocumentation);
                         }
                         writer.WriteEndElement();
 
@@ -288,7 +288,7 @@ namespace AWSPowerShellGenerator.Generators
                         writer.WriteElementString("name", property.Name);
                         writer.WriteStartElement("description");
                         {
-                            writer.WriteUnescapedElementString("para", property.PowershellDocumentation);
+                            writer.WriteRawElementString("para", property.PowershellDocumentation);
                         }
                         writer.WriteEndElement();
 

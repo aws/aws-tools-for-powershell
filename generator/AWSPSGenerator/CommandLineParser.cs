@@ -169,7 +169,7 @@ namespace AWSPowerShellGenerator
                 OptionName = "sdkassembliesfolder", 
                 ShortName = "sdk", 
                 HasValue = true,
-                Parse = (arguments, argValue) => arguments.ParsedOptions.SdkAssembliesFolder = argValue, 
+                Parse = (arguments, argValue) => arguments.ParsedOptions.SdkAssembliesFolder = Path.GetFullPath(argValue), 
                 HelpText = "The folder containing the built sdk assemblies to be used in generating cmdlets."
             },
             new ArgDeclaration
@@ -177,7 +177,7 @@ namespace AWSPowerShellGenerator
                 OptionName = "rootpath",
                 ShortName = "rp",
                 HasValue = true,
-                Parse = (arguments, argValue) => arguments.ParsedOptions.RootPath = argValue,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.RootPath = Path.GetFullPath(argValue),
                 HelpText = "The root folder location containing the generator and artifacts. Subpaths to the various components and deployment artifacts will be inferred from this location."
             },
             new ArgDeclaration
@@ -209,7 +209,7 @@ namespace AWSPowerShellGenerator
                 OptionName = "moduleslocation",
                 ShortName = "ml",
                 HasValue = true,
-                Parse = (arguments, argValue) => arguments.ParsedOptions.BuiltModulesLocation = argValue,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.BuiltModulesLocation = Path.GetFullPath(argValue),
                 HelpText = "The folder location containing the built AWSPowerShell module(s). Used when generating web docs in a separate build process."
             },
             new ArgDeclaration
@@ -225,7 +225,7 @@ namespace AWSPowerShellGenerator
                 OptionName = "docoutputfolder",
                 ShortName = "dof",
                 HasValue = true,
-                Parse = (arguments, argValue) => arguments.ParsedOptions.DocOutputFolder = argValue,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.DocOutputFolder = Path.GetFullPath(argValue),
                 HelpText = "The folder location that will hold the generated web docs. Used when generating web docs in a separate build process."
             },
             new ArgDeclaration

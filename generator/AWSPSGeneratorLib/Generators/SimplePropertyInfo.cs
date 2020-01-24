@@ -554,15 +554,20 @@ namespace AWSPowerShellGenerator.Generators
 
             var doc = new XmlDocument();
 
-            string newXml;
+            string newXml = text;
             try
             {
-                doc.LoadXml(text);
-                newXml = doc.DocumentElement.InnerXml;
+                //Adding an outer element because sometimes there are more elements than one in the xml block
+                //and it would fail the parsing
+                doc.LoadXml("<root>" + text + "</root>");
+                var rootElement = doc.DocumentElement;
+                if (rootElement.ChildNodes.Count == 1 && (rootElement.ChildNodes[0] as XmlElement)?.Name == "para")
+                {
+                    newXml = rootElement["para"].InnerXml.Trim();
+                }
             }
-            catch
+            catch (Exception e)
             {
-                newXml = text;
             }
             return newXml;
         }
