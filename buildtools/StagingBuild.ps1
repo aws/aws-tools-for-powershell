@@ -16,6 +16,12 @@ param (
   [string] $S3Prefix,
 
   [Parameter()]
+  [string] $S3OverridesKey,
+
+  [Parameter()]
+  [string] $S3OverridesVersion,
+
+  [Parameter()]
   [string] $Configuration = 'Release',
 
   [Parameter()]
@@ -34,6 +40,11 @@ Import-Module -Name AWS.Tools.S3 -RequiredVersion $AWSPowerShellVersion
 
 Write-Host "Downloading $SdkVersionsFileUri"
 Invoke-WebRequest -Uri $SdkVersionsFileUri -OutFile ./Include/sdk/_sdk-versions.json
+
+if ($S3OverridesKey) {
+  Write-Host "Downloading $BuildS3Bucket $S3OverridesKey $S3OverridesVersion"
+  Read-S3Object -BucketName $BuildS3Bucket -Key $S3OverridesKey -Version $S3OverridesVersion -File ./overrides.xml
+}
 
 dotnet msbuild ./buildtools/build.proj /t:preview-build /p:BreakOnNewOperations=true /p:Configuration=$Configuration
 $BuildResult = $LASTEXITCODE

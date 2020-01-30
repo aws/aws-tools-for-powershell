@@ -16,6 +16,12 @@ param (
   [string] $S3Prefix,
 
   [Parameter()]
+  [string] $S3OverridesKey,
+
+  [Parameter()]
+  [string] $S3OverridesVersion,
+
+  [Parameter()]
   [string] $Configuration = 'Release',
 
   [Parameter()]
@@ -48,6 +54,11 @@ Else {
   Invoke-WebRequest -Uri $SdkArtifactsZipUri -OutFile ./Include/sdk.zip
 }
 Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdk -Force
+
+if ($S3OverridesKey) {
+  Write-Host "Downloading $BuildS3Bucket $S3OverridesKey $S3OverridesVersion"
+  Read-S3Object -BucketName $BuildS3Bucket -Key $S3OverridesKey -Version $S3OverridesVersion -File ./overrides.xml
+}
 
 dotnet msbuild ./buildtools/build.proj /t:preview-build /p:CleanSdkReferences=false /p:BreakOnNewOperations=true /p:Configuration=$Configuration
 $BuildResult = $LASTEXITCODE
