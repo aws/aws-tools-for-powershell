@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Update-R53HostedZoneComment -Id Z385PDS6AAAAAR -Comment "This is my first hosted zone"
+
+Id                     : /hostedzone/Z385PDS6AAAAAR
+Name                   : example.com.
+CallerReference        : C5B55555-7147-EF04-8341-69131E805C89
+Config                 : Amazon.Route53.Model.HostedZoneConfig
+ResourceRecordSetCount : 9
+LinkedService          : </code>
+    <description>This command updates the comment for the specified hosted zone.</description>
+  </example>
+</examples>

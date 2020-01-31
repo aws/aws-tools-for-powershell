@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Remove-R53ReusableDelegationSet -Id N23DS9X4AYAAAM</code>
+    <description>This command deletes the specified reusable delegation set.</description>
+  </example>
+</examples>

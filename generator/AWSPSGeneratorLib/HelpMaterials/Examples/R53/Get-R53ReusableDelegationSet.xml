@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-R53ReusableDelegationSet -Id N23DS9X4AYEAAA
+
+Id                            CallerReference NameServers
+--                            --------------- -----------
+/delegationset/N23DS9X4AYEAAA testcaller      {ns-545.awsdns-04.net, ns-1264.awsdns-30.org, ns-2004.awsdns-58.co.uk, ns-240.awsdns-30.com}</code>
+    <description>This command retrieves information about the specified delegation set including the four name servers that are assigned to the delegation set.</description>
+  </example>
+</examples>
