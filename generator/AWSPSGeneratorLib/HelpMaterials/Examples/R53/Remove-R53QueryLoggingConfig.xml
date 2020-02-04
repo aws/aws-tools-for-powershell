@@ -3,6 +3,6 @@
 <examples>
   <example>
     <code>Remove-R53QueryLoggingConfig -Id ee528e95-4e03-4fdc-9d28-9e24daaa20063</code>
-    <description>This command removes the specified configuration for DNS query logging.</description>
+    <description>This example removes the specified configuration for DNS query logging.</description>
   </example>
 </examples>

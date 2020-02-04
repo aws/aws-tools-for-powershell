@@ -7,6 +7,6 @@
 Id                            CallerReference NameServers
 --                            --------------- -----------
 /delegationset/N23DS9X4AYEAAA testcaller      {ns-545.awsdns-04.net, ns-1264.awsdns-30.org, ns-2004.awsdns-58.co.uk, ns-240.awsdns-30.com}</code>
-    <description>This command retrieves information about the specified delegation set including the four name servers that are assigned to the delegation set.</description>
+    <description>This example retrieves information about the specified delegation set including the four name servers that are assigned to the delegation set.</description>
   </example>
 </examples>

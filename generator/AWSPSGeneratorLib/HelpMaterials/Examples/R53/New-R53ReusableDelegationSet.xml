@@ -2,19 +2,10 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>New-R53ReusableDelegationSet -CallerReference testcaller
-
+    <code>New-R53ReusableDelegationSet -CallerReference testcallerreference
 DelegationSet                      Location
 -------------                      --------
-Amazon.Route53.Model.DelegationSet https://route53.amazonaws.com/2013-04-01/delegationset/N23DS9X4AAAAXM</code>
-    <description>This command creates a reusable delegation set of 4 name servers that can be resused by multiple hosted zones.</description>
-  </example>
-  <example>
-    <code>New-R53ReusableDelegationSet -HostedZoneId Z38AAAS6E26EZR -CallerReference testcaller1
-
-DelegationSet                      Location
--------------                      --------
-Amazon.Route53.Model.DelegationSet https://route53.amazonaws.com/2013-04-01/delegationset/N4LO1MZ0FAA2L</code>
-    <description>This command marks the delegation set for an existing hosted zone as reusable.</description>
+Amazon.Route53.Model.DelegationSet https://route53.amazonaws.com/2013-04-01/delegationset/N23DS9XAAAAAXM</code>
+    <description>This example creates a reusable delegation set of 4 name servers that can be resused by multiple hosted zones.</description>
   </example>
 </examples>

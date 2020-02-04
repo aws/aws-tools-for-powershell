@@ -4,6 +4,6 @@
   <example>
     <code> Get-R53HostedZoneLimit -HostedZoneId Z3MEQ8T7HAAAAF -Type MAX_RRSETS_BY_ZONE
 5</code>
-    <description>This command returns the limit on the maximum number of records that can be created in the specified hosted zone.</description>
+    <description>This example returns the limit on the maximum number of records that can be created in the specified hosted zone.</description>
   </example>
 </examples>

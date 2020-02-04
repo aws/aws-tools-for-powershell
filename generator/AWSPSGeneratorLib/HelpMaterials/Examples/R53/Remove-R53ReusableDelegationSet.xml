@@ -3,6 +3,6 @@
 <examples>
   <example>
     <code>Remove-R53ReusableDelegationSet -Id N23DS9X4AYAAAM</code>
-    <description>This command deletes the specified reusable delegation set.</description>
+    <description>This example deletes the specified reusable delegation set.</description>
   </example>
 </examples>

@@ -9,6 +9,6 @@ Id                                   HostedZoneId   CloudWatchLogsLogGroupArn
 59b0fa33-4fea-4471-a88c-926476aaa40d Z385PDS6EAAAZR arn:aws:logs:us-east-1:111111111112:log-group:/aws/route53/example1.com:*
 ee528e95-4e03-4fdc-9d28-9e24ddaaa063 Z94SJHBV1AAAAZ arn:aws:logs:us-east-1:111111111112:log-group:/aws/route53/example2.com:*
 e38dddda-ceb6-45c1-8cb7-f0ae56aaaa2b Z3MEQ8T7AAA1BF arn:aws:logs:us-east-1:111111111112:log-group:/aws/route53/example3.com:*</code>
-    <description>This command returns all the configurations for DNS query logging that are associated with the current AWS account.</description>
+    <description>This example returns all the configurations for DNS query logging that are associated with the current AWS account.</description>
   </example>
 </examples>

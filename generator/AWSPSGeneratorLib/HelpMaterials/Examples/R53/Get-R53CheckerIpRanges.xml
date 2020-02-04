@@ -2,7 +2,7 @@
 <!--Examples for the AWS PowerShell CmdLets-->
 <examples>
   <example>
-    <code>Get-R53CheckerIpRanges   
+    <code>Get-R53CheckerIpRanges
 15.177.2.0/23
 15.177.6.0/23
 15.177.10.0/23
@@ -35,6 +35,6 @@
 107.23.255.0/26
 176.34.159.192/26
 177.71.207.128/26</code>
-    <description>This sample returns the CIDRs for the Route53 health checkers</description>
+    <description>This example returns the CIDRs for the Route53 health checkers</description>
   </example>
 </examples>
