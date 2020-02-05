@@ -3293,6 +3293,9 @@ Set-Alias -Name Create-DSYNAgent -Value New-DSYNAgent
 Set-Alias -Name DSYN-CreateAgent -Value New-DSYNAgent
 Set-Alias -Name Create-DSYNLocationEfs -Value New-DSYNLocationEfs
 Set-Alias -Name DSYN-CreateLocationEfs -Value New-DSYNLocationEfs
+Set-Alias -Name Create-DSYNLocationFsxWindows -Value New-DSYNLocationFsxWindow
+Set-Alias -Name Create-DSYNLocationFsxWindow -Value New-DSYNLocationFsxWindow
+Set-Alias -Name DSYN-CreateLocationFsxWindows -Value New-DSYNLocationFsxWindow
 Set-Alias -Name Create-DSYNLocationNfs -Value New-DSYNLocationNfs
 Set-Alias -Name DSYN-CreateLocationNfs -Value New-DSYNLocationNfs
 Set-Alias -Name Create-DSYNLocationS3 -Value New-DSYNLocationS3
@@ -3311,6 +3314,9 @@ Set-Alias -Name Describe-DSYNAgent -Value Get-DSYNAgent
 Set-Alias -Name DSYN-DescribeAgent -Value Get-DSYNAgent
 Set-Alias -Name Describe-DSYNLocationEfs -Value Get-DSYNLocationEfs
 Set-Alias -Name DSYN-DescribeLocationEfs -Value Get-DSYNLocationEfs
+Set-Alias -Name Describe-DSYNLocationFsxWindows -Value Get-DSYNLocationFsxWindow
+Set-Alias -Name Describe-DSYNLocationFsxWindow -Value Get-DSYNLocationFsxWindow
+Set-Alias -Name DSYN-DescribeLocationFsxWindows -Value Get-DSYNLocationFsxWindow
 Set-Alias -Name Describe-DSYNLocationNfs -Value Get-DSYNLocationNfs
 Set-Alias -Name DSYN-DescribeLocationNfs -Value Get-DSYNLocationNfs
 Set-Alias -Name Describe-DSYNLocationS3 -Value Get-DSYNLocationS3
@@ -8010,6 +8016,9 @@ Set-Alias -Name MSK-ListConfigurationRevisions -Value Get-MSKConfigurationRevisi
 Set-Alias -Name List-MSKConfigurations -Value Get-MSKConfigurationList
 Set-Alias -Name List-MSKConfigurationList -Value Get-MSKConfigurationList
 Set-Alias -Name MSK-ListConfigurations -Value Get-MSKConfigurationList
+Set-Alias -Name List-MSKKafkaVersions -Value Get-MSKKafkaVersionList
+Set-Alias -Name List-MSKKafkaVersionList -Value Get-MSKKafkaVersionList
+Set-Alias -Name MSK-ListKafkaVersions -Value Get-MSKKafkaVersionList
 Set-Alias -Name List-MSKNodes -Value Get-MSKNodeList
 Set-Alias -Name List-MSKNodeList -Value Get-MSKNodeList
 Set-Alias -Name MSK-ListNodes -Value Get-MSKNodeList
@@ -10460,6 +10469,8 @@ Set-Alias -Name Authorize-RDSDBSecurityGroupIngress -Value Enable-RDSDBSecurityG
 Set-Alias -Name RDS-AuthorizeDBSecurityGroupIngress -Value Enable-RDSDBSecurityGroupIngress
 Set-Alias -Name Backtrack-RDSDBCluster -Value Reset-RDSDBCluster
 Set-Alias -Name RDS-BacktrackDBCluster -Value Reset-RDSDBCluster
+Set-Alias -Name Cancel-RDSExportTask -Value Stop-RDSExportTask
+Set-Alias -Name RDS-CancelExportTask -Value Stop-RDSExportTask
 Set-Alias -Name RDS-CopyDBClusterParameterGroup -Value Copy-RDSDBClusterParameterGroup
 Set-Alias -Name RDS-CopyDBClusterSnapshot -Value Copy-RDSDBClusterSnapshot
 Set-Alias -Name RDS-CopyDBParameterGroup -Value Copy-RDSDBParameterGroup
@@ -10614,6 +10625,9 @@ Set-Alias -Name RDS-DescribeEvents -Value Get-RDSEvent
 Set-Alias -Name Describe-RDSEventSubscriptions -Value Get-RDSEventSubscription
 Set-Alias -Name Describe-RDSEventSubscription -Value Get-RDSEventSubscription
 Set-Alias -Name RDS-DescribeEventSubscriptions -Value Get-RDSEventSubscription
+Set-Alias -Name Describe-RDSExportTasks -Value Get-RDSExportTask
+Set-Alias -Name Describe-RDSExportTask -Value Get-RDSExportTask
+Set-Alias -Name RDS-DescribeExportTasks -Value Get-RDSExportTask
 Set-Alias -Name Describe-RDSGlobalClusters -Value Get-RDSGlobalCluster
 Set-Alias -Name Describe-RDSGlobalCluster -Value Get-RDSGlobalCluster
 Set-Alias -Name RDS-DescribeGlobalClusters -Value Get-RDSGlobalCluster
@@ -10714,6 +10728,7 @@ Set-Alias -Name RDS-RevokeDBSecurityGroupIngress -Value Revoke-RDSDBSecurityGrou
 Set-Alias -Name RDS-StartActivityStream -Value Start-RDSActivityStream
 Set-Alias -Name RDS-StartDBCluster -Value Start-RDSDBCluster
 Set-Alias -Name RDS-StartDBInstance -Value Start-RDSDBInstance
+Set-Alias -Name RDS-StartExportTask -Value Start-RDSExportTask
 Set-Alias -Name RDS-StopActivityStream -Value Stop-RDSActivityStream
 Set-Alias -Name RDS-StopDBCluster -Value Stop-RDSDBCluster
 Set-Alias -Name RDS-StopDBInstance -Value Stop-RDSDBInstance
@@ -13656,6 +13671,7 @@ Set-Alias -Name WM-ListResourceDelegates -Value Get-WMDelegateList
 Set-Alias -Name List-WMResources -Value Get-WMResourceList
 Set-Alias -Name List-WMResourceList -Value Get-WMResourceList
 Set-Alias -Name WM-ListResources -Value Get-WMResourceList
+Set-Alias -Name WM-ListTagsForResource -Value Get-WMResourceTag
 Set-Alias -Name List-WMUsers -Value Get-WMUserList
 Set-Alias -Name List-WMUserList -Value Get-WMUserList
 Set-Alias -Name WM-ListUsers -Value Get-WMUserList
@@ -13664,6 +13680,8 @@ Set-Alias -Name Put-WMMailboxPermission -Value Write-WMMailboxPermission
 Set-Alias -Name WM-PutMailboxPermissions -Value Write-WMMailboxPermission
 Set-Alias -Name WM-RegisterToWorkMail -Value Register-WMToWorkMail
 Set-Alias -Name WM-ResetPassword -Value Reset-WMPassword
+Set-Alias -Name WM-TagResource -Value Add-WMResourceTag
+Set-Alias -Name WM-UntagResource -Value Remove-WMResourceTag
 Set-Alias -Name WM-UpdateMailboxQuota -Value Update-WMMailboxQuota
 Set-Alias -Name WM-UpdatePrimaryEmailAddress -Value Update-WMPrimaryEmailAddress
 Set-Alias -Name WM-UpdateResource -Value Update-WMResource

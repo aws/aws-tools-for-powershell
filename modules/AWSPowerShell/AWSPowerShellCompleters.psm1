@@ -8292,6 +8292,7 @@ $DSYN_SelectMap = @{
     "Select"=@("Stop-DSYNTaskExecution",
                "New-DSYNAgent",
                "New-DSYNLocationEfs",
+               "New-DSYNLocationFsxWindow",
                "New-DSYNLocationNfs",
                "New-DSYNLocationS3",
                "New-DSYNLocationSmb",
@@ -8301,6 +8302,7 @@ $DSYN_SelectMap = @{
                "Remove-DSYNTask",
                "Get-DSYNAgent",
                "Get-DSYNLocationEfs",
+               "Get-DSYNLocationFsxWindow",
                "Get-DSYNLocationNfs",
                "Get-DSYNLocationS3",
                "Get-DSYNLocationSmb",
@@ -17225,7 +17227,8 @@ $MSK_SelectMap = @{
                "Update-MSKBrokerCount",
                "Update-MSKBrokerStorage",
                "Update-MSKClusterConfiguration",
-               "Update-MSKMonitoring")
+               "Update-MSKMonitoring",
+               "Get-MSKKafkaVersionList")
 }
 
 _awsArgumentCompleterRegistration $MSK_SelectCompleters $MSK_SelectMap
@@ -23701,6 +23704,7 @@ $RDS_SelectMap = @{
                "Submit-RDSPendingMaintenanceAction",
                "Enable-RDSDBSecurityGroupIngress",
                "Reset-RDSDBCluster",
+               "Stop-RDSExportTask",
                "Copy-RDSDBClusterParameterGroup",
                "Copy-RDSDBClusterSnapshot",
                "Copy-RDSDBParameterGroup",
@@ -23766,6 +23770,7 @@ $RDS_SelectMap = @{
                "Get-RDSEventCategory",
                "Get-RDSEvent",
                "Get-RDSEventSubscription",
+               "Get-RDSExportTask",
                "Get-RDSGlobalCluster",
                "Get-RDSInstallationMedia",
                "Get-RDSOptionGroupOption",
@@ -23818,6 +23823,7 @@ $RDS_SelectMap = @{
                "Start-RDSActivityStream",
                "Start-RDSDBCluster",
                "Start-RDSDBInstance",
+               "Start-RDSExportTask",
                "Stop-RDSActivityStream",
                "Stop-RDSDBCluster",
                "Stop-RDSDBInstance")
@@ -30564,7 +30570,10 @@ $WM_SelectMap = @{
                "Reset-WMPassword",
                "Update-WMMailboxQuota",
                "Update-WMPrimaryEmailAddress",
-               "Update-WMResource")
+               "Update-WMResource",
+               "Get-WMResourceTag",
+               "Add-WMResourceTag",
+               "Remove-WMResourceTag")
 }
 
 _awsArgumentCompleterRegistration $WM_SelectCompleters $WM_SelectMap

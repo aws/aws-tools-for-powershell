@@ -107,12 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 context.Select = CreateSelectDelegate<Amazon.Translate.Model.ListTerminologiesResponse, GetTRNTerminologyListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (ParameterWasBound(nameof(this.MaxResult)))
-            {
-                context.MaxResult = this.MaxResult;
-            }
+            context.MaxResult = this.MaxResult;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxResult)))
             {
                 WriteVerbose("MaxResult parameter unset, using default value of '500'");
                 context.MaxResult = 500;
@@ -215,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResult))
+            if (cmdletContext.MaxResult.HasValue)
             {
                 // The service has a maximum page size of 500. If the user has
                 // asked for more items than page max, and there is no page size
@@ -233,10 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(500, _emitLimit.Value);
+                    int correctPageSize = Math.Min(500, _emitLimit.Value);
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxResult)))
                 {
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(500);
                 }

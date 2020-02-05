@@ -42,12 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_ACMCertificateArn
         /// <summary>
         /// <para>
-        /// <para>If you want viewers to use HTTPS to request your objects and you're using an alternate
-        /// domain name, you must choose the type of certificate that you want to use. If ACM
-        /// provided your certificate, specify the Amazon Resource Name (ARN) for the ACM certificate
-        /// that you want to use for this distribution. CloudFront only supports ACM certificates
-        /// in the US East (N. Virginia) Region (us-east-1).</para><para>If you specify an ACM certificate ARN, you must also specify an SSL support method
-        /// (<code>sni-only</code> or <code>vip</code>).</para>
+        /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
+        /// the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">AWS
+        /// Certificate Manager (ACM)</a>, provide the Amazon Resource Name (ARN) of the ACM certificate.
+        /// CloudFront only supports ACM certificates in the US East (N. Virginia) Region (<code>us-east-1</code>).</para><para>If you specify an ACM certificate ARN, you must also specify values for <code>MinimumProtocolVerison</code>
+        /// and <code>SSLSupportMethod</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_CloudFrontDefaultCertificate
         /// <summary>
         /// <para>
-        /// <para>If you're using the CloudFront domain name for your distribution, such as <code>d111111abcdef8.cloudfront.net</code>,
-        /// specify this value as <code>true</code>.</para>
+        /// <para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
+        /// set this field to <code>true</code>.</para><para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
+        /// set this field to <code>false</code> and specify values for the following fields:</para><ul><li><para><code>ACMCertificateArn</code> or <code>IAMCertificateId</code> (specify a value
+        /// for one, not both)</para></li><li><para><code>MinimumProtocolVersion</code></para></li><li><para><code>SSLSupportMethod</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -240,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>Specifies which cookies to forward to the origin for this cache behavior: all, none,
         /// or the list of cookies specified in the <code>WhitelistedNames</code> complex type.</para><para>Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests
-        /// to an Amazon S3 origin, specify none for the <code>Forward</code> element. </para>
+        /// to an Amazon S3 origin, specify none for the <code>Forward</code> element.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -275,12 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_IAMCertificateId
         /// <summary>
         /// <para>
-        /// <para>If you want viewers to use HTTPS to request your objects and you're using an alternate
-        /// domain name, you must choose the type of certificate that you want to use. If you
-        /// purchased your certificate from a third-party certificate authority and uploaded it
-        /// to the IAM certificate store, specify the certificate ID that you want to use for
-        /// this distribution.</para><para>If you specify a certificate ID, you must also specify an SSL support method (<code>sni-only</code>
-        /// or <code>vip</code>).</para>
+        /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs) and
+        /// the SSL/TLS certificate is stored in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">AWS
+        /// Identity and Access Management (AWS IAM)</a>, provide the ID of the IAM certificate.</para><para>If you specify an IAM certificate ID, you must also specify values for <code>MinimumProtocolVerison</code>
+        /// and <code>SSLSupportMethod</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -397,7 +396,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A complex type that contains one <code>Name</code> element for each cookie that you
-        /// want CloudFront to forward to the origin for this cache behavior.</para>
+        /// want CloudFront to forward to the origin for this cache behavior. It must contain
+        /// the same number of items that is specified in the <code>Quantity</code> field.</para><para>When you set <code>Forward = whitelist</code> (in the <code>CookiePreferences</code>
+        /// object), this field must contain at least one item.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -535,17 +536,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_MinimumProtocolVersion
         /// <summary>
         /// <para>
-        /// <para>Specify the security policy that you want CloudFront to use for HTTPS connections.
-        /// A security policy determines two settings:</para><ul><li><para>The minimum SSL/TLS protocol that CloudFront uses to communicate with viewers.</para></li><li><para>The cipher that CloudFront uses to encrypt the content that it returns to viewers.</para></li></ul><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>We recommend that you specify <code>TLSv1.1_2016</code> unless your viewers are using
-        /// browsers or devices that do not support TLSv1.1 or later.</para><para>When both of the following are true, you must specify <code>TLSv1</code> or later
-        /// for the security policy: </para><ul><li><para>You're using a custom certificate; that is, you specified a value for <code>ACMCertificateArn</code>
-        /// or for <code>IAMCertificateId</code>.</para></li><li><para>You're using SNI; that is, you specified <code>sni-only</code> for <code>SSLSupportMethod</code>.</para></li></ul><para>If you specify <code>true</code> for <code>CloudFrontDefaultCertificate</code>, CloudFront
+        /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
+        /// specify the security policy that you want CloudFront to use for HTTPS connections
+        /// with viewers. The security policy determines two settings:</para><ul><li><para>The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.</para></li><li><para>The ciphers that CloudFront can use to encrypt the content that it returns to viewers.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy">Security
+        /// Policy</a> and <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers">Supported
+        /// Protocols and Ciphers Between Viewers and CloudFront</a> in the <i>Amazon CloudFront
+        /// Developer Guide</i>.</para><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>We recommend that you specify <code>TLSv1.2_2018</code> unless your viewers are using
+        /// browsers or devices that don’t support TLSv1.2.</para><para>When you’re using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
+        /// you must specify <code>TLSv1</code> or higher. </para><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>
+        /// (you set <code>CloudFrontDefaultCertificate</code> to <code>true</code>), CloudFront
         /// automatically sets the security policy to <code>TLSv1</code> regardless of the value
-        /// that you specify here.</para><para>For information about the relationship between the security policy that you choose
-        /// and the protocols and ciphers that CloudFront uses to communicate with viewers, see
-        /// <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers">
-        /// Supported SSL/TLS Protocols and Ciphers for Communication Between Viewers and CloudFront</a>
-        /// in the <i>Amazon CloudFront Developer Guide</i>.</para>
+        /// that you set here.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -680,7 +681,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The number of different cookies that you want CloudFront to forward to the origin
-        /// for this cache behavior.</para>
+        /// for this cache behavior. The value must equal the number of items that are in the
+        /// <code>Items</code> field.</para><para>When you set <code>Forward = whitelist</code> (in the <code>CookiePreferences</code>
+        /// object), this value must be <code>1</code> or higher.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -853,21 +856,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_SSLSupportMethod
         /// <summary>
         /// <para>
-        /// <para>If you specify a value for <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-ACMCertificateArn">ACMCertificateArn</a>
-        /// or for <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-IAMCertificateId">IAMCertificateId</a>,
-        /// you must also specify how you want CloudFront to serve HTTPS requests: using a method
-        /// that works for browsers and clients released after 2010, or one that works for all
-        /// clients.</para><ul><li><para><code>sni-only</code>: CloudFront can respond to HTTPS requests from viewers that
-        /// support Server Name Indication (SNI). All modern browsers support SNI, but there are
-        /// a few that don't. For a current list of the browsers that support SNI, see the <a href="http://en.wikipedia.org/wiki/Server_Name_Indication">Wikipedia entry Server
-        /// Name Indication</a>. To learn about options to explore if you have viewers with browsers
-        /// that don't include SNI support, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-https-dedicated-ip-or-sni.html">Choosing
-        /// How CloudFront Serves HTTPS Requests</a> in the <i>Amazon CloudFront Developer Guide</i>.</para></li><li><para><code>vip</code>: CloudFront uses dedicated IP addresses for your content and can
-        /// respond to HTTPS requests from any viewer. However, there are additional monthly charges.
-        /// For details, including specific pricing information, see <a href="http://aws.amazon.com/cloudfront/custom-ssl-domains/">Custom
-        /// SSL options for Amazon CloudFront</a> on the AWS marketing site.</para></li></ul><para>Don't specify a value here if you specified <code>CloudFrontDefaultCertificate</code>
-        /// as <code>true</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-https-dedicated-ip-or-sni.html">Choosing
-        /// How CloudFront Serves HTTPS Requests</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
+        /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
+        /// specify which viewers the distribution accepts HTTPS connections from.</para><ul><li><para><code>sni-only</code> – The distribution accepts HTTPS connections from only viewers
+        /// that support <a href="https://en.wikipedia.org/wiki/Server_Name_Indication">server
+        /// name indication (SNI)</a>. This is recommended. Most browsers and clients released
+        /// after 2010 support SNI.</para></li><li><para><code>vip</code> – The distribution accepts HTTPS connections from all viewers including
+        /// those that don’t support SNI. This is not recommended, and results in additional monthly
+        /// charges from CloudFront.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
+        /// don’t set a value for this field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -952,7 +948,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_Certificate
         /// <summary>
         /// <para>
-        /// <para>This field is no longer used. Use one of the following fields instead:</para><ul><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-ACMCertificateArn">ACMCertificateArn</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-IAMCertificateId">IAMCertificateId</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-CloudFrontDefaultCertificate">CloudFrontDefaultCertificate</a></para></li></ul>
+        /// <para>This field is deprecated. Use one of the following fields instead:</para><ul><li><para><code>ACMCertificateArn</code></para></li><li><para><code>IAMCertificateId</code></para></li><li><para><code>CloudFrontDefaultCertificate</code></para></li></ul>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -965,7 +961,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ViewerCertificate_CertificateSource
         /// <summary>
         /// <para>
-        /// <para>This field is no longer used. Use one of the following fields instead:</para><ul><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-ACMCertificateArn">ACMCertificateArn</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-IAMCertificateId">IAMCertificateId</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html#cloudfront-Type-ViewerCertificate-CloudFrontDefaultCertificate">CloudFrontDefaultCertificate</a></para></li></ul>
+        /// <para>This field is deprecated. Use one of the following fields instead:</para><ul><li><para><code>ACMCertificateArn</code></para></li><li><para><code>IAMCertificateId</code></para></li><li><para><code>CloudFrontDefaultCertificate</code></para></li></ul>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

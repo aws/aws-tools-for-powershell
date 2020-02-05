@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (cmdletContext.Limit.HasValue)
             {
                 _emitLimit = cmdletContext.Limit;
             }

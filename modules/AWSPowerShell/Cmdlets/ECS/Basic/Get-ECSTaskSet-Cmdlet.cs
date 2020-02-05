@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Cluster { get; set; }
         #endregion
         
+        #region Parameter Include
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to see the resource tags for the task set. If <code>TAGS</code>
+        /// is specified, the tags are included in the response. If this field is omitted, tags
+        /// are not included in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Include { get; set; }
+        #endregion
+        
         #region Parameter Service
         /// <summary>
         /// <para>
@@ -141,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 WriteWarning("You are passing $null as a value for parameter Cluster which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Include != null)
+            {
+                context.Include = new List<System.String>(this.Include);
+            }
             context.Service = this.Service;
             #if MODULAR
             if (this.Service == null && ParameterWasBound(nameof(this.Service)))
@@ -171,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
+            }
+            if (cmdletContext.Include != null)
+            {
+                request.Include = cmdletContext.Include;
             }
             if (cmdletContext.Service != null)
             {
@@ -242,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Cluster { get; set; }
+            public List<System.String> Include { get; set; }
             public System.String Service { get; set; }
             public List<System.String> TaskSet { get; set; }
             public System.Func<Amazon.ECS.Model.DescribeTaskSetsResponse, GetECSTaskSetCmdlet, object> Select { get; set; } =

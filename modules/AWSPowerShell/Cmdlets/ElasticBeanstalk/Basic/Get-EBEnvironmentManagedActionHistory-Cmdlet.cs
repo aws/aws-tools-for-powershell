@@ -128,12 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
             }
             context.EnvironmentId = this.EnvironmentId;
             context.EnvironmentName = this.EnvironmentName;
-            if (ParameterWasBound(nameof(this.MaxItem)))
-            {
-                context.MaxItem = this.MaxItem;
-            }
+            context.MaxItem = this.MaxItem;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxItem)))
             {
                 WriteVerbose("MaxItem parameter unset, using default value of '1000'");
                 context.MaxItem = 1000;
@@ -252,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItem))
+            if (cmdletContext.MaxItem.HasValue)
             {
                 // The service has a maximum page size of 1000. If the user has
                 // asked for more items than page max, and there is no page size
@@ -270,10 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(1000, _emitLimit.Value);
+                    int correctPageSize = Math.Min(1000, _emitLimit.Value);
                     request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxItem)))
                 {
                     request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(1000);
                 }

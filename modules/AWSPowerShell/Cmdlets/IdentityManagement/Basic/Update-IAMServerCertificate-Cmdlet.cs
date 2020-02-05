@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// server certificate's path.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain
-        /// any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-        /// most punctuation characters, digits, and upper and lowercased letters.</para>
+        /// any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>),
+        /// including most punctuation characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

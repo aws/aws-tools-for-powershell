@@ -122,15 +122,39 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public Amazon.IdentityManagement.Model.ContextEntry[] ContextEntry { get; set; }
         #endregion
         
+        #region Parameter PermissionsBoundaryPolicyInputList
+        /// <summary>
+        /// <para>
+        /// <para>The IAM permissions boundary policy to simulate. The permissions boundary sets the
+        /// maximum permissions that the entity can have. You can input only one permissions boundary
+        /// when you pass a policy to this operation. An IAM entity can only have one permissions
+        /// boundary in effect at a time. For example, if a permissions boundary is attached to
+        /// an entity and you pass in a different permissions boundary policy using this parameter,
+        /// then the new permission boundary policy is used for the simulation. For more information
+        /// about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
+        /// Boundaries for IAM Entities</a> in the <i>IAM User Guide</i>. The policy input is
+        /// specified as a string containing the complete, valid JSON text of a permissions boundary
+        /// policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
+        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
+        /// and carriage return (<code>\u000D</code>)</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] PermissionsBoundaryPolicyInputList { get; set; }
+        #endregion
+        
         #region Parameter PolicyInputList
         /// <summary>
         /// <para>
         /// <para>An optional list of additional policy documents to include in the simulation. Each
         /// document is specified as a string containing the complete, valid JSON text of an IAM
         /// policy.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
-        /// end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
+        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
+        /// and carriage return (<code>\u000D</code>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,9 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>A resource-based policy to include in the simulation provided as a string. Each resource
         /// in the simulation is treated as if it had this policy attached. You can include only
         /// one resource-based policy in a simulation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
-        /// end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
+        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
+        /// and carriage return (<code>\u000D</code>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -329,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                     " to the service to specify how many items should be returned by each service call.");
             }
             #endif
+            if (this.PermissionsBoundaryPolicyInputList != null)
+            {
+                context.PermissionsBoundaryPolicyInputList = new List<System.String>(this.PermissionsBoundaryPolicyInputList);
+            }
             if (this.PolicyInputList != null)
             {
                 context.PolicyInputList = new List<System.String>(this.PolicyInputList);
@@ -381,6 +410,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.MaxItem != null)
             {
                 request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxItem.Value);
+            }
+            if (cmdletContext.PermissionsBoundaryPolicyInputList != null)
+            {
+                request.PermissionsBoundaryPolicyInputList = cmdletContext.PermissionsBoundaryPolicyInputList;
             }
             if (cmdletContext.PolicyInputList != null)
             {
@@ -473,6 +506,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 request.ContextEntries = cmdletContext.ContextEntry;
             }
+            if (cmdletContext.PermissionsBoundaryPolicyInputList != null)
+            {
+                request.PermissionsBoundaryPolicyInputList = cmdletContext.PermissionsBoundaryPolicyInputList;
+            }
             if (cmdletContext.PolicyInputList != null)
             {
                 request.PolicyInputList = cmdletContext.PolicyInputList;
@@ -506,7 +543,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItem))
+            if (cmdletContext.MaxItem.HasValue)
             {
                 // The service has a maximum page size of 1000. If the user has
                 // asked for more items than page max, and there is no page size
@@ -524,7 +561,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 request.Marker = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(1000, _emitLimit.Value);
+                    int correctPageSize = Math.Min(1000, _emitLimit.Value);
                     request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
                 
@@ -621,6 +658,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public List<Amazon.IdentityManagement.Model.ContextEntry> ContextEntry { get; set; }
             public System.String Marker { get; set; }
             public int? MaxItem { get; set; }
+            public List<System.String> PermissionsBoundaryPolicyInputList { get; set; }
             public List<System.String> PolicyInputList { get; set; }
             public System.String PolicySourceArn { get; set; }
             public List<System.String> ResourceArn { get; set; }

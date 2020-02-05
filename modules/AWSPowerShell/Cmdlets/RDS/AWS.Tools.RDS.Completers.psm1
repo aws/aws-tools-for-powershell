@@ -172,6 +172,7 @@ $RDS_SelectMap = @{
                "Submit-RDSPendingMaintenanceAction",
                "Enable-RDSDBSecurityGroupIngress",
                "Reset-RDSDBCluster",
+               "Stop-RDSExportTask",
                "Copy-RDSDBClusterParameterGroup",
                "Copy-RDSDBClusterSnapshot",
                "Copy-RDSDBParameterGroup",
@@ -237,6 +238,7 @@ $RDS_SelectMap = @{
                "Get-RDSEventCategory",
                "Get-RDSEvent",
                "Get-RDSEventSubscription",
+               "Get-RDSExportTask",
                "Get-RDSGlobalCluster",
                "Get-RDSInstallationMedia",
                "Get-RDSOptionGroupOption",
@@ -289,6 +291,7 @@ $RDS_SelectMap = @{
                "Start-RDSActivityStream",
                "Start-RDSDBCluster",
                "Start-RDSDBInstance",
+               "Start-RDSExportTask",
                "Stop-RDSActivityStream",
                "Stop-RDSDBCluster",
                "Stop-RDSDBInstance")

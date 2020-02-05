@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecord))
+            if (cmdletContext.MaxRecord.HasValue)
             {
                 _emitLimit = cmdletContext.MaxRecord;
             }

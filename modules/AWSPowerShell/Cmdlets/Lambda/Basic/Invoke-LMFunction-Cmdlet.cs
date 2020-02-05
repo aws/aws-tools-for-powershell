@@ -249,20 +249,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Select = (response, cmdlet) => this.FunctionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (ParameterWasBound(nameof(this.Payload)))
-            {
-                context.Payload = this.Payload;
-            }
-            else
+            context.Payload = this.Payload;
+            if (!ParameterWasBound(nameof(this.Payload)))
             {
                 WriteVerbose("Payload parameter unset, using default value of '{}'");
                 context.Payload = "{}";
             }
-            if (ParameterWasBound(nameof(this.ClientContext)))
-            {
-                context.ClientContext = this.ClientContext;
-            }
-            else
+            context.ClientContext = this.ClientContext;
+            if (!ParameterWasBound(nameof(this.ClientContext)))
             {
                 WriteVerbose("ClientContext parameter unset, using default value of '{}'");
                 context.ClientContext = "{}";

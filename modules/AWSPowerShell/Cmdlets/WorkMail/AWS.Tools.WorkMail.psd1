@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-WMDelegateToResource', 
         'Add-WMMemberToGroup', 
+        'Add-WMResourceTag', 
         'Get-WMAliasList', 
         'Get-WMDelegateList', 
         'Get-WMGroup', 
@@ -99,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WMOrganizationList', 
         'Get-WMResource', 
         'Get-WMResourceList', 
+        'Get-WMResourceTag', 
         'Get-WMUser', 
         'Get-WMUserList', 
         'New-WMAlias', 
@@ -113,6 +115,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-WMMailboxPermission', 
         'Remove-WMMemberFromGroup', 
         'Remove-WMResource', 
+        'Remove-WMResourceTag', 
         'Remove-WMUser', 
         'Reset-WMPassword', 
         'Update-WMMailboxQuota', 

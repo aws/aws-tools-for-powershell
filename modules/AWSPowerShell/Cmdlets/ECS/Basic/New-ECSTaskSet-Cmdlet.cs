@@ -205,6 +205,26 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String[] AwsvpcConfiguration_Subnet { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The metadata that you apply to the task set to help you categorize and organize them.
+        /// Each tag consists of a key and an optional value, both of which you define. When a
+        /// service is deleted, the tags are deleted as well.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
+        /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
+        /// other services may have restrictions on allowed characters. Generally allowed characters
+        /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case-sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+        /// of such as a prefix for either keys or values as it is reserved for AWS use. You cannot
+        /// edit or delete tag keys or values with this prefix. Tags with this prefix do not count
+        /// against your tags per resource limit.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ECS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TaskDefinition
         /// <summary>
         /// <para>
@@ -357,6 +377,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.ServiceRegistry = new List<Amazon.ECS.Model.ServiceRegistry>(this.ServiceRegistry);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ECS.Model.Tag>(this.Tag);
+            }
             context.TaskDefinition = this.TaskDefinition;
             #if MODULAR
             if (this.TaskDefinition == null && ParameterWasBound(nameof(this.TaskDefinition)))
@@ -499,6 +523,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.ServiceRegistries = cmdletContext.ServiceRegistry;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.TaskDefinition != null)
             {
                 request.TaskDefinition = cmdletContext.TaskDefinition;
@@ -578,6 +606,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Double? Scale_Value { get; set; }
             public System.String Service { get; set; }
             public List<Amazon.ECS.Model.ServiceRegistry> ServiceRegistry { get; set; }
+            public List<Amazon.ECS.Model.Tag> Tag { get; set; }
             public System.String TaskDefinition { get; set; }
             public System.Func<Amazon.ECS.Model.CreateTaskSetResponse, NewECSTaskSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TaskSet;

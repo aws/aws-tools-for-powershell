@@ -129,6 +129,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String LogGroupName { get; set; }
         #endregion
         
+        #region Parameter MaxAggregationInterval
+        /// <summary>
+        /// <para>
+        /// <para>The maximum interval of time during which a flow of packets is captured and aggregated
+        /// into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</para><para>For network interfaces attached to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+        /// instances</a>, the aggregation interval is always 60 seconds, regardless of the value
+        /// that you specify.</para><para>Default: 600</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxAggregationInterval { get; set; }
+        #endregion
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>
@@ -264,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.LogDestinationType = this.LogDestinationType;
             context.LogFormat = this.LogFormat;
             context.LogGroupName = this.LogGroupName;
+            context.MaxAggregationInterval = this.MaxAggregationInterval;
             if (this.ResourceId != null)
             {
                 context.ResourceId = new List<System.String>(this.ResourceId);
@@ -327,6 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
+            }
+            if (cmdletContext.MaxAggregationInterval != null)
+            {
+                request.MaxAggregationInterval = cmdletContext.MaxAggregationInterval.Value;
             }
             if (cmdletContext.ResourceId != null)
             {
@@ -407,6 +425,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.LogDestinationType LogDestinationType { get; set; }
             public System.String LogFormat { get; set; }
             public System.String LogGroupName { get; set; }
+            public System.Int32? MaxAggregationInterval { get; set; }
             public List<System.String> ResourceId { get; set; }
             public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
             public Amazon.EC2.TrafficType TrafficType { get; set; }

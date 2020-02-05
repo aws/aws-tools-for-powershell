@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (cmdletContext.Limit.HasValue)
             {
                 _emitLimit = cmdletContext.Limit;
             }

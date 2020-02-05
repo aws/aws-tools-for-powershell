@@ -80,6 +80,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelExportTask" OutputProperty="*" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="ExportTaskIdentifier" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CopyDBClusterParameterGroup" OutputProperty="DBClusterParameterGroup" Verb="Copy" Noun="DBClusterParameterGroup" ShouldProcessTarget="SourceDBClusterParameterGroupIdentifier" PipelineParameter="SourceDBClusterParameterGroupIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -347,6 +351,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExportTasks" OutputProperty="ExportTasks" Verb="Get" Noun="ExportTask" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGlobalClusters" OutputProperty="GlobalClusters" Verb="Get" Noun="GlobalCluster" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -564,6 +572,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDBInstance" OutputProperty="DBInstance" Verb="Start" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExportTask" OutputProperty="*" Verb="Start" Noun="ExportTask" ShouldProcessTarget="ExportTaskIdentifier" PipelineParameter="ExportTaskIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

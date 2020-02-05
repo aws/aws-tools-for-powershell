@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>An array of parameter names, values, and the apply method for the parameter update.
-        /// At least one parameter name, value, and apply method must be supplied; subsequent
-        /// arguments are optional. A maximum of 20 parameters can be modified in a single request.</para><para>Valid Values (for the application method): <code>immediate | pending-reboot</code></para><note><para>You can use the immediate value with dynamic parameters only. You can use the pending-reboot
+        /// At least one parameter name, value, and apply method must be supplied; later arguments
+        /// are optional. A maximum of 20 parameters can be modified in a single request.</para><para>Valid Values (for the application method): <code>immediate | pending-reboot</code></para><note><para>You can use the immediate value with dynamic parameters only. You can use the pending-reboot
         /// value for both dynamic and static parameters, and changes are applied when you reboot
         /// the DB instance without failover.</para></note>
         /// </para>

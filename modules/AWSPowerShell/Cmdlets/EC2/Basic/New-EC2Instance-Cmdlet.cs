@@ -759,11 +759,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.LicenseSpecification = new List<Amazon.EC2.Model.LicenseConfigurationRequest>(this.LicenseSpecification);
             }
-            if (ParameterWasBound(nameof(this.MaxCount)))
-            {
-                context.MaxCount = this.MaxCount;
-            }
-            else
+            context.MaxCount = this.MaxCount;
+            if (!ParameterWasBound(nameof(this.MaxCount)))
             {
                 WriteVerbose("MaxCount parameter unset, using default value of '1'");
                 context.MaxCount = 1;
@@ -777,11 +774,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.MetadataOptions_HttpEndpoint = this.MetadataOptions_HttpEndpoint;
             context.MetadataOptions_HttpPutResponseHopLimit = this.MetadataOptions_HttpPutResponseHopLimit;
             context.MetadataOptions_HttpToken = this.MetadataOptions_HttpToken;
-            if (ParameterWasBound(nameof(this.MinCount)))
-            {
-                context.MinCount = this.MinCount;
-            }
-            else
+            context.MinCount = this.MinCount;
+            if (!ParameterWasBound(nameof(this.MinCount)))
             {
                 WriteVerbose("MinCount parameter unset, using default value of '1'");
                 context.MinCount = 1;

@@ -139,12 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             }
             context.End = this.End;
             context.Marker = this.Marker;
-            if (ParameterWasBound(nameof(this.MaxItem)))
-            {
-                context.MaxItem = this.MaxItem;
-            }
+            context.MaxItem = this.MaxItem;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxItem)))
             {
                 WriteVerbose("MaxItem parameter unset, using default value of '20'");
                 context.MaxItem = 20;
@@ -263,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItem))
+            if (cmdletContext.MaxItem.HasValue)
             {
                 // The service has a maximum page size of 20. If the user has
                 // asked for more items than page max, and there is no page size
@@ -281,10 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 request.Marker = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(20, _emitLimit.Value);
+                    int correctPageSize = Math.Min(20, _emitLimit.Value);
                     request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxItem)))
                 {
                     request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(20);
                 }

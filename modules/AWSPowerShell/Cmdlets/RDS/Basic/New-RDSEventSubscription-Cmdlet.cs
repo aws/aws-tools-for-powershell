@@ -28,10 +28,10 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates an RDS event notification subscription. This action requires a topic ARN (Amazon
-    /// Resource Name) created by either the RDS console, the SNS console, or the SNS API.
-    /// To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe to
-    /// the topic. The ARN is displayed in the SNS console.
+    /// Creates an RDS event notification subscription. This action requires a topic Amazon
+    /// Resource Name (ARN) created by either the RDS console, the SNS console, or the SNS
+    /// API. To obtain an ARN with SNS, you must create a topic in Amazon SNS and subscribe
+    /// to the topic. The ARN is displayed in the SNS console.
     /// 
     ///  
     /// <para>
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// and SourceIdentifier = myDBInstance1, you are notified of all the db-instance events
     /// for the specified source. If you specify a SourceType but do not specify a SourceIdentifier,
     /// you receive notice of the events for that source type for all your RDS sources. If
-    /// you do not specify either the SourceType nor the SourceIdentifier, you are notified
+    /// you don't specify either the SourceType or the SourceIdentifier, you are notified
     /// of events generated from all RDS sources belonging to your customer account.
     /// </para><note><para>
     /// RDS event notification is only available for unencrypted SNS topics. If you specify
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The list of identifiers of the event sources for which events are returned. If not
         /// specified, then all sources are included in the response. An identifier must begin
-        /// with a letter and must contain only ASCII letters, digits, and hyphens; it can't end
+        /// with a letter and must contain only ASCII letters, digits, and hyphens. It can't end
         /// with a hyphen or contain two consecutive hyphens.</para><para>Constraints:</para><ul><li><para>If SourceIds are supplied, SourceType must also be provided.</para></li><li><para>If the source type is a DB instance, then a <code>DBInstanceIdentifier</code> must
         /// be supplied.</para></li><li><para>If the source type is a DB security group, a <code>DBSecurityGroupName</code> must
         /// be supplied.</para></li><li><para>If the source type is a DB parameter group, a <code>DBParameterGroupName</code> must

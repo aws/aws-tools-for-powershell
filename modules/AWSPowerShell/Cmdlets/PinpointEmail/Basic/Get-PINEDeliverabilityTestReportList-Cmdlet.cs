@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.PageSize))
+            if (cmdletContext.PageSize.HasValue)
             {
                 _emitLimit = cmdletContext.PageSize;
             }

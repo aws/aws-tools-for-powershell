@@ -135,12 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (ParameterWasBound(nameof(this.MaxResult)))
-            {
-                context.MaxResult = this.MaxResult;
-            }
+            context.MaxResult = this.MaxResult;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxResult)))
             {
                 WriteVerbose("MaxResult parameter unset, using default value of '50'");
                 context.MaxResult = 50;
@@ -251,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResult))
+            if (cmdletContext.MaxResult.HasValue)
             {
                 // The service has a maximum page size of 50. If the user has
                 // asked for more items than page max, and there is no page size
@@ -269,10 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(50, _emitLimit.Value);
+                    int correctPageSize = Math.Min(50, _emitLimit.Value);
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxResult)))
                 {
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(50);
                 }

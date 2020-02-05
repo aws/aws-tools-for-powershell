@@ -143,6 +143,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RDSEvent', 
         'Get-RDSEventCategory', 
         'Get-RDSEventSubscription', 
+        'Get-RDSExportTask', 
         'Get-RDSGlobalCluster', 
         'Get-RDSInstallationMedia', 
         'Get-RDSOptionGroup', 
@@ -208,9 +209,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-RDSDBCluster', 
         'Start-RDSDBClusterFailover', 
         'Start-RDSDBInstance', 
+        'Start-RDSExportTask', 
         'Stop-RDSActivityStream', 
         'Stop-RDSDBCluster', 
         'Stop-RDSDBInstance', 
+        'Stop-RDSExportTask', 
         'Submit-RDSPendingMaintenanceAction', 
         'Unregister-RDSDBProxyTarget')
 

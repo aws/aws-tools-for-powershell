@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItem))
+            if (cmdletContext.MaxItem.HasValue)
             {
                 _emitLimit = cmdletContext.MaxItem;
             }

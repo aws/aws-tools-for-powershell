@@ -134,12 +134,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
             }
             context.ChannelNameCondition_ComparisonOperator = this.ChannelNameCondition_ComparisonOperator;
             context.ChannelNameCondition_ComparisonValue = this.ChannelNameCondition_ComparisonValue;
-            if (ParameterWasBound(nameof(this.MaxResult)))
-            {
-                context.MaxResult = this.MaxResult;
-            }
+            context.MaxResult = this.MaxResult;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxResult)))
             {
                 WriteVerbose("MaxResult parameter unset, using default value of '10000'");
                 context.MaxResult = 10000;
@@ -300,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResult))
+            if (cmdletContext.MaxResult.HasValue)
             {
                 // The service has a maximum page size of 10000. If the user has
                 // asked for more items than page max, and there is no page size
@@ -318,10 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.KV
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(10000, _emitLimit.Value);
+                    int correctPageSize = Math.Min(10000, _emitLimit.Value);
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxResult)))
                 {
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(10000);
                 }

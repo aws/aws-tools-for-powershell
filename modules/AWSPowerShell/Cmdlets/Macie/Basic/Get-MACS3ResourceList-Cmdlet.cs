@@ -144,12 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC
                 context.Select = (response, cmdlet) => this.MemberAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (ParameterWasBound(nameof(this.MaxResult)))
-            {
-                context.MaxResult = this.MaxResult;
-            }
+            context.MaxResult = this.MaxResult;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxResult)))
             {
                 WriteVerbose("MaxResult parameter unset, using default value of '250'");
                 context.MaxResult = 250;
@@ -263,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResult))
+            if (cmdletContext.MaxResult.HasValue)
             {
                 // The service has a maximum page size of 250. If the user has
                 // asked for more items than page max, and there is no page size
@@ -281,10 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.MAC
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(250, _emitLimit.Value);
+                    int correctPageSize = Math.Min(250, _emitLimit.Value);
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxResult)))
                 {
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(250);
                 }

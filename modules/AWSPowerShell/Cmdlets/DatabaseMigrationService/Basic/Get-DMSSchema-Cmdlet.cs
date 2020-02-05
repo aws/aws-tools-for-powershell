@@ -156,12 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             }
             #endif
             context.Marker = this.Marker;
-            if (ParameterWasBound(nameof(this.MaxRecord)))
-            {
-                context.MaxRecord = this.MaxRecord;
-            }
+            context.MaxRecord = this.MaxRecord;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxRecord)))
             {
                 WriteVerbose("MaxRecord parameter unset, using default value of '100'");
                 context.MaxRecord = 100;
@@ -273,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecord))
+            if (cmdletContext.MaxRecord.HasValue)
             {
                 // The service has a maximum page size of 100. If the user has
                 // asked for more items than page max, and there is no page size
@@ -291,10 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.Marker = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(100, _emitLimit.Value);
+                    int correctPageSize = Math.Min(100, _emitLimit.Value);
                     request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxRecord)))
                 {
                     request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(100);
                 }

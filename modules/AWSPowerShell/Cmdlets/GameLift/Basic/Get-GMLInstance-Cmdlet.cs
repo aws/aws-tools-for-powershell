@@ -291,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (cmdletContext.Limit.HasValue)
             {
                 _emitLimit = cmdletContext.Limit;
             }

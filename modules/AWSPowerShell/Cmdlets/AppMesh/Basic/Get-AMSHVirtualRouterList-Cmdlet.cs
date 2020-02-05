@@ -153,12 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 context.Select = (response, cmdlet) => this.MeshName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (ParameterWasBound(nameof(this.Limit)))
-            {
-                context.Limit = this.Limit;
-            }
+            context.Limit = this.Limit;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.Limit)))
             {
                 WriteVerbose("Limit parameter unset, using default value of '50'");
                 context.Limit = 50;
@@ -278,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (cmdletContext.Limit.HasValue)
             {
                 // The service has a maximum page size of 50. If the user has
                 // asked for more items than page max, and there is no page size
@@ -296,10 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(50, _emitLimit.Value);
+                    int correctPageSize = Math.Min(50, _emitLimit.Value);
                     request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.Limit)))
                 {
                     request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(50);
                 }

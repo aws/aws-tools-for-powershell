@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItem))
+            if (cmdletContext.MaxItem.HasValue)
             {
                 _emitLimit = cmdletContext.MaxItem;
             }

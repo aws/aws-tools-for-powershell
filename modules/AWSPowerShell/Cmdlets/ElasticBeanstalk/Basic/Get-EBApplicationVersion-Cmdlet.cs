@@ -152,12 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ApplicationName = this.ApplicationName;
-            if (ParameterWasBound(nameof(this.MaxRecord)))
-            {
-                context.MaxRecord = this.MaxRecord;
-            }
+            context.MaxRecord = this.MaxRecord;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxRecord)))
             {
                 WriteVerbose("MaxRecord parameter unset, using default value of '1000'");
                 context.MaxRecord = 1000;
@@ -282,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecord))
+            if (cmdletContext.MaxRecord.HasValue)
             {
                 // The service has a maximum page size of 1000. If the user has
                 // asked for more items than page max, and there is no page size
@@ -300,10 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(1000, _emitLimit.Value);
+                    int correctPageSize = Math.Min(1000, _emitLimit.Value);
                     request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxRecord)))
                 {
                     request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(1000);
                 }

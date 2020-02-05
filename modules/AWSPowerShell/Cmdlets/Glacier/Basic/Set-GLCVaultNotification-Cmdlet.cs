@@ -174,11 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                 context.Select = (response, cmdlet) => this.VaultName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (ParameterWasBound(nameof(this.AccountId)))
-            {
-                context.AccountId = this.AccountId;
-            }
-            else
+            context.AccountId = this.AccountId;
+            if (!ParameterWasBound(nameof(this.AccountId)))
             {
                 WriteVerbose("AccountId parameter unset, using default value of '-'");
                 context.AccountId = "-";

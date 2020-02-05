@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// for both the <code>CopyDBClusterSnapshot</code> action that is called in the destination
     /// AWS Region, and the action contained in the pre-signed URL.
     /// </para></li><li><para><code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot
-    /// will be created in.
+    /// is to be created in.
     /// </para></li><li><para><code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier
     /// for the encrypted DB cluster snapshot to be copied. This identifier must be in the
     /// Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS AWS KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the
-        /// Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption
+        /// <para>The AWS KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon
+        /// Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption
         /// key. </para><para>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify
         /// a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key.
         /// If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// the copy of the DB cluster snapshot in the destination AWS Region. This is the same
         /// identifier for both the <code>CopyDBClusterSnapshot</code> action that is called in
         /// the destination AWS Region, and the action contained in the pre-signed URL.</para></li><li><para><code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot
-        /// will be created in.</para></li><li><para><code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier
+        /// is to be created in.</para></li><li><para><code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier
         /// for the encrypted DB cluster snapshot to be copied. This identifier must be in the
         /// Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are
         /// copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your

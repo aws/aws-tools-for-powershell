@@ -179,12 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.AttributesToGet = new List<System.String>(this.AttributesToGet);
             }
             context.Filter = this.Filter;
-            if (ParameterWasBound(nameof(this.Limit)))
-            {
-                context.Limit = this.Limit;
-            }
+            context.Limit = this.Limit;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.Limit)))
             {
                 WriteVerbose("Limit parameter unset, using default value of '60'");
                 context.Limit = 60;
@@ -320,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 _nextToken = cmdletContext.PaginationToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (cmdletContext.Limit.HasValue)
             {
                 // The service has a maximum page size of 60. If the user has
                 // asked for more items than page max, and there is no page size
@@ -338,10 +335,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 request.PaginationToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(60, _emitLimit.Value);
+                    int correctPageSize = Math.Min(60, _emitLimit.Value);
                     request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.Limit)))
                 {
                     request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(60);
                 }

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS)
-    /// certificate for Amazon RDS for new DB instances, or remove the override.
+    /// certificate for Amazon RDS for new DB instances temporarily, or remove the override.
     /// 
     ///  
     /// <para>

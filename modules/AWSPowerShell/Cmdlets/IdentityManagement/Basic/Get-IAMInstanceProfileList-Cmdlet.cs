@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// all instance profiles. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain
-        /// any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-        /// most punctuation characters, digits, and upper and lowercased letters.</para>
+        /// any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>),
+        /// including most punctuation characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItem))
+            if (cmdletContext.MaxItem.HasValue)
             {
                 // The service has a maximum page size of 1000. If the user has
                 // asked for more items than page max, and there is no page size
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 request.Marker = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(1000, _emitLimit.Value);
+                    int correctPageSize = Math.Min(1000, _emitLimit.Value);
                     request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
                 

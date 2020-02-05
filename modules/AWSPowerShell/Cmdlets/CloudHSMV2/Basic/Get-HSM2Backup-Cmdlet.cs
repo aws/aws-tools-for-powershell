@@ -87,7 +87,6 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// <br/>In AWS.Tools this parameter is simply passed to the service to specify how many items should be returned by each service call.
         /// <br/>Pipe the output of this cmdlet into Select-Object -First to terminate retrieving data pages early and control the number of items returned.
         /// </para>
-        /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>25</b>'.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxItems","MaxResults")]
@@ -164,17 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                     context.Filter.Add((String)hashKey, valueSet);
                 }
             }
-            if (ParameterWasBound(nameof(this.MaxResult)))
-            {
-                context.MaxResult = this.MaxResult;
-            }
-            #if MODULAR
-            else
-            {
-                WriteVerbose("MaxResult parameter unset, using default value of '25'");
-                context.MaxResult = 25;
-            }
-            #endif
+            context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
             {
@@ -289,12 +278,12 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResult))
+            if (cmdletContext.MaxResult.HasValue)
             {
-                // The service has a maximum page size of 25. If the user has
+                // The service has a maximum page size of 100. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 25 items back. If a page size is set, that will
+                // and giving us 100 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResult;
@@ -307,12 +296,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(25, _emitLimit.Value);
+                    int correctPageSize = Math.Min(100, _emitLimit.Value);
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                }
-                else
-                {
-                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(25);
                 }
                 
                 CmdletOutput output;

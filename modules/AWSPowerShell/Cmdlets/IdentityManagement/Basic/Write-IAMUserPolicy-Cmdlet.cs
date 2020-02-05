@@ -63,9 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>The policy document.</para><para>You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates
         /// formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation
         /// always converts a YAML policy to JSON format before submitting it to IAM.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
-        /// end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
+        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
+        /// and carriage return (<code>\u000D</code>)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

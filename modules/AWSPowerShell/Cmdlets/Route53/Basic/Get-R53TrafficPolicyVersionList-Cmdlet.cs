@@ -168,12 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
             }
             #endif
             context.TrafficPolicyVersionMarker = this.TrafficPolicyVersionMarker;
-            if (ParameterWasBound(nameof(this.MaxItem)))
-            {
-                context.MaxItem = this.MaxItem;
-            }
+            context.MaxItem = this.MaxItem;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxItem)))
             {
                 WriteVerbose("MaxItem parameter unset, using default value of '100'");
                 context.MaxItem = 100;
@@ -285,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             {
                 _nextToken = cmdletContext.TrafficPolicyVersionMarker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItem))
+            if (cmdletContext.MaxItem.HasValue)
             {
                 // The service has a maximum page size of 100. If the user has
                 // asked for more items than page max, and there is no page size
@@ -303,10 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 request.TrafficPolicyVersionMarker = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(100, _emitLimit.Value);
+                    int correctPageSize = Math.Min(100, _emitLimit.Value);
                     request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxItem)))
                 {
                     request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(100);
                 }

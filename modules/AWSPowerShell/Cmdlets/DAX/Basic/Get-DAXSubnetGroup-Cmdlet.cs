@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResult))
+            if (cmdletContext.MaxResult.HasValue)
             {
                 _emitLimit = cmdletContext.MaxResult;
             }

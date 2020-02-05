@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 _nextToken = cmdletContext.ExclusiveStartGlobalTableName;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (cmdletContext.Limit.HasValue)
             {
                 _emitLimit = cmdletContext.Limit;
             }

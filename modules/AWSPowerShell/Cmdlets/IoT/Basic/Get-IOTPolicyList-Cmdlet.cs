@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.PageSize))
+            if (cmdletContext.PageSize.HasValue)
             {
                 // The service has a maximum page size of 250. If the user has
                 // asked for more items than page max, and there is no page size
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.Marker = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(250, _emitLimit.Value);
+                    int correctPageSize = Math.Min(250, _emitLimit.Value);
                     request.PageSize = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
                 

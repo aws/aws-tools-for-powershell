@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain
-        /// any ASCII character from the ! (\u0021) through the DEL character (\u007F), including
-        /// most punctuation characters, digits, and upper and lowercased letters.</para>
+        /// any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>),
+        /// including most punctuation characters, digits, and upper and lowercased letters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,9 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>The JSON policy document that you want to use as the content for the new policy.</para><para>You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates
         /// formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation
         /// always converts a YAML policy to JSON format before submitting it to IAM.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
-        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
-        /// end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
-        /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
+        /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (<code>\u0020</code>)
+        /// through the end of the ASCII character range</para></li><li><para>The printable characters in the Basic Latin and Latin-1 Supplement character set (through
+        /// <code>\u00FF</code>)</para></li><li><para>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>),
+        /// and carriage return (<code>\u000D</code>)</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

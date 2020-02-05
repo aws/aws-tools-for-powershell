@@ -1,4 +1,28 @@
-﻿### 4.0.3.0 (2020-01-21)
+﻿### 4.0.4.0 (2020-02-05)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.3.671.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon DataSync
+    * Added cmdlet Get-DSYNLocationFsxWindow leveraging the DescribeLocationFsxWindows service API.
+    * Added cmdlet New-DSYNLocationFsxWindow leveraging the CreateLocationFsxWindows service API.
+  * Amazon EC2 Container Service
+    * Modified cmdlet Get-ECSTaskSet: added parameter Include.
+    * Modified cmdlet New-ECSTaskSet: added parameter Tag.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2FlowLog: added parameter MaxAggregationInterval.
+  * Amazon Identity and Access Management
+    * Modified cmdlet Test-IAMCustomPolicy: added parameter PermissionsBoundaryPolicyInputList.
+    * Modified cmdlet Test-IAMPrincipalPolicy: added parameter PermissionsBoundaryPolicyInputList.
+  * Amazon Managed Streaming for Apache Kafka (MSK)
+    * Added cmdlet Get-MSKKafkaVersionList leveraging the ListKafkaVersions service API.
+  * Amazon Relational Database Service
+    * Added cmdlet Get-RDSExportTask leveraging the DescribeExportTasks service API.
+    * Added cmdlet Start-RDSExportTask leveraging the StartExportTask service API.
+    * Added cmdlet Stop-RDSExportTask leveraging the CancelExportTask service API.
+  * Amazon WorkMail
+    * Added cmdlet Add-WMResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-WMResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-WMResourceTag leveraging the UntagResource service API.
+
+### 4.0.3.0 (2020-01-21)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.3.668.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Backup
     * Added cmdlet Get-BAKCopyJob leveraging the DescribeCopyJob service API.

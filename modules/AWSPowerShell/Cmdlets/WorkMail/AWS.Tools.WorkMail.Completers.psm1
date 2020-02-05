@@ -181,7 +181,10 @@ $WM_SelectMap = @{
                "Reset-WMPassword",
                "Update-WMMailboxQuota",
                "Update-WMPrimaryEmailAddress",
-               "Update-WMResource")
+               "Update-WMResource",
+               "Get-WMResourceTag",
+               "Add-WMResourceTag",
+               "Remove-WMResourceTag")
 }
 
 _awsArgumentCompleterRegistration $WM_SelectCompleters $WM_SelectMap

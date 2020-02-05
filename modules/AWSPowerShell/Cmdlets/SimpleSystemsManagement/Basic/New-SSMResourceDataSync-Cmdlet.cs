@@ -39,12 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// bucket. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring
     /// Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </para><para>
-    /// You can configure Systems Manager Explorer to use the <code>SyncToDestination</code>
+    /// You can configure Systems Manager Explorer to use the <code>SyncFromSource</code>
     /// type to synchronize operational work items (OpsItems) and operational data (OpsData)
-    /// from multiple AWS Regions to a single Amazon S3 bucket. You can also configure Explorer
-    /// to use the <code>SyncFromSource</code> type. This type synchronizes OpsItems and OpsData
-    /// from multiple AWS accounts and Regions by using AWS Organizations. For more information,
-    /// see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting
+    /// from multiple AWS Regions to a single Amazon S3 bucket. This type can synchronize
+    /// OpsItems and OpsData from multiple AWS accounts and Regions or <code>EntireOrganization</code>
+    /// by using AWS Organizations. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting
     /// Up Explorer to Display Data from Multiple Accounts and Regions</a> in the <i>AWS Systems
     /// Manager User Guide</i>.
     /// </para><para>

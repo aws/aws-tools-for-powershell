@@ -146,12 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 context.Select = (response, cmdlet) => this.RuleGroupId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (ParameterWasBound(nameof(this.Limit)))
-            {
-                context.Limit = this.Limit;
-            }
+            context.Limit = this.Limit;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.Limit)))
             {
                 WriteVerbose("Limit parameter unset, using default value of '100'");
                 context.Limit = 100;
@@ -265,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
             {
                 _nextToken = cmdletContext.NextMarker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (cmdletContext.Limit.HasValue)
             {
                 // The service has a maximum page size of 100. If the user has
                 // asked for more items than page max, and there is no page size
@@ -283,10 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 request.NextMarker = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(100, _emitLimit.Value);
+                    int correctPageSize = Math.Min(100, _emitLimit.Value);
                     request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.Limit)))
                 {
                     request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(100);
                 }

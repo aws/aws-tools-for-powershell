@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItem))
+            if (cmdletContext.MaxItem.HasValue)
             {
                 _emitLimit = cmdletContext.MaxItem;
             }

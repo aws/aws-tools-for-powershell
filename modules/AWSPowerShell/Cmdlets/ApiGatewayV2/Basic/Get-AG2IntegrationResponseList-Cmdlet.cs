@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResult))
+            if (cmdletContext.MaxResult.HasValue)
             {
                 _emitLimit = cmdletContext.MaxResult;
             }

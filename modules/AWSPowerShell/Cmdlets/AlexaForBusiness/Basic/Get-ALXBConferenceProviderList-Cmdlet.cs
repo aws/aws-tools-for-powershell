@@ -106,12 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 context.Select = CreateSelectDelegate<Amazon.AlexaForBusiness.Model.ListConferenceProvidersResponse, GetALXBConferenceProviderListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (ParameterWasBound(nameof(this.MaxResult)))
-            {
-                context.MaxResult = this.MaxResult;
-            }
+            context.MaxResult = this.MaxResult;
             #if MODULAR
-            else
+            if (!ParameterWasBound(nameof(this.MaxResult)))
             {
                 WriteVerbose("MaxResult parameter unset, using default value of '10'");
                 context.MaxResult = 10;
@@ -214,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             {
                 _nextToken = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResult))
+            if (cmdletContext.MaxResult.HasValue)
             {
                 // The service has a maximum page size of 10. If the user has
                 // asked for more items than page max, and there is no page size
@@ -232,10 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 request.NextToken = _nextToken;
                 if (_emitLimit.HasValue)
                 {
-                    int correctPageSize = AutoIterationHelpers.Min(10, _emitLimit.Value);
+                    int correctPageSize = Math.Min(10, _emitLimit.Value);
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                 }
-                else
+                else if (!ParameterWasBound(nameof(this.MaxResult)))
                 {
                     request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(10);
                 }

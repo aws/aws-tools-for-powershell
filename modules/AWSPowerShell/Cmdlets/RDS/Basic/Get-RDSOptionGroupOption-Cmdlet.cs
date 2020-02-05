@@ -305,7 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 _nextToken = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecord))
+            if (cmdletContext.MaxRecord.HasValue)
             {
                 _emitLimit = cmdletContext.MaxRecord;
             }
