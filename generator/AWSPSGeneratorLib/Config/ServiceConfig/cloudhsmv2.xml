@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudHSMV2Client</ServiceClient>
     <ServiceModuleGuid>3c54a41d-5d75-46c4-b17b-1f170a749075</ServiceModuleGuid>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="25" PageSizeIsRequired="true" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

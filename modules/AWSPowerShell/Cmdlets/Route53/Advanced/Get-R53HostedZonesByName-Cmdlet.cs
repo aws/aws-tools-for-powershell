@@ -318,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                     request.HostedZoneId = _nextHostedZoneId;
                     if (_emitLimit.HasValue)
                     {
-                        int correctPageSize = AutoIterationHelpers.Min(100, _emitLimit.Value);
+                        int correctPageSize = Math.Min(100, _emitLimit.Value);
                         request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
                     }
                     

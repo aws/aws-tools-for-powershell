@@ -831,24 +831,16 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     {
                         var paramCustomization = FindParameterCustomization(property.AnalyzedName);
 
-                        if (string.IsNullOrEmpty(property.DefaultValue))
+                        writer.WriteLine($"context.{property.CmdletParameterName} = this.{property.CmdletParameterName};");
+
+                        if (!string.IsNullOrEmpty(property.DefaultValue))
                         {
-                            writer.WriteLine($"context.{property.CmdletParameterName} = this.{property.CmdletParameterName};");
-                        }
-                        else
-                        {
-                            writer.WriteLine($"if (ParameterWasBound(nameof(this.{property.CmdletParameterName})))");
-                            writer.OpenRegion();
-                            {
-                                writer.WriteLine($"context.{property.CmdletParameterName} = this.{property.CmdletParameterName};");
-                            }
-                            writer.CloseRegion();
                             if (property.Name == MethodAnalysis.AutoIterateSettings?.EmitLimit)
                             {
                                 //Default values for EmitLimit are handled during iteration for the legacy iteration pattern.
                                 writer.WriteLine("#if MODULAR");
                             }
-                            writer.WriteLine("else");
+                            writer.WriteLine($"if (!ParameterWasBound(nameof(this.{property.CmdletParameterName})))");
                             writer.OpenRegion();
                             {
                                 writer.WriteLine($"WriteVerbose(\"{property.CmdletParameterName} parameter unset, using default value of '{property.DefaultValue}'\");");
@@ -1378,7 +1370,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine($"_nextToken = cmdletContext.{starPaginationProperty.CmdletParameterName};");
                 }
                 writer.CloseRegion();
-                writer.WriteLine($"if (AutoIterationHelpers.HasValue(cmdletContext.{limitPaginationProperty.CmdletParameterName}))");
+                writer.WriteLine($"if (cmdletContext.{limitPaginationProperty.CmdletParameterName}.HasValue)");
                 writer.OpenRegion();
                 {
                     if (maxPageSize.HasValue)
@@ -1417,13 +1409,13 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.WriteLine("if (_emitLimit.HasValue)");
                         writer.OpenRegion();
                         {
-                            writer.WriteLine($"int correctPageSize = AutoIterationHelpers.Min({maxPageSize.Value}, _emitLimit.Value);");
+                            writer.WriteLine($"int correctPageSize = Math.Min({maxPageSize.Value}, _emitLimit.Value);");
                             writer.WriteLine($"request.{autoIteration.EmitLimit} = AutoIterationHelpers.ConvertEmitLimitTo{iteratorLimitType}(correctPageSize);");
                         }
                         writer.CloseRegion();
                         if (isPageSizeRequired && maxPageSize.HasValue)
                         {
-                            writer.WriteLine("else");
+                            writer.WriteLine($"else if (!ParameterWasBound(nameof(this.{limitPaginationProperty.CmdletParameterName})))");
                             writer.OpenRegion();
                             {
                                 writer.WriteLine($"request.{autoIteration.EmitLimit} = AutoIterationHelpers.ConvertEmitLimitTo{iteratorLimitType}({maxPageSize.Value});");

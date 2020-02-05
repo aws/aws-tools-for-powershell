@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                     request.ExclusiveStartApplicationName = _nextToken;
                     if (_emitLimit.HasValue)
                     {
-                        int correctPageSize = AutoIterationHelpers.Min(50, _emitLimit.Value);
+                        int correctPageSize = Math.Min(50, _emitLimit.Value);
                         request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
