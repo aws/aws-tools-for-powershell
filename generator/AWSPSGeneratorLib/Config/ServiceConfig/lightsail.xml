@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>lightsail</C2jFilename>
     <AssemblyName>Lightsail</AssemblyName>
@@ -50,6 +51,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCloudFormationStack" OutputProperty="Operations" Verb="New" Noun="CloudFormationStack" ShouldProcessTarget="Instances" PipelineParameter="Instances" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateContactMethod" OutputProperty="Operations" Verb="New" Noun="ContactMethod" ShouldProcessTarget="ContactEndpoint" PipelineParameter="ContactEndpoint" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -109,7 +114,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAlarm" OutputProperty="Operations" Verb="Remove" Noun="Alarm" ShouldProcessTarget="AlarmName" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAutoSnapshot" OutputProperty="Operations" Verb="Remove" Noun="AutoSnapshot" ShouldProcessTarget="ResourceName" PipelineParameter="Date" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContactMethod" OutputProperty="Operations" Verb="Remove" Noun="ContactMethod" ShouldProcessTarget="Protocol" PipelineParameter="Protocol" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -195,6 +208,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAlarms" OutputProperty="Alarms" Verb="Get" Noun="Alarm" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAutoSnapshots" OutputProperty="*" Verb="Get" Noun="AutoSnapshot" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -208,6 +225,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCloudFormationStackRecords" OutputProperty="CloudFormationStackRecords" Verb="Get" Noun="CloudFormationStackRecord" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContactMethods" OutputProperty="ContactMethods" Verb="Get" Noun="ContactMethod" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -383,6 +404,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutAlarm" OutputProperty="Operations" Verb="Add" Noun="Alarm" ShouldProcessTarget="AlarmName" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutInstancePublicPorts" OutputProperty="Operation" Verb="Set" Noun="InstancePublicPort" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -396,6 +421,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ReleaseStaticIp" OutputProperty="Operations" Verb="Remove" Noun="StaticIp" ShouldProcessTarget="StaticIpName" PipelineParameter="StaticIpName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendContactMethodVerification" OutputProperty="Operations" Verb="Send" Noun="ContactMethodVerification" ShouldProcessTarget="Protocol" PipelineParameter="Protocol" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -418,6 +447,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" OutputProperty="Operations" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestAlarm" OutputProperty="Operations" Verb="Test" Noun="Alarm" PipelineParameter="AlarmName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,9 +28,16 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Check the availability of multiple image layers in a specified registry and repository.
+    /// Checks the availability of one or more image layers in a repository.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// When an image is pushed to a repository, each image layer is checked to verify if
+    /// it has been uploaded before. If it is, then the image layer is skipped.
+    /// </para><para>
+    /// When an image is pulled from a repository, each image layer is checked once to verify
+    /// it is available to be pulled.
+    /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy, and it is not intended for general
     /// use by customers for pulling and pushing images. In most cases, you should use the
     /// <code>docker</code> CLI to pull, tag, and push images.

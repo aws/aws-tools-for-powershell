@@ -172,6 +172,7 @@ $MSK_SelectMap = @{
                "Get-MSKClusterList",
                "Get-MSKConfigurationRevisionList",
                "Get-MSKConfigurationList",
+               "Get-MSKKafkaVersionList",
                "Get-MSKNodeList",
                "Get-MSKResourceTag",
                "Add-MSKResourceTag",
@@ -179,8 +180,7 @@ $MSK_SelectMap = @{
                "Update-MSKBrokerCount",
                "Update-MSKBrokerStorage",
                "Update-MSKClusterConfiguration",
-               "Update-MSKMonitoring",
-               "Get-MSKKafkaVersionList")
+               "Update-MSKMonitoring")
 }
 
 _awsArgumentCompleterRegistration $MSK_SelectCompleters $MSK_SelectMap

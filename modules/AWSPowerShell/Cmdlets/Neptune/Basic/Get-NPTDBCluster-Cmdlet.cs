@@ -28,7 +28,12 @@ using Amazon.Neptune.Model;
 namespace Amazon.PowerShell.Cmdlets.NPT
 {
     /// <summary>
-    /// Returns information about provisioned DB clusters. This API supports pagination.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about provisioned DB clusters, and supports pagination.
+    /// 
+    ///  <note><para>
+    /// This operation can also return information for Amazon RDS clusters and Amazon DocDB
+    /// clusters.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "NPTDBCluster")]
     [OutputType("Amazon.Neptune.Model.DBCluster")]
@@ -56,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>A filter that specifies one or more DB clusters to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
         /// Resource Names (ARNs). The results list will only include information about the DB
-        /// clusters identified by these ARNs.</para></li></ul>
+        /// clusters identified by these ARNs.</para></li><li><para><code>engine</code> - Accepts an engine name (such as <code>neptune</code>), and
+        /// restricts the results list to DB clusters created by that engine.</para></li></ul><para>For example, to invoke this API from the AWS CLI and filter so that only Neptune DB
+        /// clusters are returned, you could use the following command:</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

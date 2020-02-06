@@ -28,7 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Retrieves room details, such as the room name.
+    /// Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise
+    /// account.
     /// </summary>
     [Cmdlet("Get", "CHMRoom")]
     [OutputType("Amazon.Chime.Model.Room")]

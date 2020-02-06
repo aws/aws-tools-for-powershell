@@ -46,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The action type to evaluate for possible node configurations. Specify "restore-cluster"
         /// to get configuration combinations based on an existing snapshot. Specify "recommend-node-config"
-        /// to get configuration recommendations based on an existing cluster or snapshot. </para>
+        /// to get configuration recommendations based on an existing cluster or snapshot. Specify
+        /// "resize-cluster" to get configuration combinations for elastic resize based on an
+        /// existing cluster. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

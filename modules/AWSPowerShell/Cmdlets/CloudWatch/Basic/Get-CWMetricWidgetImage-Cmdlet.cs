@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>A JSON string that defines the bitmap graph to be retrieved. The string includes the
         /// metrics to include in the graph, statistics, annotations, title, axis limits, and
         /// so on. You can include only one <code>MetricWidget</code> parameter in each <code>GetMetricWidgetImage</code>
-        /// call.</para><para>For more information about the syntax of <code>MetricWidget</code> see <a>CloudWatch-Metric-Widget-Structure</a>.</para><para>If any metric on the graph could not load all the requested data points, an orange
+        /// call.</para><para>For more information about the syntax of <code>MetricWidget</code> see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Metric-Widget-Structure.html">GetMetricWidgetImage:
+        /// Metric Widget Structure and Syntax</a>.</para><para>If any metric on the graph could not load all the requested data points, an orange
         /// triangle with an exclamation point appears next to the graph legend.</para>
         /// </para>
         /// </summary>

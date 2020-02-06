@@ -199,9 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>A value that indicates whether the DB instance has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled. </para><para>You can enable or disable deletion protection for the DB cluster. For more information,
-        /// see <a>CreateDBCluster</a>. DB instances in a DB cluster can be deleted even when
-        /// deletion protection is enabled for the DB cluster. </para>
+        /// protection is disabled. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html">Deleting
+        /// a DB Instance</a>.</para><para>DB instances in a DB cluster can be deleted even when deletion protection is enabled
+        /// in their parent DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

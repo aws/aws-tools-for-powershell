@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Modifies an existing DB subnet group. DB subnet groups must contain at least one subnet
+    /// Modifies an existing subnet group. subnet groups must contain at least one subnet
     /// in at least two Availability Zones in the AWS Region.
     /// </summary>
     [Cmdlet("Edit", "DOCDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupDescription
         /// <summary>
         /// <para>
-        /// <para>The description for the DB subnet group.</para>
+        /// <para>The description for the subnet group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name for the DB subnet group. This value is stored as a lowercase string. You
-        /// can't modify the default subnet group. </para><para>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not
+        /// <para>The name for the subnet group. This value is stored as a lowercase string. You can't
+        /// modify the default subnet group. </para><para>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not
         /// be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 subnet IDs for the DB subnet group.</para>
+        /// <para>The Amazon EC2 subnet IDs for the subnet group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

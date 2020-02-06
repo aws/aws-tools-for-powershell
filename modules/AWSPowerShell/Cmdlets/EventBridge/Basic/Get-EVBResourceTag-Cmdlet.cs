@@ -28,8 +28,8 @@ using Amazon.EventBridge.Model;
 namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
-    /// Displays the tags associated with an EventBridge resource. In EventBridge, rules can
-    /// be tagged.
+    /// Displays the tags associated with an EventBridge resource. In EventBridge, rules and
+    /// event buses can be tagged.
     /// </summary>
     [Cmdlet("Get", "EVBResourceTag")]
     [OutputType("Amazon.EventBridge.Model.Tag")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the rule for which you want to view tags.</para>
+        /// <para>The ARN of the EventBridge resource for which you want to view tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

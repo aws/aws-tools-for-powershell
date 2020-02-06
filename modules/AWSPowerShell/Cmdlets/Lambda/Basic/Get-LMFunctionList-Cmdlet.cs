@@ -29,6 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Returns a list of Lambda functions, with the version-specific configuration of each.
+    /// Lambda returns up to 50 functions per call.
     /// 
     ///  
     /// <para>
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Specify a value between 1 and 50 to limit the number of functions in the response.</para>
+        /// <para>The maximum number of functions to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

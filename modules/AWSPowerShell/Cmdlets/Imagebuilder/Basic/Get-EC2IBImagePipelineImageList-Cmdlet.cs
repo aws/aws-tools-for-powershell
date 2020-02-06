@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The filters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,11 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImagePipelineArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the image pipeline whose images you wish to view.
+        /// <para> The Amazon Resource Name (ARN) of the image pipeline whose images you want to view.
         /// </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ImagePipelineArn { get; set; }
         #endregion
         
@@ -148,6 +155,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.Filter = new List<Amazon.Imagebuilder.Model.Filter>(this.Filter);
             }
             context.ImagePipelineArn = this.ImagePipelineArn;
+            #if MODULAR
+            if (this.ImagePipelineArn == null && ParameterWasBound(nameof(this.ImagePipelineArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ImagePipelineArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             

@@ -28,15 +28,15 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// You might need to reboot your DB instance, usually for maintenance reasons. For example,
-    /// if you make certain changes, or if you change the DB cluster parameter group that
-    /// is associated with the DB instance, you must reboot the instance for the changes to
-    /// take effect. 
+    /// You might need to reboot your instance, usually for maintenance reasons. For example,
+    /// if you make certain changes, or if you change the cluster parameter group that is
+    /// associated with the instance, you must reboot the instance for the changes to take
+    /// effect. 
     /// 
     ///  
     /// <para>
-    /// Rebooting a DB instance restarts the database engine service. Rebooting a DB instance
-    /// results in a momentary outage, during which the DB instance status is set to <i>rebooting</i>.
+    /// Rebooting an instance restarts the database engine service. Rebooting an instance
+    /// results in a momentary outage, during which the instance status is set to <i>rebooting</i>.
     /// 
     /// </para>
     /// </summary>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBInstance</code>.</para></li></ul>
+        /// <para>The instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBInstance</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

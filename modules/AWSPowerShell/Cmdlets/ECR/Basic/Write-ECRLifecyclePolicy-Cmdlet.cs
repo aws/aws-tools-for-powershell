@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Creates or updates a lifecycle policy. For information about lifecycle policy syntax,
+    /// Creates or updates the lifecycle policy for the specified repository. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html">Lifecycle
     /// Policy Template</a>.
     /// </summary>

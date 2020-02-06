@@ -63,8 +63,14 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Source_Buildspec
         /// <summary>
         /// <para>
-        /// <para>The build spec declaration to use for the builds in this build project.</para><para>If this value is not specified, a build spec must be included along with the source
-        /// code to be built.</para>
+        /// <para>The buildspec file declaration to use for the builds in this build project.</para><para> If this value is set, it can be either an inline buildspec definition, the path to
+        /// an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code>
+        /// environment variable, or the path to an S3 bucket. The bucket must be in the same
+        /// AWS Region as the build project. Specify the buildspec file using its ARN (for example,
+        /// <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
+        /// provided or is set to an empty string, the source code must contain a buildspec file
+        /// in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
+        /// File Name and Storage Location</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
         /// </para><note><para> The <code>credential</code> can use the name of the credentials only if they exist
-        /// in your current region. </para></note>
+        /// in your current AWS Region. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,6 +197,20 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Source_GitSubmodulesConfig_FetchSubmodules")]
         public System.Boolean? GitSubmodulesConfig_FetchSubmodule { get; set; }
+        #endregion
+        
+        #region Parameter FileSystemLocation
+        /// <summary>
+        /// <para>
+        /// <para> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build
+        /// project. A <code>ProjectFileSystemLocation</code> object specifies the <code>identifier</code>,
+        /// <code>location</code>, <code>mountOptions</code>, <code>mountPoint</code>, and <code>type</code>
+        /// of a file system created using Amazon Elastic File System. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FileSystemLocations")]
+        public Amazon.CodeBuild.Model.ProjectFileSystemLocation[] FileSystemLocation { get; set; }
         #endregion
         
         #region Parameter Source_GitCloneDepth
@@ -300,11 +320,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// AWS CodePipeline, <code>location</code> should not be specified. If it is specified,
         /// AWS CodePipeline ignores it. This is because AWS CodePipeline uses the settings in
         /// a pipeline's source action instead of this value.</para></li><li><para>For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository
-        /// that contains the source code and the build spec (for example, <code>https://git-codecommit.<i>region-ID</i>.amazonaws.com/v1/repos/<i>repo-name</i></code>).</para></li><li><para>For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, one
+        /// that contains the source code and the buildspec file (for example, <code>https://git-codecommit.<i>region-ID</i>.amazonaws.com/v1/repos/<i>repo-name</i></code>).</para></li><li><para>For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, one
         /// of the following. </para><ul><li><para> The path to the ZIP file that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>object-name</i>.zip</code>).
         /// </para></li><li><para> The path to the folder that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>source-code</i>/<i>folder</i>/</code>).
         /// </para></li></ul></li><li><para>For source code in a GitHub repository, the HTTPS clone URL to the repository that
-        /// contains the source and the build spec. You must connect your AWS account to your
+        /// contains the source and the buildspec file. You must connect your AWS account to your
         /// GitHub account. Use the AWS CodeBuild console to start creating a build project. When
         /// you use the console to connect (or reconnect) with GitHub, on the GitHub <b>Authorize
         /// application</b> page, for <b>Organization access</b>, choose <b>Request access</b>
@@ -313,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// you do not need to finish creating the build project. You can leave the AWS CodeBuild
         /// console.) To instruct AWS CodeBuild to use this connection, in the <code>source</code>
         /// object, set the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</para></li><li><para>For source code in a Bitbucket repository, the HTTPS clone URL to the repository that
-        /// contains the source and the build spec. You must connect your AWS account to your
+        /// contains the source and the buildspec file. You must connect your AWS account to your
         /// Bitbucket account. Use the AWS CodeBuild console to start creating a build project.
         /// When you use the console to connect (or reconnect) with Bitbucket, on the Bitbucket
         /// <b>Confirm access to your account</b> page, choose <b>Grant access</b>. (After you
@@ -415,8 +435,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Artifacts_OverrideArtifactName
         /// <summary>
         /// <para>
-        /// <para> If this flag is set, a name specified in the build spec file overrides the artifact
-        /// name. The name specified in a build spec file is calculated at build time and uses
+        /// <para> If this flag is set, a name specified in the buildspec file overrides the artifact
+        /// name. The name specified in a buildspec file is calculated at build time and uses
         /// the Shell Command Language. For example, you can append a date and time to your artifact
         /// name so that it is always unique. </para>
         /// </para>
@@ -842,6 +862,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.RegistryCredential_Credential = this.RegistryCredential_Credential;
             context.RegistryCredential_CredentialProvider = this.RegistryCredential_CredentialProvider;
             context.Environment_Type = this.Environment_Type;
+            if (this.FileSystemLocation != null)
+            {
+                context.FileSystemLocation = new List<Amazon.CodeBuild.Model.ProjectFileSystemLocation>(this.FileSystemLocation);
+            }
             context.CloudWatchLogs_GroupName = this.CloudWatchLogs_GroupName;
             context.CloudWatchLogs_Status = this.CloudWatchLogs_Status;
             context.CloudWatchLogs_StreamName = this.CloudWatchLogs_StreamName;
@@ -1173,6 +1197,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestEnvironmentIsNull)
             {
                 request.Environment = null;
+            }
+            if (cmdletContext.FileSystemLocation != null)
+            {
+                request.FileSystemLocations = cmdletContext.FileSystemLocation;
             }
             
              // populate LogsConfig
@@ -1572,6 +1600,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String RegistryCredential_Credential { get; set; }
             public Amazon.CodeBuild.CredentialProviderType RegistryCredential_CredentialProvider { get; set; }
             public Amazon.CodeBuild.EnvironmentType Environment_Type { get; set; }
+            public List<Amazon.CodeBuild.Model.ProjectFileSystemLocation> FileSystemLocation { get; set; }
             public System.String CloudWatchLogs_GroupName { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType CloudWatchLogs_Status { get; set; }
             public System.String CloudWatchLogs_StreamName { get; set; }

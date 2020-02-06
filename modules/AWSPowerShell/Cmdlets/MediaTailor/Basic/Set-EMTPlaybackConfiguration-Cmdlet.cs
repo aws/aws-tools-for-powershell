@@ -110,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter PersonalizationThresholdSecond
+        /// <summary>
+        /// <para>
+        /// <para>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PersonalizationThresholdSeconds")]
+        public System.Int32? PersonalizationThresholdSecond { get; set; }
+        #endregion
+        
         #region Parameter SlateAdUrl
         /// <summary>
         /// <para>
@@ -226,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.LivePreRollConfiguration_AdDecisionServerUrl = this.LivePreRollConfiguration_AdDecisionServerUrl;
             context.LivePreRollConfiguration_MaxDurationSecond = this.LivePreRollConfiguration_MaxDurationSecond;
             context.Name = this.Name;
+            context.PersonalizationThresholdSecond = this.PersonalizationThresholdSecond;
             context.SlateAdUrl = this.SlateAdUrl;
             if (this.Tag != null)
             {
@@ -297,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.PersonalizationThresholdSecond != null)
+            {
+                request.PersonalizationThresholdSeconds = cmdletContext.PersonalizationThresholdSecond.Value;
             }
             if (cmdletContext.SlateAdUrl != null)
             {
@@ -381,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
             public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? PersonalizationThresholdSecond { get; set; }
             public System.String SlateAdUrl { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TranscodeProfileName { get; set; }

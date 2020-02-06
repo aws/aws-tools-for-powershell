@@ -81,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in one operation. The maximum value you can
-        /// specify is 10.</para><para>To retrieve the remaining results, make another call with the returned <code>NextToken</code>
+        /// <para>The maximum number of results to return in one operation. The maximum value that you
+        /// can specify is 100.</para><para>To retrieve the remaining results, make another call with the returned <code>NextToken</code>
         /// value. </para>
         /// </para>
         /// </summary>

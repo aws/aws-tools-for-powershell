@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter CertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para>A customer-assigned name for the certificate. Identifiers must begin with a letter;
-        /// must contain only ASCII letters, digits, and hyphens; and must not end with a hyphen
+        /// <para>A customer-assigned name for the certificate. Identifiers must begin with a letter
+        /// and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen
         /// or contain two consecutive hyphens.</para>
         /// </para>
         /// </summary>

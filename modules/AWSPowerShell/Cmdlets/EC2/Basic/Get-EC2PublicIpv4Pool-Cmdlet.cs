@@ -40,6 +40,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2PublicIpv4PoolCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>One or more filters.</para><ul><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// resource. Use the tag key in the filter name and the tag value as the filter value.
+        /// For example, to find all resources that have a tag with the key <code>Owner</code>
+        /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
+        /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
+        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter PoolId
         /// <summary>
         /// <para>
@@ -137,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.PoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -173,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request and set iteration invariants
             var request = new Amazon.EC2.Model.DescribePublicIpv4PoolsRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -236,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             // create request and set iteration invariants
             var request = new Amazon.EC2.Model.DescribePublicIpv4PoolsRequest();
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.PoolId != null)
             {
                 request.PoolIds = cmdletContext.PoolId;
@@ -359,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> PoolId { get; set; }

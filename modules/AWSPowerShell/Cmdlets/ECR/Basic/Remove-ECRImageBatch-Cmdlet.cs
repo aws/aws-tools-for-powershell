@@ -28,8 +28,8 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Deletes a list of specified images within a specified repository. Images are specified
-    /// with either <code>imageTag</code> or <code>imageDigest</code>.
+    /// Deletes a list of specified images within a repository. Images are specified with
+    /// either an <code>imageTag</code> or <code>imageDigest</code>.
     /// 
     ///  
     /// <para>

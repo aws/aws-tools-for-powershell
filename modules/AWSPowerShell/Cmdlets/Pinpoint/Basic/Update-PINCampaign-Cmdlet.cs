@@ -762,7 +762,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter WriteCampaignRequest_Name
         /// <summary>
         /// <para>
-        /// <para>The custom name of the campaign.</para>
+        /// <para>A custom name for the campaign.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -995,7 +995,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Schedule_StartTime
         /// <summary>
         /// <para>
-        /// <para>The scheduled time, in ISO 8601 format, when the campaign began or will begin.</para>
+        /// <para>The scheduled time when the campaign began or will begin. Valid values are: IMMEDIATE,
+        /// to start the campaign immediately; or, a specific time in ISO 8601 format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1202,7 +1203,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter WriteCampaignRequest_TreatmentName
         /// <summary>
         /// <para>
-        /// <para>The custom name of a variation of the campaign to use for A/B testing.</para>
+        /// <para>A custom name for a variation of the campaign to use for A/B testing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1288,10 +1289,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>The unique identifier for the version of the message template to use for the message.
         /// If specified, this value must match the identifier for an existing template version.
         /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
-        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
-        /// version of the template. The <i>active</i> version is typically the version of a template
-        /// that's been most recently reviewed and approved for use, depending on your workflow.
-        /// It isn't necessarily the latest version of a template.</para>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active
+        /// version</i> of the template. The <i>active version</i> is typically the version of
+        /// a template that's been most recently reviewed and approved for use, depending on your
+        /// workflow. It isn't necessarily the latest version of a template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1305,10 +1306,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>The unique identifier for the version of the message template to use for the message.
         /// If specified, this value must match the identifier for an existing template version.
         /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
-        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
-        /// version of the template. The <i>active</i> version is typically the version of a template
-        /// that's been most recently reviewed and approved for use, depending on your workflow.
-        /// It isn't necessarily the latest version of a template.</para>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active
+        /// version</i> of the template. The <i>active version</i> is typically the version of
+        /// a template that's been most recently reviewed and approved for use, depending on your
+        /// workflow. It isn't necessarily the latest version of a template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1322,10 +1323,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>The unique identifier for the version of the message template to use for the message.
         /// If specified, this value must match the identifier for an existing template version.
         /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
-        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
-        /// version of the template. The <i>active</i> version is typically the version of a template
-        /// that's been most recently reviewed and approved for use, depending on your workflow.
-        /// It isn't necessarily the latest version of a template.</para>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active
+        /// version</i> of the template. The <i>active version</i> is typically the version of
+        /// a template that's been most recently reviewed and approved for use, depending on your
+        /// workflow. It isn't necessarily the latest version of a template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1339,10 +1340,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>The unique identifier for the version of the message template to use for the message.
         /// If specified, this value must match the identifier for an existing template version.
         /// To retrieve a list of versions and version identifiers for a template, use the <link linkend="templates-template-name-template-type-versions">Template Versions</link>
-        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active</i>
-        /// version of the template. The <i>active</i> version is typically the version of a template
-        /// that's been most recently reviewed and approved for use, depending on your workflow.
-        /// It isn't necessarily the latest version of a template.</para>
+        /// resource.</para><para>If you don't specify a value for this property, Amazon Pinpoint uses the <i>active
+        /// version</i> of the template. The <i>active version</i> is typically the version of
+        /// a template that's been most recently reviewed and approved for use, depending on your
+        /// workflow. It isn't necessarily the latest version of a template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

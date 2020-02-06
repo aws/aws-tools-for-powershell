@@ -31,6 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Exports routes from the specified transit gateway route table to the specified S3
     /// bucket. By default, all routes are exported. Alternatively, you can filter by CIDR
     /// range.
+    /// 
+    ///  
+    /// <para>
+    /// The routes are saved to the specified bucket in a JSON file. For more information,
+    /// see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables">Export
+    /// Route Tables to Amazon S3</a> in <i>Transit Gateways</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Export", "EC2TransitGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

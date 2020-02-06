@@ -28,11 +28,11 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Restores a DB cluster to an arbitrary point in time. Users can restore to any point
-    /// in time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code>
-    /// days. The target DB cluster is created from the source DB cluster with the same configuration
-    /// as the original DB cluster, except that the new DB cluster is created with the default
-    /// DB security group.
+    /// Restores a cluster to an arbitrary point in time. Users can restore to any point in
+    /// time before <code>LatestRestorableTime</code> for up to <code>BackupRetentionPeriod</code>
+    /// days. The target cluster is created from the source cluster with the same configuration
+    /// as the original cluster, except that the new cluster is created with the default security
+    /// group.
     /// </summary>
     [Cmdlet("Restore", "DOCDBClusterToPointInTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the new DB cluster to be created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// <para>The name of the new cluster to be created.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The DB subnet group name to use for the new DB cluster.</para><para>Constraints: If provided, must match the name of an existing <code>DBSubnetGroup</code>.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>The subnet group name to use for the new cluster.</para><para>Constraints: If provided, must match the name of an existing <code>DBSubnetGroup</code>.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,17 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
-        /// DB cluster.</para><para>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS encryption
-        /// key. If you are restoring a DB cluster with the same AWS account that owns the AWS
-        /// KMS encryption key used to encrypt the new DB cluster, then you can use the AWS KMS
-        /// key alias instead of the ARN for the AWS KMS encryption key.</para><para>You can restore to a new DB cluster and encrypt the new DB cluster with an AWS KMS
-        /// key that is different from the AWS KMS key used to encrypt the source DB cluster.
-        /// The new DB cluster is encrypted with the AWS KMS key identified by the <code>KmsKeyId</code>
-        /// parameter.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// occurs:</para><ul><li><para>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
-        /// AWS KMS key that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that is not encrypted,
-        /// then the restore request is rejected.</para>
+        /// <para>The AWS KMS key identifier to use when restoring an encrypted cluster from an encrypted
+        /// cluster.</para><para>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS encryption
+        /// key. If you are restoring a cluster with the same AWS account that owns the AWS KMS
+        /// encryption key used to encrypt the new cluster, then you can use the AWS KMS key alias
+        /// instead of the ARN for the AWS KMS encryption key.</para><para>You can restore to a new cluster and encrypt the new cluster with an AWS KMS key that
+        /// is different from the AWS KMS key used to encrypt the source cluster. The new DB cluster
+        /// is encrypted with the AWS KMS key identified by the <code>KmsKeyId</code> parameter.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
+        /// occurs:</para><ul><li><para>If the cluster is encrypted, then the restored cluster is encrypted using the AWS
+        /// KMS key that was used to encrypt the source cluster.</para></li><li><para>If the cluster is not encrypted, then the restored cluster is not encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a cluster that is not encrypted, then
+        /// the restore request is rejected.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </para><para>Default: The default port for the engine.</para>
+        /// <para>The port number on which the new cluster accepts connections.</para><para>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </para><para>Default: The default port for the engine.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter RestoreToTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to restore the DB cluster to.</para><para>Valid values: A time in Universal Coordinated Time (UTC) format.</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance.</para></li><li><para>Must be specified if the <code>UseLatestRestorableTime</code> parameter is not provided.</para></li><li><para>Cannot be specified if the <code>UseLatestRestorableTime</code> parameter is <code>true</code>.</para></li><li><para>Cannot be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code>.</para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// <para>The date and time to restore the cluster to.</para><para>Valid values: A time in Universal Coordinated Time (UTC) format.</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the instance.</para></li><li><para>Must be specified if the <code>UseLatestRestorableTime</code> parameter is not provided.</para></li><li><para>Cannot be specified if the <code>UseLatestRestorableTime</code> parameter is <code>true</code>.</para></li><li><para>Cannot be specified if the <code>RestoreType</code> parameter is <code>copy-on-write</code>.</para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SourceDBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the source DB cluster from which to restore.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBCluster</code>.</para></li></ul>
+        /// <para>The identifier of the source cluster from which to restore.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBCluster</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -155,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the restored DB cluster.</para>
+        /// <para>The tags to be assigned to the restored cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter UseLatestRestorableTime
         /// <summary>
         /// <para>
-        /// <para>A value that is set to <code>true</code> to restore the DB cluster to the latest restorable
+        /// <para>A value that is set to <code>true</code> to restore the cluster to the latest restorable
         /// backup time, and <code>false</code> otherwise. </para><para>Default: <code>false</code></para><para>Constraints: Cannot be specified if the <code>RestoreToTime</code> parameter is provided.</para>
         /// </para>
         /// </summary>
@@ -177,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of VPC security groups that the new DB cluster belongs to.</para>
+        /// <para>A list of VPC security groups that the new cluster belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

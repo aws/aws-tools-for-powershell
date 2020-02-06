@@ -57,6 +57,19 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public System.String MeshName { get; set; }
         #endregion
         
+        #region Parameter MeshOwner
+        /// <summary>
+        /// <para>
+        /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
+        /// then it's               the ID of the account that shared the mesh with your account.
+        /// For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// with Shared Meshes</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MeshOwner { get; set; }
+        #endregion
+        
         #region Parameter VirtualRouterName
         /// <summary>
         /// <para>
@@ -194,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 WriteWarning("You are passing $null as a value for parameter MeshName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MeshOwner = this.MeshOwner;
             context.NextToken = this.NextToken;
             context.VirtualRouterName = this.VirtualRouterName;
             #if MODULAR
@@ -230,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (cmdletContext.MeshName != null)
             {
                 request.MeshName = cmdletContext.MeshName;
+            }
+            if (cmdletContext.MeshOwner != null)
+            {
+                request.MeshOwner = cmdletContext.MeshOwner;
             }
             if (cmdletContext.VirtualRouterName != null)
             {
@@ -293,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (cmdletContext.MeshName != null)
             {
                 request.MeshName = cmdletContext.MeshName;
+            }
+            if (cmdletContext.MeshOwner != null)
+            {
+                request.MeshOwner = cmdletContext.MeshOwner;
             }
             if (cmdletContext.VirtualRouterName != null)
             {
@@ -423,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         {
             public int? Limit { get; set; }
             public System.String MeshName { get; set; }
+            public System.String MeshOwner { get; set; }
             public System.String NextToken { get; set; }
             public System.String VirtualRouterName { get; set; }
             public System.Func<Amazon.AppMesh.Model.ListRoutesResponse, GetAMSHRouteListCmdlet, object> Select { get; set; } =

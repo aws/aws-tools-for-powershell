@@ -221,6 +221,7 @@ $REK_SelectMap = @{
                "Get-REKFaceSearch",
                "Get-REKLabelDetection",
                "Get-REKPersonTracking",
+               "Get-REKTextDetection",
                "Add-REKDetectedFacesToCollection",
                "Get-REKCollectionIdList",
                "Get-REKFaceList",
@@ -236,6 +237,7 @@ $REK_SelectMap = @{
                "Start-REKPersonTracking",
                "Start-REKProjectVersion",
                "Start-REKStreamProcessor",
+               "Start-REKTextDetection",
                "Stop-REKProjectVersion",
                "Stop-REKStreamProcessor")
 }

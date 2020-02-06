@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data
     /// points with the specified metric. If the specified metric does not exist, CloudWatch
     /// creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes
-    /// for the metric to appear in calls to <a>ListMetrics</a>.
+    /// for the metric to appear in calls to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.
     /// 
     ///  
     /// <para>
@@ -57,8 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.
     /// </para><para>
     /// Data points with time stamps from 24 hours ago or longer can take at least 48 hours
-    /// to become available for <a>GetMetricData</a> or <a>GetMetricStatistics</a> from the
-    /// time they are submitted.
+    /// to become available for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
+    /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>
+    /// from the time they are submitted. Data points with time stamps between 3 and 24 hours
+    /// ago can take as much as 2 hours to become available for for <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
+    /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.
     /// </para><para>
     /// CloudWatch needs raw data points to calculate percentile statistics. If you publish
     /// data using a statistic set instead, you can only retrieve percentile statistics for

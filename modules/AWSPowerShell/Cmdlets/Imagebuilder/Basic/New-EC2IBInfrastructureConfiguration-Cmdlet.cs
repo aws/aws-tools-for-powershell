@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para> The instance types of the infrastructure configuration. You may specify one or more
-        /// instance types to use for this build, the service will pick one of these instance
+        /// <para> The instance types of the infrastructure configuration. You can specify one or more
+        /// instance types to use for this build. The service will pick one of these instance
         /// types based on availability. </para>
         /// </para>
         /// </summary>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter KeyPair
         /// <summary>
         /// <para>
-        /// <para> The key pair of the infrastructure configuration. This can be used to log onto and
+        /// <para> The key pair of the infrastructure configuration. This can be used to log on to and
         /// debug the instance used to create your image. </para>
         /// </para>
         /// </summary>
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter S3Logs_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket in which to store the logs.</para>
+        /// <para>The Amazon S3 bucket in which to store the logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter S3Logs_S3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The S3 path in which to store the logs.</para>
+        /// <para>The Amazon S3 path in which to store the logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para> The subnet ID to place the instance used to customize your EC2 AMI in. </para>
+        /// <para> The subnet ID in which to place the instance used to customize your EC2 AMI. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para> The terminate instance on failure setting of the infrastructure configuration. Set
-        /// to false if you wish for Image Builder to retain the instance used to configure your
-        /// AMI in the event that the build or test phase of your workflow failed. </para>
+        /// to false if you want Image Builder to retain the instance used to configure your AMI
+        /// if the build or test phase of your workflow fails. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

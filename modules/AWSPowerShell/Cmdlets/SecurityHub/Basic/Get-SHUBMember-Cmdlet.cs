@@ -28,7 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns the details on the Security Hub member accounts that the account IDs specify.
+    /// Returns the details for the Security Hub member accounts for the specified account
+    /// IDs.
     /// </summary>
     [Cmdlet("Get", "SHUBMember")]
     [OutputType("Amazon.SecurityHub.Model.GetMembersResponse")]
@@ -42,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>A list of account IDs for the Security Hub member accounts that you want to return
-        /// the details for. </para>
+        /// <para>The list of account IDs for the Security Hub member accounts to return the details
+        /// for. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

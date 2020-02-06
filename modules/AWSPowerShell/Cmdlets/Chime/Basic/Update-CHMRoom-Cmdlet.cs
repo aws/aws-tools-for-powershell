@@ -28,7 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Updates room details, such as the room name.
+    /// Updates room details, such as the room name, for a room in an Amazon Chime Enterprise
+    /// account.
     /// </summary>
     [Cmdlet("Update", "CHMRoom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.Room")]

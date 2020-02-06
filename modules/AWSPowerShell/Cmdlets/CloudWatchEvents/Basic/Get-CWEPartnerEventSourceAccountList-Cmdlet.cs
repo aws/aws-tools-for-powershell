@@ -29,11 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
     /// An SaaS partner can use this operation to display the AWS account ID that a particular
-    /// partner event source name is associated with.
-    /// 
-    ///  <note><para>
-    /// This operation is used by SaaS partners, not by AWS customers.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// partner event source name is associated with. This operation is not used by AWS customers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWEPartnerEventSourceAccountList")]
     [OutputType("Amazon.CloudWatchEvents.Model.PartnerEventSourceAccount")]
@@ -66,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>Specifying this limits the number of results returned by this operation. The operation
-        /// also returns a <code>NextToken</code> that you can use in a subsequent operation to
-        /// retrieve the next set of results.</para>
+        /// also returns a NextToken which you can use in a subsequent operation to retrieve the
+        /// next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

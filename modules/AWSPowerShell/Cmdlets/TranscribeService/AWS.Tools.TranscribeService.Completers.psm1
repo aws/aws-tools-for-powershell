@@ -99,6 +99,20 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.RedactionOutput
+        "Start-TRSTranscriptionJob/ContentRedaction_RedactionOutput"
+        {
+            $v = "redacted","redacted_and_unredacted"
+            break
+        }
+
+        # Amazon.TranscribeService.RedactionType
+        "Start-TRSTranscriptionJob/ContentRedaction_RedactionType"
+        {
+            $v = "PII"
+            break
+        }
+
         # Amazon.TranscribeService.TranscriptionJobStatus
         "Get-TRSTranscriptionJobList/Status"
         {
@@ -129,6 +143,8 @@ $TRS_Completers = {
 }
 
 $TRS_map = @{
+    "ContentRedaction_RedactionOutput"=@("Start-TRSTranscriptionJob")
+    "ContentRedaction_RedactionType"=@("Start-TRSTranscriptionJob")
     "LanguageCode"=@("New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSTranscriptionJob","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSTranscriptionJob")
     "Settings_VocabularyFilterMethod"=@("Start-TRSTranscriptionJob")

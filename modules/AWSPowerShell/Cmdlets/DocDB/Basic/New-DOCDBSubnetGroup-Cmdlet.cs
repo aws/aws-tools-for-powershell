@@ -28,8 +28,8 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Creates a new DB subnet group. DB subnet groups must contain at least one subnet in
-    /// at least two Availability Zones in the AWS Region.
+    /// Creates a new subnet group. subnet groups must contain at least one subnet in at least
+    /// two Availability Zones in the AWS Region.
     /// </summary>
     [Cmdlet("New", "DOCDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBSubnetGroup")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupDescription
         /// <summary>
         /// <para>
-        /// <para>The description for the DB subnet group.</para>
+        /// <para>The description for the subnet group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name for the DB subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 letters, numbers, periods, underscores,
+        /// <para>The name for the subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 letters, numbers, periods, underscores,
         /// spaces, or hyphens. Must not be default.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 subnet IDs for the DB subnet group.</para>
+        /// <para>The Amazon EC2 subnet IDs for the subnet group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the DB subnet group.</para>
+        /// <para>The tags to be assigned to the subnet group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

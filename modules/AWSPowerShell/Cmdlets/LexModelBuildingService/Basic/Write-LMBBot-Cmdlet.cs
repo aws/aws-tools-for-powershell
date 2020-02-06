@@ -274,6 +274,19 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.String ClarificationPrompt_ResponseCard { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to add to the bot. You can only add tags when you create a bot, you
+        /// can't use the <code>PutBot</code> operation to update the tags on a bot. To update
+        /// tags, use the <code>TagResource</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.LexModelBuildingService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VoiceId
         /// <summary>
         /// <para>
@@ -386,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             }
             #endif
             context.ProcessBehavior = this.ProcessBehavior;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.LexModelBuildingService.Model.Tag>(this.Tag);
+            }
             context.VoiceId = this.VoiceId;
             
             // allow further manipulation of loaded context prior to processing
@@ -486,6 +503,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             {
                 request.ProcessBehavior = cmdletContext.ProcessBehavior;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.VoiceId != null)
             {
                 request.VoiceId = cmdletContext.VoiceId;
@@ -565,6 +586,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public Amazon.LexModelBuildingService.Locale Locale { get; set; }
             public System.String Name { get; set; }
             public Amazon.LexModelBuildingService.ProcessBehavior ProcessBehavior { get; set; }
+            public List<Amazon.LexModelBuildingService.Model.Tag> Tag { get; set; }
             public System.String VoiceId { get; set; }
             public System.Func<Amazon.LexModelBuildingService.Model.PutBotResponse, WriteLMBBotCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates a model in Amazon SageMaker. In the request, you name the model and describe
-    /// a primary container. For the primary container, you specify the docker image containing
-    /// inference code, artifacts (from prior training), and custom environment map that the
-    /// inference code uses when you deploy the model for predictions.
+    /// a primary container. For the primary container, you specify the Docker image that
+    /// contains inference code, artifacts (from prior training), and a custom environment
+    /// map that the inference code uses when you deploy the model for predictions.
     /// 
     ///  
     /// <para>
@@ -43,6 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// SageMaker then deploys all of the containers that you defined for the model in the
     /// hosting environment. 
     /// </para><para>
+    /// For an example that calls this method when deploying a model to Amazon SageMaker hosting
+    /// services, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto">Deploy
+    /// the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).</a></para><para>
     /// To run a batch transform using your model, you start a job with the <code>CreateTransformJob</code>
     /// API. Amazon SageMaker uses your model and your dataset to get inferences which are
     /// then saved to a specified S3 location.
@@ -156,9 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
-        /// model. </para><note><para>Amazon EC2 P3 accelerated computing instances are not available in the c/d/e availability
-        /// zones of region us-east-1. If you want to create endpoints with P3 instances in VPC
-        /// mode in region us-east-1, create subnets in a/b/f availability zones instead.</para></note>
+        /// model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
+        /// Instance Types and Availability Zones</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

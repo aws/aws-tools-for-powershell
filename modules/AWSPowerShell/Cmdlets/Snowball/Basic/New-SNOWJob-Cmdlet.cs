@@ -98,6 +98,17 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String ForwardingAddressId { get; set; }
         #endregion
         
+        #region Parameter IND_GSTIN
+        /// <summary>
+        /// <para>
+        /// <para>The Goods and Services Tax (GST) documents required in AWS Regions in India.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TaxDocuments_IND_GSTIN")]
+        public System.String IND_GSTIN { get; set; }
+        #endregion
+        
         #region Parameter Notification_JobStatesToNotify
         /// <summary>
         /// <para>
@@ -208,7 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <summary>
         /// <para>
         /// <para>The type of AWS Snowball device to use for this job. Currently, the only supported
-        /// device type for cluster jobs is <code>EDGE</code>.</para>
+        /// device type for cluster jobs is <code>EDGE</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
+        /// Edge Device Options</a> in the Snowball Edge Developer Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.ShippingOption = this.ShippingOption;
             context.SnowballCapacityPreference = this.SnowballCapacityPreference;
             context.SnowballType = this.SnowballType;
+            context.IND_GSTIN = this.IND_GSTIN;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -454,6 +467,40 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 request.SnowballType = cmdletContext.SnowballType;
             }
             
+             // populate TaxDocuments
+            var requestTaxDocumentsIsNull = true;
+            request.TaxDocuments = new Amazon.Snowball.Model.TaxDocuments();
+            Amazon.Snowball.Model.INDTaxDocuments requestTaxDocuments_taxDocuments_IND = null;
+            
+             // populate IND
+            var requestTaxDocuments_taxDocuments_INDIsNull = true;
+            requestTaxDocuments_taxDocuments_IND = new Amazon.Snowball.Model.INDTaxDocuments();
+            System.String requestTaxDocuments_taxDocuments_IND_iND_GSTIN = null;
+            if (cmdletContext.IND_GSTIN != null)
+            {
+                requestTaxDocuments_taxDocuments_IND_iND_GSTIN = cmdletContext.IND_GSTIN;
+            }
+            if (requestTaxDocuments_taxDocuments_IND_iND_GSTIN != null)
+            {
+                requestTaxDocuments_taxDocuments_IND.GSTIN = requestTaxDocuments_taxDocuments_IND_iND_GSTIN;
+                requestTaxDocuments_taxDocuments_INDIsNull = false;
+            }
+             // determine if requestTaxDocuments_taxDocuments_IND should be set to null
+            if (requestTaxDocuments_taxDocuments_INDIsNull)
+            {
+                requestTaxDocuments_taxDocuments_IND = null;
+            }
+            if (requestTaxDocuments_taxDocuments_IND != null)
+            {
+                request.TaxDocuments.IND = requestTaxDocuments_taxDocuments_IND;
+                requestTaxDocumentsIsNull = false;
+            }
+             // determine if request.TaxDocuments should be set to null
+            if (requestTaxDocumentsIsNull)
+            {
+                request.TaxDocuments = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -530,6 +577,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public Amazon.Snowball.ShippingOption ShippingOption { get; set; }
             public Amazon.Snowball.SnowballCapacity SnowballCapacityPreference { get; set; }
             public Amazon.Snowball.SnowballType SnowballType { get; set; }
+            public System.String IND_GSTIN { get; set; }
             public System.Func<Amazon.Snowball.Model.CreateJobResponse, NewSNOWJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobId;
         }

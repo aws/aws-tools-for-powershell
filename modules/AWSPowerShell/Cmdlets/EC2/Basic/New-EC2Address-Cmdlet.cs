@@ -100,7 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The location from which the IP address is advertised. Use this parameter to limit
-        /// the address to this location.</para><para>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html">DescribeVpcs</a>
+        /// the address to this location.</para><para>A network border group is a unique set of Availability Zones or Local Zones from where
+        /// AWS advertises IP addresses and limits the addresses to the group. IP addresses cannot
+        /// move between network border groups.</para><para>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a>
         /// to view the network border groups.</para><note><para>You cannot use a network border group with EC2 Classic. If you attempt this operation
         /// on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error

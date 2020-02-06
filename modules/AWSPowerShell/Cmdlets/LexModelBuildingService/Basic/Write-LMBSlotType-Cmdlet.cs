@@ -130,6 +130,29 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ParentSlotTypeSignature
+        /// <summary>
+        /// <para>
+        /// <para>The built-in slot type used as the parent of the slot type. When you define a parent
+        /// slot type, the new slot type has all of the same configuration as the parent.</para><para>Only <code>AMAZON.AlphaNumeric</code> is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParentSlotTypeSignature { get; set; }
+        #endregion
+        
+        #region Parameter SlotTypeConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Configuration information that extends the parent built-in slot type. The configuration
+        /// is added to the settings for the parent slot type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SlotTypeConfigurations")]
+        public Amazon.LexModelBuildingService.Model.SlotTypeConfiguration[] SlotTypeConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ValueSelectionStrategy
         /// <summary>
         /// <para>
@@ -220,6 +243,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ParentSlotTypeSignature = this.ParentSlotTypeSignature;
+            if (this.SlotTypeConfiguration != null)
+            {
+                context.SlotTypeConfiguration = new List<Amazon.LexModelBuildingService.Model.SlotTypeConfiguration>(this.SlotTypeConfiguration);
+            }
             context.ValueSelectionStrategy = this.ValueSelectionStrategy;
             
             // allow further manipulation of loaded context prior to processing
@@ -256,6 +284,14 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ParentSlotTypeSignature != null)
+            {
+                request.ParentSlotTypeSignature = cmdletContext.ParentSlotTypeSignature;
+            }
+            if (cmdletContext.SlotTypeConfiguration != null)
+            {
+                request.SlotTypeConfigurations = cmdletContext.SlotTypeConfiguration;
             }
             if (cmdletContext.ValueSelectionStrategy != null)
             {
@@ -327,6 +363,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public System.String Description { get; set; }
             public List<Amazon.LexModelBuildingService.Model.EnumerationValue> EnumerationValue { get; set; }
             public System.String Name { get; set; }
+            public System.String ParentSlotTypeSignature { get; set; }
+            public List<Amazon.LexModelBuildingService.Model.SlotTypeConfiguration> SlotTypeConfiguration { get; set; }
             public Amazon.LexModelBuildingService.SlotValueSelectionStrategy ValueSelectionStrategy { get; set; }
             public System.Func<Amazon.LexModelBuildingService.Model.PutSlotTypeResponse, WriteLMBSlotTypeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

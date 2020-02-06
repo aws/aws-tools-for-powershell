@@ -51,7 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// If you require your Envoy stats or tracing to use a different name, you can override
     ///            the <code>node.cluster</code> value that is set by               <code>APPMESH_VIRTUAL_NODE_NAME</code>
     /// with the               <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.
-    /// </para></note>
+    /// </para></note><para>
+    /// For more information about virtual nodes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual
+    /// Nodes</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "AMSHVirtualNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppMesh.Model.VirtualNodeData")]
@@ -87,6 +90,41 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public Amazon.AppMesh.Model.Backend[] Spec_Backend { get; set; }
         #endregion
         
+        #region Parameter Acm_CertificateAuthorityArn
+        /// <summary>
+        /// <para>
+        /// <para>One or more ACM Amazon Resource Name (ARN)s.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm_CertificateAuthorityArns")]
+        public System.String[] Acm_CertificateAuthorityArn { get; set; }
+        #endregion
+        
+        #region Parameter File_CertificateChain
+        /// <summary>
+        /// <para>
+        /// <para>The certificate trust chain for a certificate stored on the file system of the virtual
+        /// node that the proxy is running on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_CertificateChain")]
+        public System.String File_CertificateChain { get; set; }
+        #endregion
+        
+        #region Parameter Tls_Enforce
+        /// <summary>
+        /// <para>
+        /// <para>Whether the policy is enforced. The default is <code>True</code>, if a value isn't
+        /// specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_BackendDefaults_ClientPolicy_Tls_Enforce")]
+        public System.Boolean? Tls_Enforce { get; set; }
+        #endregion
+        
         #region Parameter Dns_Hostname
         /// <summary>
         /// <para>
@@ -101,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Listener
         /// <summary>
         /// <para>
-        /// <para>The listeners that the virtual node is expected to receive inbound traffic from. 
-        ///        You can specify one listener.</para>
+        /// <para>The listener that the virtual node is expected to receive inbound traffic from.  
+        ///       You can specify one listener.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,6 +163,20 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MeshName { get; set; }
+        #endregion
+        
+        #region Parameter MeshOwner
+        /// <summary>
+        /// <para>
+        /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
+        /// then               the account that you specify must share the mesh with your account
+        /// before you can create              the resource in the service mesh. For more information
+        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// with Shared Meshes</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MeshOwner { get; set; }
         #endregion
         
         #region Parameter AwsCloudMap_NamespaceName
@@ -152,6 +204,17 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Spec_Logging_AccessLog_File_Path")]
         public System.String File_Path { get; set; }
+        #endregion
+        
+        #region Parameter Tls_Port
+        /// <summary>
+        /// <para>
+        /// <para>The range of ports that the policy is enforced for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Spec_BackendDefaults_ClientPolicy_Tls_Ports")]
+        public System.Int32[] Tls_Port { get; set; }
         #endregion
         
         #region Parameter AwsCloudMap_ServiceName
@@ -276,6 +339,17 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 WriteWarning("You are passing $null as a value for parameter MeshName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MeshOwner = this.MeshOwner;
+            context.Tls_Enforce = this.Tls_Enforce;
+            if (this.Tls_Port != null)
+            {
+                context.Tls_Port = new List<System.Int32>(this.Tls_Port);
+            }
+            if (this.Acm_CertificateAuthorityArn != null)
+            {
+                context.Acm_CertificateAuthorityArn = new List<System.String>(this.Acm_CertificateAuthorityArn);
+            }
+            context.File_CertificateChain = this.File_CertificateChain;
             if (this.Spec_Backend != null)
             {
                 context.Spec_Backend = new List<Amazon.AppMesh.Model.Backend>(this.Spec_Backend);
@@ -327,6 +401,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             {
                 request.MeshName = cmdletContext.MeshName;
             }
+            if (cmdletContext.MeshOwner != null)
+            {
+                request.MeshOwner = cmdletContext.MeshOwner;
+            }
             
              // populate Spec
             var requestSpecIsNull = true;
@@ -349,6 +427,151 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_Listener != null)
             {
                 request.Spec.Listeners = requestSpec_spec_Listener;
+                requestSpecIsNull = false;
+            }
+            Amazon.AppMesh.Model.BackendDefaults requestSpec_spec_BackendDefaults = null;
+            
+             // populate BackendDefaults
+            var requestSpec_spec_BackendDefaultsIsNull = true;
+            requestSpec_spec_BackendDefaults = new Amazon.AppMesh.Model.BackendDefaults();
+            Amazon.AppMesh.Model.ClientPolicy requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy = null;
+            
+             // populate ClientPolicy
+            var requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicyIsNull = true;
+            requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy = new Amazon.AppMesh.Model.ClientPolicy();
+            Amazon.AppMesh.Model.ClientPolicyTls requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls = null;
+            
+             // populate Tls
+            var requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_TlsIsNull = true;
+            requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls = new Amazon.AppMesh.Model.ClientPolicyTls();
+            System.Boolean? requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_tls_Enforce = null;
+            if (cmdletContext.Tls_Enforce != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_tls_Enforce = cmdletContext.Tls_Enforce.Value;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_tls_Enforce != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls.Enforce = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_tls_Enforce.Value;
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_TlsIsNull = false;
+            }
+            List<System.Int32> requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_tls_Port = null;
+            if (cmdletContext.Tls_Port != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_tls_Port = cmdletContext.Tls_Port;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_tls_Port != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls.Ports = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_tls_Port;
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_TlsIsNull = false;
+            }
+            Amazon.AppMesh.Model.TlsValidationContext requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation = null;
+            
+             // populate Validation
+            var requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_ValidationIsNull = true;
+            requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation = new Amazon.AppMesh.Model.TlsValidationContext();
+            Amazon.AppMesh.Model.TlsValidationContextTrust requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust = null;
+            
+             // populate Trust
+            var requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_TrustIsNull = true;
+            requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust = new Amazon.AppMesh.Model.TlsValidationContextTrust();
+            Amazon.AppMesh.Model.TlsValidationContextAcmTrust requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm = null;
+            
+             // populate Acm
+            var requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_AcmIsNull = true;
+            requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm = new Amazon.AppMesh.Model.TlsValidationContextAcmTrust();
+            List<System.String> requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm_acm_CertificateAuthorityArn = null;
+            if (cmdletContext.Acm_CertificateAuthorityArn != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm_acm_CertificateAuthorityArn = cmdletContext.Acm_CertificateAuthorityArn;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm_acm_CertificateAuthorityArn != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm.CertificateAuthorityArns = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm_acm_CertificateAuthorityArn;
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_AcmIsNull = false;
+            }
+             // determine if requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm should be set to null
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_AcmIsNull)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm = null;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust.Acm = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_Acm;
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_TrustIsNull = false;
+            }
+            Amazon.AppMesh.Model.TlsValidationContextFileTrust requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File = null;
+            
+             // populate File
+            var requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_FileIsNull = true;
+            requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File = new Amazon.AppMesh.Model.TlsValidationContextFileTrust();
+            System.String requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_file_CertificateChain = null;
+            if (cmdletContext.File_CertificateChain != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_file_CertificateChain = cmdletContext.File_CertificateChain;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_file_CertificateChain != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File.CertificateChain = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File_file_CertificateChain;
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_FileIsNull = false;
+            }
+             // determine if requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File should be set to null
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_FileIsNull)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File = null;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust.File = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust_File;
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_TrustIsNull = false;
+            }
+             // determine if requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust should be set to null
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_TrustIsNull)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust = null;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation.Trust = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation_spec_BackendDefaults_ClientPolicy_Tls_Validation_Trust;
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_ValidationIsNull = false;
+            }
+             // determine if requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation should be set to null
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_ValidationIsNull)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation = null;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls.Validation = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls_spec_BackendDefaults_ClientPolicy_Tls_Validation;
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_TlsIsNull = false;
+            }
+             // determine if requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls should be set to null
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_TlsIsNull)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls = null;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls != null)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy.Tls = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy_spec_BackendDefaults_ClientPolicy_Tls;
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicyIsNull = false;
+            }
+             // determine if requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy should be set to null
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicyIsNull)
+            {
+                requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy = null;
+            }
+            if (requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy != null)
+            {
+                requestSpec_spec_BackendDefaults.ClientPolicy = requestSpec_spec_BackendDefaults_spec_BackendDefaults_ClientPolicy;
+                requestSpec_spec_BackendDefaultsIsNull = false;
+            }
+             // determine if requestSpec_spec_BackendDefaults should be set to null
+            if (requestSpec_spec_BackendDefaultsIsNull)
+            {
+                requestSpec_spec_BackendDefaults = null;
+            }
+            if (requestSpec_spec_BackendDefaults != null)
+            {
+                request.Spec.BackendDefaults = requestSpec_spec_BackendDefaults;
                 requestSpecIsNull = false;
             }
             Amazon.AppMesh.Model.Logging requestSpec_spec_Logging = null;
@@ -567,6 +790,11 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         {
             public System.String ClientToken { get; set; }
             public System.String MeshName { get; set; }
+            public System.String MeshOwner { get; set; }
+            public System.Boolean? Tls_Enforce { get; set; }
+            public List<System.Int32> Tls_Port { get; set; }
+            public List<System.String> Acm_CertificateAuthorityArn { get; set; }
+            public System.String File_CertificateChain { get; set; }
             public List<Amazon.AppMesh.Model.Backend> Spec_Backend { get; set; }
             public List<Amazon.AppMesh.Model.Listener> Spec_Listener { get; set; }
             public System.String File_Path { get; set; }

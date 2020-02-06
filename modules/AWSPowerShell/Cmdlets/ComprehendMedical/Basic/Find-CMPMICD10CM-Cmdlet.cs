@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     /// <summary>
     /// InferICD10CM detects medical conditions as entities listed in a patient record and
     /// links those entities to normalized concept identifiers in the ICD-10-CM knowledge
-    /// base from the Centers for Disease Control.
+    /// base from the Centers for Disease Control. Amazon Comprehend Medical only detects
+    /// medical entities in English language texts.
     /// </summary>
     [Cmdlet("Find", "CMPMICD10CM")]
     [OutputType("Amazon.ComprehendMedical.Model.ICD10CMEntity")]

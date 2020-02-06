@@ -61,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// (for example, <code>/dev/sda1</code>).</para></li><li><para><code>attachment.instance-id</code> - The ID of the instance the volume is attached
         /// to.</para></li><li><para><code>attachment.status</code> - The attachment state (<code>attaching</code> | <code>attached</code>
         /// | <code>detaching</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone in which the volume was created.</para></li><li><para><code>create-time</code> - The time stamp when the volume was created.</para></li><li><para><code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>
-        /// | <code>false</code>)</para></li><li><para><code>size</code> - The size of the volume, in GiB.</para></li><li><para><code>snapshot-id</code> - The snapshot from which the volume was created.</para></li><li><para><code>status</code> - The status of the volume (<code>creating</code> | <code>available</code>
+        /// | <code>false</code>)</para></li><li><para><code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach
+        /// (<code>true</code> | <code>false</code>)</para></li><li><para><code>fast-restored</code> - Indicates whether the volume was created from a snapshot
+        /// that is enabled for fast snapshot restore (<code>true</code> | <code>false</code>).</para></li><li><para><code>size</code> - The size of the volume, in GiB.</para></li><li><para><code>snapshot-id</code> - The snapshot from which the volume was created.</para></li><li><para><code>status</code> - The status of the volume (<code>creating</code> | <code>available</code>
         /// | <code>in-use</code> | <code>deleting</code> | <code>deleted</code> | <code>error</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>

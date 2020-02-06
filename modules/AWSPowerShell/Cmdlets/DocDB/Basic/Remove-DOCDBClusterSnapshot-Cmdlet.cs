@@ -28,11 +28,11 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Deletes a DB cluster snapshot. If the snapshot is being copied, the copy operation
-    /// is terminated.
+    /// Deletes a cluster snapshot. If the snapshot is being copied, the copy operation is
+    /// terminated.
     /// 
     ///  <note><para>
-    /// The DB cluster snapshot must be in the <code>available</code> state to be deleted.
+    /// The cluster snapshot must be in the <code>available</code> state to be deleted.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "DOCDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to delete.</para><para>Constraints: Must be the name of an existing DB cluster snapshot in the <code>available</code>
+        /// <para>The identifier of the cluster snapshot to delete.</para><para>Constraints: Must be the name of an existing cluster snapshot in the <code>available</code>
         /// state.</para>
         /// </para>
         /// </summary>

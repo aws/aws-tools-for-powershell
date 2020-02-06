@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.GS
     public partial class GetGSGroundStationListCmdlet : AmazonGroundStationClientCmdlet, IExecutor
     {
         
+        #region Parameter SatelliteId
+        /// <summary>
+        /// <para>
+        /// <para>Satellite ID to retrieve on-boarded ground stations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String SatelliteId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -81,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public string Select { get; set; } = "GroundStationList";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the SatelliteId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SatelliteId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SatelliteId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -100,11 +120,21 @@ namespace Amazon.PowerShell.Cmdlets.GS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.GroundStation.Model.ListGroundStationsResponse, GetGSGroundStationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.SatelliteId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -116,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
             }
             #endif
             context.NextToken = this.NextToken;
+            context.SatelliteId = this.SatelliteId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.GroundStation.Model.ListGroundStationsRequest();
@@ -138,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.SatelliteId != null)
+            {
+                request.SatelliteId = cmdletContext.SatelliteId;
             }
             
             // Initialize loop variant and commence piping
@@ -190,10 +227,14 @@ namespace Amazon.PowerShell.Cmdlets.GS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
             
             // create request and set iteration invariants
             var request = new Amazon.GroundStation.Model.ListGroundStationsRequest();
+            if (cmdletContext.SatelliteId != null)
+            {
+                request.SatelliteId = cmdletContext.SatelliteId;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -308,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String SatelliteId { get; set; }
             public System.Func<Amazon.GroundStation.Model.ListGroundStationsResponse, GetGSGroundStationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GroundStationList;
         }

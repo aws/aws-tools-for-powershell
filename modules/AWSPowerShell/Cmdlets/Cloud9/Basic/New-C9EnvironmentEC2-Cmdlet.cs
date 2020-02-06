@@ -132,6 +132,18 @@ namespace Amazon.PowerShell.Cmdlets.C9
         public System.String SubnetId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An array of key-value pairs that will be associated with the new AWS Cloud9 development
+        /// environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Cloud9.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'EnvironmentId'.
@@ -212,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.C9
             #endif
             context.OwnerArn = this.OwnerArn;
             context.SubnetId = this.SubnetId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Cloud9.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -255,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.C9
             if (cmdletContext.SubnetId != null)
             {
                 request.SubnetId = cmdletContext.SubnetId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -324,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
             public System.String Name { get; set; }
             public System.String OwnerArn { get; set; }
             public System.String SubnetId { get; set; }
+            public List<Amazon.Cloud9.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Cloud9.Model.CreateEnvironmentEC2Response, NewC9EnvironmentEC2Cmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EnvironmentId;
         }

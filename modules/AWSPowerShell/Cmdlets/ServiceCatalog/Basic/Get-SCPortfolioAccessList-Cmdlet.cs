@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists the account IDs that have access to the specified portfolio.
+    /// Lists the account IDs that have access to the specified portfolio.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SCPortfolioAccessList")]
     [OutputType("System.String")]
@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
+        #region Parameter OrganizationParentId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of an organization node the portfolio is shared with. All children of this
+        /// node with an inherited portfolio share will be returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OrganizationParentId { get; set; }
+        #endregion
+        
         #region Parameter PortfolioId
         /// <summary>
         /// <para>
@@ -65,6 +76,32 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PortfolioId { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to return with this call.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PageSize { get; set; }
+        #endregion
+        
+        #region Parameter PageToken
+        /// <summary>
+        /// <para>
+        /// <para>The page token for the next set of results. To retrieve the first set of results,
+        /// use null.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-PageToken $null' for the first call and '-PageToken $AWSHistory.LastServiceResponse.NextPageToken' for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NextToken")]
+        public System.String PageToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -86,6 +123,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PortfolioId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of PageToken
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -113,6 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AcceptLanguage = this.AcceptLanguage;
+            context.OrganizationParentId = this.OrganizationParentId;
+            context.PageSize = this.PageSize;
+            context.PageToken = this.PageToken;
             context.PortfolioId = this.PortfolioId;
             #if MODULAR
             if (this.PortfolioId == null && ParameterWasBound(nameof(this.PortfolioId)))
@@ -133,39 +183,75 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+            // create request and set iteration invariants
             var request = new Amazon.ServiceCatalog.Model.ListPortfolioAccessRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
+            if (cmdletContext.OrganizationParentId != null)
+            {
+                request.OrganizationParentId = cmdletContext.OrganizationParentId;
+            }
+            if (cmdletContext.PageSize != null)
+            {
+                request.PageSize = cmdletContext.PageSize.Value;
+            }
             if (cmdletContext.PortfolioId != null)
             {
                 request.PortfolioId = cmdletContext.PortfolioId;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.PageToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.PageToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.PageToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextPageToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -206,6 +292,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
+            public System.String OrganizationParentId { get; set; }
+            public System.Int32? PageSize { get; set; }
+            public System.String PageToken { get; set; }
             public System.String PortfolioId { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.ListPortfolioAccessResponse, GetSCPortfolioAccessListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AccountIds;

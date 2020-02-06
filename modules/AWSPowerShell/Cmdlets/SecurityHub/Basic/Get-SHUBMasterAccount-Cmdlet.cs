@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Provides the details for the Security Hub master account to the current member account.
+    /// Provides the details for the Security Hub master account for the current member account.
     /// </summary>
     [Cmdlet("Get", "SHUBMasterAccount")]
     [OutputType("Amazon.SecurityHub.Model.Invitation")]

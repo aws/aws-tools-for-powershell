@@ -28,10 +28,10 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Updates an existing state machine by modifying its <code>definition</code> and/or
-    /// <code>roleArn</code>. Running executions will continue to use the previous <code>definition</code>
-    /// and <code>roleArn</code>. You must include at least one of <code>definition</code>
-    /// or <code>roleArn</code> or you will receive a <code>MissingRequiredParameter</code>
+    /// Updates an existing state machine by modifying its <code>definition</code>, <code>roleArn</code>,
+    /// or <code>loggingConfiguration</code>. Running executions will continue to use the
+    /// previous <code>definition</code> and <code>roleArn</code>. You must include at least
+    /// one of <code>definition</code> or <code>roleArn</code> or you will receive a <code>MissingRequiredParameter</code>
     /// error.
     /// 
     ///  <note><para>
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter LoggingConfiguration_Destination
         /// <summary>
         /// <para>
-        /// <para>An object that describes where your execution history events will be logged. Limited
-        /// to size 1. Required, if your log level is not set to <code>OFF</code>.</para>
+        /// <para>An array of objects that describes where your execution history events will be logged.
+        /// Limited to size 1. Required, if your log level is not set to <code>OFF</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter LoggingConfiguration_IncludeExecutionData
         /// <summary>
         /// <para>
-        /// <para>Determines whether execution history data is included in your log. When set to <code>FALSE</code>,
+        /// <para>Determines whether execution data is included in your log. When set to <code>FALSE</code>,
         /// data is excluded.</para>
         /// </para>
         /// </summary>

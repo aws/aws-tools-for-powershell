@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>A list of account IDs of the member accounts to delete.</para>
+        /// <para>The list of account IDs for the member accounts to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

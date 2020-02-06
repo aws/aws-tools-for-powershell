@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Retrieves the specified lifecycle policy.
+    /// Retrieves the lifecycle policy for the specified repository.
     /// </summary>
     [Cmdlet("Get", "ECRLifecyclePolicy")]
     [OutputType("Amazon.ECR.Model.GetLifecyclePolicyResponse")]

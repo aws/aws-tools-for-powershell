@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
     /// <summary>
     /// Returns a list of contacts.
     /// 
-    ///          
+    ///  
     /// <para>
-    /// If <code>statusList</code> contains AVAILABLE, the request must include      <code>groundstation</code>,
-    /// <code>missionprofileArn</code>, and <code>satelliteArn</code>.      
+    /// If <code>statusList</code> contains AVAILABLE, the request must include <code>groundStation</code>,
+    /// <code>missionprofileArn</code>, and <code>satelliteArn</code>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GSContactList")]

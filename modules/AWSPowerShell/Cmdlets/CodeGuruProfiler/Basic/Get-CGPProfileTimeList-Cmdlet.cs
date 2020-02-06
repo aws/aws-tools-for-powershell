@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end time of the time range to list profiles until.</para>
+        /// <para>The end time of the time range from which to list the profiles.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter OrderBy
         /// <summary>
         /// <para>
-        /// <para>The order (ascending or descending by start time of the profile) to list the profiles
-        /// by. Defaults to TIMESTAMP_DESCENDING.</para>
+        /// <para>The order (ascending or descending by start time of the profile) to use when listing
+        /// profiles. Defaults to <code>TIMESTAMP_DESCENDING</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The aggregation period to list the profiles for.</para>
+        /// <para>The aggregation period.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfilingGroupName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the profiling group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start time of the time range to list the profiles from.</para>
+        /// <para>The start time of the time range from which to list the profiles.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,7 +122,12 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of profile time results returned by <code>ListProfileTimes</code>
+        /// in paginated output. When this parameter is used, <code>ListProfileTimes</code> only
+        /// returns <code>maxResults</code> results in a single page with a <code>nextToken</code>
+        /// response element. The remaining results of the initial request can be seen by sending
+        /// another <code>ListProfileTimes</code> request with the returned <code>nextToken</code>
+        /// value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +138,11 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListProfileTimes</code>
+        /// request where <code>maxResults</code> was used and the results exceeded the value
+        /// of that parameter. Pagination continues from the end of the previous results that
+        /// returned the <code>nextToken</code> value. </para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -63,7 +63,14 @@ namespace Amazon.PowerShell.Cmdlets.GS
         /// <para>Tags assigned to a resource.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
@@ -143,6 +150,12 @@ namespace Amazon.PowerShell.Cmdlets.GS
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            #if MODULAR
+            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

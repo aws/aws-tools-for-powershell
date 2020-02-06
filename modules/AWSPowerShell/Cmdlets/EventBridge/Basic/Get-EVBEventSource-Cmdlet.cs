@@ -30,10 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// <summary>
     /// This operation lists details about a partner event source that is shared with your
     /// account.
-    /// 
-    ///  <note><para>
-    /// This operation is run by AWS customers, not by SaaS partners.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "EVBEventSource")]
     [OutputType("Amazon.EventBridge.Model.DescribeEventSourceResponse")]

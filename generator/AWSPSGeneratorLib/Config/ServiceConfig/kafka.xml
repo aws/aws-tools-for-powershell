@@ -67,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListKafkaVersions" OutputProperty="KafkaVersions" Verb="Get" Noun="KafkaVersionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListNodes" OutputProperty="NodeInfoList" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

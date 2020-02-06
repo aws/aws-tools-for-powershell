@@ -28,8 +28,8 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Lists the rules for the specified target. You can see which rules can invoke a specific
-    /// target in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the rules for the specified target. You can see which of the rules in Amazon
+    /// EventBridge can invoke a specific target in your account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWERuleNamesByTarget")]
     [OutputType("System.String")]

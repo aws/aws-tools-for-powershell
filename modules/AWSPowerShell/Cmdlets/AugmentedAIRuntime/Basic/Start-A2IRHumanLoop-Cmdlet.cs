@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         /// <summary>
         /// <para>
         /// <para>Declares that your content is free of personally identifiable information or adult
-        /// content. Amazon SageMaker may restrict the Amazon Mechanical Turk workers that can
-        /// view your task based on this information.</para>
+        /// content.</para><para>Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your
+        /// task based on this information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         #region Parameter HumanLoopInput_InputContent
         /// <summary>
         /// <para>
-        /// <para>Serialized input from the human loop.</para>
+        /// <para>Serialized input from the human loop. The input must be a string representation of
+        /// a file in JSON format.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -208,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
             
              // populate DataAttributes
             var requestDataAttributesIsNull = true;
-            request.DataAttributes = new Amazon.AugmentedAIRuntime.Model.HumanReviewDataAttributes();
+            request.DataAttributes = new Amazon.AugmentedAIRuntime.Model.HumanLoopDataAttributes();
             List<System.String> requestDataAttributes_dataAttributes_ContentClassifier = null;
             if (cmdletContext.DataAttributes_ContentClassifier != null)
             {
@@ -231,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
             
              // populate HumanLoopInput
             var requestHumanLoopInputIsNull = true;
-            request.HumanLoopInput = new Amazon.AugmentedAIRuntime.Model.HumanLoopInputContent();
+            request.HumanLoopInput = new Amazon.AugmentedAIRuntime.Model.HumanLoopInput();
             System.String requestHumanLoopInput_humanLoopInput_InputContent = null;
             if (cmdletContext.HumanLoopInput_InputContent != null)
             {

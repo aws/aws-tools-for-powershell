@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB subnet group to return details for.</para>
+        /// <para>The name of the subnet group to return details for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

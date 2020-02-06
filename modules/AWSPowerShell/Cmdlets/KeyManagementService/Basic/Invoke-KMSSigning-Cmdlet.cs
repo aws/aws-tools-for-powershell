@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Tells AWS KMS whether the value of the <code>Message</code> parameter is a message
-        /// or message digest. To indicate a message, enter <code>RAW</code>. To indicate a message
+        /// or message digest. The default value, RAW, indicates a message. To indicate a message
         /// digest, enter <code>DIGEST</code>.</para>
         /// </para>
         /// </summary>

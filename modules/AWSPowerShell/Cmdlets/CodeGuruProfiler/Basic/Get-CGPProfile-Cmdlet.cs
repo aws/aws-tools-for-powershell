@@ -28,13 +28,21 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Get the aggregated profile of a profiling group for the specified time range. If the
-    /// requested time range does not align with the available aggregated profiles, it will
-    /// be expanded to attain alignment. If aggregated profiles are available only for part
+    /// Gets the aggregated profile of a profiling group for the specified time range. If
+    /// the requested time range does not align with the available aggregated profiles, it
+    /// is expanded to attain alignment. If aggregated profiles are available only for part
     /// of the period requested, the profile is returned from the earliest available to the
-    /// latest within the requested time range. For instance, if the requested time range
-    /// is from 00:00 to 00:20 and the available profiles are from 00:15 to 00:25, then the
-    /// returned profile will be from 00:15 to 00:20.
+    /// latest within the requested time range. 
+    /// 
+    ///  
+    /// <para>
+    /// For example, if the requested time range is from 00:00 to 00:20 and the available
+    /// profiles are from 00:15 to 00:25, the returned profile will be from 00:15 to 00:20.
+    /// 
+    /// </para><para>
+    /// You must specify exactly two of the following parameters: <code>startTime</code>,
+    /// <code>period</code>, and <code>endTime</code>. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CGPProfile")]
     [OutputType("Amazon.CodeGuruProfiler.Model.GetProfileResponse")]
@@ -48,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter Accept
         /// <summary>
         /// <para>
-        /// <para>The format of the profile to return. Supports application/json or application/x-amzn-ion.
-        /// Defaults to application/x-amzn-ion.</para>
+        /// <para>The format of the profile to return. You can choose <code>application/json</code>
+        /// or the default <code>application/x-amzn-ion</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,9 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end time of the profile to get. Either period or endTime must be specified. Must
-        /// be greater than start and the overall time range to be in the past and not larger
-        /// than a week.</para>
+        /// <para>You must specify exactly two of the following parameters: <code>startTime</code>,
+        /// <code>period</code>, and <code>endTime</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter MaxDepth
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum depth of the graph.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The period of the profile to get. Exactly two of <code>startTime</code>, <code>period</code>
-        /// and <code>endTime</code> must be specified. Must be positive and the overall time
-        /// range to be in the past and not larger than a week.</para>
+        /// <para>The period of the profile to get. The time range must be in the past and not longer
+        /// than one week. </para><para>You must specify exactly two of the following parameters: <code>startTime</code>,
+        /// <code>period</code>, and <code>endTime</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfilingGroupName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the profiling group to get.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start time of the profile to get.</para>
+        /// <para>The start time of the profile to get.</para><para>You must specify exactly two of the following parameters: <code>startTime</code>,
+        /// <code>period</code>, and <code>endTime</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,9 +28,9 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Deletes a previously provisioned DB cluster. When you delete a DB cluster, all automated
-    /// backups for that DB cluster are deleted and can't be recovered. Manual DB cluster
-    /// snapshots of the specified DB cluster are not deleted.
+    /// Deletes a previously provisioned cluster. When you delete a cluster, all automated
+    /// backups for that cluster are deleted and can't be recovered. Manual DB cluster snapshots
+    /// of the specified cluster are not deleted.
     /// </summary>
     [Cmdlet("Remove", "DOCDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case
-        /// sensitive.</para><para>Constraints:</para><ul><li><para>Must match an existing <code>DBClusterIdentifier</code>.</para></li></ul>
+        /// <para>The cluster identifier for the cluster to be deleted. This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>Must match an existing <code>DBClusterIdentifier</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The DB cluster snapshot identifier of the new DB cluster snapshot created when <code>SkipFinalSnapshot</code>
+        /// <para> The cluster snapshot identifier of the new cluster snapshot created when <code>SkipFinalSnapshot</code>
         /// is set to <code>false</code>. </para><note><para> Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter
         /// to <code>true</code> results in an error. </para></note><para>Constraints:</para><ul><li><para>Must be from 1 to 255 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
@@ -75,10 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SkipFinalSnapshot
         /// <summary>
         /// <para>
-        /// <para> Determines whether a final DB cluster snapshot is created before the DB cluster is
-        /// deleted. If <code>true</code> is specified, no DB cluster snapshot is created. If
-        /// <code>false</code> is specified, a DB cluster snapshot is created before the DB cluster
-        /// is deleted. </para><note><para>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a <code>FinalDBSnapshotIdentifier</code>
+        /// <para> Determines whether a final cluster snapshot is created before the cluster is deleted.
+        /// If <code>true</code> is specified, no cluster snapshot is created. If <code>false</code>
+        /// is specified, a cluster snapshot is created before the DB cluster is deleted. </para><note><para>If <code>SkipFinalSnapshot</code> is <code>false</code>, you must specify a <code>FinalDBSnapshotIdentifier</code>
         /// parameter.</para></note><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>

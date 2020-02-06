@@ -28,12 +28,8 @@ using Amazon.EventBridge.Model;
 namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
-    /// This is used by SaaS partners to write events to a customer's partner event bus.
-    /// 
-    ///  <note><para>
-    /// AWS customers do not use this operation. Instead, AWS customers can use <a>PutEvents</a>
-    /// to write custom events from their own applications to an event bus.
-    /// </para></note>
+    /// This is used by SaaS partners to write events to a customer's partner event bus. AWS
+    /// customers do not use this operation.
     /// </summary>
     [Cmdlet("Write", "EVBPartnerEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EventBridge.Model.PutPartnerEventsResultEntry")]

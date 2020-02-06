@@ -28,9 +28,8 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Updates the image tag mutability settings for a repository. When a repository is configured
-    /// with tag immutability, all image tags within the repository will be prevented them
-    /// from being overwritten. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image
+    /// Updates the image tag mutability settings for the specified repository. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-tag-mutability.html">Image
     /// Tag Mutability</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </summary>
     [Cmdlet("Write", "ECRImageTagMutability", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -91,6 +91,19 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.BillingMode BillingModeOverride { get; set; }
         #endregion
         
+        #region Parameter SSESpecificationOverride_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether server-side encryption is done using an AWS managed CMK or an AWS
+        /// owned CMK. If enabled (true), server-side encryption type is set to <code>KMS</code>
+        /// and an AWS managed CMK is used (AWS KMS charges apply). If disabled (false) or not
+        /// specified, server-side encryption is set to AWS owned CMK.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SSESpecificationOverride_Enabled { get; set; }
+        #endregion
+        
         #region Parameter GlobalSecondaryIndexOverride
         /// <summary>
         /// <para>
@@ -101,6 +114,19 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.DynamoDBv2.Model.GlobalSecondaryIndex[] GlobalSecondaryIndexOverride { get; set; }
+        #endregion
+        
+        #region Parameter SSESpecificationOverride_KMSMasterKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption.
+        /// To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+        /// ARN. Note that you should only provide this parameter if the key is different from
+        /// the default DynamoDB customer master key alias/aws/dynamodb.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SSESpecificationOverride_KMSMasterKeyId { get; set; }
         #endregion
         
         #region Parameter LocalSecondaryIndexOverride
@@ -138,21 +164,36 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.DateTime? RestoreDateTime { get; set; }
         #endregion
         
+        #region Parameter SourceTableArn
+        /// <summary>
+        /// <para>
+        /// <para>The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceTableArn { get; set; }
+        #endregion
+        
         #region Parameter SourceTableName
         /// <summary>
         /// <para>
         /// <para>Name of the source table that is being restored.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceTableName { get; set; }
+        #endregion
+        
+        #region Parameter SSESpecificationOverride_SSEType
+        /// <summary>
+        /// <para>
+        /// <para>Server-side encryption type. The only supported value is:</para><ul><li><para><code>KMS</code> - Server-side encryption that uses AWS Key Management Service. The
+        /// key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.SSEType")]
+        public Amazon.DynamoDBv2.SSEType SSESpecificationOverride_SSEType { get; set; }
         #endregion
         
         #region Parameter TargetTableName
@@ -269,13 +310,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             context.ProvisionedThroughputOverride_ReadCapacityUnit = this.ProvisionedThroughputOverride_ReadCapacityUnit;
             context.ProvisionedThroughputOverride_WriteCapacityUnit = this.ProvisionedThroughputOverride_WriteCapacityUnit;
             context.RestoreDateTime = this.RestoreDateTime;
+            context.SourceTableArn = this.SourceTableArn;
             context.SourceTableName = this.SourceTableName;
-            #if MODULAR
-            if (this.SourceTableName == null && ParameterWasBound(nameof(this.SourceTableName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceTableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.SSESpecificationOverride_Enabled = this.SSESpecificationOverride_Enabled;
+            context.SSESpecificationOverride_KMSMasterKeyId = this.SSESpecificationOverride_KMSMasterKeyId;
+            context.SSESpecificationOverride_SSEType = this.SSESpecificationOverride_SSEType;
             context.TargetTableName = this.TargetTableName;
             #if MODULAR
             if (this.TargetTableName == null && ParameterWasBound(nameof(this.TargetTableName)))
@@ -345,9 +384,52 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 request.RestoreDateTime = cmdletContext.RestoreDateTime.Value;
             }
+            if (cmdletContext.SourceTableArn != null)
+            {
+                request.SourceTableArn = cmdletContext.SourceTableArn;
+            }
             if (cmdletContext.SourceTableName != null)
             {
                 request.SourceTableName = cmdletContext.SourceTableName;
+            }
+            
+             // populate SSESpecificationOverride
+            var requestSSESpecificationOverrideIsNull = true;
+            request.SSESpecificationOverride = new Amazon.DynamoDBv2.Model.SSESpecification();
+            System.Boolean? requestSSESpecificationOverride_sSESpecificationOverride_Enabled = null;
+            if (cmdletContext.SSESpecificationOverride_Enabled != null)
+            {
+                requestSSESpecificationOverride_sSESpecificationOverride_Enabled = cmdletContext.SSESpecificationOverride_Enabled.Value;
+            }
+            if (requestSSESpecificationOverride_sSESpecificationOverride_Enabled != null)
+            {
+                request.SSESpecificationOverride.Enabled = requestSSESpecificationOverride_sSESpecificationOverride_Enabled.Value;
+                requestSSESpecificationOverrideIsNull = false;
+            }
+            System.String requestSSESpecificationOverride_sSESpecificationOverride_KMSMasterKeyId = null;
+            if (cmdletContext.SSESpecificationOverride_KMSMasterKeyId != null)
+            {
+                requestSSESpecificationOverride_sSESpecificationOverride_KMSMasterKeyId = cmdletContext.SSESpecificationOverride_KMSMasterKeyId;
+            }
+            if (requestSSESpecificationOverride_sSESpecificationOverride_KMSMasterKeyId != null)
+            {
+                request.SSESpecificationOverride.KMSMasterKeyId = requestSSESpecificationOverride_sSESpecificationOverride_KMSMasterKeyId;
+                requestSSESpecificationOverrideIsNull = false;
+            }
+            Amazon.DynamoDBv2.SSEType requestSSESpecificationOverride_sSESpecificationOverride_SSEType = null;
+            if (cmdletContext.SSESpecificationOverride_SSEType != null)
+            {
+                requestSSESpecificationOverride_sSESpecificationOverride_SSEType = cmdletContext.SSESpecificationOverride_SSEType;
+            }
+            if (requestSSESpecificationOverride_sSESpecificationOverride_SSEType != null)
+            {
+                request.SSESpecificationOverride.SSEType = requestSSESpecificationOverride_sSESpecificationOverride_SSEType;
+                requestSSESpecificationOverrideIsNull = false;
+            }
+             // determine if request.SSESpecificationOverride should be set to null
+            if (requestSSESpecificationOverrideIsNull)
+            {
+                request.SSESpecificationOverride = null;
             }
             if (cmdletContext.TargetTableName != null)
             {
@@ -424,7 +506,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public System.Int64? ProvisionedThroughputOverride_ReadCapacityUnit { get; set; }
             public System.Int64? ProvisionedThroughputOverride_WriteCapacityUnit { get; set; }
             public System.DateTime? RestoreDateTime { get; set; }
+            public System.String SourceTableArn { get; set; }
             public System.String SourceTableName { get; set; }
+            public System.Boolean? SSESpecificationOverride_Enabled { get; set; }
+            public System.String SSESpecificationOverride_KMSMasterKeyId { get; set; }
+            public Amazon.DynamoDBv2.SSEType SSESpecificationOverride_SSEType { get; set; }
             public System.String TargetTableName { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
             public System.Func<Amazon.DynamoDBv2.Model.RestoreTableToPointInTimeResponse, RestoreDDBTableToPointInTimeCmdlet, object> Select { get; set; } =

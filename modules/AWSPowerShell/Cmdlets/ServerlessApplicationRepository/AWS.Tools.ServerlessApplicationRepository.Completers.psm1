@@ -135,6 +135,7 @@ $SAR_SelectMap = @{
                "Get-SARApplicationList",
                "Get-SARApplicationVersionList",
                "Set-SARApplicationPolicy",
+               "Revoke-SARApplicationSharing",
                "Update-SARApplication")
 }
 

@@ -141,6 +141,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] SubnetId { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to associate with the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter VpcEndpointType
         /// <summary>
         /// <para>
@@ -264,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
             }
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.VpcEndpointType = this.VpcEndpointType;
             context.VpcId = this.VpcId;
             #if MODULAR
@@ -315,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SubnetId != null)
             {
                 request.SubnetIds = cmdletContext.SubnetId;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.VpcEndpointType != null)
             {
@@ -392,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<System.String> SecurityGroupId { get; set; }
             public System.String ServiceName { get; set; }
             public List<System.String> SubnetId { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.VpcEndpointType VpcEndpointType { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpcEndpointResponse, NewEC2VpcEndpointCmdlet, object> Select { get; set; } =

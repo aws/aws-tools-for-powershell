@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// A regional application can be an Application Load Balancer (ALB) or an API Gateway
     /// stage. 
     /// </para><para>
-    /// For AWS CloudFront, you can associate the Web ACL by providing the <code>Id</code>
+    /// For AWS CloudFront, you can associate the Web ACL by providing the <code>ARN</code>
     /// of the <a>WebACL</a> to the CloudFront API call <code>UpdateDistribution</code>. For
     /// information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
     /// </para>
@@ -56,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For a CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i></code></para></li><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing: <i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>
-        /// /<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i> ::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

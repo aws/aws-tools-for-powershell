@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImagePipelineArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the image pipeline that you wish to update. </para>
+        /// <para> The Amazon Resource Name (ARN) of the image pipeline that you want to update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,7 +86,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// images updated by this image pipeline. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ImageRecipeArn { get; set; }
         #endregion
         
@@ -107,14 +114,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// to build images updated by this image pipeline. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InfrastructureConfigurationArn { get; set; }
         #endregion
         
         #region Parameter Schedule_PipelineExecutionStartCondition
         /// <summary>
         /// <para>
-        /// <para> The condition configures when the pipeline should trigger a new image build. </para>
+        /// <para> The condition configures when the pipeline should trigger a new image build. When
+        /// the <code>pipelineExecutionStartCondition</code> is set to <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>,
+        /// EC2 Image Builder will build a new image only when there are known changes pending.
+        /// When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every
+        /// time the CRON expression matches the current time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,8 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Schedule_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para> The expression determines how often a pipeline starts the creation of new images.
-        /// </para>
+        /// <para> The expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageTestsConfiguration_TimeoutMinute
         /// <summary>
         /// <para>
-        /// <para>The maximum time in minutes that tests are permitted to run for.</para>
+        /// <para>The maximum time in minutes that tests are permitted to run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,9 +254,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             #endif
             context.ImageRecipeArn = this.ImageRecipeArn;
+            #if MODULAR
+            if (this.ImageRecipeArn == null && ParameterWasBound(nameof(this.ImageRecipeArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ImageRecipeArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ImageTestsConfiguration_ImageTestsEnabled = this.ImageTestsConfiguration_ImageTestsEnabled;
             context.ImageTestsConfiguration_TimeoutMinute = this.ImageTestsConfiguration_TimeoutMinute;
             context.InfrastructureConfigurationArn = this.InfrastructureConfigurationArn;
+            #if MODULAR
+            if (this.InfrastructureConfigurationArn == null && ParameterWasBound(nameof(this.InfrastructureConfigurationArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InfrastructureConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Schedule_PipelineExecutionStartCondition = this.Schedule_PipelineExecutionStartCondition;
             context.Schedule_ScheduleExpression = this.Schedule_ScheduleExpression;
             context.Status = this.Status;

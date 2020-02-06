@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the resource whose tags you wish to retrieve. </para>
+        /// <para> The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

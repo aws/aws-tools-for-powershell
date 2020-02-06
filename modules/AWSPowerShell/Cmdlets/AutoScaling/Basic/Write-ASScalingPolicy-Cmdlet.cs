@@ -28,10 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Creates or updates a scaling policy for an Auto Scaling group. To update an existing
-    /// scaling policy, use the existing policy name and set the parameters to change. Any
-    /// existing parameter not changed in an update to an existing policy is not changed in
-    /// this update request.
+    /// Creates or updates a scaling policy for an Auto Scaling group.
     /// 
     ///  
     /// <para>
@@ -117,6 +114,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? TargetTrackingConfiguration_DisableScaleIn { get; set; }
+        #endregion
+        
+        #region Parameter Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the scaling policy is enabled or disabled. The default is enabled.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html">Disabling
+        /// a Scaling Policy for an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
+        /// Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Enabled { get; set; }
         #endregion
         
         #region Parameter EstimatedInstanceWarmup
@@ -383,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             }
             #endif
             context.Cooldown = this.Cooldown;
+            context.Enabled = this.Enabled;
             context.EstimatedInstanceWarmup = this.EstimatedInstanceWarmup;
             context.MetricAggregationType = this.MetricAggregationType;
             context.MinAdjustmentMagnitude = this.MinAdjustmentMagnitude;
@@ -439,6 +450,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.Cooldown != null)
             {
                 request.Cooldown = cmdletContext.Cooldown.Value;
+            }
+            if (cmdletContext.Enabled != null)
+            {
+                request.Enabled = cmdletContext.Enabled.Value;
             }
             if (cmdletContext.EstimatedInstanceWarmup != null)
             {
@@ -665,6 +680,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String AdjustmentType { get; set; }
             public System.String AutoScalingGroupName { get; set; }
             public System.Int32? Cooldown { get; set; }
+            public System.Boolean? Enabled { get; set; }
             public System.Int32? EstimatedInstanceWarmup { get; set; }
             public System.String MetricAggregationType { get; set; }
             public System.Int32? MinAdjustmentMagnitude { get; set; }

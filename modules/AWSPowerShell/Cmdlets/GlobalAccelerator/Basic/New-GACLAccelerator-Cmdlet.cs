@@ -33,8 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.GACL
     /// includes endpoints, such as Network Load Balancers. To see an AWS CLI example of creating
     /// an accelerator, scroll down to <b>Example</b>.
     /// 
-    ///  <important><para>
-    /// You must specify the US-West-2 (Oregon) Region to create or update accelerators.
+    ///  
+    /// <para>
+    /// If you bring your own IP address ranges to AWS Global Accelerator (BYOIP), you can
+    /// assign IP addresses from your own pool to your accelerator as the static IP address
+    /// entry points. Only one IP address from each of your IP address ranges can be used
+    /// for each accelerator.
+    /// </para><important><para>
+    /// You must specify the US West (Oregon) Region to create or update accelerators.
     /// </para></important>
     /// </summary>
     [Cmdlet("New", "GACLAccelerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,15 +72,24 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// is, the uniqueness—of an accelerator.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter IpAddress
+        /// <summary>
+        /// <para>
+        /// <para>Optionally, if you've added your own IP address pool to Global Accelerator, you can
+        /// choose IP addresses from your own pool to use for the accelerator's static IP addresses.
+        /// You can specify one or two addresses, separated by a comma. Do not include the /32
+        /// suffix.</para><para>If you specify only one IP address from your IP address range, Global Accelerator
+        /// assigns a second static IP address for the accelerator from the AWS IP address pool.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+        /// Your Own IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IpAddresses")]
+        public System.String[] IpAddress { get; set; }
         #endregion
         
         #region Parameter IpAddressType
@@ -104,6 +119,18 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Create tags for an accelerator.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+        /// in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.GlobalAccelerator.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -169,12 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Enabled = this.Enabled;
             context.IdempotencyToken = this.IdempotencyToken;
-            #if MODULAR
-            if (this.IdempotencyToken == null && ParameterWasBound(nameof(this.IdempotencyToken)))
+            if (this.IpAddress != null)
             {
-                WriteWarning("You are passing $null as a value for parameter IdempotencyToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.IpAddress = new List<System.String>(this.IpAddress);
             }
-            #endif
             context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             #if MODULAR
@@ -183,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.GlobalAccelerator.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -207,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
             }
+            if (cmdletContext.IpAddress != null)
+            {
+                request.IpAddresses = cmdletContext.IpAddress;
+            }
             if (cmdletContext.IpAddressType != null)
             {
                 request.IpAddressType = cmdletContext.IpAddressType;
@@ -214,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -278,8 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         {
             public System.Boolean? Enabled { get; set; }
             public System.String IdempotencyToken { get; set; }
+            public List<System.String> IpAddress { get; set; }
             public Amazon.GlobalAccelerator.IpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.GlobalAccelerator.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.GlobalAccelerator.Model.CreateAcceleratorResponse, NewGACLAcceleratorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Accelerator;
         }

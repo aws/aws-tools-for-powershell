@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Deletes a DB subnet group.
+    /// Deletes a subnet group.
     /// 
     ///  <note><para>
     /// The specified database subnet group must not be associated with any DB instances.

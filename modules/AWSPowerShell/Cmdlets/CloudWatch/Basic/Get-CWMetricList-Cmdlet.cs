@@ -28,8 +28,9 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// List the specified metrics. You can use the returned metrics with <a>GetMetricData</a>
-    /// or <a>GetMetricStatistics</a> to obtain statistical data.
+    /// List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
+    /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>
+    /// to obtain statistical data.
     /// 
     ///  
     /// <para>
@@ -37,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// the returned token with subsequent calls.
     /// </para><para>
     /// After you create a metric, allow up to fifteen minutes before the metric appears.
-    /// Statistics about the metric, however, are available sooner using <a>GetMetricData</a>
-    /// or <a>GetMetricStatistics</a>.
+    /// Statistics about the metric, however, are available sooner using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
+    /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWMetricList")]

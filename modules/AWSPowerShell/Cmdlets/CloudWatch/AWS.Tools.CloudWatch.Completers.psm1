@@ -95,7 +95,10 @@ $CW_Completers = {
         }
 
         # Amazon.CloudWatch.ScanBy
-        "Get-CWMetricData/ScanBy"
+        {
+            ($_ -eq "Get-CWAlarmHistory/ScanBy") -Or
+            ($_ -eq "Get-CWMetricData/ScanBy")
+        }
         {
             $v = "TimestampAscending","TimestampDescending"
             break
@@ -143,7 +146,7 @@ $CW_Completers = {
 $CW_map = @{
     "ComparisonOperator"=@("Write-CWMetricAlarm")
     "HistoryItemType"=@("Get-CWAlarmHistory")
-    "ScanBy"=@("Get-CWMetricData")
+    "ScanBy"=@("Get-CWAlarmHistory","Get-CWMetricData")
     "StateValue"=@("Get-CWAlarm","Set-CWAlarmState")
     "Statistic"=@("Get-CWAlarmForMetric","Write-CWMetricAlarm")
     "Unit"=@("Get-CWAlarmForMetric","Get-CWMetricStatistic","Write-CWMetricAlarm")
@@ -221,6 +224,7 @@ $CW_SelectMap = @{
                "Get-CWMetricList",
                "Get-CWResourceTag",
                "Write-CWAnomalyDetector",
+               "Write-CWCompositeAlarm",
                "Write-CWDashboard",
                "Write-CWInsightRule",
                "Write-CWMetricAlarm",

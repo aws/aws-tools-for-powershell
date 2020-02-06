@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Deletes the repository policy from a specified repository.
+    /// Deletes the repository policy associated with the specified repository.
     /// </summary>
     [Cmdlet("Remove", "ECRRepositoryPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.DeleteRepositoryPolicyResponse")]

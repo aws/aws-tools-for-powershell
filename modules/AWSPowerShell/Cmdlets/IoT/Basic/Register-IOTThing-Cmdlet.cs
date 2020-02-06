@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
-        /// <para>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic
-        /// Provisioning</a> for more information.</para>
+        /// <para>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning
+        /// Devices That Have Device Certificates</a> for more information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Active
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the product version is active.</para>
+        /// <para>Indicates whether the product version is active.</para><para>Inactive provisioning artifacts are invisible to end users. End users cannot launch
+        /// or update a provisioned product from an inactive provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

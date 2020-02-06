@@ -36,6 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You get the full benefit of fast snapshot restores after they enter the <code>enabled</code>
     /// state. To get the current state of fast snapshot restores, use <a>DescribeFastSnapshotRestores</a>.
     /// To disable fast snapshot restores, use <a>DisableFastSnapshotRestores</a>.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html">Amazon
+    /// EBS Fast Snapshot Restore</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "EC2FastSnapshotRestore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

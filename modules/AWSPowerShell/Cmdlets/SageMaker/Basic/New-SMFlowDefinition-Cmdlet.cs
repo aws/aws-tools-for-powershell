@@ -194,7 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HumanLoopConfig_TaskCount
         /// <summary>
         /// <para>
-        /// <para>The number of human tasks.</para>
+        /// <para>The number of distinct workers who will perform the same task on each object. For
+        /// example, if <code>TaskCount</code> is set to <code>3</code> for an image classification
+        /// labeling job, three workers will classify each input image. Increasing <code>TaskCount</code>
+        /// can improve label accuracy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

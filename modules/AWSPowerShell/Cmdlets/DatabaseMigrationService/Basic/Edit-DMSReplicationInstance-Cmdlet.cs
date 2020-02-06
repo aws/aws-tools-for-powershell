@@ -83,12 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> Indicates that minor version upgrades will be applied automatically to the replication
-        /// instance during the maintenance window. Changing this parameter does not result in
-        /// an outage except in the following case and the change is asynchronously applied as
-        /// soon as possible. An outage will result if this parameter is set to <code>true</code>
-        /// during the maintenance window, and a newer minor version is available, and AWS DMS
-        /// has enabled auto patching for that engine version. </para>
+        /// <para>A value that indicates that minor version upgrades are applied automatically to the
+        /// replication instance during the maintenance window. Changing this parameter doesn't
+        /// result in an outage, except in the case dsecribed following. The change is asynchronously
+        /// applied as soon as possible. </para><para>An outage does result if these factors apply: </para><ul><li><para>This parameter is set to <code>true</code> during the maintenance window.</para></li><li><para>A newer minor version is available. </para></li><li><para>AWS DMS has enabled automatic patching for the given engine version. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para> Specifies whether the replication instance is a Multi-AZ deployment. You cannot set
+        /// <para> Specifies whether the replication instance is a Multi-AZ deployment. You can't set
         /// the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>.
         /// </para>
         /// </para>

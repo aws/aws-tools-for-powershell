@@ -59,7 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>The name of the metric data to return.</para>
+        /// <para>The metric for which you want to return information.</para><para>Valid relational database metric names are listed below, along with the most useful
+        /// <code>statistics</code> to include in your request, and the published <code>unit</code>
+        /// value. All relational database metric data is available in 1-minute (60 seconds) granularity.</para><ul><li><para><b><code>CPUUtilization</code></b> — The percentage of CPU utilization currently
+        /// in use on the database.</para><para><code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+        /// <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Percent</code>.</para></li><li><para><b><code>DatabaseConnections</code></b> — The number of database connections in
+        /// use.</para><para><code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+        /// <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Count</code>.</para></li><li><para><b><code>DiskQueueDepth</code></b> — The number of outstanding IOs (read/write
+        /// requests) that are waiting to access the disk.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Count</code>.</para></li><li><para><b><code>FreeStorageSpace</code></b> — The amount of available storage space.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Bytes</code>.</para></li><li><para><b><code>NetworkReceiveThroughput</code></b> — The incoming (Receive) network traffic
+        /// on the database, including both customer database traffic and AWS traffic used for
+        /// monitoring and replication.</para><para><code>Statistics</code>: The most useful statistic is <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Bytes/Second</code>.</para></li><li><para><b><code>NetworkTransmitThroughput</code></b> — The outgoing (Transmit) network
+        /// traffic on the database, including both customer database traffic and AWS traffic
+        /// used for monitoring and replication.</para><para><code>Statistics</code>: The most useful statistic is <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Bytes/Second</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The granularity, in seconds, of the returned data points.</para>
+        /// <para>The granularity, in seconds, of the returned data points.</para><para>All relational database metric data is available in 1-minute (60 seconds) granularity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,7 +137,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para>The array of statistics for your metric data request.</para>
+        /// <para>The statistic for the metric.</para><para>The following statistics are available:</para><ul><li><para><code>Minimum</code> — The lowest value observed during the specified period. Use
+        /// this value to determine low volumes of activity for your application.</para></li><li><para><code>Maximum</code> — The highest value observed during the specified period. Use
+        /// this value to determine high volumes of activity for your application.</para></li><li><para><code>Sum</code> — All values submitted for the matching metric added together. You
+        /// can use this statistic to determine the total volume of a metric.</para></li><li><para><code>Average</code> — The value of Sum / SampleCount during the specified period.
+        /// By comparing this statistic with the Minimum and Maximum values, you can determine
+        /// the full scope of a metric and how close the average use is to the Minimum and Maximum
+        /// values. This comparison helps you to know when to increase or decrease your resources.</para></li><li><para><code>SampleCount</code> — The count, or number, of data points used for the statistical
+        /// calculation.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,7 +162,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Unit
         /// <summary>
         /// <para>
-        /// <para>The unit for the metric data request.</para>
+        /// <para>The unit for the metric data request. Valid units depend on the metric data being
+        /// required. For the valid units with each available metric, see the <code>metricName</code>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

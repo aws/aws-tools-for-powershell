@@ -93,6 +93,45 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public byte[] ImageContent { get; set; }
         #endregion
         
+        #region Parameter WordFilter_MinBoundingBoxHeight
+        /// <summary>
+        /// <para>
+        /// <para>Sets the minimum height of the word bounding box. Words with bounding box heights
+        /// lesser than this value will be excluded from the result. Value is relative to the
+        /// video frame height.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_WordFilter_MinBoundingBoxHeight")]
+        public System.Single? WordFilter_MinBoundingBoxHeight { get; set; }
+        #endregion
+        
+        #region Parameter WordFilter_MinBoundingBoxWidth
+        /// <summary>
+        /// <para>
+        /// <para>Sets the minimum width of the word bounding box. Words with bounding boxes widths
+        /// lesser than this value will be excluded from the result. Value is relative to the
+        /// video frame width.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_WordFilter_MinBoundingBoxWidth")]
+        public System.Single? WordFilter_MinBoundingBoxWidth { get; set; }
+        #endregion
+        
+        #region Parameter WordFilter_MinConfidence
+        /// <summary>
+        /// <para>
+        /// <para>Sets confidence of word detection. Words with detection confidence below this will
+        /// be excluded from the result. Values should be between 0.5 and 1 as Text in Video will
+        /// not return any result below 0.5.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters_WordFilter_MinConfidence")]
+        public System.Single? WordFilter_MinConfidence { get; set; }
+        #endregion
+        
         #region Parameter ImageName
         /// <summary>
         /// <para>
@@ -101,6 +140,17 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ImageName { get; set; }
+        #endregion
+        
+        #region Parameter Filters_RegionsOfInterest
+        /// <summary>
+        /// <para>
+        /// <para> A Filter focusing on a certain area of the image. Uses a <code>BoundingBox</code>
+        /// object to set the region of the image.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Rekognition.Model.RegionOfInterest[] Filters_RegionsOfInterest { get; set; }
         #endregion
         
         #region Parameter ImageVersion
@@ -138,6 +188,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 context.Select = CreateSelectDelegate<Amazon.Rekognition.Model.DetectTextResponse, FindREKTextCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Filters_RegionsOfInterest != null)
+            {
+                context.Filters_RegionsOfInterest = new List<Amazon.Rekognition.Model.RegionOfInterest>(this.Filters_RegionsOfInterest);
+            }
+            context.WordFilter_MinBoundingBoxHeight = this.WordFilter_MinBoundingBoxHeight;
+            context.WordFilter_MinBoundingBoxWidth = this.WordFilter_MinBoundingBoxWidth;
+            context.WordFilter_MinConfidence = this.WordFilter_MinConfidence;
             context.ImageContent = this.ImageContent;
             context.ImageBucket = this.ImageBucket;
             context.ImageName = this.ImageName;
@@ -162,6 +219,70 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 // create request
                 var request = new Amazon.Rekognition.Model.DetectTextRequest();
                 
+                
+                 // populate Filters
+                var requestFiltersIsNull = true;
+                request.Filters = new Amazon.Rekognition.Model.DetectTextFilters();
+                List<Amazon.Rekognition.Model.RegionOfInterest> requestFilters_filters_RegionsOfInterest = null;
+                if (cmdletContext.Filters_RegionsOfInterest != null)
+                {
+                    requestFilters_filters_RegionsOfInterest = cmdletContext.Filters_RegionsOfInterest;
+                }
+                if (requestFilters_filters_RegionsOfInterest != null)
+                {
+                    request.Filters.RegionsOfInterest = requestFilters_filters_RegionsOfInterest;
+                    requestFiltersIsNull = false;
+                }
+                Amazon.Rekognition.Model.DetectionFilter requestFilters_filters_WordFilter = null;
+                
+                 // populate WordFilter
+                var requestFilters_filters_WordFilterIsNull = true;
+                requestFilters_filters_WordFilter = new Amazon.Rekognition.Model.DetectionFilter();
+                System.Single? requestFilters_filters_WordFilter_wordFilter_MinBoundingBoxHeight = null;
+                if (cmdletContext.WordFilter_MinBoundingBoxHeight != null)
+                {
+                    requestFilters_filters_WordFilter_wordFilter_MinBoundingBoxHeight = cmdletContext.WordFilter_MinBoundingBoxHeight.Value;
+                }
+                if (requestFilters_filters_WordFilter_wordFilter_MinBoundingBoxHeight != null)
+                {
+                    requestFilters_filters_WordFilter.MinBoundingBoxHeight = requestFilters_filters_WordFilter_wordFilter_MinBoundingBoxHeight.Value;
+                    requestFilters_filters_WordFilterIsNull = false;
+                }
+                System.Single? requestFilters_filters_WordFilter_wordFilter_MinBoundingBoxWidth = null;
+                if (cmdletContext.WordFilter_MinBoundingBoxWidth != null)
+                {
+                    requestFilters_filters_WordFilter_wordFilter_MinBoundingBoxWidth = cmdletContext.WordFilter_MinBoundingBoxWidth.Value;
+                }
+                if (requestFilters_filters_WordFilter_wordFilter_MinBoundingBoxWidth != null)
+                {
+                    requestFilters_filters_WordFilter.MinBoundingBoxWidth = requestFilters_filters_WordFilter_wordFilter_MinBoundingBoxWidth.Value;
+                    requestFilters_filters_WordFilterIsNull = false;
+                }
+                System.Single? requestFilters_filters_WordFilter_wordFilter_MinConfidence = null;
+                if (cmdletContext.WordFilter_MinConfidence != null)
+                {
+                    requestFilters_filters_WordFilter_wordFilter_MinConfidence = cmdletContext.WordFilter_MinConfidence.Value;
+                }
+                if (requestFilters_filters_WordFilter_wordFilter_MinConfidence != null)
+                {
+                    requestFilters_filters_WordFilter.MinConfidence = requestFilters_filters_WordFilter_wordFilter_MinConfidence.Value;
+                    requestFilters_filters_WordFilterIsNull = false;
+                }
+                 // determine if requestFilters_filters_WordFilter should be set to null
+                if (requestFilters_filters_WordFilterIsNull)
+                {
+                    requestFilters_filters_WordFilter = null;
+                }
+                if (requestFilters_filters_WordFilter != null)
+                {
+                    request.Filters.WordFilter = requestFilters_filters_WordFilter;
+                    requestFiltersIsNull = false;
+                }
+                 // determine if request.Filters should be set to null
+                if (requestFiltersIsNull)
+                {
+                    request.Filters = null;
+                }
                 
                  // populate Image
                 var requestImageIsNull = true;
@@ -296,6 +417,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Rekognition.Model.RegionOfInterest> Filters_RegionsOfInterest { get; set; }
+            public System.Single? WordFilter_MinBoundingBoxHeight { get; set; }
+            public System.Single? WordFilter_MinBoundingBoxWidth { get; set; }
+            public System.Single? WordFilter_MinConfidence { get; set; }
             public byte[] ImageContent { get; set; }
             public System.String ImageBucket { get; set; }
             public System.String ImageName { get; set; }

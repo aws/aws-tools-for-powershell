@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
     /// <summary>
     /// Inspects the clinical text for a variety of medical entities and returns specific
     /// information about them such as entity category, location, and confidence score on
-    /// that information.
+    /// that information. Amazon Comprehend Medical only detects medical entities in English
+    /// language texts.
     /// 
     ///  
     /// <para>

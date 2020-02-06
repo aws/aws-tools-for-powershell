@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns information about the products available that you can subscribe to and integrate
-    /// with Security Hub to consolidate findings.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about the available products that you can subscribe to and integrate
+    /// with Security Hub in order to consolidate findings.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBProduct")]
     [OutputType("Amazon.SecurityHub.Model.Product")]
@@ -61,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token that is required for pagination.</para>
+        /// <para>The token that is required for pagination. On your first call to the <code>DescribeProducts</code>
+        /// operation, set the value of this parameter to <code>NULL</code>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
+        /// this parameter to the value returned from the previous response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

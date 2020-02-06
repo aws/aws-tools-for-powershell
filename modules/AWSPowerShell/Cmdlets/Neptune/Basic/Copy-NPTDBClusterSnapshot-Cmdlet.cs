@@ -34,8 +34,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// <para>
     /// To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
     /// must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.
-    /// </para><para>
-    /// You can't copy from one AWS Region to another.
     /// </para>
     /// </summary>
     [Cmdlet("Copy", "NPTDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

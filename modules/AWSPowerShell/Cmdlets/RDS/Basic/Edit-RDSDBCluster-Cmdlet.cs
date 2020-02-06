@@ -185,6 +185,29 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
         #endregion
         
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// <para>The Active Directory directory ID to move the DB cluster to. Specify <code>none</code>
+        /// to remove the cluster from its current domain. The domain must be created prior to
+        /// this operation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Domain { get; set; }
+        #endregion
+        
+        #region Parameter DomainIAMRoleName
+        /// <summary>
+        /// <para>
+        /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
+        /// Service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainIAMRoleName { get; set; }
+        #endregion
+        
         #region Parameter EnableHttpEndpoint
         /// <summary>
         /// <para>
@@ -463,6 +486,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBInstanceParameterGroupName = this.DBInstanceParameterGroupName;
             context.DeletionProtection = this.DeletionProtection;
+            context.Domain = this.Domain;
+            context.DomainIAMRoleName = this.DomainIAMRoleName;
             context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EngineVersion = this.EngineVersion;
@@ -561,6 +586,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DeletionProtection != null)
             {
                 request.DeletionProtection = cmdletContext.DeletionProtection.Value;
+            }
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.DomainIAMRoleName != null)
+            {
+                request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
             }
             if (cmdletContext.EnableHttpEndpoint != null)
             {
@@ -733,6 +766,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBInstanceParameterGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
+            public System.String Domain { get; set; }
+            public System.String DomainIAMRoleName { get; set; }
             public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String EngineVersion { get; set; }

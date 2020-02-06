@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para><i>implicit</i>: An AWS account has implicit create volume permissions for all snapshots
     /// it owns.
     /// </para></li></ul><para>
-    /// The list of snapshots returned can be modified by specifying snapshot IDs, snapshot
+    /// The list of snapshots returned can be filtered by specifying snapshot IDs, snapshot
     /// owners, or AWS accounts with create volume permissions. If no options are specified,
     /// Amazon EC2 returns all snapshots for which you have create volume permissions.
     /// </para><para>
@@ -71,6 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// value, then that number of results is returned along with a <code>NextToken</code>
     /// value that can be passed to a subsequent <code>DescribeSnapshots</code> request to
     /// retrieve the remaining results.
+    /// </para><para>
+    /// To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.
     /// </para><para>
     /// For more information about EBS snapshots, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html">Amazon
     /// EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.

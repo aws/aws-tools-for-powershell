@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Lists the results of the Security Hub insight that the insight ARN specifies.
+    /// Lists the results of the Security Hub insight specified by the insight ARN.
     /// </summary>
     [Cmdlet("Get", "SHUBInsightResult")]
     [OutputType("Amazon.SecurityHub.Model.InsightResults")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter InsightArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the insight whose results you want to see.</para>
+        /// <para>The ARN of the insight for which to return results.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

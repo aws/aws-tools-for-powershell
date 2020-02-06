@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Deletes a previously provisioned DB instance.
+    /// Deletes a previously provisioned instance.
     /// </summary>
     [Cmdlet("Remove", "DOCDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDB.Model.DBInstance")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier for the DB instance to be deleted. This parameter isn't
-        /// case sensitive.</para><para>Constraints:</para><ul><li><para>Must match the name of an existing DB instance.</para></li></ul>
+        /// <para>The instance identifier for the instance to be deleted. This parameter isn't case
+        /// sensitive.</para><para>Constraints:</para><ul><li><para>Must match the name of an existing instance.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

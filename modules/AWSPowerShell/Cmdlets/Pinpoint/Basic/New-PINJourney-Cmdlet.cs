@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>A map that contains a set of Activity objects, one object for each activity in the
         /// journey. For each Activity object, the key is the unique identifier (string) for an
         /// activity and the value is the settings for the activity. An activity identifier can
-        /// contain a maximum of 128 characters. The characters must be alphanumeric characters.</para>
+        /// contain a maximum of 100 characters. The characters must be alphanumeric characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,8 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter WriteJourneyRequest_StartActivity
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the first activity in the journey. An activity identifier
-        /// can contain a maximum of 128 characters. The characters must be alphanumeric characters.</para>
+        /// <para>The unique identifier for the first activity in the journey. The identifier for this
+        /// activity can contain a maximum of 128 characters. The characters must be alphanumeric
+        /// characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

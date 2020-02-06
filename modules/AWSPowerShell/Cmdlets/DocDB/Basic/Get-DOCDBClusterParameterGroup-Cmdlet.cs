@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
     /// Returns a list of <code>DBClusterParameterGroup</code> descriptions. If a <code>DBClusterParameterGroupName</code>
-    /// parameter is specified, the list contains only the description of the specified DB
-    /// cluster parameter group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// parameter is specified, the list contains only the description of the specified cluster
+    /// parameter group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DOCDBClusterParameterGroup")]
     [OutputType("Amazon.DocDB.Model.DBClusterParameterGroup")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of a specific DB cluster parameter group to return details for.</para><para>Constraints:</para><ul><li><para>If provided, must match the name of an existing <code>DBClusterParameterGroup</code>.</para></li></ul>
+        /// <para>The name of a specific cluster parameter group to return details for.</para><para>Constraints:</para><ul><li><para>If provided, must match the name of an existing <code>DBClusterParameterGroup</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

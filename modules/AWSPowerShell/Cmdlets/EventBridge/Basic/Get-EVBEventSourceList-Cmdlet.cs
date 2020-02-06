@@ -29,11 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
     /// You can use this to see all the partner event sources that have been shared with your
-    /// AWS account. For more information about partner event sources, see <a>CreateEventBus</a>.
-    /// 
-    ///  <note><para>
-    /// This operation is run by AWS customers, not by SaaS partners.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// AWS account. For more information about partner event sources, see <a>CreateEventBus</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EVBEventSourceList")]
     [OutputType("Amazon.EventBridge.Model.EventSource")]
@@ -60,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>Specifying this limits the number of results returned by this operation. The operation
-        /// also returns a <code>NextToken</code> that you can use in a subsequent operation to
-        /// retrieve the next set of results.</para>
+        /// also returns a NextToken which you can use in a subsequent operation to retrieve the
+        /// next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

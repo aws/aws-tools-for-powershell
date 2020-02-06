@@ -89,6 +89,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-WMDelegateToResource', 
         'Add-WMMemberToGroup', 
         'Add-WMResourceTag', 
+        'Get-WMAccessControlEffect', 
+        'Get-WMAccessControlRuleList', 
         'Get-WMAliasList', 
         'Get-WMDelegateList', 
         'Get-WMGroup', 
@@ -108,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-WMResource', 
         'New-WMUser', 
         'Register-WMToWorkMail', 
+        'Remove-WMAccessControlRule', 
         'Remove-WMAlias', 
         'Remove-WMDelegateFromResource', 
         'Remove-WMFromWorkMail', 
@@ -121,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-WMMailboxQuota', 
         'Update-WMPrimaryEmailAddress', 
         'Update-WMResource', 
+        'Write-WMAccessControlRule', 
         'Write-WMMailboxPermission')
 
     # Variables to export from this module

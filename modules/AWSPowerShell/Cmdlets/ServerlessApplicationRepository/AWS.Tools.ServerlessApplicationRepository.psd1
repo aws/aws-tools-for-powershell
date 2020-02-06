@@ -97,6 +97,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-SARCloudFormationChangeSet', 
         'New-SARCloudFormationTemplate', 
         'Remove-SARApplication', 
+        'Revoke-SARApplicationSharing', 
         'Set-SARApplicationPolicy', 
         'Update-SARApplication')
 

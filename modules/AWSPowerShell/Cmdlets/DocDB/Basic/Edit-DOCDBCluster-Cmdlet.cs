@@ -28,9 +28,9 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Modifies a setting for an Amazon DocumentDB DB cluster. You can change one or more
-    /// database configuration parameters by specifying these parameters and the new values
-    /// in the request.
+    /// Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database
+    /// configuration parameters by specifying these parameters and the new values in the
+    /// request.
     /// </summary>
     [Cmdlet("Edit", "DOCDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>A value that specifies whether the changes in this request and any pending changes
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
-        /// setting for the DB cluster. If this parameter is set to <code>false</code>, changes
-        /// to the DB cluster are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter affects only the <code>NewDBClusterIdentifier</code>
+        /// setting for the cluster. If this parameter is set to <code>false</code>, changes to
+        /// the cluster are applied during the next maintenance window.</para><para>The <code>ApplyImmediately</code> parameter affects only the <code>NewDBClusterIdentifier</code>
         /// and <code>MasterUserPassword</code> values. If you set this parameter value to <code>false</code>,
         /// the changes to the <code>NewDBClusterIdentifier</code> and <code>MasterUserPassword</code>
         /// values are applied during the next maintenance window. All other changes are applied
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB cluster identifier for the cluster that is being modified. This parameter is
-        /// not case sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBCluster</code>.</para></li></ul>
+        /// <para>The cluster identifier for the cluster that is being modified. This parameter is not
+        /// case sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBCluster</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster parameter group to use for the DB cluster.</para>
+        /// <para>The name of the cluster parameter group to use for the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter NewDBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This
-        /// value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster2</code></para>
+        /// <para>The new cluster identifier for the cluster when renaming a cluster. This value is
+        /// stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster2</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the DB cluster accepts connections.</para><para>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </para><para>Default: The same port as the original DB cluster.</para>
+        /// <para>The port number on which the cluster accepts connections.</para><para>Constraints: Must be a value from <code>1150</code> to <code>65535</code>. </para><para>Default: The same port as the original cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of virtual private cloud (VPC) security groups that the DB cluster will belong
+        /// <para>A list of virtual private cloud (VPC) security groups that the cluster will belong
         /// to.</para>
         /// </para>
         /// </summary>

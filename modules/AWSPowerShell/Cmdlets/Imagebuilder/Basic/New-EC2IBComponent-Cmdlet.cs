@@ -28,7 +28,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Creates a new component that can be used to build, validate, test and assess your
+    /// Creates a new component that can be used to build, validate, test, and assess your
     /// image.
     /// </summary>
     [Cmdlet("New", "EC2IBComponent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,9 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ChangeDescription
         /// <summary>
         /// <para>
-        /// <para>CThe change description of the component. Describes what change has been made in this
-        /// version. In other words what makes this version different from other versions of this
-        /// component.</para>
+        /// <para>The change description of the component. Describes what change has been made in this
+        /// version, or what makes this version different from other versions of this component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Data
         /// <summary>
         /// <para>
-        /// <para>CThe data of the component.</para>
+        /// <para>The data of the component. Used to specify the data inline. Either <code>data</code>
+        /// or <code>uri</code> can be used to specify the data within the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>CThe description of the component. Describes the contents of the component.</para>
+        /// <para>The description of the component. Describes the contents of the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para>CThe platform of the component.</para>
+        /// <para>The platform of the component.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,9 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter SemanticVersion
         /// <summary>
         /// <para>
-        /// <para>The semantic version of the component. This version to follow the semantic version
-        /// syntax. i.e. major.minor.patch. This could be versioned like software 2.0.1 or date
-        /// like 2019.12.01.</para>
+        /// <para>The semantic version of the component. This version follows the semantic version syntax.
+        /// For example, major.minor.patch. This could be versioned like software (2.0.1) or like
+        /// a date (2019.12.01).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>CThe tags of the component.</para>
+        /// <para>The tags of the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -150,7 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Uri
         /// <summary>
         /// <para>
-        /// <para>CThe uri of the component.</para>
+        /// <para>The uri of the component. Must be an S3 URL and the requester must have permission
+        /// to access the S3 bucket. If you use S3, you can specify component content up to your
+        /// service quota. Either <code>data</code> or <code>uri</code> can be used to specify
+        /// the data within the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>CThe idempotency token of the component.</para>
+        /// <para>The idempotency token of the component.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

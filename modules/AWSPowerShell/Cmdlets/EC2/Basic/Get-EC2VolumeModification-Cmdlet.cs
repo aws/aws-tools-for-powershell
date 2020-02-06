@@ -59,10 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters. Supported filters: <code>volume-id</code>, <code>modification-state</code>,
-        /// <code>target-size</code>, <code>target-iops</code>, <code>target-volume-type</code>,
-        /// <code>original-size</code>, <code>original-iops</code>, <code>original-volume-type</code>,
-        /// <code>start-time</code>. </para>
+        /// <para>The filters. Supported filters: <code>volume-id</code> | <code>modification-state</code>
+        /// | <code>target-size</code> | <code>target-iops</code> | <code>target-volume-type</code>
+        /// | <code>original-size</code> | <code>original-iops</code> | <code>original-volume-type</code>
+        /// | <code>start-time</code> | <code>originalMultiAttachEnabled</code> | <code>targetMultiAttachEnabled</code>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

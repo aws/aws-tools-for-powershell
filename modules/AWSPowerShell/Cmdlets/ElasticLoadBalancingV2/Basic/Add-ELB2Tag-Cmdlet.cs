@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags. Each resource can have a maximum of 10 tags.</para>
+        /// <para>The tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

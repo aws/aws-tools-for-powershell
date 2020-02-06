@@ -434,6 +434,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.ModifyAvailabilityZoneOptInStatus
+        "Edit-EC2AvailabilityZoneGroup/OptInStatus"
+        {
+            $v = "not-opted-in","opted-in"
+            break
+        }
+
         # Amazon.EC2.MulticastSupportValue
         "New-EC2TransitGateway/Options_MulticastSupport"
         {
@@ -724,6 +731,7 @@ $EC2_map = @{
     "OnDemandOptions_AllocationStrategy"=@("New-EC2Fleet")
     "OnDemandOptions_CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "OperationType"=@("Edit-EC2FpgaImageAttribute","Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
+    "OptInStatus"=@("Edit-EC2AvailabilityZoneGroup")
     "Options_AutoAcceptSharedAttachments"=@("New-EC2TransitGateway")
     "Options_DefaultRouteTableAssociation"=@("New-EC2TransitGateway")
     "Options_DefaultRouteTablePropagation"=@("New-EC2TransitGateway")
@@ -1110,6 +1118,7 @@ $EC2_SelectMap = @{
                "Import-EC2Image",
                "Import-EC2KeyPair",
                "Import-EC2Snapshot",
+               "Edit-EC2AvailabilityZoneGroup",
                "Edit-EC2CapacityReservation",
                "Edit-EC2ClientVpnEndpoint",
                "Edit-EC2DefaultCreditSpecification",

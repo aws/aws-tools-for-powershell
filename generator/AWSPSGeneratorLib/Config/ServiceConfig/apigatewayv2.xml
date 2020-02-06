@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>apigatewayv2</C2jFilename>
     <AssemblyName>ApiGatewayV2</AssemblyName>
@@ -65,6 +66,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcLink" OutputProperty="*" Verb="New" Noun="VpcLink" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessLogSettings" Verb="Remove" Noun="AccessLogSetting" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteApi" Verb="Remove" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -105,6 +114,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouteRequestParameter" Verb="Remove" Noun="RouteRequestParameter" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRouteResponse" Verb="Remove" Noun="RouteResponse" ShouldProcessTarget="RouteResponseId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -114,6 +127,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteStage" Verb="Remove" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcLink" Verb="Remove" Noun="VpcLink" ShouldProcessTarget="VpcLinkId" PipelineParameter="VpcLinkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -213,6 +230,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVpcLink" OutputProperty="*" Verb="Get" Noun="VpcLink" PipelineParameter="VpcLinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVpcLinks" OutputProperty="Items" Verb="Get" Noun="VpcLinkList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportApi" OutputProperty="*" Verb="Import" Noun="Api" ShouldProcessTarget="Body" PipelineParameter="Body" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -270,6 +295,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStage" OutputProperty="*" Verb="Update" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="ApiId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVpcLink" OutputProperty="*" Verb="Update" Noun="VpcLink" ShouldProcessTarget="VpcLinkId" PipelineParameter="VpcLinkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> An optional pagination token provided by a previous request. If this parameter is
-        /// specified, the response includes only records beyond the marker, up to the vlue specified
+        /// specified, the response includes only records beyond the marker, up to the value specified
         /// by <code>MaxRecords</code>. </para>
         /// </para>
         /// <para>

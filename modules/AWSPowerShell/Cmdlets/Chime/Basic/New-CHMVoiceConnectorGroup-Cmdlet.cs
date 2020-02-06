@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Creates an Amazon Chime Voice Connector group under the administrator's AWS account.
-    /// You can associate up to three existing Amazon Chime Voice Connectors with the Amazon
-    /// Chime Voice Connector group by including <code>VoiceConnectorItems</code> in the request.
+    /// You can associate Amazon Chime Voice Connectors with the Amazon Chime Voice Connector
+    /// group by including <code>VoiceConnectorItems</code> in the request.
     /// 
     ///  
     /// <para>

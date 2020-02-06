@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <para>
     /// TLS is just an updated, more secure version of Secure Socket Layer (SSL).
     /// </para><para>
-    /// The <code>create load balancer tls certificate</code> operation supports tag-based
-    /// access control via resource tags applied to the resource identified by <code>load
-    /// balancer name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// The <code>CreateLoadBalancerTlsCertificate</code> operation supports tag-based access
+    /// control via resource tags applied to the resource identified by <code>load balancer
+    /// name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
     /// Dev Guide</a>.
     /// </para>
     /// </summary>

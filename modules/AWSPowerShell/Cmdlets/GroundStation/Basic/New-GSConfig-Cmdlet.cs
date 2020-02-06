@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     /// <summary>
     /// Creates a <code>Config</code> with the specified <code>configData</code> parameters.
     /// 
-    ///          
+    ///  
     /// <para>
     /// Only one type of <code>configData</code> can be specified.
     /// </para>

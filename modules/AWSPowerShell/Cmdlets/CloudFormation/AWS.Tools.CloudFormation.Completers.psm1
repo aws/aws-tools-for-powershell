@@ -121,6 +121,16 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.PermissionModels
+        {
+            ($_ -eq "New-CFNStackSet/PermissionModel") -Or
+            ($_ -eq "Update-CFNStackSet/PermissionModel")
+        }
+        {
+            $v = "SELF_MANAGED","SERVICE_MANAGED"
+            break
+        }
+
         # Amazon.CloudFormation.ProvisioningType
         "Get-CFNTypeList/ProvisioningType"
         {
@@ -202,6 +212,7 @@ $CFN_map = @{
     "ErrorCode"=@("Write-CFNHandlerProgress")
     "OnFailure"=@("New-CFNStack")
     "OperationStatus"=@("Write-CFNHandlerProgress")
+    "PermissionModel"=@("New-CFNStackSet","Update-CFNStackSet")
     "ProvisioningType"=@("Get-CFNTypeList")
     "RegistrationStatusFilter"=@("Get-CFNTypeRegistrationList")
     "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack")

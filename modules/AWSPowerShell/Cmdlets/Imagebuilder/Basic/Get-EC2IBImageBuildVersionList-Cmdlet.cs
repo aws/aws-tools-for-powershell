@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The filters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageVersionArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the image whose build versions you wish to retrieve.
+        /// <para> The Amazon Resource Name (ARN) of the image whose build versions you want to retrieve.
         /// </para>
         /// </para>
         /// </summary>

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         #region Parameter Termination_CpsLimit
         /// <summary>
         /// <para>
-        /// <para>The limit on calls per second. Max value based on account service limit. Default value
+        /// <para>The limit on calls per second. Max value based on account service quota. Default value
         /// of 1.</para>
         /// </para>
         /// </summary>

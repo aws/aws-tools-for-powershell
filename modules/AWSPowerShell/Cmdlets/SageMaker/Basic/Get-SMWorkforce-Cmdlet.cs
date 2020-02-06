@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the private workforce whose access you want to restrict. <code>WorkforceName</code>
-        /// is automatically set to <code>"default"</code> when a workforce is created and cannot
+        /// is automatically set to <code>default</code> when a workforce is created and cannot
         /// be modified. </para>
         /// </para>
         /// </summary>

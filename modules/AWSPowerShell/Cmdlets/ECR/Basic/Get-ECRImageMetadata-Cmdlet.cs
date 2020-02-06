@@ -28,8 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Returns metadata about the images in a repository, including image size, image tags,
-    /// and creation date.
+    /// Returns metadata about the images in a repository.
     /// 
     ///  <note><para>
     /// Beginning with Docker version 1.9, the Docker client compresses image layers before

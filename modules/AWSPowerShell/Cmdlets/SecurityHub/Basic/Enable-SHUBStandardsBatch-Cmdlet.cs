@@ -28,10 +28,14 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Enables the standards specified by the provided <code>standardsArn</code>. In this
-    /// release, only CIS AWS Foundations standards are supported. For more information, see
-    /// <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Standards
-    /// Supported in AWS Security Hub</a>.
+    /// Enables the standards specified by the provided <code>StandardsArn</code>. To obtain
+    /// the ARN for a standard, use the <code><a>DescribeStandards</a></code> operation.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security
+    /// Standards</a> section of the <i>AWS Security Hub User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Enable", "SHUBStandardsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.StandardsSubscription")]
@@ -46,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter StandardsSubscriptionRequest
         /// <summary>
         /// <para>
-        /// <para>The list of standards compliance checks to enable.</para><important><para>In this release, Security Hub supports only the CIS AWS Foundations standard.</para><para>The ARN for the standard is <code>arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0</code>.</para></important>
+        /// <para>The list of standards checks to enable.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

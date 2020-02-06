@@ -149,8 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter SslPolicy
         /// <summary>
         /// <para>
-        /// <para>[HTTPS and TLS listeners] The security policy that defines which ciphers and protocols
-        /// are supported. The default is the current predefined security policy.</para>
+        /// <para>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers
+        /// are supported. The following are the possible values:</para><ul><li><para><code>ELBSecurityPolicy-2016-08</code></para></li><li><para><code>ELBSecurityPolicy-TLS-1-0-2015-04</code></para></li><li><para><code>ELBSecurityPolicy-TLS-1-1-2017-01</code></para></li><li><para><code>ELBSecurityPolicy-TLS-1-2-2017-01</code></para></li><li><para><code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code></para></li><li><para><code>ELBSecurityPolicy-FS-2018-06</code></para></li><li><para><code>ELBSecurityPolicy-FS-1-1-2019-08</code></para></li><li><para><code>ELBSecurityPolicy-FS-1-2-2019-08</code></para></li><li><para><code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+        /// Policies</a> in the <i>Application Load Balancers Guide</i> and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+        /// Policies</a> in the <i>Network Load Balancers Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

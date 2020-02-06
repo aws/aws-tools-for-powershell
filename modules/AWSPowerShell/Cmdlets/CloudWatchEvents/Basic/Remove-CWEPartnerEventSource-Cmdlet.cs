@@ -28,13 +28,13 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// This operation is used by SaaS partners to delete a partner event source. AWS customers
-    /// don't use this operation.
+    /// This operation is used by SaaS partners to delete a partner event source. This operation
+    /// is not used by AWS customers.
     /// 
     ///  
     /// <para>
     /// When you delete an event source, the status of the corresponding partner event bus
-    /// in the AWS customer account becomes <code>DELETED</code>.
+    /// in the AWS customer account becomes DELETED.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWEPartnerEventSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

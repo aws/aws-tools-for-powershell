@@ -145,6 +145,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CFGResourceConfig', 
         'Remove-CFGResourceTag', 
         'Remove-CFGRetentionConfiguration', 
+        'Select-CFGAggregateResourceConfig', 
         'Select-CFGResourceConfig', 
         'Start-CFGConfigRulesEvaluation', 
         'Start-CFGConfigurationRecorder', 

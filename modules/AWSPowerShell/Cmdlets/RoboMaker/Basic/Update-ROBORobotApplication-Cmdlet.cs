@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter RobotSoftwareSuite
         /// <summary>
         /// <para>
-        /// <para>The robot software suite used by the robot application.</para>
+        /// <para>The robot software suite (ROS distribution) used by the robot application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

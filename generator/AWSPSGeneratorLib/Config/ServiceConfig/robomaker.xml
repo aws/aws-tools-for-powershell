@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelSimulationJobBatch" Verb="Stop" Noun="SimulationJobBatch" ShouldProcessTarget="Batch" PipelineParameter="Batch" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDeploymentJob" OutputProperty="*" Verb="New" Noun="DeploymentJob" ShouldProcessTarget="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -107,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSimulationJobBatch" OutputProperty="*" Verb="Get" Noun="SimulationJobBatch" PipelineParameter="Batch" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDeploymentJobs" OutputProperty="DeploymentJobs" Verb="Get" Noun="DeploymentJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -127,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSimulationJobBatches" OutputProperty="SimulationJobBatchSummaries" Verb="Get" Noun="SimulationJobBatchList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSimulationJobs" OutputProperty="SimulationJobSummaries" Verb="Get" Noun="SimulationJobSummary" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -140,6 +152,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestartSimulationJob" Verb="Restart" Noun="SimulationJob" ShouldProcessTarget="Job" PipelineParameter="Job" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSimulationJobBatch" OutputProperty="*" Verb="Start" Noun="SimulationJobBatch" ShouldProcessTarget="ClientRequestToken" PipelineParameter="ClientRequestToken" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

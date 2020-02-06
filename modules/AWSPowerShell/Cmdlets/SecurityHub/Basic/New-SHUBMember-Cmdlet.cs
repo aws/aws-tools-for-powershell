@@ -31,20 +31,20 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// Creates a member association in Security Hub between the specified accounts and the
     /// account used to make the request, which is the master account. To successfully create
     /// a member, you must use this action from an account that already has Security Hub enabled.
-    /// You can use the <a>EnableSecurityHub</a> to enable Security Hub.
+    /// To enable Security Hub, you can use the <code><a>EnableSecurityHub</a></code> operation.
     /// 
     ///  
     /// <para>
     /// After you use <code>CreateMembers</code> to create member account associations in
-    /// Security Hub, you need to use the <a>InviteMembers</a> action, which invites the accounts
-    /// to enable Security Hub and become member accounts in Security Hub. If the invitation
-    /// is accepted by the account owner, the account becomes a member account in Security
-    /// Hub, and a permission policy is added that permits the master account to view the
-    /// findings generated in the member account. When Security Hub is enabled in the invited
-    /// account, findings start being sent to both the member and master accounts.
+    /// Security Hub, you must use the <code><a>InviteMembers</a></code> operation to invite
+    /// the accounts to enable Security Hub and become member accounts in Security Hub.
     /// </para><para>
-    /// You can remove the association between the master and member accounts by using the
-    /// <a>DisassociateFromMasterAccount</a> or <a>DisassociateMembers</a> operation.
+    /// If the account owner accepts the invitation, the account becomes a member account
+    /// in Security Hub, and a permission policy is added that permits the master account
+    /// to view the findings generated in the member account. When Security Hub is enabled
+    /// in the invited account, findings start to be sent to both the member and master accounts.
+    /// </para><para>
+    /// To remove the association between the master and member accounts, use the <code><a>DisassociateFromMasterAccount</a></code> or <code><a>DisassociateMembers</a></code> operation.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SHUBMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountDetail
         /// <summary>
         /// <para>
-        /// <para>A list of account ID and email address pairs of the accounts to associate with the
-        /// Security Hub master account.</para>
+        /// <para>The list of accounts to associate with the Security Hub master account. For each account,
+        /// the list includes the account ID and the email address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

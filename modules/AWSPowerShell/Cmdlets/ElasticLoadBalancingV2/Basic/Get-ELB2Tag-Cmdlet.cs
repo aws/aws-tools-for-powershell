@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARN) of the resources.</para>
+        /// <para>The Amazon Resource Names (ARN) of the resources. You can specify up to 20 resources
+        /// in a single call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

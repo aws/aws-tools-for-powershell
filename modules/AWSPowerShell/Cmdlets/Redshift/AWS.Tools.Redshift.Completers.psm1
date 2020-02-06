@@ -83,14 +83,14 @@ $RS_Completers = {
         # Amazon.Redshift.ActionType
         "Get-RSNodeConfigurationOption/ActionType"
         {
-            $v = "recommend-node-config","restore-cluster"
+            $v = "recommend-node-config","resize-cluster","restore-cluster"
             break
         }
 
         # Amazon.Redshift.ScheduledActionTypeValues
         "Get-RSScheduledAction/TargetActionType"
         {
-            $v = "ResizeCluster"
+            $v = "PauseCluster","ResizeCluster","ResumeCluster"
             break
         }
 
@@ -242,12 +242,14 @@ $RS_SelectMap = @{
                "Edit-RSScheduledAction",
                "Edit-RSSnapshotCopyRetentionPeriod",
                "Edit-RSSnapshotSchedule",
+               "Stop-RSCluster",
                "Request-RSReservedNodeOffering",
                "Restart-RSCluster",
                "Reset-RSClusterParameterGroup",
                "Set-RSClusterSize",
                "Restore-RSFromClusterSnapshot",
                "Restore-RSTableFromClusterSnapshot",
+               "Start-RSCluster",
                "Revoke-RSClusterSecurityGroupIngress",
                "Revoke-RSSnapshotAccess",
                "Switch-RSEncryptionKey")

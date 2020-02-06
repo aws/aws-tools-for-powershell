@@ -53,10 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code>
         /// | <code>image</code> | <code>instance</code> | <code>host-reservation</code> | <code>internet-gateway</code>
         /// | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code>
-        /// | <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code>
-        /// | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code>
-        /// | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code>
-        /// | <code>vpn-connection</code> | <code>vpn-gateway</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example,
+        /// | <code>network-interface</code> | <code>placement-group</code> | <code>reserved-instances</code>
+        /// | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> |
+        /// <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> |
+        /// <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code> |
+        /// <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example,
         /// specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources
         /// with the tag "Owner=TeamA".</para></li><li><para><code>value</code> - The tag value.</para></li></ul>
         /// </para>

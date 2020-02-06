@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>The name of the execution. This name must be unique for your AWS account, region,
         /// and state machine for 90 days. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
         /// Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer
-        /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>white space</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul>
+        /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>white space</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul><para>To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z,
+        /// - and _.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

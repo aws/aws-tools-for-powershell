@@ -28,9 +28,9 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Adds up to 50 members to a chat room. Members can be either users or bots. The member
-    /// role designates whether the member is a chat room administrator or a general chat
-    /// room member.
+    /// Adds up to 50 members to a chat room in an Amazon Chime Enterprise account. Members
+    /// can be either users or bots. The member role designates whether the member is a chat
+    /// room administrator or a general chat room member.
     /// </summary>
     [Cmdlet("New", "CHMRoomMembershipBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.MemberError")]

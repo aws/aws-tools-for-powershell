@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Creates a snapshot of a DB cluster.
+    /// Creates a snapshot of a cluster.
     /// </summary>
     [Cmdlet("New", "DOCDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBClusterSnapshot")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster to create a snapshot for. This parameter is not case
+        /// <para>The identifier of the cluster to create a snapshot for. This parameter is not case
         /// sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBCluster</code>.</para></li></ul><para>Example: <code>my-cluster</code></para>
         /// </para>
         /// </summary>
@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot. This parameter is stored as a lowercase
-        /// string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
+        /// <para>The identifier of the cluster snapshot. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the DB cluster snapshot.</para>
+        /// <para>The tags to be assigned to the cluster snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

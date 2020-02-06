@@ -65,6 +65,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String SMSTemplateRequest_DefaultSubstitution { get; set; }
         #endregion
         
+        #region Parameter SMSTemplateRequest_RecommenderId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the recommender model to use for the message template. Amazon
+        /// Pinpoint uses this value to determine how to retrieve and process data from a recommender
+        /// model when it sends messages that use the template, if the template contains message
+        /// variables for recommendation data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SMSTemplateRequest_RecommenderId { get; set; }
+        #endregion
+        
         #region Parameter SMSTemplateRequest_Tag
         /// <summary>
         /// <para>
@@ -170,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SMSTemplateRequest_Body = this.SMSTemplateRequest_Body;
             context.SMSTemplateRequest_DefaultSubstitution = this.SMSTemplateRequest_DefaultSubstitution;
+            context.SMSTemplateRequest_RecommenderId = this.SMSTemplateRequest_RecommenderId;
             if (this.SMSTemplateRequest_Tag != null)
             {
                 context.SMSTemplateRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -224,6 +238,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution != null)
             {
                 request.SMSTemplateRequest.DefaultSubstitutions = requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution;
+                requestSMSTemplateRequestIsNull = false;
+            }
+            System.String requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId = null;
+            if (cmdletContext.SMSTemplateRequest_RecommenderId != null)
+            {
+                requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId = cmdletContext.SMSTemplateRequest_RecommenderId;
+            }
+            if (requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId != null)
+            {
+                request.SMSTemplateRequest.RecommenderId = requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId;
                 requestSMSTemplateRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestSMSTemplateRequest_sMSTemplateRequest_Tag = null;
@@ -318,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             public System.String SMSTemplateRequest_Body { get; set; }
             public System.String SMSTemplateRequest_DefaultSubstitution { get; set; }
+            public System.String SMSTemplateRequest_RecommenderId { get; set; }
             public Dictionary<System.String, System.String> SMSTemplateRequest_Tag { get; set; }
             public System.String SMSTemplateRequest_TemplateDescription { get; set; }
             public System.String TemplateName { get; set; }

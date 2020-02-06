@@ -162,6 +162,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.String ElasticsearchVersion { get; set; }
         #endregion
         
+        #region Parameter AdvancedSecurityOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>True if advanced security is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AdvancedSecurityOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter CognitoOptions_Enabled
         /// <summary>
         /// <para>
@@ -235,6 +245,16 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
         #endregion
         
+        #region Parameter AdvancedSecurityOptions_InternalUserDatabaseEnabled
+        /// <summary>
+        /// <para>
+        /// <para>True if the internal user database is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AdvancedSecurityOptions_InternalUserDatabaseEnabled { get; set; }
+        #endregion
+        
         #region Parameter EBSOptions_Iops
         /// <summary>
         /// <para>
@@ -255,6 +275,41 @@ namespace Amazon.PowerShell.Cmdlets.ES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LogPublishingOptions")]
         public System.Collections.Hashtable LogPublishingOption { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserOptions_MasterUserARN
+        /// <summary>
+        /// <para>
+        /// <para>ARN for the master user (if IAM is enabled).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_MasterUserOptions_MasterUserARN")]
+        public System.String MasterUserOptions_MasterUserARN { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserOptions_MasterUserName
+        /// <summary>
+        /// <para>
+        /// <para>The master user's username, which is stored in the Amazon Elasticsearch Service domain's
+        /// internal database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_MasterUserOptions_MasterUserName")]
+        public System.String MasterUserOptions_MasterUserName { get; set; }
+        #endregion
+        
+        #region Parameter MasterUserOptions_MasterUserPassword
+        /// <summary>
+        /// <para>
+        /// <para>The master user's password, which is stored in the Amazon Elasticsearch Service domain's
+        /// internal database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_MasterUserOptions_MasterUserPassword")]
+        public System.String MasterUserOptions_MasterUserPassword { get; set; }
         #endregion
         
         #region Parameter CognitoOptions_RoleArn
@@ -426,6 +481,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
                     context.AdvancedOption.Add((String)hashKey, (String)(this.AdvancedOption[hashKey]));
                 }
             }
+            context.AdvancedSecurityOptions_Enabled = this.AdvancedSecurityOptions_Enabled;
+            context.AdvancedSecurityOptions_InternalUserDatabaseEnabled = this.AdvancedSecurityOptions_InternalUserDatabaseEnabled;
+            context.MasterUserOptions_MasterUserARN = this.MasterUserOptions_MasterUserARN;
+            context.MasterUserOptions_MasterUserName = this.MasterUserOptions_MasterUserName;
+            context.MasterUserOptions_MasterUserPassword = this.MasterUserOptions_MasterUserPassword;
             context.CognitoOptions_Enabled = this.CognitoOptions_Enabled;
             context.CognitoOptions_IdentityPoolId = this.CognitoOptions_IdentityPoolId;
             context.CognitoOptions_RoleArn = this.CognitoOptions_RoleArn;
@@ -496,6 +556,80 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (cmdletContext.AdvancedOption != null)
             {
                 request.AdvancedOptions = cmdletContext.AdvancedOption;
+            }
+            
+             // populate AdvancedSecurityOptions
+            var requestAdvancedSecurityOptionsIsNull = true;
+            request.AdvancedSecurityOptions = new Amazon.Elasticsearch.Model.AdvancedSecurityOptionsInput();
+            System.Boolean? requestAdvancedSecurityOptions_advancedSecurityOptions_Enabled = null;
+            if (cmdletContext.AdvancedSecurityOptions_Enabled != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_Enabled = cmdletContext.AdvancedSecurityOptions_Enabled.Value;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_Enabled != null)
+            {
+                request.AdvancedSecurityOptions.Enabled = requestAdvancedSecurityOptions_advancedSecurityOptions_Enabled.Value;
+                requestAdvancedSecurityOptionsIsNull = false;
+            }
+            System.Boolean? requestAdvancedSecurityOptions_advancedSecurityOptions_InternalUserDatabaseEnabled = null;
+            if (cmdletContext.AdvancedSecurityOptions_InternalUserDatabaseEnabled != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_InternalUserDatabaseEnabled = cmdletContext.AdvancedSecurityOptions_InternalUserDatabaseEnabled.Value;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_InternalUserDatabaseEnabled != null)
+            {
+                request.AdvancedSecurityOptions.InternalUserDatabaseEnabled = requestAdvancedSecurityOptions_advancedSecurityOptions_InternalUserDatabaseEnabled.Value;
+                requestAdvancedSecurityOptionsIsNull = false;
+            }
+            Amazon.Elasticsearch.Model.MasterUserOptions requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions = null;
+            
+             // populate MasterUserOptions
+            var requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptionsIsNull = true;
+            requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions = new Amazon.Elasticsearch.Model.MasterUserOptions();
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserARN = null;
+            if (cmdletContext.MasterUserOptions_MasterUserARN != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserARN = cmdletContext.MasterUserOptions_MasterUserARN;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserARN != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions.MasterUserARN = requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserARN;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserName = null;
+            if (cmdletContext.MasterUserOptions_MasterUserName != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserName = cmdletContext.MasterUserOptions_MasterUserName;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserName != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions.MasterUserName = requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserName;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserPassword = null;
+            if (cmdletContext.MasterUserOptions_MasterUserPassword != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserPassword = cmdletContext.MasterUserOptions_MasterUserPassword;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserPassword != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions.MasterUserPassword = requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions_masterUserOptions_MasterUserPassword;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptionsIsNull = false;
+            }
+             // determine if requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions should be set to null
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptionsIsNull)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions = null;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions != null)
+            {
+                request.AdvancedSecurityOptions.MasterUserOptions = requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions;
+                requestAdvancedSecurityOptionsIsNull = false;
+            }
+             // determine if request.AdvancedSecurityOptions should be set to null
+            if (requestAdvancedSecurityOptionsIsNull)
+            {
+                request.AdvancedSecurityOptions = null;
             }
             
              // populate CognitoOptions
@@ -894,6 +1028,11 @@ namespace Amazon.PowerShell.Cmdlets.ES
         {
             public System.String AccessPolicy { get; set; }
             public Dictionary<System.String, System.String> AdvancedOption { get; set; }
+            public System.Boolean? AdvancedSecurityOptions_Enabled { get; set; }
+            public System.Boolean? AdvancedSecurityOptions_InternalUserDatabaseEnabled { get; set; }
+            public System.String MasterUserOptions_MasterUserARN { get; set; }
+            public System.String MasterUserOptions_MasterUserName { get; set; }
+            public System.String MasterUserOptions_MasterUserPassword { get; set; }
             public System.Boolean? CognitoOptions_Enabled { get; set; }
             public System.String CognitoOptions_IdentityPoolId { get; set; }
             public System.String CognitoOptions_RoleArn { get; set; }

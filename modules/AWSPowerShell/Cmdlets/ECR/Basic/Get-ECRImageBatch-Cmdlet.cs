@@ -28,8 +28,14 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Gets detailed information for specified images within a specified repository. Images
-    /// are specified with either <code>imageTag</code> or <code>imageDigest</code>.
+    /// Gets detailed information for an image. Images are specified with either an <code>imageTag</code>
+    /// or <code>imageDigest</code>.
+    /// 
+    ///  
+    /// <para>
+    /// When an image is pulled, the BatchGetImage API is called once to retrieve the image
+    /// manifest.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "ECRImageBatch")]
     [OutputType("Amazon.ECR.Model.BatchGetImageResponse")]

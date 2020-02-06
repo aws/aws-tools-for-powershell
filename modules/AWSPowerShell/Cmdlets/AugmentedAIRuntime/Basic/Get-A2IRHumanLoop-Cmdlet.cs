@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         #region Parameter HumanLoopName
         /// <summary>
         /// <para>
-        /// <para>The name of the human loop.</para>
+        /// <para>The unique name of the human loop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

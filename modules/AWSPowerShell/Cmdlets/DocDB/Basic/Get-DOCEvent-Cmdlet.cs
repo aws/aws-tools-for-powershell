@@ -28,9 +28,9 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter
+    /// Returns events related to instances, security groups, snapshots, and DB parameter
     /// groups for the past 14 days. You can obtain events specific to a particular DB instance,
-    /// DB security group, DB snapshot, or DB parameter group by providing the name as a parameter.
+    /// security group, snapshot, or parameter group by providing the name as a parameter.
     /// By default, the events of the past hour are returned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DOCEvent")]

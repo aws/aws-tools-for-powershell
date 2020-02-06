@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter RobotSoftwareSuite
         /// <summary>
         /// <para>
-        /// <para>Information about the robot software suite.</para>
+        /// <para>Information about the robot software suite (ROS distribution).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -56,13 +56,12 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of deployment job results returned by <code>ListFleets</code> in
-        /// paginated output. When this parameter is used, <code>ListFleets</code> only returns
-        /// <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-        /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListFleets</code> request with the returned <code>nextToken</code> value.
-        /// This value can be between 1 and 100. If this parameter is not used, then <code>ListFleets</code>
-        /// returns up to 100 results and a <code>nextToken</code> value if applicable. </para>
+        /// <para>When this parameter is used, <code>ListFleets</code> only returns <code>maxResults</code>
+        /// results in a single page along with a <code>nextToken</code> response element. The
+        /// remaining results of the initial request can be seen by sending another <code>ListFleets</code>
+        /// request with the returned <code>nextToken</code> value. This value can be between
+        /// 1 and 200. If this parameter is not used, then <code>ListFleets</code> returns up
+        /// to 200 results and a <code>nextToken</code> value if applicable. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

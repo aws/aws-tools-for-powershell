@@ -71,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token that is required for pagination.</para>
+        /// <para>The token that is required for pagination. On your first call to the <code>DescribeActionTargets</code>
+        /// operation, set the value of this parameter to <code>NULL</code>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
+        /// this parameter to the value returned from the previous response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -28,8 +28,8 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Removes one or more tags (keys and values) from an application, campaign, journey,
-    /// message template, or segment.
+    /// Removes one or more tags (keys and values) from an application, campaign, message
+    /// template, or segment.
     /// </summary>
     [Cmdlet("Remove", "PINResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

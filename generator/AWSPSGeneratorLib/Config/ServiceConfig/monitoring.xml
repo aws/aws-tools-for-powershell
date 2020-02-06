@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>monitoring</C2jFilename>
     <AssemblyName>CloudWatch</AssemblyName>
@@ -126,6 +127,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutAnomalyDetector" Verb="Write" Noun="AnomalyDetector" ShouldProcessTarget="MetricName" PipelineParameter="MetricName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutCompositeAlarm" Verb="Write" Noun="CompositeAlarm" ShouldProcessTarget="AlarmName" PipelineParameter="AlarmName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -185,23 +185,31 @@ $GACL_SelectCompleters = {
 }
 
 $GACL_SelectMap = @{
-    "Select"=@("New-GACLAccelerator",
+    "Select"=@("Start-GACLAdvertisingByoipCidr",
+               "New-GACLAccelerator",
                "New-GACLEndpointGroup",
                "New-GACLListener",
                "Remove-GACLAccelerator",
                "Remove-GACLEndpointGroup",
                "Remove-GACLListener",
+               "Remove-GACLByoipCidrProvision",
                "Get-GACLAccelerator",
                "Get-GACLAcceleratorAttribute",
                "Get-GACLEndpointGroup",
                "Get-GACLListener",
                "Get-GACLAcceleratorList",
+               "Get-GACLByoipCidrList",
                "Get-GACLEndpointGroupList",
                "Get-GACLListenerList",
+               "Get-GACLResourceTag",
+               "Add-GACLByoipCidrProvision",
+               "Add-GACLResourceTag",
+               "Remove-GACLResourceTag",
                "Update-GACLAccelerator",
                "Update-GACLAcceleratorAttribute",
                "Update-GACLEndpointGroup",
-               "Update-GACLListener")
+               "Update-GACLListener",
+               "Stop-GACLAdvertisingByoipCidr")
 }
 
 _awsArgumentCompleterRegistration $GACL_SelectCompleters $GACL_SelectMap

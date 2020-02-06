@@ -28,7 +28,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Creates a new image recipe. Image Recipes defines how images are configured, tested
+    /// Creates a new image recipe. Image recipes define how images are configured, tested,
     /// and assessed.
     /// </summary>
     [Cmdlet("New", "EC2IBImageRecipe", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The scope at which the type is visible and usable in CloudFormation operations.</para><para>Valid values include:</para><ul><li><para><code>PRIVATE</code>: The type is only visible and usable within the account in which
         /// it is registered. Currently, AWS CloudFormation marks any types you create as <code>PRIVATE</code>.</para></li><li><para><code>PUBLIC</code>: The type is publically visible and usable within any Amazon
-        /// account.</para></li></ul>
+        /// account.</para></li></ul><para>The default is <code>PRIVATE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

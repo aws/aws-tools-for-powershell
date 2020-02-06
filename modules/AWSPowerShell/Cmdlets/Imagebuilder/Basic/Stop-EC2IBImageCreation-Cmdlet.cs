@@ -28,7 +28,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// CancelImageCreation cancels the creation of Image. This operation may only be used
+    /// CancelImageCreation cancels the creation of Image. This operation can only be used
     /// on images in a non-terminal state.
     /// </summary>
     [Cmdlet("Stop", "EC2IBImageCreation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageBuildVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the image whose creation you wish to cancel.</para>
+        /// <para>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,14 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>The idempotency token used to make this request idempotent.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClientToken { get; set; }
         #endregion
         
@@ -137,12 +130,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
-            #if MODULAR
-            if (this.ClientToken == null && ParameterWasBound(nameof(this.ClientToken)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ClientToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ImageBuildVersionArn = this.ImageBuildVersionArn;
             #if MODULAR
             if (this.ImageBuildVersionArn == null && ParameterWasBound(nameof(this.ImageBuildVersionArn)))

@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Returns a list of orderable DB instance options for the specified engine.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of orderable instance options for the specified engine.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DOCOrderableDBInstanceOption")]
     [OutputType("Amazon.DocDB.Model.OrderableDBInstanceOption")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The DB instance class filter value. Specify this parameter to show only the available
-        /// offerings that match the specified DB instance class.</para>
+        /// <para>The instance class filter value. Specify this parameter to show only the available
+        /// offerings that match the specified instance class.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the engine to retrieve DB instance options for.</para>
+        /// <para>The name of the engine to retrieve instance options for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

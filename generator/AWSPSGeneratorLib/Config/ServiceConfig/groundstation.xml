@@ -83,7 +83,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroundStations" OutputProperty="GroundStationList" Verb="Get" Noun="GroundStationList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListGroundStations" OutputProperty="GroundStationList" Verb="Get" Noun="GroundStationList" PipelineParameter="SatelliteId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -29,9 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Enables the integration of a partner product with Security Hub. Integrated products
-    /// send findings to Security Hub. When you enable a product integration, a permission
-    /// policy that grants permission for the product to send findings to Security Hub is
-    /// applied.
+    /// send findings to Security Hub.
+    /// 
+    ///  
+    /// <para>
+    /// When you enable a product integration, a permission policy that grants permission
+    /// for the product to send findings to Security Hub is applied.
+    /// </para>
     /// </summary>
     [Cmdlet("Enable", "SHUBImportFindingsForProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

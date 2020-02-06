@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// </para><para>
     /// If your route matches a request, you can distribute traffic to one or more target
     ///         virtual nodes with relative weighting.
+    /// </para><para>
+    /// For more information about routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html">Routes</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "AMSHRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -171,6 +173,20 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MeshName { get; set; }
+        #endregion
+        
+        #region Parameter MeshOwner
+        /// <summary>
+        /// <para>
+        /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
+        /// then               the account that you specify must share the mesh with your account
+        /// before you can create              the resource in the service mesh. For more information
+        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// with Shared Meshes</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MeshOwner { get; set; }
         #endregion
         
         #region Parameter Match_Metadata
@@ -426,7 +442,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter VirtualRouterName
         /// <summary>
         /// <para>
-        /// <para>The name of the virtual router in which to create the route.</para>
+        /// <para>The name of the virtual router in which to create the route. If the virtual router
+        /// is in a shared mesh,         then you must be the owner of the virtual router resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -568,6 +585,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 WriteWarning("You are passing $null as a value for parameter MeshName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MeshOwner = this.MeshOwner;
             context.RouteName = this.RouteName;
             #if MODULAR
             if (this.RouteName == null && ParameterWasBound(nameof(this.RouteName)))
@@ -683,6 +701,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (cmdletContext.MeshName != null)
             {
                 request.MeshName = cmdletContext.MeshName;
+            }
+            if (cmdletContext.MeshOwner != null)
+            {
+                request.MeshOwner = cmdletContext.MeshOwner;
             }
             if (cmdletContext.RouteName != null)
             {
@@ -1343,6 +1365,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         {
             public System.String ClientToken { get; set; }
             public System.String MeshName { get; set; }
+            public System.String MeshOwner { get; set; }
             public System.String RouteName { get; set; }
             public List<Amazon.AppMesh.Model.WeightedTarget> Spec_GrpcRoute_Action_WeightedTarget { get; set; }
             public List<Amazon.AppMesh.Model.GrpcRouteMetadata> Match_Metadata { get; set; }

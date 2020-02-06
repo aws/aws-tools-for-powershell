@@ -28,8 +28,9 @@ using Amazon.ComprehendMedical.Model;
 namespace Amazon.PowerShell.Cmdlets.CMPM
 {
     /// <summary>
-    /// Inspects the clinical text for protected health information (PHI) entities and entity
-    /// category, location, and confidence score on that information.
+    /// Inspects the clinical text for protected health information (PHI) entities and returns
+    /// the entity category, location, and confidence score for each entity. Amazon Comprehend
+    /// Medical only detects entities in English language texts.
     /// </summary>
     [Cmdlet("Find", "CMPMPersonalHealthInformation")]
     [OutputType("Amazon.ComprehendMedical.Model.Entity")]

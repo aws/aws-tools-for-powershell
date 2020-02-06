@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The user-provided instance identifier. If this parameter is specified, information
-        /// from only the specific DB instance is returned. This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>If provided, must match the identifier of an existing <code>DBInstance</code>.</para></li></ul>
+        /// from only the specific instance is returned. This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>If provided, must match the identifier of an existing <code>DBInstance</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more DB instances to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
-        /// Resource Names (ARNs). The results list includes only the information about the DB
-        /// instances that are associated with the DB clusters that are identified by these ARNs.</para></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and DB instance ARNs.
-        /// The results list includes only the information about the DB instances that are identified
+        /// <para>A filter that specifies one or more instances to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource
+        /// Names (ARNs). The results list includes only the information about the instances that
+        /// are associated with the clusters that are identified by these ARNs.</para></li><li><para><code>db-instance-id</code> - Accepts instance identifiers and instance ARNs. The
+        /// results list includes only the information about the instances that are identified
         /// by these ARNs.</para></li></ul>
         /// </para>
         /// </summary>

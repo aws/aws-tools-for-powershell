@@ -28,9 +28,14 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Notify Amazon ECR that you intend to upload an image layer.
+    /// Notifies Amazon ECR that you intend to upload an image layer.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// When an image is pushed, the InitiateLayerUpload API is called once per image layer
+    /// that has not already been uploaded. Whether an image layer has been uploaded before
+    /// is determined by the <a>BatchCheckLayerAvailability</a> API action.
+    /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy, and it is not intended for general
     /// use by customers for pulling and pushing images. In most cases, you should use the
     /// <code>docker</code> CLI to pull, tag, and push images.

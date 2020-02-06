@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>A value that indicates whether the DB cluster has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled. </para>
+        /// protection is disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

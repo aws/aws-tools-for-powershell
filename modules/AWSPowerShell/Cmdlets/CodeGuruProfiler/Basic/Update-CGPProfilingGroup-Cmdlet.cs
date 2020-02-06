@@ -28,7 +28,7 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Update a profiling group.
+    /// Updates a profiling group.
     /// </summary>
     [Cmdlet("Update", "CGPProfilingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruProfiler.Model.ProfilingGroupDescription")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter AgentOrchestrationConfig_ProfilingEnabled
         /// <summary>
         /// <para>
-        /// <para>If the agents should be enabled to create and report profiles.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfilingGroupName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the profiling group to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

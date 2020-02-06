@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> The authentication mechanism you use to access the MongoDB source endpoint.</para><para>Valid values: DEFAULT, MONGODB_CR, SCRAM_SHA_1 </para><para>DEFAULT – For MongoDB version 2.x, use MONGODB_CR. For MongoDB version 3.x, use SCRAM_SHA_1.
-        /// This setting is not used when authType=No.</para>
+        /// This setting isn't used when authType=No.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_AuthSource
         /// <summary>
         /// <para>
-        /// <para> The MongoDB database name. This setting is not used when <code>authType=NO</code>.
+        /// <para> The MongoDB database name. This setting isn't used when <code>authType=NO</code>.
         /// </para><para>The default is admin.</para>
         /// </para>
         /// </summary>
@@ -100,6 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.AuthTypeValue MongoDbSettings_AuthType { get; set; }
         #endregion
         
+        #region Parameter KafkaSettings_Broker
+        /// <summary>
+        /// <para>
+        /// <para>The broker location and port of the Kafka broker that hosts your Kafka instance. Specify
+        /// the broker in the form <code><i>broker-hostname-or-ip</i>:<i>port</i></code>. For
+        /// example, <code>"ec2-12-345-678-901.compute-1.amazonaws.com:2345"</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KafkaSettings_Broker { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_BucketFolder
         /// <summary>
         /// <para>
@@ -116,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para> An optional parameter to set a folder name in the S3 bucket. If provided, tables
         /// are created in the path <code><i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>.
-        /// If this parameter is not specified, then the path used is <code><i>schema_name</i>/<i>table_name</i>/</code>.
+        /// If this parameter isn't specified, then the path used is <code><i>schema_name</i>/<i>table_name</i>/</code>.
         /// </para>
         /// </para>
         /// </summary>
@@ -154,6 +166,33 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String S3Settings_BucketName { get; set; }
         #endregion
         
+        #region Parameter S3Settings_CdcInsertsAndUpdate
+        /// <summary>
+        /// <para>
+        /// <para>A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations
+        /// to .csv or .parquet (columnar storage) output files. The default setting is <code>false</code>,
+        /// but when <code>CdcInsertsAndUpdates</code> is set to <code>true</code>or <code>y</code>,
+        /// INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet
+        /// file. </para><para>For .csv file format only, how these INSERTs and UPDATEs are recorded depends on the
+        /// value of the <code>IncludeOpForFullLoad</code> parameter. If <code>IncludeOpForFullLoad</code>
+        /// is set to <code>true</code>, the first field of every CDC record is set to either
+        /// <code>I</code> or <code>U</code> to indicate INSERT and UPDATE operations at the source.
+        /// But if <code>IncludeOpForFullLoad</code> is set to <code>false</code>, CDC records
+        /// are written without an indication of INSERT or UPDATE operations at the source. For
+        /// more information about how these settings work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
+        /// Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration Service
+        /// User Guide.</i>.</para><note><para>AWS DMS supports the use of the <code>CdcInsertsAndUpdates</code> parameter in versions
+        /// 3.3.1 and later.</para><para><code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be set
+        /// to <code>true</code> for the same endpoint. Set either <code>CdcInsertsOnly</code>
+        /// or <code>CdcInsertsAndUpdates</code> to <code>true</code> for the same endpoint, but
+        /// not both.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("S3Settings_CdcInsertsAndUpdates")]
+        public System.Boolean? S3Settings_CdcInsertsAndUpdate { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_CdcInsertsOnly
         /// <summary>
         /// <para>
@@ -170,8 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// written without a first field to indicate the INSERT operation at the source. For
         /// more information about how these settings work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
         /// Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration Service
-        /// User Guide.</i>.</para><note><para>AWS DMS supports this interaction between the <code>CdcInsertsOnly</code> and <code>IncludeOpForFullLoad</code>
-        /// parameters in versions 3.1.4 and later. </para></note>
+        /// User Guide.</i>.</para><note><para>AWS DMS supports the interaction described preceding between the <code>CdcInsertsOnly</code>
+        /// and <code>IncludeOpForFullLoad</code> parameters in versions 3.1.4 and later. </para><para><code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be set
+        /// to <code>true</code> for the same endpoint. Set either <code>CdcInsertsOnly</code>
+        /// or <code>CdcInsertsAndUpdates</code> to <code>true</code> for the same endpoint, but
+        /// not both.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,9 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_CompressionType
         /// <summary>
         /// <para>
-        /// <para> An optional parameter to use GZIP to compress the target files. Set to GZIP to compress
-        /// the target files. Set to NONE (the default) or do not use to leave the files uncompressed.
-        /// Applies to both .csv and .parquet file formats. </para>
+        /// <para>An optional parameter to use GZIP to compress the target files. Set to GZIP to compress
+        /// the target files. Either set this parameter to NONE (the default) or don't use it
+        /// to leave the files uncompressed. This parameter applies to both .csv and .parquet
+        /// file formats. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,9 +444,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter EndpointIdentifier
         /// <summary>
         /// <para>
-        /// <para>The database endpoint identifier. Identifiers must begin with a letter; must contain
-        /// only ASCII letters, digits, and hyphens; and must not end with a hyphen or contain
-        /// two consecutive hyphens.</para>
+        /// <para>The database endpoint identifier. Identifiers must begin with a letter and must contain
+        /// only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two
+        /// consecutive hyphens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -448,10 +491,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The type of engine for the endpoint. Valid values, depending on the <code>EndpointType</code>
-        /// value, include <code>mysql</code>, <code>oracle</code>, <code>postgres</code>, <code>mariadb</code>,
-        /// <code>aurora</code>, <code>aurora-postgresql</code>, <code>redshift</code>, <code>s3</code>,
-        /// <code>db2</code>, <code>azuredb</code>, <code>sybase</code>, <code>dynamodb</code>,
-        /// <code>mongodb</code>, and <code>sqlserver</code>.</para>
+        /// value, include <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+        /// <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"redshift"</code>,
+        /// <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>, <code>"sybase"</code>,
+        /// <code>"dynamodb"</code>, <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
+        /// <code>"elasticsearch"</code>, <code>"documentdb"</code>, and <code>"sqlserver"</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -468,7 +512,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ElasticsearchSettings_ErrorRetryDuration
         /// <summary>
         /// <para>
-        /// <para>The maximum number of seconds that DMS retries failed API requests to the Elasticsearch
+        /// <para>The maximum number of seconds for which DMS retries failed API requests to the Elasticsearch
         /// cluster.</para>
         /// </para>
         /// </summary>
@@ -545,6 +589,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? ElasticsearchSettings_FullLoadErrorPercentage { get; set; }
         #endregion
         
+        #region Parameter KinesisSettings_IncludeControlDetail
+        /// <summary>
+        /// <para>
+        /// <para>Shows detailed control information for table definition, column definition, and table
+        /// and column changes in the Kinesis message output. The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KinesisSettings_IncludeControlDetails")]
+        public System.Boolean? KinesisSettings_IncludeControlDetail { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_IncludeOpForFullLoad
         /// <summary>
         /// <para>
@@ -555,15 +611,53 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// the rows were inserted at the source database. If <code>IncludeOpForFullLoad</code>
         /// is set to <code>true</code> or <code>y</code>, the INSERT is recorded as an I annotation
         /// in the first field of the .csv file. This allows the format of your target records
-        /// from a full load to be consistent with the target records from a CDC load.</para><note><para>This setting works together with the <code>CdcInsertsOnly</code> parameter for output
-        /// to .csv files only. For more information about how these settings work together, see
-        /// <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
+        /// from a full load to be consistent with the target records from a CDC load.</para><note><para>This setting works together with the <code>CdcInsertsOnly</code> and the <code>CdcInsertsAndUpdates</code>
+        /// parameters for output to .csv files only. For more information about how these settings
+        /// work together, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
         /// Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration Service
         /// User Guide.</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? S3Settings_IncludeOpForFullLoad { get; set; }
+        #endregion
+        
+        #region Parameter KinesisSettings_IncludePartitionValue
+        /// <summary>
+        /// <para>
+        /// <para>Shows the partition value within the Kinesis message output, unless the partition
+        /// type is <code>schema-table-type</code>. The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KinesisSettings_IncludePartitionValue { get; set; }
+        #endregion
+        
+        #region Parameter KinesisSettings_IncludeTableAlterOperation
+        /// <summary>
+        /// <para>
+        /// <para>Includes any data definition language (DDL) operations that change the table in the
+        /// control data, such as <code>rename-table</code>, <code>drop-table</code>, <code>add-column</code>,
+        /// <code>drop-column</code>, and <code>rename-column</code>. The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KinesisSettings_IncludeTableAlterOperations")]
+        public System.Boolean? KinesisSettings_IncludeTableAlterOperation { get; set; }
+        #endregion
+        
+        #region Parameter KinesisSettings_IncludeTransactionDetail
+        /// <summary>
+        /// <para>
+        /// <para>Provides detailed transaction information from the source database. This information
+        /// includes a commit timestamp, a log position, and values for <code>transaction_id</code>,
+        /// previous <code>transaction_id</code>, and <code>transaction_record_id</code> (the
+        /// record offset within a transaction). The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KinesisSettings_IncludeTransactionDetails")]
+        public System.Boolean? KinesisSettings_IncludeTransactionDetail { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -618,7 +712,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KinesisSettings_MessageFormat
         /// <summary>
         /// <para>
-        /// <para>The output format for the records created on the endpoint. The message format is <code>JSON</code>.</para>
+        /// <para>The output format for the records created on the endpoint. The message format is <code>JSON</code>
+        /// (default) or <code>JSON_UNFORMATTED</code> (a single line with no tab).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -668,6 +763,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.ParquetVersionValue")]
         public Amazon.DatabaseMigrationService.ParquetVersionValue S3Settings_ParquetVersion { get; set; }
+        #endregion
+        
+        #region Parameter KinesisSettings_PartitionIncludeSchemaTable
+        /// <summary>
+        /// <para>
+        /// <para>Prefixes schema and table names to partition values, when the partition type is <code>primary-key-type</code>.
+        /// Doing this increases data distribution among Kinesis shards. For example, suppose
+        /// that a SysBench schema has thousands of tables and each table has only limited range
+        /// for a primary key. In this case, the same primary key is sent from thousands of tables
+        /// to the same shard, which causes throttling. The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KinesisSettings_PartitionIncludeSchemaTable { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_Password
@@ -868,8 +977,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KinesisSettings_ServiceAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the IAM role that DMS uses to write to the Amazon
-        /// Kinesis data stream.</para>
+        /// <para>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role
+        /// that AWS DMS uses to write to the Kinesis data stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -972,6 +1081,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3Settings_TimestampColumnName { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_Topic
+        /// <summary>
+        /// <para>
+        /// <para>The topic to which you migrate the data. If you don't specify a topic, AWS DMS specifies
+        /// <code>"kafka-default-topic"</code> as the migration topic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KafkaSettings_Topic { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_TrimBlank
@@ -1135,7 +1255,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             #endif
             context.ExternalTableDefinition = this.ExternalTableDefinition;
             context.ExtraConnectionAttribute = this.ExtraConnectionAttribute;
+            context.KafkaSettings_Broker = this.KafkaSettings_Broker;
+            context.KafkaSettings_Topic = this.KafkaSettings_Topic;
+            context.KinesisSettings_IncludeControlDetail = this.KinesisSettings_IncludeControlDetail;
+            context.KinesisSettings_IncludePartitionValue = this.KinesisSettings_IncludePartitionValue;
+            context.KinesisSettings_IncludeTableAlterOperation = this.KinesisSettings_IncludeTableAlterOperation;
+            context.KinesisSettings_IncludeTransactionDetail = this.KinesisSettings_IncludeTransactionDetail;
             context.KinesisSettings_MessageFormat = this.KinesisSettings_MessageFormat;
+            context.KinesisSettings_PartitionIncludeSchemaTable = this.KinesisSettings_PartitionIncludeSchemaTable;
             context.KinesisSettings_ServiceAccessRoleArn = this.KinesisSettings_ServiceAccessRoleArn;
             context.KinesisSettings_StreamArn = this.KinesisSettings_StreamArn;
             context.KmsKeyId = this.KmsKeyId;
@@ -1180,6 +1307,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.RedshiftSettings_WriteBufferSize = this.RedshiftSettings_WriteBufferSize;
             context.S3Settings_BucketFolder = this.S3Settings_BucketFolder;
             context.S3Settings_BucketName = this.S3Settings_BucketName;
+            context.S3Settings_CdcInsertsAndUpdate = this.S3Settings_CdcInsertsAndUpdate;
             context.S3Settings_CdcInsertsOnly = this.S3Settings_CdcInsertsOnly;
             context.S3Settings_CompressionType = this.S3Settings_CompressionType;
             context.S3Settings_CsvDelimiter = this.S3Settings_CsvDelimiter;
@@ -1348,9 +1476,78 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.ExtraConnectionAttributes = cmdletContext.ExtraConnectionAttribute;
             }
             
+             // populate KafkaSettings
+            var requestKafkaSettingsIsNull = true;
+            request.KafkaSettings = new Amazon.DatabaseMigrationService.Model.KafkaSettings();
+            System.String requestKafkaSettings_kafkaSettings_Broker = null;
+            if (cmdletContext.KafkaSettings_Broker != null)
+            {
+                requestKafkaSettings_kafkaSettings_Broker = cmdletContext.KafkaSettings_Broker;
+            }
+            if (requestKafkaSettings_kafkaSettings_Broker != null)
+            {
+                request.KafkaSettings.Broker = requestKafkaSettings_kafkaSettings_Broker;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.String requestKafkaSettings_kafkaSettings_Topic = null;
+            if (cmdletContext.KafkaSettings_Topic != null)
+            {
+                requestKafkaSettings_kafkaSettings_Topic = cmdletContext.KafkaSettings_Topic;
+            }
+            if (requestKafkaSettings_kafkaSettings_Topic != null)
+            {
+                request.KafkaSettings.Topic = requestKafkaSettings_kafkaSettings_Topic;
+                requestKafkaSettingsIsNull = false;
+            }
+             // determine if request.KafkaSettings should be set to null
+            if (requestKafkaSettingsIsNull)
+            {
+                request.KafkaSettings = null;
+            }
+            
              // populate KinesisSettings
             var requestKinesisSettingsIsNull = true;
             request.KinesisSettings = new Amazon.DatabaseMigrationService.Model.KinesisSettings();
+            System.Boolean? requestKinesisSettings_kinesisSettings_IncludeControlDetail = null;
+            if (cmdletContext.KinesisSettings_IncludeControlDetail != null)
+            {
+                requestKinesisSettings_kinesisSettings_IncludeControlDetail = cmdletContext.KinesisSettings_IncludeControlDetail.Value;
+            }
+            if (requestKinesisSettings_kinesisSettings_IncludeControlDetail != null)
+            {
+                request.KinesisSettings.IncludeControlDetails = requestKinesisSettings_kinesisSettings_IncludeControlDetail.Value;
+                requestKinesisSettingsIsNull = false;
+            }
+            System.Boolean? requestKinesisSettings_kinesisSettings_IncludePartitionValue = null;
+            if (cmdletContext.KinesisSettings_IncludePartitionValue != null)
+            {
+                requestKinesisSettings_kinesisSettings_IncludePartitionValue = cmdletContext.KinesisSettings_IncludePartitionValue.Value;
+            }
+            if (requestKinesisSettings_kinesisSettings_IncludePartitionValue != null)
+            {
+                request.KinesisSettings.IncludePartitionValue = requestKinesisSettings_kinesisSettings_IncludePartitionValue.Value;
+                requestKinesisSettingsIsNull = false;
+            }
+            System.Boolean? requestKinesisSettings_kinesisSettings_IncludeTableAlterOperation = null;
+            if (cmdletContext.KinesisSettings_IncludeTableAlterOperation != null)
+            {
+                requestKinesisSettings_kinesisSettings_IncludeTableAlterOperation = cmdletContext.KinesisSettings_IncludeTableAlterOperation.Value;
+            }
+            if (requestKinesisSettings_kinesisSettings_IncludeTableAlterOperation != null)
+            {
+                request.KinesisSettings.IncludeTableAlterOperations = requestKinesisSettings_kinesisSettings_IncludeTableAlterOperation.Value;
+                requestKinesisSettingsIsNull = false;
+            }
+            System.Boolean? requestKinesisSettings_kinesisSettings_IncludeTransactionDetail = null;
+            if (cmdletContext.KinesisSettings_IncludeTransactionDetail != null)
+            {
+                requestKinesisSettings_kinesisSettings_IncludeTransactionDetail = cmdletContext.KinesisSettings_IncludeTransactionDetail.Value;
+            }
+            if (requestKinesisSettings_kinesisSettings_IncludeTransactionDetail != null)
+            {
+                request.KinesisSettings.IncludeTransactionDetails = requestKinesisSettings_kinesisSettings_IncludeTransactionDetail.Value;
+                requestKinesisSettingsIsNull = false;
+            }
             Amazon.DatabaseMigrationService.MessageFormatValue requestKinesisSettings_kinesisSettings_MessageFormat = null;
             if (cmdletContext.KinesisSettings_MessageFormat != null)
             {
@@ -1359,6 +1556,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestKinesisSettings_kinesisSettings_MessageFormat != null)
             {
                 request.KinesisSettings.MessageFormat = requestKinesisSettings_kinesisSettings_MessageFormat;
+                requestKinesisSettingsIsNull = false;
+            }
+            System.Boolean? requestKinesisSettings_kinesisSettings_PartitionIncludeSchemaTable = null;
+            if (cmdletContext.KinesisSettings_PartitionIncludeSchemaTable != null)
+            {
+                requestKinesisSettings_kinesisSettings_PartitionIncludeSchemaTable = cmdletContext.KinesisSettings_PartitionIncludeSchemaTable.Value;
+            }
+            if (requestKinesisSettings_kinesisSettings_PartitionIncludeSchemaTable != null)
+            {
+                request.KinesisSettings.PartitionIncludeSchemaTable = requestKinesisSettings_kinesisSettings_PartitionIncludeSchemaTable.Value;
                 requestKinesisSettingsIsNull = false;
             }
             System.String requestKinesisSettings_kinesisSettings_ServiceAccessRoleArn = null;
@@ -1810,6 +2017,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.S3Settings.BucketName = requestS3Settings_s3Settings_BucketName;
                 requestS3SettingsIsNull = false;
             }
+            System.Boolean? requestS3Settings_s3Settings_CdcInsertsAndUpdate = null;
+            if (cmdletContext.S3Settings_CdcInsertsAndUpdate != null)
+            {
+                requestS3Settings_s3Settings_CdcInsertsAndUpdate = cmdletContext.S3Settings_CdcInsertsAndUpdate.Value;
+            }
+            if (requestS3Settings_s3Settings_CdcInsertsAndUpdate != null)
+            {
+                request.S3Settings.CdcInsertsAndUpdates = requestS3Settings_s3Settings_CdcInsertsAndUpdate.Value;
+                requestS3SettingsIsNull = false;
+            }
             System.Boolean? requestS3Settings_s3Settings_CdcInsertsOnly = null;
             if (cmdletContext.S3Settings_CdcInsertsOnly != null)
             {
@@ -2090,7 +2307,14 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String EngineName { get; set; }
             public System.String ExternalTableDefinition { get; set; }
             public System.String ExtraConnectionAttribute { get; set; }
+            public System.String KafkaSettings_Broker { get; set; }
+            public System.String KafkaSettings_Topic { get; set; }
+            public System.Boolean? KinesisSettings_IncludeControlDetail { get; set; }
+            public System.Boolean? KinesisSettings_IncludePartitionValue { get; set; }
+            public System.Boolean? KinesisSettings_IncludeTableAlterOperation { get; set; }
+            public System.Boolean? KinesisSettings_IncludeTransactionDetail { get; set; }
             public Amazon.DatabaseMigrationService.MessageFormatValue KinesisSettings_MessageFormat { get; set; }
+            public System.Boolean? KinesisSettings_PartitionIncludeSchemaTable { get; set; }
             public System.String KinesisSettings_ServiceAccessRoleArn { get; set; }
             public System.String KinesisSettings_StreamArn { get; set; }
             public System.String KmsKeyId { get; set; }
@@ -2135,6 +2359,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? RedshiftSettings_WriteBufferSize { get; set; }
             public System.String S3Settings_BucketFolder { get; set; }
             public System.String S3Settings_BucketName { get; set; }
+            public System.Boolean? S3Settings_CdcInsertsAndUpdate { get; set; }
             public System.Boolean? S3Settings_CdcInsertsOnly { get; set; }
             public Amazon.DatabaseMigrationService.CompressionTypeValue S3Settings_CompressionType { get; set; }
             public System.String S3Settings_CsvDelimiter { get; set; }

@@ -92,6 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String MultiplexId { get; set; }
         #endregion
         
+        #region Parameter MultiplexProgramSettings_PreferredChannelPipeline
+        /// <summary>
+        /// <para>
+        /// Indicates which pipeline is preferred
+        /// by the multiplex for program ingest.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.PreferredChannelPipeline")]
+        public Amazon.MediaLive.PreferredChannelPipeline MultiplexProgramSettings_PreferredChannelPipeline { get; set; }
+        #endregion
+        
         #region Parameter ProgramName
         /// <summary>
         /// <para>
@@ -209,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 WriteWarning("You are passing $null as a value for parameter MultiplexId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MultiplexProgramSettings_PreferredChannelPipeline = this.MultiplexProgramSettings_PreferredChannelPipeline;
             context.MultiplexProgramSettings_ProgramNumber = this.MultiplexProgramSettings_ProgramNumber;
             context.ServiceDescriptor_ProviderName = this.ServiceDescriptor_ProviderName;
             context.ServiceDescriptor_ServiceName = this.ServiceDescriptor_ServiceName;
@@ -246,6 +259,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
              // populate MultiplexProgramSettings
             var requestMultiplexProgramSettingsIsNull = true;
             request.MultiplexProgramSettings = new Amazon.MediaLive.Model.MultiplexProgramSettings();
+            Amazon.MediaLive.PreferredChannelPipeline requestMultiplexProgramSettings_multiplexProgramSettings_PreferredChannelPipeline = null;
+            if (cmdletContext.MultiplexProgramSettings_PreferredChannelPipeline != null)
+            {
+                requestMultiplexProgramSettings_multiplexProgramSettings_PreferredChannelPipeline = cmdletContext.MultiplexProgramSettings_PreferredChannelPipeline;
+            }
+            if (requestMultiplexProgramSettings_multiplexProgramSettings_PreferredChannelPipeline != null)
+            {
+                request.MultiplexProgramSettings.PreferredChannelPipeline = requestMultiplexProgramSettings_multiplexProgramSettings_PreferredChannelPipeline;
+                requestMultiplexProgramSettingsIsNull = false;
+            }
             System.Int32? requestMultiplexProgramSettings_multiplexProgramSettings_ProgramNumber = null;
             if (cmdletContext.MultiplexProgramSettings_ProgramNumber != null)
             {
@@ -422,6 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String MultiplexId { get; set; }
+            public Amazon.MediaLive.PreferredChannelPipeline MultiplexProgramSettings_PreferredChannelPipeline { get; set; }
             public System.Int32? MultiplexProgramSettings_ProgramNumber { get; set; }
             public System.String ServiceDescriptor_ProviderName { get; set; }
             public System.String ServiceDescriptor_ServiceName { get; set; }

@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
+    /// You must specify one of the following in the request: an IPv4 CIDR block, an IPv6
+    /// pool, or an Amazon-provided IPv6 CIDR block.
+    /// </para><para>
     /// For more information about associating CIDR blocks with your VPC and applicable restrictions,
     /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing">VPC
     /// and Subnet Sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.

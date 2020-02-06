@@ -28,7 +28,7 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Create a profiling group.
+    /// Creates a profiling group.
     /// </summary>
     [Cmdlet("New", "CGPProfilingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruProfiler.Model.ProfilingGroupDescription")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter AgentOrchestrationConfig_ProfilingEnabled
         /// <summary>
         /// <para>
-        /// <para>If the agents should be enabled to create and report profiles.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfilingGroupName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the profiling group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+        /// request.</para><para>This parameter specifies a unique identifier for the new profiling group that helps
+        /// ensure idempotency.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

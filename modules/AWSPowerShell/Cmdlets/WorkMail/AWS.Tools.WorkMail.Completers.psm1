@@ -80,6 +80,13 @@ $WM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WorkMail.AccessControlRuleEffect
+        "Write-WMAccessControlRule/Effect"
+        {
+            $v = "ALLOW","DENY"
+            break
+        }
+
         # Amazon.WorkMail.ResourceType
         "New-WMResource/Type"
         {
@@ -96,6 +103,7 @@ $WM_Completers = {
 }
 
 $WM_map = @{
+    "Effect"=@("Write-WMAccessControlRule")
     "Type"=@("New-WMResource")
 }
 
@@ -155,6 +163,7 @@ $WM_SelectMap = @{
                "New-WMGroup",
                "New-WMResource",
                "New-WMUser",
+               "Remove-WMAccessControlRule",
                "Remove-WMAlias",
                "Remove-WMGroup",
                "Remove-WMMailboxPermission",
@@ -167,7 +176,9 @@ $WM_SelectMap = @{
                "Get-WMUser",
                "Remove-WMDelegateFromResource",
                "Remove-WMMemberFromGroup",
+               "Get-WMAccessControlEffect",
                "Get-WMMailboxDetail",
+               "Get-WMAccessControlRuleList",
                "Get-WMAliasList",
                "Get-WMMemberList",
                "Get-WMGroupList",
@@ -175,16 +186,17 @@ $WM_SelectMap = @{
                "Get-WMOrganizationList",
                "Get-WMDelegateList",
                "Get-WMResourceList",
+               "Get-WMResourceTag",
                "Get-WMUserList",
+               "Write-WMAccessControlRule",
                "Write-WMMailboxPermission",
                "Register-WMToWorkMail",
                "Reset-WMPassword",
+               "Add-WMResourceTag",
+               "Remove-WMResourceTag",
                "Update-WMMailboxQuota",
                "Update-WMPrimaryEmailAddress",
-               "Update-WMResource",
-               "Get-WMResourceTag",
-               "Add-WMResourceTag",
-               "Remove-WMResourceTag")
+               "Update-WMResource")
 }
 
 _awsArgumentCompleterRegistration $WM_SelectCompleters $WM_SelectMap

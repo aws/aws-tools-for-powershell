@@ -52,8 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>The accounts in which to update associated stack instances. If you specify accounts,
-        /// you must also specify the regions in which to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
+        /// <para>[Self-managed permissions] The accounts in which to update associated stack instances.
+        /// If you specify accounts, you must also specify the regions in which to update stack
+        /// set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
         /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
         /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
         /// property, AWS CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
@@ -66,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Accounts")]
         public System.String[] Account { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentTargets_Account
+        /// <summary>
+        /// <para>
+        /// <para>The names of one or more AWS accounts for which you want to deploy stack set updates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentTargets_Accounts")]
+        public System.String[] DeploymentTargets_Account { get; set; }
         #endregion
         
         #region Parameter AdministrationRoleARN
@@ -129,6 +141,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter AutoDeployment_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>If set to <code>true</code>, StackSets automatically deploys additional stack instances
+        /// to AWS Organizations accounts that are added to a target organization or organizational
+        /// unit (OU) in the specified Regions. If an account is removed from a target organization
+        /// or OU, StackSets deletes stack instances from the account in the specified Regions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoDeployment_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ExecutionRoleName
         /// <summary>
         /// <para>
@@ -170,6 +195,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreference { get; set; }
         #endregion
         
+        #region Parameter DeploymentTargets_OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The organization root ID or organizational unit (OUs) IDs to which StackSets deploys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentTargets_OrganizationalUnitIds")]
+        public System.String[] DeploymentTargets_OrganizationalUnitId { get; set; }
+        #endregion
+        
         #region Parameter Parameter
         /// <summary>
         /// <para>
@@ -179,6 +215,24 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Parameters")]
         public Amazon.CloudFormation.Model.Parameter[] Parameter { get; set; }
+        #endregion
+        
+        #region Parameter PermissionModel
+        /// <summary>
+        /// <para>
+        /// <para>Describes how the IAM roles required for stack set operations are created. You cannot
+        /// modify <code>PermissionModel</code> if there are stack instances associated with your
+        /// stack set.</para><ul><li><para>With <code>self-managed</code> permissions, you must create the administrator and
+        /// execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+        /// Self-Managed Stack Set Permissions</a>.</para></li><li><para>With <code>service-managed</code> permissions, StackSets automatically creates the
+        /// IAM roles required to deploy to accounts managed by AWS Organizations. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+        /// Service-Managed Stack Set Permissions</a>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.PermissionModels")]
+        public Amazon.CloudFormation.PermissionModels PermissionModel { get; set; }
         #endregion
         
         #region Parameter StackRegion
@@ -197,6 +251,18 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] StackRegion { get; set; }
+        #endregion
+        
+        #region Parameter AutoDeployment_RetainStacksOnAccountRemoval
+        /// <summary>
+        /// <para>
+        /// <para>If set to <code>true</code>, stack resources are retained when an account is removed
+        /// from a target organization or OU. If set to <code>false</code>, stack resources are
+        /// deleted. Specify only if <code>Enabled</code> is set to <code>True</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoDeployment_RetainStacksOnAccountRemoval { get; set; }
         #endregion
         
         #region Parameter StackSetName
@@ -346,9 +412,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.Account = new List<System.String>(this.Account);
             }
             context.AdministrationRoleARN = this.AdministrationRoleARN;
+            context.AutoDeployment_Enabled = this.AutoDeployment_Enabled;
+            context.AutoDeployment_RetainStacksOnAccountRemoval = this.AutoDeployment_RetainStacksOnAccountRemoval;
             if (this.Capability != null)
             {
                 context.Capability = new List<System.String>(this.Capability);
+            }
+            if (this.DeploymentTargets_Account != null)
+            {
+                context.DeploymentTargets_Account = new List<System.String>(this.DeploymentTargets_Account);
+            }
+            if (this.DeploymentTargets_OrganizationalUnitId != null)
+            {
+                context.DeploymentTargets_OrganizationalUnitId = new List<System.String>(this.DeploymentTargets_OrganizationalUnitId);
             }
             context.Description = this.Description;
             context.ExecutionRoleName = this.ExecutionRoleName;
@@ -358,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Parameter = new List<Amazon.CloudFormation.Model.Parameter>(this.Parameter);
             }
+            context.PermissionModel = this.PermissionModel;
             if (this.StackRegion != null)
             {
                 context.StackRegion = new List<System.String>(this.StackRegion);
@@ -400,9 +477,67 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 request.AdministrationRoleARN = cmdletContext.AdministrationRoleARN;
             }
+            
+             // populate AutoDeployment
+            var requestAutoDeploymentIsNull = true;
+            request.AutoDeployment = new Amazon.CloudFormation.Model.AutoDeployment();
+            System.Boolean? requestAutoDeployment_autoDeployment_Enabled = null;
+            if (cmdletContext.AutoDeployment_Enabled != null)
+            {
+                requestAutoDeployment_autoDeployment_Enabled = cmdletContext.AutoDeployment_Enabled.Value;
+            }
+            if (requestAutoDeployment_autoDeployment_Enabled != null)
+            {
+                request.AutoDeployment.Enabled = requestAutoDeployment_autoDeployment_Enabled.Value;
+                requestAutoDeploymentIsNull = false;
+            }
+            System.Boolean? requestAutoDeployment_autoDeployment_RetainStacksOnAccountRemoval = null;
+            if (cmdletContext.AutoDeployment_RetainStacksOnAccountRemoval != null)
+            {
+                requestAutoDeployment_autoDeployment_RetainStacksOnAccountRemoval = cmdletContext.AutoDeployment_RetainStacksOnAccountRemoval.Value;
+            }
+            if (requestAutoDeployment_autoDeployment_RetainStacksOnAccountRemoval != null)
+            {
+                request.AutoDeployment.RetainStacksOnAccountRemoval = requestAutoDeployment_autoDeployment_RetainStacksOnAccountRemoval.Value;
+                requestAutoDeploymentIsNull = false;
+            }
+             // determine if request.AutoDeployment should be set to null
+            if (requestAutoDeploymentIsNull)
+            {
+                request.AutoDeployment = null;
+            }
             if (cmdletContext.Capability != null)
             {
                 request.Capabilities = cmdletContext.Capability;
+            }
+            
+             // populate DeploymentTargets
+            var requestDeploymentTargetsIsNull = true;
+            request.DeploymentTargets = new Amazon.CloudFormation.Model.DeploymentTargets();
+            List<System.String> requestDeploymentTargets_deploymentTargets_Account = null;
+            if (cmdletContext.DeploymentTargets_Account != null)
+            {
+                requestDeploymentTargets_deploymentTargets_Account = cmdletContext.DeploymentTargets_Account;
+            }
+            if (requestDeploymentTargets_deploymentTargets_Account != null)
+            {
+                request.DeploymentTargets.Accounts = requestDeploymentTargets_deploymentTargets_Account;
+                requestDeploymentTargetsIsNull = false;
+            }
+            List<System.String> requestDeploymentTargets_deploymentTargets_OrganizationalUnitId = null;
+            if (cmdletContext.DeploymentTargets_OrganizationalUnitId != null)
+            {
+                requestDeploymentTargets_deploymentTargets_OrganizationalUnitId = cmdletContext.DeploymentTargets_OrganizationalUnitId;
+            }
+            if (requestDeploymentTargets_deploymentTargets_OrganizationalUnitId != null)
+            {
+                request.DeploymentTargets.OrganizationalUnitIds = requestDeploymentTargets_deploymentTargets_OrganizationalUnitId;
+                requestDeploymentTargetsIsNull = false;
+            }
+             // determine if request.DeploymentTargets should be set to null
+            if (requestDeploymentTargetsIsNull)
+            {
+                request.DeploymentTargets = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -423,6 +558,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Parameter != null)
             {
                 request.Parameters = cmdletContext.Parameter;
+            }
+            if (cmdletContext.PermissionModel != null)
+            {
+                request.PermissionModel = cmdletContext.PermissionModel;
             }
             if (cmdletContext.StackRegion != null)
             {
@@ -511,12 +650,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         {
             public List<System.String> Account { get; set; }
             public System.String AdministrationRoleARN { get; set; }
+            public System.Boolean? AutoDeployment_Enabled { get; set; }
+            public System.Boolean? AutoDeployment_RetainStacksOnAccountRemoval { get; set; }
             public List<System.String> Capability { get; set; }
+            public List<System.String> DeploymentTargets_Account { get; set; }
+            public List<System.String> DeploymentTargets_OrganizationalUnitId { get; set; }
             public System.String Description { get; set; }
             public System.String ExecutionRoleName { get; set; }
             public System.String OperationId { get; set; }
             public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreference { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameter { get; set; }
+            public Amazon.CloudFormation.PermissionModels PermissionModel { get; set; }
             public List<System.String> StackRegion { get; set; }
             public System.String StackSetName { get; set; }
             public List<Amazon.CloudFormation.Model.Tag> Tag { get; set; }

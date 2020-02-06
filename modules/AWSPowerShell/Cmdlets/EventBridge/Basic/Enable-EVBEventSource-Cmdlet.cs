@@ -30,10 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// <summary>
     /// Activates a partner event source that has been deactivated. Once activated, your matching
     /// event bus will start receiving events from the event source.
-    /// 
-    ///  <note><para>
-    /// This operation is performed by AWS customers, not by SaaS partners.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Enable", "EVBEventSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

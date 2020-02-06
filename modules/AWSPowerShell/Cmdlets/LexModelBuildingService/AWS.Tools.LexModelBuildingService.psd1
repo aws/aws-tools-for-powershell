@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-LMBResourceTag', 
         'Get-LMBBot', 
         'Get-LMBBotAlias', 
         'Get-LMBBotAliasList', 
@@ -101,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMBIntent', 
         'Get-LMBIntentList', 
         'Get-LMBIntentVersion', 
+        'Get-LMBResourceTag', 
         'Get-LMBSlotType', 
         'Get-LMBSlotTypeList', 
         'Get-LMBSlotTypeVersionList', 
@@ -114,6 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-LMBBotVersion', 
         'Remove-LMBIntent', 
         'Remove-LMBIntentVersion', 
+        'Remove-LMBResourceTag', 
         'Remove-LMBSlotType', 
         'Remove-LMBSlotTypeVersion', 
         'Remove-LMBUtterance', 

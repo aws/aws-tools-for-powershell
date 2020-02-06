@@ -183,6 +183,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public Amazon.AppSync.Model.UserPoolConfig UserPoolConfig { get; set; }
         #endregion
         
+        #region Parameter XrayEnabled
+        /// <summary>
+        /// <para>
+        /// <para>A flag indicating whether to enable X-Ray tracing for the <code>GraphqlApi</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? XrayEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'GraphqlApi'.
@@ -271,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             context.OpenIDConnectConfig_IatTTL = this.OpenIDConnectConfig_IatTTL;
             context.OpenIDConnectConfig_Issuer = this.OpenIDConnectConfig_Issuer;
             context.UserPoolConfig = this.UserPoolConfig;
+            context.XrayEnabled = this.XrayEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -395,6 +406,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             {
                 request.UserPoolConfig = cmdletContext.UserPoolConfig;
             }
+            if (cmdletContext.XrayEnabled != null)
+            {
+                request.XrayEnabled = cmdletContext.XrayEnabled.Value;
+            }
             
             CmdletOutput output;
             
@@ -468,6 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.Int64? OpenIDConnectConfig_IatTTL { get; set; }
             public System.String OpenIDConnectConfig_Issuer { get; set; }
             public Amazon.AppSync.Model.UserPoolConfig UserPoolConfig { get; set; }
+            public System.Boolean? XrayEnabled { get; set; }
             public System.Func<Amazon.AppSync.Model.UpdateGraphqlApiResponse, UpdateASYNGraphqlApiCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GraphqlApi;
         }

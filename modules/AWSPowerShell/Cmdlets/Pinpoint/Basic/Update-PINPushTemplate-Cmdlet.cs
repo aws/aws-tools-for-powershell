@@ -181,10 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>Specifies whether to save the updates as a new version of the message template. Valid
         /// values are: true, save the updates as a new version; and, false, save the updates
-        /// to the latest existing version of the template.</para><para> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates
-        /// to the latest existing version of the template. If you specify a value of true for
-        /// this parameter, don't specify a value for the version parameter. Otherwise, an error
-        /// will occur.</para>
+        /// to (overwrite) the latest existing version of the template.</para><para>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates
+        /// to (overwrites) the latest existing version of the template. If you specify a value
+        /// of true for this parameter, don't specify a value for the version parameter. Otherwise,
+        /// an error will occur.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -340,6 +340,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PushNotificationTemplateRequest_GCM_RawContent")]
         public System.String GCM_RawContent { get; set; }
+        #endregion
+        
+        #region Parameter PushNotificationTemplateRequest_RecommenderId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the recommender model to use for the message template. Amazon
+        /// Pinpoint uses this value to determine how to retrieve and process data from a recommender
+        /// model when it sends messages that use the template, if the template contains message
+        /// variables for recommendation data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PushNotificationTemplateRequest_RecommenderId { get; set; }
         #endregion
         
         #region Parameter ADM_SmallImageIconUrl
@@ -557,7 +570,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ADM_Url
         /// <summary>
         /// <para>
-        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a a push
+        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a push
         /// notification that's based on the message template and the value of the Action property
         /// is URL.</para>
         /// </para>
@@ -583,7 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Baidu_Url
         /// <summary>
         /// <para>
-        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a a push
+        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a push
         /// notification that's based on the message template and the value of the Action property
         /// is URL.</para>
         /// </para>
@@ -609,7 +622,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter GCM_Url
         /// <summary>
         /// <para>
-        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a a push
+        /// <para>The URL to open in a recipient's default mobile browser, if a recipient taps a push
         /// notification that's based on the message template and the value of the Action property
         /// is URL.</para>
         /// </para>
@@ -625,11 +638,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>The unique identifier for the version of the message template to update, retrieve
         /// information about, or delete. To retrieve identifiers and other information for all
         /// the versions of a template, use the <link linkend="templates-template-name-template-type-versions">Template
-        /// Versions</link> resource.</para><para>If specified, this value must match the identifier of an existing template version.
-        /// If specified for an update operation, this value must match the identifier of the
+        /// Versions</link> resource.</para><para>If specified, this value must match the identifier for an existing template version.
+        /// If specified for an update operation, this value must match the identifier for the
         /// latest existing version of the template. This restriction helps ensure that race conditions
-        /// don't occur.</para><para>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</para><ul><li><para>For a get operation, retrieves information about the active version of the template.</para></li><li><para>For an update operation, saves the updates to the latest existing version of the template,
-        /// if the create-new-version parameter isn't used or is set to false.</para></li><li><para>For a delete operation, deletes the template, including all versions of the template.</para></li></ul>
+        /// don't occur.</para><para>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</para><ul><li><para>For a get operation, retrieves information about the active version of the template.</para></li><li><para>For an update operation, saves the updates to (overwrites) the latest existing version
+        /// of the template, if the create-new-version parameter isn't used or is set to false.</para></li><li><para>For a delete operation, deletes the template, including all versions of the template.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -738,6 +751,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.GCM_Sound = this.GCM_Sound;
             context.GCM_Title = this.GCM_Title;
             context.GCM_Url = this.GCM_Url;
+            context.PushNotificationTemplateRequest_RecommenderId = this.PushNotificationTemplateRequest_RecommenderId;
             if (this.PushNotificationTemplateRequest_Tag != null)
             {
                 context.PushNotificationTemplateRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -787,6 +801,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_DefaultSubstitution != null)
             {
                 request.PushNotificationTemplateRequest.DefaultSubstitutions = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_DefaultSubstitution;
+                requestPushNotificationTemplateRequestIsNull = false;
+            }
+            System.String requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_RecommenderId = null;
+            if (cmdletContext.PushNotificationTemplateRequest_RecommenderId != null)
+            {
+                requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_RecommenderId = cmdletContext.PushNotificationTemplateRequest_RecommenderId;
+            }
+            if (requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_RecommenderId != null)
+            {
+                request.PushNotificationTemplateRequest.RecommenderId = requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_RecommenderId;
                 requestPushNotificationTemplateRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestPushNotificationTemplateRequest_pushNotificationTemplateRequest_Tag = null;
@@ -1389,6 +1413,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String GCM_Sound { get; set; }
             public System.String GCM_Title { get; set; }
             public System.String GCM_Url { get; set; }
+            public System.String PushNotificationTemplateRequest_RecommenderId { get; set; }
             public Dictionary<System.String, System.String> PushNotificationTemplateRequest_Tag { get; set; }
             public System.String PushNotificationTemplateRequest_TemplateDescription { get; set; }
             public System.String TemplateName { get; set; }

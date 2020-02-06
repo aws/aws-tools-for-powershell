@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
     /// <summary>
     /// Updates a mission profile.
     /// 
-    ///          
+    ///  
     /// <para>
-    /// Updating a mission profile will not update the execution parameters         for existing
-    /// future contacts.
+    /// Updating a mission profile will not update the execution parameters for existing future
+    /// contacts.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GSMissionProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter DataflowEdge
         /// <summary>
         /// <para>
-        /// <para>A list of lists of ARNs. Each list of ARNs is an edge, with a from <code>Config</code>
-        /// and a to          <code>Config</code>.</para>
+        /// <para>A list of lists of ARNs. Each list of ARNs is an edge, with a <i>from</i><code>Config</code>
+        /// and a <i>to</i><code>Config</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter MissionProfileId
         /// <summary>
         /// <para>
-        /// <para>ID of a mission profile.</para>
+        /// <para>UUID of a mission profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

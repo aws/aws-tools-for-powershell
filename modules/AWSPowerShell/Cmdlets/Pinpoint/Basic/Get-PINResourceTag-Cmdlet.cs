@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
     /// Retrieves all the tags (keys and values) that are associated with an application,
-    /// campaign, journey, message template, or segment.
+    /// campaign, message template, or segment.
     /// </summary>
     [Cmdlet("Get", "PINResourceTag")]
     [OutputType("Amazon.Pinpoint.Model.TagsModel")]

@@ -128,7 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Schedule_PipelineExecutionStartCondition
         /// <summary>
         /// <para>
-        /// <para> The condition configures when the pipeline should trigger a new image build. </para>
+        /// <para> The condition configures when the pipeline should trigger a new image build. When
+        /// the <code>pipelineExecutionStartCondition</code> is set to <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>,
+        /// EC2 Image Builder will build a new image only when there are known changes pending.
+        /// When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every
+        /// time the CRON expression matches the current time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,8 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Schedule_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para> The expression determines how often a pipeline starts the creation of new images.
-        /// </para>
+        /// <para> The expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageTestsConfiguration_TimeoutMinute
         /// <summary>
         /// <para>
-        /// <para>The maximum time in minutes that tests are permitted to run for.</para>
+        /// <para>The maximum time in minutes that tests are permitted to run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

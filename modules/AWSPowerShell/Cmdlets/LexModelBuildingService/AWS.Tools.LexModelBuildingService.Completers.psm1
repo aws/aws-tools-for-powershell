@@ -243,11 +243,14 @@ $LMB_SelectMap = @{
                "Get-LMBSlotTypeList",
                "Get-LMBSlotTypeVersionList",
                "Get-LMBUtterancesView",
+               "Get-LMBResourceTag",
                "Write-LMBBot",
                "Write-LMBBotAlias",
                "Write-LMBIntent",
                "Write-LMBSlotType",
-               "Start-LMBImport")
+               "Start-LMBImport",
+               "Add-LMBResourceTag",
+               "Remove-LMBResourceTag")
 }
 
 _awsArgumentCompleterRegistration $LMB_SelectCompleters $LMB_SelectMap

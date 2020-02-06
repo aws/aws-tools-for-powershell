@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance.</para>
+        /// <para>The ID of the instance. If you are detaching a Multi-Attach enabled volume, you must
+        /// specify an instance ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

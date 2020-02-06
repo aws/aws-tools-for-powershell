@@ -31,8 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// Describes the specified rule.
     /// 
     ///  
-    /// <para><code>DescribeRule</code> doesn't list the targets of a rule. To see the targets
-    /// associated with a rule, use <a>ListTargetsByRule</a>.
+    /// <para>
+    /// DescribeRule does not list the targets of a rule. To see the targets associated with
+    /// a rule, use <a>ListTargetsByRule</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWERuleDetail")]

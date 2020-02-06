@@ -28,8 +28,8 @@ using Amazon.CloudWatchEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Removes one or more tags from the specified EventBridge resource. In EventBridge,
-    /// rules can be tagged.
+    /// Removes one or more tags from the specified EventBridge resource. In CloudWatch Events,
+    /// rules and event buses can be tagged.
     /// </summary>
     [Cmdlet("Remove", "CWEResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the rule that you're removing tags from.</para>
+        /// <para>The ARN of the EventBridge resource from which you are removing tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

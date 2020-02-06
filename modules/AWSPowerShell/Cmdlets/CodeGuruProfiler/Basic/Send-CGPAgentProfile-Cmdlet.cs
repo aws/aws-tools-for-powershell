@@ -28,7 +28,7 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Submit profile collected by an agent belonging to a profiling group for aggregation.
+    
     /// </summary>
     [Cmdlet("Send", "CGPAgentProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -61,9 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The content type of the agent profile in the payload. Recommended to send the profile
-        /// gzipped with content-type application/octet-stream. Other accepted values are application/x-amzn-ion
-        /// and application/json for unzipped Ion and JSON respectively.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfileToken
         /// <summary>
         /// <para>
-        /// <para>Client generated token to deduplicate the agent profile during aggregation.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

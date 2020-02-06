@@ -48,20 +48,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and
     /// SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with
     /// an AMI to verify the subscription status for package updates. To create a new AMI
-    /// for operating systems that require a billing product code, do the following:
+    /// for operating systems that require a billing product code, instead of registering
+    /// the AMI, do the following to preserve the billing product code association:
     /// </para><ol><li><para>
     /// Launch an instance from an existing AMI with that billing product code.
     /// </para></li><li><para>
     /// Customize the instance.
     /// </para></li><li><para>
-    /// Create a new AMI from the instance using <a>CreateImage</a> to preserve the billing
-    /// product code association.
+    /// Create an AMI from the instance using <a>CreateImage</a>.
     /// </para></li></ol><para>
     /// If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched
     /// from an AMI with a billing product code, make sure that the Reserved Instance has
     /// the matching billing product code. If you purchase a Reserved Instance without the
     /// matching billing product code, the Reserved Instance will not be applied to the On-Demand
-    /// Instance. 
+    /// Instance. For information about how to obtain the platform details and billing information
+    /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining
+    /// Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// If needed, you can deregister an AMI at any time. Any modifications you make to an
     /// AMI backed by an instance store volume invalidates its registration. If you make changes

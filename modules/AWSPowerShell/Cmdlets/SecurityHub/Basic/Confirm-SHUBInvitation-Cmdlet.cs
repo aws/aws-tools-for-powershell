@@ -29,9 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Accepts the invitation to be a member account and be monitored by the Security Hub
-    /// master account that the invitation was sent from. When the member account accepts
-    /// the invitation, permission is granted to the master account to view findings generated
-    /// in the member account.
+    /// master account that the invitation was sent from.
+    /// 
+    ///  
+    /// <para>
+    /// When the member account accepts the invitation, permission is granted to the master
+    /// account to view findings generated in the member account.
+    /// </para>
     /// </summary>
     [Cmdlet("Confirm", "SHUBInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

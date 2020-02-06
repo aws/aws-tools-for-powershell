@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SubnetId { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the NAT gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -168,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SubnetId != null)
             {
                 request.SubnetId = cmdletContext.SubnetId;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -260,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String AllocationId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String SubnetId { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateNatGatewayResponse, NewEC2NatGatewayCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

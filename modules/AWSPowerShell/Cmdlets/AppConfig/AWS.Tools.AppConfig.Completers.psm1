@@ -86,7 +86,7 @@ $APPC_Completers = {
             ($_ -eq "Update-APPCDeploymentStrategy/GrowthType")
         }
         {
-            $v = "LINEAR"
+            $v = "EXPONENTIAL","LINEAR"
             break
         }
 

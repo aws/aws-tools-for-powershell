@@ -76,7 +76,28 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>The metric name to get data about. </para>
+        /// <para>The metric for which you want to return information.</para><para>Valid instance metric names are listed below, along with the most useful <code>statistics</code>
+        /// to include in your request, and the published <code>unit</code> value.</para><ul><li><para><b><code>CPUUtilization</code></b> — The percentage of allocated compute units
+        /// that are currently in use on the instance. This metric identifies the processing power
+        /// to run the applications on the instance. Tools in your operating system can show a
+        /// lower percentage than Lightsail when the instance is not allocated a full processor
+        /// core.</para><para><code>Statistics</code>: The most useful statistics are <code>Maximum</code> and
+        /// <code>Average</code>.</para><para><code>Unit</code>: The published unit is <code>Percent</code>.</para></li><li><para><b><code>NetworkIn</code></b> — The number of bytes received on all network interfaces
+        /// by the instance. This metric identifies the volume of incoming network traffic to
+        /// the instance. The number reported is the number of bytes received during the period.
+        /// Because this metric is reported in 5-minute intervals, divide the reported number
+        /// by 300 to find Bytes/second.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Bytes</code>.</para></li><li><para><b><code>NetworkOut</code></b> — The number of bytes sent out on all network interfaces
+        /// by the instance. This metric identifies the volume of outgoing network traffic from
+        /// the instance. The number reported is the number of bytes sent during the period. Because
+        /// this metric is reported in 5-minute intervals, divide the reported number by 300 to
+        /// find Bytes/second.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Bytes</code>.</para></li><li><para><b><code>StatusCheckFailed</code></b> — Reports whether the instance passed or
+        /// failed both the instance status check and the system status check. This metric can
+        /// be either 0 (passed) or 1 (failed). This metric data is available in 1-minute (60
+        /// seconds) granularity.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Count</code>.</para></li><li><para><b><code>StatusCheckFailed_Instance</code></b> — Reports whether the instance passed
+        /// or failed the instance status check. This metric can be either 0 (passed) or 1 (failed).
+        /// This metric data is available in 1-minute (60 seconds) granularity.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Count</code>.</para></li><li><para><b><code>StatusCheckFailed_System</code></b> — Reports whether the instance passed
+        /// or failed the system status check. This metric can be either 0 (passed) or 1 (failed).
+        /// This metric data is available in 1-minute (60 seconds) granularity.</para><para><code>Statistics</code>: The most useful statistic is <code>Sum</code>.</para><para><code>Unit</code>: The published unit is <code>Count</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The granularity, in seconds, of the returned data points.</para>
+        /// <para>The granularity, in seconds, of the returned data points.</para><para>The <code>StatusCheckFailed</code>, <code>StatusCheckFailed_Instance</code>, and <code>StatusCheckFailed_System</code>
+        /// instance metric data is available in 1-minute (60 seconds) granularity. All other
+        /// instance metric data is available in 5-minute (300 seconds) granularity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,7 +148,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para>The instance statistics. </para>
+        /// <para>The statistic for the metric.</para><para>The following statistics are available:</para><ul><li><para><code>Minimum</code> — The lowest value observed during the specified period. Use
+        /// this value to determine low volumes of activity for your application.</para></li><li><para><code>Maximum</code> — The highest value observed during the specified period. Use
+        /// this value to determine high volumes of activity for your application.</para></li><li><para><code>Sum</code> — All values submitted for the matching metric added together. You
+        /// can use this statistic to determine the total volume of a metric.</para></li><li><para><code>Average</code> — The value of Sum / SampleCount during the specified period.
+        /// By comparing this statistic with the Minimum and Maximum values, you can determine
+        /// the full scope of a metric and how close the average use is to the Minimum and Maximum
+        /// values. This comparison helps you to know when to increase or decrease your resources.</para></li><li><para><code>SampleCount</code> — The count, or number, of data points used for the statistical
+        /// calculation.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,7 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter Unit
         /// <summary>
         /// <para>
-        /// <para>The unit. The list of valid values is below.</para>
+        /// <para>The unit for the metric data request. Valid units depend on the metric data being
+        /// required. For the valid units with each available metric, see the <code>metricName</code>
+        /// parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

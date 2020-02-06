@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Retrieves the repository policy for a specified repository.
+    /// Retrieves the repository policy for the specified repository.
     /// </summary>
     [Cmdlet("Get", "ECRRepositoryPolicy")]
     [OutputType("Amazon.ECR.Model.GetRepositoryPolicyResponse")]

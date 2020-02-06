@@ -55,10 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>
         /// <para>Specifies whether to save the updates as a new version of the message template. Valid
         /// values are: true, save the updates as a new version; and, false, save the updates
-        /// to the latest existing version of the template.</para><para> If you don't specify a value for this parameter, Amazon Pinpoint saves the updates
-        /// to the latest existing version of the template. If you specify a value of true for
-        /// this parameter, don't specify a value for the version parameter. Otherwise, an error
-        /// will occur.</para>
+        /// to (overwrite) the latest existing version of the template.</para><para>If you don't specify a value for this parameter, Amazon Pinpoint saves the updates
+        /// to (overwrites) the latest existing version of the template. If you specify a value
+        /// of true for this parameter, don't specify a value for the version parameter. Otherwise,
+        /// an error will occur.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,6 +78,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SMSTemplateRequest_DefaultSubstitutions")]
         public System.String SMSTemplateRequest_DefaultSubstitution { get; set; }
+        #endregion
+        
+        #region Parameter SMSTemplateRequest_RecommenderId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the recommender model to use for the message template. Amazon
+        /// Pinpoint uses this value to determine how to retrieve and process data from a recommender
+        /// model when it sends messages that use the template, if the template contains message
+        /// variables for recommendation data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SMSTemplateRequest_RecommenderId { get; set; }
         #endregion
         
         #region Parameter SMSTemplateRequest_Tag
@@ -128,11 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <para>The unique identifier for the version of the message template to update, retrieve
         /// information about, or delete. To retrieve identifiers and other information for all
         /// the versions of a template, use the <link linkend="templates-template-name-template-type-versions">Template
-        /// Versions</link> resource.</para><para>If specified, this value must match the identifier of an existing template version.
-        /// If specified for an update operation, this value must match the identifier of the
+        /// Versions</link> resource.</para><para>If specified, this value must match the identifier for an existing template version.
+        /// If specified for an update operation, this value must match the identifier for the
         /// latest existing version of the template. This restriction helps ensure that race conditions
-        /// don't occur.</para><para>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</para><ul><li><para>For a get operation, retrieves information about the active version of the template.</para></li><li><para>For an update operation, saves the updates to the latest existing version of the template,
-        /// if the create-new-version parameter isn't used or is set to false.</para></li><li><para>For a delete operation, deletes the template, including all versions of the template.</para></li></ul>
+        /// don't occur.</para><para>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</para><ul><li><para>For a get operation, retrieves information about the active version of the template.</para></li><li><para>For an update operation, saves the updates to (overwrites) the latest existing version
+        /// of the template, if the create-new-version parameter isn't used or is set to false.</para></li><li><para>For a delete operation, deletes the template, including all versions of the template.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.CreateNewVersion = this.CreateNewVersion;
             context.SMSTemplateRequest_Body = this.SMSTemplateRequest_Body;
             context.SMSTemplateRequest_DefaultSubstitution = this.SMSTemplateRequest_DefaultSubstitution;
+            context.SMSTemplateRequest_RecommenderId = this.SMSTemplateRequest_RecommenderId;
             if (this.SMSTemplateRequest_Tag != null)
             {
                 context.SMSTemplateRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -262,6 +276,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution != null)
             {
                 request.SMSTemplateRequest.DefaultSubstitutions = requestSMSTemplateRequest_sMSTemplateRequest_DefaultSubstitution;
+                requestSMSTemplateRequestIsNull = false;
+            }
+            System.String requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId = null;
+            if (cmdletContext.SMSTemplateRequest_RecommenderId != null)
+            {
+                requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId = cmdletContext.SMSTemplateRequest_RecommenderId;
+            }
+            if (requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId != null)
+            {
+                request.SMSTemplateRequest.RecommenderId = requestSMSTemplateRequest_sMSTemplateRequest_RecommenderId;
                 requestSMSTemplateRequestIsNull = false;
             }
             Dictionary<System.String, System.String> requestSMSTemplateRequest_sMSTemplateRequest_Tag = null;
@@ -361,6 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Boolean? CreateNewVersion { get; set; }
             public System.String SMSTemplateRequest_Body { get; set; }
             public System.String SMSTemplateRequest_DefaultSubstitution { get; set; }
+            public System.String SMSTemplateRequest_RecommenderId { get; set; }
             public Dictionary<System.String, System.String> SMSTemplateRequest_Tag { get; set; }
             public System.String SMSTemplateRequest_TemplateDescription { get; set; }
             public System.String TemplateName { get; set; }

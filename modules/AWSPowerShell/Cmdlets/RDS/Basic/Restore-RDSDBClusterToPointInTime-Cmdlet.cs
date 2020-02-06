@@ -129,6 +129,31 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? DeletionProtection { get; set; }
         #endregion
         
+        #region Parameter Domain
+        /// <summary>
+        /// <para>
+        /// <para>Specify the Active Directory directory ID to restore the DB cluster in. The domain
+        /// must be created prior to this operation. </para><para> For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
+        /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+        /// Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User Guide</i>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Domain { get; set; }
+        #endregion
+        
+        #region Parameter DomainIAMRoleName
+        /// <summary>
+        /// <para>
+        /// <para>Specify the name of the IAM role to be used when making API calls to the Directory
+        /// Service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainIAMRoleName { get; set; }
+        #endregion
+        
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
@@ -358,6 +383,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             context.DeletionProtection = this.DeletionProtection;
+            context.Domain = this.Domain;
+            context.DomainIAMRoleName = this.DomainIAMRoleName;
             if (this.EnableCloudwatchLogsExport != null)
             {
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
@@ -426,6 +453,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DeletionProtection != null)
             {
                 request.DeletionProtection = cmdletContext.DeletionProtection.Value;
+            }
+            if (cmdletContext.Domain != null)
+            {
+                request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.DomainIAMRoleName != null)
+            {
+                request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
             }
             if (cmdletContext.EnableCloudwatchLogsExport != null)
             {
@@ -548,6 +583,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
+            public System.String Domain { get; set; }
+            public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String KmsKeyId { get; set; }

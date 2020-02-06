@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     ///  <note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
-    /// </para></note>
+    /// </para></note><para>
+    /// This API action is not supported by <code>EXPRESS</code> state machines.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SFNStateMachineForExecution")]
     [OutputType("Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse")]

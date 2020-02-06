@@ -124,6 +124,8 @@ $OUTP_SelectCompleters = {
 
 $OUTP_SelectMap = @{
     "Select"=@("New-OUTPOutpost",
+               "Remove-OUTPOutpost",
+               "Remove-OUTPSite",
                "Get-OUTPOutpost",
                "Get-OUTPOutpostInstanceType",
                "Get-OUTPOutpostList",

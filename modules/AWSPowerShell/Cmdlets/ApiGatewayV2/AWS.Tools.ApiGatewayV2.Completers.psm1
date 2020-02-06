@@ -138,7 +138,7 @@ $AG2_Completers = {
             ($_ -eq "Update-AG2Stage/DefaultRouteSettings_LoggingLevel")
         }
         {
-            $v = "ERROR","false","INFO"
+            $v = "ERROR","INFO","OFF"
             break
         }
 
@@ -239,6 +239,8 @@ $AG2_SelectMap = @{
                "New-AG2Route",
                "New-AG2RouteResponse",
                "New-AG2Stage",
+               "New-AG2VpcLink",
+               "Remove-AG2AccessLogSetting",
                "Remove-AG2Api",
                "Remove-AG2ApiMapping",
                "Remove-AG2Authorizer",
@@ -249,9 +251,11 @@ $AG2_SelectMap = @{
                "Remove-AG2IntegrationResponse",
                "Remove-AG2Model",
                "Remove-AG2Route",
+               "Remove-AG2RouteRequestParameter",
                "Remove-AG2RouteResponse",
                "Remove-AG2RouteSetting",
                "Remove-AG2Stage",
+               "Remove-AG2VpcLink",
                "Get-AG2Api",
                "Get-AG2ApiMapping",
                "Get-AG2ApiMappingList",
@@ -276,6 +280,8 @@ $AG2_SelectMap = @{
                "Get-AG2Stage",
                "Get-AG2StageList",
                "Get-AG2Tag",
+               "Get-AG2VpcLink",
+               "Get-AG2VpcLinkList",
                "Import-AG2Api",
                "Update-AG2ApiImport",
                "Add-AG2ResourceTag",
@@ -290,7 +296,8 @@ $AG2_SelectMap = @{
                "Update-AG2Model",
                "Update-AG2Route",
                "Update-AG2RouteResponse",
-               "Update-AG2Stage")
+               "Update-AG2Stage",
+               "Update-AG2VpcLink")
 }
 
 _awsArgumentCompleterRegistration $AG2_SelectCompleters $AG2_SelectMap

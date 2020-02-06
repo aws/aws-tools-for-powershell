@@ -29,8 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Creates a custom insight in Security Hub. An insight is a consolidation of findings
-    /// that relate to a security issue that requires attention or remediation. Use the <code>GroupByAttribute</code>
-    /// to group the related findings in the insight.
+    /// that relate to a security issue that requires attention or remediation.
+    /// 
+    ///  
+    /// <para>
+    /// To group the related findings in the insight, use the <code>GroupByAttribute</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SHUBInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more attributes used to filter the findings included in the insight. Only findings
-        /// that match the criteria defined in the filters are included in the insight.</para>
+        /// <para>One or more attributes used to filter the findings included in the insight. The insight
+        /// only includes findings that match the criteria defined in the filters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

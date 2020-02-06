@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationTaskArn
         /// <summary>
         /// <para>
-        /// <para>- The Amazon Resource Name (ARN) string that uniquely identifies the task. When this
-        /// input parameter is specified the API will return only one result and ignore the values
-        /// of the max-records and marker parameters. </para>
+        /// <para>The Amazon Resource Name (ARN) string that uniquely identifies the task. When this
+        /// input parameter is specified, the API returns only one result and ignore the values
+        /// of the <code>MaxRecords</code> and <code>Marker</code> parameters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

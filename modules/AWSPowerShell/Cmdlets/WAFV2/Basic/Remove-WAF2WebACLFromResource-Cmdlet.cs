@@ -37,8 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// Disassociates a Web ACL from a regional application resource. A regional application
     /// can be an Application Load Balancer (ALB) or an API Gateway stage. 
     /// </para><para>
-    /// For AWS CloudFront, you can disassociate the Web ACL by providing an empty <code>WebACLId</code>
-    /// in the CloudFront API call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
+    /// For AWS CloudFront, you can disassociate the Web ACL by providing an empty web ACL
+    /// ARN in the CloudFront API call <code>UpdateDistribution</code>. For information, see
+    /// <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "WAF2WebACLFromResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -54,8 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to disassociate from the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For a CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i></code></para></li><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing: <i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>
-        /// /<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i> ::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the resource to disassociate from the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

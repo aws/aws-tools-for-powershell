@@ -28,8 +28,8 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Deletes an existing image repository. If a repository contains images, you must use
-    /// the <code>force</code> option to delete it.
+    /// Deletes a repository. If the repository contains images, you must either delete all
+    /// images in the repository or use the <code>force</code> option to delete the repository.
     /// </summary>
     [Cmdlet("Remove", "ECRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.Repository")]

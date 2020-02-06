@@ -151,6 +151,7 @@ $SHLD_SelectCompleters = {
 $SHLD_SelectMap = @{
     "Select"=@("Grant-SHLDDRTLogBucketAssociation",
                "Grant-SHLDDRTRoleAssociation",
+               "Add-SHLDHealthCheck",
                "New-SHLDProtection",
                "New-SHLDSubscription",
                "Remove-SHLDProtection",
@@ -162,6 +163,7 @@ $SHLD_SelectMap = @{
                "Get-SHLDSubscription",
                "Revoke-SHLDDRTLogBucketAssociation",
                "Revoke-SHLDDRTRoleAssociation",
+               "Remove-SHLDHealthCheck",
                "Get-SHLDSubscriptionState",
                "Get-SHLDAttackList",
                "Get-SHLDProtectionList",

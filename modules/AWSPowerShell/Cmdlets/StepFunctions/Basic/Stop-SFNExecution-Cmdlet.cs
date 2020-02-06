@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Stops an execution.
+    /// 
+    ///  
+    /// <para>
+    /// This API action is not supported by <code>EXPRESS</code> state machines.
+    /// </para>
     /// </summary>
     [Cmdlet("Stop", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.DateTime")]

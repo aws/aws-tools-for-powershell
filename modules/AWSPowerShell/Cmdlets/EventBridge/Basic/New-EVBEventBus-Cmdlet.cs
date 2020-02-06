@@ -29,12 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
     /// Creates a new event bus within your account. This can be a custom event bus which
-    /// you can use to receive events from your own custom applications and services, or it
-    /// can be a partner event bus which can be matched to a partner event source.
-    /// 
-    ///  <note><para>
-    /// This operation is used by AWS customers, not by SaaS partners.
-    /// </para></note>
+    /// you can use to receive events from your custom applications and services, or it can
+    /// be a partner event bus which can be matched to a partner event source.
     /// </summary>
     [Cmdlet("New", "EVBEventBus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -49,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter EventSourceName
         /// <summary>
         /// <para>
-        /// <para>If you're creating a partner event bus, this specifies the partner event source that
+        /// <para>If you are creating a partner event bus, this specifies the partner event source that
         /// the new event bus will be matched with.</para>
         /// </para>
         /// </summary>
@@ -60,11 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the new event bus. </para><para>The names of custom event buses can't contain the <code>/</code> character. You can't
-        /// use the name <code>default</code> for a custom event bus because this name is already
-        /// used for your account's default event bus.</para><para>If this is a partner event bus, the name must exactly match the name of the partner
-        /// event source that this event bus is matched to. This name will include the <code>/</code>
-        /// character.</para>
+        /// <para>The name of the new event bus. </para><para>Event bus names cannot contain the / character. You can't use the name <code>default</code>
+        /// for a custom event bus, as this name is already used for your account's default event
+        /// bus.</para><para>If this is a partner event bus, the name must exactly match the name of the partner
+        /// event source that this event bus is matched to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to associate with the event bus.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.EventBridge.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -147,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.EventBridge.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.EVB
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -234,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         {
             public System.String EventSourceName { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.EventBridge.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.EventBridge.Model.CreateEventBusResponse, NewEVBEventBusCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EventBusArn;
         }

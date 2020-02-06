@@ -185,8 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <summary>
         /// <para>
         /// <para>A map that defines the stage variables for a Stage. Variable names can have alphanumeric
-        /// and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.
-        /// Supported only for WebSocket APIs.</para>
+        /// and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter DefaultRouteSettings_ThrottlingBurstLimit
         /// <summary>
         /// <para>
-        /// <para>Specifies the throttling burst limit. Supported only for WebSocket APIs.</para>
+        /// <para>Specifies the throttling burst limit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter DefaultRouteSettings_ThrottlingRateLimit
         /// <summary>
         /// <para>
-        /// <para>Specifies the throttling rate limit. Supported only for WebSocket APIs.</para>
+        /// <para>Specifies the throttling rate limit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Creates a chat room for the specified Amazon Chime account.
+    /// Creates a chat room for the specified Amazon Chime Enterprise account.
     /// </summary>
     [Cmdlet("New", "CHMRoom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.Room")]

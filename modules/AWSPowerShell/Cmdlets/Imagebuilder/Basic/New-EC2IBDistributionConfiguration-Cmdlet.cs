@@ -28,8 +28,8 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Creates a new distribution configuration. Distribution configurations define and
-    /// configure the outputs of your pipeline.
+    /// Creates a new distribution configuration. Distribution configurations define and configure
+    /// the outputs of your pipeline.
     /// </summary>
     [Cmdlet("New", "EC2IBDistributionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

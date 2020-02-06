@@ -130,9 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter Media_MediaFileUri
         /// <summary>
         /// <para>
-        /// <para>The S3 location of the input media file. The URI must be in the same region as the
-        /// API endpoint that you are calling. The general form is:</para><para><code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
-        /// </code></para><para>For example:</para><para><code>https://s3.us-east-1.amazonaws.com/examplebucket/example.mp4</code></para><para><code>https://s3.us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// <para>The S3 object location of the input media file. The URI must be in the same region
+        /// as the API endpoint that you are calling. The general form is:</para><para><code> s3://&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></para><para>For example:</para><para><code>s3://examplebucket/example.mp4</code></para><para><code>s3://examplebucket/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -167,10 +166,13 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter OutputBucketName
         /// <summary>
         /// <para>
-        /// <para>The location where the transcription is stored.</para><para>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcription
+        /// <para>The location where the transcription is stored.</para><para>If you set the <code>OutputBucketName</code>, Amazon Transcribe puts the transcript
         /// in the specified S3 bucket. When you call the <a>GetTranscriptionJob</a> operation,
-        /// the operation returns this location in the <code>TranscriptFileUri</code> field. The
-        /// S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket.
+        /// the operation returns this location in the <code>TranscriptFileUri</code> field. If
+        /// you enable content redaction, the redacted transcript appears in <code>RedactedTranscriptFileUri</code>.
+        /// If you enable content redaction and choose to output an unredacted transcript, that
+        /// transcript's location still appears in the <code>TranscriptFileUri</code>. The S3
+        /// bucket must have permissions that allow Amazon Transcribe to put files in the bucket.
         /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions
         /// Required for IAM User Roles</a>.</para><para>You can specify an AWS Key Management Service (KMS) key to encrypt the output of your
         /// transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don't
@@ -198,6 +200,33 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutputEncryptionKMSKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ContentRedaction_RedactionOutput
+        /// <summary>
+        /// <para>
+        /// <para>Request parameter where you choose whether to output only the redacted transcript
+        /// or generate an additional unredacted transcript.</para><para>When you choose <code>redacted</code> Amazon Transcribe outputs a JSON file with only
+        /// the redacted transcript and related information.</para><para>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe outputs a JSON
+        /// file with the unredacted transcript and related information in addition to the JSON
+        /// file with the redacted transcript.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TranscribeService.RedactionOutput")]
+        public Amazon.TranscribeService.RedactionOutput ContentRedaction_RedactionOutput { get; set; }
+        #endregion
+        
+        #region Parameter ContentRedaction_RedactionType
+        /// <summary>
+        /// <para>
+        /// <para>Request parameter that defines the entities to be redacted. The only accepted value
+        /// is <code>PII</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TranscribeService.RedactionType")]
+        public Amazon.TranscribeService.RedactionType ContentRedaction_RedactionType { get; set; }
         #endregion
         
         #region Parameter Settings_ShowAlternative
@@ -341,6 +370,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.Select = (response, cmdlet) => this.TranscriptionJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContentRedaction_RedactionOutput = this.ContentRedaction_RedactionOutput;
+            context.ContentRedaction_RedactionType = this.ContentRedaction_RedactionType;
             context.JobExecutionSettings_AllowDeferredExecution = this.JobExecutionSettings_AllowDeferredExecution;
             context.JobExecutionSettings_DataAccessRoleArn = this.JobExecutionSettings_DataAccessRoleArn;
             context.LanguageCode = this.LanguageCode;
@@ -386,6 +417,35 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             // create request
             var request = new Amazon.TranscribeService.Model.StartTranscriptionJobRequest();
             
+            
+             // populate ContentRedaction
+            var requestContentRedactionIsNull = true;
+            request.ContentRedaction = new Amazon.TranscribeService.Model.ContentRedaction();
+            Amazon.TranscribeService.RedactionOutput requestContentRedaction_contentRedaction_RedactionOutput = null;
+            if (cmdletContext.ContentRedaction_RedactionOutput != null)
+            {
+                requestContentRedaction_contentRedaction_RedactionOutput = cmdletContext.ContentRedaction_RedactionOutput;
+            }
+            if (requestContentRedaction_contentRedaction_RedactionOutput != null)
+            {
+                request.ContentRedaction.RedactionOutput = requestContentRedaction_contentRedaction_RedactionOutput;
+                requestContentRedactionIsNull = false;
+            }
+            Amazon.TranscribeService.RedactionType requestContentRedaction_contentRedaction_RedactionType = null;
+            if (cmdletContext.ContentRedaction_RedactionType != null)
+            {
+                requestContentRedaction_contentRedaction_RedactionType = cmdletContext.ContentRedaction_RedactionType;
+            }
+            if (requestContentRedaction_contentRedaction_RedactionType != null)
+            {
+                request.ContentRedaction.RedactionType = requestContentRedaction_contentRedaction_RedactionType;
+                requestContentRedactionIsNull = false;
+            }
+             // determine if request.ContentRedaction should be set to null
+            if (requestContentRedactionIsNull)
+            {
+                request.ContentRedaction = null;
+            }
             
              // populate JobExecutionSettings
             var requestJobExecutionSettingsIsNull = true;
@@ -608,6 +668,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.TranscribeService.RedactionOutput ContentRedaction_RedactionOutput { get; set; }
+            public Amazon.TranscribeService.RedactionType ContentRedaction_RedactionType { get; set; }
             public System.Boolean? JobExecutionSettings_AllowDeferredExecution { get; set; }
             public System.String JobExecutionSettings_DataAccessRoleArn { get; set; }
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of one to four <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless
-        /// Inter-Domain Routing</a> (CIDR) values.</para><para>Maximum: 4 CIDR values</para><note><para>The following Length Constraints apply to individual CIDR values in the CIDR value
+        /// Inter-Domain Routing</a> (CIDR) values.</para><para>Maximum: Four CIDR values</para><note><para>The following Length Constraints apply to individual CIDR values in the CIDR value
         /// list.</para></note>
         /// </para>
         /// </summary>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the private workforce whose access you want to restrict. <code>WorkforceName</code>
-        /// is automatically set to <code>"default"</code> when a workforce is created and cannot
+        /// is automatically set to <code>default</code> when a workforce is created and cannot
         /// be modified. </para>
         /// </para>
         /// </summary>

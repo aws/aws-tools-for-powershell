@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
-    /// with the version-specific configuration of each.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// with the version-specific configuration of each. Lambda returns up to 50 versions
+    /// per call.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LMVersionsByFunction")]
     [OutputType("Amazon.Lambda.Model.FunctionConfiguration")]
@@ -77,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Limit the number of versions that are returned.</para>
+        /// <para>The maximum number of versions to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The affinity setting for the instance on the Dedicated Host. This parameter is not
-        /// supported for the <a>ImportInstance</a> command.</para>
+        /// supported for the <a>ImportInstance</a> command.</para><para>This parameter is not supported by .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Availability Zone of the instance.</para><para>If not specified, an Availability Zone will be automatically chosen for you based
-        /// on the load balancing criteria for the Region.</para>
+        /// on the load balancing criteria for the Region.</para><para>This parameter is not supported by .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the Dedicated Host on which the instance resides. This parameter is not
-        /// supported for the <a>ImportInstance</a> command.</para>
+        /// supported for the <a>ImportInstance</a> command.</para><para>This parameter is not supported by .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ARN of the host resource group in which to launch the instances. If you specify
-        /// a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</para>
+        /// a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</para><para>This parameter is not supported by .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -530,7 +530,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of the partition the instance is in. Valid only if the placement group
-        /// strategy is set to <code>partition</code>.</para>
+        /// strategy is set to <code>partition</code>.</para><para>This parameter is not supported by .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -594,7 +594,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_SpreadDomain
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>Reserved for future use.</para><para>This parameter is not supported by .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -630,7 +630,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The tenancy of the instance (if the instance is running in a VPC). An instance with
         /// a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
-        /// tenancy is not supported for the <a>ImportInstance</a> command.</para>
+        /// tenancy is not supported for the <a>ImportInstance</a> command.</para><para>This parameter is not supported by .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -651,7 +651,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// If you do not specify a client token, a randomly generated token is used for the request
+        /// to ensure idempotency.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// Idempotency</a>.</para><para>Constraints: Maximum 64 ASCII characters</para>
         /// </para>
         /// </summary>

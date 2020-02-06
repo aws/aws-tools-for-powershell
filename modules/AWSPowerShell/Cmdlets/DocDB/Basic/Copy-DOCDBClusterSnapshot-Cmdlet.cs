@@ -28,16 +28,16 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Copies a snapshot of a DB cluster.
+    /// Copies a snapshot of a cluster.
     /// 
     ///  
     /// <para>
-    /// To copy a DB cluster snapshot from a shared manual DB cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
-    /// must be the Amazon Resource Name (ARN) of the shared DB cluster snapshot.
+    /// To copy a cluster snapshot from a shared manual cluster snapshot, <code>SourceDBClusterSnapshotIdentifier</code>
+    /// must be the Amazon Resource Name (ARN) of the shared cluster snapshot.
     /// </para><para>
-    /// To cancel the copy operation after it is in progress, delete the target DB cluster
-    /// snapshot identified by <code>TargetDBClusterSnapshotIdentifier</code> while that DB
-    /// cluster snapshot is in the <i>copying</i> status.
+    /// To cancel the copy operation after it is in progress, delete the target cluster snapshot
+    /// identified by <code>TargetDBClusterSnapshotIdentifier</code> while that DB cluster
+    /// snapshot is in the <i>copying</i> status.
     /// </para>
     /// </summary>
     [Cmdlet("Copy", "DOCDBClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter CopyTag
         /// <summary>
         /// <para>
-        /// <para>Set to <code>true</code> to copy all tags from the source DB cluster snapshot to the
-        /// target DB cluster snapshot, and otherwise <code>false</code>. The default is <code>false</code>.</para>
+        /// <para>Set to <code>true</code> to copy all tags from the source cluster snapshot to the
+        /// target cluster snapshot, and otherwise <code>false</code>. The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,18 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key ID for an encrypted DB cluster snapshot. The AWS KMS key ID is the
-        /// Amazon Resource Name (ARN), AWS KMS key identifier, or the AWS KMS key alias for the
-        /// AWS KMS encryption key. </para><para>If you copy an encrypted DB cluster snapshot from your AWS account, you can specify
-        /// a value for <code>KmsKeyId</code> to encrypt the copy with a new AWS KMS encryption
+        /// <para>The AWS KMS key ID for an encrypted cluster snapshot. The AWS KMS key ID is the Amazon
+        /// Resource Name (ARN), AWS KMS key identifier, or the AWS KMS key alias for the AWS
+        /// KMS encryption key. </para><para>If you copy an encrypted cluster snapshot from your AWS account, you can specify a
+        /// value for <code>KmsKeyId</code> to encrypt the copy with a new AWS KMS encryption
         /// key. If you don't specify a value for <code>KmsKeyId</code>, then the copy of the
-        /// DB cluster snapshot is encrypted with the same AWS KMS key as the source DB cluster
-        /// snapshot. </para><para>If you copy an encrypted DB cluster snapshot that is shared from another AWS account,
-        /// then you must specify a value for <code>KmsKeyId</code>. </para><para>To copy an encrypted DB cluster snapshot to another AWS Region, set <code>KmsKeyId</code>
-        /// to the AWS KMS key ID that you want to use to encrypt the copy of the DB cluster snapshot
+        /// cluster snapshot is encrypted with the same AWS KMS key as the source cluster snapshot.
+        /// </para><para>If you copy an encrypted cluster snapshot that is shared from another AWS account,
+        /// then you must specify a value for <code>KmsKeyId</code>. </para><para>To copy an encrypted cluster snapshot to another AWS Region, set <code>KmsKeyId</code>
+        /// to the AWS KMS key ID that you want to use to encrypt the copy of the cluster snapshot
         /// in the destination Region. AWS KMS encryption keys are specific to the AWS Region
         /// that they are created in, and you can't use encryption keys from one Region in another
-        /// Region.</para><para>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code>
+        /// Region.</para><para>If you copy an unencrypted cluster snapshot and specify a value for the <code>KmsKeyId</code>
         /// parameter, an error is returned.</para>
         /// </para>
         /// </summary>
@@ -88,20 +88,20 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The URL that contains a Signature Version 4 signed request for the <code>CopyDBClusterSnapshot</code>
-        /// API action in the AWS Region that contains the source DB cluster snapshot to copy.
-        /// You must use the <code>PreSignedUrl</code> parameter when copying an encrypted DB
-        /// cluster snapshot from another AWS Region.</para><para>The presigned URL must be a valid request for the <code>CopyDBSClusterSnapshot</code>
+        /// API action in the AWS Region that contains the source cluster snapshot to copy. You
+        /// must use the <code>PreSignedUrl</code> parameter when copying an encrypted cluster
+        /// snapshot from another AWS Region.</para><para>The presigned URL must be a valid request for the <code>CopyDBSClusterSnapshot</code>
         /// API action that can be executed in the source AWS Region that contains the encrypted
         /// DB cluster snapshot to be copied. The presigned URL request must contain the following
         /// parameter values:</para><ul><li><para><code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt
-        /// the copy of the DB cluster snapshot in the destination AWS Region. This is the same
-        /// identifier for both the <code>CopyDBClusterSnapshot</code> action that is called in
-        /// the destination AWS Region, and the action contained in the presigned URL.</para></li><li><para><code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot
-        /// will be created in.</para></li><li><para><code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot identifier
-        /// for the encrypted DB cluster snapshot to be copied. This identifier must be in the
-        /// Amazon Resource Name (ARN) format for the source AWS Region. For example, if you are
-        /// copying an encrypted DB cluster snapshot from the us-west-2 AWS Region, then your
-        /// <code>SourceDBClusterSnapshotIdentifier</code> looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:my-cluster-snapshot-20161115</code>.</para></li></ul>
+        /// the copy of the cluster snapshot in the destination AWS Region. This is the same identifier
+        /// for both the <code>CopyDBClusterSnapshot</code> action that is called in the destination
+        /// AWS Region, and the action contained in the presigned URL.</para></li><li><para><code>DestinationRegion</code> - The name of the AWS Region that the DB cluster snapshot
+        /// will be created in.</para></li><li><para><code>SourceDBClusterSnapshotIdentifier</code> - The cluster snapshot identifier
+        /// for the encrypted cluster snapshot to be copied. This identifier must be in the Amazon
+        /// Resource Name (ARN) format for the source AWS Region. For example, if you are copying
+        /// an encrypted cluster snapshot from the us-west-2 AWS Region, then your <code>SourceDBClusterSnapshotIdentifier</code>
+        /// looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:cluster-snapshot:my-cluster-snapshot-20161115</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,9 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SourceDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster snapshot to copy. This parameter is not case sensitive.</para><para>You can't copy an encrypted, shared DB cluster snapshot from one AWS Region to another.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same AWS Region as the copy, specify a valid DB snapshot
+        /// <para>The identifier of the cluster snapshot to copy. This parameter is not case sensitive.</para><para>You can't copy an encrypted, shared cluster snapshot from one AWS Region to another.</para><para>Constraints:</para><ul><li><para>Must specify a valid system snapshot in the "available" state.</para></li><li><para>If the source snapshot is in the same AWS Region as the copy, specify a valid snapshot
         /// identifier.</para></li><li><para>If the source snapshot is in a different AWS Region than the copy, specify a valid
-        /// DB cluster snapshot ARN.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
+        /// cluster snapshot ARN.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the DB cluster snapshot.</para>
+        /// <para>The tags to be assigned to the cluster snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter TargetDBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the new DB cluster snapshot to create from the source DB cluster
-        /// snapshot. This parameter is not case sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster-snapshot2</code></para>
+        /// <para>The identifier of the new cluster snapshot to create from the source cluster snapshot.
+        /// This parameter is not case sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster-snapshot2</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

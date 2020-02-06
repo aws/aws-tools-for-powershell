@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Returns a list of the available DB engines.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of the available engines.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DOCDBEngineVersion")]
     [OutputType("Amazon.DocDB.Model.DBEngineVersion")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para>The name of a specific DB parameter group family to return details for.</para><para>Constraints:</para><ul><li><para>If provided, must match an existing <code>DBParameterGroupFamily</code>.</para></li></ul>
+        /// <para>The name of a specific parameter group family to return details for.</para><para>Constraints:</para><ul><li><para>If provided, must match an existing <code>DBParameterGroupFamily</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

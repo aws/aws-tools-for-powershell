@@ -64,8 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Indicates whether minor engine upgrades will be applied automatically to the replication
-        /// instance during the maintenance window. This parameter defaults to <code>true</code>.</para><para>Default: <code>true</code></para>
+        /// <para>A value that indicates whether minor engine upgrades are applied automatically to
+        /// the replication instance during the maintenance window. This parameter defaults to
+        /// <code>true</code>.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The AWS Availability Zone where the replication instance will be created. The default
+        /// <para>The Availability Zone where the replication instance will be created. The default
         /// value is a random, system-chosen Availability Zone in the endpoint's AWS Region, for
         /// example: <code>us-east-1d</code></para>
         /// </para>
@@ -120,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para> Specifies whether the replication instance is a Multi-AZ deployment. You cannot set
+        /// <para> Specifies whether the replication instance is a Multi-AZ deployment. You can't set
         /// the <code>AvailabilityZone</code> parameter if the Multi-AZ parameter is set to <code>true</code>.
         /// </para>
         /// </para>
@@ -175,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The replication instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>myrepinstance</code></para>
+        /// <para>The replication instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>myrepinstance</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

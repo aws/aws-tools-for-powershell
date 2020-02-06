@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ComponentVersionArn
         /// <summary>
         /// <para>
-        /// <para> The component version arn whose versions you wish to list. </para>
+        /// <para> The component version Amazon Resource Name (ARN) whose versions you want to list.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

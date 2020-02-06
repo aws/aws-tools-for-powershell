@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Boolean? ResizeCluster_Classic { get; set; }
         #endregion
         
+        #region Parameter PauseCluster_ClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the cluster to be paused.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetAction_PauseCluster_ClusterIdentifier")]
+        public System.String PauseCluster_ClusterIdentifier { get; set; }
+        #endregion
+        
         #region Parameter ResizeCluster_ClusterIdentifier
         /// <summary>
         /// <para>
@@ -63,6 +74,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TargetAction_ResizeCluster_ClusterIdentifier")]
         public System.String ResizeCluster_ClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ResumeCluster_ClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the cluster to be resumed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetAction_ResumeCluster_ClusterIdentifier")]
+        public System.String ResumeCluster_ClusterIdentifier { get; set; }
         #endregion
         
         #region Parameter ResizeCluster_ClusterType
@@ -284,11 +306,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             #endif
             context.StartTime = this.StartTime;
+            context.PauseCluster_ClusterIdentifier = this.PauseCluster_ClusterIdentifier;
             context.ResizeCluster_Classic = this.ResizeCluster_Classic;
             context.ResizeCluster_ClusterIdentifier = this.ResizeCluster_ClusterIdentifier;
             context.ResizeCluster_ClusterType = this.ResizeCluster_ClusterType;
             context.ResizeCluster_NodeType = this.ResizeCluster_NodeType;
             context.ResizeCluster_NumberOfNode = this.ResizeCluster_NumberOfNode;
+            context.ResumeCluster_ClusterIdentifier = this.ResumeCluster_ClusterIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -337,6 +361,56 @@ namespace Amazon.PowerShell.Cmdlets.RS
              // populate TargetAction
             var requestTargetActionIsNull = true;
             request.TargetAction = new Amazon.Redshift.Model.ScheduledActionType();
+            Amazon.Redshift.Model.PauseClusterMessage requestTargetAction_targetAction_PauseCluster = null;
+            
+             // populate PauseCluster
+            var requestTargetAction_targetAction_PauseClusterIsNull = true;
+            requestTargetAction_targetAction_PauseCluster = new Amazon.Redshift.Model.PauseClusterMessage();
+            System.String requestTargetAction_targetAction_PauseCluster_pauseCluster_ClusterIdentifier = null;
+            if (cmdletContext.PauseCluster_ClusterIdentifier != null)
+            {
+                requestTargetAction_targetAction_PauseCluster_pauseCluster_ClusterIdentifier = cmdletContext.PauseCluster_ClusterIdentifier;
+            }
+            if (requestTargetAction_targetAction_PauseCluster_pauseCluster_ClusterIdentifier != null)
+            {
+                requestTargetAction_targetAction_PauseCluster.ClusterIdentifier = requestTargetAction_targetAction_PauseCluster_pauseCluster_ClusterIdentifier;
+                requestTargetAction_targetAction_PauseClusterIsNull = false;
+            }
+             // determine if requestTargetAction_targetAction_PauseCluster should be set to null
+            if (requestTargetAction_targetAction_PauseClusterIsNull)
+            {
+                requestTargetAction_targetAction_PauseCluster = null;
+            }
+            if (requestTargetAction_targetAction_PauseCluster != null)
+            {
+                request.TargetAction.PauseCluster = requestTargetAction_targetAction_PauseCluster;
+                requestTargetActionIsNull = false;
+            }
+            Amazon.Redshift.Model.ResumeClusterMessage requestTargetAction_targetAction_ResumeCluster = null;
+            
+             // populate ResumeCluster
+            var requestTargetAction_targetAction_ResumeClusterIsNull = true;
+            requestTargetAction_targetAction_ResumeCluster = new Amazon.Redshift.Model.ResumeClusterMessage();
+            System.String requestTargetAction_targetAction_ResumeCluster_resumeCluster_ClusterIdentifier = null;
+            if (cmdletContext.ResumeCluster_ClusterIdentifier != null)
+            {
+                requestTargetAction_targetAction_ResumeCluster_resumeCluster_ClusterIdentifier = cmdletContext.ResumeCluster_ClusterIdentifier;
+            }
+            if (requestTargetAction_targetAction_ResumeCluster_resumeCluster_ClusterIdentifier != null)
+            {
+                requestTargetAction_targetAction_ResumeCluster.ClusterIdentifier = requestTargetAction_targetAction_ResumeCluster_resumeCluster_ClusterIdentifier;
+                requestTargetAction_targetAction_ResumeClusterIsNull = false;
+            }
+             // determine if requestTargetAction_targetAction_ResumeCluster should be set to null
+            if (requestTargetAction_targetAction_ResumeClusterIsNull)
+            {
+                requestTargetAction_targetAction_ResumeCluster = null;
+            }
+            if (requestTargetAction_targetAction_ResumeCluster != null)
+            {
+                request.TargetAction.ResumeCluster = requestTargetAction_targetAction_ResumeCluster;
+                requestTargetActionIsNull = false;
+            }
             Amazon.Redshift.Model.ResizeClusterMessage requestTargetAction_targetAction_ResizeCluster = null;
             
              // populate ResizeCluster
@@ -475,11 +549,13 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String ScheduledActionDescription { get; set; }
             public System.String ScheduledActionName { get; set; }
             public System.DateTime? StartTime { get; set; }
+            public System.String PauseCluster_ClusterIdentifier { get; set; }
             public System.Boolean? ResizeCluster_Classic { get; set; }
             public System.String ResizeCluster_ClusterIdentifier { get; set; }
             public System.String ResizeCluster_ClusterType { get; set; }
             public System.String ResizeCluster_NodeType { get; set; }
             public System.Int32? ResizeCluster_NumberOfNode { get; set; }
+            public System.String ResumeCluster_ClusterIdentifier { get; set; }
             public System.Func<Amazon.Redshift.Model.CreateScheduledActionResponse, NewRSScheduledActionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

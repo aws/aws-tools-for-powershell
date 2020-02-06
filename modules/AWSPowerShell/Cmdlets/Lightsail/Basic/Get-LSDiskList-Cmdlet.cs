@@ -28,14 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns information about all block storage disks in your AWS account and region.
-    /// 
-    ///  
-    /// <para>
-    /// If you are describing a long list of disks, you can paginate the output to make the
-    /// list more manageable. You can use the pageToken and nextPageToken values to retrieve
-    /// the next items in the list.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about all block storage disks in your AWS account and region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "LSDiskList")]
     [OutputType("Amazon.Lightsail.Model.Disk")]
@@ -50,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>A token used for advancing to the next page of results from your GetDisks request.</para>
+        /// <para>The token to advance to the next page of results from your request.</para><para>To get a page token, perform an initial <code>GetDisks</code> request. If your results
+        /// are paginated, the response will return a next page token that you can specify as
+        /// the page token in a subsequent request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

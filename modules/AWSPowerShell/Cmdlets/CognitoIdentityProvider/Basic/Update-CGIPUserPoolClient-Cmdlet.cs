@@ -48,9 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthFlow
         /// <summary>
         /// <para>
-        /// <para>Set to <code>code</code> to initiate a code grant flow, which provides an authorization
+        /// <para>The allowed OAuth flows.</para><para>Set to <code>code</code> to initiate a code grant flow, which provides an authorization
         /// code as the response. This code can be exchanged for access tokens with the token
-        /// endpoint.</para>
+        /// endpoint.</para><para>Set to <code>implicit</code> to specify that the client should get the access token
+        /// (and, optionally, ID token, based on scopes) directly.</para><para>Set to <code>client_credentials</code> to specify that the client should get the access
+        /// token (and, optionally, ID token, based on scopes) from the token endpoint using a
+        /// combination of client and client_secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthFlowsUserPoolClient
         /// <summary>
         /// <para>
-        /// <para>Set to TRUE if the client is allowed to follow the OAuth protocol when interacting
+        /// <para>Set to true if the client is allowed to follow the OAuth protocol when interacting
         /// with Cognito user pools.</para>
         /// </para>
         /// </summary>
@@ -72,9 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AllowedOAuthScope
         /// <summary>
         /// <para>
-        /// <para>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>,
-        /// <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>. In addition
-        /// to these values, custom scopes created in Resource Servers are also supported.</para>
+        /// <para>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>,
+        /// <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values
+        /// provided by AWS are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created
+        /// in Resource Servers are also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// a code was sent to a simulated destination. When set to <code>LEGACY</code>, those
         /// APIs will return a <code>UserNotFoundException</code> exception if the user does not
         /// exist in the user pool.</para><para>Valid values include:</para><ul><li><para><code>ENABLED</code> - This prevents user existence-related errors.</para></li><li><para><code>LEGACY</code> - This represents the old behavior of Cognito where user existence
-        /// related errors are not prevented.</para></li></ul><para>This setting affects the behavior of following APIs:</para><ul><li><para><a>AdminInitiateAuth</a></para></li><li><para><a>AdminRespondToAuthChallenge</a></para></li><li><para><a>InitiateAuth</a></para></li><li><para><a>RespondToAuthChallenge</a></para></li><li><para><a>ForgotPassword</a></para></li><li><para><a>ConfirmForgotPassword</a></para></li><li><para><a>ConfirmSignUp</a></para></li><li><para><a>ResendConfirmationCode</a></para></li></ul><note><para>After January 1st 2020, the value of <code>PreventUserExistenceErrors</code> will
+        /// related errors are not prevented.</para></li></ul><para>This setting affects the behavior of following APIs:</para><ul><li><para><a>AdminInitiateAuth</a></para></li><li><para><a>AdminRespondToAuthChallenge</a></para></li><li><para><a>InitiateAuth</a></para></li><li><para><a>RespondToAuthChallenge</a></para></li><li><para><a>ForgotPassword</a></para></li><li><para><a>ConfirmForgotPassword</a></para></li><li><para><a>ConfirmSignUp</a></para></li><li><para><a>ResendConfirmationCode</a></para></li></ul><note><para>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will
         /// default to <code>ENABLED</code> for newly created user pool clients if no value is
         /// provided.</para></note>
         /// </para>

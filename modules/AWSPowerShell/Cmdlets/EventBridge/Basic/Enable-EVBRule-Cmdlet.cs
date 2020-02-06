@@ -28,7 +28,7 @@ using Amazon.EventBridge.Model;
 namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
-    /// Enables the specified rule. If the rule doesn't exist, the operation fails.
+    /// Enables the specified rule. If the rule does not exist, the operation fails.
     /// 
     ///  
     /// <para>

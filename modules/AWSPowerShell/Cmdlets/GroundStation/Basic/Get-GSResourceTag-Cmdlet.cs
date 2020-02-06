@@ -28,7 +28,7 @@ using Amazon.GroundStation.Model;
 namespace Amazon.PowerShell.Cmdlets.GS
 {
     /// <summary>
-    /// Returns a list of tags or a specified resource.
+    /// Returns a list of tags for a specified resource.
     /// </summary>
     [Cmdlet("Get", "GSResourceTag")]
     [OutputType("System.String")]

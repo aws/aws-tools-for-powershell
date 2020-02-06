@@ -58,7 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter DataSource
         /// <summary>
         /// <para>
-        /// <para>The data sources for the simulation job.</para><note><para>There is a limit of 100 files and a combined size of 25GB for all <code>DataSourceConfig</code>
+        /// <para>Specify data sources to mount read-only files from S3 into your simulation. These
+        /// files are available under <code>/opt/robomaker/datasources/data_source_name</code>.
+        /// </para><note><para>There is a limit of 100 files and a combined size of 25GB for all <code>DataSourceConfig</code>
         /// objects. </para></note>
         /// </para>
         /// </summary>

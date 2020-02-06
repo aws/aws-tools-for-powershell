@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-SHLDHealthCheck', 
         'Get-SHLDAttack', 
         'Get-SHLDAttackList', 
         'Get-SHLDDRTAccess', 
@@ -98,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Grant-SHLDDRTRoleAssociation', 
         'New-SHLDProtection', 
         'New-SHLDSubscription', 
+        'Remove-SHLDHealthCheck', 
         'Remove-SHLDProtection', 
         'Remove-SHLDSubscription', 
         'Revoke-SHLDDRTLogBucketAssociation', 

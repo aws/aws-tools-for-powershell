@@ -48,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Spot Instances in your Spot Fleet are in different Spot pools, you can improve the
     /// availability of your fleet.
     /// </para><para>
-    /// You can specify tags for the Spot Instances. You cannot tag other resource types in
-    /// a Spot Fleet request because only the <code>instance</code> resource type is supported.
+    /// You can specify tags for the Spot Fleet request and instances launched by the fleet.
+    /// You cannot tag other resource types in a Spot Fleet request because only the <code>spot-fleet-request</code>
+    /// and <code>instance</code> resource types are supported.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
     /// Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
@@ -294,6 +295,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The key-value pair for tagging the Spot Fleet request on creation. The value for <code>ResourceType</code>
+        /// must be <code>spot-fleet-request</code>, otherwise the Spot Fleet request fails. To
+        /// tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+        /// template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in the
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html"><code>SpotFleetTagSpecification</code></a> (valid only if you use <code>LaunchSpecifications</code>).
+        /// For information about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+        /// Your Resources</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SpotFleetRequestConfig_TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] SpotFleetRequestConfig_TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_TargetCapacity
         /// <summary>
         /// <para>
@@ -512,6 +530,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.SpotFleetRequestConfig_ReplaceUnhealthyInstance = this.SpotFleetRequestConfig_ReplaceUnhealthyInstance;
             context.SpotFleetRequestConfig_SpotMaxTotalPrice = this.SpotFleetRequestConfig_SpotMaxTotalPrice;
             context.SpotFleetRequestConfig_SpotPrice = this.SpotFleetRequestConfig_SpotPrice;
+            if (this.SpotFleetRequestConfig_TagSpecification != null)
+            {
+                context.SpotFleetRequestConfig_TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.SpotFleetRequestConfig_TagSpecification);
+            }
             context.SpotFleetRequestConfig_TargetCapacity = this.SpotFleetRequestConfig_TargetCapacity;
             #if MODULAR
             if (this.SpotFleetRequestConfig_TargetCapacity == null && ParameterWasBound(nameof(this.SpotFleetRequestConfig_TargetCapacity)))
@@ -707,6 +729,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotPrice != null)
             {
                 request.SpotFleetRequestConfig.SpotPrice = requestSpotFleetRequestConfig_spotFleetRequestConfig_SpotPrice;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            List<Amazon.EC2.Model.TagSpecification> requestSpotFleetRequestConfig_spotFleetRequestConfig_TagSpecification = null;
+            if (cmdletContext.SpotFleetRequestConfig_TagSpecification != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_TagSpecification = cmdletContext.SpotFleetRequestConfig_TagSpecification;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_TagSpecification != null)
+            {
+                request.SpotFleetRequestConfig.TagSpecifications = requestSpotFleetRequestConfig_spotFleetRequestConfig_TagSpecification;
                 requestSpotFleetRequestConfigIsNull = false;
             }
             System.Int32? requestSpotFleetRequestConfig_spotFleetRequestConfig_TargetCapacity = null;
@@ -940,6 +972,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? SpotFleetRequestConfig_ReplaceUnhealthyInstance { get; set; }
             public System.String SpotFleetRequestConfig_SpotMaxTotalPrice { get; set; }
             public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> SpotFleetRequestConfig_TagSpecification { get; set; }
             public System.Int32? SpotFleetRequestConfig_TargetCapacity { get; set; }
             public System.Boolean? SpotFleetRequestConfig_TerminateInstancesWithExpiration { get; set; }
             public Amazon.EC2.FleetType SpotFleetRequestConfig_Type { get; set; }

@@ -28,7 +28,7 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Removes a member from a chat room.
+    /// Removes a member from a chat room in an Amazon Chime Enterprise account.
     /// </summary>
     [Cmdlet("Remove", "CHMRoomMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

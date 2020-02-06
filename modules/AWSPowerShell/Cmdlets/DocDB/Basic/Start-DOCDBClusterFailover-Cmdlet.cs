@@ -28,12 +28,12 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Forces a failover for a DB cluster.
+    /// Forces a failover for a cluster.
     /// 
     ///  
     /// <para>
-    /// A failover for a DB cluster promotes one of the Amazon DocumentDB replicas (read-only
-    /// instances) in the DB cluster to be the primary instance (the cluster writer).
+    /// A failover for a cluster promotes one of the Amazon DocumentDB replicas (read-only
+    /// instances) in the cluster to be the primary instance (the cluster writer).
     /// </para><para>
     /// If the primary instance fails, Amazon DocumentDB automatically fails over to an Amazon
     /// DocumentDB replica, if one exists. You can force a failover when you want to simulate
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>A DB cluster identifier to force a failover for. This parameter is not case sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBCluster</code>.</para></li></ul>
+        /// <para>A cluster identifier to force a failover for. This parameter is not case sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing <code>DBCluster</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter TargetDBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the instance to promote to the primary instance.</para><para>You must specify the instance identifier for an Amazon DocumentDB replica in the DB
-        /// cluster. For example, <code>mydbcluster-replica1</code>.</para>
+        /// <para>The name of the instance to promote to the primary instance.</para><para>You must specify the instance identifier for an Amazon DocumentDB replica in the cluster.
+        /// For example, <code>mydbcluster-replica1</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

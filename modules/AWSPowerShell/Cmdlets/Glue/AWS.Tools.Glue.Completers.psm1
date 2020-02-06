@@ -131,6 +131,7 @@ $GLUE_Completers = {
         # Amazon.Glue.SortDirectionType
         {
             ($_ -eq "Get-GLUEMLTaskRunList/Sort_SortDirection") -Or
+            ($_ -eq "Get-GLUEMLTransformIdentifier/Sort_SortDirection") -Or
             ($_ -eq "Get-GLUEMLTransformList/Sort_SortDirection")
         }
         {
@@ -160,14 +161,20 @@ $GLUE_Completers = {
         }
 
         # Amazon.Glue.TransformSortColumnType
-        "Get-GLUEMLTransformList/Sort_Column"
+        {
+            ($_ -eq "Get-GLUEMLTransformIdentifier/Sort_Column") -Or
+            ($_ -eq "Get-GLUEMLTransformList/Sort_Column")
+        }
         {
             $v = "CREATED","LAST_MODIFIED","NAME","STATUS","TRANSFORM_TYPE"
             break
         }
 
         # Amazon.Glue.TransformStatusType
-        "Get-GLUEMLTransformList/Filter_Status"
+        {
+            ($_ -eq "Get-GLUEMLTransformIdentifier/Filter_Status") -Or
+            ($_ -eq "Get-GLUEMLTransformList/Filter_Status")
+        }
         {
             $v = "DELETING","NOT_READY","READY"
             break
@@ -175,6 +182,7 @@ $GLUE_Completers = {
 
         # Amazon.Glue.TransformType
         {
+            ($_ -eq "Get-GLUEMLTransformIdentifier/Filter_TransformType") -Or
             ($_ -eq "Get-GLUEMLTransformList/Filter_TransformType") -Or
             ($_ -eq "New-GLUEMLTransform/Parameters_TransformType") -Or
             ($_ -eq "Update-GLUEMLTransform/Parameters_TransformType")
@@ -217,14 +225,14 @@ $GLUE_map = @{
     "DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
-    "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformList")
+    "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
-    "Filter_TransformType"=@("Get-GLUEMLTransformList")
+    "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
-    "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformList")
-    "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformList")
+    "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Type"=@("New-GLUETrigger")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","Start-GLUEJobRun","Update-GLUEMLTransform")
 }
@@ -368,6 +376,7 @@ $GLUE_SelectMap = @{
                "Get-GLUECrawlerNameList",
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEJobNameList",
+               "Get-GLUEMLTransformIdentifier",
                "Get-GLUETriggerNameList",
                "Get-GLUEWorkflowList",
                "Set-GLUEDataCatalogEncryptionSetting",

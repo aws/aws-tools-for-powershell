@@ -281,6 +281,7 @@ $QS_SelectMap = @{
                "Get-QSUserGroupList",
                "Get-QSUserList",
                "Register-QSUser",
+               "Search-QSDashboard",
                "Add-QSResourceTag",
                "Remove-QSResourceTag",
                "Update-QSDashboard",

@@ -67,6 +67,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String EmailTemplateRequest_HtmlPart { get; set; }
         #endregion
         
+        #region Parameter EmailTemplateRequest_RecommenderId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the recommender model to use for the message template. Amazon
+        /// Pinpoint uses this value to determine how to retrieve and process data from a recommender
+        /// model when it sends messages that use the template, if the template contains message
+        /// variables for recommendation data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EmailTemplateRequest_RecommenderId { get; set; }
+        #endregion
+        
         #region Parameter EmailTemplateRequest_Subject
         /// <summary>
         /// <para>
@@ -196,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EmailTemplateRequest_DefaultSubstitution = this.EmailTemplateRequest_DefaultSubstitution;
             context.EmailTemplateRequest_HtmlPart = this.EmailTemplateRequest_HtmlPart;
+            context.EmailTemplateRequest_RecommenderId = this.EmailTemplateRequest_RecommenderId;
             context.EmailTemplateRequest_Subject = this.EmailTemplateRequest_Subject;
             if (this.EmailTemplateRequest_Tag != null)
             {
@@ -252,6 +266,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_HtmlPart != null)
             {
                 request.EmailTemplateRequest.HtmlPart = requestEmailTemplateRequest_emailTemplateRequest_HtmlPart;
+                requestEmailTemplateRequestIsNull = false;
+            }
+            System.String requestEmailTemplateRequest_emailTemplateRequest_RecommenderId = null;
+            if (cmdletContext.EmailTemplateRequest_RecommenderId != null)
+            {
+                requestEmailTemplateRequest_emailTemplateRequest_RecommenderId = cmdletContext.EmailTemplateRequest_RecommenderId;
+            }
+            if (requestEmailTemplateRequest_emailTemplateRequest_RecommenderId != null)
+            {
+                request.EmailTemplateRequest.RecommenderId = requestEmailTemplateRequest_emailTemplateRequest_RecommenderId;
                 requestEmailTemplateRequestIsNull = false;
             }
             System.String requestEmailTemplateRequest_emailTemplateRequest_Subject = null;
@@ -366,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             public System.String EmailTemplateRequest_DefaultSubstitution { get; set; }
             public System.String EmailTemplateRequest_HtmlPart { get; set; }
+            public System.String EmailTemplateRequest_RecommenderId { get; set; }
             public System.String EmailTemplateRequest_Subject { get; set; }
             public Dictionary<System.String, System.String> EmailTemplateRequest_Tag { get; set; }
             public System.String EmailTemplateRequest_TemplateDescription { get; set; }

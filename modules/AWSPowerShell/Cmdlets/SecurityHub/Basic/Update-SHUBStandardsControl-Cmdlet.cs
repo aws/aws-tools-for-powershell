@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Used to control whether an individual compliance standard control is enabled or disabled.
+    /// Used to control whether an individual security standard control is enabled or disabled.
     /// </summary>
     [Cmdlet("Update", "SHUBStandardsControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter ControlStatus
         /// <summary>
         /// <para>
-        /// <para>The updated status of the compliance standard control.</para>
+        /// <para>The updated status of the security standard control.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter DisabledReason
         /// <summary>
         /// <para>
-        /// <para>A description of the reason why you are disabling a compliance standard control.</para>
+        /// <para>A description of the reason why you are disabling a security standard control.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter StandardsControlArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the compliance standard control to enable or disable.</para>
+        /// <para>The ARN of the security standard control to enable or disable.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

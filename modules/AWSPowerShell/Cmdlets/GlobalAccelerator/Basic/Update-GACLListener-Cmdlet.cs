@@ -28,7 +28,8 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Update a listener.
+    /// Update a listener. To see an AWS CLI example of updating listener, scroll down to
+    /// <b>Example</b>.
     /// </summary>
     [Cmdlet("Update", "GACLListener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GlobalAccelerator.Model.Listener")]

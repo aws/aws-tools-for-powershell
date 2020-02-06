@@ -28,8 +28,8 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Adds one or more tags (keys and values) to an application, campaign, journey, message
-    /// template, or segment.
+    /// Adds one or more tags (keys and values) to an application, campaign, message template,
+    /// or segment.
     /// </summary>
     [Cmdlet("Add", "PINResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>A string-to-string map of key-value pairs that defines the tags for an application,
-        /// campaign, journey, message template, or segment. Each of these resources can have
-        /// a maximum of 50 tags.</para><para>Each tag consists of a required tag key and an associated tag value. The maximum length
+        /// campaign, message template, or segment. Each of these resources can have a maximum
+        /// of 50 tags.</para><para>Each tag consists of a required tag key and an associated tag value. The maximum length
         /// of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</para>
         /// </para>
         /// </summary>

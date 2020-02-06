@@ -28,9 +28,10 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Updates room membership details, such as the member role. The member role designates
-    /// whether the member is a chat room administrator or a general chat room member. The
-    /// member role can be updated only for user IDs.
+    /// Updates room membership details, such as the member role, for a room in an Amazon
+    /// Chime Enterprise account. The member role designates whether the member is a chat
+    /// room administrator or a general chat room member. The member role can be updated only
+    /// for user IDs.
     /// </summary>
     [Cmdlet("Update", "CHMRoomMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.RoomMembership")]

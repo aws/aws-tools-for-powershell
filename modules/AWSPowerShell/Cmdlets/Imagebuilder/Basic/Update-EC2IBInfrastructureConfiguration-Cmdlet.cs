@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InfrastructureConfigurationArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the infrastructure configuration that you wish
+        /// <para> The Amazon Resource Name (ARN) of the infrastructure configuration that you want
         /// to update. </para>
         /// </para>
         /// </summary>
@@ -76,15 +76,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceProfileName { get; set; }
         #endregion
         
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para> The instance types of the infrastructure configuration. You may specify one or more
-        /// instance types to use for this build, the service will pick one of these instance
+        /// <para> The instance types of the infrastructure configuration. You can specify one or more
+        /// instance types to use for this build. The service will pick one of these instance
         /// types based on availability. </para>
         /// </para>
         /// </summary>
@@ -96,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter KeyPair
         /// <summary>
         /// <para>
-        /// <para> The key pair of the infrastructure configuration. This can be used to log onto and
+        /// <para> The key pair of the infrastructure configuration. This can be used to log on to and
         /// debug the instance used to create your image. </para>
         /// </para>
         /// </summary>
@@ -107,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter S3Logs_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket in which to store the logs.</para>
+        /// <para>The Amazon S3 bucket in which to store the logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter S3Logs_S3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The S3 path in which to store the logs.</para>
+        /// <para>The Amazon S3 path in which to store the logs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para> The terminate instance on failure setting of the infrastructure configuration. Set
-        /// to false if you wish for Image Builder to retain the instance used to configure your
-        /// AMI in the event that the build or test phase of your workflow failed. </para>
+        /// to false if you want Image Builder to retain the instance used to configure your AMI
+        /// if the build or test phase of your workflow fails. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,6 +258,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             }
             #endif
             context.InstanceProfileName = this.InstanceProfileName;
+            #if MODULAR
+            if (this.InstanceProfileName == null && ParameterWasBound(nameof(this.InstanceProfileName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceProfileName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.InstanceType != null)
             {
                 context.InstanceType = new List<System.String>(this.InstanceType);

@@ -244,6 +244,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Role { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to use with this machine learning transform. You may use tags to limit access
+        /// to the machine learning transform. For more information about tags in AWS Glue, see
+        /// <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS Tags in
+        /// AWS Glue</a> in the developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
@@ -394,6 +408,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter Role which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.Timeout = this.Timeout;
             context.WorkerType = this.WorkerType;
             
@@ -518,6 +540,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.Role = cmdletContext.Role;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Timeout != null)
             {
                 request.Timeout = cmdletContext.Timeout.Value;
@@ -600,6 +626,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String FindMatchesParameters_PrimaryKeyColumnName { get; set; }
             public Amazon.Glue.TransformType Parameters_TransformType { get; set; }
             public System.String Role { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Int32? Timeout { get; set; }
             public Amazon.Glue.WorkerType WorkerType { get; set; }
             public System.Func<Amazon.Glue.Model.CreateMLTransformResponse, NewGLUEMLTransformCmdlet, object> Select { get; set; } =

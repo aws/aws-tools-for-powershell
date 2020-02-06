@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter BlockIndex
         /// <summary>
         /// <para>
-        /// <para>The block index of the block from which to get data.</para><para>Obtain the <code>block index</code> by running the <code>list changed blocks</code>
-        /// or <code>list snapshot blocks</code> operations.</para>
+        /// <para>The block index of the block from which to get data.</para><para>Obtain the <code>BlockIndex</code> by running the <code>ListChangedBlocks</code> or
+        /// <code>ListSnapshotBlocks</code> operations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter BlockToken
         /// <summary>
         /// <para>
-        /// <para>The block token of the block from which to get data.</para><para>Obtain the <code>block token</code> by running the <code>list changed blocks</code>
-        /// or <code>list snapshot blocks</code> operations.</para>
+        /// <para>The block token of the block from which to get data.</para><para>Obtain the <code>BlockToken</code> by running the <code>ListChangedBlocks</code> or
+        /// <code>ListSnapshotBlocks</code> operations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

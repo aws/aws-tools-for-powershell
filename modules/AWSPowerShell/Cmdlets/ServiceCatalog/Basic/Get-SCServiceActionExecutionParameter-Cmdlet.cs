@@ -28,7 +28,8 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    
+    /// Finds the default parameters for a specific self-service action on a specific provisioned
+    /// product and returns a map of the results to the user.
     /// </summary>
     [Cmdlet("Get", "SCServiceActionExecutionParameter")]
     [OutputType("Amazon.ServiceCatalog.Model.ExecutionParameter")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The language code.</para><ul><li><para><code>en</code> - English (default)</para></li><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the provisioned product.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ServiceActionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The self-service action identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

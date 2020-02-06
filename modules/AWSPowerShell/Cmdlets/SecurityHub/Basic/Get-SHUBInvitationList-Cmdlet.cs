@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items that you want in the response. </para>
+        /// <para>The maximum number of items to return in the response. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -60,10 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Paginates results. On your first call to the <code>ListInvitations</code> operation,
-        /// set the value of this parameter to <code>NULL</code>. For subsequent calls to the
-        /// operation, fill <code>nextToken</code> in the request with the value of <code>NextToken</code>
-        /// from the previous response to continue listing data. </para>
+        /// <para>The token that is required for pagination. On your first call to the <code>ListInvitations</code>
+        /// operation, set the value of this parameter to <code>NULL</code>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
+        /// this parameter to the value returned from the previous response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// is thrown.
     /// 
     ///  <note><para>
-    /// This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
+    /// This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a>
     /// for information about authorizing control plane actions.
     /// </para></note>
     /// </summary>

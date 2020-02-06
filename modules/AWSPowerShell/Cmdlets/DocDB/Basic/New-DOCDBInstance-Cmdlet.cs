@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Creates a new DB instance.
+    /// Creates a new instance.
     /// </summary>
     [Cmdlet("New", "DOCDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBInstance")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Indicates that minor engine upgrades are applied automatically to the DB instance
-        /// during the maintenance window.</para><para>Default: <code>true</code></para>
+        /// <para>Indicates that minor engine upgrades are applied automatically to the instance during
+        /// the maintenance window.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para> The Amazon EC2 Availability Zone that the DB instance is created in.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
+        /// <para> The Amazon EC2 Availability Zone that the instance is created in.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
         /// <code>MultiAZ</code> parameter is set to <code>true</code>. The specified Availability
         /// Zone must be in the same AWS Region as the current endpoint. </para>
         /// </para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster that the instance will belong to.</para>
+        /// <para>The identifier of the cluster that the instance will belong to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the DB instance; for example, <code>db.r5.large</code>.
+        /// <para>The compute and memory capacity of the instance; for example, <code>db.r5.large</code>.
         /// </para>
         /// </para>
         /// </summary>
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// <para>The instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the DB instance. You can assign up to 10 tags to an instance.</para>
+        /// <para>The tags to be assigned to the instance. You can assign up to 10 tags to an instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

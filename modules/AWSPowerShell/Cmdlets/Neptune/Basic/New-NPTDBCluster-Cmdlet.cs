@@ -34,6 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// <para>
     /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
     /// cluster as a Read Replica of another DB cluster or Amazon Neptune DB instance.
+    /// </para><para>
+    /// Note that when you create a new cluster using <code>CreateDBCluster</code> directly,
+    /// deletion protection is disabled by default (when you create a new production cluster
+    /// in the console, deletion protection is enabled by default). You can only delete a
+    /// DB cluster if its <code>DeletionProtection</code> field is set to <code>false</code>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "NPTDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -132,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         /// <para>
         /// <para>A value that indicates whether the DB cluster has deletion protection enabled. The
         /// database can't be deleted when deletion protection is enabled. By default, deletion
-        /// protection is disabled. </para>
+        /// protection is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

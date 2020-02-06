@@ -29,11 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Invites other AWS accounts to become member accounts for the Security Hub master account
-    /// that the invitation is sent from. Before you can use this action to invite a member,
-    /// you must first create the member account in Security Hub by using the <a>CreateMembers</a>
-    /// action. When the account owner accepts the invitation to become a member account and
-    /// enables Security Hub, the master account can view the findings generated from member
-    /// account.
+    /// that the invitation is sent from.
+    /// 
+    ///  
+    /// <para>
+    /// Before you can use this action to invite a member, you must first use the <code><a>CreateMembers</a></code> action to create the member account in Security Hub.
+    /// </para><para>
+    /// When the account owner accepts the invitation to become a member account and enables
+    /// Security Hub, the master account can view the findings generated from the member account.
+    /// </para>
     /// </summary>
     [Cmdlet("Send", "SHUBMemberInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.Result")]
@@ -48,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>A list of IDs of the AWS accounts that you want to invite to Security Hub as members.
+        /// <para>The list of account IDs of the AWS accounts to invite to Security Hub as members.
         /// </para>
         /// </para>
         /// </summary>

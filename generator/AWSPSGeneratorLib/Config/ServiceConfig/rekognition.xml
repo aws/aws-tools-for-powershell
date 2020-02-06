@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>rekognition</C2jFilename>
     <AssemblyName>Rekognition</AssemblyName>
@@ -141,6 +142,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTextDetection" OutputProperty="*" Verb="Get" Noun="TextDetection" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="IndexFaces" OutputProperty="*" Verb="Add" Noun="DetectedFacesToCollection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
@@ -213,6 +218,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartStreamProcessor" Verb="Start" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTextDetection" OutputProperty="JobId" Verb="Start" Noun="TextDetection" ShouldProcessTarget="" PipelineParameter="Video" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -85,6 +85,23 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String[] AutoVerifiedAttribute { get; set; }
         #endregion
         
+        #region Parameter UsernameConfiguration_CaseSensitive
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether username case sensitivity will be applied for all users in the user
+        /// pool through Cognito APIs.</para><para>Valid values include:</para><ul><li><para><b><code>True</code></b>: Enables case sensitivity for all username input. When
+        /// this option is set to <code>True</code>, users must sign in using the exact capitalization
+        /// of their given username. For example, “UserName”. This is the default value.</para></li><li><para><b><code>False</code></b>: Enables case insensitivity for all username input. For
+        /// example, when this option is set to <code>False</code>, users will be able to sign
+        /// in using either "username" or "Username". This option also enables both <code>preferred_username</code>
+        /// and <code>email</code> alias to be case insensitive, in addition to the <code>username</code>
+        /// attribute.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UsernameConfiguration_CaseSensitive { get; set; }
+        #endregion
+        
         #region Parameter DeviceConfiguration_ChallengeRequiredOnNewDevice
         /// <summary>
         /// <para>
@@ -740,6 +757,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.UsernameAttribute = new List<System.String>(this.UsernameAttribute);
             }
+            context.UsernameConfiguration_CaseSensitive = this.UsernameConfiguration_CaseSensitive;
             context.UserPoolAddOns_AdvancedSecurityMode = this.UserPoolAddOns_AdvancedSecurityMode;
             if (this.UserPoolTag != null)
             {
@@ -1215,6 +1233,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 request.UsernameAttributes = cmdletContext.UsernameAttribute;
             }
             
+             // populate UsernameConfiguration
+            var requestUsernameConfigurationIsNull = true;
+            request.UsernameConfiguration = new Amazon.CognitoIdentityProvider.Model.UsernameConfigurationType();
+            System.Boolean? requestUsernameConfiguration_usernameConfiguration_CaseSensitive = null;
+            if (cmdletContext.UsernameConfiguration_CaseSensitive != null)
+            {
+                requestUsernameConfiguration_usernameConfiguration_CaseSensitive = cmdletContext.UsernameConfiguration_CaseSensitive.Value;
+            }
+            if (requestUsernameConfiguration_usernameConfiguration_CaseSensitive != null)
+            {
+                request.UsernameConfiguration.CaseSensitive = requestUsernameConfiguration_usernameConfiguration_CaseSensitive.Value;
+                requestUsernameConfigurationIsNull = false;
+            }
+             // determine if request.UsernameConfiguration should be set to null
+            if (requestUsernameConfigurationIsNull)
+            {
+                request.UsernameConfiguration = null;
+            }
+            
              // populate UserPoolAddOns
             var requestUserPoolAddOnsIsNull = true;
             request.UserPoolAddOns = new Amazon.CognitoIdentityProvider.Model.UserPoolAddOnsType();
@@ -1408,6 +1445,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String SmsConfiguration_SnsCallerArn { get; set; }
             public System.String SmsVerificationMessage { get; set; }
             public List<System.String> UsernameAttribute { get; set; }
+            public System.Boolean? UsernameConfiguration_CaseSensitive { get; set; }
             public Amazon.CognitoIdentityProvider.AdvancedSecurityModeType UserPoolAddOns_AdvancedSecurityMode { get; set; }
             public Dictionary<System.String, System.String> UserPoolTag { get; set; }
             public Amazon.CognitoIdentityProvider.DefaultEmailOptionType VerificationMessageTemplate_DefaultEmailOption { get; set; }

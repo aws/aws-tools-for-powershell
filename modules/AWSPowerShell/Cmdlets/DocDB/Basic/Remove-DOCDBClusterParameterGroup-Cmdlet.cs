@@ -28,8 +28,8 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Deletes a specified DB cluster parameter group. The DB cluster parameter group to
-    /// be deleted can't be associated with any DB clusters.
+    /// Deletes a specified cluster parameter group. The cluster parameter group to be deleted
+    /// can't be associated with any clusters.
     /// </summary>
     [Cmdlet("Remove", "DOCDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing DB cluster parameter group.</para></li><li><para>You can't delete a default DB cluster parameter group.</para></li><li><para>Cannot be associated with any DB clusters.</para></li></ul>
+        /// <para>The name of the cluster parameter group.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing cluster parameter group.</para></li><li><para>You can't delete a default cluster parameter group.</para></li><li><para>Cannot be associated with any clusters.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

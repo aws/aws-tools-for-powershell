@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter ImportJobRequest_SegmentName
         /// <summary>
         /// <para>
-        /// <para>The custom name for the segment that's created by the import job, if the value of
-        /// the DefineSegment property is true.</para>
+        /// <para>A custom name for the segment that's created by the import job, if the value of the
+        /// DefineSegment property is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns a list of compliance standards controls.
+    /// Returns a list of security standards controls.
     /// 
     ///  
     /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of compliance standard controls to return.</para>
+        /// <para>The maximum number of security standard controls to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For requests to get the next page of results, the pagination token that was returned
-        /// with the previous set of results. The initial request does not include a pagination
-        /// token.</para>
+        /// <para>The token that is required for pagination. On your first call to the <code>DescribeStandardsControls</code>
+        /// operation, set the value of this parameter to <code>NULL</code>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
+        /// this parameter to the value returned from the previous response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -137,6 +137,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-QSTemplateAlias', 
         'Remove-QSUser', 
         'Remove-QSUserByPrincipalId', 
+        'Search-QSDashboard', 
         'Stop-QSIngestion', 
         'Update-QSDashboard', 
         'Update-QSDashboardPermission', 

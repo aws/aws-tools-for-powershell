@@ -32,6 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// in a VPC. You can associate multiple subnets from the same VPC with a Client VPN endpoint.
     /// You can associate only one subnet in each Availability Zone. We recommend that you
     /// associate at least two subnets to provide Availability Zone redundancy.
+    /// 
+    ///  
+    /// <para>
+    /// If you specified a VPC when you created the Client VPN endpoint or if you have previous
+    /// subnet associations, the specified subnet must be in the same VPC. To specify a subnet
+    /// that's in a different VPC, you must first modify the Client VPN endpoint (<a>ModifyClientVpnEndpoint</a>)
+    /// and change the VPC that's associated with it.
+    /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2ClientVpnTargetNetwork", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssociateClientVpnTargetNetworkResponse")]

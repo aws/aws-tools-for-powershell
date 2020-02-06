@@ -147,6 +147,19 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to add to the bot alias. You can only add tags when you create an alias,
+        /// you can't use the <code>PutBotAlias</code> operation to update the tags on a bot alias.
+        /// To update tags, use the <code>TagResource</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.LexModelBuildingService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -236,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.LexModelBuildingService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -300,6 +317,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -369,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public List<Amazon.LexModelBuildingService.Model.LogSettingsRequest> ConversationLogs_LogSetting { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.LexModelBuildingService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.LexModelBuildingService.Model.PutBotAliasResponse, WriteLMBBotAliasCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

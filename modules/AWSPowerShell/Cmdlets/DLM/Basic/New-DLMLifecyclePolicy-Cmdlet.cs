@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter Parameters_ExcludeBootVolume
         /// <summary>
         /// <para>
-        /// <para>When executing an EBS Snapshot Management – Instance policy, execute all CreateSnapshots
-        /// calls with the <code>excludeBootVolume</code> set to the supplied field. Defaults
-        /// to false. Only valid for EBS Snapshot Management – Instance policies.</para>
+        /// <para>[EBS Snapshot Management – Instance policies only] Indicates whether to exclude the
+        /// root volume from snapshots created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSnapshots.html">CreateSnapshots</a>.
+        /// The default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_PolicyType
         /// <summary>
         /// <para>
-        /// <para>This field determines the valid target resource types and actions a policy can manage.
-        /// This field defaults to EBS_SNAPSHOT_MANAGEMENT if not present.</para>
+        /// <para>The valid target resource types and actions a policy can manage. The default is EBS_SNAPSHOT_MANAGEMENT.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

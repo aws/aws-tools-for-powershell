@@ -43,19 +43,24 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>The names of the AWS accounts that you want to delete stack instances for.</para>
+        /// <para>[Self-managed permissions] The names of the AWS accounts that you want to delete stack
+        /// instances for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Accounts")]
         public System.String[] Account { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentTargets_Account
+        /// <summary>
+        /// <para>
+        /// <para>The names of one or more AWS accounts for which you want to deploy stack set updates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentTargets_Accounts")]
+        public System.String[] DeploymentTargets_Account { get; set; }
         #endregion
         
         #region Parameter OperationId
@@ -81,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OperationPreferences")]
         public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreference { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentTargets_OrganizationalUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The organization root ID or organizational unit (OUs) IDs to which StackSets deploys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeploymentTargets_OrganizationalUnitIds")]
+        public System.String[] DeploymentTargets_OrganizationalUnitId { get; set; }
         #endregion
         
         #region Parameter StackInstanceRegion
@@ -202,12 +218,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             {
                 context.Account = new List<System.String>(this.Account);
             }
-            #if MODULAR
-            if (this.Account == null && ParameterWasBound(nameof(this.Account)))
+            if (this.DeploymentTargets_Account != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Account which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.DeploymentTargets_Account = new List<System.String>(this.DeploymentTargets_Account);
             }
-            #endif
+            if (this.DeploymentTargets_OrganizationalUnitId != null)
+            {
+                context.DeploymentTargets_OrganizationalUnitId = new List<System.String>(this.DeploymentTargets_OrganizationalUnitId);
+            }
             context.OperationId = this.OperationId;
             context.OperationPreference = this.OperationPreference;
             if (this.StackInstanceRegion != null)
@@ -253,6 +271,35 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.Account != null)
             {
                 request.Accounts = cmdletContext.Account;
+            }
+            
+             // populate DeploymentTargets
+            var requestDeploymentTargetsIsNull = true;
+            request.DeploymentTargets = new Amazon.CloudFormation.Model.DeploymentTargets();
+            List<System.String> requestDeploymentTargets_deploymentTargets_Account = null;
+            if (cmdletContext.DeploymentTargets_Account != null)
+            {
+                requestDeploymentTargets_deploymentTargets_Account = cmdletContext.DeploymentTargets_Account;
+            }
+            if (requestDeploymentTargets_deploymentTargets_Account != null)
+            {
+                request.DeploymentTargets.Accounts = requestDeploymentTargets_deploymentTargets_Account;
+                requestDeploymentTargetsIsNull = false;
+            }
+            List<System.String> requestDeploymentTargets_deploymentTargets_OrganizationalUnitId = null;
+            if (cmdletContext.DeploymentTargets_OrganizationalUnitId != null)
+            {
+                requestDeploymentTargets_deploymentTargets_OrganizationalUnitId = cmdletContext.DeploymentTargets_OrganizationalUnitId;
+            }
+            if (requestDeploymentTargets_deploymentTargets_OrganizationalUnitId != null)
+            {
+                request.DeploymentTargets.OrganizationalUnitIds = requestDeploymentTargets_deploymentTargets_OrganizationalUnitId;
+                requestDeploymentTargetsIsNull = false;
+            }
+             // determine if request.DeploymentTargets should be set to null
+            if (requestDeploymentTargetsIsNull)
+            {
+                request.DeploymentTargets = null;
             }
             if (cmdletContext.OperationId != null)
             {
@@ -336,6 +383,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Account { get; set; }
+            public List<System.String> DeploymentTargets_Account { get; set; }
+            public List<System.String> DeploymentTargets_OrganizationalUnitId { get; set; }
             public System.String OperationId { get; set; }
             public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreference { get; set; }
             public List<System.String> StackInstanceRegion { get; set; }

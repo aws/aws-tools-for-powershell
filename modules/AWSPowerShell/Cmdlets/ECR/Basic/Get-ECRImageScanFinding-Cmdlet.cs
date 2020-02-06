@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Describes the image scan findings for the specified image.<br/><br/>In the AWS.Tools.ECR module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the scan findings for the specified image.<br/><br/>In the AWS.Tools.ECR module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECRImageScanFinding")]
     [OutputType("Amazon.ECR.Model.DescribeImageScanFindingsResponse")]

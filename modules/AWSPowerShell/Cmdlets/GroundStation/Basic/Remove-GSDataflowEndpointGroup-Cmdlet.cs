@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter DataflowEndpointGroupId
         /// <summary>
         /// <para>
-        /// <para>ID of a dataflow endpoint group.</para>
+        /// <para>UUID of a dataflow endpoint group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

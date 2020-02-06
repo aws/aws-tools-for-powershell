@@ -28,8 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns details about the concurrency configuration for a function. To set a concurrency
-    /// limit for a function, use <a>PutFunctionConcurrency</a>.
+    /// Returns details about the reserved concurrency configuration for a function. To set
+    /// a concurrency limit for a function, use <a>PutFunctionConcurrency</a>.
     /// </summary>
     [Cmdlet("Get", "LMFunctionConcurrency")]
     [OutputType("System.Int32")]

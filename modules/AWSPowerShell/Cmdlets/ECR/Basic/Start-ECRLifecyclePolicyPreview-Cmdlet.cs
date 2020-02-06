@@ -28,8 +28,8 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Starts a preview of the specified lifecycle policy. This allows you to see the results
-    /// before creating the lifecycle policy.
+    /// Starts a preview of a lifecycle policy for the specified repository. This allows you
+    /// to see the results before associating the lifecycle policy with the repository.
     /// </summary>
     [Cmdlet("Start", "ECRLifecyclePolicyPreview", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.StartLifecyclePolicyPreviewResponse")]

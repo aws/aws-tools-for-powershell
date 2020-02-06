@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <summary>
         /// <para>
         /// <para>Minimum face match confidence score that must be met to return a result for a recognized
-        /// face. Default is 70. 0 is the lowest confidence. 100 is the highest confidence.</para>
+        /// face. Default is 80. 0 is the lowest confidence. 100 is the highest confidence.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

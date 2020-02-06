@@ -160,6 +160,9 @@ $C9_SelectMap = @{
                "Get-C9EnvironmentData",
                "Get-C9EnvironmentStatus",
                "Get-C9EnvironmentList",
+               "Get-C9ResourceTag",
+               "Add-C9ResourceTag",
+               "Remove-C9ResourceTag",
                "Update-C9Environment",
                "Update-C9EnvironmentMembership")
 }

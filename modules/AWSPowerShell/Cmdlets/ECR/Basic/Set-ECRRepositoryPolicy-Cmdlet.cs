@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Applies a repository policy on a specified repository to control access permissions.
+    /// Applies a repository policy to the specified repository to control access permissions.
     /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicies.html">Amazon
     /// ECR Repository Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </summary>

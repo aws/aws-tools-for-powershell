@@ -28,15 +28,16 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Lists all the image IDs for a given repository.
+    /// Lists all the image IDs for the specified repository.
     /// 
     ///  
     /// <para>
-    /// You can filter images based on whether or not they are tagged by setting the <code>tagStatus</code>
-    /// parameter to <code>TAGGED</code> or <code>UNTAGGED</code>. For example, you can filter
-    /// your results to return only <code>UNTAGGED</code> images and then pipe that result
-    /// to a <a>BatchDeleteImage</a> operation to delete them. Or, you can filter your results
-    /// to return only <code>TAGGED</code> images to list all of the tags in your repository.
+    /// You can filter images based on whether or not they are tagged by using the <code>tagStatus</code>
+    /// filter and specifying either <code>TAGGED</code>, <code>UNTAGGED</code> or <code>ANY</code>.
+    /// For example, you can filter your results to return only <code>UNTAGGED</code> images
+    /// and then pipe that result to a <a>BatchDeleteImage</a> operation to delete them. Or,
+    /// you can filter your results to return only <code>TAGGED</code> images to list all
+    /// of the tags in your repository.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECRImage")]

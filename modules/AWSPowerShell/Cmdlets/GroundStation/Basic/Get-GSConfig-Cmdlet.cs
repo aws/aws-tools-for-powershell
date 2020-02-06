@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
     /// <summary>
     /// Returns <code>Config</code> information.
     /// 
-    ///          
+    ///  
     /// <para>
     /// Only one <code>Config</code> response can be returned.
     /// </para>

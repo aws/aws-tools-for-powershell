@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// route table.
     /// </para><para>
     /// After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side
-    /// and the tunnel options remain intact. Your s2slong; connection will be temporarily
-    /// unavailable for approximately 10 minutes while we provision the new endpoints 
+    /// and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be
+    /// temporarily unavailable for a brief period while we provision the new endpoints.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2VpnConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

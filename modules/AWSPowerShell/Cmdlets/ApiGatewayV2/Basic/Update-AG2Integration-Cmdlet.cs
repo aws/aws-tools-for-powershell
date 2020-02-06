@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The connection ID.</para>
+        /// <para>The ID of the VPC link for a private integration. Supported only for HTTP APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ConnectionType
         /// <summary>
         /// <para>
-        /// <para>The type of the network connection to the integration endpoint. Currently the only
-        /// valid value is INTERNET, for connections through the public routable internet.</para>
+        /// <para>The type of the network connection to the integration endpoint. Specify INTERNET for
+        /// connections through the public routable internet or VPC_LINK for private connections
+        /// between API Gateway and resources in a VPC. The default value is INTERNET.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,8 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// this is known as AWS integration. Supported only for WebSocket APIs.</para><para>AWS_PROXY: for integrating the route or method request with the Lambda function-invoking
         /// action with the client request passed through as-is. This integration is also referred
         /// to as Lambda proxy integration.</para><para>HTTP: for integrating the route or method request with an HTTP endpoint. This integration
-        /// is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</para><para>HTTP_PROXY: for integrating route or method request with an HTTP endpoint, with the
-        /// client request passed through as-is. This is also referred to as HTTP proxy integration.</para><para>MOCK: for integrating the route or method request with API Gateway as a "loopback"
+        /// is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</para><para>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with
+        /// the client request passed through as-is. This is also referred to as HTTP proxy integration.
+        /// For HTTP API private integrations, use an HTTP_PROXY integration.</para><para>MOCK: for integrating the route or method request with API Gateway as a "loopback"
         /// endpoint without invoking any backend. Supported only for WebSocket APIs.</para>
         /// </para>
         /// </summary>
@@ -167,7 +169,12 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter IntegrationUri
         /// <summary>
         /// <para>
-        /// <para>For a Lambda proxy integration, this is the URI of the Lambda function.</para>
+        /// <para>For a Lambda integration, specify the URI of a Lambda function.</para><para>For an HTTP integration, specify a fully-qualified URL.</para><para>For an HTTP API private integration, specify the ARN of an Application Load Balancer
+        /// listener, Network Load Balancer listener, or AWS Cloud Map service. If you specify
+        /// the ARN of an AWS Cloud Map service, API Gateway uses DiscoverInstances to identify
+        /// resources. You can use query parameters to target specific resources. To learn more,
+        /// see <a href="https://alpha-docs-aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html">DiscoverInstances</a>.
+        /// For private integrations, all resources must be owned by the same AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,8 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter PayloadFormatVersion
         /// <summary>
         /// <para>
-        /// <para>Specifies the format of the payload sent to an integration. Required for HTTP APIs.
-        /// Currently, the only supported value is 1.0.</para>
+        /// <para>Specifies the format of the payload sent to an integration. Required for HTTP APIs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,6 +239,18 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequestTemplates")]
         public System.Collections.Hashtable RequestTemplate { get; set; }
+        #endregion
+        
+        #region Parameter TlsConfig_ServerNameToVerify
+        /// <summary>
+        /// <para>
+        /// <para>If you specify a server name, API Gateway uses it to verify the hostname on the integration's
+        /// certificate. The server name is also included in the TLS handshake to support Server
+        /// Name Indication (SNI) or virtual hosting.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TlsConfig_ServerNameToVerify { get; set; }
         #endregion
         
         #region Parameter TemplateSelectionExpression
@@ -361,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             }
             context.TemplateSelectionExpression = this.TemplateSelectionExpression;
             context.TimeoutInMilli = this.TimeoutInMilli;
+            context.TlsConfig_ServerNameToVerify = this.TlsConfig_ServerNameToVerify;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -442,6 +461,25 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 request.TimeoutInMillis = cmdletContext.TimeoutInMilli.Value;
             }
             
+             // populate TlsConfig
+            var requestTlsConfigIsNull = true;
+            request.TlsConfig = new Amazon.ApiGatewayV2.Model.TlsConfigInput();
+            System.String requestTlsConfig_tlsConfig_ServerNameToVerify = null;
+            if (cmdletContext.TlsConfig_ServerNameToVerify != null)
+            {
+                requestTlsConfig_tlsConfig_ServerNameToVerify = cmdletContext.TlsConfig_ServerNameToVerify;
+            }
+            if (requestTlsConfig_tlsConfig_ServerNameToVerify != null)
+            {
+                request.TlsConfig.ServerNameToVerify = requestTlsConfig_tlsConfig_ServerNameToVerify;
+                requestTlsConfigIsNull = false;
+            }
+             // determine if request.TlsConfig should be set to null
+            if (requestTlsConfigIsNull)
+            {
+                request.TlsConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -518,6 +556,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public Dictionary<System.String, System.String> RequestTemplate { get; set; }
             public System.String TemplateSelectionExpression { get; set; }
             public System.Int32? TimeoutInMilli { get; set; }
+            public System.String TlsConfig_ServerNameToVerify { get; set; }
             public System.Func<Amazon.ApiGatewayV2.Model.UpdateIntegrationResponse, UpdateAG2IntegrationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

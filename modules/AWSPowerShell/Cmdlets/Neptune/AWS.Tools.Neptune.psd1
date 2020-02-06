@@ -141,7 +141,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Restart-NPTDBInstance', 
         'Restore-NPTDBClusterFromSnapshot', 
         'Restore-NPTDBClusterToPointInTime', 
+        'Start-NPTDBCluster', 
         'Start-NPTDBClusterFailover', 
+        'Stop-NPTDBCluster', 
         'Submit-NPTPendingMaintenanceAction')
 
     # Variables to export from this module

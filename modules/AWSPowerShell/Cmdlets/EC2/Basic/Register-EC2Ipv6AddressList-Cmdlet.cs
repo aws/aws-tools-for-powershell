@@ -35,6 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// addresses, and the limit varies per instance type. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP
     /// Addresses Per Network Interface Per Instance Type</a> in the <i>Amazon Elastic Compute
     /// Cloud User Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// You must specify either the IPv6 addresses or the IPv6 address count in the request.
+    /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssignIpv6AddressesResponse")]

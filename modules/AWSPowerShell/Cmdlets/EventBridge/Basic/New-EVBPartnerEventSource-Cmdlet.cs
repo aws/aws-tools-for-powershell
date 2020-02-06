@@ -28,33 +28,30 @@ using Amazon.EventBridge.Model;
 namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
-    /// Called by an SaaS partner to create a partner event source.
+    /// Called by an SaaS partner to create a partner event source. This operation is not
+    /// used by AWS customers.
     /// 
-    ///  <note><para>
-    /// This operation is not used by AWS customers.
-    /// </para></note><para>
+    ///  
+    /// <para>
     /// Each partner event source can be used by one AWS account to create a matching partner
     /// event bus in that AWS account. A SaaS partner must create one partner event source
     /// for each AWS account that wants to receive those event types. 
     /// </para><para>
-    /// A partner event source creates events based on resources in the SaaS partner's service
-    /// or application.
+    /// A partner event source creates events based on resources within the SaaS partner's
+    /// service or application.
     /// </para><para>
     /// An AWS account that creates a partner event bus that matches the partner event source
     /// can use that event bus to receive events from the partner, and then process them using
     /// AWS Events rules and targets.
     /// </para><para>
     /// Partner event source names follow this format:
-    /// </para><para><code>aws.partner/<i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></code></para><ul><li><para><i>partner_name</i> is determined during partner registration and identifies the
-    /// partner to AWS customers.
-    /// </para></li><li><para>
-    /// For <i>event_namespace</i>, we recommend that partners use a string that identifies
-    /// the AWS customer within the partner's system. This should not be the customer's AWS
-    /// account ID.
-    /// </para></li><li><para><i>event_name</i> is determined by the partner, and should uniquely identify an event-generating
-    /// resource within the partner system. This should help AWS customers decide whether
-    /// to create an event bus to receive these events.
-    /// </para></li></ul>
+    /// </para><para><code><i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i></code></para><para><i>partner_name</i> is determined during partner registration and identifies the
+    /// partner to AWS customers. <i>event_namespace</i> is determined by the partner and
+    /// is a way for the partner to categorize their events. <i>event_name</i> is determined
+    /// by the partner, and should uniquely identify an event-generating resource within the
+    /// partner system. The combination of <i>event_namespace</i> and <i>event_name</i> should
+    /// help AWS customers decide whether to create an event bus to receive these events.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EVBPartnerEventSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -69,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the customer who is permitted to create a matching partner event
-        /// bus for this partner event source.</para>
+        /// <para>The AWS account ID that is permitted to create a matching partner event bus for this
+        /// partner event source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

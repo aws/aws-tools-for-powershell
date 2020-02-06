@@ -133,9 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The maximum interval of time during which a flow of packets is captured and aggregated
-        /// into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</para><para>For network interfaces attached to <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
-        /// instances</a>, the aggregation interval is always 60 seconds, regardless of the value
-        /// that you specify.</para><para>Default: 600</para>
+        /// into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</para><para>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+        /// instance</a>, the aggregation interval is always 60 seconds or less, regardless of
+        /// the value that you specify.</para><para>Default: 600</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,6 +178,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.EC2.FlowLogsResourceType")]
         public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the flow logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter TrafficType
@@ -295,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.TrafficType = this.TrafficType;
             #if MODULAR
             if (this.TrafficType == null && ParameterWasBound(nameof(this.TrafficType)))
@@ -353,6 +368,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ResourceType != null)
             {
                 request.ResourceType = cmdletContext.ResourceType;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.TrafficType != null)
             {
@@ -428,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? MaxAggregationInterval { get; set; }
             public List<System.String> ResourceId { get; set; }
             public Amazon.EC2.FlowLogsResourceType ResourceType { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.TrafficType TrafficType { get; set; }
             public System.Func<Amazon.EC2.Model.CreateFlowLogsResponse, NewEC2FlowLogCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

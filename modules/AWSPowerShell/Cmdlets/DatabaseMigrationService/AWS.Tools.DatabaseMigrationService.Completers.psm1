@@ -158,7 +158,7 @@ $DMS_Completers = {
             ($_ -eq "New-DMSEndpoint/KinesisSettings_MessageFormat")
         }
         {
-            $v = "json"
+            $v = "json","json-unformatted"
             break
         }
 

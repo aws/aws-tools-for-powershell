@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// again using the returned token to retrieve the next page. Keep all other arguments
     /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
     /// token will return an <i>HTTP 400 InvalidToken</i> error.
+    /// </para><para>
+    /// This API action is not supported by <code>EXPRESS</code> state machines.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SFNExecutionHistory")]

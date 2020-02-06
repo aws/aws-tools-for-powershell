@@ -28,16 +28,16 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster
+    /// Returns a list of cluster snapshot attribute names and values for a manual DB cluster
     /// snapshot.
     /// 
     ///  
     /// <para>
     /// When you share snapshots with other AWS accounts, <code>DescribeDBClusterSnapshotAttributes</code>
     /// returns the <code>restore</code> attribute and a list of IDs for the AWS accounts
-    /// that are authorized to copy or restore the manual DB cluster snapshot. If <code>all</code>
+    /// that are authorized to copy or restore the manual cluster snapshot. If <code>all</code>
     /// is included in the list of values for the <code>restore</code> attribute, then the
-    /// manual DB cluster snapshot is public and can be copied or restored by all AWS accounts.
+    /// manual cluster snapshot is public and can be copied or restored by all AWS accounts.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DOCDBClusterSnapshotAttribute")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the DB cluster snapshot to describe the attributes for.</para>
+        /// <para>The identifier for the cluster snapshot to describe the attributes for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

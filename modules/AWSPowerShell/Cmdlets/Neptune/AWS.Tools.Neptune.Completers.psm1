@@ -205,7 +205,9 @@ $NPT_SelectMap = @{
                "Reset-NPTDBClusterParameterGroup",
                "Reset-NPTDBParameterGroup",
                "Restore-NPTDBClusterFromSnapshot",
-               "Restore-NPTDBClusterToPointInTime")
+               "Restore-NPTDBClusterToPointInTime",
+               "Start-NPTDBCluster",
+               "Stop-NPTDBCluster")
 }
 
 _awsArgumentCompleterRegistration $NPT_SelectCompleters $NPT_SelectMap

@@ -29,11 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Enables Security Hub for your account in the current Region or the Region you specify
-    /// in the request. Enabling Security Hub also enables the CIS AWS Foundations standard.
+    /// in the request.
+    /// 
+    ///  
+    /// <para>
     /// When you enable Security Hub, you grant to Security Hub the permissions necessary
     /// to gather findings from AWS Config, Amazon GuardDuty, Amazon Inspector, and Amazon
-    /// Macie. To learn more, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">Setting
-    /// Up AWS Security Hub</a>.
+    /// Macie.
+    /// </para><para>
+    /// When you use the <code>EnableSecurityHub</code> operation to enable Security Hub,
+    /// you also automatically enable the CIS AWS Foundations standard. You do not enable
+    /// the Payment Card Industry Data Security Standard (PCI DSS) standard. To enable a standard,
+    /// use the <code><a>BatchEnableStandards</a></code> operation. To disable a standard,
+    /// use the <code><a>BatchDisableStandards</a></code> operation.
+    /// </para><para>
+    /// To learn more, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">Setting
+    /// Up AWS Security Hub</a> in the <i>AWS Security Hub User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Enable", "SHUBSecurityHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

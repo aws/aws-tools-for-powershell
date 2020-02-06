@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the type for which you want version summary information.</para><para>Conditional: You must specify <code>TypeName</code> or <code>Arn</code>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the type for which you want version summary information.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The kind of type.</para>
+        /// <para>The kind of type.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeName
         /// <summary>
         /// <para>
-        /// <para>The name of the type.</para><para>Conditional: You must specify <code>TypeName</code> or <code>Arn</code>.</para>
+        /// <para>The name of the type.</para><para>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>,
+        /// or <code>Arn</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

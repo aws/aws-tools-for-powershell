@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBParameterGroupFamily
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster parameter group family to return the engine parameter information
+        /// <para>The name of the cluster parameter group family to return the engine parameter information
         /// for.</para>
         /// </para>
         /// </summary>

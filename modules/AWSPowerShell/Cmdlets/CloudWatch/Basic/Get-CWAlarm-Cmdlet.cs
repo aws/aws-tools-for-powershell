@@ -28,9 +28,8 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Retrieves the specified alarms. If no alarms are specified, all alarms are returned.
-    /// Alarms can be retrieved by using only a prefix for the alarm name, the alarm state,
-    /// or a prefix for any action.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the specified alarms. You can filter the results by specifying a a prefix
+    /// for the alarm name, the alarm state, or a prefix for any action.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWAlarm")]
     [OutputType("Amazon.CloudWatch.Model.MetricAlarm")]
@@ -45,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ActionPrefix
         /// <summary>
         /// <para>
-        /// <para>The action name prefix.</para>
+        /// <para>Use this parameter to filter the results of the operation to only those alarms that
+        /// use a certain alarm action. For example, you could specify the ARN of an SNS topic
+        /// to find all alarms that send notifications to that topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The alarm name prefix. If this parameter is specified, you cannot specify <code>AlarmNames</code>.</para>
+        /// <para>An alarm name prefix. If you specify this parameter, you receive information about
+        /// all alarms that have names that start with this prefix.</para><para>If this parameter is specified, you cannot specify <code>AlarmNames</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The names of the alarms.</para>
+        /// <para>The names of the alarms to retrieve information about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -73,10 +75,62 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String[] AlarmName { get; set; }
         #endregion
         
+        #region Parameter AlarmType
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to specify whether you want the operation to return metric alarms
+        /// or composite alarms. If you omit this parameter, only metric alarms are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AlarmTypes")]
+        public System.String[] AlarmType { get; set; }
+        #endregion
+        
+        #region Parameter ChildrenOfAlarmName
+        /// <summary>
+        /// <para>
+        /// <para>If you use this parameter and specify the name of a composite alarm, the operation
+        /// returns information about the "children" alarms of the alarm you specify. These are
+        /// the metric alarms and composite alarms referenced in the <code>AlarmRule</code> field
+        /// of the composite alarm that you specify in <code>ChildrenOfAlarmName</code>. Information
+        /// about the composite alarm that you name in <code>ChildrenOfAlarmName</code> is not
+        /// returned.</para><para>If you specify <code>ChildrenOfAlarmName</code>, you cannot specify any other parameters
+        /// in the request except for <code>MaxRecords</code> and <code>NextToken</code>. If you
+        /// do so, you will receive a validation error.</para><note><para>Only the <code>Alarm Name</code>, <code>ARN</code>, <code>StateValue</code> (OK/ALARM/INSUFFICIENT_DATA),
+        /// and <code>StateUpdatedTimestamp</code> information are returned by this operation
+        /// when you use this parameter. To get complete information about these alarms, perform
+        /// another <code>DescribeAlarms</code> operation and specify the parent alarm names in
+        /// the <code>AlarmNames</code> parameter.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ChildrenOfAlarmName { get; set; }
+        #endregion
+        
+        #region Parameter ParentsOfAlarmName
+        /// <summary>
+        /// <para>
+        /// <para>If you use this parameter and specify the name of a metric or composite alarm, the
+        /// operation returns information about the "parent" alarms of the alarm you specify.
+        /// These are the composite alarms that have <code>AlarmRule</code> parameters that reference
+        /// the alarm named in <code>ParentsOfAlarmName</code>. Information about the alarm that
+        /// you specify in <code>ParentsOfAlarmName</code> is not returned.</para><para>If you specify <code>ParentsOfAlarmName</code>, you cannot specify any other parameters
+        /// in the request except for <code>MaxRecords</code> and <code>NextToken</code>. If you
+        /// do so, you will receive a validation error.</para><note><para>Only the Alarm Name and ARN are returned by this operation when you use this parameter.
+        /// To get complete information about these alarms, perform another <code>DescribeAlarms</code>
+        /// operation and specify the parent alarm names in the <code>AlarmNames</code> parameter.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParentsOfAlarmName { get; set; }
+        #endregion
+        
         #region Parameter StateValue
         /// <summary>
         /// <para>
-        /// <para>The state value to be used in matching alarms.</para>
+        /// <para>Specify this parameter to receive information only about alarms that are currently
+        /// in the state that you specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,6 +229,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 context.AlarmName = new List<System.String>(this.AlarmName);
             }
+            if (this.AlarmType != null)
+            {
+                context.AlarmType = new List<System.String>(this.AlarmType);
+            }
+            context.ChildrenOfAlarmName = this.ChildrenOfAlarmName;
             context.MaxRecord = this.MaxRecord;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxRecord)) && this.MaxRecord.HasValue)
@@ -186,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ParentsOfAlarmName = this.ParentsOfAlarmName;
             context.StateValue = this.StateValue;
             
             // allow further manipulation of loaded context prior to processing
@@ -220,9 +280,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.AlarmNames = cmdletContext.AlarmName;
             }
+            if (cmdletContext.AlarmType != null)
+            {
+                request.AlarmTypes = cmdletContext.AlarmType;
+            }
+            if (cmdletContext.ChildrenOfAlarmName != null)
+            {
+                request.ChildrenOfAlarmName = cmdletContext.ChildrenOfAlarmName;
+            }
             if (cmdletContext.MaxRecord != null)
             {
                 request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
+            }
+            if (cmdletContext.ParentsOfAlarmName != null)
+            {
+                request.ParentsOfAlarmName = cmdletContext.ParentsOfAlarmName;
             }
             if (cmdletContext.StateValue != null)
             {
@@ -294,6 +366,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.AlarmName != null)
             {
                 request.AlarmNames = cmdletContext.AlarmName;
+            }
+            if (cmdletContext.AlarmType != null)
+            {
+                request.AlarmTypes = cmdletContext.AlarmType;
+            }
+            if (cmdletContext.ChildrenOfAlarmName != null)
+            {
+                request.ChildrenOfAlarmName = cmdletContext.ChildrenOfAlarmName;
+            }
+            if (cmdletContext.ParentsOfAlarmName != null)
+            {
+                request.ParentsOfAlarmName = cmdletContext.ParentsOfAlarmName;
             }
             if (cmdletContext.StateValue != null)
             {
@@ -421,8 +505,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.String ActionPrefix { get; set; }
             public System.String AlarmNamePrefix { get; set; }
             public List<System.String> AlarmName { get; set; }
+            public List<System.String> AlarmType { get; set; }
+            public System.String ChildrenOfAlarmName { get; set; }
             public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ParentsOfAlarmName { get; set; }
             public Amazon.CloudWatch.StateValue StateValue { get; set; }
             public System.Func<Amazon.CloudWatch.Model.DescribeAlarmsResponse, GetCWAlarmCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MetricAlarms;

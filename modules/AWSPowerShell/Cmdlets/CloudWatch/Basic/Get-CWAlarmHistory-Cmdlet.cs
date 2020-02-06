@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
     /// Retrieves the history for the specified alarm. You can filter the results by date
-    /// range or item type. If an alarm name is not specified, the histories for all alarms
-    /// are returned.
+    /// range or item type. If an alarm name is not specified, the histories for either all
+    /// metric alarms or all composite alarms are returned.
     /// 
     ///  
     /// <para>
@@ -57,6 +57,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String AlarmName { get; set; }
         #endregion
         
+        #region Parameter AlarmType
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to specify whether you want the operation to return metric alarms
+        /// or composite alarms. If you omit this parameter, only metric alarms are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AlarmTypes")]
+        public System.String[] AlarmType { get; set; }
+        #endregion
+        
         #region Parameter UtcEndDate
         /// <summary>
         /// <para>
@@ -76,6 +88,19 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CloudWatch.HistoryItemType")]
         public Amazon.CloudWatch.HistoryItemType HistoryItemType { get; set; }
+        #endregion
+        
+        #region Parameter ScanBy
+        /// <summary>
+        /// <para>
+        /// <para>Specified whether to return the newest or oldest alarm history first. Specify <code>TimestampDescending</code>
+        /// to have the newest event history returned first, and specify <code>TimestampAscending</code>
+        /// to have the oldest history returned first.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatch.ScanBy")]
+        public Amazon.CloudWatch.ScanBy ScanBy { get; set; }
         #endregion
         
         #region Parameter UtcStartDate
@@ -208,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AlarmName = this.AlarmName;
+            if (this.AlarmType != null)
+            {
+                context.AlarmType = new List<System.String>(this.AlarmType);
+            }
             context.UtcEndDate = this.UtcEndDate;
             context.HistoryItemType = this.HistoryItemType;
             context.MaxRecord = this.MaxRecord;
@@ -221,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ScanBy = this.ScanBy;
             context.UtcStartDate = this.UtcStartDate;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndDate = this.EndDate;
@@ -253,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.AlarmName = cmdletContext.AlarmName;
             }
+            if (cmdletContext.AlarmType != null)
+            {
+                request.AlarmTypes = cmdletContext.AlarmType;
+            }
             if (cmdletContext.UtcEndDate != null)
             {
                 request.EndDateUtc = cmdletContext.UtcEndDate.Value;
@@ -264,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.MaxRecord != null)
             {
                 request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecord.Value);
+            }
+            if (cmdletContext.ScanBy != null)
+            {
+                request.ScanBy = cmdletContext.ScanBy;
             }
             if (cmdletContext.UtcStartDate != null)
             {
@@ -348,6 +386,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             {
                 request.AlarmName = cmdletContext.AlarmName;
             }
+            if (cmdletContext.AlarmType != null)
+            {
+                request.AlarmTypes = cmdletContext.AlarmType;
+            }
             if (cmdletContext.UtcEndDate != null)
             {
                 request.EndDateUtc = cmdletContext.UtcEndDate.Value;
@@ -355,6 +397,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.HistoryItemType != null)
             {
                 request.HistoryItemType = cmdletContext.HistoryItemType;
+            }
+            if (cmdletContext.ScanBy != null)
+            {
+                request.ScanBy = cmdletContext.ScanBy;
             }
             if (cmdletContext.UtcStartDate != null)
             {
@@ -500,10 +546,12 @@ namespace Amazon.PowerShell.Cmdlets.CW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AlarmName { get; set; }
+            public List<System.String> AlarmType { get; set; }
             public System.DateTime? UtcEndDate { get; set; }
             public Amazon.CloudWatch.HistoryItemType HistoryItemType { get; set; }
             public int? MaxRecord { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.CloudWatch.ScanBy ScanBy { get; set; }
             public System.DateTime? UtcStartDate { get; set; }
             [System.ObsoleteAttribute]
             public System.DateTime? EndDate { get; set; }

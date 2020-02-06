@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>outposts</C2jFilename>
     <AssemblyName>Outposts</AssemblyName>
@@ -20,6 +21,14 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateOutpost" OutputProperty="Outpost" Verb="New" Noun="Outpost" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOutpost" Verb="Remove" Noun="Outpost" ShouldProcessTarget="OutpostId" PipelineParameter="OutpostId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSite" Verb="Remove" Noun="Site" ShouldProcessTarget="SiteId" PipelineParameter="SiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

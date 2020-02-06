@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DistributionConfigurationArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the distribution configuration that you wish to
+        /// <para> The Amazon Resource Name (ARN) of the distribution configuration that you want to
         /// update. </para>
         /// </para>
         /// </summary>
@@ -75,7 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para> The distributions of the distribution configuration. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Distributions")]
         public Amazon.Imagebuilder.Model.Distribution[] Distribution { get; set; }
         #endregion
@@ -164,6 +171,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 context.Distribution = new List<Amazon.Imagebuilder.Model.Distribution>(this.Distribution);
             }
+            #if MODULAR
+            if (this.Distribution == null && ParameterWasBound(nameof(this.Distribution)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Distribution which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

@@ -53,8 +53,15 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter BuildspecOverride
         /// <summary>
         /// <para>
-        /// <para>A build spec declaration that overrides, for this build only, the latest one already
-        /// defined in the build project.</para>
+        /// <para>A buildspec file declaration that overrides, for this build only, the latest one already
+        /// defined in the build project.</para><para> If this value is set, it can be either an inline buildspec definition, the path to
+        /// an alternate buildspec file relative to the value of the built-in <code>CODEBUILD_SRC_DIR</code>
+        /// environment variable, or the path to an S3 bucket. The bucket must be in the same
+        /// AWS Region as the build project. Specify the buildspec file using its ARN (for example,
+        /// <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
+        /// provided or is set to an empty string, the source code must contain a buildspec file
+        /// in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
+        /// File Name and Storage Location</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
         /// </para><note><para> The <code>credential</code> can use the name of the credentials only if they exist
-        /// in your current region. </para></note>
+        /// in your current AWS Region. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -362,8 +369,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_OverrideArtifactName
         /// <summary>
         /// <para>
-        /// <para> If this flag is set, a name specified in the build spec file overrides the artifact
-        /// name. The name specified in a build spec file is calculated at build time and uses
+        /// <para> If this flag is set, a name specified in the buildspec file overrides the artifact
+        /// name. The name specified in a buildspec file is calculated at build time and uses
         /// the Shell Command Language. For example, you can append a date and time to your artifact
         /// name so that it is always unique. </para>
         /// </para>

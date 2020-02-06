@@ -86,14 +86,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-C9ResourceTag', 
         'Get-C9EnvironmentData', 
         'Get-C9EnvironmentList', 
         'Get-C9EnvironmentMembershipList', 
         'Get-C9EnvironmentStatus', 
+        'Get-C9ResourceTag', 
         'New-C9EnvironmentEC2', 
         'New-C9EnvironmentMembership', 
         'Remove-C9Environment', 
         'Remove-C9EnvironmentMembership', 
+        'Remove-C9ResourceTag', 
         'Update-C9Environment', 
         'Update-C9EnvironmentMembership')
 

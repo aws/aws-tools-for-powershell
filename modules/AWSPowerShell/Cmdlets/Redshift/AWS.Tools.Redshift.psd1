@@ -169,6 +169,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Revoke-RSClusterSecurityGroupIngress', 
         'Revoke-RSSnapshotAccess', 
         'Set-RSClusterSize', 
+        'Start-RSCluster', 
+        'Stop-RSCluster', 
         'Stop-RSResize', 
         'Switch-RSEncryptionKey', 
         'Switch-RSReservedNode')

@@ -32,9 +32,23 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// differs from the previous value, the action configured for the appropriate state is
     /// invoked. For example, if your alarm is configured to send an Amazon SNS message when
     /// an alarm is triggered, temporarily changing the alarm state to <code>ALARM</code>
-    /// sends an SNS message. The alarm returns to its actual state (often within seconds).
-    /// Because the alarm state change happens quickly, it is typically only visible in the
-    /// alarm's <b>History</b> tab in the Amazon CloudWatch console or through <a>DescribeAlarmHistory</a>.
+    /// sends an SNS message.
+    /// 
+    ///  
+    /// <para>
+    /// Metric alarms returns to their actual state quickly, often within seconds. Because
+    /// the metric alarm state change happens quickly, it is typically only visible in the
+    /// alarm's <b>History</b> tab in the Amazon CloudWatch console or through <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html">DescribeAlarmHistory</a>.
+    /// </para><para>
+    /// If you use <code>SetAlarmState</code> on a composite alarm, the composite alarm is
+    /// not guaranteed to return to its actual state. It will return to its actual state only
+    /// once any of its children alarms change state. It is also re-evaluated if you update
+    /// its configuration.
+    /// </para><para>
+    /// If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling policies,
+    /// you must include information in the <code>StateReasonData</code> parameter to enable
+    /// the policy to take the correct action.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "CWAlarmState", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -84,7 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StateReasonData
         /// <summary>
         /// <para>
-        /// <para>The reason that this alarm is set to this specific state, in JSON format.</para>
+        /// <para>The reason that this alarm is set to this specific state, in JSON format.</para><para>For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling
+        /// or application Auto Scaling alarm actions, the Auto Scaling policy uses the information
+        /// in this field to take the correct action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

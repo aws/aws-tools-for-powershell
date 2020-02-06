@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.MSK
     public partial class UpdateMSKMonitoringCmdlet : AmazonKafkaClientCmdlet, IExecutor
     {
         
+        #region Parameter S3_Bucket
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingInfo_BrokerLogs_S3_Bucket")]
+        public System.String S3_Bucket { get; set; }
+        #endregion
+        
         #region Parameter ClusterArn
         /// <summary>
         /// <para>
@@ -77,6 +88,50 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.String CurrentVersion { get; set; }
         #endregion
         
+        #region Parameter Firehose_DeliveryStream
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingInfo_BrokerLogs_Firehose_DeliveryStream")]
+        public System.String Firehose_DeliveryStream { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogs_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingInfo_BrokerLogs_CloudWatchLogs_Enabled")]
+        public System.Boolean? CloudWatchLogs_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter Firehose_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingInfo_BrokerLogs_Firehose_Enabled")]
+        public System.Boolean? Firehose_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter S3_Enabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingInfo_BrokerLogs_S3_Enabled")]
+        public System.Boolean? S3_Enabled { get; set; }
+        #endregion
+        
         #region Parameter JmxExporter_EnabledInBroker
         /// <summary>
         /// <para>
@@ -109,6 +164,28 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Kafka.EnhancedMonitoring")]
         public Amazon.Kafka.EnhancedMonitoring EnhancedMonitoring { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLogs_LogGroup
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingInfo_BrokerLogs_CloudWatchLogs_LogGroup")]
+        public System.String CloudWatchLogs_LogGroup { get; set; }
+        #endregion
+        
+        #region Parameter S3_Prefix
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LoggingInfo_BrokerLogs_S3_Prefix")]
+        public System.String S3_Prefix { get; set; }
         #endregion
         
         #region Parameter Select
@@ -187,6 +264,13 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             }
             #endif
             context.EnhancedMonitoring = this.EnhancedMonitoring;
+            context.CloudWatchLogs_Enabled = this.CloudWatchLogs_Enabled;
+            context.CloudWatchLogs_LogGroup = this.CloudWatchLogs_LogGroup;
+            context.Firehose_DeliveryStream = this.Firehose_DeliveryStream;
+            context.Firehose_Enabled = this.Firehose_Enabled;
+            context.S3_Bucket = this.S3_Bucket;
+            context.S3_Enabled = this.S3_Enabled;
+            context.S3_Prefix = this.S3_Prefix;
             context.JmxExporter_EnabledInBroker = this.JmxExporter_EnabledInBroker;
             context.NodeExporter_EnabledInBroker = this.NodeExporter_EnabledInBroker;
             
@@ -216,6 +300,145 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             if (cmdletContext.EnhancedMonitoring != null)
             {
                 request.EnhancedMonitoring = cmdletContext.EnhancedMonitoring;
+            }
+            
+             // populate LoggingInfo
+            var requestLoggingInfoIsNull = true;
+            request.LoggingInfo = new Amazon.Kafka.Model.LoggingInfo();
+            Amazon.Kafka.Model.BrokerLogs requestLoggingInfo_loggingInfo_BrokerLogs = null;
+            
+             // populate BrokerLogs
+            var requestLoggingInfo_loggingInfo_BrokerLogsIsNull = true;
+            requestLoggingInfo_loggingInfo_BrokerLogs = new Amazon.Kafka.Model.BrokerLogs();
+            Amazon.Kafka.Model.CloudWatchLogs requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs = null;
+            
+             // populate CloudWatchLogs
+            var requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogsIsNull = true;
+            requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs = new Amazon.Kafka.Model.CloudWatchLogs();
+            System.Boolean? requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled = null;
+            if (cmdletContext.CloudWatchLogs_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled = cmdletContext.CloudWatchLogs_Enabled.Value;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs.Enabled = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_Enabled.Value;
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogsIsNull = false;
+            }
+            System.String requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup = null;
+            if (cmdletContext.CloudWatchLogs_LogGroup != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup = cmdletContext.CloudWatchLogs_LogGroup;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs.LogGroup = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs_cloudWatchLogs_LogGroup;
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogsIsNull = false;
+            }
+             // determine if requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs should be set to null
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogsIsNull)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs = null;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs.CloudWatchLogs = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_CloudWatchLogs;
+                requestLoggingInfo_loggingInfo_BrokerLogsIsNull = false;
+            }
+            Amazon.Kafka.Model.Firehose requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose = null;
+            
+             // populate Firehose
+            var requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_FirehoseIsNull = true;
+            requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose = new Amazon.Kafka.Model.Firehose();
+            System.String requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream = null;
+            if (cmdletContext.Firehose_DeliveryStream != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream = cmdletContext.Firehose_DeliveryStream;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose.DeliveryStream = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose_firehose_DeliveryStream;
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_FirehoseIsNull = false;
+            }
+            System.Boolean? requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose_firehose_Enabled = null;
+            if (cmdletContext.Firehose_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose_firehose_Enabled = cmdletContext.Firehose_Enabled.Value;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose_firehose_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose.Enabled = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose_firehose_Enabled.Value;
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_FirehoseIsNull = false;
+            }
+             // determine if requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose should be set to null
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_FirehoseIsNull)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose = null;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs.Firehose = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_Firehose;
+                requestLoggingInfo_loggingInfo_BrokerLogsIsNull = false;
+            }
+            Amazon.Kafka.Model.S3 requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3 = null;
+            
+             // populate S3
+            var requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3IsNull = true;
+            requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3 = new Amazon.Kafka.Model.S3();
+            System.String requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Bucket = null;
+            if (cmdletContext.S3_Bucket != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Bucket = cmdletContext.S3_Bucket;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Bucket != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3.Bucket = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Bucket;
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3IsNull = false;
+            }
+            System.Boolean? requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Enabled = null;
+            if (cmdletContext.S3_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Enabled = cmdletContext.S3_Enabled.Value;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Enabled != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3.Enabled = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Enabled.Value;
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3IsNull = false;
+            }
+            System.String requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Prefix = null;
+            if (cmdletContext.S3_Prefix != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Prefix = cmdletContext.S3_Prefix;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Prefix != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3.Prefix = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3_s3_Prefix;
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3IsNull = false;
+            }
+             // determine if requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3 should be set to null
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3IsNull)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3 = null;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3 != null)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs.S3 = requestLoggingInfo_loggingInfo_BrokerLogs_loggingInfo_BrokerLogs_S3;
+                requestLoggingInfo_loggingInfo_BrokerLogsIsNull = false;
+            }
+             // determine if requestLoggingInfo_loggingInfo_BrokerLogs should be set to null
+            if (requestLoggingInfo_loggingInfo_BrokerLogsIsNull)
+            {
+                requestLoggingInfo_loggingInfo_BrokerLogs = null;
+            }
+            if (requestLoggingInfo_loggingInfo_BrokerLogs != null)
+            {
+                request.LoggingInfo.BrokerLogs = requestLoggingInfo_loggingInfo_BrokerLogs;
+                requestLoggingInfoIsNull = false;
+            }
+             // determine if request.LoggingInfo should be set to null
+            if (requestLoggingInfoIsNull)
+            {
+                request.LoggingInfo = null;
             }
             
              // populate OpenMonitoring
@@ -355,6 +578,13 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             public System.String ClusterArn { get; set; }
             public System.String CurrentVersion { get; set; }
             public Amazon.Kafka.EnhancedMonitoring EnhancedMonitoring { get; set; }
+            public System.Boolean? CloudWatchLogs_Enabled { get; set; }
+            public System.String CloudWatchLogs_LogGroup { get; set; }
+            public System.String Firehose_DeliveryStream { get; set; }
+            public System.Boolean? Firehose_Enabled { get; set; }
+            public System.String S3_Bucket { get; set; }
+            public System.Boolean? S3_Enabled { get; set; }
+            public System.String S3_Prefix { get; set; }
             public System.Boolean? JmxExporter_EnabledInBroker { get; set; }
             public System.Boolean? NodeExporter_EnabledInBroker { get; set; }
             public System.Func<Amazon.Kafka.Model.UpdateMonitoringResponse, UpdateMSKMonitoringCmdlet, object> Select { get; set; } =

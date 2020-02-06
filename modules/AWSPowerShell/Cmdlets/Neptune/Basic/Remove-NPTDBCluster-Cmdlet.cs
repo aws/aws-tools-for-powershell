@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete
     /// a DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
     /// Manual DB cluster snapshots of the specified DB cluster are not deleted.
+    /// 
+    ///  
+    /// <para>
+    /// Note that the DB Cluster cannot be deleted if deletion protection is enabled. To delete
+    /// it, you must first set its <code>DeletionProtection</code> field to <code>False</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "NPTDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Neptune.Model.DBCluster")]

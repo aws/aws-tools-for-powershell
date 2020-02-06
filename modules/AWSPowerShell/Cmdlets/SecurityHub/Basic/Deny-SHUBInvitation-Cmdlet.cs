@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>A list of account IDs that specify the accounts that invitations to Security Hub are
-        /// declined from.</para>
+        /// <para>The list of account IDs for the accounts from which to decline the invitations to
+        /// Security Hub.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

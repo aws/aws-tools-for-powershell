@@ -149,7 +149,11 @@ $DDB_Completers = {
         }
 
         # Amazon.DynamoDBv2.SSEType
-        "Update-DDBTable/SSESpecification_SSEType"
+        {
+            ($_ -eq "Update-DDBTable/SSESpecification_SSEType") -Or
+            ($_ -eq "Restore-DDBTableFromBackup/SSESpecificationOverride_SSEType") -Or
+            ($_ -eq "Restore-DDBTableToPointInTime/SSESpecificationOverride_SSEType")
+        }
         {
             $v = "AES256","KMS"
             break
@@ -184,6 +188,7 @@ $DDB_map = @{
     "ReturnConsumedCapacity"=@("Get-DDBItemTransactionally","Write-DDBItemTransactionally")
     "ReturnItemCollectionMetrics"=@("Write-DDBItemTransactionally")
     "SSESpecification_SSEType"=@("Update-DDBTable")
+    "SSESpecificationOverride_SSEType"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "StreamSpecification_StreamViewType"=@("Update-DDBTable")
 }
 

@@ -137,6 +137,16 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.PreferredChannelPipeline
+        {
+            ($_ -eq "New-EMLMultiplexProgram/MultiplexProgramSettings_PreferredChannelPipeline") -Or
+            ($_ -eq "Update-EMLMultiplexProgram/MultiplexProgramSettings_PreferredChannelPipeline")
+        }
+        {
+            $v = "CURRENTLY_ACTIVE","PIPELINE_0","PIPELINE_1"
+            break
+        }
+
 
     }
 
@@ -151,6 +161,7 @@ $EML_map = @{
     "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "LogLevel"=@("New-EMLChannel","Update-EMLChannel")
+    "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
     "Type"=@("New-EMLInput")
 }
 

@@ -30,7 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// <summary>
     /// Creates or updates the image manifest and tags associated with an image.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// When an image is pushed and all new image layers have been uploaded, the PutImage
+    /// API is called once to create or update the image manifest and tags associated with
+    /// the image.
+    /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy, and it is not intended for general
     /// use by customers for pulling and pushing images. In most cases, you should use the
     /// <code>docker</code> CLI to pull, tag, and push images.

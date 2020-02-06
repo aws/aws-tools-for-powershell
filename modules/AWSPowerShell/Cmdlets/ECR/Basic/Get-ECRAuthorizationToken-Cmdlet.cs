@@ -28,16 +28,17 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Retrieves a token that is valid for a specified registry for 12 hours. This command
-    /// allows you to use the <code>docker</code> CLI to push and pull images with Amazon
-    /// ECR. If you do not specify a registry, the default registry is assumed.
+    /// Retrieves an authorization token. An authorization token represents your IAM authentication
+    /// credentials and can be used to access any Amazon ECR registry that your IAM principal
+    /// has access to. The authorization token is valid for 12 hours.
     /// 
     ///  
     /// <para>
-    /// The <code>authorizationToken</code> returned for each registry specified is a base64
-    /// encoded string that can be decoded and used in a <code>docker login</code> command
-    /// to authenticate to a registry. The AWS CLI offers an <code>aws ecr get-login</code>
-    /// command that simplifies the login process.
+    /// The <code>authorizationToken</code> returned is a base64 encoded string that can be
+    /// decoded and used in a <code>docker login</code> command to authenticate to a registry.
+    /// The AWS CLI offers an <code>get-login-password</code> command that simplifies the
+    /// login process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
+    /// Authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ECRAuthorizationToken")]
@@ -54,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>A list of AWS account IDs that are associated with the registries for which to get
-        /// authorization tokens. If you do not specify a registry, the default registry is assumed.</para>
+        /// AuthorizationData objects. If you do not specify a registry, the default registry
+        /// is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

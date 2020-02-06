@@ -28,9 +28,9 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Lists the room details for the specified Amazon Chime account. Optionally, filter
-    /// the results by a member ID (user ID or bot ID) to see a list of rooms that the member
-    /// belongs to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the room details for the specified Amazon Chime Enterprise account. Optionally,
+    /// filter the results by a member ID (user ID or bot ID) to see a list of rooms that
+    /// the member belongs to.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CHMRoomList")]
     [OutputType("Amazon.Chime.Model.Room")]

@@ -30,10 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.GS
     /// <summary>
     /// Updates the <code>Config</code> used when scheduling contacts.
     /// 
-    ///          
+    ///  
     /// <para>
-    /// Updating a <code>Config</code> will not update the execution parameters         for
-    /// existing future contacts scheduled with this <code>Config</code>.
+    /// Updating a <code>Config</code> will not update the execution parameters for existing
+    /// future contacts scheduled with this <code>Config</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "GSConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

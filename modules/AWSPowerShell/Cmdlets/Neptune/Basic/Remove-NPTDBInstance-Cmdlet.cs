@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.NPT
     /// <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can only
     /// delete it when the <code>SkipFinalSnapshot</code> parameter is set to <code>true</code>.
     /// </para><para>
-    /// You can't delete a DB instance if it is the only instance in the DB cluster.
+    /// You can't delete a DB instance if it is the only instance in the DB cluster, or if
+    /// it has deletion protection enabled.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "NPTDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

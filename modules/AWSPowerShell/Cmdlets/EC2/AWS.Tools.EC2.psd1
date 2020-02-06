@@ -117,6 +117,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Dismount-EC2NetworkInterface', 
         'Dismount-EC2Volume', 
         'Dismount-EC2VpnGateway', 
+        'Edit-EC2AvailabilityZoneGroup', 
         'Edit-EC2CapacityReservation', 
         'Edit-EC2ClientVpnEndpoint', 
         'Edit-EC2DefaultCreditSpecification', 

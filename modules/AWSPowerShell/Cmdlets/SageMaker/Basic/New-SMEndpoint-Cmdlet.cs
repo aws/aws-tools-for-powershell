@@ -33,13 +33,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// endpoint configuration with the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html">CreateEndpointConfig</a>
     /// API. 
     /// 
-    ///  <note><para>
-    ///  Use this API only for hosting models using Amazon SageMaker hosting services. 
+    ///  
+    /// <para>
+    ///  Use this API to deploy models using Amazon SageMaker hosting services. 
     /// </para><para>
-    ///  You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
-    /// live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code> operations
-    /// are being performed on the endpoint. To update an endpoint, you must create a new
-    /// <code>EndpointConfig</code>.
+    /// For an example that calls this method when deploying a model to Amazon SageMaker hosting
+    /// services, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto">Deploy
+    /// the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).</a></para><note><para>
+    ///  You must not delete an <code>EndpointConfig</code> that is in use by an endpoint
+    /// that is live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code>
+    /// operations are being performed on the endpoint. To update an endpoint, you must create
+    /// a new <code>EndpointConfig</code>.
     /// </para></note><para>
     /// The endpoint name must be unique within an AWS Region in your AWS account. 
     /// </para><para>
@@ -51,9 +55,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// SageMaker can then process incoming requests for inferences. To check the status of
     /// an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html">DescribeEndpoint</a>
     /// API.
-    /// </para><para>
-    /// For an example, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1.html">Exercise
-    /// 1: Using the K-Means Algorithm Provided by Amazon SageMaker</a>. 
     /// </para><para>
     /// If any of the models hosted at this endpoint get model data from an Amazon S3 location,
     /// Amazon SageMaker uses AWS Security Token Service to download model artifacts from

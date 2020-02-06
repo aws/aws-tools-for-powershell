@@ -28,9 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the specified Client VPN endpoint. You can only modify an endpoint's server
-    /// certificate information, client connection logging information, DNS server, and description.
-    /// Modifying the DNS server resets existing client connections.
+    /// Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing
+    /// client connections.
     /// </summary>
     [Cmdlet("Edit", "EC2ClientVpnEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -123,6 +122,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? DnsServers_Enabled { get; set; }
         #endregion
         
+        #region Parameter SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of one or more security groups to apply to the target network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SecurityGroupIds")]
+        public System.String[] SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter ServerCertificateArn
         /// <summary>
         /// <para>
@@ -143,6 +153,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? SplitTunnel { get; set; }
+        #endregion
+        
+        #region Parameter VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the VPC to associate with the Client VPN endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcId { get; set; }
         #endregion
         
         #region Parameter VpnPort
@@ -232,8 +252,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.DnsServers_CustomDnsServer = new List<System.String>(this.DnsServers_CustomDnsServer);
             }
             context.DnsServers_Enabled = this.DnsServers_Enabled;
+            if (this.SecurityGroupId != null)
+            {
+                context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
+            }
             context.ServerCertificateArn = this.ServerCertificateArn;
             context.SplitTunnel = this.SplitTunnel;
+            context.VpcId = this.VpcId;
             context.VpnPort = this.VpnPort;
             
             // allow further manipulation of loaded context prior to processing
@@ -327,6 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.DnsServers = null;
             }
+            if (cmdletContext.SecurityGroupId != null)
+            {
+                request.SecurityGroupIds = cmdletContext.SecurityGroupId;
+            }
             if (cmdletContext.ServerCertificateArn != null)
             {
                 request.ServerCertificateArn = cmdletContext.ServerCertificateArn;
@@ -334,6 +363,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SplitTunnel != null)
             {
                 request.SplitTunnel = cmdletContext.SplitTunnel.Value;
+            }
+            if (cmdletContext.VpcId != null)
+            {
+                request.VpcId = cmdletContext.VpcId;
             }
             if (cmdletContext.VpnPort != null)
             {
@@ -407,8 +440,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Description { get; set; }
             public List<System.String> DnsServers_CustomDnsServer { get; set; }
             public System.Boolean? DnsServers_Enabled { get; set; }
+            public List<System.String> SecurityGroupId { get; set; }
             public System.String ServerCertificateArn { get; set; }
             public System.Boolean? SplitTunnel { get; set; }
+            public System.String VpcId { get; set; }
             public System.Int32? VpnPort { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyClientVpnEndpointResponse, EditEC2ClientVpnEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;

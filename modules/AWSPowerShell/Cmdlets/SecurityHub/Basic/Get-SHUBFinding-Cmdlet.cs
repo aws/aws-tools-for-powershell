@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The findings attributes used to define a condition to filter the findings returned.</para>
+        /// <para>The finding attributes used to define a condition to filter the returned findings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter SortCriterion
         /// <summary>
         /// <para>
-        /// <para>Findings attributes used to sort the list of findings returned.</para>
+        /// <para>The finding attributes used to sort the list of returned findings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,10 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Paginates results. On your first call to the <code>GetFindings</code> operation, set
-        /// the value of this parameter to <code>NULL</code>. For subsequent calls to the operation,
-        /// fill <code>nextToken</code> in the request with the value of <code>nextToken</code>
-        /// from the previous response to continue listing data.</para>
+        /// <para>The token that is required for pagination. On your first call to the <code>GetFindings</code>
+        /// operation, set the value of this parameter to <code>NULL</code>.</para><para>For subsequent calls to the operation, to continue listing data, set the value of
+        /// this parameter to the value returned from the previous response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// If you exceed your maximum limit of Auto Scaling groups, the call fails. For information
     /// about viewing this limit, see <a>DescribeAccountLimits</a>. For information about
     /// updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon
-    /// EC2 Auto Scaling Limits</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// EC2 Auto Scaling Service Quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ASAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -208,7 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxInstanceLifetime
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of time, in seconds, that an instance can be in service.</para><para>Valid Range: Minimum value of 604800.</para>
+        /// <para>The maximum amount of time, in seconds, that an instance can be in service.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing
+        /// Auto Scaling Instances Based on Maximum Instance Lifetime</a> in the <i>Amazon EC2
+        /// Auto Scaling User Guide</i>.</para><para>Valid Range: Minimum value of 604800.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

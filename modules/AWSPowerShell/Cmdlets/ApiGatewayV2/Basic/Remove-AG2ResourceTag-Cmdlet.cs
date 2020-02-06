@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The Tag keys to delete.</para>
+        /// <para>The Tag keys to delete</para>
         /// </para>
         /// </summary>
         #if !MODULAR

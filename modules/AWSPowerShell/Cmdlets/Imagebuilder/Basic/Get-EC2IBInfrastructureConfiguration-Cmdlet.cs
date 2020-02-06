@@ -28,7 +28,7 @@ using Amazon.Imagebuilder.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2IB
 {
     /// <summary>
-    /// Gets a infrastructure configuration.
+    /// Gets an infrastructure configuration.
     /// </summary>
     [Cmdlet("Get", "EC2IBInfrastructureConfiguration")]
     [OutputType("Amazon.Imagebuilder.Model.InfrastructureConfiguration")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter InfrastructureConfigurationArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the infrastructure configuration that you wish
-        /// to retrieve. </para>
+        /// <para>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to
+        /// retrieve. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

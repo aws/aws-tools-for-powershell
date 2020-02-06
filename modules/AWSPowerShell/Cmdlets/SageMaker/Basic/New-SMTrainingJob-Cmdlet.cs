@@ -387,9 +387,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
-        /// model. </para><note><para>Amazon EC2 P3 accelerated computing instances are not available in the c/d/e availability
-        /// zones of region us-east-1. If you want to create endpoints with P3 instances in VPC
-        /// mode in region us-east-1, create subnets in a/b/f availability zones instead.</para></note>
+        /// model. For information about the availability of specific instance types, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/instance-types-az.html">Supported
+        /// Instance Types and Availability Zones</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

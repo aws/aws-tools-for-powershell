@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Returns the detailed parameter list for a particular DB cluster parameter group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the detailed parameter list for a particular cluster parameter group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DOCDBClusterParameter")]
     [OutputType("Amazon.DocDB.Model.Parameter")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of a specific DB cluster parameter group to return parameter details for.</para><para>Constraints:</para><ul><li><para>If provided, must match the name of an existing <code>DBClusterParameterGroup</code>.</para></li></ul>
+        /// <para>The name of a specific cluster parameter group to return parameter details for.</para><para>Constraints:</para><ul><li><para>If provided, must match the name of an existing <code>DBClusterParameterGroup</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

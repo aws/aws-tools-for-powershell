@@ -92,6 +92,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String PrivateDnsName { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to associate with the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -178,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.PrivateDnsName = this.PrivateDnsName;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PrivateDnsName != null)
             {
                 request.PrivateDnsName = cmdletContext.PrivateDnsName;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -275,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public List<System.String> NetworkLoadBalancerArn { get; set; }
             public System.String PrivateDnsName { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpcEndpointServiceConfigurationResponse, NewEC2VpcEndpointServiceConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

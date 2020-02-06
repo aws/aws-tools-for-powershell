@@ -28,7 +28,7 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Provides the configuration to use for an agent of the profiling group.
+    
     /// </summary>
     [Cmdlet("Set", "CGPAgentConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruProfiler.Model.AgentConfiguration")]

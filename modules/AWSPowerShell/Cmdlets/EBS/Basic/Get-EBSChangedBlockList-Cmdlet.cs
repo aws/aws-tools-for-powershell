@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter FirstSnapshotId
         /// <summary>
         /// <para>
-        /// <para>The ID of the first snapshot to use for the comparison.</para>
+        /// <para>The ID of the first snapshot to use for the comparison.</para><important><para>The <code>FirstSnapshotID</code> parameter must be specified with a <code>SecondSnapshotId</code>
+        /// parameter; otherwise, an error occurs.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter SecondSnapshotId
         /// <summary>
         /// <para>
-        /// <para>The ID of the second snapshot to use for the comparison.</para>
+        /// <para>The ID of the second snapshot to use for the comparison.</para><important><para>The <code>SecondSnapshotId</code> parameter must be specified with a <code>FirstSnapshotID</code>
+        /// parameter; otherwise, an error occurs.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

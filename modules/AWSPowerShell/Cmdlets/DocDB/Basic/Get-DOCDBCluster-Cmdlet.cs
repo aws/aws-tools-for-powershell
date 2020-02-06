@@ -28,8 +28,11 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Returns information about provisioned Amazon DocumentDB DB clusters. This API operation
-    /// supports pagination.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about provisioned Amazon DocumentDB clusters. This API operation
+    /// supports pagination. For certain management features such as cluster and instance
+    /// lifecycle management, Amazon DocumentDB leverages operational technology that is shared
+    /// with Amazon RDS and Amazon Neptune. Use the <code>filterName=engine,Values=docdb</code>
+    /// filter parameter to return only Amazon DocumentDB clusters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DOCDBCluster")]
     [OutputType("Amazon.DocDB.Model.DBCluster")]
@@ -44,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The user-provided DB cluster identifier. If this parameter is specified, information
-        /// from only the specific DB cluster is returned. This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>If provided, must match an existing <code>DBClusterIdentifier</code>.</para></li></ul>
+        /// <para>The user-provided cluster identifier. If this parameter is specified, information
+        /// from only the specific cluster is returned. This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>If provided, must match an existing <code>DBClusterIdentifier</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter that specifies one or more DB clusters to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
-        /// Resource Names (ARNs). The results list only includes information about the DB clusters
-        /// identified by these ARNs.</para></li></ul>
+        /// <para>A filter that specifies one or more clusters to describe.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource
+        /// Names (ARNs). The results list only includes information about the clusters identified
+        /// by these ARNs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

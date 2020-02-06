@@ -172,6 +172,7 @@ $SHUB_SelectMap = @{
                "Get-SHUBActionTarget",
                "Get-SHUBHub",
                "Get-SHUBProduct",
+               "Get-SHUBStandard",
                "Get-SHUBStandardsControl",
                "Disable-SHUBImportFindingsForProduct",
                "Disable-SHUBSecurityHub",

@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Retrieves the results of the specified lifecycle policy preview request.<br/><br/>In the AWS.Tools.ECR module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the results of the lifecycle policy preview request for the specified repository.<br/><br/>In the AWS.Tools.ECR module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECRLifecyclePolicyPreview")]
     [OutputType("Amazon.ECR.Model.GetLifecyclePolicyPreviewResponse")]

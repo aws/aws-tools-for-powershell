@@ -28,16 +28,16 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
+    /// Creates a new cluster from a snapshot or cluster snapshot.
     /// 
     ///  
     /// <para>
-    /// If a DB snapshot is specified, the target DB cluster is created from the source DB
-    /// snapshot with a default configuration and default security group.
+    /// If a snapshot is specified, the target cluster is created from the source DB snapshot
+    /// with a default configuration and default security group.
     /// </para><para>
-    /// If a DB cluster snapshot is specified, the target DB cluster is created from the source
-    /// DB cluster restore point with the same configuration as the original source DB cluster,
-    /// except that the new DB cluster is created with the default security group.
+    /// If a cluster snapshot is specified, the target cluster is created from the source
+    /// cluster restore point with the same configuration as the original source DB cluster,
+    /// except that the new cluster is created with the default security group.
     /// </para>
     /// </summary>
     [Cmdlet("Restore", "DOCDBClusterFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot.
-        /// This parameter isn't case sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// <para>The name of the cluster to create from the snapshot or cluster snapshot. This parameter
+        /// isn't case sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB subnet group to use for the new DB cluster.</para><para>Constraints: If provided, must match the name of an existing <code>DBSubnetGroup</code>.</para><para>Example: <code>mySubnetgroup</code></para>
+        /// <para>The name of the subnet group to use for the new cluster.</para><para>Constraints: If provided, must match the name of an existing <code>DBSubnetGroup</code>.</para><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for the new DB cluster.</para><para>Default: The same as source.</para><para>Constraint: Must be compatible with the engine of the source.</para>
+        /// <para>The database engine to use for the new cluster.</para><para>Default: The same as source.</para><para>Constraint: Must be compatible with the engine of the source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the database engine to use for the new DB cluster.</para>
+        /// <para>The version of the database engine to use for the new cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,15 +144,15 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB
-        /// snapshot or DB cluster snapshot.</para><para>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS encryption
-        /// key. If you are restoring a DB cluster with the same AWS account that owns the AWS
-        /// KMS encryption key used to encrypt the new DB cluster, then you can use the AWS KMS
-        /// key alias instead of the ARN for the AWS KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// occurs:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
-        /// then the restored DB cluster is encrypted using the AWS KMS key that was used to encrypt
-        /// the DB snapshot or the DB cluster snapshot.</para></li><li><para>If the DB snapshot or the DB cluster snapshot in <code>SnapshotIdentifier</code> is
-        /// not encrypted, then the restored DB cluster is not encrypted.</para></li></ul>
+        /// <para>The AWS KMS key identifier to use when restoring an encrypted cluster from a DB snapshot
+        /// or cluster snapshot.</para><para>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS encryption
+        /// key. If you are restoring a cluster with the same AWS account that owns the AWS KMS
+        /// encryption key used to encrypt the new cluster, then you can use the AWS KMS key alias
+        /// instead of the ARN for the AWS KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
+        /// occurs:</para><ul><li><para>If the snapshot or cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
+        /// then the restored cluster is encrypted using the AWS KMS key that was used to encrypt
+        /// the snapshot or the cluster snapshot.</para></li><li><para>If the snapshot or the cluster snapshot in <code>SnapshotIdentifier</code> is not
+        /// encrypted, then the restored DB cluster is not encrypted.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the new DB cluster accepts connections.</para><para>Constraints: Must be a value from <code>1150</code> to <code>65535</code>.</para><para>Default: The same port as the original DB cluster.</para>
+        /// <para>The port number on which the new cluster accepts connections.</para><para>Constraints: Must be a value from <code>1150</code> to <code>65535</code>.</para><para>Default: The same port as the original cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the DB snapshot or DB cluster snapshot to restore from.</para><para>You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster
-        /// snapshot. However, you can use only the ARN to specify a DB snapshot.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing snapshot.</para></li></ul>
+        /// <para>The identifier for the snapshot or cluster snapshot to restore from.</para><para>You can use either the name or the Amazon Resource Name (ARN) to specify a cluster
+        /// snapshot. However, you can use only the ARN to specify a snapshot.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing snapshot.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the restored DB cluster.</para>
+        /// <para>The tags to be assigned to the restored cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of virtual private cloud (VPC) security groups that the new DB cluster will
-        /// belong to.</para>
+        /// <para>A list of virtual private cloud (VPC) security groups that the new cluster will belong
+        /// to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

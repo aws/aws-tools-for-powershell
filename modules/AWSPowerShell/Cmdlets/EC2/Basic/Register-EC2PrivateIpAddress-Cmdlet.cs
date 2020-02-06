@@ -46,6 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Remapping an IP address is an asynchronous operation. When you move an IP address
     /// from one network interface to another, check <code>network/interfaces/macs/mac/local-ipv4s</code>
     /// in the instance metadata to confirm that the remapping is complete.
+    /// </para><para>
+    /// You must specify either the IP addresses or the IP address count in the request.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2PrivateIpAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImagePipelineArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the image pipeline that you wish to manually invoke.
+        /// <para> The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke.
         /// </para>
         /// </para>
         /// </summary>

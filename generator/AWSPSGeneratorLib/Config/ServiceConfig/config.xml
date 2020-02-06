@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>config</C2jFilename>
     <AssemblyName>ConfigService</AssemblyName>
@@ -307,6 +308,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRetentionConfiguration" OutputProperty="RetentionConfiguration" Verb="Write" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionPeriodInDays" PipelineParameter="RetentionPeriodInDays" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SelectAggregateResourceConfig" OutputProperty="Results" Verb="Select" Noun="AggregateResourceConfig" ShouldProcessTarget="ConfigurationAggregatorName" PipelineParameter="ConfigurationAggregatorName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

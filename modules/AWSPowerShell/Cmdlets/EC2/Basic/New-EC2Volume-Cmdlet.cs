@@ -122,6 +122,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter MultiAttachEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you
+        /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+        /// instances</a> in the same Availability Zone. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+        /// Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiAttachEnabled { get; set; }
+        #endregion
+        
         #region Parameter OutpostArn
         /// <summary>
         /// <para>
@@ -135,11 +148,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Size
         /// <summary>
         /// <para>
-        /// <para>The size of the volume, in GiBs.</para><para>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384
+        /// <para>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume
+        /// size.</para><para>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384
         /// for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>.
         /// If you specify a snapshot, the volume size must be equal to or larger than the snapshot
         /// size.</para><para>Default: If you're creating the volume from a snapshot and don't specify a volume
-        /// size, the default is the snapshot size.</para><note><para>At least one of Size or SnapshotId is required.</para></note>
+        /// size, the default is the snapshot size.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -149,7 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// <para>The snapshot from which to create the volume.</para><note><para>At least one of Size or SnapshotId are required.</para></note>
+        /// <para>The snapshot from which to create the volume. You must specify either a snapshot ID
+        /// or a volume size.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -251,6 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Encrypted = this.Encrypted;
             context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
+            context.MultiAttachEnabled = this.MultiAttachEnabled;
             context.OutpostArn = this.OutpostArn;
             context.Size = this.Size;
             context.SnapshotId = this.SnapshotId;
@@ -290,6 +306,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.MultiAttachEnabled != null)
+            {
+                request.MultiAttachEnabled = cmdletContext.MultiAttachEnabled.Value;
             }
             if (cmdletContext.OutpostArn != null)
             {
@@ -376,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? Encrypted { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.Boolean? MultiAttachEnabled { get; set; }
             public System.String OutpostArn { get; set; }
             public System.Int32? Size { get; set; }
             public System.String SnapshotId { get; set; }

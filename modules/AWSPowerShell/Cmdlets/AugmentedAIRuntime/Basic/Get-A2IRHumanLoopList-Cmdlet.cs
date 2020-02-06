@@ -28,7 +28,8 @@ using Amazon.AugmentedAIRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.A2IR
 {
     /// <summary>
-    /// Returns information about human loops, given the specified parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about human loops, given the specified parameters. If a human
+    /// loop was deleted, it will not be included.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "A2IRHumanLoopList")]
     [OutputType("Amazon.AugmentedAIRuntime.Model.HumanLoopSummary")]
@@ -43,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
-        /// <para>(Optional) The timestamp of the date when you want the human loops to begin. For example,
-        /// <code>1551000000</code>.</para>
+        /// <para>(Optional) The timestamp of the date when you want the human loops to begin in ISO
+        /// 8601 format. For example, <code>2020-02-24</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,12 +55,29 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         #region Parameter CreationTimeBefore
         /// <summary>
         /// <para>
-        /// <para>(Optional) The timestamp of the date before which you want the human loops to begin.
-        /// For example, <code>1550000000</code>.</para>
+        /// <para>(Optional) The timestamp of the date before which you want the human loops to begin
+        /// in ISO 8601 format. For example, <code>2020-02-24</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? CreationTimeBefore { get; set; }
+        #endregion
+        
+        #region Parameter FlowDefinitionArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a flow definition.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String FlowDefinitionArn { get; set; }
         #endregion
         
         #region Parameter SortOrder
@@ -138,6 +156,13 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
             }
             context.CreationTimeAfter = this.CreationTimeAfter;
             context.CreationTimeBefore = this.CreationTimeBefore;
+            context.FlowDefinitionArn = this.FlowDefinitionArn;
+            #if MODULAR
+            if (this.FlowDefinitionArn == null && ParameterWasBound(nameof(this.FlowDefinitionArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FlowDefinitionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.SortOrder = this.SortOrder;
@@ -166,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
             if (cmdletContext.CreationTimeBefore != null)
             {
                 request.CreationTimeBefore = cmdletContext.CreationTimeBefore.Value;
+            }
+            if (cmdletContext.FlowDefinitionArn != null)
+            {
+                request.FlowDefinitionArn = cmdletContext.FlowDefinitionArn;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -262,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         {
             public System.DateTime? CreationTimeAfter { get; set; }
             public System.DateTime? CreationTimeBefore { get; set; }
+            public System.String FlowDefinitionArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.AugmentedAIRuntime.SortOrder SortOrder { get; set; }

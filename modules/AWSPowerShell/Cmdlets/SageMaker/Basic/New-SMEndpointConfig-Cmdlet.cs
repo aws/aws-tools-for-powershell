@@ -35,20 +35,23 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// API.
     /// 
     ///  <note><para>
-    ///  Use this API only if you want to use Amazon SageMaker hosting services to deploy
-    /// models into production. 
+    ///  Use this API if you want to use Amazon SageMaker hosting services to deploy models
+    /// into production. 
     /// </para></note><para>
-    /// In the request, you define one or more <code>ProductionVariant</code>s, each of which
-    /// identifies a model. Each <code>ProductionVariant</code> parameter also describes the
-    /// resources that you want Amazon SageMaker to provision. This includes the number and
-    /// type of ML compute instances to deploy. 
+    /// In the request, you define a <code>ProductionVariant</code>, for each model that you
+    /// want to deploy. Each <code>ProductionVariant</code> parameter also describes the resources
+    /// that you want Amazon SageMaker to provision. This includes the number and type of
+    /// ML compute instances to deploy. 
     /// </para><para>
     /// If you are hosting multiple models, you also assign a <code>VariantWeight</code> to
     /// specify how much traffic you want to allocate to each model. For example, suppose
     /// that you want to host two models, A and B, and you assign traffic weight 2 for model
     /// A and 1 for model B. Amazon SageMaker distributes two-thirds of the traffic to Model
     /// A, and one-third to model B. 
-    /// </para>
+    /// </para><para>
+    /// For an example that calls this method when deploying a model to Amazon SageMaker hosting
+    /// services, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto">Deploy
+    /// the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).</a></para>
     /// </summary>
     [Cmdlet("New", "SMEndpointConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

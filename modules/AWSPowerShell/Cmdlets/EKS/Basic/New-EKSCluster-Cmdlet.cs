@@ -102,6 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.Model.LogSetup[] Logging_ClusterLogging { get; set; }
         #endregion
         
+        #region Parameter EncryptionConfig
+        /// <summary>
+        /// <para>
+        /// <para>The encryption configuration for the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.EKS.Model.EncryptionConfig[] EncryptionConfig { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -246,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.EncryptionConfig != null)
+            {
+                context.EncryptionConfig = new List<Amazon.EKS.Model.EncryptionConfig>(this.EncryptionConfig);
+            }
             if (this.Logging_ClusterLogging != null)
             {
                 context.Logging_ClusterLogging = new List<Amazon.EKS.Model.LogSetup>(this.Logging_ClusterLogging);
@@ -299,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.EncryptionConfig != null)
+            {
+                request.EncryptionConfig = cmdletContext.EncryptionConfig;
             }
             
              // populate Logging
@@ -401,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public List<Amazon.EKS.Model.EncryptionConfig> EncryptionConfig { get; set; }
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }

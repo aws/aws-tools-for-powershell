@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The filters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para> The owner defines whose image recipes you wish to list. By default this request will
-        /// only show image recipes owned by your account. You may use this field to specify if
-        /// you wish to view image recipes owned by yourself, Amazon, or those image recipes that
-        /// have been shared with you by other customers. </para>
+        /// <para> The owner defines which image recipes you want to list. By default, this request
+        /// will only show image recipes owned by your account. You can use this field to specify
+        /// if you want to view image recipes owned by yourself, by Amazon, or those image recipes
+        /// that have been shared with you by other customers. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

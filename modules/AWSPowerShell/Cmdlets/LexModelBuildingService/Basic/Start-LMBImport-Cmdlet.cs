@@ -100,6 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public Amazon.LexModelBuildingService.ResourceType ResourceType { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to add to the imported bot. You can only add tags when you import a
+        /// bot, you can't add tags to an intent or slot type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.LexModelBuildingService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -162,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.LexModelBuildingService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -194,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 if (cmdletContext.ResourceType != null)
                 {
                     request.ResourceType = cmdletContext.ResourceType;
+                }
+                if (cmdletContext.Tag != null)
+                {
+                    request.Tags = cmdletContext.Tag;
                 }
                 
                 CmdletOutput output;
@@ -267,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public Amazon.LexModelBuildingService.MergeStrategy MergeStrategy { get; set; }
             public byte[] Payload { get; set; }
             public Amazon.LexModelBuildingService.ResourceType ResourceType { get; set; }
+            public List<Amazon.LexModelBuildingService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.LexModelBuildingService.Model.StartImportResponse, StartLMBImportCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

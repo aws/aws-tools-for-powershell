@@ -108,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-REKProjectVersion', 
         'Get-REKStreamProcessor', 
         'Get-REKStreamProcessorList', 
+        'Get-REKTextDetection', 
         'New-REKCollection', 
         'New-REKProject', 
         'New-REKProjectVersion', 
@@ -125,6 +126,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-REKPersonTracking', 
         'Start-REKProjectVersion', 
         'Start-REKStreamProcessor', 
+        'Start-REKTextDetection', 
         'Stop-REKProjectVersion', 
         'Stop-REKStreamProcessor')
 

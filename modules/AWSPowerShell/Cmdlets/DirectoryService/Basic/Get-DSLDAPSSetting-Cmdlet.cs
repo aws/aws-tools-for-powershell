@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of LDAP security the customer wants to enable, either server or client. Currently
-        /// supports only <code>Client</code>, (the default).</para>
+        /// <para>The type of LDAP security to enable. Currently only the value <code>Client</code>
+        /// is supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,8 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
     /// Disables the standards specified by the provided <code>StandardsSubscriptionArns</code>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Standards
-    /// Supported in AWS Security Hub</a>.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security
+    /// Standards</a> section of the <i>AWS Security Hub User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Disable", "SHUBStandardsBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SecurityHub.Model.StandardsSubscription")]

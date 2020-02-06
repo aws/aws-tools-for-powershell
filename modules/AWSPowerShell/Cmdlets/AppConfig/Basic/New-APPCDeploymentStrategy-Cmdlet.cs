@@ -100,7 +100,19 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter GrowthType
         /// <summary>
         /// <para>
-        /// <para>The algorithm used to define how percentage grows over time.</para>
+        /// <para>The algorithm used to define how percentage grows over time. AWS AppConfig supports
+        /// the following growth types:</para><para><b>Linear</b>: For this type, AppConfig processes the deployment by dividing the
+        /// total number of targets by the value specified for <code>Step percentage</code>. For
+        /// example, a linear deployment that uses a <code>Step percentage</code> of 10 deploys
+        /// the configuration to 10 percent of the hosts. After those deployments are complete,
+        /// the system deploys the configuration to the next 10 percent. This continues until
+        /// 100% of the targets have successfully received the configuration.</para><para><b>Exponential</b>: For this type, AppConfig processes the deployment exponentially
+        /// using the following formula: <code>G*(2^N)</code>. In this formula, <code>G</code>
+        /// is the growth factor specified by the user and <code>N</code> is the number of steps
+        /// until the configuration is deployed to all targets. For example, if you specify a
+        /// growth factor of 2, then the system rolls out the configuration as follows:</para><para><code>2*(2^0)</code></para><para><code>2*(2^1)</code></para><para><code>2*(2^2)</code></para><para>Expressed numerically, the deployment rolls out as follows: 2% of the targets, 4%
+        /// of the targets, 8% of the targets, and continues until the configuration has been
+        /// deployed to all targets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

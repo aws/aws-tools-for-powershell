@@ -111,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CWResourceTag', 
         'Set-CWAlarmState', 
         'Write-CWAnomalyDetector', 
+        'Write-CWCompositeAlarm', 
         'Write-CWDashboard', 
         'Write-CWInsightRule', 
         'Write-CWMetricAlarm', 

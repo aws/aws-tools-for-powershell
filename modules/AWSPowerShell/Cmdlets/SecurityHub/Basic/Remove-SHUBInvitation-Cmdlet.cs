@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>A list of the account IDs that sent the invitations to delete.</para>
+        /// <para>The list of the account IDs that sent the invitations to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

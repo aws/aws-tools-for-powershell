@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>An array of the rule names to enable. If you need to find out the names of your rules,
-        /// use <a>DescribeInsightRules</a>.</para>
+        /// use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeInsightRules.html">DescribeInsightRules</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

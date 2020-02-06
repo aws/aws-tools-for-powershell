@@ -28,8 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Creates an Amazon Elastic Container Registry (Amazon ECR) repository, where users
-    /// can push and pull Docker images. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon
+    /// Creates a repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon
     /// ECR Repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
     /// </summary>
     [Cmdlet("New", "ECRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

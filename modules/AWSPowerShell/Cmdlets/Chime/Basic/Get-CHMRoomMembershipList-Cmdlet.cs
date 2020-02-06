@@ -28,8 +28,8 @@ using Amazon.Chime.Model;
 namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
-    /// Lists the membership details for the specified room, such as the members' IDs, email
-    /// addresses, and names.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the membership details for the specified room in an Amazon Chime Enterprise
+    /// account, such as the members' IDs, email addresses, and names.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CHMRoomMembershipList")]
     [OutputType("Amazon.Chime.Model.RoomMembership")]

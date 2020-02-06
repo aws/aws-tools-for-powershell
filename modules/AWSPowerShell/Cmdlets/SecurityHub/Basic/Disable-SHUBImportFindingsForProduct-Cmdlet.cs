@@ -28,8 +28,8 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Disables the integration of the specified product with Security Hub. Findings from
-    /// that product are no longer sent to Security Hub after the integration is disabled.
+    /// Disables the integration of the specified product with Security Hub. After the integration
+    /// is disabled, findings from that product are no longer sent to Security Hub.
     /// </summary>
     [Cmdlet("Disable", "SHUBImportFindingsForProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

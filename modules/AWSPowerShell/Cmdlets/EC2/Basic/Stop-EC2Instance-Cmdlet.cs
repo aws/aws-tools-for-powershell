@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance
     /// usage, and thereafter charges per second for instance usage.
     /// </para><para>
-    /// You can't start, stop, or hibernate Spot Instances, and you can't stop or hibernate
-    /// instance store-backed instances. For information about using hibernation for Spot
-    /// Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating
+    /// You can't stop or hibernate instance store-backed instances. You can't use the Stop
+    /// action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
+    /// Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating
     /// Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// When you stop or hibernate an instance, we shut it down. You can restart your instance

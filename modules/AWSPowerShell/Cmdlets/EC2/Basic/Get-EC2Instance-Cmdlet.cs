@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// instance is enabled for hibernation. A value of <code>true</code> means that the instance
         /// is enabled for hibernation. </para></li><li><para><code>host-id</code> - The ID of the Dedicated Host on which the instance is running,
         /// if applicable.</para></li><li><para><code>hypervisor</code> - The hypervisor type of the instance (<code>ovm</code> |
-        /// <code>xen</code>).</para></li><li><para><code>iam-instance-profile.arn</code> - The instance profile associated with the
+        /// <code>xen</code>). The value <code>xen</code> is used for both Xen and Nitro hypervisors.</para></li><li><para><code>iam-instance-profile.arn</code> - The instance profile associated with the
         /// instance. Specified as an ARN.</para></li><li><para><code>image-id</code> - The ID of the image used to launch the instance.</para></li><li><para><code>instance-id</code> - The ID of the instance.</para></li><li><para><code>instance-lifecycle</code> - Indicates whether this is a Spot Instance or a
         /// Scheduled Instance (<code>spot</code> | <code>scheduled</code>).</para></li><li><para><code>instance-state-code</code> - The state of the instance, as a 16-bit unsigned
         /// integer. The high byte is used for internal purposes and should be ignored. The low

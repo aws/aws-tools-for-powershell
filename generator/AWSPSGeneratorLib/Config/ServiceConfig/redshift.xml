@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>redshift</C2jFilename>
     <AssemblyName>Redshift</AssemblyName>
@@ -353,6 +354,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PauseCluster" OutputProperty="Cluster" Verb="Stop" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PurchaseReservedNodeOffering" OutputProperty="ReservedNode" Verb="Request" Noun="ReservedNodeOffering" ShouldProcessTarget="ReservedNodeOfferingId" PositionalParameters="NodeCount" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -374,6 +379,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestoreTableFromClusterSnapshot" OutputProperty="TableRestoreStatus" Verb="Restore" Noun="TableFromClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeCluster" OutputProperty="Cluster" Verb="Start" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

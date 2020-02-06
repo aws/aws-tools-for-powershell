@@ -28,7 +28,7 @@ using Amazon.DocDB.Model;
 namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Returns a list of resources (for example, DB instances) that have at least one pending
+    /// Returns a list of resources (for example, instances) that have at least one pending
     /// maintenance action.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DOCPendingMaintenanceAction")]
@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>A filter that specifies one or more resources to return pending maintenance actions
-        /// for.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster Amazon
-        /// Resource Names (ARNs). The results list includes only pending maintenance actions
-        /// for the DB clusters identified by these ARNs.</para></li><li><para><code>db-instance-id</code> - Accepts DB instance identifiers and DB instance ARNs.
-        /// The results list includes only pending maintenance actions for the DB instances identified
+        /// for.</para><para>Supported filters:</para><ul><li><para><code>db-cluster-id</code> - Accepts cluster identifiers and cluster Amazon Resource
+        /// Names (ARNs). The results list includes only pending maintenance actions for the clusters
+        /// identified by these ARNs.</para></li><li><para><code>db-instance-id</code> - Accepts instance identifiers and instance ARNs. The
+        /// results list includes only pending maintenance actions for the DB instances identified
         /// by these ARNs.</para></li></ul>
         /// </para>
         /// </summary>

@@ -90,7 +90,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-OUTPOutpostInstanceType', 
         'Get-OUTPOutpostList', 
         'Get-OUTPSiteList', 
-        'New-OUTPOutpost')
+        'New-OUTPOutpost', 
+        'Remove-OUTPOutpost', 
+        'Remove-OUTPSite')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -173,6 +173,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NonOverridableArgument
+        /// <summary>
+        /// <para>
+        /// <para>Non-overridable arguments for this job, specified as name-value pairs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NonOverridableArguments")]
+        public System.Collections.Hashtable NonOverridableArgument { get; set; }
+        #endregion
+        
         #region Parameter NotificationProperty_NotifyDelayAfter
         /// <summary>
         /// <para>
@@ -378,6 +389,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.NonOverridableArgument != null)
+            {
+                context.NonOverridableArgument = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.NonOverridableArgument.Keys)
+                {
+                    context.NonOverridableArgument.Add((String)hashKey, (String)(this.NonOverridableArgument[hashKey]));
+                }
+            }
             context.NotificationProperty_NotifyDelayAfter = this.NotificationProperty_NotifyDelayAfter;
             context.NumberOfWorker = this.NumberOfWorker;
             context.Role = this.Role;
@@ -489,6 +508,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NonOverridableArgument != null)
+            {
+                request.NonOverridableArguments = cmdletContext.NonOverridableArgument;
             }
             
              // populate NotificationProperty
@@ -606,6 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Double? MaxCapacity { get; set; }
             public System.Int32? MaxRetry { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> NonOverridableArgument { get; set; }
             public System.Int32? NotificationProperty_NotifyDelayAfter { get; set; }
             public System.Int32? NumberOfWorker { get; set; }
             public System.String Role { get; set; }

@@ -90,6 +90,37 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.AlarmState
+        "Test-LSAlarm/State"
+        {
+            $v = "ALARM","INSUFFICIENT_DATA","OK"
+            break
+        }
+
+        # Amazon.Lightsail.ComparisonOperator
+        "Add-LSAlarm/ComparisonOperator"
+        {
+            $v = "GreaterThanOrEqualToThreshold","GreaterThanThreshold","LessThanOrEqualToThreshold","LessThanThreshold"
+            break
+        }
+
+        # Amazon.Lightsail.ContactMethodVerificationProtocol
+        "Send-LSContactMethodVerification/Protocol"
+        {
+            $v = "Email"
+            break
+        }
+
+        # Amazon.Lightsail.ContactProtocol
+        {
+            ($_ -eq "New-LSContactMethod/Protocol") -Or
+            ($_ -eq "Remove-LSContactMethod/Protocol")
+        }
+        {
+            $v = "Email","SMS"
+            break
+        }
+
         # Amazon.Lightsail.InstanceAccessProtocol
         "Get-LSInstanceAccessDetail/Protocol"
         {
@@ -115,6 +146,13 @@ $LS_Completers = {
         "Get-LSLoadBalancerMetricData/MetricName"
         {
             $v = "ClientTLSNegotiationErrorCount","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","RejectedConnectionCount","RequestCount","UnhealthyHostCount"
+            break
+        }
+
+        # Amazon.Lightsail.MetricName
+        "Add-LSAlarm/MetricName"
+        {
+            $v = "ClientTLSNegotiationErrorCount","CPUUtilization","DatabaseConnections","DiskQueueDepth","FreeStorageSpace","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","NetworkIn","NetworkOut","NetworkReceiveThroughput","NetworkTransmitThroughput","RejectedConnectionCount","RequestCount","StatusCheckFailed","StatusCheckFailed_Instance","StatusCheckFailed_System","UnhealthyHostCount"
             break
         }
 
@@ -160,6 +198,13 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.TreatMissingData
+        "Add-LSAlarm/TreatMissingData"
+        {
+            $v = "breaching","ignore","missing","notBreaching"
+            break
+        }
+
 
     }
 
@@ -172,11 +217,14 @@ $LS_map = @{
     "AddOnRequest_AddOnType"=@("Enable-LSAddOn")
     "AddOnType"=@("Disable-LSAddOn")
     "AttributeName"=@("Update-LSLoadBalancerAttribute")
-    "MetricName"=@("Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "ComparisonOperator"=@("Add-LSAlarm")
+    "MetricName"=@("Add-LSAlarm","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
     "PasswordVersion"=@("Get-LSRelationalDatabaseMasterUserPassword")
     "PortInfo_Protocol"=@("Close-LSInstancePublicPort","Open-LSInstancePublicPort")
-    "Protocol"=@("Get-LSInstanceAccessDetail")
+    "Protocol"=@("Get-LSInstanceAccessDetail","New-LSContactMethod","Remove-LSContactMethod","Send-LSContactMethodVerification")
     "SourceRegion"=@("Copy-LSSnapshot")
+    "State"=@("Test-LSAlarm")
+    "TreatMissingData"=@("Add-LSAlarm")
     "Unit"=@("Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
 }
 
@@ -238,6 +286,7 @@ $LS_SelectMap = @{
                "Close-LSInstancePublicPort",
                "Copy-LSSnapshot",
                "New-LSCloudFormationStack",
+               "New-LSContactMethod",
                "New-LSDisk",
                "New-LSDiskFromSnapshot",
                "New-LSDiskSnapshot",
@@ -252,7 +301,9 @@ $LS_SelectMap = @{
                "New-LSRelationalDatabase",
                "New-LSRelationalDatabaseFromSnapshot",
                "New-LSRelationalDatabaseSnapshot",
+               "Remove-LSAlarm",
                "Remove-LSAutoSnapshot",
+               "Remove-LSContactMethod",
                "Remove-LSDisk",
                "Remove-LSDiskSnapshot",
                "Remove-LSDomain",
@@ -273,10 +324,12 @@ $LS_SelectMap = @{
                "Enable-LSAddOn",
                "Export-LSSnapshot",
                "Get-LSActiveNameList",
+               "Get-LSAlarm",
                "Get-LSAutoSnapshot",
                "Get-LSBlueprintList",
                "Get-LSBundleList",
                "Get-LSCloudFormationStackRecord",
+               "Get-LSContactMethod",
                "Get-LSDisk",
                "Get-LSDiskList",
                "Get-LSDiskSnapshot",
@@ -320,15 +373,18 @@ $LS_SelectMap = @{
                "Test-LSVpcPeered",
                "Open-LSInstancePublicPort",
                "Add-LSPeerVpc",
+               "Add-LSAlarm",
                "Set-LSInstancePublicPort",
                "Restart-LSInstance",
                "Restart-LSRelationalDatabase",
                "Remove-LSStaticIp",
+               "Send-LSContactMethodVerification",
                "Start-LSInstance",
                "Start-LSRelationalDatabase",
                "Stop-LSInstance",
                "Stop-LSRelationalDatabase",
                "Add-LSResourceTag",
+               "Test-LSAlarm",
                "Remove-LSPeerVpc",
                "Remove-LSResourceTag",
                "Update-LSDomainEntry",

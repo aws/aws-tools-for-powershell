@@ -89,6 +89,37 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String EndpointName { get; set; }
         #endregion
         
+        #region Parameter ExcludeRetainedVariantProperty
+        /// <summary>
+        /// <para>
+        /// <para>When you are updating endpoint resources with <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html#SageMaker-UpdateEndpoint-request-RetainAllVariantProperties">RetainAllVariantProperties</a>,
+        /// whose value is set to <code>true</code>, <code>ExcludeRetainedVariantProperties</code>
+        /// specifies the list of type <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_VariantProperty.html">VariantProperty</a>
+        /// to override with the values provided by <code>EndpointConfig</code>. If you don't
+        /// specify a value for <code>ExcludeAllVariantProperties</code>, no variant properties
+        /// are overridden. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExcludeRetainedVariantProperties")]
+        public Amazon.SageMaker.Model.VariantProperty[] ExcludeRetainedVariantProperty { get; set; }
+        #endregion
+        
+        #region Parameter RetainAllVariantProperty
+        /// <summary>
+        /// <para>
+        /// <para>When updating endpoint resources, enables or disables the retention of variant properties,
+        /// such as the instance count or the variant weight. To retain the variant properties
+        /// of an endpoint when updating it, set <code>RetainAllVariantProperties</code> to <code>true</code>.
+        /// To use the variant properties specified in a new <code>EndpointConfig</code> call
+        /// when updating an endpoint, set <code>RetainAllVariantProperties</code> to <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetainAllVariantProperties")]
+        public System.Boolean? RetainAllVariantProperty { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'EndpointArn'.
@@ -164,6 +195,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter EndpointName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ExcludeRetainedVariantProperty != null)
+            {
+                context.ExcludeRetainedVariantProperty = new List<Amazon.SageMaker.Model.VariantProperty>(this.ExcludeRetainedVariantProperty);
+            }
+            context.RetainAllVariantProperty = this.RetainAllVariantProperty;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -187,6 +223,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.EndpointName != null)
             {
                 request.EndpointName = cmdletContext.EndpointName;
+            }
+            if (cmdletContext.ExcludeRetainedVariantProperty != null)
+            {
+                request.ExcludeRetainedVariantProperties = cmdletContext.ExcludeRetainedVariantProperty;
+            }
+            if (cmdletContext.RetainAllVariantProperty != null)
+            {
+                request.RetainAllVariantProperties = cmdletContext.RetainAllVariantProperty.Value;
             }
             
             CmdletOutput output;
@@ -251,6 +295,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String EndpointConfigName { get; set; }
             public System.String EndpointName { get; set; }
+            public List<Amazon.SageMaker.Model.VariantProperty> ExcludeRetainedVariantProperty { get; set; }
+            public System.Boolean? RetainAllVariantProperty { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateEndpointResponse, UpdateSMEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EndpointArn;
         }

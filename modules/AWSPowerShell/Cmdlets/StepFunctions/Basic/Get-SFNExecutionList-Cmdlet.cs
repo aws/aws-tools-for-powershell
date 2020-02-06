@@ -41,7 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </para><note><para>
     /// This operation is eventually consistent. The results are best effort and may not reflect
     /// very recent updates and changes.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></note><para>
+    /// This API action is not supported by <code>EXPRESS</code> state machines.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SFNExecutionList")]
     [OutputType("Amazon.StepFunctions.Model.ExecutionListItem")]

@@ -28,7 +28,7 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Deletes the specified lifecycle policy.
+    /// Deletes the lifecycle policy associated with the specified repository.
     /// </summary>
     [Cmdlet("Remove", "ECRLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.DeleteLifecyclePolicyResponse")]

@@ -126,14 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// is, the uniqueness—of the request.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String IdempotencyToken { get; set; }
         #endregion
         
@@ -255,12 +248,6 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             context.HealthCheckPort = this.HealthCheckPort;
             context.HealthCheckProtocol = this.HealthCheckProtocol;
             context.IdempotencyToken = this.IdempotencyToken;
-            #if MODULAR
-            if (this.IdempotencyToken == null && ParameterWasBound(nameof(this.IdempotencyToken)))
-            {
-                WriteWarning("You are passing $null as a value for parameter IdempotencyToken which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ListenerArn = this.ListenerArn;
             #if MODULAR
             if (this.ListenerArn == null && ParameterWasBound(nameof(this.ListenerArn)))

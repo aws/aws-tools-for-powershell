@@ -29,9 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Lists the trials in your account. Specify an experiment name to limit the list to
-    /// the trials that are part of that experiment. The list can be filtered to show only
-    /// trials that were created in a specific time range. The list can be sorted by trial
-    /// name or creation time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// the trials that are part of that experiment. Specify a trial component name to limit
+    /// the list to the trials that associated with that trial component. The list can be
+    /// filtered to show only trials that were created in a specific time range. The list
+    /// can be sorted by trial name or creation time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMTrialList")]
     [OutputType("Amazon.SageMaker.Model.TrialSummary")]
@@ -93,6 +94,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SageMaker.SortOrder")]
         public Amazon.SageMaker.SortOrder SortOrder { get; set; }
+        #endregion
+        
+        #region Parameter TrialComponentName
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only trials that are associated with the specified trial component.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TrialComponentName { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -185,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.NextToken = this.NextToken;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
+            context.TrialComponentName = this.TrialComponentName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -227,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.TrialComponentName != null)
+            {
+                request.TrialComponentName = cmdletContext.TrialComponentName;
             }
             
             // Initialize loop variant and commence piping
@@ -302,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.SortOrder != null)
             {
                 request.SortOrder = cmdletContext.SortOrder;
+            }
+            if (cmdletContext.TrialComponentName != null)
+            {
+                request.TrialComponentName = cmdletContext.TrialComponentName;
             }
             
             // Initialize loop variants and commence piping
@@ -433,6 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String NextToken { get; set; }
             public Amazon.SageMaker.SortTrialsBy SortBy { get; set; }
             public Amazon.SageMaker.SortOrder SortOrder { get; set; }
+            public System.String TrialComponentName { get; set; }
             public System.Func<Amazon.SageMaker.Model.ListTrialsResponse, GetSMTrialListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TrialSummaries;
         }

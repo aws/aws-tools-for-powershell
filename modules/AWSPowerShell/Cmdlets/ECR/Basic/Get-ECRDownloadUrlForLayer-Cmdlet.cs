@@ -31,7 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You
     /// can only get URLs for image layers that are referenced in an image.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer.
+    /// </para><note><para>
     /// This operation is used by the Amazon ECR proxy, and it is not intended for general
     /// use by customers for pulling and pushing images. In most cases, you should use the
     /// <code>docker</code> CLI to pull, tag, and push images.

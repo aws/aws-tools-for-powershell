@@ -37,6 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// call your virtual         service by its <code>virtualServiceName</code>, and those
     /// requests are routed to the         virtual node or virtual router that is specified
     /// as the provider for the virtual         service.
+    /// </para><para>
+    /// For more information about virtual services, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html">Virtual
+    /// Services</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "AMSHVirtualService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,6 +67,20 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String MeshName { get; set; }
+        #endregion
+        
+        #region Parameter MeshOwner
+        /// <summary>
+        /// <para>
+        /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
+        /// then               the account that you specify must share the mesh with your account
+        /// before you can create              the resource in the service mesh. For more information
+        /// about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
+        /// with Shared Meshes</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MeshOwner { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -199,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 WriteWarning("You are passing $null as a value for parameter MeshName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MeshOwner = this.MeshOwner;
             context.VirtualNode_VirtualNodeName = this.VirtualNode_VirtualNodeName;
             context.VirtualRouter_VirtualRouterName = this.VirtualRouter_VirtualRouterName;
             if (this.Tag != null)
@@ -235,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (cmdletContext.MeshName != null)
             {
                 request.MeshName = cmdletContext.MeshName;
+            }
+            if (cmdletContext.MeshOwner != null)
+            {
+                request.MeshOwner = cmdletContext.MeshOwner;
             }
             
              // populate Spec
@@ -381,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         {
             public System.String ClientToken { get; set; }
             public System.String MeshName { get; set; }
+            public System.String MeshOwner { get; set; }
             public System.String VirtualNode_VirtualNodeName { get; set; }
             public System.String VirtualRouter_VirtualRouterName { get; set; }
             public List<Amazon.AppMesh.Model.TagRef> Tag { get; set; }

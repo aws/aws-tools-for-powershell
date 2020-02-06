@@ -546,6 +546,11 @@ Set-Alias -Name Create-AG2RouteResponse -Value New-AG2RouteResponse
 Set-Alias -Name AG2-CreateRouteResponse -Value New-AG2RouteResponse
 Set-Alias -Name Create-AG2Stage -Value New-AG2Stage
 Set-Alias -Name AG2-CreateStage -Value New-AG2Stage
+Set-Alias -Name Create-AG2VpcLink -Value New-AG2VpcLink
+Set-Alias -Name AG2-CreateVpcLink -Value New-AG2VpcLink
+Set-Alias -Name Delete-AG2AccessLogSettings -Value Remove-AG2AccessLogSetting
+Set-Alias -Name Delete-AG2AccessLogSetting -Value Remove-AG2AccessLogSetting
+Set-Alias -Name AG2-DeleteAccessLogSettings -Value Remove-AG2AccessLogSetting
 Set-Alias -Name Delete-AG2Api -Value Remove-AG2Api
 Set-Alias -Name AG2-DeleteApi -Value Remove-AG2Api
 Set-Alias -Name Delete-AG2ApiMapping -Value Remove-AG2ApiMapping
@@ -566,6 +571,8 @@ Set-Alias -Name Delete-AG2Model -Value Remove-AG2Model
 Set-Alias -Name AG2-DeleteModel -Value Remove-AG2Model
 Set-Alias -Name Delete-AG2Route -Value Remove-AG2Route
 Set-Alias -Name AG2-DeleteRoute -Value Remove-AG2Route
+Set-Alias -Name Delete-AG2RouteRequestParameter -Value Remove-AG2RouteRequestParameter
+Set-Alias -Name AG2-DeleteRouteRequestParameter -Value Remove-AG2RouteRequestParameter
 Set-Alias -Name Delete-AG2RouteResponse -Value Remove-AG2RouteResponse
 Set-Alias -Name AG2-DeleteRouteResponse -Value Remove-AG2RouteResponse
 Set-Alias -Name Delete-AG2RouteSettings -Value Remove-AG2RouteSetting
@@ -573,6 +580,8 @@ Set-Alias -Name Delete-AG2RouteSetting -Value Remove-AG2RouteSetting
 Set-Alias -Name AG2-DeleteRouteSettings -Value Remove-AG2RouteSetting
 Set-Alias -Name Delete-AG2Stage -Value Remove-AG2Stage
 Set-Alias -Name AG2-DeleteStage -Value Remove-AG2Stage
+Set-Alias -Name Delete-AG2VpcLink -Value Remove-AG2VpcLink
+Set-Alias -Name AG2-DeleteVpcLink -Value Remove-AG2VpcLink
 Set-Alias -Name AG2-GetApi -Value Get-AG2Api
 Set-Alias -Name AG2-GetApiMapping -Value Get-AG2ApiMapping
 Set-Alias -Name Get-AG2ApiMappings -Value Get-AG2ApiMappingList
@@ -609,6 +618,9 @@ Set-Alias -Name Get-AG2Stages -Value Get-AG2StageList
 Set-Alias -Name AG2-GetStages -Value Get-AG2StageList
 Set-Alias -Name Get-AG2Tags -Value Get-AG2Tag
 Set-Alias -Name AG2-GetTags -Value Get-AG2Tag
+Set-Alias -Name AG2-GetVpcLink -Value Get-AG2VpcLink
+Set-Alias -Name Get-AG2VpcLinks -Value Get-AG2VpcLinkList
+Set-Alias -Name AG2-GetVpcLinks -Value Get-AG2VpcLinkList
 Set-Alias -Name AG2-ImportApi -Value Import-AG2Api
 Set-Alias -Name Reimport-AG2Api -Value Update-AG2ApiImport
 Set-Alias -Name Reimport-AG2ApiImport -Value Update-AG2ApiImport
@@ -626,6 +638,7 @@ Set-Alias -Name AG2-UpdateModel -Value Update-AG2Model
 Set-Alias -Name AG2-UpdateRoute -Value Update-AG2Route
 Set-Alias -Name AG2-UpdateRouteResponse -Value Update-AG2RouteResponse
 Set-Alias -Name AG2-UpdateStage -Value Update-AG2Stage
+Set-Alias -Name AG2-UpdateVpcLink -Value Update-AG2VpcLink
 Set-Alias -Name Create-APPCApplication -Value New-APPCApplication
 Set-Alias -Name APPC-CreateApplication -Value New-APPCApplication
 Set-Alias -Name Create-APPCConfigurationProfile -Value New-APPCConfigurationProfile
@@ -1572,6 +1585,9 @@ Set-Alias -Name C9-DescribeEnvironmentStatus -Value Get-C9EnvironmentStatus
 Set-Alias -Name List-C9Environments -Value Get-C9EnvironmentList
 Set-Alias -Name List-C9EnvironmentList -Value Get-C9EnvironmentList
 Set-Alias -Name C9-ListEnvironments -Value Get-C9EnvironmentList
+Set-Alias -Name C9-ListTagsForResource -Value Get-C9ResourceTag
+Set-Alias -Name C9-TagResource -Value Add-C9ResourceTag
+Set-Alias -Name C9-UntagResource -Value Remove-C9ResourceTag
 Set-Alias -Name C9-UpdateEnvironment -Value Update-C9Environment
 Set-Alias -Name C9-UpdateEnvironmentMembership -Value Update-C9EnvironmentMembership
 Set-Alias -Name CDIR-AddFacetToObject -Value Add-CDIRFacetToObject
@@ -3135,6 +3151,7 @@ Set-Alias -Name Put-CFGResourceConfig -Value Write-CFGResourceConfig
 Set-Alias -Name CFG-PutResourceConfig -Value Write-CFGResourceConfig
 Set-Alias -Name Put-CFGRetentionConfiguration -Value Write-CFGRetentionConfiguration
 Set-Alias -Name CFG-PutRetentionConfiguration -Value Write-CFGRetentionConfiguration
+Set-Alias -Name CFG-SelectAggregateResourceConfig -Value Select-CFGAggregateResourceConfig
 Set-Alias -Name CFG-SelectResourceConfig -Value Select-CFGResourceConfig
 Set-Alias -Name CFG-StartConfigRulesEvaluation -Value Start-CFGConfigRulesEvaluation
 Set-Alias -Name CFG-StartConfigurationRecorder -Value Start-CFGConfigurationRecorder
@@ -4833,6 +4850,8 @@ Set-Alias -Name EC2-ImportClientVpnClientCertificateRevocationList -Value Import
 Set-Alias -Name EC2-ImportImage -Value Import-EC2Image
 Set-Alias -Name EC2-ImportKeyPair -Value Import-EC2KeyPair
 Set-Alias -Name EC2-ImportSnapshot -Value Import-EC2Snapshot
+Set-Alias -Name Modify-EC2AvailabilityZoneGroup -Value Edit-EC2AvailabilityZoneGroup
+Set-Alias -Name EC2-ModifyAvailabilityZoneGroup -Value Edit-EC2AvailabilityZoneGroup
 Set-Alias -Name Modify-EC2CapacityReservation -Value Edit-EC2CapacityReservation
 Set-Alias -Name EC2-ModifyCapacityReservation -Value Edit-EC2CapacityReservation
 Set-Alias -Name Modify-EC2ClientVpnEndpoint -Value Edit-EC2ClientVpnEndpoint
@@ -6431,6 +6450,9 @@ Set-Alias -Name GLC-SetDataRetrievalPolicy -Value Set-GLCDataRetrievalPolicy
 Set-Alias -Name GLC-SetVaultAccessPolicy -Value Set-GLCVaultAccessPolicy
 Set-Alias -Name Set-GLCVaultNotifications -Value Set-GLCVaultNotification
 Set-Alias -Name GLC-SetVaultNotifications -Value Set-GLCVaultNotification
+Set-Alias -Name Advertise-GACLByoipCidr -Value Start-GACLAdvertisingByoipCidr
+Set-Alias -Name Advertise-GACLAdvertisingByoipCidr -Value Start-GACLAdvertisingByoipCidr
+Set-Alias -Name GACL-AdvertiseByoipCidr -Value Start-GACLAdvertisingByoipCidr
 Set-Alias -Name Create-GACLAccelerator -Value New-GACLAccelerator
 Set-Alias -Name GACL-CreateAccelerator -Value New-GACLAccelerator
 Set-Alias -Name Create-GACLEndpointGroup -Value New-GACLEndpointGroup
@@ -6443,6 +6465,9 @@ Set-Alias -Name Delete-GACLEndpointGroup -Value Remove-GACLEndpointGroup
 Set-Alias -Name GACL-DeleteEndpointGroup -Value Remove-GACLEndpointGroup
 Set-Alias -Name Delete-GACLListener -Value Remove-GACLListener
 Set-Alias -Name GACL-DeleteListener -Value Remove-GACLListener
+Set-Alias -Name Deprovision-GACLByoipCidr -Value Remove-GACLByoipCidrProvision
+Set-Alias -Name Deprovision-GACLByoipCidrProvision -Value Remove-GACLByoipCidrProvision
+Set-Alias -Name GACL-DeprovisionByoipCidr -Value Remove-GACLByoipCidrProvision
 Set-Alias -Name Describe-GACLAccelerator -Value Get-GACLAccelerator
 Set-Alias -Name GACL-DescribeAccelerator -Value Get-GACLAccelerator
 Set-Alias -Name Describe-GACLAcceleratorAttributes -Value Get-GACLAcceleratorAttribute
@@ -6455,17 +6480,29 @@ Set-Alias -Name GACL-DescribeListener -Value Get-GACLListener
 Set-Alias -Name List-GACLAccelerators -Value Get-GACLAcceleratorList
 Set-Alias -Name List-GACLAcceleratorList -Value Get-GACLAcceleratorList
 Set-Alias -Name GACL-ListAccelerators -Value Get-GACLAcceleratorList
+Set-Alias -Name List-GACLByoipCidrs -Value Get-GACLByoipCidrList
+Set-Alias -Name List-GACLByoipCidrList -Value Get-GACLByoipCidrList
+Set-Alias -Name GACL-ListByoipCidrs -Value Get-GACLByoipCidrList
 Set-Alias -Name List-GACLEndpointGroups -Value Get-GACLEndpointGroupList
 Set-Alias -Name List-GACLEndpointGroupList -Value Get-GACLEndpointGroupList
 Set-Alias -Name GACL-ListEndpointGroups -Value Get-GACLEndpointGroupList
 Set-Alias -Name List-GACLListeners -Value Get-GACLListenerList
 Set-Alias -Name List-GACLListenerList -Value Get-GACLListenerList
 Set-Alias -Name GACL-ListListeners -Value Get-GACLListenerList
+Set-Alias -Name GACL-ListTagsForResource -Value Get-GACLResourceTag
+Set-Alias -Name Provision-GACLByoipCidr -Value Add-GACLByoipCidrProvision
+Set-Alias -Name Provision-GACLByoipCidrProvision -Value Add-GACLByoipCidrProvision
+Set-Alias -Name GACL-ProvisionByoipCidr -Value Add-GACLByoipCidrProvision
+Set-Alias -Name GACL-TagResource -Value Add-GACLResourceTag
+Set-Alias -Name GACL-UntagResource -Value Remove-GACLResourceTag
 Set-Alias -Name GACL-UpdateAccelerator -Value Update-GACLAccelerator
 Set-Alias -Name Update-GACLAcceleratorAttributes -Value Update-GACLAcceleratorAttribute
 Set-Alias -Name GACL-UpdateAcceleratorAttributes -Value Update-GACLAcceleratorAttribute
 Set-Alias -Name GACL-UpdateEndpointGroup -Value Update-GACLEndpointGroup
 Set-Alias -Name GACL-UpdateListener -Value Update-GACLListener
+Set-Alias -Name Withdraw-GACLByoipCidr -Value Stop-GACLAdvertisingByoipCidr
+Set-Alias -Name Withdraw-GACLAdvertisingByoipCidr -Value Stop-GACLAdvertisingByoipCidr
+Set-Alias -Name GACL-WithdrawByoipCidr -Value Stop-GACLAdvertisingByoipCidr
 Set-Alias -Name Batch-GLUECreatePartition -Value New-GLUEPartitionBatch
 Set-Alias -Name Batch-GLUEPartitionBatch -Value New-GLUEPartitionBatch
 Set-Alias -Name GLUE-BatchCreatePartition -Value New-GLUEPartitionBatch
@@ -6636,6 +6673,9 @@ Set-Alias -Name GLUE-ListDevEndpoints -Value Get-GLUEDevEndpointNameList
 Set-Alias -Name List-GLUEJobs -Value Get-GLUEJobNameList
 Set-Alias -Name List-GLUEJobNameList -Value Get-GLUEJobNameList
 Set-Alias -Name GLUE-ListJobs -Value Get-GLUEJobNameList
+Set-Alias -Name List-GLUEMLTransforms -Value Get-GLUEMLTransformIdentifier
+Set-Alias -Name List-GLUEMLTransformIdentifier -Value Get-GLUEMLTransformIdentifier
+Set-Alias -Name GLUE-ListMLTransforms -Value Get-GLUEMLTransformIdentifier
 Set-Alias -Name List-GLUETriggers -Value Get-GLUETriggerNameList
 Set-Alias -Name List-GLUETriggerNameList -Value Get-GLUETriggerNameList
 Set-Alias -Name GLUE-ListTriggers -Value Get-GLUETriggerNameList
@@ -8480,6 +8520,7 @@ Set-Alias -Name LMB-GetSlotTypes -Value Get-LMBSlotTypeList
 Set-Alias -Name Get-LMBSlotTypeVersions -Value Get-LMBSlotTypeVersionList
 Set-Alias -Name LMB-GetSlotTypeVersions -Value Get-LMBSlotTypeVersionList
 Set-Alias -Name LMB-GetUtterancesView -Value Get-LMBUtterancesView
+Set-Alias -Name LMB-ListTagsForResource -Value Get-LMBResourceTag
 Set-Alias -Name Put-LMBBotAlias -Value Write-LMBBotAlias
 Set-Alias -Name LMB-PutBotAlias -Value Write-LMBBotAlias
 Set-Alias -Name Put-LMBBot -Value Write-LMBBot
@@ -8489,6 +8530,8 @@ Set-Alias -Name LMB-PutIntent -Value Write-LMBIntent
 Set-Alias -Name Put-LMBSlotType -Value Write-LMBSlotType
 Set-Alias -Name LMB-PutSlotType -Value Write-LMBSlotType
 Set-Alias -Name LMB-StartImport -Value Start-LMBImport
+Set-Alias -Name LMB-TagResource -Value Add-LMBResourceTag
+Set-Alias -Name LMB-UntagResource -Value Remove-LMBResourceTag
 Set-Alias -Name Create-LICMLicenseConfiguration -Value New-LICMLicenseConfiguration
 Set-Alias -Name LICM-CreateLicenseConfiguration -Value New-LICMLicenseConfiguration
 Set-Alias -Name Delete-LICMLicenseConfiguration -Value Remove-LICMLicenseConfiguration
@@ -8537,6 +8580,8 @@ Set-Alias -Name LS-CloseInstancePublicPorts -Value Close-LSInstancePublicPort
 Set-Alias -Name LS-CopySnapshot -Value Copy-LSSnapshot
 Set-Alias -Name Create-LSCloudFormationStack -Value New-LSCloudFormationStack
 Set-Alias -Name LS-CreateCloudFormationStack -Value New-LSCloudFormationStack
+Set-Alias -Name Create-LSContactMethod -Value New-LSContactMethod
+Set-Alias -Name LS-CreateContactMethod -Value New-LSContactMethod
 Set-Alias -Name Create-LSDisk -Value New-LSDisk
 Set-Alias -Name LS-CreateDisk -Value New-LSDisk
 Set-Alias -Name Create-LSDiskFromSnapshot -Value New-LSDiskFromSnapshot
@@ -8566,8 +8611,12 @@ Set-Alias -Name Create-LSRelationalDatabaseFromSnapshot -Value New-LSRelationalD
 Set-Alias -Name LS-CreateRelationalDatabaseFromSnapshot -Value New-LSRelationalDatabaseFromSnapshot
 Set-Alias -Name Create-LSRelationalDatabaseSnapshot -Value New-LSRelationalDatabaseSnapshot
 Set-Alias -Name LS-CreateRelationalDatabaseSnapshot -Value New-LSRelationalDatabaseSnapshot
+Set-Alias -Name Delete-LSAlarm -Value Remove-LSAlarm
+Set-Alias -Name LS-DeleteAlarm -Value Remove-LSAlarm
 Set-Alias -Name Delete-LSAutoSnapshot -Value Remove-LSAutoSnapshot
 Set-Alias -Name LS-DeleteAutoSnapshot -Value Remove-LSAutoSnapshot
+Set-Alias -Name Delete-LSContactMethod -Value Remove-LSContactMethod
+Set-Alias -Name LS-DeleteContactMethod -Value Remove-LSContactMethod
 Set-Alias -Name Delete-LSDisk -Value Remove-LSDisk
 Set-Alias -Name LS-DeleteDisk -Value Remove-LSDisk
 Set-Alias -Name Delete-LSDiskSnapshot -Value Remove-LSDiskSnapshot
@@ -8606,6 +8655,8 @@ Set-Alias -Name LS-EnableAddOn -Value Enable-LSAddOn
 Set-Alias -Name LS-ExportSnapshot -Value Export-LSSnapshot
 Set-Alias -Name Get-LSActiveNames -Value Get-LSActiveNameList
 Set-Alias -Name LS-GetActiveNames -Value Get-LSActiveNameList
+Set-Alias -Name Get-LSAlarms -Value Get-LSAlarm
+Set-Alias -Name LS-GetAlarms -Value Get-LSAlarm
 Set-Alias -Name Get-LSAutoSnapshots -Value Get-LSAutoSnapshot
 Set-Alias -Name LS-GetAutoSnapshots -Value Get-LSAutoSnapshot
 Set-Alias -Name Get-LSBlueprints -Value Get-LSBlueprintList
@@ -8614,6 +8665,8 @@ Set-Alias -Name Get-LSBundles -Value Get-LSBundleList
 Set-Alias -Name LS-GetBundles -Value Get-LSBundleList
 Set-Alias -Name Get-LSCloudFormationStackRecords -Value Get-LSCloudFormationStackRecord
 Set-Alias -Name LS-GetCloudFormationStackRecords -Value Get-LSCloudFormationStackRecord
+Set-Alias -Name Get-LSContactMethods -Value Get-LSContactMethod
+Set-Alias -Name LS-GetContactMethods -Value Get-LSContactMethod
 Set-Alias -Name LS-GetDisk -Value Get-LSDisk
 Set-Alias -Name Get-LSDisks -Value Get-LSDiskList
 Set-Alias -Name LS-GetDisks -Value Get-LSDiskList
@@ -8685,6 +8738,8 @@ Set-Alias -Name LS-OpenInstancePublicPorts -Value Open-LSInstancePublicPort
 Set-Alias -Name Peer-LSVpc -Value Add-LSPeerVpc
 Set-Alias -Name Peer-LSPeerVpc -Value Add-LSPeerVpc
 Set-Alias -Name LS-PeerVpc -Value Add-LSPeerVpc
+Set-Alias -Name Put-LSAlarm -Value Add-LSAlarm
+Set-Alias -Name LS-PutAlarm -Value Add-LSAlarm
 Set-Alias -Name Put-LSInstancePublicPorts -Value Set-LSInstancePublicPort
 Set-Alias -Name Put-LSInstancePublicPort -Value Set-LSInstancePublicPort
 Set-Alias -Name LS-PutInstancePublicPorts -Value Set-LSInstancePublicPort
@@ -8694,11 +8749,13 @@ Set-Alias -Name Reboot-LSRelationalDatabase -Value Restart-LSRelationalDatabase
 Set-Alias -Name LS-RebootRelationalDatabase -Value Restart-LSRelationalDatabase
 Set-Alias -Name Release-LSStaticIp -Value Remove-LSStaticIp
 Set-Alias -Name LS-ReleaseStaticIp -Value Remove-LSStaticIp
+Set-Alias -Name LS-SendContactMethodVerification -Value Send-LSContactMethodVerification
 Set-Alias -Name LS-StartInstance -Value Start-LSInstance
 Set-Alias -Name LS-StartRelationalDatabase -Value Start-LSRelationalDatabase
 Set-Alias -Name LS-StopInstance -Value Stop-LSInstance
 Set-Alias -Name LS-StopRelationalDatabase -Value Stop-LSRelationalDatabase
 Set-Alias -Name LS-TagResource -Value Add-LSResourceTag
+Set-Alias -Name LS-TestAlarm -Value Test-LSAlarm
 Set-Alias -Name Unpeer-LSVpc -Value Remove-LSPeerVpc
 Set-Alias -Name Unpeer-LSPeerVpc -Value Remove-LSPeerVpc
 Set-Alias -Name LS-UnpeerVpc -Value Remove-LSPeerVpc
@@ -9277,6 +9334,8 @@ Set-Alias -Name CW-ListMetrics -Value Get-CWMetricList
 Set-Alias -Name CW-ListTagsForResource -Value Get-CWResourceTag
 Set-Alias -Name Put-CWAnomalyDetector -Value Write-CWAnomalyDetector
 Set-Alias -Name CW-PutAnomalyDetector -Value Write-CWAnomalyDetector
+Set-Alias -Name Put-CWCompositeAlarm -Value Write-CWCompositeAlarm
+Set-Alias -Name CW-PutCompositeAlarm -Value Write-CWCompositeAlarm
 Set-Alias -Name Put-CWDashboard -Value Write-CWDashboard
 Set-Alias -Name CW-PutDashboard -Value Write-CWDashboard
 Set-Alias -Name Put-CWInsightRule -Value Write-CWInsightRule
@@ -9535,6 +9594,8 @@ Set-Alias -Name NPT-ResetDBClusterParameterGroup -Value Reset-NPTDBClusterParame
 Set-Alias -Name NPT-ResetDBParameterGroup -Value Reset-NPTDBParameterGroup
 Set-Alias -Name NPT-RestoreDBClusterFromSnapshot -Value Restore-NPTDBClusterFromSnapshot
 Set-Alias -Name NPT-RestoreDBClusterToPointInTime -Value Restore-NPTDBClusterToPointInTime
+Set-Alias -Name NPT-StartDBCluster -Value Start-NPTDBCluster
+Set-Alias -Name NPT-StopDBCluster -Value Stop-NPTDBCluster
 Set-Alias -Name Associate-NMGRCustomerGateway -Value Register-NMGRCustomerGateway
 Set-Alias -Name NMGR-AssociateCustomerGateway -Value Register-NMGRCustomerGateway
 Set-Alias -Name Associate-NMGRLink -Value Register-NMGRLink
@@ -9862,6 +9923,10 @@ Set-Alias -Name ORG-UpdateOrganizationalUnit -Value Update-ORGOrganizationalUnit
 Set-Alias -Name ORG-UpdatePolicy -Value Update-ORGPolicy
 Set-Alias -Name Create-OUTPOutpost -Value New-OUTPOutpost
 Set-Alias -Name OUTP-CreateOutpost -Value New-OUTPOutpost
+Set-Alias -Name Delete-OUTPOutpost -Value Remove-OUTPOutpost
+Set-Alias -Name OUTP-DeleteOutpost -Value Remove-OUTPOutpost
+Set-Alias -Name Delete-OUTPSite -Value Remove-OUTPSite
+Set-Alias -Name OUTP-DeleteSite -Value Remove-OUTPSite
 Set-Alias -Name OUTP-GetOutpost -Value Get-OUTPOutpost
 Set-Alias -Name Get-OUTPOutpostInstanceTypes -Value Get-OUTPOutpostInstanceType
 Set-Alias -Name OUTP-GetOutpostInstanceTypes -Value Get-OUTPOutpostInstanceType
@@ -9983,6 +10048,8 @@ Set-Alias -Name Create-PINJourney -Value New-PINJourney
 Set-Alias -Name PIN-CreateJourney -Value New-PINJourney
 Set-Alias -Name Create-PINPushTemplate -Value New-PINPushTemplate
 Set-Alias -Name PIN-CreatePushTemplate -Value New-PINPushTemplate
+Set-Alias -Name Create-PINRecommenderConfiguration -Value New-PINRecommenderConfiguration
+Set-Alias -Name PIN-CreateRecommenderConfiguration -Value New-PINRecommenderConfiguration
 Set-Alias -Name Create-PINSegment -Value New-PINSegment
 Set-Alias -Name PIN-CreateSegment -Value New-PINSegment
 Set-Alias -Name Create-PINSmsTemplate -Value New-PINSmsTemplate
@@ -10019,6 +10086,8 @@ Set-Alias -Name Delete-PINJourney -Value Remove-PINJourney
 Set-Alias -Name PIN-DeleteJourney -Value Remove-PINJourney
 Set-Alias -Name Delete-PINPushTemplate -Value Remove-PINPushTemplate
 Set-Alias -Name PIN-DeletePushTemplate -Value Remove-PINPushTemplate
+Set-Alias -Name Delete-PINRecommenderConfiguration -Value Remove-PINRecommenderConfiguration
+Set-Alias -Name PIN-DeleteRecommenderConfiguration -Value Remove-PINRecommenderConfiguration
 Set-Alias -Name Delete-PINSegment -Value Remove-PINSegment
 Set-Alias -Name PIN-DeleteSegment -Value Remove-PINSegment
 Set-Alias -Name Delete-PINSmsChannel -Value Remove-PINSmsChannel
@@ -10073,6 +10142,9 @@ Set-Alias -Name PIN-GetJourneyExecutionActivityMetrics -Value Get-PINJourneyExec
 Set-Alias -Name Get-PINJourneyExecutionMetrics -Value Get-PINJourneyExecutionMetric
 Set-Alias -Name PIN-GetJourneyExecutionMetrics -Value Get-PINJourneyExecutionMetric
 Set-Alias -Name PIN-GetPushTemplate -Value Get-PINPushTemplate
+Set-Alias -Name PIN-GetRecommenderConfiguration -Value Get-PINRecommenderConfiguration
+Set-Alias -Name Get-PINRecommenderConfigurations -Value Get-PINRecommenderConfigurationList
+Set-Alias -Name PIN-GetRecommenderConfigurations -Value Get-PINRecommenderConfigurationList
 Set-Alias -Name PIN-GetSegment -Value Get-PINSegment
 Set-Alias -Name Get-PINSegmentExportJobs -Value Get-PINSegmentExportJobList
 Set-Alias -Name PIN-GetSegmentExportJobs -Value Get-PINSegmentExportJobList
@@ -10132,6 +10204,7 @@ Set-Alias -Name PIN-UpdateGcmChannel -Value Update-PINGcmChannel
 Set-Alias -Name PIN-UpdateJourney -Value Update-PINJourney
 Set-Alias -Name PIN-UpdateJourneyState -Value Update-PINJourneyState
 Set-Alias -Name PIN-UpdatePushTemplate -Value Update-PINPushTemplate
+Set-Alias -Name PIN-UpdateRecommenderConfiguration -Value Update-PINRecommenderConfiguration
 Set-Alias -Name PIN-UpdateSegment -Value Update-PINSegment
 Set-Alias -Name PIN-UpdateSmsChannel -Value Update-PINSmsChannel
 Set-Alias -Name PIN-UpdateSmsTemplate -Value Update-PINSmsTemplate
@@ -10391,6 +10464,8 @@ Set-Alias -Name List-QSUsers -Value Get-QSUserList
 Set-Alias -Name List-QSUserList -Value Get-QSUserList
 Set-Alias -Name QS-ListUsers -Value Get-QSUserList
 Set-Alias -Name QS-RegisterUser -Value Register-QSUser
+Set-Alias -Name Search-QSDashboards -Value Search-QSDashboard
+Set-Alias -Name QS-SearchDashboards -Value Search-QSDashboard
 Set-Alias -Name QS-TagResource -Value Add-QSResourceTag
 Set-Alias -Name QS-UntagResource -Value Remove-QSResourceTag
 Set-Alias -Name QS-UpdateDashboard -Value Update-QSDashboard
@@ -10925,6 +11000,8 @@ Set-Alias -Name Modify-RSSnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyR
 Set-Alias -Name RS-ModifySnapshotCopyRetentionPeriod -Value Edit-RSSnapshotCopyRetentionPeriod
 Set-Alias -Name Modify-RSSnapshotSchedule -Value Edit-RSSnapshotSchedule
 Set-Alias -Name RS-ModifySnapshotSchedule -Value Edit-RSSnapshotSchedule
+Set-Alias -Name Pause-RSCluster -Value Stop-RSCluster
+Set-Alias -Name RS-PauseCluster -Value Stop-RSCluster
 Set-Alias -Name Purchase-RSReservedNodeOffering -Value Request-RSReservedNodeOffering
 Set-Alias -Name RS-PurchaseReservedNodeOffering -Value Request-RSReservedNodeOffering
 Set-Alias -Name Reboot-RSCluster -Value Restart-RSCluster
@@ -10935,6 +11012,8 @@ Set-Alias -Name Resize-RSClusterSize -Value Set-RSClusterSize
 Set-Alias -Name RS-ResizeCluster -Value Set-RSClusterSize
 Set-Alias -Name RS-RestoreFromClusterSnapshot -Value Restore-RSFromClusterSnapshot
 Set-Alias -Name RS-RestoreTableFromClusterSnapshot -Value Restore-RSTableFromClusterSnapshot
+Set-Alias -Name Resume-RSCluster -Value Start-RSCluster
+Set-Alias -Name RS-ResumeCluster -Value Start-RSCluster
 Set-Alias -Name RS-RevokeClusterSecurityGroupIngress -Value Revoke-RSClusterSecurityGroupIngress
 Set-Alias -Name RS-RevokeSnapshotAccess -Value Revoke-RSSnapshotAccess
 Set-Alias -Name Rotate-RSEncryptionKey -Value Switch-RSEncryptionKey
@@ -10988,6 +11067,7 @@ Set-Alias -Name REK-GetFaceDetection -Value Get-REKFaceDetection
 Set-Alias -Name REK-GetFaceSearch -Value Get-REKFaceSearch
 Set-Alias -Name REK-GetLabelDetection -Value Get-REKLabelDetection
 Set-Alias -Name REK-GetPersonTracking -Value Get-REKPersonTracking
+Set-Alias -Name REK-GetTextDetection -Value Get-REKTextDetection
 Set-Alias -Name Index-REKFaces -Value Add-REKDetectedFacesToCollection
 Set-Alias -Name Index-REKDetectedFacesToCollection -Value Add-REKDetectedFacesToCollection
 Set-Alias -Name REK-IndexFaces -Value Add-REKDetectedFacesToCollection
@@ -11014,6 +11094,7 @@ Set-Alias -Name REK-StartLabelDetection -Value Start-REKLabelDetection
 Set-Alias -Name REK-StartPersonTracking -Value Start-REKPersonTracking
 Set-Alias -Name REK-StartProjectVersion -Value Start-REKProjectVersion
 Set-Alias -Name REK-StartStreamProcessor -Value Start-REKStreamProcessor
+Set-Alias -Name REK-StartTextDetection -Value Start-REKTextDetection
 Set-Alias -Name REK-StopProjectVersion -Value Stop-REKProjectVersion
 Set-Alias -Name REK-StopStreamProcessor -Value Stop-REKStreamProcessor
 Set-Alias -Name Create-RGGroup -Value New-RGGroup
@@ -11062,6 +11143,8 @@ Set-Alias -Name Cancel-ROBODeploymentJob -Value Stop-ROBODeploymentJob
 Set-Alias -Name ROBO-CancelDeploymentJob -Value Stop-ROBODeploymentJob
 Set-Alias -Name Cancel-ROBOSimulationJob -Value Stop-ROBOSimulationJob
 Set-Alias -Name ROBO-CancelSimulationJob -Value Stop-ROBOSimulationJob
+Set-Alias -Name Cancel-ROBOSimulationJobBatch -Value Stop-ROBOSimulationJobBatch
+Set-Alias -Name ROBO-CancelSimulationJobBatch -Value Stop-ROBOSimulationJobBatch
 Set-Alias -Name Create-ROBODeploymentJob -Value New-ROBODeploymentJob
 Set-Alias -Name ROBO-CreateDeploymentJob -Value New-ROBODeploymentJob
 Set-Alias -Name Create-ROBOFleet -Value New-ROBOFleet
@@ -11100,6 +11183,8 @@ Set-Alias -Name Describe-ROBOSimulationApplication -Value Get-ROBOSimulationAppl
 Set-Alias -Name ROBO-DescribeSimulationApplication -Value Get-ROBOSimulationApplication
 Set-Alias -Name Describe-ROBOSimulationJob -Value Get-ROBOSimulationJob
 Set-Alias -Name ROBO-DescribeSimulationJob -Value Get-ROBOSimulationJob
+Set-Alias -Name Describe-ROBOSimulationJobBatch -Value Get-ROBOSimulationJobBatch
+Set-Alias -Name ROBO-DescribeSimulationJobBatch -Value Get-ROBOSimulationJobBatch
 Set-Alias -Name List-ROBODeploymentJobs -Value Get-ROBODeploymentJobList
 Set-Alias -Name List-ROBODeploymentJobList -Value Get-ROBODeploymentJobList
 Set-Alias -Name ROBO-ListDeploymentJobs -Value Get-ROBODeploymentJobList
@@ -11115,12 +11200,16 @@ Set-Alias -Name ROBO-ListRobots -Value Get-ROBORobotList
 Set-Alias -Name List-ROBOSimulationApplications -Value Get-ROBOSimulationApplicationList
 Set-Alias -Name List-ROBOSimulationApplicationList -Value Get-ROBOSimulationApplicationList
 Set-Alias -Name ROBO-ListSimulationApplications -Value Get-ROBOSimulationApplicationList
+Set-Alias -Name List-ROBOSimulationJobBatches -Value Get-ROBOSimulationJobBatchList
+Set-Alias -Name List-ROBOSimulationJobBatchList -Value Get-ROBOSimulationJobBatchList
+Set-Alias -Name ROBO-ListSimulationJobBatches -Value Get-ROBOSimulationJobBatchList
 Set-Alias -Name List-ROBOSimulationJobs -Value Get-ROBOSimulationJobSummary
 Set-Alias -Name List-ROBOSimulationJobSummary -Value Get-ROBOSimulationJobSummary
 Set-Alias -Name ROBO-ListSimulationJobs -Value Get-ROBOSimulationJobSummary
 Set-Alias -Name ROBO-ListTagsForResource -Value Get-ROBOResourceTag
 Set-Alias -Name ROBO-RegisterRobot -Value Register-ROBORobot
 Set-Alias -Name ROBO-RestartSimulationJob -Value Restart-ROBOSimulationJob
+Set-Alias -Name ROBO-StartSimulationJobBatch -Value Start-ROBOSimulationJobBatch
 Set-Alias -Name ROBO-SyncDeploymentJob -Value Sync-ROBODeploymentJob
 Set-Alias -Name ROBO-TagResource -Value Add-ROBOResourceTag
 Set-Alias -Name ROBO-UntagResource -Value Remove-ROBOResourceTag
@@ -11838,6 +11927,9 @@ Set-Alias -Name SHUB-DescribeHub -Value Get-SHUBHub
 Set-Alias -Name Describe-SHUBProducts -Value Get-SHUBProduct
 Set-Alias -Name Describe-SHUBProduct -Value Get-SHUBProduct
 Set-Alias -Name SHUB-DescribeProducts -Value Get-SHUBProduct
+Set-Alias -Name Describe-SHUBStandards -Value Get-SHUBStandard
+Set-Alias -Name Describe-SHUBStandard -Value Get-SHUBStandard
+Set-Alias -Name SHUB-DescribeStandards -Value Get-SHUBStandard
 Set-Alias -Name Describe-SHUBStandardsControls -Value Get-SHUBStandardsControl
 Set-Alias -Name Describe-SHUBStandardsControl -Value Get-SHUBStandardsControl
 Set-Alias -Name SHUB-DescribeStandardsControls -Value Get-SHUBStandardsControl
@@ -11907,6 +11999,9 @@ Set-Alias -Name List-SARApplicationVersionList -Value Get-SARApplicationVersionL
 Set-Alias -Name SAR-ListApplicationVersions -Value Get-SARApplicationVersionList
 Set-Alias -Name Put-SARApplicationPolicy -Value Set-SARApplicationPolicy
 Set-Alias -Name SAR-PutApplicationPolicy -Value Set-SARApplicationPolicy
+Set-Alias -Name Unshare-SARApplication -Value Revoke-SARApplicationSharing
+Set-Alias -Name Unshare-SARApplicationSharing -Value Revoke-SARApplicationSharing
+Set-Alias -Name SAR-UnshareApplication -Value Revoke-SARApplicationSharing
 Set-Alias -Name SAR-UpdateApplication -Value Update-SARApplication
 Set-Alias -Name Accept-SCPortfolioShare -Value Receive-SCPortfolioShare
 Set-Alias -Name SC-AcceptPortfolioShare -Value Receive-SCPortfolioShare
@@ -12272,6 +12367,8 @@ Set-Alias -Name SHLD-AssociateDRTLogBucket -Value Grant-SHLDDRTLogBucketAssociat
 Set-Alias -Name Associate-SHLDDRTRole -Value Grant-SHLDDRTRoleAssociation
 Set-Alias -Name Associate-SHLDDRTRoleAssociation -Value Grant-SHLDDRTRoleAssociation
 Set-Alias -Name SHLD-AssociateDRTRole -Value Grant-SHLDDRTRoleAssociation
+Set-Alias -Name Associate-SHLDHealthCheck -Value Add-SHLDHealthCheck
+Set-Alias -Name SHLD-AssociateHealthCheck -Value Add-SHLDHealthCheck
 Set-Alias -Name Create-SHLDProtection -Value New-SHLDProtection
 Set-Alias -Name SHLD-CreateProtection -Value New-SHLDProtection
 Set-Alias -Name Create-SHLDSubscription -Value New-SHLDSubscription
@@ -12297,6 +12394,8 @@ Set-Alias -Name SHLD-DisassociateDRTLogBucket -Value Revoke-SHLDDRTLogBucketAsso
 Set-Alias -Name Disassociate-SHLDDRTRole -Value Revoke-SHLDDRTRoleAssociation
 Set-Alias -Name Disassociate-SHLDDRTRoleAssociation -Value Revoke-SHLDDRTRoleAssociation
 Set-Alias -Name SHLD-DisassociateDRTRole -Value Revoke-SHLDDRTRoleAssociation
+Set-Alias -Name Disassociate-SHLDHealthCheck -Value Remove-SHLDHealthCheck
+Set-Alias -Name SHLD-DisassociateHealthCheck -Value Remove-SHLDHealthCheck
 Set-Alias -Name SHLD-GetSubscriptionState -Value Get-SHLDSubscriptionState
 Set-Alias -Name List-SHLDAttacks -Value Get-SHLDAttackList
 Set-Alias -Name List-SHLDAttackList -Value Get-SHLDAttackList
@@ -13623,6 +13722,8 @@ Set-Alias -Name Create-WMResource -Value New-WMResource
 Set-Alias -Name WM-CreateResource -Value New-WMResource
 Set-Alias -Name Create-WMUser -Value New-WMUser
 Set-Alias -Name WM-CreateUser -Value New-WMUser
+Set-Alias -Name Delete-WMAccessControlRule -Value Remove-WMAccessControlRule
+Set-Alias -Name WM-DeleteAccessControlRule -Value Remove-WMAccessControlRule
 Set-Alias -Name Delete-WMAlias -Value Remove-WMAlias
 Set-Alias -Name WM-DeleteAlias -Value Remove-WMAlias
 Set-Alias -Name Delete-WMGroup -Value Remove-WMGroup
@@ -13648,8 +13749,12 @@ Set-Alias -Name Disassociate-WMDelegateFromResource -Value Remove-WMDelegateFrom
 Set-Alias -Name WM-DisassociateDelegateFromResource -Value Remove-WMDelegateFromResource
 Set-Alias -Name Disassociate-WMMemberFromGroup -Value Remove-WMMemberFromGroup
 Set-Alias -Name WM-DisassociateMemberFromGroup -Value Remove-WMMemberFromGroup
+Set-Alias -Name WM-GetAccessControlEffect -Value Get-WMAccessControlEffect
 Set-Alias -Name Get-WMMailboxDetails -Value Get-WMMailboxDetail
 Set-Alias -Name WM-GetMailboxDetails -Value Get-WMMailboxDetail
+Set-Alias -Name List-WMAccessControlRules -Value Get-WMAccessControlRuleList
+Set-Alias -Name List-WMAccessControlRuleList -Value Get-WMAccessControlRuleList
+Set-Alias -Name WM-ListAccessControlRules -Value Get-WMAccessControlRuleList
 Set-Alias -Name List-WMAliases -Value Get-WMAliasList
 Set-Alias -Name List-WMAliasList -Value Get-WMAliasList
 Set-Alias -Name WM-ListAliases -Value Get-WMAliasList
@@ -13675,6 +13780,8 @@ Set-Alias -Name WM-ListTagsForResource -Value Get-WMResourceTag
 Set-Alias -Name List-WMUsers -Value Get-WMUserList
 Set-Alias -Name List-WMUserList -Value Get-WMUserList
 Set-Alias -Name WM-ListUsers -Value Get-WMUserList
+Set-Alias -Name Put-WMAccessControlRule -Value Write-WMAccessControlRule
+Set-Alias -Name WM-PutAccessControlRule -Value Write-WMAccessControlRule
 Set-Alias -Name Put-WMMailboxPermissions -Value Write-WMMailboxPermission
 Set-Alias -Name Put-WMMailboxPermission -Value Write-WMMailboxPermission
 Set-Alias -Name WM-PutMailboxPermissions -Value Write-WMMailboxPermission

@@ -247,6 +247,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDBCluster" OutputProperty="DBCluster" Verb="Start" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDBCluster" OutputProperty="DBCluster" Verb="Stop" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <InputObjectMappingRules />
     <SupportsShouldProcessVerbs />

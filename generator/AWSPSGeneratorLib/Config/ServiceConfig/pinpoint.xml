@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>pinpoint</C2jFilename>
     <AssemblyName>Pinpoint</AssemblyName>
@@ -43,6 +44,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePushTemplate" OutputProperty="CreateTemplateMessageBody" Verb="New" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="New" Noun="RecommenderConfiguration" ShouldProcessTarget="CreateRecommenderConfiguration_RecommendationProviderUri" PipelineParameter="CreateRecommenderConfiguration_RecommendationProviderUri" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -118,6 +123,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Remove" Noun="RecommenderConfiguration" ShouldProcessTarget="RecommenderId" PipelineParameter="RecommenderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteSegment" OutputProperty="SegmentResponse" Verb="Remove" Noun="Segment" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -168,6 +177,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetApplicationDateRangeKpi" OutputProperty="ApplicationDateRangeKpiResponse" Verb="Get" Noun="ApplicationDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="NextToken" Next="ApplicationDateRangeKpiResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetApplicationSettings" OutputProperty="ApplicationSettingsResource" Verb="Get" Noun="ApplicationSettingList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -176,6 +186,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetApps" OutputProperty="ApplicationsResponse" Verb="Get" Noun="AppList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
+            <AutoIterate Start="Token" Next="ApplicationsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBaiduChannel" OutputProperty="BaiduChannelResponse" Verb="Get" Noun="BaiduChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -188,14 +199,17 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetCampaignActivities" OutputProperty="ActivitiesResponse" Verb="Get" Noun="CampaignActivityList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="Token" Next="ActivitiesResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCampaignDateRangeKpi" OutputProperty="CampaignDateRangeKpiResponse" Verb="Get" Noun="CampaignDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="NextToken" Next="CampaignDateRangeKpiResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCampaigns" OutputProperty="CampaignsResponse" Verb="Get" Noun="CampaignList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="Token" Next="CampaignsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetCampaignVersion" OutputProperty="CampaignResponse" Verb="Get" Noun="CampaignVersion" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -204,6 +218,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetCampaignVersions" OutputProperty="CampaignsResponse" Verb="Get" Noun="CampaignVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="Token" Next="CampaignsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetChannels" OutputProperty="ChannelsResponse" Verb="Get" Noun="Channel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -232,6 +247,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetExportJobs" OutputProperty="ExportJobsResponse" Verb="Get" Noun="ExportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="Token" Next="ExportJobsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetGcmChannel" OutputProperty="GCMChannelResponse" Verb="Get" Noun="GcmChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -244,6 +260,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetImportJobs" OutputProperty="ImportJobsResponse" Verb="Get" Noun="ImportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="Token" Next="ImportJobsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetJourney" OutputProperty="JourneyResponse" Verb="Get" Noun="Journey" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -252,6 +269,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetJourneyDateRangeKpi" OutputProperty="JourneyDateRangeKpiResponse" Verb="Get" Noun="JourneyDateRangeKpi" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="NextToken" Next="JourneyDateRangeKpiResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetJourneyExecutionActivityMetrics" OutputProperty="JourneyExecutionActivityMetricsResponse" Verb="Get" Noun="JourneyExecutionActivityMetric" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -266,6 +284,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Get" Noun="RecommenderConfiguration" PipelineParameter="RecommenderId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommenderConfigurations" OutputProperty="ListRecommenderConfigurationsResponse" Verb="Get" Noun="RecommenderConfigurationList" PipelineParameter="Token" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="Token" Next="ListRecommenderConfigurationsResponse.NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSegment" OutputProperty="SegmentResponse" Verb="Get" Noun="Segment" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -276,10 +303,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetSegmentImportJobs" OutputProperty="ImportJobsResponse" Verb="Get" Noun="SegmentImportJobList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="Token" Next="ImportJobsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSegments" OutputProperty="SegmentsResponse" Verb="Get" Noun="SegmentList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="Token" Next="SegmentsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSegmentVersion" OutputProperty="SegmentResponse" Verb="Get" Noun="SegmentVersion" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -288,6 +317,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetSegmentVersions" OutputProperty="SegmentsResponse" Verb="Get" Noun="SegmentVersionList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="Token" Next="SegmentsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetSmsChannel" OutputProperty="SMSChannelResponse" Verb="Get" Noun="SmsChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
@@ -312,6 +342,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListJourneys" OutputProperty="JourneysResponse" Verb="Get" Noun="JourneyList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="Token" Next="JourneysResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagsModel" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
@@ -320,10 +351,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListTemplates" OutputProperty="TemplatesResponse" Verb="Get" Noun="TemplateList" PipelineParameter="Prefix" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="NextToken" Next="TemplatesResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTemplateVersions" OutputProperty="TemplateVersionsResponse" Verb="Get" Noun="TemplateVersionList" PipelineParameter="TemplateName" NoPipelineParameter="false">
             <Params />
+            <AutoIterate Start="NextToken" Next="TemplateVersionsResponse.NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PhoneNumberValidate" OutputProperty="NumberValidateResponse" Verb="Confirm" Noun="PhoneNumber" ShouldProcessTarget="NumberValidateRequest" PipelineParameter="NumberValidateRequest" NoPipelineParameter="false">
@@ -421,6 +454,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePushTemplate" OutputProperty="MessageBody" Verb="Update" Noun="PushTemplate" ShouldProcessTarget="TemplateName" PipelineParameter="TemplateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRecommenderConfiguration" OutputProperty="RecommenderConfigurationResponse" Verb="Update" Noun="RecommenderConfiguration" ShouldProcessTarget="RecommenderId" PipelineParameter="RecommenderId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
