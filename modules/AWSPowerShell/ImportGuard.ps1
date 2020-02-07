@@ -1,4 +1,11 @@
-function AWSToolsImportGuard() {
+[CmdletBinding()]
+Param()
+
+function AWSToolsImportGuard {
+
+    [CmdletBinding()]
+    Param($args)  #Gets common parameter from the script call
+
     Microsoft.PowerShell.Core\Set-StrictMode -Version 3
 
     [string[]]$rootModules = @( 'AWSPowerShell', 'AWSPowerShell.NetCore', 'AWS.Tools.Common' )
