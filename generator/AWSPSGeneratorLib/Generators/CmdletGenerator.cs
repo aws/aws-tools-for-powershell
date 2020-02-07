@@ -194,9 +194,9 @@ namespace AWSPowerShellGenerator.Generators
             var configurationsFolder = Path.Combine(Options.RootPath, ConfigurationFolderName);
             var serviceConfigurationsFolder = Path.Combine(configurationsFolder, ServiceConfigFoldername);
 
-            ModelCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, Options.Verbose);
+            XmlOverridesMerger.ApplyOverrides(Options.RootPath, serviceConfigurationsFolder);
 
-            XmlOverridesMerger.ApplyOverrides(Options.RootPath, ModelCollection, serviceConfigurationsFolder);
+            ModelCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, Options.Verbose);
 
             SourceArtifacts = new GenerationSources(OutputFolder, SdkAssembliesFolder, Options.VersionNumber);
             LoadCoreSDKRuntimeMaterials();
@@ -628,10 +628,6 @@ namespace AWSPowerShellGenerator.Generators
                     {
                         Logger.LogError("Method {0} has no ServiceOperation defined in model {1}", methodName, CurrentModel.ServiceNamespace);
                     }
-
-                    // this triggers the generator to write out the modified config file
-                    // with the changes
-                    CurrentModel.ModelUpdated = true;
 
                     return true;
                 }

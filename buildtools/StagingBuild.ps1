@@ -39,7 +39,20 @@ if (-not (Get-Module -ListAvailable -Name AWS.Tools.S3 | Where-Object { $_.Versi
 Import-Module -Name AWS.Tools.S3 -RequiredVersion $AWSPowerShellVersion
 
 Write-Host "Downloading $SdkVersionsFileUri"
-Invoke-WebRequest -Uri $SdkVersionsFileUri -OutFile ./Include/sdk/_sdk-versions.json
+$maxHttpGetAttempts = 10
+for ($i = 1; $i -le $maxHttpGetAttempts; $i++) {
+  try {
+    Invoke-WebRequest -Uri $SdkVersionsFileUri -OutFile ./Include/sdk/_sdk-versions.json
+    break
+  }
+  catch {
+    if ($i -eq $maxHttpGetAttempts) {
+       throw "Error retrieving versions file. $_"
+    }
+    Write-Host "Error downloading versions file, waiting for retry. $_"
+    Start-Sleep -Seconds 30
+  }
+}
 
 if ($S3OverridesKey) {
   Write-Host "Downloading $BuildS3Bucket $S3OverridesKey $S3OverridesVersion"
@@ -71,5 +84,6 @@ if ($BuildResult -ne 0) {
 else {
   Compress-Archive -Path ./Deployment/AWSPowerShell.NetCore -DestinationPath ./AWSPowerShell.NetCore.zip
   Write-S3Object -BucketName $BuildS3Bucket -Key "$S3Prefix/AWSPowerShell.NetCore.zip" -File ./AWSPowerShell.NetCore.zip
+  Write-S3Object -BucketName $BuildS3Bucket -Key staging/AWSPowerShell.NetCore.zip -File ./AWSPowerShell.NetCore.zip
 }
 

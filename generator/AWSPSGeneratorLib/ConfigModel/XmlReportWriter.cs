@@ -21,6 +21,8 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 Directory.CreateDirectory(folderPath);
             }
 
+            var overrides = XmlOverridesMerger.GetOverridesDescription(folderPath, out var errorMessage);
+
             var filename = Path.Combine(folderPath, "report.xml");
             try
             {
@@ -34,7 +36,8 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 //We only include services with errors, new operations or operations requiring a configuration update
                 var configModelsToOutput = models.Where(configModel =>
                         configModel.AnalysisErrors.Any() ||
-                        configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.IsConfigurationOverridden || op.AnalysisErrors.Any()).Any())
+                        overrides.ContainsKey(configModel.C2jFilename) ||
+                        configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.AnalysisErrors.Any()).Any())
                     .ToArray();
 
                 var doc = new XDocument();
@@ -46,11 +49,16 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     writer.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
                     writer.WriteAttributeString("xsi", "noNamespaceSchemaLocation", null, "https://raw.githubusercontent.com/aws/aws-tools-for-powershell/master/XmlSchemas/ConfigurationOverrides/overrides.xsd");
 
+                    if (errorMessage != null)
+                    {
+                        writer.WriteComment(errorMessage);
+                    }
+
                     foreach (var configModel in configModelsToOutput)
                     {
-                        var overrides = new XmlAttributeOverrides();
-                        overrides.Add(typeof(ConfigModel), new XmlAttributes() { XmlRoot = new XmlRootAttribute("Service") });
-                        var serializer = new XmlSerializer(typeof(ConfigModel), overrides);
+                        var xmlAttributeOverrides = new XmlAttributeOverrides();
+                        xmlAttributeOverrides.Add(typeof(ConfigModel), new XmlAttributes() { XmlRoot = new XmlRootAttribute("Service") });
+                        var serializer = new XmlSerializer(typeof(ConfigModel), xmlAttributeOverrides);
                         serializer.Serialize(writer, configModel);
                     }
 
@@ -59,12 +67,58 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
                 foreach (var configModel in doc.Root.Elements().Zip(configModelsToOutput, (element, model) => (element, model)))
                 {
+                    List<XComment> serviceComments = new List<XComment>();
+
+                    XmlOverridesMerger.OverrideDescription modelOverrides;
+                    if (overrides.TryGetValue(configModel.model.C2jFilename, out modelOverrides) && modelOverrides.FileVersion != configModel.model.FileVersion)
+                    {
+                        AnalysisError.WrongFileVersionNumber(configModel.model);
+                        modelOverrides = null;
+                    }
+
+                    serviceComments.Add(new XComment($"The current full configuration for this service is available at https://raw.githubusercontent.com/aws/aws-tools-for-powershell/master/generator/AWSPSGeneratorLib/Config/ServiceConfig/{configModel.model.C2jFilename}.xml."));
+
                     foreach (var error in configModel.model.AnalysisErrors)
                     {
-                        configModel.element.AddFirst(new XComment($"ERROR - {error.Message}"));
+                        serviceComments.Add(new XComment($"ERROR - {error.Message}"));
+                    }
+
+                    foreach (var serviceElement in configModel.element.Elements().ToArray())
+                    {
+                        switch (serviceElement.Name.LocalName)
+                        {
+                            case nameof(ConfigModel.C2jFilename):
+                            case nameof(ConfigModel.ServiceOperations):
+                            case nameof(ConfigModel.FileVersion):
+                                //Preserve these elements
+                                break;
+                            case nameof(ConfigModel.SkipCmdletGeneration):
+                            case nameof(ConfigModel.AssemblyName):
+                            case nameof(ConfigModel.ServiceNounPrefix):
+                            case nameof(ConfigModel.ServiceName):
+                            case nameof(ConfigModel.ServiceClientInterface):
+                            case nameof(ConfigModel.ServiceClient):
+                            case nameof(ConfigModel.ServiceModuleGuid):
+                                //Remove unless present in the override file
+                                if (!(modelOverrides?.ElementNames.Contains(serviceElement.Name.LocalName) ?? false))
+                                {
+                                    serviceElement.Remove();
+                                }
+                                break;
+                            default:
+                                //Change into comments unless present in the override file
+                                if (!(modelOverrides?.ElementNames.Contains(serviceElement.Name.LocalName) ?? false))
+                                {
+                                    serviceComments.Add(new XComment(serviceElement.ToString()));
+                                    serviceElement.Remove();
+                                }
+                                break;
+                        }
                     }
 
                     var serviceOperationsElement = configModel.element.Element("ServiceOperations");
+
+                    serviceOperationsElement.AddBeforeSelf(serviceComments);
 
                     var operations = serviceOperationsElement.Elements()
                         .Join(configModel.model.ServiceOperationsList, element => element.Attribute("MethodName").Value, operation => operation.MethodName, (element, operation) => (element, operation))
@@ -72,9 +126,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
                     foreach (var operation in operations)
                     {
+                        var isConfigurationOverridden = modelOverrides?.MethodNames.Contains(operation.operation.MethodName) ?? false;
+
                         //We only include in the report new operations (IsAutoConfiguring=true) and operations requiring configuration updated. We also retain in the report
                         //any operation that was manually configured.
-                        if (operation.operation.IsAutoConfiguring || operation.operation.IsConfigurationOverridden || operation.operation.AnalysisErrors.Any())
+                        if (operation.operation.IsAutoConfiguring ||
+                            operation.operation.AnalysisErrors.Any() ||
+                            isConfigurationOverridden)
                         {
                             var firstOperationChildElement = operation.element.Elements().FirstOrDefault();
 
@@ -82,7 +140,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                             {
                                 operation.element.AddFirst(new XComment($"INFO - This is a new cmdlet."));
                             }
-                            if (operation.operation.IsConfigurationOverridden)
+                            if (isConfigurationOverridden)
                             {
                                 operation.element.AddFirst(new XComment($"INFO - The configuration of this cmdlet is being changed through overrides."));
                             }

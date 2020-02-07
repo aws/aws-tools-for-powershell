@@ -90,8 +90,10 @@
     </Target>
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator">
+        <Exec Command="pwsh -NoProfile -Command Remove-Item -Path $(RootPath)/GenerationSucceeded.tag" IgnoreExitCode="true" />
         <Message Text="Generating cmdlets for all services"/>
         <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(PatchNumber)" />
+        <Exec Command="pwsh -NoProfile -Command New-Item -Path $(RootPath)/GenerationSucceeded.tag" />
     </Target>
 
     <Target Name="build-modules" DependsOnTargets="build-netcore-module;build-desktop-module;build-modular-modules" />
@@ -281,6 +283,7 @@
    
     <Target Name="draft-release-notes" Condition="$(DraftReleaseNotes)">
         <Exec Command="dotnet build -c Release --no-incremental ../solutions/ReleaseNotesGenerator.sln"/>
-        <Exec Command="dotnet $(MSBuildProjectDirectory)/../ReleaseNotesGenerator/bin/Release/netcoreapp2.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt"/>
+        <Exec Condition="'$(PreviousVersionPath)'==''" Command="dotnet $(MSBuildProjectDirectory)/../ReleaseNotesGenerator/bin/Release/netcoreapp2.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -mn AWSPowerShell.NetCore -df ../PSGalleryDownloads/ -an AWSPowerShell.NetCore.dll -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt"/>
+        <Exec Condition="'$(PreviousVersionPath)'!=''" Command="dotnet $(MSBuildProjectDirectory)/../ReleaseNotesGenerator/bin/Release/netcoreapp2.1/ReleaseNotesGenerator.dll -na $(NetCoreDeploymentArtifacts)/AWSPowerShell.NetCore.dll -oa $(PreviousVersionPath) -vf ../Include/sdk/_sdk-versions.json -of ../ReleaseNotesDraft.txt"/>
     </Target>
 </Project>

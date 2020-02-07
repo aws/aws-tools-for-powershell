@@ -235,10 +235,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 {
                     using (var reader = new StreamReader(fs))
                     {
-                        var model = (ConfigModel)serializer.Deserialize(reader);
-                        // poke the filename into the model in preparation for possible update
-                        model.ModelFilename = Path.GetFileName(fileName);
-                        return model;
+                        return (ConfigModel)serializer.Deserialize(reader);
                     }
                 }
             }
@@ -312,6 +309,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
     public class ConfigModel
     {
         #region Configuration Properties
+
+        /// <summary>
+        /// Manually increment this number in the xml configuration file when
+        /// making heavy changes to the format or content of the configuration.
+        /// It will prevent automatically applying overrides if they present
+        /// an older version.
+        /// </summary>
+        public int FileVersion = 0;
 
         /// <summary>
         /// <para>
@@ -746,13 +751,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public Dictionary<string, AdvancedCmdletInfo> AdvancedCmdlets { get; } = new Dictionary<string, AdvancedCmdletInfo>(StringComparer.CurrentCultureIgnoreCase);
 
         [XmlIgnore]
-        public string ModelFilename { get; set; }
-
-        [XmlIgnore]
         public IEnumerable<string> SDKDependencies { get; set; }
-
-        [XmlIgnore]
-        public bool ModelUpdated { get; set; }
 
         [XmlIgnore]
         public readonly List<AnalysisError> AnalysisErrors = new List<AnalysisError>();
@@ -766,15 +765,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
         {
         }
 
-        public void Serialize(string folderPath)
+        public void Serialize(string filePath)
         {
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-
-            var filename = Path.Combine(folderPath, ModelFilename);
-            Console.WriteLine("Updating configuration file for service {0}, file {1}", ServiceName, filename);
+            Console.WriteLine("Updating configuration file for service {0}, file {1}", ServiceName, filePath);
             try
             {
                 var serializer = new XmlSerializer(typeof(ConfigModel));
@@ -785,14 +778,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     IndentChars = "    "
                 };
 
-                using (var writer = XmlWriter.Create(filename, writerSettings))
+                using (var writer = XmlWriter.Create(filePath, writerSettings))
                 {
                     serializer.Serialize(writer, this);
                 }
             }
             catch (Exception e)
             {
-                throw new InvalidDataException("Unable to serialize updated model to " + filename, e);
+                throw new InvalidDataException("Unable to serialize updated model to " + filePath, e);
             }
         }
     }
@@ -1113,12 +1106,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         [XmlIgnore]
         public bool IsAutoConfiguring;
-
-        /// <summary>
-        /// Set when the user has provided an override for the configuration of this operation
-        /// </summary>
-        [XmlIgnore]
-        public bool IsConfigurationOverridden;
 
         /// <summary>
         /// Set when auto-configuring if we detect an SDK 'List' verb. We'll

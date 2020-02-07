@@ -220,14 +220,19 @@ namespace AWSPowerShellGenerator.Analysis
             new AnalysisError(service, operation, $"'Verb' and 'Noun' configurations are in use by an existing custom cmdlet.");
         }
 
-        public static void ExceptionWhileWritingCmdletCode(ConfigModel service, ServiceOperation operation, Exception exception)
-        {
-            new AnalysisError(service, operation, $"Error while generating cmdlet code: {exception}");
-        }
-
         public static void ExceptionWhileWritingServiceClientCode(ConfigModel service, Exception exception)
         {
             new AnalysisError(service, $"Error while generating service client code: {exception}");
+        }
+
+        public static void ExceptionWhileWritingCmdletCode(ConfigModel service, ServiceOperation operation, Exception exception)
+        {
+            new AnalysisError(service, operation, $"Overrides for this service were ignored because they are marked with a different FileVersion number.");
+        }
+
+        public static void WrongFileVersionNumber(ConfigModel service)
+        {
+            new AnalysisError(service, $"Overrides for this service were ignored because they are marked with a different FileVersion number.");
         }
 
         public static void ExceptionWhileWritingServiceProjectFile(ConfigModel service, Exception exception)

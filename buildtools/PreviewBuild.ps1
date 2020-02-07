@@ -53,14 +53,22 @@ Else {
   Write-Host "Downloading $SdkArtifactsZipUri"
   Invoke-WebRequest -Uri $SdkArtifactsZipUri -OutFile ./Include/sdk.zip
 }
-Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdk -Force
+Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdktmp -Force
+Move-Item ./Include/sdktmp/assemblies ./Include/sdk/assemblies
+Remove-Item ./Include/sdktmp -Recurse
 
 if ($S3OverridesKey) {
   Write-Host "Downloading $BuildS3Bucket $S3OverridesKey $S3OverridesVersion"
   Read-S3Object -BucketName $BuildS3Bucket -Key $S3OverridesKey -Version $S3OverridesVersion -File ./overrides.xml
 }
 
-dotnet msbuild ./buildtools/build.proj /t:preview-build /p:CleanSdkReferences=false /p:BreakOnNewOperations=true /p:Configuration=$Configuration
+Write-Host "Downloading staging/AWSPowerShell.NetCore.zip"
+Read-S3Object -BucketName $BuildS3Bucket -Key staging/AWSPowerShell.NetCore.zip -File ./AWSPowerShell.NetCore.previous.zip
+Expand-Archive ./AWSPowerShell.NetCore.previous.zip -DestinationPath ./Previous/
+Remove-Item ./AWSPowerShell.NetCore.previous.zip
+
+$previousVersionPath = Resolve-Path .\Previous\AWSPowerShell.NetCore\AWSPowerShell.NetCore.dll
+dotnet msbuild ./buildtools/build.proj /t:preview-build /p:CleanSdkReferences=false /p:BreakOnNewOperations=true /p:Configuration=$Configuration /p:PreviousVersionPath=$previousVersionPath
 $BuildResult = $LASTEXITCODE
 
 Write-Host "Saving new S3 artifacts in $BuildS3Bucket/$S3Prefix"
@@ -70,6 +78,13 @@ try {
 }
 catch {
   Write-Host "Error uploading ./report.xml to S3: $($_.Exception)"
+}
+
+try {
+  Write-S3Object -BucketName $BuildS3Bucket -Key "$S3Prefix/GenerationSucceeded.tag" -File ./GenerationSucceeded.tag
+}
+catch {
+  Write-Host "Error uploading ./GenerationSucceeded.tag to S3: $($_.Exception)"
 }
 
 try {
