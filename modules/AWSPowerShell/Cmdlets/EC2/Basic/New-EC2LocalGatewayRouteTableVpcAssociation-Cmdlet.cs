@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String LocalGatewayRouteTableId { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the local gateway route table VPC association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter VpcId
         /// <summary>
         /// <para>
@@ -142,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter LocalGatewayRouteTableId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.VpcId = this.VpcId;
             #if MODULAR
             if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
@@ -168,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.LocalGatewayRouteTableId != null)
             {
                 request.LocalGatewayRouteTableId = cmdletContext.LocalGatewayRouteTableId;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -235,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String LocalGatewayRouteTableId { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateLocalGatewayRouteTableVpcAssociationResponse, NewEC2LocalGatewayRouteTableVpcAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LocalGatewayRouteTableVpcAssociation;

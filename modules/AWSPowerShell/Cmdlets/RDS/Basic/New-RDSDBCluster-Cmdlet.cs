@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     ///  
     /// <para>
     /// You can use the <code>ReplicationSourceIdentifier</code> parameter to create the DB
-    /// cluster as a Read Replica of another DB cluster or Amazon RDS MySQL DB instance. For
+    /// cluster as a read replica of another DB cluster or Amazon RDS MySQL DB instance. For
     /// cross-region replication where the DB cluster identified by <code>ReplicationSourceIdentifier</code>
     /// is encrypted, you must also specify the <code>PreSignedUrl</code> parameter.
     /// </para><para>
@@ -188,9 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Active Directory directory ID to create the DB cluster in.</para><para> For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
-        /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
-        /// Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User Guide</i>.
-        /// </para>
+        /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
+        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,7 +268,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-        /// <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</para><para>Limitations and requirements apply to some DB engine modes. For more information,
+        /// <code>parallelquery</code>, <code>global</code>, or <code>multimaster</code>.</para><note><para><code>global</code> engine mode only applies for global database clusters created
+        /// with Aurora MySQL version 5.6.10a. For higher Aurora MySQL versions, the clusters
+        /// in a global database use <code>provisioned</code> engine mode. </para></note><para>Limitations and requirements apply to some DB engine modes. For more information,
         /// see the following sections in the <i>Amazon Aurora User Guide</i>:</para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
         /// Limitations of Aurora Serverless</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
         /// Limitations of Parallel Query</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
@@ -316,9 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// RDS will use the encryption key used to encrypt the source. Otherwise, Amazon RDS
         /// will use your default encryption key. </para></li><li><para>If the <code>StorageEncrypted</code> parameter is enabled and <code>ReplicationSourceIdentifier</code>
         /// isn't specified, then Amazon RDS will use your default encryption key.</para></li></ul><para>AWS KMS creates the default encryption key for your AWS account. Your AWS account
-        /// has a different default encryption key for each AWS Region.</para><para>If you create a Read Replica of an encrypted DB cluster in another AWS Region, you
+        /// has a different default encryption key for each AWS Region.</para><para>If you create a read replica of an encrypted DB cluster in another AWS Region, you
         /// must set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS
-        /// Region. This key is used to encrypt the Read Replica in that AWS Region.</para>
+        /// Region. This key is used to encrypt the read replica in that AWS Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -437,7 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// cluster to be copied.</para><para>The pre-signed URL request must contain the following parameter values:</para><ul><li><para><code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt
         /// the copy of the DB cluster in the destination AWS Region. This should refer to the
         /// same KMS key for both the <code>CreateDBCluster</code> action that is called in the
-        /// destination AWS Region, and the action contained in the pre-signed URL.</para></li><li><para><code>DestinationRegion</code> - The name of the AWS Region that Aurora Read Replica
+        /// destination AWS Region, and the action contained in the pre-signed URL.</para></li><li><para><code>DestinationRegion</code> - The name of the AWS Region that Aurora read replica
         /// will be created in.</para></li><li><para><code>ReplicationSourceIdentifier</code> - The DB cluster identifier for the encrypted
         /// DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN)
         /// format for the source AWS Region. For example, if you are copying an encrypted DB
@@ -459,7 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB
-        /// cluster is created as a Read Replica.</para>
+        /// cluster is created as a read replica.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
     /// Information that enables AppConfig to access the configuration source. Valid configuration
-    /// sources include Systems Manager (SSM) documents and SSM Parameter Store parameters.
-    /// A configuration profile includes the following information.
+    /// sources include Systems Manager (SSM) documents, SSM Parameter Store parameters, and
+    /// Amazon S3 objects. A configuration profile includes the following information.
     /// 
     ///  <ul><li><para>
     /// The Uri location of the configuration data.
@@ -40,7 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     /// </para></li><li><para>
     /// A validator for the configuration data. Available validators include either a JSON
     /// Schema or an AWS Lambda function.
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html">Create
+    /// a Configuration and a Configuration Profile</a> in the <i>AWS AppConfig User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "APPCConfigurationProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.CreateConfigurationProfileResponse")]
@@ -81,11 +84,13 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter LocationUri
         /// <summary>
         /// <para>
-        /// <para>A URI to locate the configuration. You can specify either a Systems Manager (SSM)
-        /// document or an SSM Parameter Store parameter. For an SSM document, specify either
-        /// the document name in the format <code>ssm-document://&lt;Document name&gt;</code>
+        /// <para>A URI to locate the configuration. You can specify a Systems Manager (SSM) document,
+        /// an SSM Parameter Store parameter, or an Amazon S3 object. For an SSM document, specify
+        /// either the document name in the format <code>ssm-document://&lt;Document_name&gt;</code>
         /// or the Amazon Resource Name (ARN). For a parameter, specify either the parameter name
-        /// in the format <code>ssm-parameter://&lt;Parameter name&gt;</code> or the ARN.</para>
+        /// in the format <code>ssm-parameter://&lt;Parameter_name&gt;</code> or the ARN. For
+        /// an Amazon S3 object, specify the URI in the following format: <code>s3://&lt;bucket&gt;/&lt;objectKey&gt;
+        /// </code>. Here is an example: s3://my-bucket/my-app/us-east-1/my-config.json</para>
         /// </para>
         /// </summary>
         #if !MODULAR

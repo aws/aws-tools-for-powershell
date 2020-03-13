@@ -87,6 +87,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-ATHResourceTag', 
+        'Get-ATHDatabase', 
+        'Get-ATHDatabasisList', 
+        'Get-ATHDataCatalog', 
+        'Get-ATHDataCatalogList', 
         'Get-ATHNamedQuery', 
         'Get-ATHNamedQueryBatch', 
         'Get-ATHNamedQueryList', 
@@ -95,15 +99,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ATHQueryExecutionList', 
         'Get-ATHQueryResult', 
         'Get-ATHResourceTag', 
+        'Get-ATHTableMetadata', 
+        'Get-ATHTableMetadataList', 
         'Get-ATHWorkGroup', 
         'Get-ATHWorkGroupList', 
+        'New-ATHDataCatalog', 
         'New-ATHNamedQuery', 
         'New-ATHWorkGroup', 
+        'Remove-ATHDataCatalog', 
         'Remove-ATHNamedQuery', 
         'Remove-ATHResourceTag', 
         'Remove-ATHWorkGroup', 
         'Start-ATHQueryExecution', 
         'Stop-ATHQueryExecution', 
+        'Update-ATHDataCatalog', 
         'Update-ATHWorkGroup')
 
     # Variables to export from this module

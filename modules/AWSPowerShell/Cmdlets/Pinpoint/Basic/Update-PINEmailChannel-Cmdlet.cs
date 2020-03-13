@@ -62,8 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EmailChannelRequest_ConfigurationSet
         /// <summary>
         /// <para>
-        /// <para>The configuration set that you want to apply to email that you send through the channel
-        /// by using the <a href="emailAPIreference.html">Amazon Pinpoint Email API</a>.</para>
+        /// <para>The <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html">Amazon
+        /// SES configuration set</a> that you want to apply to messages that you send through
+        /// the channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,10 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Used to delete a domain. If you on-boarded with IAM mode, you will need to delete
-    /// your domain to on-board again using SSO. Use with caution. All of the members of the
-    /// domain will lose access to their EFS volume, including data, notebooks, and other
-    /// artifacts.
+    /// Used to delete a domain. If you onboarded with IAM mode, you will need to delete your
+    /// domain to onboard again using SSO. Use with caution. All of the members of the domain
+    /// will lose access to their EFS volume, including data, notebooks, and other artifacts.
     /// </summary>
     [Cmdlet("Remove", "SMDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -63,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RetentionPolicy_HomeEfsFileSystem
         /// <summary>
         /// <para>
-        /// <para>The home Amazon Elastic File System (EFS).</para>
+        /// <para>The default is <code>Retain</code>, which specifies to keep the data stored on the
+        /// EFS volume.</para><para>Specify <code>Delete</code> to delete the data stored on the EFS volume.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

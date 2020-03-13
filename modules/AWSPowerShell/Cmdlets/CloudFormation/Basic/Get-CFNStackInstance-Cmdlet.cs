@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Returns the stack instance that's associated with the specified stack set, AWS account,
-    /// and region.
+    /// and Region.
     /// 
     ///  
     /// <para>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The name of a region that's associated with this stack instance.</para>
+        /// <para>The name of a Region that's associated with this stack instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

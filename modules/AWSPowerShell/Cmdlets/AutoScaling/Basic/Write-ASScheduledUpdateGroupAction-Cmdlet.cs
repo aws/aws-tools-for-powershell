@@ -68,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of EC2 instances that should be running in the Auto Scaling group.</para>
+        /// <para>The desired capacity is the initial capacity of the Auto Scaling group after the scheduled
+        /// action runs and the capacity it attempts to maintain. It can scale beyond this capacity
+        /// if you add more scaling conditions. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of instances in the Auto Scaling group.</para>
+        /// <para>The maximum size of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MinSize
         /// <summary>
         /// <para>
-        /// <para>The minimum number of instances in the Auto Scaling group.</para>
+        /// <para>The minimum size of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

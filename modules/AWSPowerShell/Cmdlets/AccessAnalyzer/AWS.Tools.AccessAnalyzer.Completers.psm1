@@ -107,7 +107,7 @@ $IAMAA_Completers = {
             ($_ -eq "New-IAMAAAnalyzer/Type")
         }
         {
-            $v = "ACCOUNT"
+            $v = "ACCOUNT","ORGANIZATION"
             break
         }
 

@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Updates a domain. Changes will impact all of the people in the domain.
+    /// Updates the default settings for new user profiles in the domain.
     /// </summary>
     [Cmdlet("Update", "SMDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The domain ID.</para>
+        /// <para>The ID of the domain to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

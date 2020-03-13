@@ -33,12 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// 
     ///  
     /// <para>
-    /// When you associate a document with one or more instances using instance IDs or tags,
-    /// SSM Agent running on the instance processes the document and configures the instance
-    /// as specified.
-    /// </para><para>
-    /// If you associate a document with an instance that already has an associated document,
-    /// the system returns the AssociationAlreadyExists exception.
+    /// When you associate a document with one or more instances, SSM Agent running on the
+    /// instance processes the document and configures the instance as specified. If you associate
+    /// a document with an instance that already has an associated document, the system returns
+    /// the <code>AssociationAlreadyExists</code> exception.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,6 +48,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     )]
     public partial class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter ApplyOnlyAtCronInterval
+        /// <summary>
+        /// <para>
+        /// <para>By default, when you create a new associations, the system runs it immediately after
+        /// it is created and then according to the schedule you specified. Specify this option
+        /// if you don't want an association to run immediately after you create it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ApplyOnlyAtCronInterval { get; set; }
+        #endregion
         
         #region Parameter AssociationName
         /// <summary>
@@ -171,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter S3Location_OutputS3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket.</para>
+        /// <para>The name of the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter S3Location_OutputS3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket subfolder.</para>
+        /// <para>The S3 bucket subfolder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead,
-        /// Systems Manager automatically determines the Amazon S3 bucket region.</para>
+        /// Systems Manager automatically determines the Region of the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,11 +233,32 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String ScheduleExpression { get; set; }
         #endregion
         
+        #region Parameter SyncCompliance
+        /// <summary>
+        /// <para>
+        /// <para>The mode for generating association compliance. You can specify <code>AUTO</code>
+        /// or <code>MANUAL</code>. In <code>AUTO</code> mode, the system uses the status of the
+        /// association execution to determine the compliance status. If the association execution
+        /// runs successfully, then the association is <code>COMPLIANT</code>. If the association
+        /// execution doesn't run successfully, the association is <code>NON-COMPLIANT</code>.</para><para>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a
+        /// parameter for the <a>PutComplianceItems</a> API action. In this case, compliance data
+        /// is not managed by State Manager. It is managed by your direct call to the <a>PutComplianceItems</a>
+        /// API action.</para><para>By default, all associations use <code>AUTO</code> mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.AssociationSyncCompliance")]
+        public Amazon.SimpleSystemsManagement.AssociationSyncCompliance SyncCompliance { get; set; }
+        #endregion
+        
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets (either instances or tags) for the association. You must specify a value
-        /// for <code>Targets</code> if you don't specify a value for <code>InstanceId</code>.</para>
+        /// <para>The targets for the association. You can target instances by using tags, AWS Resource
+        /// Groups, all instances in an AWS account, or individual instance IDs. For more information
+        /// about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Using
+        /// targets and rate controls with State Manager associations</a> in the <i>AWS Systems
+        /// Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApplyOnlyAtCronInterval = this.ApplyOnlyAtCronInterval;
             context.AssociationName = this.AssociationName;
             context.AutomationTargetParameterName = this.AutomationTargetParameterName;
             context.ComplianceSeverity = this.ComplianceSeverity;
@@ -334,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 }
             }
             context.ScheduleExpression = this.ScheduleExpression;
+            context.SyncCompliance = this.SyncCompliance;
             if (this.Target != null)
             {
                 context.Target = new List<Amazon.SimpleSystemsManagement.Model.Target>(this.Target);
@@ -354,6 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest();
             
+            if (cmdletContext.ApplyOnlyAtCronInterval != null)
+            {
+                request.ApplyOnlyAtCronInterval = cmdletContext.ApplyOnlyAtCronInterval.Value;
+            }
             if (cmdletContext.AssociationName != null)
             {
                 request.AssociationName = cmdletContext.AssociationName;
@@ -448,6 +485,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.ScheduleExpression = cmdletContext.ScheduleExpression;
             }
+            if (cmdletContext.SyncCompliance != null)
+            {
+                request.SyncCompliance = cmdletContext.SyncCompliance;
+            }
             if (cmdletContext.Target != null)
             {
                 request.Targets = cmdletContext.Target;
@@ -513,6 +554,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ApplyOnlyAtCronInterval { get; set; }
             public System.String AssociationName { get; set; }
             public System.String AutomationTargetParameterName { get; set; }
             public Amazon.SimpleSystemsManagement.AssociationComplianceSeverity ComplianceSeverity { get; set; }
@@ -526,6 +568,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String S3Location_OutputS3Region { get; set; }
             public Dictionary<System.String, List<System.String>> Parameter { get; set; }
             public System.String ScheduleExpression { get; set; }
+            public Amazon.SimpleSystemsManagement.AssociationSyncCompliance SyncCompliance { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Target { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.CreateAssociationResponse, NewSSMAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AssociationDescription;

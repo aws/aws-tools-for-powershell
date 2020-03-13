@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Boolean? SetAsActive { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage the CA certificate.</para><note><para>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</para><para>For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."</para><para>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter RegistrationConfig_TemplateBody
         /// <summary>
         /// <para>
@@ -154,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.RegistrationConfig_RoleArn = this.RegistrationConfig_RoleArn;
             context.RegistrationConfig_TemplateBody = this.RegistrationConfig_TemplateBody;
             context.SetAsActive = this.SetAsActive;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IoT.Model.Tag>(this.Tag);
+            }
             context.VerificationCertificate = this.VerificationCertificate;
             #if MODULAR
             if (this.VerificationCertificate == null && ParameterWasBound(nameof(this.VerificationCertificate)))
@@ -217,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.SetAsActive != null)
             {
                 request.SetAsActive = cmdletContext.SetAsActive.Value;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.VerificationCertificate != null)
             {
@@ -288,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String RegistrationConfig_RoleArn { get; set; }
             public System.String RegistrationConfig_TemplateBody { get; set; }
             public System.Boolean? SetAsActive { get; set; }
+            public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public System.String VerificationCertificate { get; set; }
             public System.Func<Amazon.IoT.Model.RegisterCACertificateResponse, RegisterIOTCACertificateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

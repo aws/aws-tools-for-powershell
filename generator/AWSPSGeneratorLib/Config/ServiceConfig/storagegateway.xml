@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>storagegateway</C2jFilename>
     <AssemblyName>StorageGateway</AssemblyName>
@@ -103,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTapeWithBarcode" OutputProperty="TapeARN" Verb="New" Noun="TapeWithBarcode" ShouldProcessTarget="GatewayARN" PositionalParameters="TapeBarcode" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutomaticTapeCreationPolicy" OutputProperty="GatewayARN" Verb="Remove" Noun="AutomaticTapeCreationPolicy" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -222,6 +227,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomaticTapeCreationPolicies" OutputProperty="AutomaticTapeCreationPolicyInfos" Verb="Get" Noun="AutomaticTapeCreationPolicy" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFileShares" OutputProperty="FileShareInfoList" Verb="Get" Noun="FileShareList" PipelineParameter="GatewayARN" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit" />
@@ -296,6 +305,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartGateway" OutputProperty="GatewayARN" Verb="Start" Noun="Gateway" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutomaticTapeCreationPolicy" OutputProperty="GatewayARN" Verb="Update" Noun="AutomaticTapeCreationPolicy" ShouldProcessTarget="GatewayARN" PipelineParameter="GatewayARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

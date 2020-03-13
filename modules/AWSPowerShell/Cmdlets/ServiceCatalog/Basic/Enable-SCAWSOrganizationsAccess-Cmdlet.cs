@@ -37,6 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess
     /// on your behalf so that your shares can be in sync with any changes in your AWS Organizations
     /// structure.
+    /// </para><para>
+    /// Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "SCAWSOrganizationsAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

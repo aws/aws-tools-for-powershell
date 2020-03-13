@@ -28,8 +28,8 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Sends a verification request to an email contact method to ensure it’s owned by the
-    /// requester. SMS contact methods don’t need to be verified.
+    /// Sends a verification request to an email contact method to ensure it's owned by the
+    /// requester. SMS contact methods don't need to be verified.
     /// 
     ///  
     /// <para>

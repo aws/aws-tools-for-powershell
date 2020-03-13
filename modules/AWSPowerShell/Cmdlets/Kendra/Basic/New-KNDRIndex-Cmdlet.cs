@@ -59,6 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Edition
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Kendra edition to use for the index. Choose <code>DEVELOPER_EDITION</code>
+        /// for indexes intended for development, testing, or proof of concept. Use <code>ENTERPRISE_EDITION</code>
+        /// for your production databases. Once you set the edition for an index, it can't be
+        /// changed. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kendra.IndexEdition")]
+        public Amazon.Kendra.IndexEdition Edition { get; set; }
+        #endregion
+        
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
@@ -104,6 +118,30 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of key-value pairs that identify the index. You can use the tags to identify
+        /// and organize your resources and to control access to resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Kendra.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A token that you provide to identify the request to create an index. Multiple calls
+        /// to the <code>CreateIndex</code> operation with the same client token will create only
+        /// one index.”</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
@@ -167,7 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.Edition = this.Edition;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -183,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             #endif
             context.ServerSideEncryptionConfiguration_KmsKeyId = this.ServerSideEncryptionConfiguration_KmsKeyId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Kendra.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -199,9 +243,17 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             // create request
             var request = new Amazon.Kendra.Model.CreateIndexRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Edition != null)
+            {
+                request.Edition = cmdletContext.Edition;
             }
             if (cmdletContext.Name != null)
             {
@@ -229,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (requestServerSideEncryptionConfigurationIsNull)
             {
                 request.ServerSideEncryptionConfiguration = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -291,10 +347,13 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public Amazon.Kendra.IndexEdition Edition { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
             public System.String ServerSideEncryptionConfiguration_KmsKeyId { get; set; }
+            public List<Amazon.Kendra.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Kendra.Model.CreateIndexResponse, NewKNDRIndexCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;
         }

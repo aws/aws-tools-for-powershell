@@ -194,6 +194,7 @@ $EB_SelectCompleters = {
 $EB_SelectMap = @{
     "Select"=@("Stop-EBEnvironmentUpdate",
                "Submit-EBEnvironmentManagedAction",
+               "Register-EBEnvironmentOperationsRole",
                "Get-EBDNSAvailability",
                "Group-EBEnvironment",
                "New-EBApplication",
@@ -220,7 +221,9 @@ $EB_SelectMap = @{
                "Get-EBEvent",
                "Get-EBInstanceHealth",
                "Get-EBPlatformVersionDetail",
+               "Unregister-EBEnvironmentOperationsRole",
                "Get-EBAvailableSolutionStackList",
+               "Get-EBPlatformBranch",
                "Get-EBPlatformVersion",
                "Get-EBResourceTag",
                "Start-EBEnvironmentRebuild",

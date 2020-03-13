@@ -86,10 +86,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-CGRCodeReview', 
+        'Get-CGRCodeReviewList', 
+        'Get-CGRRecommendationFeedback', 
+        'Get-CGRRecommendationFeedbackList', 
+        'Get-CGRRecommendationList', 
         'Get-CGRRepositoryAssociation', 
         'Get-CGRRepositoryAssociationList', 
         'Register-CGRRepository', 
-        'Unregister-CGRRepository')
+        'Unregister-CGRRepository', 
+        'Write-CGRRecommendationFeedback')
 
     # Variables to export from this module
     VariablesToExport = '*'

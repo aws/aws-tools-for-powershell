@@ -83,14 +83,21 @@ $KNDR_Completers = {
         # Amazon.Kendra.DataSourceSyncJobStatus
         "Get-KNDRDataSourceSyncJobList/StatusFilter"
         {
-            $v = "ABORTED","FAILED","INCOMPLETE","STOPPING","SUCCEEDED","SYNCING"
+            $v = "ABORTED","FAILED","INCOMPLETE","STOPPING","SUCCEEDED","SYNCING","SYNCING_INDEXING"
             break
         }
 
         # Amazon.Kendra.DataSourceType
         "New-KNDRDataSource/Type"
         {
-            $v = "DATABASE","S3","SHAREPOINT"
+            $v = "DATABASE","ONEDRIVE","S3","SALESFORCE","SERVICENOW","SHAREPOINT"
+            break
+        }
+
+        # Amazon.Kendra.IndexEdition
+        "New-KNDRIndex/Edition"
+        {
+            $v = "DEVELOPER_EDITION","ENTERPRISE_EDITION"
             break
         }
 
@@ -110,6 +117,7 @@ $KNDR_Completers = {
 }
 
 $KNDR_map = @{
+    "Edition"=@("New-KNDRIndex")
     "QueryResultTypeFilter"=@("Invoke-KNDRQuery")
     "StatusFilter"=@("Get-KNDRDataSourceSyncJobList")
     "Type"=@("New-KNDRDataSource")
@@ -170,6 +178,7 @@ $KNDR_SelectMap = @{
                "New-KNDRDataSource",
                "New-KNDRFaq",
                "New-KNDRIndex",
+               "Remove-KNDRDataSource",
                "Remove-KNDRFaq",
                "Remove-KNDRIndex",
                "Get-KNDRDataSource",
@@ -179,10 +188,13 @@ $KNDR_SelectMap = @{
                "Get-KNDRDataSourceSyncJobList",
                "Get-KNDRFaqList",
                "Get-KNDRIndexList",
+               "Get-KNDRResourceTag",
                "Invoke-KNDRQuery",
                "Start-KNDRDataSourceSyncJob",
                "Stop-KNDRDataSourceSyncJob",
                "Send-KNDRFeedback",
+               "Add-KNDRResourceTag",
+               "Remove-KNDRResourceTag",
                "Update-KNDRDataSource",
                "Update-KNDRIndex")
 }

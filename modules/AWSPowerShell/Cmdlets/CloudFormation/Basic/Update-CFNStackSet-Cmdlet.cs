@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Updates the stack set, and associated stack instances in the specified accounts and
-    /// regions.
+    /// Regions.
     /// 
     ///  
     /// <para>
@@ -52,15 +52,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>[Self-managed permissions] The accounts in which to update associated stack instances.
-        /// If you specify accounts, you must also specify the regions in which to update stack
-        /// set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
+        /// <para>[<code>Self-managed</code> permissions] The accounts in which to update associated
+        /// stack instances. If you specify accounts, you must also specify the Regions in which
+        /// to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
         /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
         /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
         /// property, AWS CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
-        /// prior to updating the stack instances in the specified accounts and regions. If the
+        /// prior to updating the stack instances in the specified accounts and Regions. If the
         /// stack set update does not include changes to the template or parameters, AWS CloudFormation
-        /// updates the stack instances in the specified accounts and regions, while leaving all
+        /// updates the stack instances in the specified accounts and Regions, while leaving all
         /// other stack instances with their existing stack instance status. </para>
         /// </para>
         /// </summary>
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_OrganizationalUnitId
         /// <summary>
         /// <para>
-        /// <para>The organization root ID or organizational unit (OUs) IDs to which StackSets deploys.</para>
+        /// <para>The organization root ID or organizational unit (OU) IDs to which StackSets deploys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,14 +238,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackRegion
         /// <summary>
         /// <para>
-        /// <para>The regions in which to update associated stack instances. If you specify regions,
+        /// <para>The Regions in which to update associated stack instances. If you specify Regions,
         /// you must also specify accounts in which to update stack set instances.</para><para>To update <i>all</i> the stack instances associated with this stack set, do not specify
         /// the <code>Accounts</code> or <code>Regions</code> properties.</para><para>If the stack set update includes changes to the template (that is, if the <code>TemplateBody</code>
         /// or <code>TemplateURL</code> properties are specified), or the <code>Parameters</code>
         /// property, AWS CloudFormation marks all stack instances with a status of <code>OUTDATED</code>
-        /// prior to updating the stack instances in the specified accounts and regions. If the
+        /// prior to updating the stack instances in the specified accounts and Regions. If the
         /// stack set update does not include changes to the template or parameters, AWS CloudFormation
-        /// updates the stack instances in the specified accounts and regions, while leaving all
+        /// updates the stack instances in the specified accounts and Regions, while leaving all
         /// other stack instances with their existing stack instance status. </para>
         /// </para>
         /// </summary>

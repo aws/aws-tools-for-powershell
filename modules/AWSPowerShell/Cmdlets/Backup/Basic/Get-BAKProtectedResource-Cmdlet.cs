@@ -28,8 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns information about a saved resource, including the last time it was backed-up,
-    /// its Amazon Resource Name (ARN), and the AWS service type of the saved resource.
+    /// Returns information about a saved resource, including the last time it was backed
+    /// up, its Amazon Resource Name (ARN), and the AWS service type of the saved resource.
     /// </summary>
     [Cmdlet("Get", "BAKProtectedResource")]
     [OutputType("Amazon.Backup.Model.DescribeProtectedResourceResponse")]

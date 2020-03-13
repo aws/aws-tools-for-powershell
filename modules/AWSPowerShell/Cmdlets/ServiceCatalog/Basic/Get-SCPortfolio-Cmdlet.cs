@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Gets information about the specified portfolio.
+    /// 
+    ///  
+    /// <para>
+    /// A delegated admin is authorized to invoke this command.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SCPortfolio")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribePortfolioResponse")]

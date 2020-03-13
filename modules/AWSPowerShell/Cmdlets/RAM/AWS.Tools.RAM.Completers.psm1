@@ -195,6 +195,7 @@ $RAM_SelectMap = @{
                "Get-RAMPrincipalList",
                "Get-RAMResourceList",
                "Get-RAMResourceSharePermissionList",
+               "Get-RAMResourceTypeList",
                "Convert-RAMPolicyBasedResourceShareToPromoted",
                "Deny-RAMResourceShareInvitation",
                "Add-RAMResourceTag",

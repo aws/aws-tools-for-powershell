@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource Name (ARN) of the gateway whose file shares you want to list.
+        /// <para>The Amazon Resource Name (ARN) of the gateway whose file shares you want to list.
         /// If this field is not present, all file shares under your account are listed.</para>
         /// </para>
         /// </summary>

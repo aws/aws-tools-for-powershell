@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// You can use the optional encryption context to add additional security to the encryption
     /// operation. If you specify an <code>EncryptionContext</code>, you must specify the
     /// same encryption context (a case-sensitive exact match) when decrypting the encrypted
-    /// data key. Otherwise, the request to decrypt fails with an InvalidCiphertextException.
+    /// data key. Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>.
     /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
     /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para><para>

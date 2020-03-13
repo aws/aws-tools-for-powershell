@@ -39,7 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information on policy inheritance, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html">How
     /// Policy Inheritance Works</a> in the <i>AWS Organizations User Guide</i>.
     /// </para><para>
-    /// This operation can be called from any account in the organization.
+    /// This operation can be called only from the organization's master account or by a member
+    /// account that is a delegated administrator for an AWS service.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ORGEffectivePolicy")]

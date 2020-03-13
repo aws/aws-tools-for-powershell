@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     ///  
     /// <para>
     /// When an image is pushed, the InitiateLayerUpload API is called once per image layer
-    /// that has not already been uploaded. Whether an image layer has been uploaded before
-    /// is determined by the <a>BatchCheckLayerAvailability</a> API action.
+    /// that has not already been uploaded. Whether or not an image layer has been uploaded
+    /// is determined by the BatchCheckLayerAvailability API action.
     /// </para><note><para>
-    /// This operation is used by the Amazon ECR proxy, and it is not intended for general
-    /// use by customers for pulling and pushing images. In most cases, you should use the
-    /// <code>docker</code> CLI to pull, tag, and push images.
+    /// This operation is used by the Amazon ECR proxy and is not generally used by customers
+    /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
+    /// CLI to pull, tag, and push images.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "ECRLayerUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -32,13 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// 
     ///          
     /// <para>
-    /// You can use the <code>prefix</code> parameter in your route specification for path-based
-    ///         routing of requests. For example, if your virtual service name is        
-    ///    <code>my-service.local</code> and you want the route to match requests to     
-    ///       <code>my-service.local/metrics</code>, your prefix should be         <code>/metrics</code>.
-    /// </para><para>
-    /// If your route matches a request, you can distribute traffic to one or more target
-    ///         virtual nodes with relative weighting.
+    ///  You can route several different protocols and define a retry policy for a route.
+    ///         Traffic can be routed to one or more virtual nodes.
     /// </para><para>
     /// For more information about routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html">Routes</a>.
     /// </para>
@@ -227,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The method name to match from the request. If you specify a name, you must also specify
-        /// a <code>serviceName</code>.</para>
+        ///         a <code>serviceName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -443,7 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The name of the virtual router in which to create the route. If the virtual router
-        /// is in a shared mesh,         then you must be the owner of the virtual router resource.</para>
+        /// is in         a shared mesh, then you must be the owner of the virtual router resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -97,6 +97,23 @@ $SSM_Completers = {
             break
         }
 
+        # Amazon.SimpleSystemsManagement.AssociationSyncCompliance
+        {
+            ($_ -eq "New-SSMAssociation/SyncCompliance") -Or
+            ($_ -eq "Update-SSMAssociation/SyncCompliance")
+        }
+        {
+            $v = "AUTO","MANUAL"
+            break
+        }
+
+        # Amazon.SimpleSystemsManagement.ComplianceUploadType
+        "Write-SSMComplianceItem/UploadType"
+        {
+            $v = "COMPLETE","PARTIAL"
+            break
+        }
+
         # Amazon.SimpleSystemsManagement.DocumentFormat
         {
             ($_ -eq "Get-SSMDocument/DocumentFormat") -Or
@@ -187,7 +204,7 @@ $SSM_Completers = {
             ($_ -eq "New-SSMPatchBaseline/OperatingSystem")
         }
         {
-            $v = "AMAZON_LINUX","AMAZON_LINUX_2","CENTOS","REDHAT_ENTERPRISE_LINUX","SUSE","UBUNTU","WINDOWS"
+            $v = "AMAZON_LINUX","AMAZON_LINUX_2","CENTOS","DEBIAN","ORACLE_LINUX","REDHAT_ENTERPRISE_LINUX","SUSE","UBUNTU","WINDOWS"
             break
         }
 
@@ -313,11 +330,13 @@ $SSM_map = @{
     "SignalType"=@("Send-SSMAutomationSignal")
     "State"=@("Get-SSMSession")
     "Status"=@("Update-SSMOpsItem")
+    "SyncCompliance"=@("New-SSMAssociation","Update-SSMAssociation")
     "TaskInvocationParameters_RunCommand_DocumentHashType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "TaskType"=@("Register-SSMTaskWithMaintenanceWindow")
     "Tier"=@("Write-SSMParameter")
     "Type"=@("Stop-SSMAutomationExecution","Write-SSMParameter")
+    "UploadType"=@("Write-SSMComplianceItem")
 }
 
 _awsArgumentCompleterRegistration $SSM_Completers $SSM_map

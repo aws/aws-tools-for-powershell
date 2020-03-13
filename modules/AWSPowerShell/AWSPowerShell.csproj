@@ -179,6 +179,9 @@
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CodeArtifact">
+      <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.CodeArtifact.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CodeBuild">
       <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.CodeBuild.dll</HintPath>
     </Reference>
@@ -386,6 +389,9 @@
     <Reference Include="AWSSDK.IoTSecureTunneling">
       <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.IoTSecureTunneling.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IoTSiteWise">
+      <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.IoTSiteWise.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoTThingsGraph">
       <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.IoTThingsGraph.dll</HintPath>
     </Reference>
@@ -442,6 +448,9 @@
     </Reference>
     <Reference Include="AWSSDK.Macie">
       <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.Macie.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Macie2">
+      <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.Macie2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.ManagedBlockchain.dll</HintPath>
@@ -650,6 +659,9 @@
     <Reference Include="AWSSDK.StorageGateway">
       <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.StorageGateway.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Synthetics">
+      <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.Synthetics.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Textract">
       <HintPath>../../Include/sdk/assemblies/net35/AWSSDK.Textract.dll</HintPath>
     </Reference>
@@ -810,6 +822,9 @@
     </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CloudWatchLogs.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CodeArtifact">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeArtifact.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeBuild.dll</HintPath>
@@ -1018,6 +1033,9 @@
     <Reference Include="AWSSDK.IoTSecureTunneling">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTSecureTunneling.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IoTSiteWise">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTSiteWise.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.IoTThingsGraph">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IoTThingsGraph.dll</HintPath>
     </Reference>
@@ -1074,6 +1092,9 @@
     </Reference>
     <Reference Include="AWSSDK.Macie">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Macie.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Macie2">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Macie2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ManagedBlockchain">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ManagedBlockchain.dll</HintPath>
@@ -1281,6 +1302,9 @@
     </Reference>
     <Reference Include="AWSSDK.StorageGateway">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.StorageGateway.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Synthetics">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Synthetics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Textract">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Textract.dll</HintPath>

@@ -28,7 +28,12 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Disassociates the specified product from the specified portfolio.
+    /// Disassociates the specified product from the specified portfolio. 
+    /// 
+    ///  
+    /// <para>
+    /// A delegated admin is authorized to invoke this command.
+    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "SCProductFromPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

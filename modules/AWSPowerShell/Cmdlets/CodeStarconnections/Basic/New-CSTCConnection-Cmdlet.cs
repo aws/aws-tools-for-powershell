@@ -78,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         public Amazon.CodeStarconnections.ProviderType ProviderType { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The key-value pair to use when tagging the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.CodeStarconnections.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ConnectionArn'.
@@ -153,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
                 WriteWarning("You are passing $null as a value for parameter ProviderType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.CodeStarconnections.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             if (cmdletContext.ProviderType != null)
             {
                 request.ProviderType = cmdletContext.ProviderType;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -240,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         {
             public System.String ConnectionName { get; set; }
             public Amazon.CodeStarconnections.ProviderType ProviderType { get; set; }
+            public List<Amazon.CodeStarconnections.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.CodeStarconnections.Model.CreateConnectionResponse, NewCSTCConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ConnectionArn;
         }

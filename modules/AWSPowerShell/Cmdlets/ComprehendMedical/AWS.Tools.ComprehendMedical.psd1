@@ -93,12 +93,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Find-CMPMRxNorm', 
         'Get-CMPMEntitiesDetectionV2Job', 
         'Get-CMPMEntitiesDetectionV2JobList', 
+        'Get-CMPMICD10CMInferenceJob', 
+        'Get-CMPMICD10CMInferenceJobList', 
         'Get-CMPMPersonalHealthInformationDetectionJob', 
         'Get-CMPMPersonalHealthInformationDetectionJobList', 
+        'Get-CMPMRxNormInferenceJob', 
+        'Get-CMPMRxNormInferenceJobList', 
         'Start-CMPMEntitiesDetectionV2Job', 
+        'Start-CMPMICD10CMInferenceJob', 
         'Start-CMPMPersonalHealthInformationDetectionJob', 
+        'Start-CMPMRxNormInferenceJob', 
         'Stop-CMPMEntitiesDetectionV2Job', 
-        'Stop-CMPMPersonalHealthInformationDetectionJob')
+        'Stop-CMPMICD10CMInferenceJob', 
+        'Stop-CMPMPersonalHealthInformationDetectionJob', 
+        'Stop-CMPMRxNormInferenceJob')
 
     # Variables to export from this module
     VariablesToExport = '*'

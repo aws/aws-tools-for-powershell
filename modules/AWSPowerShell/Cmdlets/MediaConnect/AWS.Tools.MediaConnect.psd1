@@ -87,6 +87,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-EMCNFlowOutput', 
+        'Add-EMCNFlowSource', 
+        'Add-EMCNFlowVpcInterface', 
         'Add-EMCNResourceTag', 
         'Get-EMCNEntitlementList', 
         'Get-EMCNFlow', 
@@ -96,10 +98,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-EMCNFlow', 
         'Remove-EMCNFlow', 
         'Remove-EMCNFlowOutput', 
+        'Remove-EMCNFlowSource', 
+        'Remove-EMCNFlowVpcInterface', 
         'Remove-EMCNResourceTag', 
         'Revoke-EMCNFlowEntitlement', 
         'Start-EMCNFlow', 
         'Stop-EMCNFlow', 
+        'Update-EMCNFlow', 
         'Update-EMCNFlowEntitlement', 
         'Update-EMCNFlowOutput', 
         'Update-EMCNFlowSource')

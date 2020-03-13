@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// can't reactivate a declined request, but can reinitiate the process with a new handshake
     /// request.
     /// </para><para>
-    /// After you decline a handshake, it continues to appear in the results of relevant API
-    /// operations for only 30 days. After that, it's deleted.
+    /// After you decline a handshake, it continues to appear in the results of relevant APIs
+    /// for only 30 days. After that, it's deleted.
     /// </para>
     /// </summary>
     [Cmdlet("Deny", "ORGHandshake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

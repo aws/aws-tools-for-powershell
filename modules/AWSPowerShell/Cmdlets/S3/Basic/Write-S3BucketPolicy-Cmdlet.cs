@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    /// If you don't have <code>PutBucketPolic</code>y permissions, Amazon S3 returns a <code>403
+    /// If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403
     /// Access Denied</code> error. If you have the correct permissions, but you're not using
     /// an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405
     /// Method Not Allowed</code> error.

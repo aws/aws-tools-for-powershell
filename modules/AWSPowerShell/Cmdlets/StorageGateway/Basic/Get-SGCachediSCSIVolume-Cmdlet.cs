@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// 
     ///  
     /// <para>
-    /// The list of gateway volumes in the request must be from one gateway. In the response
-    /// Amazon Storage Gateway returns volume information sorted by volume Amazon Resource
-    /// Name (ARN).
+    /// The list of gateway volumes in the request must be from one gateway. In the response,
+    /// AWS Storage Gateway returns volume information sorted by volume Amazon Resource Name
+    /// (ARN).
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SGCachediSCSIVolume")]
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>An array of strings where each string represents the Amazon Resource Name (ARN) of
-        /// a cached volume. All of the specified cached volumes must from the same gateway. Use
-        /// <a>ListVolumes</a> to get volume ARNs for a gateway.</para>
+        /// a cached volume. All of the specified cached volumes must be from the same gateway.
+        /// Use <a>ListVolumes</a> to get volume ARNs for a gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

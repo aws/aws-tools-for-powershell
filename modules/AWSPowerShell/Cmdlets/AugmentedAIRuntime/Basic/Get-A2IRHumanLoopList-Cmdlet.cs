@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>An optional value that specifies whether you want the results sorted in <code>Ascending</code>
-        /// or <code>Descending</code> order.</para>
+        /// <para>Optional. The order for displaying results. Valid values: <code>Ascending</code> and
+        /// <code>Descending</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         /// <para>
         /// <para>The total number of items to return. If the total number of available items is more
         /// than the value specified in <code>MaxResults</code>, then a <code>NextToken</code>
-        /// will be provided in the output that you can use to resume pagination.</para>
+        /// is returned in the output. You can use this token to display the next page of results.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token to resume pagination.</para>
+        /// <para>A token to display the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

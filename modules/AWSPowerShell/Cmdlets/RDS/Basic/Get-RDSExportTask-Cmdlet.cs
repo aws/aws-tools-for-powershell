@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxRecords")]
-        public System.String MaxRecord { get; set; }
+        public System.Int32? MaxRecord { get; set; }
         #endregion
         
         #region Parameter Select
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             if (cmdletContext.MaxRecord != null)
             {
-                request.MaxRecords = cmdletContext.MaxRecord;
+                request.MaxRecords = cmdletContext.MaxRecord.Value;
             }
             if (cmdletContext.SourceArn != null)
             {
@@ -292,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String ExportTaskIdentifier { get; set; }
             public List<Amazon.RDS.Model.Filter> Filter { get; set; }
             public System.String Marker { get; set; }
-            public System.String MaxRecord { get; set; }
+            public System.Int32? MaxRecord { get; set; }
             public System.String SourceArn { get; set; }
             public System.Func<Amazon.RDS.Model.DescribeExportTasksResponse, GetRDSExportTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ExportTasks;

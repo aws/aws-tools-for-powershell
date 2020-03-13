@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>mediaconnect</C2jFilename>
     <AssemblyName>MediaConnect</AssemblyName>
@@ -23,8 +24,21 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlow" OutputProperty="Flow" Verb="New" Noun="Flow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+        <ServiceOperation MethodName="AddFlowSources" OutputProperty="*" Verb="Add" Noun="FlowSource" ShouldProcessTarget="Sources" PipelineParameter="Sources" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Sources" NewName="Source" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddFlowVpcInterfaces" OutputProperty="*" Verb="Add" Noun="FlowVpcInterface" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFlow" OutputProperty="Flow" Verb="New" Noun="Flow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Source" Exclude="true" />
+                <Param Name="Sources" NewName="Source" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteFlow" OutputProperty="*" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
@@ -55,6 +69,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RemoveFlowSource" OutputProperty="*" Verb="Remove" Noun="FlowSource" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveFlowVpcInterface" OutputProperty="*" Verb="Remove" Noun="FlowVpcInterface" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RevokeFlowEntitlement" OutputProperty="*" Verb="Revoke" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -72,6 +94,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFlow" OutputProperty="Flow" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
     public partial class UpdateCWAIApplicationCmdlet : AmazonApplicationInsightsClientCmdlet, IExecutor
     {
         
+        #region Parameter CWEMonitorEnabled
+        /// <summary>
+        /// <para>
+        /// <para> Indicates whether Application Insights can listen to CloudWatch events for the application
+        /// resources, such as <code>instance terminated</code>, <code>failed deployment</code>,
+        /// and others. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CWEMonitorEnabled { get; set; }
+        #endregion
+        
         #region Parameter OpsCenterEnabled
         /// <summary>
         /// <para>
@@ -150,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
                 context.Select = (response, cmdlet) => this.ResourceGroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CWEMonitorEnabled = this.CWEMonitorEnabled;
             context.OpsCenterEnabled = this.OpsCenterEnabled;
             context.OpsItemSNSTopicArn = this.OpsItemSNSTopicArn;
             context.RemoveSNSTopic = this.RemoveSNSTopic;
@@ -176,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             // create request
             var request = new Amazon.ApplicationInsights.Model.UpdateApplicationRequest();
             
+            if (cmdletContext.CWEMonitorEnabled != null)
+            {
+                request.CWEMonitorEnabled = cmdletContext.CWEMonitorEnabled.Value;
+            }
             if (cmdletContext.OpsCenterEnabled != null)
             {
                 request.OpsCenterEnabled = cmdletContext.OpsCenterEnabled.Value;
@@ -253,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CWEMonitorEnabled { get; set; }
             public System.Boolean? OpsCenterEnabled { get; set; }
             public System.String OpsItemSNSTopicArn { get; set; }
             public System.Boolean? RemoveSNSTopic { get; set; }

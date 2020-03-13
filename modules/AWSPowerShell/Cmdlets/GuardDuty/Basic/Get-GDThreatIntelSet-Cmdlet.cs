@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector the threatIntelSet is associated with.</para>
+        /// <para>The unique ID of the detector that the threatIntelSet is associated with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter ThreatIntelSetId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the threatIntelSet you want to get.</para>
+        /// <para>The unique ID of the threatIntelSet that you want to get.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -44,9 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The data to be exported from the snapshot. If this parameter is not provided, all
-        /// the snapshot data is exported. Valid values are the following:</para><ul><li><para><code>database</code> - Export all the data of the snapshot.</para></li><li><para><code>database.table [table-name]</code> - Export a table of the snapshot.</para></li><li><para><code>database.schema [schema-name]</code> - Export a database schema of the snapshot.
-        /// This value isn't valid for RDS for MySQL, RDS for MariaDB, or Aurora MySQL.</para></li><li><para><code>database.schema.table [table-name]</code> - Export a table of the database
-        /// schema. This value isn't valid for RDS for MySQL, RDS for MariaDB, or Aurora MySQL.</para></li></ul>
+        /// the snapshot data is exported. Valid values are the following:</para><ul><li><para><code>database</code> - Export all the data from a specified database.</para></li><li><para><code>database.table</code><i>table-name</i> - Export a table of the snapshot. This
+        /// format is valid only for RDS for MySQL, RDS for MariaDB, and Aurora MySQL.</para></li><li><para><code>database.schema</code><i>schema-name</i> - Export a database schema of the
+        /// snapshot. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li><li><para><code>database.schema.table</code><i>table-name</i> - Export a table of the database
+        /// schema. This format is valid only for RDS for PostgreSQL and Aurora PostgreSQL.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,8 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  <note><para>
     /// While a custom key store is disconnected, all attempts to create customer master keys
-    /// (CMKs) in the custom key store or to use existing CMKs in cryptographic operations
-    /// will fail. This action can prevent users from storing and accessing sensitive data.
+    /// (CMKs) in the custom key store or to use existing CMKs in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+    /// operations</a> will fail. This action can prevent users from storing and accessing
+    /// sensitive data.
     /// </para></note><para>
     /// To find the connection state of a custom key store, use the <a>DescribeCustomKeyStores</a>
     /// operation. To reconnect a custom key store, use the <a>ConnectCustomKeyStore</a> operation.

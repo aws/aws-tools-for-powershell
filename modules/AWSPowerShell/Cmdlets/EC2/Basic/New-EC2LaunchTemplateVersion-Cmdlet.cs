@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// Launch template versions are numbered in the order in which they are created. You
     /// cannot specify, change, or replace the numbering of launch template versions.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing
+    /// launch template versions</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2LaunchTemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

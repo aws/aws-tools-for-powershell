@@ -29,27 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Suspends activity on a fleet. Currently, this operation is used to stop a fleet's
-    /// auto-scaling activity. It is used to temporarily stop scaling events triggered by
-    /// the fleet's scaling policies. The policies can be retained and auto-scaling activity
-    /// can be restarted using <a>StartFleetActions</a>. You can view a fleet's stopped actions
-    /// using <a>DescribeFleetAttributes</a>.
+    /// auto-scaling activity. It is used to temporarily stop triggering scaling events. The
+    /// policies can be retained and auto-scaling activity can be restarted using <a>StartFleetActions</a>.
+    /// You can view a fleet's stopped actions using <a>DescribeFleetAttributes</a>.
     /// 
     ///  
     /// <para>
     /// To stop fleet actions, specify the fleet ID and the type of actions to suspend. When
     /// auto-scaling fleet actions are stopped, Amazon GameLift no longer initiates scaling
-    /// events except to maintain the fleet's desired instances setting (<a>FleetCapacity</a>.
-    /// Changes to the fleet's capacity must be done manually using <a>UpdateFleetCapacity</a>.
-    /// 
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-    /// Working with Fleets</a>.
-    /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
-    /// Update fleets:
-    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
-    /// Manage fleet actions:
-    /// </para><ul><li><para><a>StartFleetActions</a></para></li><li><para><a>StopFleetActions</a></para></li></ul></li></ul>
+    /// events except in response to manual changes using <a>UpdateFleetCapacity</a>. 
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
+    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul>
     /// </summary>
     [Cmdlet("Stop", "GMLFleetAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

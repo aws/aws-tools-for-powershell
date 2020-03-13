@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ChannelARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the signaling channel that you want to delete.</para>
+        /// <para>The Amazon Resource Name (ARN) of the signaling channel that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <para>
         /// <para>The current version of the signaling channel that you want to delete. You can obtain
         /// the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code>
-        /// APIs.</para>
+        /// API operations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

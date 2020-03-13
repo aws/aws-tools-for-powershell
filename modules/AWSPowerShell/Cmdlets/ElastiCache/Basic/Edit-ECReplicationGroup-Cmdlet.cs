@@ -30,11 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <summary>
     /// Modifies the settings for a replication group.
     /// 
-    ///  
-    /// <para>
-    /// For Redis (cluster mode enabled) clusters, this operation cannot be used to change
-    /// a cluster's node type or engine version. For more information, see:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling
+    ///  <ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling
     /// for Amazon ElastiCache for Redis (cluster mode enabled)</a> in the ElastiCache User
     /// Guide
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a>
@@ -160,6 +156,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
+        #endregion
+        
+        #region Parameter MultiAZEnabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiAZEnabled { get; set; }
         #endregion
         
         #region Parameter NotificationTopicArn
@@ -369,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.CacheSecurityGroupName = new List<System.String>(this.CacheSecurityGroupName);
             }
             context.EngineVersion = this.EngineVersion;
+            context.MultiAZEnabled = this.MultiAZEnabled;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.NodeGroupId = this.NodeGroupId;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
@@ -442,6 +449,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.MultiAZEnabled != null)
+            {
+                request.MultiAZEnabled = cmdletContext.MultiAZEnabled.Value;
             }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.NodeGroupId != null)
@@ -559,6 +570,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupName { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.Boolean? MultiAZEnabled { get; set; }
             [System.ObsoleteAttribute]
             public System.String NodeGroupId { get; set; }
             public System.String NotificationTopicArn { get; set; }

@@ -28,11 +28,12 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Retrieves AWS Organizations related information about the specified account.
+    /// Retrieves AWS Organizations-related information about the specified account.
     /// 
     ///  
     /// <para>
-    /// This operation can be called only from the organization's master account.
+    /// This operation can be called only from the organization's master account or by a member
+    /// account that is a delegated administrator for an AWS service.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ORGAccount")]

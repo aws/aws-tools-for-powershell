@@ -108,6 +108,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateUsageLimit" OutputProperty="*" Verb="New" Noun="UsageLimit" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCluster" OutputProperty="Cluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -153,6 +157,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="TagKeys" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-RSTags">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUsageLimit" Verb="Remove" Noun="UsageLimit" ShouldProcessTarget="UsageLimitId" PipelineParameter="UsageLimitId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -278,6 +286,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUsageLimits" OutputProperty="UsageLimits" Verb="Get" Noun="UsageLimit" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableLogging" OutputProperty="*" Verb="Disable" Noun="Logging" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -351,6 +363,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifySnapshotSchedule" OutputProperty="*" Verb="Edit" Noun="SnapshotSchedule" ShouldProcessTarget="ScheduleIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyUsageLimit" OutputProperty="*" Verb="Edit" Noun="UsageLimit" ShouldProcessTarget="UsageLimitId" PipelineParameter="UsageLimitId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

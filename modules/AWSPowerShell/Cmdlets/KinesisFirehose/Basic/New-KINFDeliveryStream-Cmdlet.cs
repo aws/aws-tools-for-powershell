@@ -266,8 +266,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// to create a grant that allows the Kinesis Data Firehose service to use the customer
         /// managed CMK to perform encryption and decryption. Kinesis Data Firehose manages that
         /// grant. </para><para>When you invoke <a>StartDeliveryStreamEncryption</a> to change the CMK for a delivery
-        /// stream that is already encrypted with a customer managed CMK, Kinesis Data Firehose
-        /// schedules the grant it had on the old CMK for retirement.</para>
+        /// stream that is encrypted with a customer managed CMK, Kinesis Data Firehose schedules
+        /// the grant it had on the old CMK for retirement.</para><para>You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams.
+        /// If a <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a> operation
+        /// exceeds this limit, Kinesis Data Firehose throws a <code>LimitExceededException</code>.
+        /// </para><important><para>To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't
+        /// support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see
+        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
+        /// Symmetric and Asymmetric CMKs</a> in the AWS Key Management Service developer guide.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -345,6 +351,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String ElasticsearchDestinationConfiguration_RoleARN { get; set; }
         #endregion
         
+        #region Parameter VpcConfiguration_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role that you want the delivery stream to use to create endpoints
+        /// in the destination VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ElasticsearchDestinationConfiguration_VpcConfiguration_RoleARN")]
+        public System.String VpcConfiguration_RoleARN { get; set; }
+        #endregion
+        
         #region Parameter KinesisStreamSourceConfiguration_RoleARN
         /// <summary>
         /// <para>
@@ -384,6 +402,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.Model.S3DestinationConfiguration ElasticsearchDestinationConfiguration_S3Configuration { get; set; }
         #endregion
         
+        #region Parameter VpcConfiguration_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the security groups that you want Kinesis Data Firehose to use when it
+        /// creates ENIs in the VPC of the Amazon ES destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ElasticsearchDestinationConfiguration_VpcConfiguration_SecurityGroupIds")]
+        public System.String[] VpcConfiguration_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter BufferingHints_SizeInMBs
         /// <summary>
         /// <para>
@@ -406,6 +436,28 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration SplunkDestinationConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfiguration_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the subnets that you want Kinesis Data Firehose to use to create ENIs in
+        /// the VPC of the Amazon ES destination. Make sure that the routing tables and inbound
+        /// and outbound rules allow traffic to flow from the subnets whose IDs are specified
+        /// here to the subnets that have the destination Amazon ES endpoints. Kinesis Data Firehose
+        /// creates at least one ENI in each of the subnets that are specified here. Do not delete
+        /// or modify these ENIs.</para><para>The number of ENIs that Kinesis Data Firehose creates in the subnets specified here
+        /// scales up and down automatically based on throughput. To enable Kinesis Data Firehose
+        /// to scale up the number of ENIs to match throughput, ensure that you have sufficient
+        /// quota. To help you calculate the quota you need, assume that Kinesis Data Firehose
+        /// can create up to three ENIs for this delivery stream for each of the subnets specified
+        /// here. For more information about ENI quota, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
+        /// Interfaces </a> in the Amazon VPC Quotas topic.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ElasticsearchDestinationConfiguration_VpcConfiguration_SubnetIds")]
+        public System.String[] VpcConfiguration_SubnetId { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -517,6 +569,15 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.ElasticsearchDestinationConfiguration_S3BackupMode = this.ElasticsearchDestinationConfiguration_S3BackupMode;
             context.ElasticsearchDestinationConfiguration_S3Configuration = this.ElasticsearchDestinationConfiguration_S3Configuration;
             context.ElasticsearchDestinationConfiguration_TypeName = this.ElasticsearchDestinationConfiguration_TypeName;
+            context.VpcConfiguration_RoleARN = this.VpcConfiguration_RoleARN;
+            if (this.VpcConfiguration_SecurityGroupId != null)
+            {
+                context.VpcConfiguration_SecurityGroupId = new List<System.String>(this.VpcConfiguration_SecurityGroupId);
+            }
+            if (this.VpcConfiguration_SubnetId != null)
+            {
+                context.VpcConfiguration_SubnetId = new List<System.String>(this.VpcConfiguration_SubnetId);
+            }
             context.ExtendedS3DestinationConfiguration = this.ExtendedS3DestinationConfiguration;
             context.KinesisStreamSourceConfiguration_KinesisStreamARN = this.KinesisStreamSourceConfiguration_KinesisStreamARN;
             context.KinesisStreamSourceConfiguration_RoleARN = this.KinesisStreamSourceConfiguration_RoleARN;
@@ -806,6 +867,51 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 request.ElasticsearchDestinationConfiguration.CloudWatchLoggingOptions = requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_CloudWatchLoggingOptions;
                 requestElasticsearchDestinationConfigurationIsNull = false;
             }
+            Amazon.KinesisFirehose.Model.VpcConfiguration requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration = null;
+            
+             // populate VpcConfiguration
+            var requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfigurationIsNull = true;
+            requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration = new Amazon.KinesisFirehose.Model.VpcConfiguration();
+            System.String requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_RoleARN = null;
+            if (cmdletContext.VpcConfiguration_RoleARN != null)
+            {
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_RoleARN = cmdletContext.VpcConfiguration_RoleARN;
+            }
+            if (requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_RoleARN != null)
+            {
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration.RoleARN = requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_RoleARN;
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_SecurityGroupId = null;
+            if (cmdletContext.VpcConfiguration_SecurityGroupId != null)
+            {
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_SecurityGroupId = cmdletContext.VpcConfiguration_SecurityGroupId;
+            }
+            if (requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_SecurityGroupId != null)
+            {
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration.SecurityGroupIds = requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_SecurityGroupId;
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfigurationIsNull = false;
+            }
+            List<System.String> requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_SubnetId = null;
+            if (cmdletContext.VpcConfiguration_SubnetId != null)
+            {
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_SubnetId = cmdletContext.VpcConfiguration_SubnetId;
+            }
+            if (requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_SubnetId != null)
+            {
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration.SubnetIds = requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration_vpcConfiguration_SubnetId;
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfigurationIsNull = false;
+            }
+             // determine if requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration should be set to null
+            if (requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfigurationIsNull)
+            {
+                requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration = null;
+            }
+            if (requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration != null)
+            {
+                request.ElasticsearchDestinationConfiguration.VpcConfiguration = requestElasticsearchDestinationConfiguration_elasticsearchDestinationConfiguration_VpcConfiguration;
+                requestElasticsearchDestinationConfigurationIsNull = false;
+            }
              // determine if request.ElasticsearchDestinationConfiguration should be set to null
             if (requestElasticsearchDestinationConfigurationIsNull)
             {
@@ -943,6 +1049,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public Amazon.KinesisFirehose.ElasticsearchS3BackupMode ElasticsearchDestinationConfiguration_S3BackupMode { get; set; }
             public Amazon.KinesisFirehose.Model.S3DestinationConfiguration ElasticsearchDestinationConfiguration_S3Configuration { get; set; }
             public System.String ElasticsearchDestinationConfiguration_TypeName { get; set; }
+            public System.String VpcConfiguration_RoleARN { get; set; }
+            public List<System.String> VpcConfiguration_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfiguration_SubnetId { get; set; }
             public Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration ExtendedS3DestinationConfiguration { get; set; }
             public System.String KinesisStreamSourceConfiguration_KinesisStreamARN { get; set; }
             public System.String KinesisStreamSourceConfiguration_RoleARN { get; set; }

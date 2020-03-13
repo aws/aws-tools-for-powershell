@@ -171,6 +171,7 @@ $WAF_SelectMap = @{
                "New-WAFSizeConstraintSet",
                "New-WAFSqlInjectionMatchSet",
                "New-WAFWebACL",
+               "New-WAFWebACLMigrationStack",
                "New-WAFXssMatchSet",
                "Remove-WAFByteMatchSet",
                "Remove-WAFGeoMatchSet",

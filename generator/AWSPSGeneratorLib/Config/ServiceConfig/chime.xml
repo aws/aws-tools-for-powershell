@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>chime</C2jFilename>
     <AssemblyName>Chime</AssemblyName>
@@ -83,6 +84,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateProxySession" OutputProperty="ProxySession" Verb="New" Noun="ProxySession" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateRoom" OutputProperty="Room" Verb="New" Noun="Room" ShouldProcessTarget="Name" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -123,6 +128,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProxySession" Verb="Remove" Noun="ProxySession" ShouldProcessTarget="ProxySessionId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRoom" Verb="Remove" Noun="Room" ShouldProcessTarget="RoomId" PipelineParameter="RoomId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -140,6 +149,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVoiceConnectorOrigination" Verb="Remove" Noun="VoiceConnectorOrigination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorProxy" Verb="Remove" Noun="VoiceConnectorProxy" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -211,6 +224,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetProxySession" OutputProperty="ProxySession" Verb="Get" Noun="ProxySession" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRetentionSettings" OutputProperty="*" Verb="Get" Noun="RetentionSetting" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRoom" OutputProperty="Room" Verb="Get" Noun="Room" PipelineParameter="RoomId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -239,6 +260,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorProxy" OutputProperty="Proxy" Verb="Get" Noun="VoiceConnectorProxy" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetVoiceConnectorStreamingConfiguration" OutputProperty="StreamingConfiguration" Verb="Get" Noun="VoiceConnectorStreamingConfiguration" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -263,11 +288,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAttendeeTags" OutputProperty="Tags" Verb="Get" Noun="AttendeeTagList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBots" OutputProperty="Bots" Verb="Get" Noun="BotList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMeetings" OutputProperty="Meetings" Verb="Get" Noun="MeetingList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMeetingTags" OutputProperty="Tags" Verb="Get" Noun="MeetingTagList" PipelineParameter="MeetingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -279,11 +312,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProxySessions" OutputProperty="ProxySessions" Verb="Get" Noun="ProxySessionList" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRoomMemberships" OutputProperty="RoomMemberships" Verb="Get" Noun="RoomMembershipList" PipelineParameter="RoomId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRooms" OutputProperty="Rooms" Verb="Get" Noun="RoomList" PipelineParameter="AccountId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -311,11 +352,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutRetentionSettings" OutputProperty="*" Verb="Write" Noun="RetentionSetting" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutVoiceConnectorLoggingConfiguration" OutputProperty="LoggingConfiguration" Verb="Write" Noun="VoiceConnectorLoggingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutVoiceConnectorOrigination" OutputProperty="Origination" Verb="Write" Noun="VoiceConnectorOrigination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorProxy" OutputProperty="Proxy" Verb="Write" Noun="VoiceConnectorProxy" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -333,6 +382,14 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RedactConversationMessage" Verb="Hide" Noun="ConversationMessage" ShouldProcessTarget="MessageId" PipelineParameter="MessageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RedactRoomMessage" Verb="Hide" Noun="RoomMessage" ShouldProcessTarget="MessageId" PipelineParameter="MessageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegenerateSecurityToken" OutputProperty="Bot" Verb="Update" Noun="SecurityToken" ShouldProcessTarget="BotId" PipelineParameter="BotId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -346,6 +403,30 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchAvailablePhoneNumbers" OutputProperty="E164PhoneNumbers" Verb="Search" Noun="AvailablePhoneNumber" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagAttendee" Verb="Add" Noun="Attendee" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagMeeting" Verb="Add" Noun="Meeting" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagAttendee" Verb="Remove" Noun="AttendeeTag" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagMeeting" Verb="Remove" Noun="MeetingTag" ShouldProcessTarget="MeetingId" PipelineParameter="MeetingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -370,6 +451,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePhoneNumberSettings" Verb="Update" Noun="PhoneNumberSetting" ShouldProcessTarget="CallingName" PipelineParameter="CallingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProxySession" OutputProperty="ProxySession" Verb="Update" Noun="ProxySession" ShouldProcessTarget="ProxySessionId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

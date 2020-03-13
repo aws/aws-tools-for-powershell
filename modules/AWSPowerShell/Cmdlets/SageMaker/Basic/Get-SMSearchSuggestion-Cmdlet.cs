@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon SageMaker resource to Search for.</para>
+        /// <para>The name of the Amazon SageMaker resource to search for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

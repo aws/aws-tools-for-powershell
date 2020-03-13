@@ -130,6 +130,22 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String HttpMethod { get; set; }
         #endregion
         
+        #region Parameter TlsConfig_InsecureSkipVerification
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether API Gateway skips trust chain validation of the server certificate
+        /// during the TLS handshake. Supported only for <code>HTTP</code> and <code>HTTP_PROXY</code>
+        /// integrations. By default, API Gateway validates that certificates for integration
+        /// endpoints are issued by a <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html">supported
+        /// Certificate Authority</a>. If enabled, API Gateway skips trust chain validation of
+        /// the server certificate. This is not recommended, but it enables you to use certificates
+        /// that are signed by private Certificate Authorities, or certificates that are self-signed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TlsConfig_InsecureSkipVerification { get; set; }
+        #endregion
+        
         #region Parameter IntegrationHttpMethod
         /// <summary>
         /// <para>
@@ -389,6 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             #endif
             context.TimeoutInMilli = this.TimeoutInMilli;
+            context.TlsConfig_InsecureSkipVerification = this.TlsConfig_InsecureSkipVerification;
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -468,6 +485,25 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.TimeoutInMilli != null)
             {
                 request.TimeoutInMillis = cmdletContext.TimeoutInMilli.Value;
+            }
+            
+             // populate TlsConfig
+            var requestTlsConfigIsNull = true;
+            request.TlsConfig = new Amazon.APIGateway.Model.TlsConfig();
+            System.Boolean? requestTlsConfig_tlsConfig_InsecureSkipVerification = null;
+            if (cmdletContext.TlsConfig_InsecureSkipVerification != null)
+            {
+                requestTlsConfig_tlsConfig_InsecureSkipVerification = cmdletContext.TlsConfig_InsecureSkipVerification.Value;
+            }
+            if (requestTlsConfig_tlsConfig_InsecureSkipVerification != null)
+            {
+                request.TlsConfig.InsecureSkipVerification = requestTlsConfig_tlsConfig_InsecureSkipVerification.Value;
+                requestTlsConfigIsNull = false;
+            }
+             // determine if request.TlsConfig should be set to null
+            if (requestTlsConfigIsNull)
+            {
+                request.TlsConfig = null;
             }
             if (cmdletContext.Type != null)
             {
@@ -552,6 +588,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String ResourceId { get; set; }
             public System.String RestApiId { get; set; }
             public System.Int32? TimeoutInMilli { get; set; }
+            public System.Boolean? TlsConfig_InsecureSkipVerification { get; set; }
             public Amazon.APIGateway.IntegrationType Type { get; set; }
             public System.String Uri { get; set; }
             public System.Func<Amazon.APIGateway.Model.PutIntegrationResponse, WriteAGIntegrationCmdlet, object> Select { get; set; } =

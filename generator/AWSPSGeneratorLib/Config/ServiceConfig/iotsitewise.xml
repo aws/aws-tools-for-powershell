@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>iotsitewise</C2jFilename>
+    <AssemblyName>IoTSiteWise</AssemblyName>
+    <ServiceNounPrefix>IOTSW</ServiceNounPrefix>
+    <ServiceName>AWS IoT SiteWise</ServiceName>
+    <ServiceClientInterface>IAmazonIoTSiteWise</ServiceClientInterface>
+    <ServiceClient>AmazonIoTSiteWiseClient</ServiceClient>
+    <ServiceModuleGuid>e9f30fbd-8738-443a-912e-30782bb9343a</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateAssets" Verb="Connect" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchAssociateProjectAssets" OutputProperty="Errors" Verb="Connect" Noun="AssociateProjectAsset" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDisassociateProjectAssets" OutputProperty="Errors" Verb="Disconnect" Noun="DisassociateProjectAsset" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutAssetPropertyValue" OutputProperty="ErrorEntries" Verb="Import" Noun="PutAssetPropertyValue" ShouldProcessTarget="Entries" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccessPolicy" OutputProperty="*" Verb="New" Noun="AccessPolicy" ShouldProcessTarget="" PipelineParameter="AccessPolicyPermission" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAsset" OutputProperty="*" Verb="New" Noun="Asset" AnonymousShouldProcessTarget="true" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssetModel" OutputProperty="*" Verb="New" Noun="AssetModel" ShouldProcessTarget="AssetModelName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDashboard" OutputProperty="*" Verb="New" Noun="Dashboard" AnonymousShouldProcessTarget="true" PipelineParameter="ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGateway" OutputProperty="*" Verb="New" Noun="Gateway" ShouldProcessTarget="GatewayName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePortal" OutputProperty="*" Verb="New" Noun="Portal" ShouldProcessTarget="PortalName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProject" OutputProperty="*" Verb="New" Noun="Project" AnonymousShouldProcessTarget="true" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccessPolicy" Verb="Remove" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyId" PipelineParameter="AccessPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAsset" OutputProperty="AssetStatus" Verb="Remove" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssetModel" OutputProperty="AssetModelStatus" Verb="Remove" Noun="AssetModel" ShouldProcessTarget="AssetModelId" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDashboard" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGateway" Verb="Remove" Noun="Gateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePortal" OutputProperty="PortalStatus" Verb="Remove" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProject" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccessPolicy" OutputProperty="*" Verb="Get" Noun="AccessPolicy" PipelineParameter="AccessPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="AssetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssetModel" OutputProperty="*" Verb="Get" Noun="AssetModel" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssetProperty" OutputProperty="*" Verb="Get" Noun="AssetProperty" PipelineParameter="AssetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDashboard" OutputProperty="*" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGateway" OutputProperty="*" Verb="Get" Noun="Gateway" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGatewayCapabilityConfiguration" OutputProperty="*" Verb="Get" Noun="GatewayCapabilityConfiguration" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoggingOptions" OutputProperty="LoggingOptions" Verb="Get" Noun="LoggingOption" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePortal" OutputProperty="*" Verb="Get" Noun="Portal" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAssets" Verb="Disconnect" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssetPropertyAggregates" OutputProperty="AggregatedValues" Verb="Get" Noun="AssetPropertyAggregate" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssetPropertyValue" OutputProperty="PropertyValue" Verb="Get" Noun="AssetPropertyValue" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssetPropertyValueHistory" OutputProperty="AssetPropertyValueHistory" Verb="Get" Noun="AssetPropertyValueHistory" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccessPolicies" OutputProperty="AccessPolicySummaries" Verb="Get" Noun="AccessPolicyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssetModels" OutputProperty="AssetModelSummaries" Verb="Get" Noun="AssetModelList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssets" OutputProperty="AssetSummaries" Verb="Get" Noun="AssetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociatedAssets" OutputProperty="AssetSummaries" Verb="Get" Noun="AssociatedAssetList" PipelineParameter="AssetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDashboards" OutputProperty="DashboardSummaries" Verb="Get" Noun="DashboardList" PipelineParameter="ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGateways" OutputProperty="GatewaySummaries" Verb="Get" Noun="GatewayList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPortals" OutputProperty="PortalSummaries" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProjectAssets" OutputProperty="AssetIds" Verb="Get" Noun="ProjectAssetList" PipelineParameter="ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProjects" OutputProperty="ProjectSummaries" Verb="Get" Noun="ProjectList" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLoggingOptions" Verb="Write" Noun="LoggingOption" ShouldProcessTarget="LoggingOptions_Level" PipelineParameter="LoggingOptions_Level" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccessPolicy" Verb="Update" Noun="AccessPolicy" ShouldProcessTarget="AccessPolicyId" PipelineParameter="AccessPolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAsset" OutputProperty="AssetStatus" Verb="Update" Noun="Asset" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssetModel" OutputProperty="AssetModelStatus" Verb="Update" Noun="AssetModel" ShouldProcessTarget="AssetModelId" PipelineParameter="AssetModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssetProperty" Verb="Update" Noun="AssetProperty" ShouldProcessTarget="AssetId" PipelineParameter="AssetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDashboard" Verb="Update" Noun="Dashboard" ShouldProcessTarget="DashboardId" PipelineParameter="DashboardId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGateway" Verb="Update" Noun="Gateway" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewayCapabilityConfiguration" OutputProperty="*" Verb="Update" Noun="GatewayCapabilityConfiguration" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePortal" OutputProperty="PortalStatus" Verb="Update" Noun="Portal" ShouldProcessTarget="PortalId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProject" Verb="Update" Noun="Project" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

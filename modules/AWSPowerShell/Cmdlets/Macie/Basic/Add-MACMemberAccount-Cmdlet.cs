@@ -28,7 +28,7 @@ using Amazon.Macie.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC
 {
     /// <summary>
-    /// Associates a specified AWS account with Amazon Macie as a member account.
+    /// Associates a specified AWS account with Amazon Macie Classic as a member account.
     /// </summary>
     [Cmdlet("Add", "MACMemberAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter MemberAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the AWS account that you want to associate with Amazon Macie as a member
-        /// account.</para>
+        /// <para>The ID of the AWS account that you want to associate with Amazon Macie Classic as
+        /// a member account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

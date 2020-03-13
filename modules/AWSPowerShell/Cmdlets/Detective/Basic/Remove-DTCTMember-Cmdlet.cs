@@ -28,15 +28,10 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Amazon Detective is currently in preview.
-    /// 
-    ///  
-    /// <para>
     /// Deletes one or more member accounts from the master account behavior graph. This operation
     /// can only be called by a Detective master account. That account cannot use <code>DeleteMembers</code>
     /// to delete their own account from the behavior graph. To disable a behavior graph,
     /// the master account uses the <code>DeleteGraph</code> API method.
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "DTCTMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Detective.Model.DeleteMembersResponse")]

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <summary>
     /// Creates a Server Message Block (SMB) file share on an existing file gateway. In Storage
     /// Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage.
-    /// Storage Gateway expose file shares using a SMB interface. This operation is only supported
-    /// for file gateways.
+    /// Storage Gateway expose file shares using an SMB interface. This operation is only
+    /// supported for file gateways.
     /// 
     ///  <important><para>
     /// File gateways require AWS Security Token Service (AWS STS) to be activated to enable
@@ -65,6 +65,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String[] AdminUserList { get; set; }
         #endregion
         
+        #region Parameter AuditDestinationARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the storage used for the audit logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuditDestinationARN { get; set; }
+        #endregion
+        
         #region Parameter Authentication
         /// <summary>
         /// <para>
@@ -92,8 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the file gateway on which you want to create a file
-        /// share.</para>
+        /// <para>The ARN of the file gateway on which you want to create a file share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A list of users or groups in the Active Directory that are not allowed to access the
-        /// file share. A group must be prefixed with the @ character. For example <code>@group1</code>.
+        /// file share. A group must be prefixed with the @ character. For example, <code>@group1</code>.
         /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
         /// </para>
         /// </summary>
@@ -134,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+        /// <para>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
         /// use a key managed by Amazon S3. Optional.</para>
         /// </para>
         /// </summary>
@@ -145,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption.
+        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server-side encryption.
         /// This value can only be set when KMSEncrypted is true. Optional.</para>
         /// </para>
         /// </summary>
@@ -349,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 context.AdminUserList = new List<System.String>(this.AdminUserList);
             }
+            context.AuditDestinationARN = this.AuditDestinationARN;
             context.Authentication = this.Authentication;
             context.ClientToken = this.ClientToken;
             #if MODULAR
@@ -417,6 +427,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.AdminUserList != null)
             {
                 request.AdminUserList = cmdletContext.AdminUserList;
+            }
+            if (cmdletContext.AuditDestinationARN != null)
+            {
+                request.AuditDestinationARN = cmdletContext.AuditDestinationARN;
             }
             if (cmdletContext.Authentication != null)
             {
@@ -544,6 +558,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AdminUserList { get; set; }
+            public System.String AuditDestinationARN { get; set; }
             public System.String Authentication { get; set; }
             public System.String ClientToken { get; set; }
             public System.String DefaultStorageClass { get; set; }

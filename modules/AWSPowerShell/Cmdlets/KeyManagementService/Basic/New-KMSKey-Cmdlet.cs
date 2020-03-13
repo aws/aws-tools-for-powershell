@@ -164,9 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyUsage
         /// <summary>
         /// <para>
-        /// <para>Determines the cryptographic operations for which you can use the CMK. The default
-        /// value is <code>ENCRYPT_DECRYPT</code>. This parameter is required only for asymmetric
-        /// CMKs. You can't change the <code>KeyUsage</code> value after the CMK is created.</para><para>Select only one valid value.</para><ul><li><para>For symmetric CMKs, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</para></li><li><para>For asymmetric CMKs with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or
+        /// <para>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+        /// operations</a> for which you can use the CMK. The default value is <code>ENCRYPT_DECRYPT</code>.
+        /// This parameter is required only for asymmetric CMKs. You can't change the <code>KeyUsage</code>
+        /// value after the CMK is created.</para><para>Select only one valid value.</para><ul><li><para>For symmetric CMKs, omit the parameter or specify <code>ENCRYPT_DECRYPT</code>.</para></li><li><para>For asymmetric CMKs with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or
         /// <code>SIGN_VERIFY</code>.</para></li><li><para>For asymmetric CMKs with ECC key material, specify <code>SIGN_VERIFY</code>.</para></li></ul>
         /// </para>
         /// </summary>

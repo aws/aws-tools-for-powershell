@@ -39,10 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// permissions.
     /// </para><para>
     /// By default (or if you set the <code>FeatureSet</code> parameter to <code>ALL</code>),
-    /// the new organization is created with all features enabled. In addition, service control
-    /// policies are automatically enabled in the root. If you instead create the organization
-    /// supporting only the consolidated billing features, no policy types are enabled by
-    /// default, and you can't use organization policies.
+    /// the new organization is created with all features enabled and service control policies
+    /// automatically enabled in the root. If you instead choose to create the organization
+    /// supporting only the consolidated billing features by setting the <code>FeatureSet</code>
+    /// parameter to <code>CONSOLIDATED_BILLING"</code>, no policy types are enabled by default,
+    /// and you can't use organization policies
     /// </para>
     /// </summary>
     [Cmdlet("New", "ORGOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// different levels of functionality.</para><ul><li><para><code>CONSOLIDATED_BILLING</code>: All member accounts have their bills consolidated
         /// to and paid by the master account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only">Consolidated
         /// billing</a> in the <i>AWS Organizations User Guide.</i></para><para> The consolidated billing feature subset isn't available for organizations in the
-        /// AWS GovCloud (US) Region.</para></li><li><para><code>ALL</code>: In addition to all the features that consolidated billing feature
-        /// set supports, the master account can also apply any policy type to any member account
+        /// AWS GovCloud (US) Region.</para></li><li><para><code>ALL</code>: In addition to all the features supported by the consolidated billing
+        /// feature set, the master account can also apply any policy type to any member account
         /// in the organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all">All
         /// features</a> in the <i>AWS Organizations User Guide.</i></para></li></ul>
         /// </para>

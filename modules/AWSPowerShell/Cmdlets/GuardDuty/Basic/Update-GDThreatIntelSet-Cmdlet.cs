@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Updates the ThreatIntelSet specified by ThreatIntelSet ID.
+    /// Updates the ThreatIntelSet specified by the ThreatIntelSet ID.
     /// </summary>
     [Cmdlet("Update", "GDThreatIntelSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Activate
         /// <summary>
         /// <para>
-        /// <para>The updated boolean value that specifies whether the ThreateIntelSet is active or
+        /// <para>The updated Boolean value that specifies whether the ThreateIntelSet is active or
         /// not.</para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para>The updated URI of the file that contains the ThreateIntelSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)</para>
+        /// <para>The updated URI of the file that contains the ThreateIntelSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

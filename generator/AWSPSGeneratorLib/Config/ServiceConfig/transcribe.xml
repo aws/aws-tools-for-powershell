@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>transcribe</C2jFilename>
     <AssemblyName>TranscribeService</AssemblyName>
@@ -21,11 +22,23 @@
         <Property>Status</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateMedicalVocabulary" OutputProperty="*" Verb="New" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVocabulary" OutputProperty="*" Verb="New" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVocabularyFilter" OutputProperty="*" Verb="New" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMedicalTranscriptionJob" Verb="Remove" Noun="MedicalTranscriptionJob" ShouldProcessTarget="MedicalTranscriptionJobName" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMedicalVocabulary" Verb="Remove" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -41,6 +54,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMedicalTranscriptionJob" OutputProperty="MedicalTranscriptionJob" Verb="Get" Noun="MedicalTranscriptionJob" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMedicalVocabulary" OutputProperty="*" Verb="Get" Noun="MedicalVocabulary" PipelineParameter="VocabularyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTranscriptionJob" OutputProperty="TranscriptionJob" Verb="Get" Noun="TranscriptionJob" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -50,6 +71,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetVocabularyFilter" OutputProperty="*" Verb="Get" Noun="VocabularyFilter" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMedicalTranscriptionJobs" OutputProperty="MedicalTranscriptionJobSummaries" Verb="Get" Noun="MedicalTranscriptionJobList" PipelineParameter="JobNameContains" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMedicalVocabularies" OutputProperty="Vocabularies" Verb="Get" Noun="MedicalVocabularyList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -65,7 +94,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartMedicalTranscriptionJob" OutputProperty="MedicalTranscriptionJob" Verb="Start" Noun="MedicalTranscriptionJob" AnonymousShouldProcessTarget="true" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartTranscriptionJob" OutputProperty="TranscriptionJob" Verb="Start" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMedicalVocabulary" OutputProperty="*" Verb="Update" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

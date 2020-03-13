@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// 
     ///  
     /// <para>
-    /// If the account is a master account of an organization, this operation also confirms
+    /// If the account is the master account of an organization, this action also confirms
     /// the enrollment status of member accounts within the organization.
     /// </para>
     /// </summary>

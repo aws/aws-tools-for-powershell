@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>qldb</C2jFilename>
     <AssemblyName>QLDB</AssemblyName>
@@ -19,11 +20,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelJournalKinesisStream" OutputProperty="StreamId" Verb="Stop" Noun="JournalKinesisStream" ShouldProcessTarget="StreamId" PipelineParameter="StreamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateLedger" OutputProperty="*" Verb="New" Noun="Ledger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLedger" Verb="Remove" Noun="Ledger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeJournalKinesisStream" OutputProperty="Stream" Verb="Get" Noun="JournalKinesisStream" PipelineParameter="StreamId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -51,6 +60,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListJournalKinesisStreamsForLedger" OutputProperty="Streams" Verb="Get" Noun="JournalKinesisStreamsForLedgerList" PipelineParameter="LedgerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListJournalS3Exports" OutputProperty="JournalS3Exports" Verb="Get" Noun="JournalS3ExportList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -64,6 +77,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StreamJournalToKinesis" OutputProperty="StreamId" Verb="Start" Noun="StreamJournalToKinesi" ShouldProcessTarget="LedgerName" PipelineParameter="LedgerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

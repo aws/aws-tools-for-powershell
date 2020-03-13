@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Returns summary information about stack instances that are associated with the specified
     /// stack set. You can filter for stack instances that are associated with a specific
-    /// AWS account name or region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// AWS account name or Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNStackInstanceList")]
     [OutputType("Amazon.CloudFormation.Model.StackInstanceSummary")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The name of the region where you want to list stack instances. </para>
+        /// <para>The name of the Region where you want to list stack instances. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

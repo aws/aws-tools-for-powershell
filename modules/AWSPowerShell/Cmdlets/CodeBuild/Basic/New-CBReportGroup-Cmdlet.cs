@@ -126,6 +126,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String S3Destination_Path { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para> A list of tag key and value pairs associated with this report group. </para><para>These tags are available for use by AWS services that support AWS CodeBuild report
+        /// group tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.CodeBuild.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -217,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.CodeBuild.Model.Tag>(this.Tag);
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -328,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -400,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ReportPackagingType S3Destination_Packaging { get; set; }
             public System.String S3Destination_Path { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.CodeBuild.Model.Tag> Tag { get; set; }
             public Amazon.CodeBuild.ReportType Type { get; set; }
             public System.Func<Amazon.CodeBuild.Model.CreateReportGroupResponse, NewCBReportGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReportGroup;

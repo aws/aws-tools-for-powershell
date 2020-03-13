@@ -49,7 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// add routing rules that describe conditions for redirecting requests and information
     /// about the redirect destination. In this case, the website configuration must provide
     /// an index document for the bucket, because some requests might not be redirected. 
-    /// </para><ul><li><para><code>WebsiteConfiguration</code></para></li><li><para><code>IndexDocument</code></para></li><li><para><code>Suffix</code></para></li><li><para><code>ErrorDocument</code></para></li><li><para><code>Key</code></para></li><li><para><code>RoutingRules</code></para></li><li><para><code>RoutingRule</code></para></li><li><para><code>Condition</code></para></li><li><para><code>HttpErrorCodeReturnedEquals</code></para></li><li><para><code>KeyPrefixEquals</code></para></li><li><para><code>Redirect</code></para></li><li><para><code>Protocol</code></para></li><li><para><code>HostName</code></para></li><li><para><code>ReplaceKeyPrefixWith</code></para></li><li><para><code>ReplaceKeyWith</code></para></li><li><para><code>HttpRedirectCode</code></para></li></ul>
+    /// </para><ul><li><para><code>WebsiteConfiguration</code></para></li><li><para><code>IndexDocument</code></para></li><li><para><code>Suffix</code></para></li><li><para><code>ErrorDocument</code></para></li><li><para><code>Key</code></para></li><li><para><code>RoutingRules</code></para></li><li><para><code>RoutingRule</code></para></li><li><para><code>Condition</code></para></li><li><para><code>HttpErrorCodeReturnedEquals</code></para></li><li><para><code>KeyPrefixEquals</code></para></li><li><para><code>Redirect</code></para></li><li><para><code>Protocol</code></para></li><li><para><code>HostName</code></para></li><li><para><code>ReplaceKeyPrefixWith</code></para></li><li><para><code>ReplaceKeyWith</code></para></li><li><para><code>HttpRedirectCode</code></para></li></ul><para>
+    /// Amazon S3 has a limitation of 50 routing rules per website configuration. If you require
+    /// more than 50 routing rules, you can use object redirect. For more information, see
+    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring
+    /// an Object Redirect</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "S3BucketWebsite", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty account with which you want to associate
-        /// member accounts.</para>
+        /// <para>The unique ID of the detector of the GuardDuty account that you want to associate
+        /// member accounts with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

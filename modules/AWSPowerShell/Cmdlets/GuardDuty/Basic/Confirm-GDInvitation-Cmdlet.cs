@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter InvitationId
         /// <summary>
         /// <para>
-        /// <para>This value is used to validate the master account to the member account.</para>
+        /// <para>The value that is used to validate the master account to the member account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

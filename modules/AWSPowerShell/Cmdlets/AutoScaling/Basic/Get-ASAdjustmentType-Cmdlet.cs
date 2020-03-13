@@ -28,7 +28,20 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes the policy adjustment types for use with <a>PutScalingPolicy</a>.
+    /// Describes the available adjustment types for Amazon EC2 Auto Scaling scaling policies.
+    /// These settings apply to step scaling policies and simple scaling policies; they do
+    /// not apply to target tracking scaling policies.
+    /// 
+    ///  
+    /// <para>
+    /// The following adjustment types are supported:
+    /// </para><ul><li><para>
+    /// ChangeInCapacity
+    /// </para></li><li><para>
+    /// ExactCapacity
+    /// </para></li><li><para>
+    /// PercentChangeInCapacity
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "ASAdjustmentType")]
     [OutputType("Amazon.AutoScaling.Model.AdjustmentType")]

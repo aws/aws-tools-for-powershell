@@ -517,6 +517,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? ElasticsearchSettings_ErrorRetryDuration { get; set; }
         #endregion
         
+        #region Parameter NeptuneSettings_ErrorRetryDuration
+        /// <summary>
+        /// <para>
+        /// <para>The number of milliseconds for AWS DMS to wait to retry a bulk-load of migrated graph
+        /// data to the Neptune target database before raising an error. The default is 250.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NeptuneSettings_ErrorRetryDuration { get; set; }
+        #endregion
+        
         #region Parameter ExternalTableDefinition
         /// <summary>
         /// <para>
@@ -581,6 +592,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? ElasticsearchSettings_FullLoadErrorPercentage { get; set; }
+        #endregion
+        
+        #region Parameter NeptuneSettings_IamAuthEnabled
+        /// <summary>
+        /// <para>
+        /// <para>If you want IAM authorization enabled for this endpoint, set this parameter to <code>true</code>
+        /// and attach the appropriate role policy document to your service role specified by
+        /// <code>ServiceAccessRoleArn</code>. The default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NeptuneSettings_IamAuthEnabled { get; set; }
         #endregion
         
         #region Parameter KinesisSettings_IncludeControlDetail
@@ -679,6 +702,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? RedshiftSettings_LoadTimeout { get; set; }
         #endregion
         
+        #region Parameter NeptuneSettings_MaxFileSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum size in KB of migrated graph data stored in a CSV file before AWS DMS
+        /// bulk-loads the data to the Neptune target database. The default is 1048576 KB. If
+        /// successful, AWS DMS clears the bucket, ready to store the next batch of migrated graph
+        /// data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NeptuneSettings_MaxFileSize { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_MaxFileSize
         /// <summary>
         /// <para>
@@ -688,6 +724,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? RedshiftSettings_MaxFileSize { get; set; }
+        #endregion
+        
+        #region Parameter NeptuneSettings_MaxRetryCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of times for AWS DMS to retry a bulk-load of migrated graph data to the
+        /// Neptune target database before raising an error. The default is 5.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? NeptuneSettings_MaxRetryCount { get; set; }
         #endregion
         
         #region Parameter KinesisSettings_MessageFormat
@@ -870,6 +917,29 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? S3Settings_RowGroupLength { get; set; }
         #endregion
         
+        #region Parameter NeptuneSettings_S3BucketFolder
+        /// <summary>
+        /// <para>
+        /// <para>A folder path where you where you want AWS DMS to store migrated graph data in the
+        /// S3 bucket specified by <code>S3BucketName</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NeptuneSettings_S3BucketFolder { get; set; }
+        #endregion
+        
+        #region Parameter NeptuneSettings_S3BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket for AWS DMS to temporarily store migrated graph data in
+        /// CSV files before bulk-loading it to the Neptune target database. AWS DMS maps the
+        /// SQL source data to graph data before storing it in these CSV files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NeptuneSettings_S3BucketName { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_ServerName
         /// <summary>
         /// <para>
@@ -964,6 +1034,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KinesisSettings_ServiceAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter NeptuneSettings_ServiceAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the service role you have created for the Neptune target endpoint. For
+        /// more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole">https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole</a>
+        /// in the <i>AWS Database Migration Service User Guide.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NeptuneSettings_ServiceAccessRoleArn { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_ServiceAccessRoleArn
@@ -1235,6 +1317,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MongoDbSettings_Port = this.MongoDbSettings_Port;
             context.MongoDbSettings_ServerName = this.MongoDbSettings_ServerName;
             context.MongoDbSettings_Username = this.MongoDbSettings_Username;
+            context.NeptuneSettings_ErrorRetryDuration = this.NeptuneSettings_ErrorRetryDuration;
+            context.NeptuneSettings_IamAuthEnabled = this.NeptuneSettings_IamAuthEnabled;
+            context.NeptuneSettings_MaxFileSize = this.NeptuneSettings_MaxFileSize;
+            context.NeptuneSettings_MaxRetryCount = this.NeptuneSettings_MaxRetryCount;
+            context.NeptuneSettings_S3BucketFolder = this.NeptuneSettings_S3BucketFolder;
+            context.NeptuneSettings_S3BucketName = this.NeptuneSettings_S3BucketName;
+            context.NeptuneSettings_ServiceAccessRoleArn = this.NeptuneSettings_ServiceAccessRoleArn;
             context.Password = this.Password;
             context.Port = this.Port;
             context.RedshiftSettings_AcceptAnyDate = this.RedshiftSettings_AcceptAnyDate;
@@ -1678,6 +1767,85 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMongoDbSettingsIsNull)
             {
                 request.MongoDbSettings = null;
+            }
+            
+             // populate NeptuneSettings
+            var requestNeptuneSettingsIsNull = true;
+            request.NeptuneSettings = new Amazon.DatabaseMigrationService.Model.NeptuneSettings();
+            System.Int32? requestNeptuneSettings_neptuneSettings_ErrorRetryDuration = null;
+            if (cmdletContext.NeptuneSettings_ErrorRetryDuration != null)
+            {
+                requestNeptuneSettings_neptuneSettings_ErrorRetryDuration = cmdletContext.NeptuneSettings_ErrorRetryDuration.Value;
+            }
+            if (requestNeptuneSettings_neptuneSettings_ErrorRetryDuration != null)
+            {
+                request.NeptuneSettings.ErrorRetryDuration = requestNeptuneSettings_neptuneSettings_ErrorRetryDuration.Value;
+                requestNeptuneSettingsIsNull = false;
+            }
+            System.Boolean? requestNeptuneSettings_neptuneSettings_IamAuthEnabled = null;
+            if (cmdletContext.NeptuneSettings_IamAuthEnabled != null)
+            {
+                requestNeptuneSettings_neptuneSettings_IamAuthEnabled = cmdletContext.NeptuneSettings_IamAuthEnabled.Value;
+            }
+            if (requestNeptuneSettings_neptuneSettings_IamAuthEnabled != null)
+            {
+                request.NeptuneSettings.IamAuthEnabled = requestNeptuneSettings_neptuneSettings_IamAuthEnabled.Value;
+                requestNeptuneSettingsIsNull = false;
+            }
+            System.Int32? requestNeptuneSettings_neptuneSettings_MaxFileSize = null;
+            if (cmdletContext.NeptuneSettings_MaxFileSize != null)
+            {
+                requestNeptuneSettings_neptuneSettings_MaxFileSize = cmdletContext.NeptuneSettings_MaxFileSize.Value;
+            }
+            if (requestNeptuneSettings_neptuneSettings_MaxFileSize != null)
+            {
+                request.NeptuneSettings.MaxFileSize = requestNeptuneSettings_neptuneSettings_MaxFileSize.Value;
+                requestNeptuneSettingsIsNull = false;
+            }
+            System.Int32? requestNeptuneSettings_neptuneSettings_MaxRetryCount = null;
+            if (cmdletContext.NeptuneSettings_MaxRetryCount != null)
+            {
+                requestNeptuneSettings_neptuneSettings_MaxRetryCount = cmdletContext.NeptuneSettings_MaxRetryCount.Value;
+            }
+            if (requestNeptuneSettings_neptuneSettings_MaxRetryCount != null)
+            {
+                request.NeptuneSettings.MaxRetryCount = requestNeptuneSettings_neptuneSettings_MaxRetryCount.Value;
+                requestNeptuneSettingsIsNull = false;
+            }
+            System.String requestNeptuneSettings_neptuneSettings_S3BucketFolder = null;
+            if (cmdletContext.NeptuneSettings_S3BucketFolder != null)
+            {
+                requestNeptuneSettings_neptuneSettings_S3BucketFolder = cmdletContext.NeptuneSettings_S3BucketFolder;
+            }
+            if (requestNeptuneSettings_neptuneSettings_S3BucketFolder != null)
+            {
+                request.NeptuneSettings.S3BucketFolder = requestNeptuneSettings_neptuneSettings_S3BucketFolder;
+                requestNeptuneSettingsIsNull = false;
+            }
+            System.String requestNeptuneSettings_neptuneSettings_S3BucketName = null;
+            if (cmdletContext.NeptuneSettings_S3BucketName != null)
+            {
+                requestNeptuneSettings_neptuneSettings_S3BucketName = cmdletContext.NeptuneSettings_S3BucketName;
+            }
+            if (requestNeptuneSettings_neptuneSettings_S3BucketName != null)
+            {
+                request.NeptuneSettings.S3BucketName = requestNeptuneSettings_neptuneSettings_S3BucketName;
+                requestNeptuneSettingsIsNull = false;
+            }
+            System.String requestNeptuneSettings_neptuneSettings_ServiceAccessRoleArn = null;
+            if (cmdletContext.NeptuneSettings_ServiceAccessRoleArn != null)
+            {
+                requestNeptuneSettings_neptuneSettings_ServiceAccessRoleArn = cmdletContext.NeptuneSettings_ServiceAccessRoleArn;
+            }
+            if (requestNeptuneSettings_neptuneSettings_ServiceAccessRoleArn != null)
+            {
+                request.NeptuneSettings.ServiceAccessRoleArn = requestNeptuneSettings_neptuneSettings_ServiceAccessRoleArn;
+                requestNeptuneSettingsIsNull = false;
+            }
+             // determine if request.NeptuneSettings should be set to null
+            if (requestNeptuneSettingsIsNull)
+            {
+                request.NeptuneSettings = null;
             }
             if (cmdletContext.Password != null)
             {
@@ -2279,6 +2447,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? MongoDbSettings_Port { get; set; }
             public System.String MongoDbSettings_ServerName { get; set; }
             public System.String MongoDbSettings_Username { get; set; }
+            public System.Int32? NeptuneSettings_ErrorRetryDuration { get; set; }
+            public System.Boolean? NeptuneSettings_IamAuthEnabled { get; set; }
+            public System.Int32? NeptuneSettings_MaxFileSize { get; set; }
+            public System.Int32? NeptuneSettings_MaxRetryCount { get; set; }
+            public System.String NeptuneSettings_S3BucketFolder { get; set; }
+            public System.String NeptuneSettings_S3BucketName { get; set; }
+            public System.String NeptuneSettings_ServiceAccessRoleArn { get; set; }
             public System.String Password { get; set; }
             public System.Int32? Port { get; set; }
             public System.Boolean? RedshiftSettings_AcceptAnyDate { get; set; }

@@ -28,12 +28,7 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// <important><para><i><b>Cost Category is in public beta for AWS Billing and Cost Management and is
-    /// subject to change. Your use of Cost Categories is subject to the Beta Service Participation
-    /// terms of the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>
-    /// (Section 1.10).</b></i></para></important><para>
     /// Creates a new Cost Category with the requested name and rules.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "CECostCategoryDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CostExplorer.Model.CreateCostCategoryDefinitionResponse")]
@@ -64,10 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Rule
         /// <summary>
         /// <para>
-        /// <para><code>CreateCostCategoryDefinition</code> supports dimensions, Tags, and nested expressions.
-        /// Currently the only dimensions supported is <code>LINKED_ACCOUNT</code>.</para><para>Root level <code>OR</code> is not supported. We recommend you create a separate rule
-        /// instead.</para><para>Rules are processed in order. If there are multiple rules that match the line item,
-        /// then the first rule to match is used to determine that Cost Category value. </para>
+        /// <para>The Cost Category rules used to categorize costs. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -669,7 +669,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The replacement set of tags for this build project.</para><para>These tags are available for use by AWS services that support AWS CodeBuild build
+        /// <para>An updated list of tag key and value pairs associated with this build project.</para><para>These tags are available for use by AWS services that support AWS CodeBuild build
         /// project tags.</para>
         /// </para>
         /// </summary>
@@ -721,13 +721,13 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>The type of build environment to use for related builds.</para><ul><li><para>The environment type <code>ARM_CONTAINER</code> is available only in regions US East
         /// (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai),
         /// Asia Pacific (Tokyo), Asia Pacific (Sydney), and EU (Frankfurt).</para></li><li><para>The environment type <code>LINUX_CONTAINER</code> with compute type <code>build.general1.2xlarge</code>
-        /// is available only in regions US East (N. Virginia), US East (N. Virginia), US West
-        /// (Oregon), Canada (Central), EU (Ireland), EU (London), EU (Frankfurt), Asia Pacific
-        /// (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), China
-        /// (Beijing), and China (Ningxia).</para></li><li><para>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in regions
-        /// US East (N. Virginia), US East (N. Virginia), US West (Oregon), Canada (Central),
-        /// EU (Ireland), EU (London), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
-        /// Asia Pacific (Singapore), Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).</para></li></ul>
+        /// is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon),
+        /// Canada (Central), EU (Ireland), EU (London), EU (Frankfurt), Asia Pacific (Tokyo),
+        /// Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing),
+        /// and China (Ningxia).</para></li><li><para>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in regions
+        /// US East (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), EU (Ireland),
+        /// EU (London), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific
+        /// (Singapore), Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

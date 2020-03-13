@@ -95,6 +95,23 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String RuleState { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of key-value pairs to associate with the Contributor Insights rule. You can
+        /// associate as many as 50 tags with a rule.</para><para>Tags can help you organize and categorize your resources. You can also use them to
+        /// scope user permissions, by granting a user permission to access or change only the
+        /// resources that have certain tag values.</para><para>To be able to associate tags with a rule, you must have the <code>cloudwatch:TagResource</code>
+        /// permission in addition to the <code>cloudwatch:PutInsightRule</code> permission.</para><para>If you are using this operation to update an existing Contributor Insights rule, any
+        /// tags you specify in this parameter are ignored. To change the tags of an existing
+        /// rule, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.CloudWatch.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -170,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #endif
             context.RuleState = this.RuleState;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.CloudWatch.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.RuleState != null)
             {
                 request.RuleState = cmdletContext.RuleState;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -262,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.String RuleDefinition { get; set; }
             public System.String RuleName { get; set; }
             public System.String RuleState { get; set; }
+            public List<Amazon.CloudWatch.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.CloudWatch.Model.PutInsightRuleResponse, WriteCWInsightRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

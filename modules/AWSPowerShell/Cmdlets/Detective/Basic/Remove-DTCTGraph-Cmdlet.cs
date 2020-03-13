@@ -28,13 +28,11 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Amazon Detective is currently in preview.
-    /// 
-    ///  
-    /// <para>
     /// Disables the specified behavior graph and queues it to be deleted. This operation
     /// removes the graph from each member account's list of behavior graphs.
-    /// </para><para><code>DeleteGraph</code> can only be called by the master account for a behavior
+    /// 
+    ///  
+    /// <para><code>DeleteGraph</code> can only be called by the master account for a behavior
     /// graph.
     /// </para>
     /// </summary>

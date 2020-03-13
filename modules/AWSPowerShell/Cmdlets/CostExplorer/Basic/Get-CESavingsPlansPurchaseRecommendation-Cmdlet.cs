@@ -39,6 +39,38 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class GetCESavingsPlansPurchaseRecommendationCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        #region Parameter AccountScope
+        /// <summary>
+        /// <para>
+        /// <para>The account scope that you want your recommendations for. Amazon Web Services calculates
+        /// recommendations including the payer account and linked accounts if the value is set
+        /// to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated
+        /// for individual linked accounts only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CostExplorer.AccountScope")]
+        public Amazon.CostExplorer.AccountScope AccountScope { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>You can filter your recommendations by Account ID with the <code>LINKED_ACCOUNT</code>
+        /// dimension. To filter your recommendations by Account ID, specify <code>Key</code>
+        /// as <code>LINKED_ACCOUNT</code> and <code>Value</code> as the comma-separated Acount
+        /// ID(s) for which you want to see Savings Plans purchase recommendations.</para><para>For GetSavingsPlansPurchaseRecommendation, the <code>Filter</code> does not include
+        /// <code>CostCategories</code> or <code>Tags</code>. It only includes <code>Dimensions</code>.
+        /// With <code>Dimensions</code>, <code>Key</code> must be <code>LINKED_ACCOUNT</code>
+        /// and <code>Value</code> can be a single Account ID or multiple comma-separated Account
+        /// IDs for which you want to see Savings Plans Purchase Recommendations. <code>AND</code>
+        /// and <code>OR</code> operators are not supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.CostExplorer.Model.Expression Filter { get; set; }
+        #endregion
+        
         #region Parameter LookbackPeriodInDay
         /// <summary>
         /// <para>
@@ -190,6 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 context.Select = (response, cmdlet) => this.PaymentOption;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccountScope = this.AccountScope;
+            context.Filter = this.Filter;
             context.LookbackPeriodInDay = this.LookbackPeriodInDay;
             #if MODULAR
             if (this.LookbackPeriodInDay == null && ParameterWasBound(nameof(this.LookbackPeriodInDay)))
@@ -240,6 +274,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // create request and set iteration invariants
             var request = new Amazon.CostExplorer.Model.GetSavingsPlansPurchaseRecommendationRequest();
             
+            if (cmdletContext.AccountScope != null)
+            {
+                request.AccountScope = cmdletContext.AccountScope;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filter = cmdletContext.Filter;
+            }
             if (cmdletContext.LookbackPeriodInDay != null)
             {
                 request.LookbackPeriodInDays = cmdletContext.LookbackPeriodInDay;
@@ -345,6 +387,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CostExplorer.AccountScope AccountScope { get; set; }
+            public Amazon.CostExplorer.Model.Expression Filter { get; set; }
             public Amazon.CostExplorer.LookbackPeriodInDays LookbackPeriodInDay { get; set; }
             public System.String NextPageToken { get; set; }
             public System.Int32? PageSize { get; set; }

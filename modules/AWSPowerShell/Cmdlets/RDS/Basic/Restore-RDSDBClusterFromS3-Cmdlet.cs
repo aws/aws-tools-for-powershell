@@ -35,6 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// Guide</i>.
     /// 
     ///  <note><para>
+    /// This action only restores the DB cluster, not the DB instances for that DB cluster.
+    /// You must invoke the <code>CreateDBInstance</code> action to create DB instances for
+    /// the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>.
+    /// You can create DB instances only after the <code>RestoreDBClusterFromS3</code> action
+    /// has completed and the DB cluster is available.
+    /// </para></note><para>
+    /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><note><para>
     /// This action only applies to Aurora DB clusters.
     /// </para></note>
     /// </summary>
@@ -170,9 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specify the Active Directory directory ID to restore the DB cluster in. The domain
         /// must be created prior to this operation. </para><para> For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
-        /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
-        /// Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User Guide</i>.
-        /// </para>
+        /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
+        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// 
     ///  
     /// <para>
-    /// Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments.
-    /// For details about environment tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
-    /// Resources in Your Elastic Beanstalk Environment</a>.
+    /// Elastic Beanstalk supports tagging of all of its resources. For details about resource
+    /// tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging
+    /// Application Resources</a>.
     /// </para><para>
     /// If you create a custom IAM user policy to control permission to this operation, specify
     /// one of the following two virtual actions (or both) instead of the API operation name:
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resouce to be updated.</para><para>Must be the ARN of an Elastic Beanstalk environment.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resouce to be updated.</para><para>Must be the ARN of an Elastic Beanstalk resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TagsToAdd
         /// <summary>
         /// <para>
-        /// <para>A list of tags to add or update.</para><para>If a key of an existing tag is added, the tag's value is updated.</para>
+        /// <para>A list of tags to add or update. If a key of an existing tag is added, the tag's value
+        /// is updated.</para><para>Specify at least one of these parameters: <code>TagsToAdd</code>, <code>TagsToRemove</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TagsToRemove
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to remove.</para><para>If a tag key doesn't exist, it is silently ignored.</para>
+        /// <para>A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.</para><para>Specify at least one of these parameters: <code>TagsToAdd</code>, <code>TagsToRemove</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

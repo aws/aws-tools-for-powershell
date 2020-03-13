@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The signature made with the token and your custom authentication service's private
-        /// key.</para>
+        /// key. This value must be Base-64-encoded.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

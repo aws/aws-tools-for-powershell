@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentFilterList
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// <para>This data type is deprecated. Instead, use <code>Filters</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// <para>One or more DocumentKeyValuesFilter objects. Use a filter to return a more specific
+        /// list of results. For keys, you can specify one or more key-value pair tags that have
+        /// been applied to a document. Other valid keys include <code>Owner</code>, <code>Name</code>,
+        /// <code>PlatformTypes</code>, <code>DocumentType</code>, and <code>TargetType</code>.
+        /// For example, to return documents you own use <code>Key=Owner,Values=Self</code>. To
+        /// specify a custom key-value pair, use the format <code>Key=tag:tagName,Values=valueName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

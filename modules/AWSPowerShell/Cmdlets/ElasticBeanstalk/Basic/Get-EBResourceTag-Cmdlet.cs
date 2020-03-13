@@ -28,14 +28,14 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Returns the tags applied to an AWS Elastic Beanstalk resource. The response contains
+    /// Return the tags applied to an AWS Elastic Beanstalk resource. The response contains
     /// a list of tag key-value pairs.
     /// 
     ///  
     /// <para>
-    /// Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments.
-    /// For details about environment tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
-    /// Resources in Your Elastic Beanstalk Environment</a>.
+    /// Elastic Beanstalk supports tagging of all of its resources. For details about resource
+    /// tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/applications-tagging-resources.html">Tagging
+    /// Application Resources</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EBResourceTag")]
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</para><para>Must be the ARN of an Elastic Beanstalk environment.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resouce for which a tag list is requested.</para><para>Must be the ARN of an Elastic Beanstalk resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

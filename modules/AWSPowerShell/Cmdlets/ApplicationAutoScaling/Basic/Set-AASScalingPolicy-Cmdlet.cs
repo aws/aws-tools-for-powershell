@@ -28,20 +28,14 @@ using Amazon.ApplicationAutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Creates or updates a policy for an Application Auto Scaling scalable target.
+    /// Creates or updates a scaling policy for an Application Auto Scaling scalable target.
     /// 
     ///  
     /// <para>
     /// Each scalable target is identified by a service namespace, resource ID, and scalable
     /// dimension. A scaling policy applies to the scalable target identified by those three
     /// attributes. You cannot create a scaling policy until you have registered the resource
-    /// as a scalable target using <a>RegisterScalableTarget</a>.
-    /// </para><para>
-    /// To update a policy, specify its policy name and the parameters that you want to change.
-    /// Any parameters that you don't specify are not changed by this update request.
-    /// </para><para>
-    /// You can view the scaling policies for a service namespace using <a>DescribeScalingPolicies</a>.
-    /// If you are no longer using a scaling policy, you can delete it using <a>DeleteScalingPolicy</a>.
+    /// as a scalable target.
     /// </para><para>
     /// Multiple scaling policies can be in force at the same time for the same scalable target.
     /// You can have one or more target tracking scaling policies, one or more step scaling
@@ -53,9 +47,21 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// Auto Scaling uses the policy with the highest calculated capacity (200% of 10 = 20)
     /// and scales out to 30. 
     /// </para><para>
-    /// Learn more about how to work with scaling policies in the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application
-    /// Auto Scaling User Guide</a>.
-    /// </para>
+    /// We recommend caution, however, when using target tracking scaling policies with step
+    /// scaling policies because conflicts between these policies can cause undesirable behavior.
+    /// For example, if the step scaling policy initiates a scale-in activity before the target
+    /// tracking policy is ready to scale in, the scale-in activity will not be blocked. After
+    /// the scale-in activity completes, the target tracking policy could instruct the scalable
+    /// target to scale out again. 
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
+    /// Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
+    /// Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.
+    /// </para><note><para>
+    /// If a scalable target is deregistered, the scalable target is no longer available to
+    /// execute scaling policies. Any scaling policies that were specified for the scalable
+    /// target are deleted.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Set", "AASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse")]
@@ -69,8 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_AdjustmentType
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the <code>ScalingAdjustment</code> value in a <a>StepAdjustment</a>
-        /// is an absolute number or a percentage of the current capacity. </para>
+        /// <para>Specifies whether the <code>ScalingAdjustment</code> value in a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html">StepAdjustment</a>
+        /// is an absolute number or a percentage of the current capacity. </para><para><code>AdjustmentType</code> is required if you are adding a new step scaling policy
+        /// configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,21 +88,21 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_Cooldown
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, after a scaling activity completes where previous
-        /// trigger-related scaling activities can influence future scaling events.</para><para>For scale-out policies, while the cooldown period is in effect, the capacity that
-        /// has been added by the previous scale-out event that initiated the cooldown is calculated
-        /// as part of the desired capacity for the next scale out. The intention is to continuously
-        /// (but not excessively) scale out. For example, an alarm triggers a step scaling policy
-        /// to scale out an Amazon ECS service by 2 tasks, the scaling activity completes successfully,
-        /// and a cooldown period of 5 minutes starts. During the cooldown period, if the alarm
-        /// triggers the same policy again but at a more aggressive step adjustment to scale out
-        /// the service by 3 tasks, the 2 tasks that were added in the previous scale-out event
-        /// are considered part of that capacity and only 1 additional task is added to the desired
-        /// count.</para><para>For scale-in policies, the cooldown period is used to block subsequent scale-in requests
-        /// until it has expired. The intention is to scale in conservatively to protect your
-        /// application's availability. However, if another alarm triggers a scale-out policy
-        /// during the cooldown period after a scale-in, Application Auto Scaling scales out your
-        /// scalable target immediately.</para>
+        /// <para>The amount of time, in seconds, to wait for a previous scaling activity to take effect.</para><para>With scale-out policies, the intention is to continuously (but not excessively) scale
+        /// out. After Application Auto Scaling successfully scales out using a step scaling policy,
+        /// it starts to calculate the cooldown time. While the cooldown period is in effect,
+        /// capacity added by the initiating scale-out activity is calculated as part of the desired
+        /// capacity for the next scale-out activity. For example, when an alarm triggers a step
+        /// scaling policy to increase the capacity by 2, the scaling activity completes successfully,
+        /// and a cooldown period starts. If the alarm triggers again during the cooldown period
+        /// but at a more aggressive step adjustment of 3, the previous increase of 2 is considered
+        /// part of the current capacity. Therefore, only 1 is added to the capacity.</para><para>With scale-in policies, the intention is to scale in conservatively to protect your
+        /// application’s availability, so scale-in activities are blocked until the cooldown
+        /// period has expired. However, if another alarm triggers a scale-out activity during
+        /// the cooldown period after a scale-in activity, Application Auto Scaling scales out
+        /// the target immediately. In this case, the cooldown period for the scale-in activity
+        /// stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
+        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,9 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>Indicates whether scale in by the target tracking scaling policy is disabled. If the
         /// value is <code>true</code>, scale in is disabled and the target tracking scaling policy
-        /// won't remove capacity from the scalable resource. Otherwise, scale in is enabled and
-        /// the target tracking scaling policy can remove capacity from the scalable resource.
-        /// The default value is <code>false</code>.</para>
+        /// won't remove capacity from the scalable target. Otherwise, scale in is enabled and
+        /// the target tracking scaling policy can remove capacity from the scalable target. The
+        /// default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,13 +162,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_MinAdjustmentMagnitude
         /// <summary>
         /// <para>
-        /// <para>The minimum number to adjust your scalable dimension as a result of a scaling activity.
-        /// If the adjustment type is <code>PercentChangeInCapacity</code>, the scaling policy
-        /// changes the scalable dimension of the scalable target by this amount.</para><para>For example, suppose that you create a step scaling policy to scale out an Amazon
-        /// ECS service by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of
-        /// 2. If the service has 4 tasks and the scaling policy is performed, 25 percent of 4
-        /// is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Application
-        /// Auto Scaling scales out the service by 2 tasks.</para>
+        /// <para>The minimum value to scale by when scaling by percentages. For example, suppose that
+        /// you create a step scaling policy to scale out an Amazon ECS service by 25 percent
+        /// and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the service has 4 tasks
+        /// and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified
+        /// a <code>MinAdjustmentMagnitude</code> of 2, Application Auto Scaling scales out the
+        /// service by 2 tasks.</para><para>Valid only if the adjustment type is <code>PercentChangeInCapacity</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type. This parameter is required if you are creating a scaling policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, or AWS Lambda</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
+        /// <para>The policy type. This parameter is required if you are creating a scaling policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, or
+        /// Amazon Keyspaces (for Apache Cassandra).</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
         /// Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
         /// Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</para>
         /// </para>
@@ -242,7 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <code>function</code> and the
         /// unique identifier is the function name with a function version or alias name suffix
         /// that is not <code>$LATEST</code>. Example: <code>function:my-function:prod</code>
-        /// or <code>function:my-function:1</code>.</para></li></ul>
+        /// or <code>function:my-function:1</code>.</para></li><li><para>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier
+        /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -289,7 +297,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// for an Amazon SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
         /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
-        /// for a Lambda function.</para></li></ul>
+        /// for a Lambda function.</para></li><li><para><code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for
+        /// an Amazon Keyspaces table.</para></li><li><para><code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity
+        /// for an Amazon Keyspaces table.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -307,10 +317,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scale-in activity completes before another
-        /// scale in activity can start.</para><para>The cooldown period is used to block subsequent scale-in requests until it has expired.
-        /// The intention is to scale in conservatively to protect your application's availability.
-        /// However, if another alarm triggers a scale-out policy during the cooldown period after
-        /// a scale-in, Application Auto Scaling scales out your scalable target immediately.</para>
+        /// scale-in activity can start.</para><para>With the <i>scale-in cooldown period</i>, the intention is to scale in conservatively
+        /// to protect your application’s availability, so scale-in activities are blocked until
+        /// the cooldown period has expired. However, if another alarm triggers a scale-out activity
+        /// during the scale-in cooldown period, Application Auto Scaling scales out the target
+        /// immediately. In this case, the scale-in cooldown period stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
+        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -320,11 +332,13 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter TargetTrackingScalingPolicyConfiguration_ScaleOutCooldown
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, after a scale-out activity completes before another
-        /// scale-out activity can start.</para><para>While the cooldown period is in effect, the capacity that has been added by the previous
-        /// scale-out event that initiated the cooldown is calculated as part of the desired capacity
-        /// for the next scale out. The intention is to continuously (but not excessively) scale
-        /// out.</para>
+        /// <para>The amount of time, in seconds, to wait for a previous scale-out activity to take
+        /// effect.</para><para>With the <i>scale-out cooldown period</i>, the intention is to continuously (but not
+        /// excessively) scale out. After Application Auto Scaling successfully scales out using
+        /// a target tracking scaling policy, it starts to calculate the cooldown time. While
+        /// the scale-out cooldown period is in effect, the capacity added by the initiating scale-out
+        /// activity is calculated as part of the desired capacity for the next scale-out activity.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
+        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -334,10 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the AWS service that provides the resource or <code>custom-resource</code>
-        /// for a resource provided by your own application or service. For more information,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// <para>The namespace of the AWS service that provides the resource. For a resource provided
+        /// by your own application or service, use <code>custom-resource</code> instead.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -366,7 +378,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_StepAdjustment
         /// <summary>
         /// <para>
-        /// <para>A set of adjustments that enable you to scale based on the size of the alarm breach.</para>
+        /// <para>A set of adjustments that enable you to scale based on the size of the alarm breach.</para><para>At least one step adjustment is required if you are adding a new step scaling policy
+        /// configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>An array that contains the IDs of all the instances that you want to get the health
         /// status for.</para><para>If you omit <code>Instances</code>, AWS Cloud Map returns the health status for all
         /// the instances that are associated with the specified service.</para><note><para>To get the IDs for the instances that you've registered by using a specified service,
-        /// submit a <a>ListInstances</a> request.</para></note>
+        /// submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html">ListInstances</a>
+        /// request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

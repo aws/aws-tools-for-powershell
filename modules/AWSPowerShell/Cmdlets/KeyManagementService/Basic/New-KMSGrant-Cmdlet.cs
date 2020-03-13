@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
-    /// To create a grant that allows a cryptographic operation only when the request includes
-    /// a particular <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
+    /// To create a grant that allows a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+    /// operation</a> only when the request includes a particular <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
     /// context</a>, use the <code>Constraints</code> parameter. For details, see <a>GrantConstraints</a>.
     /// </para><para>
     /// You can create grants on symmetric and asymmetric CMKs. However, if the grant allows
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Constraints_EncryptionContextEqual
         /// <summary>
         /// <para>
-        /// <para>A list of key-value pairs that must match the encryption context in the cryptographic
-        /// operation request. The grant allows the operation only when the encryption context
+        /// <para>A list of key-value pairs that must match the encryption context in the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+        /// operation</a> request. The grant allows the operation only when the encryption context
         /// in the request is the same as the encryption context specified in this constraint.</para>
         /// </para>
         /// </summary>
@@ -102,9 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter Constraints_EncryptionContextSubset
         /// <summary>
         /// <para>
-        /// <para>A list of key-value pairs that must be included in the encryption context of the cryptographic
-        /// operation request. The grant allows the cryptographic operation only when the encryption
-        /// context in the request includes the key-value pairs specified in this constraint,
+        /// <para>A list of key-value pairs that must be included in the encryption context of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+        /// operation</a> request. The grant allows the cryptographic operation only when the
+        /// encryption context in the request includes the key-value pairs specified in this constraint,
         /// although it can include additional key-value pairs.</para>
         /// </para>
         /// </summary>

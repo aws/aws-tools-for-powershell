@@ -110,11 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter CustomCertificate
         /// <summary>
         /// <para>
-        /// <para>Supported on servers running Chef Automate 2. A PEM-formatted HTTPS certificate. The
-        /// value can be be a single, self-signed certificate, or a certificate chain. If you
-        /// specify a custom certificate, you must also specify values for <code>CustomDomain</code>
-        /// and <code>CustomPrivateKey</code>. The following are requirements for the <code>CustomCertificate</code>
-        /// value:</para><ul><li><para>You can provide either a self-signed, custom certificate, or the full certificate
+        /// <para>A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate,
+        /// or a certificate chain. If you specify a custom certificate, you must also specify
+        /// values for <code>CustomDomain</code> and <code>CustomPrivateKey</code>. The following
+        /// are requirements for the <code>CustomCertificate</code> value:</para><ul><li><para>You can provide either a self-signed, custom certificate, or the full certificate
         /// chain.</para></li><li><para>The certificate must be a valid X509 certificate, or a certificate chain in PEM format.</para></li><li><para>The certificate must be valid at the time of upload. A certificate can't be used before
         /// its validity period begins (the certificate's <code>NotBefore</code> date), or after
         /// it expires (the certificate's <code>NotAfter</code> date).</para></li><li><para>The certificate’s common name or subject alternative names (SANs), if present, must
@@ -128,13 +127,13 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter CustomDomain
         /// <summary>
         /// <para>
-        /// <para>Supported on servers running Chef Automate 2. An optional public endpoint of a server,
-        /// such as <code>https://aws.my-company.com</code>. To access the server, create a CNAME
-        /// DNS record in your preferred DNS service that points the custom domain to the endpoint
-        /// that is generated when the server is created (the value of the CreateServer Endpoint
-        /// attribute). You cannot access the server by using the generated <code>Endpoint</code>
-        /// value if the server is using a custom domain. If you specify a custom domain, you
-        /// must also specify values for <code>CustomCertificate</code> and <code>CustomPrivateKey</code>.</para>
+        /// <para>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>.
+        /// To access the server, create a CNAME DNS record in your preferred DNS service that
+        /// points the custom domain to the endpoint that is generated when the server is created
+        /// (the value of the CreateServer Endpoint attribute). You cannot access the server by
+        /// using the generated <code>Endpoint</code> value if the server is using a custom domain.
+        /// If you specify a custom domain, you must also specify values for <code>CustomCertificate</code>
+        /// and <code>CustomPrivateKey</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,10 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter CustomPrivateKey
         /// <summary>
         /// <para>
-        /// <para>Supported on servers running Chef Automate 2. A private key in PEM format for connecting
-        /// to the server by using HTTPS. The private key must not be encrypted; it cannot be
-        /// protected by a password or passphrase. If you specify a custom private key, you must
-        /// also specify values for <code>CustomDomain</code> and <code>CustomCertificate</code>.</para>
+        /// <para>A private key in PEM format for connecting to the server by using HTTPS. The private
+        /// key must not be encrypted; it cannot be protected by a password or passphrase. If
+        /// you specify a custom private key, you must also specify values for <code>CustomDomain</code>
+        /// and <code>CustomCertificate</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -365,8 +364,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para>A map that contains tag keys and tag values to attach to an AWS OpsWorks for Chef
         /// Automate or AWS OpsWorks for Puppet Enterprise server.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
-        /// numbers, or separators, or the following special characters: <code>+ - = . _ : /</code></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
-        /// or separators, or the following special characters: <code>+ - = . _ : /</code></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server.</para></li></ul>
+        /// numbers, or separators, or the following special characters: <code>+ - = . _ : / @</code></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
+        /// or separators, or the following special characters: <code>+ - = . _ : / @</code></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM server.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

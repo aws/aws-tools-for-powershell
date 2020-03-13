@@ -29,7 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Lists the organization nodes that have access to the specified portfolio. This API
-    /// can only be called by the master account in the organization.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// can only be called by the master account in the organization or by a delegated admin.
+    /// 
+    ///  
+    /// <para>
+    /// If a delegated admin is de-registered, they can no longer perform this operation.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SCOrganizationPortfolioAccessList")]
     [OutputType("Amazon.ServiceCatalog.Model.OrganizationNode")]

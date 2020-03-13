@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// Gets information about one or more applications. The maximum number of applications
-    /// that can be returned is 25.
+    /// that can be returned is 100.
     /// </summary>
     [Cmdlet("Get", "CDApplicationBatch")]
     [OutputType("Amazon.CodeDeploy.Model.ApplicationInfo")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>A list of application names separated by spaces. The maximum number of application
-        /// names you can specify is 25.</para>
+        /// names you can specify is 100.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

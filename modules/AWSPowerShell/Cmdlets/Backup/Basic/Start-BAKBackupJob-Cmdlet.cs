@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter CompleteWindowMinute
         /// <summary>
         /// <para>
-        /// <para>The amount of time AWS Backup attempts a backup before canceling the job and returning
-        /// an error.</para>
+        /// <para>A value in minutes after a backup job is successfully started before it must be completed
+        /// or it will be canceled by AWS Backup. This value is optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter StartWindowMinute
         /// <summary>
         /// <para>
-        /// <para>The amount of time in minutes before beginning a backup.</para>
+        /// <para>A value in minutes after a backup is scheduled before a job will be canceled if it
+        /// doesn't start successfully. This value is optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

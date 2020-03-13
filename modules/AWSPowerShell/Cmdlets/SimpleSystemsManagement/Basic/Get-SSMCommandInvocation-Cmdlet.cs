@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>(Optional) One or more filters. Use a filter to return a more specific list of results.
-        /// Note that the <code>DocumentName</code> filter is not supported for ListCommandInvocations.</para>
+        /// <para>(Optional) One or more filters. Use a filter to return a more specific list of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

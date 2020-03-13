@@ -86,15 +86,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-CGPPolicy', 
         'Get-CGPProfile', 
         'Get-CGPProfileTimeList', 
         'Get-CGPProfilingGroup', 
         'Get-CGPProfilingGroupList', 
         'New-CGPProfilingGroup', 
+        'Remove-CGPPermission', 
         'Remove-CGPProfilingGroup', 
         'Send-CGPAgentProfile', 
         'Set-CGPAgentConfiguration', 
-        'Update-CGPProfilingGroup')
+        'Update-CGPProfilingGroup', 
+        'Write-CGPPermission')
 
     # Variables to export from this module
     VariablesToExport = '*'

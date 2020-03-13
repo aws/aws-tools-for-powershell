@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingType
         /// <summary>
         /// <para>
-        /// <para>Types of sample findings to generate.</para>
+        /// <para>The types of sample findings to generate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

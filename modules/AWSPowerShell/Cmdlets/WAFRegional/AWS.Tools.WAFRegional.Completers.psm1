@@ -180,6 +180,7 @@ $WAFR_SelectMap = @{
                "New-WAFRSizeConstraintSet",
                "New-WAFRSqlInjectionMatchSet",
                "New-WAFRWebACL",
+               "New-WAFRWebACLMigrationStack",
                "New-WAFRXssMatchSet",
                "Remove-WAFRByteMatchSet",
                "Remove-WAFRGeoMatchSet",

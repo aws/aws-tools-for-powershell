@@ -87,6 +87,13 @@ $DTEX_Completers = {
             break
         }
 
+        # Amazon.DataExchange.ServerSideEncryptionTypes
+        "New-DTEXJob/Details_ExportAssetsToS3_Encryption_Type"
+        {
+            $v = "AES256","aws:kms"
+            break
+        }
+
         # Amazon.DataExchange.Type
         "New-DTEXJob/Type"
         {
@@ -104,6 +111,7 @@ $DTEX_Completers = {
 
 $DTEX_map = @{
     "AssetType"=@("New-DTEXDataSet")
+    "Details_ExportAssetsToS3_Encryption_Type"=@("New-DTEXJob")
     "Type"=@("New-DTEXJob")
 }
 

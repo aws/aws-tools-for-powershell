@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>Specifies that the number of virtual tapes descried be limited to the specified number.</para>
+        /// <para>Specifies that the number of virtual tapes described be limited to the specified number.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -28,10 +28,10 @@ using Amazon.Macie.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC
 {
     /// <summary>
-    /// Removes specified S3 resources from being monitored by Amazon Macie. If memberAccountId
-    /// isn't specified, the action removes specified S3 resources from Macie for the current
-    /// master account. If memberAccountId is specified, the action removes specified S3 resources
-    /// from Macie for the specified member account.
+    /// Removes specified S3 resources from being monitored by Amazon Macie Classic. If memberAccountId
+    /// isn't specified, the action removes specified S3 resources from Macie Classic for
+    /// the current master account. If memberAccountId is specified, the action removes specified
+    /// S3 resources from Macie Classic for the specified member account.
     /// </summary>
     [Cmdlet("Remove", "MACS3Resource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Macie.Model.FailedS3Resource")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         /// <summary>
         /// <para>
         /// <para>The S3 resources (buckets or prefixes) that you want to remove from being monitored
-        /// and classified by Amazon Macie. </para>
+        /// and classified by Amazon Macie Classic. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter MemberAccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Macie member account whose resources you want to remove from
-        /// being monitored by Amazon Macie. </para>
+        /// <para>The ID of the Amazon Macie Classic member account whose resources you want to remove
+        /// from being monitored by Amazon Macie Classic. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

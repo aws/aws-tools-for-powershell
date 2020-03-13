@@ -134,6 +134,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-WAFRSizeConstraintSet', 
         'New-WAFRSqlInjectionMatchSet', 
         'New-WAFRWebACL', 
+        'New-WAFRWebACLMigrationStack', 
         'New-WAFRXssMatchSet', 
         'Register-WAFRWebACL', 
         'Remove-WAFRByteMatchSet', 

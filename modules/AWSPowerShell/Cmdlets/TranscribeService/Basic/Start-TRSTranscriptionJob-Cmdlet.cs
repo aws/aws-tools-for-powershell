@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>Indicates whether a job should be queued by Amazon Transcribe when the concurrent
         /// execution limit is exceeded. When the <code>AllowDeferredExecution</code> field is
-        /// true, jobs are queued and will be executed when the number of executing jobs falls
-        /// below the concurrent execution limit. If the field is false, Amazon Transcribe returns
-        /// a <code>LimitExceededException</code> exception.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
+        /// true, jobs are queued and executed when the number of executing jobs falls below the
+        /// concurrent execution limit. If the field is false, Amazon Transcribe returns a <code>LimitExceededException</code>
+        /// exception.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
         /// <code>DataAccessRoleArn</code> field.</para>
         /// </para>
         /// </summary>
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains
-        /// the input files. Amazon Transcribe will assume this role to read queued media files.
-        /// If you have specified an output S3 bucket for the transcription results, this role
-        /// should have access to the output bucket as well.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
+        /// the input files. Amazon Transcribe assumes this role to read queued media files. If
+        /// you have specified an output S3 bucket for the transcription results, this role should
+        /// have access to the output bucket as well.</para><para>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
         /// <code>DataAccessRoleArn</code> field.</para>
         /// </para>
         /// </summary>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The maximum number of speakers to identify in the input audio. If there are more speakers
-        /// in the audio than this number, multiple speakers will be identified as a single speaker.
+        /// in the audio than this number, multiple speakers are identified as a single speaker.
         /// If you specify the <code>MaxSpeakerLabels</code> field, you must set the <code>ShowSpeakerLabels</code>
         /// field to true.</para>
         /// </para>
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The S3 object location of the input media file. The URI must be in the same region
-        /// as the API endpoint that you are calling. The general form is:</para><para><code> s3://&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></para><para>For example:</para><para><code>s3://examplebucket/example.mp4</code></para><para><code>s3://examplebucket/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// as the API endpoint that you are calling. The general form is:</para><para>For example:</para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -205,11 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter ContentRedaction_RedactionOutput
         /// <summary>
         /// <para>
-        /// <para>Request parameter where you choose whether to output only the redacted transcript
-        /// or generate an additional unredacted transcript.</para><para>When you choose <code>redacted</code> Amazon Transcribe outputs a JSON file with only
-        /// the redacted transcript and related information.</para><para>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe outputs a JSON
-        /// file with the unredacted transcript and related information in addition to the JSON
-        /// file with the redacted transcript.</para>
+        /// <para>The output transcript file stored in either the default S3 bucket or in a bucket you
+        /// specify.</para><para>When you choose <code>redacted</code> Amazon Transcribe outputs only the redacted
+        /// transcript.</para><para>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe outputs both
+        /// the redacted and unredacted transcripts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -261,7 +260,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The name of the job. Note that you can't use the strings "." or ".." by themselves
-        /// as the job name. The name must also be unique within an AWS account.</para>
+        /// as the job name. The name must also be unique within an AWS account. If you try to
+        /// create a transcription job with the same name as a previous transcription job you
+        /// will receive a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -36,16 +36,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// 
     ///  
     /// <para>
-    /// To create a new fleet, you must provide the following: (1) a fleet name, (2) an EC2
-    /// instance type and fleet type (spot or on-demand), (3) the build ID for your game build
-    /// or script ID if using Realtime Servers, and (4) a runtime configuration, which determines
-    /// how game servers will run on each instance in the fleet. 
+    /// To create a new fleet, provide the following: (1) a fleet name, (2) an EC2 instance
+    /// type and fleet type (spot or on-demand), (3) the build ID for your game build or script
+    /// ID if using Realtime Servers, and (4) a runtime configuration, which determines how
+    /// game servers will run on each instance in the fleet. 
     /// </para><para>
     /// If the <code>CreateFleet</code> call is successful, Amazon GameLift performs the following
     /// tasks. You can track the process of a fleet by checking the fleet status or by monitoring
     /// fleet creation events:
     /// </para><ul><li><para>
-    /// Creates a fleet record. Status: <code>NEW</code>.
+    /// Creates a fleet resource. Status: <code>NEW</code>.
     /// </para></li><li><para>
     /// Begins writing events to the fleet event log, which can be accessed in the Amazon
     /// GameLift console.
@@ -62,11 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// Sets the fleet's status to <code>ACTIVE</code> as soon as one server process is ready
     /// to host a game session.
-    /// </para></li></ul><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-    /// Setting Up Fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">
-    /// Debug Fleet Creation Issues</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para>
-    /// Manage fleet actions:
-    /// </para><ul><li><para><a>StartFleetActions</a></para></li><li><para><a>StopFleetActions</a></para></li></ul></li></ul>
+    /// </para></li></ul><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
+    /// Up Fleets</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html#fleets-creating-debug-creation">Debug
+    /// Fleet Creation Issues</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.FleetAttributes")]

@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Which metric Cost Explorer uses to create your forecast. For more information about
-        /// blended and unblended rates, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
+        /// blended and unblended rates, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
         /// does the "blended" annotation appear on some line items in my bill?</a>. </para><para>Valid values for a <code>GetCostForecast</code> call are the following:</para><ul><li><para>AMORTIZED_COST</para></li><li><para>BLENDED_COST</para></li><li><para>NET_AMORTIZED_COST</para></li><li><para>NET_UNBLENDED_COST</para></li><li><para>UNBLENDED_COST</para></li></ul>
         /// </para>
         /// </summary>

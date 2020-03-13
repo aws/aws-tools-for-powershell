@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// a CloudWatch metric that checks the status of the Amazon EC2 <code>StatusCheckFailed</code>
     /// metric, add an alarm to the metric, and then create a health check that is based on
     /// the state of the alarm. For information about creating CloudWatch metrics and alarms
-    /// by using the CloudWatch console, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon
+    /// by using the CloudWatch console, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html">Amazon
     /// CloudWatch User Guide</a>.
     /// </para></li></ul>
     /// </summary>
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The number of consecutive health checks that an endpoint must pass or fail for Amazon
         /// Route 53 to change the current status of the endpoint from unhealthy to healthy or
-        /// vice versa. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// vice versa. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
         /// Amazon Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Amazon Route
         /// 53 Developer Guide</i>.</para><para>If you don't specify a value for <code>FailureThreshold</code>, the default value
         /// is three health checks.</para>
@@ -292,7 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>The name of the CloudWatch alarm that you want Amazon Route 53 health checkers to
         /// use to determine whether this health check is healthy.</para><note><para>Route 53 supports CloudWatch alarms with the following features:</para><ul><li><para>Standard-resolution metrics. High-resolution metrics aren't supported. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution
+        /// see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/publishingMetrics.html#high-resolution-metrics">High-Resolution
         /// Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</para></li><li><para>Statistics: Average, Minimum, Maximum, Sum, and SampleCount. Extended statistics aren't
         /// supported.</para></li></ul></note>
         /// </para>
@@ -305,8 +305,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HealthCheckConfig_Port
         /// <summary>
         /// <para>
-        /// <para>The port on the endpoint on which you want Amazon Route 53 to perform health checks.
-        /// Specify a value for <code>Port</code> only when you specify a value for <code>IPAddress</code>.</para>
+        /// <para>The port on the endpoint that you want Amazon Route 53 to perform health checks on.</para><note><para>Don't specify a value for <code>Port</code> when you specify a value for <code>Type</code>
+        /// of <code>CLOUDWATCH_METRIC</code> or <code>CALCULATED</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -317,9 +317,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>For the CloudWatch alarm that you want Route 53 health checkers to use to determine
-        /// whether this health check is healthy, the region that the alarm was created in.</para><para>For the current list of CloudWatch regions, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region">Amazon
-        /// CloudWatch</a> in the <i>AWS Regions and Endpoints</i> chapter of the <i>Amazon Web
-        /// Services General Reference</i>.</para>
+        /// whether this health check is healthy, the region that the alarm was created in.</para><para>For the current list of CloudWatch regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region">Amazon
+        /// CloudWatch</a> in the <i>AWS Service Endpoints</i> chapter of the <i>Amazon Web Services
+        /// General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -375,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter HealthCheckConfig_SearchString
         /// <summary>
         /// <para>
-        /// <para>If the value of Type is <code>HTTP_STR_MATCH</code> or <code>HTTP_STR_MATCH</code>,
+        /// <para>If the value of Type is <code>HTTP_STR_MATCH</code> or <code>HTTPS_STR_MATCH</code>,
         /// the string that you want Amazon Route 53 to search for in the response body from the
         /// specified resource. If the string appears in the response body, Route 53 considers
         /// the resource healthy.</para><para>Route 53 considers case when searching for <code>SearchString</code> in the response

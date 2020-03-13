@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Deletes the user belonging to the server you specify.
+    /// Deletes the user belonging to a file transfer protocol-enabled server you specify.
     /// 
     ///  
     /// <para>
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for an SFTP server instance that has the user
-        /// assigned to it.</para>
+        /// <para>A system-assigned unique identifier for a file transfer protocol-enabled server instance
+        /// that has the user assigned to it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>A unique string that identifies a user that is being deleted from the server.</para>
+        /// <para>A unique string that identifies a user that is being deleted from a file transfer
+        /// protocol-enabled server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

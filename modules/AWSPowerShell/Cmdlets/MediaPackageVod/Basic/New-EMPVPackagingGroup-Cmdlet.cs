@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
     public partial class NewEMPVPackagingGroupCmdlet : AmazonMediaPackageVodClientCmdlet, IExecutor
     {
         
+        #region Parameter Authorization_CdnIdentifierSecret
+        /// <summary>
+        /// <para>
+        /// The Amazon Resource Name (ARN) for
+        /// the secret in AWS Secrets Manager that is used for CDN authorization.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Authorization_CdnIdentifierSecret { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -54,6 +65,28 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter Authorization_SecretsRoleArn
+        /// <summary>
+        /// <para>
+        /// The Amazon Resource Name (ARN) for the
+        /// IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Authorization_SecretsRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -117,6 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Authorization_CdnIdentifierSecret = this.Authorization_CdnIdentifierSecret;
+            context.Authorization_SecretsRoleArn = this.Authorization_SecretsRoleArn;
             context.Id = this.Id;
             #if MODULAR
             if (this.Id == null && ParameterWasBound(nameof(this.Id)))
@@ -124,6 +159,14 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -140,9 +183,42 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
             // create request
             var request = new Amazon.MediaPackageVod.Model.CreatePackagingGroupRequest();
             
+            
+             // populate Authorization
+            var requestAuthorizationIsNull = true;
+            request.Authorization = new Amazon.MediaPackageVod.Model.Authorization();
+            System.String requestAuthorization_authorization_CdnIdentifierSecret = null;
+            if (cmdletContext.Authorization_CdnIdentifierSecret != null)
+            {
+                requestAuthorization_authorization_CdnIdentifierSecret = cmdletContext.Authorization_CdnIdentifierSecret;
+            }
+            if (requestAuthorization_authorization_CdnIdentifierSecret != null)
+            {
+                request.Authorization.CdnIdentifierSecret = requestAuthorization_authorization_CdnIdentifierSecret;
+                requestAuthorizationIsNull = false;
+            }
+            System.String requestAuthorization_authorization_SecretsRoleArn = null;
+            if (cmdletContext.Authorization_SecretsRoleArn != null)
+            {
+                requestAuthorization_authorization_SecretsRoleArn = cmdletContext.Authorization_SecretsRoleArn;
+            }
+            if (requestAuthorization_authorization_SecretsRoleArn != null)
+            {
+                request.Authorization.SecretsRoleArn = requestAuthorization_authorization_SecretsRoleArn;
+                requestAuthorizationIsNull = false;
+            }
+             // determine if request.Authorization should be set to null
+            if (requestAuthorizationIsNull)
+            {
+                request.Authorization = null;
+            }
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -205,7 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Authorization_CdnIdentifierSecret { get; set; }
+            public System.String Authorization_SecretsRoleArn { get; set; }
             public System.String Id { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MediaPackageVod.Model.CreatePackagingGroupResponse, NewEMPVPackagingGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

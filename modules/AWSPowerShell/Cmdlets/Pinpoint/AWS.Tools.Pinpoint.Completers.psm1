@@ -121,7 +121,7 @@ $PIN_Completers = {
         # Amazon.Pinpoint.ChannelType
         "Update-PINEndpoint/EndpointRequest_ChannelType"
         {
-            $v = "ADM","APNS","APNS_SANDBOX","APNS_VOIP","APNS_VOIP_SANDBOX","BAIDU","CUSTOM","EMAIL","GCM","SMS","VOICE"
+            $v = "ADM","APNS","APNS_SANDBOX","APNS_VOIP","APNS_VOIP_SANDBOX","BAIDU","CUSTOM","EMAIL","GCM","PUSH","SMS","VOICE"
             break
         }
 

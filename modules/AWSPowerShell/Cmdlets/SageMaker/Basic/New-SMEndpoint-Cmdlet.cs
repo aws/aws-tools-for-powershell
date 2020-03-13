@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Creates an endpoint using the endpoint configuration specified in the request. Amazon
     /// SageMaker uses the endpoint to provision resources and deploy models. You create the
-    /// endpoint configuration with the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html">CreateEndpointConfig</a>
-    /// API. 
+    /// endpoint configuration with the <a>CreateEndpointConfig</a> API. 
     /// 
     ///  
     /// <para>
@@ -49,12 +48,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para><para>
     /// When it receives the request, Amazon SageMaker creates the endpoint, launches the
     /// resources (ML compute instances), and deploys the model(s) on them. 
-    /// </para><para>
+    /// </para><note><para>
+    /// When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to verify that
+    /// your endpoint configuration exists. When you read data from a DynamoDB table supporting
+    /// <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><code>Eventually Consistent Reads</code></a>, the response might not reflect the
+    /// results of a recently completed write operation. The response might include some stale
+    /// data. If the dependent entities are not yet in DynamoDB, this causes a validation
+    /// error. If you repeat your read request after a short time, the response should return
+    /// the latest data. So retry logic is recommended to handle these possible issues. We
+    /// also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a>
+    /// to minimize the potential impact of a DynamoDB eventually consistent read.
+    /// </para></note><para>
     /// When Amazon SageMaker receives the request, it sets the endpoint status to <code>Creating</code>.
     /// After it creates the endpoint, it sets the status to <code>InService</code>. Amazon
     /// SageMaker can then process incoming requests for inferences. To check the status of
-    /// an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html">DescribeEndpoint</a>
-    /// API.
+    /// an endpoint, use the <a>DescribeEndpoint</a> API.
     /// </para><para>
     /// If any of the models hosted at this endpoint get model data from an Amazon S3 location,
     /// Amazon SageMaker uses AWS Security Token Service to download model artifacts from
@@ -78,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of an endpoint configuration. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.
+        /// <para>The name of an endpoint configuration. For more information, see <a>CreateEndpointConfig</a>.
         /// </para>
         /// </para>
         /// </summary>

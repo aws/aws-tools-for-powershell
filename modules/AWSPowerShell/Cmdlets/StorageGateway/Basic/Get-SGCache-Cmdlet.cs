@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Returns information about the cache of a gateway. This operation is only supported
-    /// in the cached volume, tape and file gateway types.
+    /// in the cached volume, tape, and file gateway types.
     /// 
     ///  
     /// <para>

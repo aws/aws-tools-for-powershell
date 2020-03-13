@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// as the provider for the virtual         service.
     /// </para><para>
     /// For more information about virtual services, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html">Virtual
-    /// Services</a>.
+    /// services</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "AMSHVirtualService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

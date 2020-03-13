@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// <para>
     /// Currently, you can list tags on an account in AWS Organizations.
     /// </para><para>
-    /// This operation can be called only from the organization's master account.
+    /// This operation can be called only from the organization's master account or by a member
+    /// account that is a delegated administrator for an AWS service.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ORGResourceTag")]
@@ -67,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Use this parameter if you receive a <code>NextToken</code> response in a previous
-        /// request that indicates that there is more output available. Set it to the value of
-        /// the previous call's <code>NextToken</code> response to indicate where the output should
-        /// continue from.</para>
+        /// <para>The parameter for receiving additional results if you receive a <code>NextToken</code>
+        /// response in a previous request. A <code>NextToken</code> response indicates that more
+        /// output is available. Set this parameter to the value of the previous call's <code>NextToken</code>
+        /// response to indicate where the output should continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

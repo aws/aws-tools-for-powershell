@@ -80,6 +80,16 @@ $EMR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ElasticMapReduce.ComputeLimitsUnitType
+        {
+            ($_ -eq "Start-EMRJobFlow/ManagedScalingPolicy_ComputeLimits_UnitType") -Or
+            ($_ -eq "Write-EMRManagedScalingPolicy/ManagedScalingPolicy_ComputeLimits_UnitType")
+        }
+        {
+            $v = "InstanceFleetUnits","Instances","VCPU"
+            break
+        }
+
         # Amazon.ElasticMapReduce.InstanceFleetType
         {
             ($_ -eq "Add-EMRInstanceFleet/InstanceFleet_InstanceFleetType") -Or
@@ -130,6 +140,7 @@ $EMR_map = @{
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
     "InstanceFleetType"=@("Get-EMRInstanceList")
+    "ManagedScalingPolicy_ComputeLimits_UnitType"=@("Start-EMRJobFlow","Write-EMRManagedScalingPolicy")
     "RepoUpgradeOnBoot"=@("Start-EMRJobFlow")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
     "StepCancellationOption"=@("Stop-EMRStep")
@@ -197,6 +208,7 @@ $EMR_SelectMap = @{
                "Get-EMRSecurityConfiguration",
                "Get-EMRStep",
                "Get-EMRBlockPublicAccessConfiguration",
+               "Get-EMRManagedScalingPolicy",
                "Get-EMRBootstrapActionList",
                "Get-EMRClusterList",
                "Get-EMRInstanceFleetList",
@@ -209,7 +221,9 @@ $EMR_SelectMap = @{
                "Edit-EMRInstanceGroup",
                "Write-EMRAutoScalingPolicy",
                "Write-EMRBlockPublicAccessConfiguration",
+               "Write-EMRManagedScalingPolicy",
                "Remove-EMRAutoScalingPolicy",
+               "Remove-EMRManagedScalingPolicy",
                "Remove-EMRResourceTag",
                "Start-EMRJobFlow",
                "Set-EMRTerminationProtection",

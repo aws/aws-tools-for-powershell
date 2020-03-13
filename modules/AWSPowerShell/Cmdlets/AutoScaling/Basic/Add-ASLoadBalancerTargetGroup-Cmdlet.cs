@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// To describe the target groups for an Auto Scaling group, use <a>DescribeLoadBalancerTargetGroups</a>.
-    /// To detach the target group from the Auto Scaling group, use <a>DetachLoadBalancerTargetGroups</a>.
+    /// To describe the target groups for an Auto Scaling group, call the <a>DescribeLoadBalancerTargetGroups</a>
+    /// API. To detach the target group from the Auto Scaling group, call the <a>DetachLoadBalancerTargetGroups</a>
+    /// API.
     /// </para><para>
     /// With Application Load Balancers and Network Load Balancers, instances are registered
     /// as targets with a target group. With Classic Load Balancers, instances are registered

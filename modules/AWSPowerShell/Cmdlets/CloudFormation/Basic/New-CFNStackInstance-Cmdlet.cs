@@ -28,8 +28,8 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Creates stack instances for the specified accounts, within the specified regions.
-    /// A stack instance refers to a stack in a specific account and region. You must specify
+    /// Creates stack instances for the specified accounts, within the specified Regions.
+    /// A stack instance refers to a stack in a specific account and Region. You must specify
     /// at least one value for either <code>Accounts</code> or <code>DeploymentTargets</code>,
     /// and you must specify at least one value for <code>Regions</code>.
     /// </summary>
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>[Self-managed permissions] The names of one or more AWS accounts that you want to
-        /// create stack instances in the specified region(s) for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
+        /// <para>[<code>Self-managed</code> permissions] The names of one or more AWS accounts that
+        /// you want to create stack instances in the specified Region(s) for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_OrganizationalUnitId
         /// <summary>
         /// <para>
-        /// <para>The organization root ID or organizational unit (OUs) IDs to which StackSets deploys.</para>
+        /// <para>The organization root ID or organizational unit (OU) IDs to which StackSets deploys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>A list of stack set parameters whose values you want to override in the selected stack
         /// instances.</para><para>Any overridden parameter values will be applied to all stack instances in the specified
-        /// accounts and regions. When specifying parameters and their values, be aware of how
+        /// accounts and Regions. When specifying parameters and their values, be aware of how
         /// AWS CloudFormation sets parameter values during stack instance operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
         /// value.</para></li><li><para>To leave a parameter set to its present value, you can do one of the following:</para><ul><li><para>Do not include the parameter in the list.</para></li><li><para>Include the parameter and specify <code>UsePreviousValue</code> as <code>true</code>.
         /// (You cannot specify both a value and set <code>UsePreviousValue</code> to <code>true</code>.)</para></li></ul></li><li><para>To set all overridden parameter back to the values specified in the stack set, specify
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The names of one or more regions where you want to create stack instances using the
+        /// <para>The names of one or more Regions where you want to create stack instances using the
         /// specified AWS account(s). </para>
         /// </para>
         /// </summary>

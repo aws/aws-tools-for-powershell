@@ -211,9 +211,12 @@ $GD_SelectMap = @{
                "Remove-GDMember",
                "Remove-GDPublishingDestination",
                "Remove-GDThreatIntelSet",
+               "Get-GDOrganizationConfiguration",
                "Get-GDPublishingDestination",
+               "Disable-GDOrganizationAdminAccount",
                "Unregister-GDFromMasterAccount",
                "Unregister-GDMember",
+               "Enable-GDOrganizationAdminAccount",
                "Get-GDDetector",
                "Get-GDFilter",
                "Get-GDFinding",
@@ -230,6 +233,7 @@ $GD_SelectMap = @{
                "Get-GDInvitationList",
                "Get-GDIPSetList",
                "Get-GDMemberList",
+               "Get-GDOrganizationAdminAccountList",
                "Get-GDPublishingDestinationList",
                "Get-GDResourceTag",
                "Get-GDThreatIntelSetList",
@@ -242,6 +246,7 @@ $GD_SelectMap = @{
                "Update-GDFilter",
                "Update-GDFindingFeedback",
                "Update-GDIPSet",
+               "Update-GDOrganizationConfiguration",
                "Update-GDPublishingDestination",
                "Update-GDThreatIntelSet")
 }

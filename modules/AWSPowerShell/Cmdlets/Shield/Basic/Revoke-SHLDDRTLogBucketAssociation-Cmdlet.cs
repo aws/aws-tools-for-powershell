@@ -28,7 +28,7 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Removes the DDoS Response team's (DRT) access to the specified Amazon S3 bucket containing
+    /// Removes the DDoS Response Team's (DRT) access to the specified Amazon S3 bucket containing
     /// your AWS WAF logs.
     /// 
     ///  

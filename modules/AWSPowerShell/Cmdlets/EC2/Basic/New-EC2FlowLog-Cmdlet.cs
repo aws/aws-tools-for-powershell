@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
         /// Log Records</a>. If you omit this parameter, the flow log is created using the default
         /// format. If you specify this parameter, you must specify at least one field.</para><para>Specify the fields using the <code>${field-id}</code> format, separated by spaces.
-        /// For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</para><para>Only applicable to flow logs that are published to an Amazon S3 bucket.</para>
+        /// For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -35,17 +35,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     ///  
     /// <para>
     /// You can configure Systems Manager Inventory to use the <code>SyncToDestination</code>
-    /// type to synchronize Inventory data from multiple AWS Regions to a single Amazon S3
-    /// bucket. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring
+    /// type to synchronize Inventory data from multiple AWS Regions to a single S3 bucket.
+    /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring
     /// Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </para><para>
     /// You can configure Systems Manager Explorer to use the <code>SyncFromSource</code>
     /// type to synchronize operational work items (OpsItems) and operational data (OpsData)
-    /// from multiple AWS Regions to a single Amazon S3 bucket. This type can synchronize
-    /// OpsItems and OpsData from multiple AWS accounts and Regions or <code>EntireOrganization</code>
-    /// by using AWS Organizations. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting
-    /// Up Explorer to Display Data from Multiple Accounts and Regions</a> in the <i>AWS Systems
-    /// Manager User Guide</i>.
+    /// from multiple AWS Regions to a single S3 bucket. This type can synchronize OpsItems
+    /// and OpsData from multiple AWS accounts and Regions or <code>EntireOrganization</code>
+    /// by using AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting
+    /// up Systems Manager Explorer to display data from multiple accounts and Regions</a>
+    /// in the <i>AWS Systems Manager User Guide</i>.
     /// </para><para>
     /// A resource data sync is an asynchronous operation that returns immediately. After
     /// a successful initial sync is completed, the system continuously syncs data. To check
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The ARN of an encryption key for a destination in Amazon S3. Must belong to the same
-        /// Region as the destination Amazon S3 bucket.</para>
+        /// Region as the destination S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,11 +80,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter S3Destination_BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket where the aggregated data is stored.</para>
+        /// <para>The name of the S3 bucket where the aggregated data is stored.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3Destination_BucketName { get; set; }
+        #endregion
+        
+        #region Parameter DestinationDataSharing_DestinationDataSharingType
+        /// <summary>
+        /// <para>
+        /// <para>The sharing data type. Only <code>Organization</code> is supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("S3Destination_DestinationDataSharing_DestinationDataSharingType")]
+        public System.String DestinationDataSharing_DestinationDataSharingType { get; set; }
         #endregion
         
         #region Parameter SyncSource_IncludeFutureRegion
@@ -137,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter S3Destination_Region
         /// <summary>
         /// <para>
-        /// <para>The AWS Region with the Amazon S3 bucket targeted by the Resource Data Sync.</para>
+        /// <para>The AWS Region with the S3 bucket targeted by the Resource Data Sync.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,8 +210,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Specify <code>SyncToDestination</code> to create a resource data sync that synchronizes
-        /// data from multiple AWS Regions to an Amazon S3 bucket. Specify <code>SyncFromSource</code>
-        /// to synchronize data from multiple AWS accounts and Regions, as listed in AWS Organizations.</para>
+        /// data to an S3 bucket for Inventory. If you specify <code>SyncToDestination</code>,
+        /// you must provide a value for <code>S3Destination</code>. Specify <code>SyncFromSource</code>
+        /// to synchronize data from a single account and multiple Regions, or multiple AWS accounts
+        /// and Regions, as listed in AWS Organizations for Explorer. If you specify <code>SyncFromSource</code>,
+        /// you must provide a value for <code>SyncSource</code>. The default value is <code>SyncToDestination</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.S3Destination_AWSKMSKeyARN = this.S3Destination_AWSKMSKeyARN;
             context.S3Destination_BucketName = this.S3Destination_BucketName;
+            context.DestinationDataSharing_DestinationDataSharingType = this.DestinationDataSharing_DestinationDataSharingType;
             context.S3Destination_Prefix = this.S3Destination_Prefix;
             context.S3Destination_Region = this.S3Destination_Region;
             context.S3Destination_SyncFormat = this.S3Destination_SyncFormat;
@@ -359,6 +374,31 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (requestS3Destination_s3Destination_SyncFormat != null)
             {
                 request.S3Destination.SyncFormat = requestS3Destination_s3Destination_SyncFormat;
+                requestS3DestinationIsNull = false;
+            }
+            Amazon.SimpleSystemsManagement.Model.ResourceDataSyncDestinationDataSharing requestS3Destination_s3Destination_DestinationDataSharing = null;
+            
+             // populate DestinationDataSharing
+            var requestS3Destination_s3Destination_DestinationDataSharingIsNull = true;
+            requestS3Destination_s3Destination_DestinationDataSharing = new Amazon.SimpleSystemsManagement.Model.ResourceDataSyncDestinationDataSharing();
+            System.String requestS3Destination_s3Destination_DestinationDataSharing_destinationDataSharing_DestinationDataSharingType = null;
+            if (cmdletContext.DestinationDataSharing_DestinationDataSharingType != null)
+            {
+                requestS3Destination_s3Destination_DestinationDataSharing_destinationDataSharing_DestinationDataSharingType = cmdletContext.DestinationDataSharing_DestinationDataSharingType;
+            }
+            if (requestS3Destination_s3Destination_DestinationDataSharing_destinationDataSharing_DestinationDataSharingType != null)
+            {
+                requestS3Destination_s3Destination_DestinationDataSharing.DestinationDataSharingType = requestS3Destination_s3Destination_DestinationDataSharing_destinationDataSharing_DestinationDataSharingType;
+                requestS3Destination_s3Destination_DestinationDataSharingIsNull = false;
+            }
+             // determine if requestS3Destination_s3Destination_DestinationDataSharing should be set to null
+            if (requestS3Destination_s3Destination_DestinationDataSharingIsNull)
+            {
+                requestS3Destination_s3Destination_DestinationDataSharing = null;
+            }
+            if (requestS3Destination_s3Destination_DestinationDataSharing != null)
+            {
+                request.S3Destination.DestinationDataSharing = requestS3Destination_s3Destination_DestinationDataSharing;
                 requestS3DestinationIsNull = false;
             }
              // determine if request.S3Destination should be set to null
@@ -511,6 +551,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public System.String S3Destination_AWSKMSKeyARN { get; set; }
             public System.String S3Destination_BucketName { get; set; }
+            public System.String DestinationDataSharing_DestinationDataSharingType { get; set; }
             public System.String S3Destination_Prefix { get; set; }
             public System.String S3Destination_Region { get; set; }
             public Amazon.SimpleSystemsManagement.ResourceDataSyncS3Format S3Destination_SyncFormat { get; set; }

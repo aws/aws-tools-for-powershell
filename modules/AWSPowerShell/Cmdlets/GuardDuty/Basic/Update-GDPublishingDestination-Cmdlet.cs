@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DestinationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector associated with the publishing destinations to update.</para>
+        /// <para>The ID of the publishing destination to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The ID of the </para>
+        /// <para>The ID of the detector associated with the publishing destinations to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

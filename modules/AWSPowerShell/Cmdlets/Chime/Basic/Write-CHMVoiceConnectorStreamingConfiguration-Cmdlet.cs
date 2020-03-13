@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public System.Boolean? StreamingConfiguration_Disabled { get; set; }
         #endregion
         
+        #region Parameter StreamingConfiguration_StreamingNotificationTarget
+        /// <summary>
+        /// <para>
+        /// <para>The streaming notification targets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StreamingConfiguration_StreamingNotificationTargets")]
+        public Amazon.Chime.Model.StreamingNotificationTarget[] StreamingConfiguration_StreamingNotificationTarget { get; set; }
+        #endregion
+        
         #region Parameter VoiceConnectorId
         /// <summary>
         /// <para>
@@ -156,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             #endif
             context.StreamingConfiguration_Disabled = this.StreamingConfiguration_Disabled;
+            if (this.StreamingConfiguration_StreamingNotificationTarget != null)
+            {
+                context.StreamingConfiguration_StreamingNotificationTarget = new List<Amazon.Chime.Model.StreamingNotificationTarget>(this.StreamingConfiguration_StreamingNotificationTarget);
+            }
             context.VoiceConnectorId = this.VoiceConnectorId;
             #if MODULAR
             if (this.VoiceConnectorId == null && ParameterWasBound(nameof(this.VoiceConnectorId)))
@@ -201,6 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (requestStreamingConfiguration_streamingConfiguration_Disabled != null)
             {
                 request.StreamingConfiguration.Disabled = requestStreamingConfiguration_streamingConfiguration_Disabled.Value;
+                requestStreamingConfigurationIsNull = false;
+            }
+            List<Amazon.Chime.Model.StreamingNotificationTarget> requestStreamingConfiguration_streamingConfiguration_StreamingNotificationTarget = null;
+            if (cmdletContext.StreamingConfiguration_StreamingNotificationTarget != null)
+            {
+                requestStreamingConfiguration_streamingConfiguration_StreamingNotificationTarget = cmdletContext.StreamingConfiguration_StreamingNotificationTarget;
+            }
+            if (requestStreamingConfiguration_streamingConfiguration_StreamingNotificationTarget != null)
+            {
+                request.StreamingConfiguration.StreamingNotificationTargets = requestStreamingConfiguration_streamingConfiguration_StreamingNotificationTarget;
                 requestStreamingConfigurationIsNull = false;
             }
              // determine if request.StreamingConfiguration should be set to null
@@ -275,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         {
             public System.Int32? StreamingConfiguration_DataRetentionInHour { get; set; }
             public System.Boolean? StreamingConfiguration_Disabled { get; set; }
+            public List<Amazon.Chime.Model.StreamingNotificationTarget> StreamingConfiguration_StreamingNotificationTarget { get; set; }
             public System.String VoiceConnectorId { get; set; }
             public System.Func<Amazon.Chime.Model.PutVoiceConnectorStreamingConfigurationResponse, WriteCHMVoiceConnectorStreamingConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.StreamingConfiguration;

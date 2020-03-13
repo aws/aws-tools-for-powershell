@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// the accounts to enable Security Hub and become member accounts in Security Hub.
     /// </para><para>
     /// If the account owner accepts the invitation, the account becomes a member account
-    /// in Security Hub, and a permission policy is added that permits the master account
-    /// to view the findings generated in the member account. When Security Hub is enabled
-    /// in the invited account, findings start to be sent to both the member and master accounts.
+    /// in Security Hub. A permissions policy is added that permits the master account to
+    /// view the findings generated in the member account. When Security Hub is enabled in
+    /// the invited account, findings start to be sent to both the member and master accounts.
     /// </para><para>
     /// To remove the association between the master and member accounts, use the <code><a>DisassociateFromMasterAccount</a></code> or <code><a>DisassociateMembers</a></code> operation.
     /// </para>

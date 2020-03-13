@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>backup</C2jFilename>
     <AssemblyName>Backup</AssemblyName>
@@ -74,6 +75,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeRecoveryPoint" OutputProperty="*" Verb="Get" Noun="RecoveryPoint" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegionSettings" OutputProperty="ResourceTypeOptInPreference" Verb="Get" Noun="RegionSetting" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -202,6 +207,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRecoveryPointLifecycle" OutputProperty="*" Verb="Update" Noun="RecoveryPointLifecycle" ShouldProcessTarget="RecoveryPointArn" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegionSettings" Verb="Update" Noun="RegionSetting" ShouldProcessTarget="ResourceTypeOptInPreference" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

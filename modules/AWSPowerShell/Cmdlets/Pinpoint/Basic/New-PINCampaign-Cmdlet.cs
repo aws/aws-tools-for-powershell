@@ -239,12 +239,40 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of messages that a campaign can send to a single endpoint during
+        /// a 24-hour period. For an application, this value specifies the default limit for the
+        /// number of messages that campaigns and journeys can send to a single endpoint during
         /// a 24-hour period. The maximum value is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WriteCampaignRequest_Limits_Daily")]
         public System.Int32? Limits_Daily { get; set; }
+        #endregion
+        
+        #region Parameter CustomMessage_Data
+        /// <summary>
+        /// <para>
+        /// <para>The raw, JSON-formatted string to use as the payload for the message. The maximum
+        /// size is 5 KB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_MessageConfiguration_CustomMessage_Data")]
+        public System.String CustomMessage_Data { get; set; }
+        #endregion
+        
+        #region Parameter CustomDeliveryConfiguration_DeliveryUri
+        /// <summary>
+        /// <para>
+        /// <para>The destination to send the campaign or treatment to. This value can be one of the
+        /// following:</para><ul><li><para>The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle
+        /// delivery of the campaign or treatment.</para></li><li><para>The URL for a web application or service that supports HTTPS and can receive the message.
+        /// The URL has to be a full URL, including the HTTPS protocol.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_CustomDeliveryConfiguration_DeliveryUri")]
+        public System.String CustomDeliveryConfiguration_DeliveryUri { get; set; }
         #endregion
         
         #region Parameter WriteCampaignRequest_Description
@@ -283,6 +311,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WriteCampaignRequest_Schedule_QuietTime_End")]
         public System.String QuietTime_End { get; set; }
+        #endregion
+        
+        #region Parameter CustomDeliveryConfiguration_EndpointType
+        /// <summary>
+        /// <para>
+        /// <para>The types of endpoints to send the campaign or treatment to. Each valid value maps
+        /// to a type of channel that you can associate with an endpoint by using the ChannelType
+        /// property of an endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteCampaignRequest_CustomDeliveryConfiguration_EndpointTypes")]
+        public System.String[] CustomDeliveryConfiguration_EndpointType { get; set; }
         #endregion
         
         #region Parameter Schedule_EndTime
@@ -551,7 +592,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>Specifies whether to pause the campaign. A paused campaign doesn't run unless you
-        /// resume it by setting this value to false.</para>
+        /// resume it by changing this value to false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -617,7 +658,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint
-        /// invokes to send messages for a campaign.</para>
+        /// invokes to customize a segment for a campaign.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -695,8 +736,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Limits_MessagesPerSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum number of messages that a campaign can send each second. The minimum value
-        /// is 50. The maximum value is 20,000.</para>
+        /// <para>The maximum number of messages that a campaign can send each second. For an application,
+        /// this value specifies the default limit for the number of messages that campaigns and
+        /// journeys can send each second. The minimum value is 50. The maximum value is 20,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -707,10 +749,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter SMSMessage_MessageType
         /// <summary>
         /// <para>
-        /// <para>The type of SMS message. Valid values are: TRANSACTIONAL, the message is critical
-        /// or time-sensitive, such as a one-time password that supports a customer transaction;
-        /// and, PROMOTIONAL, the message isn't critical or time-sensitive, such as a marketing
-        /// message.</para>
+        /// <para>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical
+        /// or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that
+        /// aren't critical or time-sensitive, such as marketing messages).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -734,7 +775,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Hook_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies which Lambda mode to use when invoking the AWS Lambda function.</para>
+        /// <para>The mode that Amazon Pinpoint uses to invoke the AWS Lambda function. Possible values
+        /// are:</para><ul><li><para>FILTER - Invoke the function to customize the segment that's used by a campaign.</para></li><li><para>DELIVERY - (Deprecated) Previously, invoked the function to send a campaign through
+        /// a custom channel. This functionality is not supported anymore. To send a campaign
+        /// through a custom channel, use the CustomDeliveryConfiguration and CampaignCustomMessage
+        /// objects of the campaign.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1166,7 +1211,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of messages that a campaign can send to a single endpoint during
-        /// the course of the campaign. The maximum value is 100.</para>
+        /// the course of the campaign. If a campaign recurs, this setting applies to all runs
+        /// of the campaign. The maximum value is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1177,7 +1223,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter WriteCampaignRequest_TreatmentDescription
         /// <summary>
         /// <para>
-        /// <para>A custom description of a variation of the campaign to use for A/B testing.</para>
+        /// <para>A custom description of the default treatment for the campaign.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1187,7 +1233,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter WriteCampaignRequest_TreatmentName
         /// <summary>
         /// <para>
-        /// <para>A custom name for a variation of the campaign to use for A/B testing.</para>
+        /// <para>A custom name of the default treatment for the campaign, if the campaign has multiple
+        /// treatments. A <i>treatment</i> is a variation of a campaign that's used for A/B testing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1418,6 +1465,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 context.WriteCampaignRequest_AdditionalTreatment = new List<Amazon.Pinpoint.Model.WriteTreatmentResource>(this.WriteCampaignRequest_AdditionalTreatment);
             }
+            context.CustomDeliveryConfiguration_DeliveryUri = this.CustomDeliveryConfiguration_DeliveryUri;
+            if (this.CustomDeliveryConfiguration_EndpointType != null)
+            {
+                context.CustomDeliveryConfiguration_EndpointType = new List<System.String>(this.CustomDeliveryConfiguration_EndpointType);
+            }
             context.WriteCampaignRequest_Description = this.WriteCampaignRequest_Description;
             context.WriteCampaignRequest_HoldoutPercent = this.WriteCampaignRequest_HoldoutPercent;
             context.Hook_LambdaFunctionName = this.Hook_LambdaFunctionName;
@@ -1464,6 +1516,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.BaiduMessage_TimeToLive = this.BaiduMessage_TimeToLive;
             context.BaiduMessage_Title = this.BaiduMessage_Title;
             context.BaiduMessage_Url = this.BaiduMessage_Url;
+            context.CustomMessage_Data = this.CustomMessage_Data;
             context.DefaultMessage_Action = this.DefaultMessage_Action;
             context.DefaultMessage_Body = this.DefaultMessage_Body;
             context.DefaultMessage_ImageIconUrl = this.DefaultMessage_ImageIconUrl;
@@ -1667,6 +1720,41 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_TreatmentName != null)
             {
                 request.WriteCampaignRequest.TreatmentName = requestWriteCampaignRequest_writeCampaignRequest_TreatmentName;
+                requestWriteCampaignRequestIsNull = false;
+            }
+            Amazon.Pinpoint.Model.CustomDeliveryConfiguration requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration = null;
+            
+             // populate CustomDeliveryConfiguration
+            var requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfigurationIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration = new Amazon.Pinpoint.Model.CustomDeliveryConfiguration();
+            System.String requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration_customDeliveryConfiguration_DeliveryUri = null;
+            if (cmdletContext.CustomDeliveryConfiguration_DeliveryUri != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration_customDeliveryConfiguration_DeliveryUri = cmdletContext.CustomDeliveryConfiguration_DeliveryUri;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration_customDeliveryConfiguration_DeliveryUri != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration.DeliveryUri = requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration_customDeliveryConfiguration_DeliveryUri;
+                requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfigurationIsNull = false;
+            }
+            List<System.String> requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration_customDeliveryConfiguration_EndpointType = null;
+            if (cmdletContext.CustomDeliveryConfiguration_EndpointType != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration_customDeliveryConfiguration_EndpointType = cmdletContext.CustomDeliveryConfiguration_EndpointType;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration_customDeliveryConfiguration_EndpointType != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration.EndpointTypes = requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration_customDeliveryConfiguration_EndpointType;
+                requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfigurationIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfigurationIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration != null)
+            {
+                request.WriteCampaignRequest.CustomDeliveryConfiguration = requestWriteCampaignRequest_writeCampaignRequest_CustomDeliveryConfiguration;
                 requestWriteCampaignRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.CampaignHook requestWriteCampaignRequest_writeCampaignRequest_Hook = null;
@@ -1924,11 +2012,231 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.WriteCampaignRequest.TemplateConfiguration = requestWriteCampaignRequest_writeCampaignRequest_TemplateConfiguration;
                 requestWriteCampaignRequestIsNull = false;
             }
+            Amazon.Pinpoint.Model.Schedule requestWriteCampaignRequest_writeCampaignRequest_Schedule = null;
+            
+             // populate Schedule
+            var requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_Schedule = new Amazon.Pinpoint.Model.Schedule();
+            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_EndTime = null;
+            if (cmdletContext.Schedule_EndTime != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_EndTime = cmdletContext.Schedule_EndTime;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_EndTime != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule.EndTime = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_EndTime;
+                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
+            }
+            Amazon.Pinpoint.Frequency requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Frequency = null;
+            if (cmdletContext.Schedule_Frequency != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Frequency = cmdletContext.Schedule_Frequency;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Frequency != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule.Frequency = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Frequency;
+                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
+            }
+            System.Boolean? requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_IsLocalTime = null;
+            if (cmdletContext.Schedule_IsLocalTime != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_IsLocalTime = cmdletContext.Schedule_IsLocalTime.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_IsLocalTime != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule.IsLocalTime = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_IsLocalTime.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_StartTime = null;
+            if (cmdletContext.Schedule_StartTime != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_StartTime = cmdletContext.Schedule_StartTime;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_StartTime != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule.StartTime = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_StartTime;
+                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Timezone = null;
+            if (cmdletContext.Schedule_Timezone != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Timezone = cmdletContext.Schedule_Timezone;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Timezone != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule.Timezone = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Timezone;
+                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
+            }
+            Amazon.Pinpoint.Model.CampaignEventFilter requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter = null;
+            
+             // populate EventFilter
+            var requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilterIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter = new Amazon.Pinpoint.Model.CampaignEventFilter();
+            Amazon.Pinpoint.FilterType requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_eventFilter_FilterType = null;
+            if (cmdletContext.EventFilter_FilterType != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_eventFilter_FilterType = cmdletContext.EventFilter_FilterType;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_eventFilter_FilterType != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter.FilterType = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_eventFilter_FilterType;
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilterIsNull = false;
+            }
+            Amazon.Pinpoint.Model.EventDimensions requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions = null;
+            
+             // populate Dimensions
+            var requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions = new Amazon.Pinpoint.Model.EventDimensions();
+            Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute = null;
+            if (cmdletContext.Dimensions_Attribute != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute = cmdletContext.Dimensions_Attribute;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions.Attributes = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute;
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = false;
+            }
+            Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension> requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric = null;
+            if (cmdletContext.Dimensions_Metric != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric = cmdletContext.Dimensions_Metric;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions.Metrics = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric;
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = false;
+            }
+            Amazon.Pinpoint.Model.SetDimension requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType = null;
+            
+             // populate EventType
+            var requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventTypeIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType = new Amazon.Pinpoint.Model.SetDimension();
+            Amazon.Pinpoint.DimensionType requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_DimensionType = null;
+            if (cmdletContext.EventType_DimensionType != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_DimensionType = cmdletContext.EventType_DimensionType;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_DimensionType != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType.DimensionType = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_DimensionType;
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventTypeIsNull = false;
+            }
+            List<System.String> requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_Value = null;
+            if (cmdletContext.EventType_Value != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_Value = cmdletContext.EventType_Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_Value != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType.Values = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_Value;
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventTypeIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventTypeIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions.EventType = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType;
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter.Dimensions = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions;
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilterIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilterIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule.EventFilter = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter;
+                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
+            }
+            Amazon.Pinpoint.Model.QuietTime requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime = null;
+            
+             // populate QuietTime
+            var requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTimeIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime = new Amazon.Pinpoint.Model.QuietTime();
+            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_End = null;
+            if (cmdletContext.QuietTime_End != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_End = cmdletContext.QuietTime_End;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_End != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime.End = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_End;
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTimeIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_Start = null;
+            if (cmdletContext.QuietTime_Start != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_Start = cmdletContext.QuietTime_Start;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_Start != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime.Start = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_Start;
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTimeIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTimeIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule.QuietTime = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime;
+                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Schedule = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule != null)
+            {
+                request.WriteCampaignRequest.Schedule = requestWriteCampaignRequest_writeCampaignRequest_Schedule;
+                requestWriteCampaignRequestIsNull = false;
+            }
             Amazon.Pinpoint.Model.MessageConfiguration requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration = null;
             
              // populate MessageConfiguration
             var requestWriteCampaignRequest_writeCampaignRequest_MessageConfigurationIsNull = true;
             requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration = new Amazon.Pinpoint.Model.MessageConfiguration();
+            Amazon.Pinpoint.Model.CampaignCustomMessage requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage = null;
+            
+             // populate CustomMessage
+            var requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessageIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage = new Amazon.Pinpoint.Model.CampaignCustomMessage();
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage_customMessage_Data = null;
+            if (cmdletContext.CustomMessage_Data != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage_customMessage_Data = cmdletContext.CustomMessage_Data;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage_customMessage_Data != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage.Data = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage_customMessage_Data;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessageIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessageIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration.CustomMessage = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_CustomMessage;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfigurationIsNull = false;
+            }
             Amazon.Pinpoint.Model.CampaignSmsMessage requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage = null;
             
              // populate SMSMessage
@@ -2714,201 +3022,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.WriteCampaignRequest.MessageConfiguration = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration;
                 requestWriteCampaignRequestIsNull = false;
             }
-            Amazon.Pinpoint.Model.Schedule requestWriteCampaignRequest_writeCampaignRequest_Schedule = null;
-            
-             // populate Schedule
-            var requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = true;
-            requestWriteCampaignRequest_writeCampaignRequest_Schedule = new Amazon.Pinpoint.Model.Schedule();
-            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_EndTime = null;
-            if (cmdletContext.Schedule_EndTime != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_EndTime = cmdletContext.Schedule_EndTime;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_EndTime != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule.EndTime = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_EndTime;
-                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
-            }
-            Amazon.Pinpoint.Frequency requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Frequency = null;
-            if (cmdletContext.Schedule_Frequency != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Frequency = cmdletContext.Schedule_Frequency;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Frequency != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule.Frequency = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Frequency;
-                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
-            }
-            System.Boolean? requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_IsLocalTime = null;
-            if (cmdletContext.Schedule_IsLocalTime != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_IsLocalTime = cmdletContext.Schedule_IsLocalTime.Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_IsLocalTime != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule.IsLocalTime = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_IsLocalTime.Value;
-                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
-            }
-            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_StartTime = null;
-            if (cmdletContext.Schedule_StartTime != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_StartTime = cmdletContext.Schedule_StartTime;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_StartTime != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule.StartTime = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_StartTime;
-                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
-            }
-            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Timezone = null;
-            if (cmdletContext.Schedule_Timezone != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Timezone = cmdletContext.Schedule_Timezone;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Timezone != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule.Timezone = requestWriteCampaignRequest_writeCampaignRequest_Schedule_schedule_Timezone;
-                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
-            }
-            Amazon.Pinpoint.Model.CampaignEventFilter requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter = null;
-            
-             // populate EventFilter
-            var requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilterIsNull = true;
-            requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter = new Amazon.Pinpoint.Model.CampaignEventFilter();
-            Amazon.Pinpoint.FilterType requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_eventFilter_FilterType = null;
-            if (cmdletContext.EventFilter_FilterType != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_eventFilter_FilterType = cmdletContext.EventFilter_FilterType;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_eventFilter_FilterType != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter.FilterType = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_eventFilter_FilterType;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilterIsNull = false;
-            }
-            Amazon.Pinpoint.Model.EventDimensions requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions = null;
-            
-             // populate Dimensions
-            var requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = true;
-            requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions = new Amazon.Pinpoint.Model.EventDimensions();
-            Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute = null;
-            if (cmdletContext.Dimensions_Attribute != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute = cmdletContext.Dimensions_Attribute;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions.Attributes = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Attribute;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = false;
-            }
-            Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension> requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric = null;
-            if (cmdletContext.Dimensions_Metric != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric = cmdletContext.Dimensions_Metric;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions.Metrics = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_dimensions_Metric;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = false;
-            }
-            Amazon.Pinpoint.Model.SetDimension requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType = null;
-            
-             // populate EventType
-            var requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventTypeIsNull = true;
-            requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType = new Amazon.Pinpoint.Model.SetDimension();
-            Amazon.Pinpoint.DimensionType requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_DimensionType = null;
-            if (cmdletContext.EventType_DimensionType != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_DimensionType = cmdletContext.EventType_DimensionType;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_DimensionType != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType.DimensionType = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_DimensionType;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventTypeIsNull = false;
-            }
-            List<System.String> requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_Value = null;
-            if (cmdletContext.EventType_Value != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_Value = cmdletContext.EventType_Value;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_Value != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType.Values = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType_eventType_Value;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventTypeIsNull = false;
-            }
-             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType should be set to null
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventTypeIsNull)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType = null;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions.EventType = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions_writeCampaignRequest_Schedule_EventFilter_Dimensions_EventType;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull = false;
-            }
-             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions should be set to null
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_DimensionsIsNull)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions = null;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter.Dimensions = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter_writeCampaignRequest_Schedule_EventFilter_Dimensions;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilterIsNull = false;
-            }
-             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter should be set to null
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilterIsNull)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter = null;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule.EventFilter = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_EventFilter;
-                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
-            }
-            Amazon.Pinpoint.Model.QuietTime requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime = null;
-            
-             // populate QuietTime
-            var requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTimeIsNull = true;
-            requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime = new Amazon.Pinpoint.Model.QuietTime();
-            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_End = null;
-            if (cmdletContext.QuietTime_End != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_End = cmdletContext.QuietTime_End;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_End != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime.End = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_End;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTimeIsNull = false;
-            }
-            System.String requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_Start = null;
-            if (cmdletContext.QuietTime_Start != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_Start = cmdletContext.QuietTime_Start;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_Start != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime.Start = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime_quietTime_Start;
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTimeIsNull = false;
-            }
-             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime should be set to null
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTimeIsNull)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime = null;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime != null)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule.QuietTime = requestWriteCampaignRequest_writeCampaignRequest_Schedule_writeCampaignRequest_Schedule_QuietTime;
-                requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull = false;
-            }
-             // determine if requestWriteCampaignRequest_writeCampaignRequest_Schedule should be set to null
-            if (requestWriteCampaignRequest_writeCampaignRequest_ScheduleIsNull)
-            {
-                requestWriteCampaignRequest_writeCampaignRequest_Schedule = null;
-            }
-            if (requestWriteCampaignRequest_writeCampaignRequest_Schedule != null)
-            {
-                request.WriteCampaignRequest.Schedule = requestWriteCampaignRequest_writeCampaignRequest_Schedule;
-                requestWriteCampaignRequestIsNull = false;
-            }
              // determine if request.WriteCampaignRequest should be set to null
             if (requestWriteCampaignRequestIsNull)
             {
@@ -2977,6 +3090,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             public System.String ApplicationId { get; set; }
             public List<Amazon.Pinpoint.Model.WriteTreatmentResource> WriteCampaignRequest_AdditionalTreatment { get; set; }
+            public System.String CustomDeliveryConfiguration_DeliveryUri { get; set; }
+            public List<System.String> CustomDeliveryConfiguration_EndpointType { get; set; }
             public System.String WriteCampaignRequest_Description { get; set; }
             public System.Int32? WriteCampaignRequest_HoldoutPercent { get; set; }
             public System.String Hook_LambdaFunctionName { get; set; }
@@ -3023,6 +3138,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Int32? BaiduMessage_TimeToLive { get; set; }
             public System.String BaiduMessage_Title { get; set; }
             public System.String BaiduMessage_Url { get; set; }
+            public System.String CustomMessage_Data { get; set; }
             public Amazon.Pinpoint.Action DefaultMessage_Action { get; set; }
             public System.String DefaultMessage_Body { get; set; }
             public System.String DefaultMessage_ImageIconUrl { get; set; }

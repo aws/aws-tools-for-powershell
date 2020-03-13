@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The keys of the tags you want to remove from the specified resource. A tag is composed
-        /// of a key/value pair.</para>
+        /// of a key-value pair.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

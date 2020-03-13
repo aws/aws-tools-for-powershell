@@ -28,13 +28,18 @@ using Amazon.WAF.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF
 {
     /// <summary>
+    /// <note><para>
+    /// This is <b>AWS WAF Classic</b> documentation. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+    /// WAF Classic</a> in the developer guide.
+    /// </para><para><b>For the latest version of AWS WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+    /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
+    /// for regional and global use. 
+    /// </para></note><para>
     /// Gets detailed information about a specified number of requests--a sample--that AWS
     /// WAF randomly selects from among the first 5,000 requests that your AWS resource received
     /// during a time range that you choose. You can specify a sample size of up to 500 requests,
     /// and you can specify any time range in the previous three hours.
-    /// 
-    ///  
-    /// <para><code>GetSampledRequests</code> returns a time range, which is usually the time range
+    /// </para><para><code>GetSampledRequests</code> returns a time range, which is usually the time range
     /// that you specified. However, if your resource (such as a CloudFront distribution)
     /// received 5,000 requests before the specified time range elapsed, <code>GetSampledRequests</code>
     /// returns an updated time range. This new time range indicates the actual period during
@@ -54,9 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>The end of the time range from which you want <code>GetSampledRequests</code> to return
-        /// a sample of the requests that your AWS resource received. Specify the date and time
-        /// in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify any time
-        /// range in the previous three hours.</para>
+        /// a sample of the requests that your AWS resource received. You must specify the date
+        /// and time in Coordinated Universal Time (UTC) format. UTC format includes the special
+        /// designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. You can
+        /// specify any time range in the previous three hours.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,9 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>The beginning of the time range from which you want <code>GetSampledRequests</code>
-        /// to return a sample of the requests that your AWS resource received. Specify the date
-        /// and time in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify
-        /// any time range in the previous three hours.</para>
+        /// to return a sample of the requests that your AWS resource received. You must specify
+        /// the date and time in Coordinated Universal Time (UTC) format. UTC format includes
+        /// the special designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>.
+        /// You can specify any time range in the previous three hours.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

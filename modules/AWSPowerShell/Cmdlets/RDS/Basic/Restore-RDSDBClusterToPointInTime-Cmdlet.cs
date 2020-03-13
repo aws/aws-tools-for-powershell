@@ -134,9 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>Specify the Active Directory directory ID to restore the DB cluster in. The domain
         /// must be created prior to this operation. </para><para> For Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to authenticate
-        /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
-        /// Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User Guide</i>.
-        /// </para>
+        /// users that connect to the DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
+        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

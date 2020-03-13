@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// when you create a service. You can't use it to change the status for Route 53 health
     /// checks, which you define using <code>HealthCheckConfig</code>.
     /// </para><para>
-    /// For more information, see <a>HealthCheckCustomConfig</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html">HealthCheckCustomConfig</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SDInstanceCustomHealthStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

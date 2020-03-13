@@ -28,13 +28,11 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Amazon Detective is currently in preview.
+    /// Accepts an invitation for the member account to contribute data to a behavior graph.
+    /// This operation can only be called by an invited member account. 
     /// 
     ///  
     /// <para>
-    /// Accepts an invitation for the member account to contribute data to a behavior graph.
-    /// This operation can only be called by an invited member account. 
-    /// </para><para>
     /// The request provides the ARN of behavior graph.
     /// </para><para>
     /// The member account status in the graph must be <code>INVITED</code>.

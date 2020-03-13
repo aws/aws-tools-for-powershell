@@ -80,10 +80,24 @@ $CHM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Chime.GeoMatchLevel
+        "New-CHMProxySession/GeoMatchLevel"
+        {
+            $v = "AreaCode","Country"
+            break
+        }
+
         # Amazon.Chime.License
         "Update-CHMUser/LicenseType"
         {
             $v = "Basic","Plus","Pro","ProTrial"
+            break
+        }
+
+        # Amazon.Chime.NumberSelectionBehavior
+        "New-CHMProxySession/NumberSelectionBehavior"
+        {
+            $v = "AvoidSticky","PreferSticky"
             break
         }
 
@@ -109,6 +123,13 @@ $CHM_Completers = {
         "Get-CHMPhoneNumberList/Status"
         {
             $v = "AcquireFailed","AcquireInProgress","Assigned","DeleteFailed","DeleteInProgress","ReleaseFailed","ReleaseInProgress","Unassigned"
+            break
+        }
+
+        # Amazon.Chime.ProxySessionStatus
+        "Get-CHMProxySessionList/Status"
+        {
+            $v = "Closed","InProgress","Open"
             break
         }
 
@@ -152,10 +173,12 @@ $CHM_Completers = {
 $CHM_map = @{
     "AwsRegion"=@("New-CHMVoiceConnector")
     "FilterName"=@("Get-CHMPhoneNumberList")
+    "GeoMatchLevel"=@("New-CHMProxySession")
     "LicenseType"=@("Update-CHMUser")
+    "NumberSelectionBehavior"=@("New-CHMProxySession")
     "ProductType"=@("Get-CHMPhoneNumberList","New-CHMPhoneNumberOrder","Update-CHMPhoneNumber")
     "Role"=@("New-CHMRoomMembership","Update-CHMRoomMembership")
-    "Status"=@("Get-CHMPhoneNumberList")
+    "Status"=@("Get-CHMPhoneNumberList","Get-CHMProxySessionList")
     "UserType"=@("Get-CHMUserList","New-CHMUser","Send-CHMUserInvitation","Update-CHMUser")
 }
 
@@ -225,6 +248,7 @@ $CHM_SelectMap = @{
                "New-CHMBot",
                "New-CHMMeeting",
                "New-CHMPhoneNumberOrder",
+               "New-CHMProxySession",
                "New-CHMRoom",
                "New-CHMRoomMembership",
                "New-CHMUser",
@@ -235,11 +259,13 @@ $CHM_SelectMap = @{
                "Remove-CHMEventsConfiguration",
                "Remove-CHMMeeting",
                "Remove-CHMPhoneNumber",
+               "Remove-CHMProxySession",
                "Remove-CHMRoom",
                "Remove-CHMRoomMembership",
                "Remove-CHMVoiceConnector",
                "Remove-CHMVoiceConnectorGroup",
                "Remove-CHMVoiceConnectorOrigination",
+               "Remove-CHMVoiceConnectorProxy",
                "Remove-CHMVoiceConnectorStreamingConfiguration",
                "Remove-CHMVoiceConnectorTermination",
                "Remove-CHMVoiceConnectorTerminationCredential",
@@ -257,6 +283,8 @@ $CHM_SelectMap = @{
                "Get-CHMPhoneNumber",
                "Get-CHMPhoneNumberOrder",
                "Get-CHMPhoneNumberSetting",
+               "Get-CHMProxySession",
+               "Get-CHMRetentionSetting",
                "Get-CHMRoom",
                "Get-CHMUser",
                "Get-CHMUserSetting",
@@ -264,39 +292,55 @@ $CHM_SelectMap = @{
                "Get-CHMVoiceConnectorGroup",
                "Get-CHMVoiceConnectorLoggingConfiguration",
                "Get-CHMVoiceConnectorOrigination",
+               "Get-CHMVoiceConnectorProxy",
                "Get-CHMVoiceConnectorStreamingConfiguration",
                "Get-CHMVoiceConnectorTermination",
                "Get-CHMVoiceConnectorTerminationHealth",
                "Send-CHMUserInvitation",
                "Get-CHMAccountList",
                "Get-CHMAttendeeList",
+               "Get-CHMAttendeeTagList",
                "Get-CHMBotList",
                "Get-CHMMeetingList",
+               "Get-CHMMeetingTagList",
                "Get-CHMPhoneNumberOrderList",
                "Get-CHMPhoneNumberList",
+               "Get-CHMProxySessionList",
                "Get-CHMRoomMembershipList",
                "Get-CHMRoomList",
+               "Get-CHMResourceTag",
                "Get-CHMUserList",
                "Get-CHMVoiceConnectorGroupList",
                "Get-CHMVoiceConnectorList",
                "Get-CHMVoiceConnectorTerminationCredentialList",
                "Invoke-CHMUserLogout",
                "Write-CHMEventsConfiguration",
+               "Write-CHMRetentionSetting",
                "Write-CHMVoiceConnectorLoggingConfiguration",
                "Write-CHMVoiceConnectorOrigination",
+               "Write-CHMVoiceConnectorProxy",
                "Write-CHMVoiceConnectorStreamingConfiguration",
                "Write-CHMVoiceConnectorTermination",
                "Write-CHMVoiceConnectorTerminationCredential",
+               "Hide-CHMConversationMessage",
+               "Hide-CHMRoomMessage",
                "Update-CHMSecurityToken",
                "Reset-CHMPersonalPIN",
                "Restore-CHMPhoneNumber",
                "Search-CHMAvailablePhoneNumber",
+               "Add-CHMAttendee",
+               "Add-CHMMeeting",
+               "Add-CHMResourceTag",
+               "Remove-CHMAttendeeTag",
+               "Remove-CHMMeetingTag",
+               "Remove-CHMResourceTag",
                "Update-CHMAccount",
                "Update-CHMAccountSetting",
                "Update-CHMBot",
                "Update-CHMGlobalSetting",
                "Update-CHMPhoneNumber",
                "Update-CHMPhoneNumberSetting",
+               "Update-CHMProxySession",
                "Update-CHMRoom",
                "Update-CHMRoomMembership",
                "Update-CHMUser",

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>codeguru-reviewer</C2jFilename>
     <AssemblyName>CodeGuruReviewer</AssemblyName>
@@ -23,6 +24,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCodeReview" OutputProperty="CodeReview" Verb="Get" Noun="CodeReview" PipelineParameter="CodeReviewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRecommendationFeedback" OutputProperty="RecommendationFeedback" Verb="Get" Noun="RecommendationFeedback" PipelineParameter="RecommendationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRepositoryAssociation" OutputProperty="RepositoryAssociation" Verb="Get" Noun="RepositoryAssociation" PipelineParameter="AssociationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -31,7 +40,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCodeReviews" OutputProperty="CodeReviewSummaries" Verb="Get" Noun="CodeReviewList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendationFeedback" OutputProperty="RecommendationFeedbackSummaries" Verb="Get" Noun="RecommendationFeedbackList" PipelineParameter="CodeReviewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRecommendations" OutputProperty="RecommendationSummaries" Verb="Get" Noun="RecommendationList" PipelineParameter="CodeReviewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListRepositoryAssociations" OutputProperty="RepositoryAssociationSummaries" Verb="Get" Noun="RepositoryAssociationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRecommendationFeedback" Verb="Write" Noun="RecommendationFeedback" ShouldProcessTarget="RecommendationId" PipelineParameter="RecommendationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AccessGroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Active Directory group to grant access.</para>
+        /// <para>The ID of the group to grant access to, for example, the Active Directory group or
+        /// identity provider (IdP) group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

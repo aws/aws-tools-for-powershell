@@ -28,11 +28,11 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// If the <code>IdentityProviderType</code> of the server is <code>API_Gateway</code>,
-    /// tests whether your API Gateway is set up successfully. We highly recommend that you
-    /// call this operation to test your authentication method as soon as you create your
-    /// server. By doing so, you can troubleshoot issues with the API Gateway integration
-    /// to ensure that your users can successfully use the service.
+    /// If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server
+    /// is <code>API_Gateway</code>, tests whether your API Gateway is set up successfully.
+    /// We highly recommend that you call this operation to test your authentication method
+    /// as soon as you create your server. By doing so, you can troubleshoot issues with the
+    /// API Gateway integration to ensure that your users can successfully use the service.
     /// </summary>
     [Cmdlet("Test", "TFRIdentityProvider")]
     [OutputType("Amazon.Transfer.Model.TestIdentityProviderResponse")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned identifier for a specific server. That server's user authentication
-        /// method is tested with a user name and password.</para>
+        /// <para>A system-assigned identifier for a specific file transfer protocol-enabled server.
+        /// That server's user authentication method is tested with a user name and password.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,10 +61,31 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String ServerId { get; set; }
         #endregion
         
+        #region Parameter ServerProtocol
+        /// <summary>
+        /// <para>
+        /// <para>The type of file transfer protocol to be tested.</para><para>The available protocols are:</para><ul><li><para>Secure Shell (SSH) File Transfer Protocol (SFTP)</para></li><li><para>File Transfer Protocol Secure (FTPS)</para></li><li><para>File Transfer Protocol (FTP)</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Transfer.Protocol")]
+        public Amazon.Transfer.Protocol ServerProtocol { get; set; }
+        #endregion
+        
+        #region Parameter SourceIp
+        /// <summary>
+        /// <para>
+        /// <para>The source IP address of the user account to be tested.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceIp { get; set; }
+        #endregion
+        
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>This request parameter is the name of the user account to be tested.</para>
+        /// <para>The name of the user account to be tested.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,6 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 WriteWarning("You are passing $null as a value for parameter ServerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ServerProtocol = this.ServerProtocol;
+            context.SourceIp = this.SourceIp;
             context.UserName = this.UserName;
             #if MODULAR
             if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
@@ -167,6 +190,14 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             if (cmdletContext.ServerId != null)
             {
                 request.ServerId = cmdletContext.ServerId;
+            }
+            if (cmdletContext.ServerProtocol != null)
+            {
+                request.ServerProtocol = cmdletContext.ServerProtocol;
+            }
+            if (cmdletContext.SourceIp != null)
+            {
+                request.SourceIp = cmdletContext.SourceIp;
             }
             if (cmdletContext.UserName != null)
             {
@@ -238,6 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ServerId { get; set; }
+            public Amazon.Transfer.Protocol ServerProtocol { get; set; }
+            public System.String SourceIp { get; set; }
             public System.String UserName { get; set; }
             public System.String UserPassword { get; set; }
             public System.Func<Amazon.Transfer.Model.TestIdentityProviderResponse, TestTFRIdentityProviderCmdlet, object> Select { get; set; } =

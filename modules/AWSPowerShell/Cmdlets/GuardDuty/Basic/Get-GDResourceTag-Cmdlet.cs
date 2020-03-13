@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Lists tags for a resource. Tagging is currently supported for detectors, finding filters,
-    /// IP sets, and Threat Intel sets, with a limit of 50 tags per resource. When invoked,
-    /// this operation returns all assigned tags for a given resource..
+    /// IP sets, and threat intel sets, with a limit of 50 tags per resource. When invoked,
+    /// this operation returns all assigned tags for a given resource.
     /// </summary>
     [Cmdlet("Get", "GDResourceTag")]
     [OutputType("System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the given GuardDuty resource </para>
+        /// <para>The Amazon Resource Name (ARN) for the given GuardDuty resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

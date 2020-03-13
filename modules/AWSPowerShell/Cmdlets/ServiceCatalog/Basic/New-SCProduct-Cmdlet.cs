@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Creates a product.
+    /// 
+    ///  
+    /// <para>
+    /// A delegated admin is authorized to invoke this command.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.CreateProductResponse")]

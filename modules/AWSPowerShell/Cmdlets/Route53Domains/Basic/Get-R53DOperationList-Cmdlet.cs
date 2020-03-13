@@ -28,7 +28,8 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation returns the operation IDs of operations that are not yet complete.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about all of the operations that return an operation ID and that
+    /// have ever been performed on domains that were registered by the current account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53DOperationList")]
     [OutputType("Amazon.Route53Domains.Model.OperationSummary")]
@@ -44,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>An optional parameter that lets you get information about all the operations that
-        /// you submitted after a specified date and time. Specify the date and time in Coordinated
-        /// Universal time (UTC).</para>
+        /// you submitted after a specified date and time. Specify the date and time in Unix time
+        /// format and Coordinated Universal time (UTC).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

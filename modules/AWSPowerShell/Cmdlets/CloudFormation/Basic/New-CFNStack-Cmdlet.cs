@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name that is associated with the stack. The name must be unique in the region
+        /// <para>The name that is associated with the stack. The name must be unique in the Region
         /// in which you are creating the stack.</para><note><para>A stack name can contain only alphanumeric characters (case sensitive) and hyphens.
         /// It must start with an alphabetic character and cannot be longer than 128 characters.</para></note>
         /// </para>
@@ -283,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Location of a file containing the stack policy. The URL must point to a policy (maximum
-        /// size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify
+        /// size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify
         /// either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter,
         /// but not both.</para>
         /// </para>

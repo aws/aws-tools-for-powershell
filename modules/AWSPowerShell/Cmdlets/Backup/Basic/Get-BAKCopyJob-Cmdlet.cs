@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter CopyJobId
         /// <summary>
         /// <para>
-        /// <para>Uniquely identifies a request to AWS Backup to copy a resource.</para>
+        /// <para>Uniquely identifies a copy job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

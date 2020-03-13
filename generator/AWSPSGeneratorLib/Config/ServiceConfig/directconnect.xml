@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>directconnect</C2jFilename>
     <AssemblyName>DirectConnect</AssemblyName>
@@ -18,7 +19,6 @@
         <Map From="VirtualInterfaces" To="VirtualInterface" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -216,6 +216,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListVirtualInterfaceTestHistory" OutputProperty="VirtualInterfaceTestHistory" Verb="Get" Noun="VirtualInterfaceTestHistoryList" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartBgpFailoverTest" OutputProperty="VirtualInterfaceTest" Verb="Start" Noun="BgpFailoverTest" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopBgpFailoverTest" OutputProperty="VirtualInterfaceTest" Verb="Stop" Noun="BgpFailoverTest" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -237,7 +249,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

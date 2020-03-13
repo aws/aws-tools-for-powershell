@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// when you pass a policy to this operation. An IAM entity can only have one permissions
         /// boundary in effect at a time. For example, if a permissions boundary is attached to
         /// an entity and you pass in a different permissions boundary policy using this parameter,
-        /// then the new permission boundary policy is used for the simulation. For more information
+        /// then the new permissions boundary policy is used for the simulation. For more information
         /// about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
         /// Boundaries for IAM Entities</a> in the <i>IAM User Guide</i>. The policy input is
         /// specified as a string containing the complete, valid JSON text of a permissions boundary

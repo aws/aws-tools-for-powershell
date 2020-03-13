@@ -32,8 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information about desired capacity, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">What
-    /// Is Amazon EC2 Auto Scaling?</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value
+    /// that is lower than the current size of the group, the Auto Scaling group uses its
+    /// termination policy to determine which instances to terminate. 
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-manual-scaling.html">Manual
+    /// Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASDesiredCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of EC2 instances that should be running in the Auto Scaling group.</para>
+        /// <para>The desired capacity is the initial capacity of the Auto Scaling group after this
+        /// operation completes and the capacity it attempts to maintain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

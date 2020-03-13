@@ -46,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para><ul><li><para>
     /// You can't create a hosted zone for a top-level domain (TLD) such as .com.
     /// </para></li><li><para>
-    /// For public hosted zones, Amazon Route 53 automatically creates a default SOA record
-    /// and four NS records for the zone. For more information about SOA and NS records, see
-    /// <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS
+    /// For public hosted zones, Route 53 automatically creates a default SOA record and four
+    /// NS records for the zone. For more information about SOA and NS records, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/SOA-NSrecords.html">NS
     /// and SOA Records that Route 53 Creates for a Hosted Zone</a> in the <i>Amazon Route
     /// 53 Developer Guide</i>.
     /// </para><para>
@@ -58,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </para></li><li><para>
     /// If your domain is registered with a registrar other than Route 53, you must update
     /// the name servers with your registrar to make Route 53 the DNS service for the domain.
-    /// For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html">Migrating
+    /// For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html">Migrating
     /// DNS Service for an Existing Domain to Amazon Route 53</a> in the <i>Amazon Route 53
     /// Developer Guide</i>. 
     /// </para></li></ul><para>

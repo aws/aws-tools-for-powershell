@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingPublishingFrequency
         /// <summary>
         /// <para>
-        /// <para>A enum value that specifies how frequently findings are exported, such as to CloudWatch
+        /// <para>An enum value that specifies how frequently findings are exported, such as to CloudWatch
         /// Events.</para>
         /// </para>
         /// </summary>

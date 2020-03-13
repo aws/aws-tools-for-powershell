@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// One <code>RegisterInstance</code> request must complete before you can submit another
     /// request and specify the same service ID and instance ID.
     /// </para></important><para>
-    /// For more information, see <a>CreateService</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html">CreateService</a>.
     /// </para><para>
     /// When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the
     /// applicable value:
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// </para></li><li><para><b>If you didn't specify a health check configuration</b>: returns all the records
     /// </para></li></ul><para>
     /// For the current limit on the number of instances that you can register using the same
-    /// namespace and using the same service, see <a href="http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
+    /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
     /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// in <code>ServiceId</code>:</para><ul><li><para>The attributes that apply to the records that are defined in the service. </para></li><li><para>For each attribute, the applicable value.</para></li></ul><para>Supported attribute keys include the following:</para><para><b>AWS_ALIAS_DNS_NAME</b></para><para><b /></para><para>If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic
         /// to an Elastic Load Balancing load balancer, specify the DNS name that is associated
         /// with the load balancer. For information about how to get the DNS name, see "DNSName"
-        /// in the topic <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>
+        /// in the topic <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>
         /// in the <i>Route 53 API Reference</i>.</para><para>Note the following:</para><ul><li><para>The configuration for the service that is specified by <code>ServiceId</code> must
         /// include settings for an A record, an AAAA record, or both.</para></li><li><para>In the service that is specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code>
         /// must be <code>WEIGHTED</code>.</para></li><li><para>If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
@@ -98,10 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// must specify a value for <code>AWS_INSTANCE_IPV4</code>, <code>AWS_INSTANCE_IPV6</code>,
         /// or both.</para><para><b>AWS_INSTANCE_PORT</b></para><para>If the service includes an SRV record, the value that you want Route 53 to return
         /// for the port.</para><para>If the service includes <code>HealthCheckConfig</code>, the port on the endpoint that
-        /// you want Route 53 to send requests to. </para><para>This value is required if you specified settings for an SRV record when you created
-        /// the service.</para><para><b>Custom attributes</b></para><para>You can add up to 30 custom attributes. For each key-value pair, the maximum length
+        /// you want Route 53 to send requests to. </para><para>This value is required if you specified settings for an SRV record or a Route 53 health
+        /// check when you created the service.</para><para><b>Custom attributes</b></para><para>You can add up to 30 custom attributes. For each key-value pair, the maximum length
         /// of the attribute name is 255 characters, and the maximum length of the attribute value
-        /// is 1,024 characters. </para>
+        /// is 1,024 characters. Total size of all provided attributes (sum of all keys and values)
+        /// must not exceed 5,000 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -135,7 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>
         /// <para>An identifier that you want to associate with the instance. Note the following:</para><ul><li><para>If the service that is specified by <code>ServiceId</code> includes settings for an
         /// SRV record, the value of <code>InstanceId</code> is automatically included as part
-        /// of the value for the SRV record. For more information, see <a>DnsRecord$Type</a>.</para></li><li><para>You can use this value to update an existing instance.</para></li><li><para>To register a new instance, you must specify a value that is unique among instances
+        /// of the value for the SRV record. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_DnsRecord.html#cloudmap-Type-DnsRecord-Type">DnsRecord
+        /// &gt; Type</a>.</para></li><li><para>You can use this value to update an existing instance.</para></li><li><para>To register a new instance, you must specify a value that is unique among instances
         /// that you register by using the same service. </para></li><li><para>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS
         /// Cloud Map updates the existing DNS records, if any. If there's also an existing health
         /// check, AWS Cloud Map deletes the old health check and creates a new one. </para><note><para>The health check isn't deleted immediately, so it will still appear for a while if

@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The kinds of databases that the proxy can connect to. This value determines which
         /// database network protocol the proxy recognizes when it interprets network traffic
-        /// to and from the database. Currently, this value is always <code>MYSQL</code>. The
-        /// engine family applies to both RDS MySQL and Aurora MySQL.</para>
+        /// to and from the database. The engine family applies to MySQL and PostgreSQL for both
+        /// RDS and Aurora.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

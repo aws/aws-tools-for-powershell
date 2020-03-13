@@ -49,9 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>This is the value of the resource that will have the tag removed. An Amazon Resource
-        /// Name (ARN) is an identifier for a specific AWS resource, such as a server, user, or
-        /// role.</para>
+        /// <para>The value of the resource that will have the tag removed. An Amazon Resource Name
+        /// (ARN) is an identifier for a specific AWS resource, such as a server, user, or role.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

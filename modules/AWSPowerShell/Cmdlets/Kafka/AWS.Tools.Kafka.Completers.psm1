@@ -168,6 +168,7 @@ $MSK_SelectMap = @{
                "Get-MSKConfiguration",
                "Get-MSKConfigurationRevision",
                "Get-MSKBootstrapBroker",
+               "Get-MSKCompatibleKafkaVersion",
                "Get-MSKClusterOperationList",
                "Get-MSKClusterList",
                "Get-MSKConfigurationRevisionList",
@@ -180,6 +181,7 @@ $MSK_SelectMap = @{
                "Update-MSKBrokerCount",
                "Update-MSKBrokerStorage",
                "Update-MSKClusterConfiguration",
+               "Update-MSKClusterKafkaVersion",
                "Update-MSKMonitoring")
 }
 

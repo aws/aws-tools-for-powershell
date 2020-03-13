@@ -101,6 +101,40 @@ $RS_Completers = {
             break
         }
 
+        # Amazon.Redshift.UsageLimitBreachAction
+        {
+            ($_ -eq "Edit-RSUsageLimit/BreachAction") -Or
+            ($_ -eq "New-RSUsageLimit/BreachAction")
+        }
+        {
+            $v = "disable","emit-metric","log"
+            break
+        }
+
+        # Amazon.Redshift.UsageLimitFeatureType
+        {
+            ($_ -eq "Get-RSUsageLimit/FeatureType") -Or
+            ($_ -eq "New-RSUsageLimit/FeatureType")
+        }
+        {
+            $v = "concurrency-scaling","spectrum"
+            break
+        }
+
+        # Amazon.Redshift.UsageLimitLimitType
+        "New-RSUsageLimit/LimitType"
+        {
+            $v = "data-scanned","time"
+            break
+        }
+
+        # Amazon.Redshift.UsageLimitPeriod
+        "New-RSUsageLimit/Period"
+        {
+            $v = "daily","monthly","weekly"
+            break
+        }
+
 
     }
 
@@ -111,6 +145,10 @@ $RS_Completers = {
 
 $RS_map = @{
     "ActionType"=@("Get-RSNodeConfigurationOption")
+    "BreachAction"=@("Edit-RSUsageLimit","New-RSUsageLimit")
+    "FeatureType"=@("Get-RSUsageLimit","New-RSUsageLimit")
+    "LimitType"=@("New-RSUsageLimit")
+    "Period"=@("New-RSUsageLimit")
     "SourceType"=@("Get-RSEvent")
     "TargetActionType"=@("Get-RSScheduledAction")
 }
@@ -184,6 +222,7 @@ $RS_SelectMap = @{
                "New-RSSnapshotCopyGrant",
                "New-RSSnapshotSchedule",
                "New-RSResourceTag",
+               "New-RSUsageLimit",
                "Remove-RSCluster",
                "Remove-RSClusterParameterGroup",
                "Remove-RSClusterSecurityGroup",
@@ -196,6 +235,7 @@ $RS_SelectMap = @{
                "Remove-RSSnapshotCopyGrant",
                "Remove-RSSnapshotSchedule",
                "Remove-RSResourceTag",
+               "Remove-RSUsageLimit",
                "Get-RSAccountAttribute",
                "Get-RSClusterDbRevision",
                "Get-RSClusterParameterGroup",
@@ -224,6 +264,7 @@ $RS_SelectMap = @{
                "Get-RSStorage",
                "Get-RSTableRestoreStatus",
                "Get-RSResourceTag",
+               "Get-RSUsageLimit",
                "Disable-RSLogging",
                "Disable-RSSnapshotCopy",
                "Enable-RSLogging",
@@ -242,6 +283,7 @@ $RS_SelectMap = @{
                "Edit-RSScheduledAction",
                "Edit-RSSnapshotCopyRetentionPeriod",
                "Edit-RSSnapshotSchedule",
+               "Edit-RSUsageLimit",
                "Stop-RSCluster",
                "Request-RSReservedNodeOffering",
                "Restart-RSCluster",

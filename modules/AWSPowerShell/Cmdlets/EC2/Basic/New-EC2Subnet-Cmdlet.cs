@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// we do not necessarily select a different zone for each subnet.</para><para>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
         /// <code>us-west-2-lax-1a</code>. For information about the Regions that support Local
         /// Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available
-        /// Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>To create a subnet in an Outpost, set this value to the Availability Zone for the
+        /// Outpost and specify the Outpost ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -123,7 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OutpostArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Outpost.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you
+        /// must also specify the Availability Zone of the Outpost subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

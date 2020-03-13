@@ -97,6 +97,16 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.BalancingStrategy
+        {
+            ($_ -eq "New-GMLGameServerGroup/BalancingStrategy") -Or
+            ($_ -eq "Update-GMLGameServerGroup/BalancingStrategy")
+        }
+        {
+            $v = "SPOT_ONLY","SPOT_PREFERRED"
+            break
+        }
+
         # Amazon.GameLift.BuildStatus
         "Get-GMLBuild/Status"
         {
@@ -132,6 +142,37 @@ $GML_Completers = {
         "New-GMLFleet/FleetType"
         {
             $v = "ON_DEMAND","SPOT"
+            break
+        }
+
+        # Amazon.GameLift.GameServerGroupDeleteOption
+        "Remove-GMLGameServerGroup/DeleteOption"
+        {
+            $v = "FORCE_DELETE","RETAIN","SAFE_DELETE"
+            break
+        }
+
+        # Amazon.GameLift.GameServerHealthCheck
+        "Update-GMLGameServer/HealthCheck"
+        {
+            $v = "HEALTHY"
+            break
+        }
+
+        # Amazon.GameLift.GameServerProtectionPolicy
+        {
+            ($_ -eq "New-GMLGameServerGroup/GameServerProtectionPolicy") -Or
+            ($_ -eq "Update-GMLGameServerGroup/GameServerProtectionPolicy")
+        }
+        {
+            $v = "FULL_PROTECTION","NO_PROTECTION"
+            break
+        }
+
+        # Amazon.GameLift.GameServerUtilizationStatus
+        "Update-GMLGameServer/UtilizationStatus"
+        {
+            $v = "AVAILABLE","UTILIZED"
             break
         }
 
@@ -199,6 +240,13 @@ $GML_Completers = {
             break
         }
 
+        # Amazon.GameLift.SortOrder
+        "Get-GMLGameServerList/SortOrder"
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
 
     }
 
@@ -210,10 +258,14 @@ $GML_Completers = {
 $GML_map = @{
     "AcceptanceType"=@("Confirm-GMLMatch")
     "BackfillMode"=@("New-GMLMatchmakingConfiguration","Update-GMLMatchmakingConfiguration")
+    "BalancingStrategy"=@("New-GMLGameServerGroup","Update-GMLGameServerGroup")
     "CertificateConfiguration_CertificateType"=@("New-GMLFleet")
     "ComparisonOperator"=@("Write-GMLScalingPolicy")
+    "DeleteOption"=@("Remove-GMLGameServerGroup")
     "EC2InstanceType"=@("Get-GMLEC2InstanceLimit","New-GMLFleet")
     "FleetType"=@("New-GMLFleet")
+    "GameServerProtectionPolicy"=@("New-GMLGameServerGroup","Update-GMLGameServerGroup")
+    "HealthCheck"=@("Update-GMLGameServer")
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
     "OperatingSystem"=@("New-GMLBuild")
@@ -223,8 +275,10 @@ $GML_map = @{
     "RoutingStrategy_Type"=@("New-GMLAlias","Update-GMLAlias")
     "RoutingStrategyType"=@("Get-GMLAlias")
     "ScalingAdjustmentType"=@("Write-GMLScalingPolicy")
+    "SortOrder"=@("Get-GMLGameServerList")
     "Status"=@("Get-GMLBuild")
     "StatusFilter"=@("Get-GMLScalingPolicy")
+    "UtilizationStatus"=@("Update-GMLGameServer")
 }
 
 _awsArgumentCompleterRegistration $GML_Completers $GML_map
@@ -278,9 +332,11 @@ $GML_SelectCompleters = {
 
 $GML_SelectMap = @{
     "Select"=@("Confirm-GMLMatch",
+               "Request-GMLGameServer",
                "New-GMLAlias",
                "New-GMLBuild",
                "New-GMLFleet",
+               "New-GMLGameServerGroup",
                "New-GMLGameSession",
                "New-GMLGameSessionQueue",
                "New-GMLMatchmakingConfiguration",
@@ -292,6 +348,7 @@ $GML_SelectMap = @{
                "Remove-GMLAlias",
                "Remove-GMLBuild",
                "Remove-GMLFleet",
+               "Remove-GMLGameServerGroup",
                "Remove-GMLGameSessionQueue",
                "Remove-GMLMatchmakingConfiguration",
                "Remove-GMLMatchmakingRuleSet",
@@ -299,6 +356,7 @@ $GML_SelectMap = @{
                "Remove-GMLScript",
                "Remove-GMLVpcPeeringAuthorization",
                "Remove-GMLVpcPeeringConnection",
+               "Unregister-GMLGameServer",
                "Get-GMLAliasDetail",
                "Get-GMLBuildDetail",
                "Get-GMLEC2InstanceLimit",
@@ -307,6 +365,8 @@ $GML_SelectMap = @{
                "Get-GMLFleetEvent",
                "Get-GMLFleetPortSetting",
                "Get-GMLFleetUtilization",
+               "Get-GMLGameServer",
+               "Get-GMLGameServerGroup",
                "Get-GMLGameSessionDetail",
                "Get-GMLGameSessionPlacement",
                "Get-GMLGameSessionQueue",
@@ -326,11 +386,15 @@ $GML_SelectMap = @{
                "Get-GMLAlias",
                "Get-GMLBuild",
                "Get-GMLFleet",
+               "Get-GMLGameServerGroupList",
+               "Get-GMLGameServerList",
                "Get-GMLScriptList",
                "Get-GMLResourceTag",
                "Write-GMLScalingPolicy",
+               "Register-GMLGameServer",
                "Request-GMLUploadCredential",
                "Resolve-GMLAlias",
+               "Resume-GMLGameServerGroup",
                "Find-GMLGameSession",
                "Start-GMLFleetAction",
                "Start-GMLGameSessionPlacement",
@@ -339,6 +403,7 @@ $GML_SelectMap = @{
                "Stop-GMLFleetAction",
                "Stop-GMLGameSessionPlacement",
                "Stop-GMLMatchmaking",
+               "Suspend-GMLGameServerGroup",
                "Add-GMLResourceTag",
                "Remove-GMLResourceTag",
                "Update-GMLAlias",
@@ -346,6 +411,8 @@ $GML_SelectMap = @{
                "Update-GMLFleetAttribute",
                "Update-GMLFleetCapacity",
                "Update-GMLFleetPortSetting",
+               "Update-GMLGameServer",
+               "Update-GMLGameServerGroup",
                "Update-GMLGameSession",
                "Update-GMLGameSessionQueue",
                "Update-GMLMatchmakingConfiguration",

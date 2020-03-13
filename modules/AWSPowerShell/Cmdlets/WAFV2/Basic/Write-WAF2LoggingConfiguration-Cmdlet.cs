@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// </para><ol><li><para>
     /// Create an Amazon Kinesis Data Firehose. 
     /// </para><para>
-    /// Create the data firehose with a PUT source and in the region that you are operating.
+    /// Create the data firehose with a PUT source and in the Region that you are operating.
     /// If you are capturing logs for Amazon CloudFront, always create the firehose in US
     /// East (N. Virginia). 
     /// </para><note><para>

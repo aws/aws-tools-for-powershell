@@ -80,6 +80,16 @@ $ATH_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Athena.DataCatalogType
+        {
+            ($_ -eq "New-ATHDataCatalog/Type") -Or
+            ($_ -eq "Update-ATHDataCatalog/Type")
+        }
+        {
+            $v = "GLUE","HIVE","LAMBDA"
+            break
+        }
+
         # Amazon.Athena.EncryptionOption
         {
             ($_ -eq "New-ATHWorkGroup/Configuration_ResultConfiguration_EncryptionConfiguration_EncryptionOption") -Or
@@ -111,6 +121,7 @@ $ATH_map = @{
     "ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_EncryptionOption"=@("Update-ATHWorkGroup")
     "ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("Start-ATHQueryExecution")
     "State"=@("Update-ATHWorkGroup")
+    "Type"=@("New-ATHDataCatalog","Update-ATHDataCatalog")
 }
 
 _awsArgumentCompleterRegistration $ATH_Completers $ATH_map
@@ -165,22 +176,31 @@ $ATH_SelectCompleters = {
 $ATH_SelectMap = @{
     "Select"=@("Get-ATHNamedQueryBatch",
                "Get-ATHQueryExecutionBatch",
+               "New-ATHDataCatalog",
                "New-ATHNamedQuery",
                "New-ATHWorkGroup",
+               "Remove-ATHDataCatalog",
                "Remove-ATHNamedQuery",
                "Remove-ATHWorkGroup",
+               "Get-ATHDatabase",
+               "Get-ATHDataCatalog",
                "Get-ATHNamedQuery",
                "Get-ATHQueryExecution",
                "Get-ATHQueryResult",
+               "Get-ATHTableMetadata",
                "Get-ATHWorkGroup",
+               "Get-ATHDatabasisList",
+               "Get-ATHDataCatalogList",
                "Get-ATHNamedQueryList",
                "Get-ATHQueryExecutionList",
+               "Get-ATHTableMetadataList",
                "Get-ATHResourceTag",
                "Get-ATHWorkGroupList",
                "Start-ATHQueryExecution",
                "Stop-ATHQueryExecution",
                "Add-ATHResourceTag",
                "Remove-ATHResourceTag",
+               "Update-ATHDataCatalog",
                "Update-ATHWorkGroup")
 }
 

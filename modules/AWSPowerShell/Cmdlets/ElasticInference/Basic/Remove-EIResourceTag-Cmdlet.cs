@@ -28,7 +28,7 @@ using Amazon.ElasticInference.Model;
 namespace Amazon.PowerShell.Cmdlets.EI
 {
     /// <summary>
-    /// Removes the specified tag(s) from an Elastic Inference Accelerator.
+    /// Removes the specified tags from an Elastic Inference Accelerator.
     /// </summary>
     [Cmdlet("Remove", "EIResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The ARN of the Elastic Inference Accelerator
-        /// to untag.
+        /// <para> The ARN of the Elastic Inference Accelerator to untag. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// The list of tags to remove from the Elastic Inference
-        /// Accelerator.
+        /// <para> The list of tags to remove from the Elastic Inference Accelerator. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

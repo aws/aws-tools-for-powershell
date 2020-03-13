@@ -28,13 +28,11 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Creates a Systems Manager document.
-    /// 
-    ///  
-    /// <para>
-    /// After you create a document, you can use CreateAssociation to associate it with one
-    /// or more running instances.
-    /// </para>
+    /// Creates a Systems Manager (SSM) document. An SSM document defines the actions that
+    /// Systems Manager performs on your managed instances. For more information about SSM
+    /// documents, including information about supported schemas, features, and syntax, see
+    /// <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">AWS
+    /// Systems Manager Documents</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </summary>
     [Cmdlet("New", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
@@ -60,7 +58,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>A valid JSON or YAML string.</para>
+        /// <para>The content for the new SSM document in JSON or YAML format. We recommend storing
+        /// the contents for your new document in an external JSON or YAML file and referencing
+        /// the file in a command.</para><para>For examples, see the following topics in the <i>AWS Systems Manager User Guide</i>.</para><ul><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create
+        /// an SSM document (AWS API)</a></para></li><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html">Create
+        /// an SSM document (AWS CLI)</a></para></li><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create
+        /// an SSM document (API)</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the Systems Manager document.</para><important><para>Do not use the following to begin the names of documents you create. They are reserved
-        /// by AWS for use as document prefixes:</para><ul><li><para><code>aws</code></para></li><li><para><code>amazon</code></para></li><li><para><code>amzn</code></para></li></ul></important>
+        /// <para>A name for the Systems Manager document.</para><important><para>You can't use the following strings as document name prefixes. These are reserved
+        /// by AWS for use as document name prefixes:</para><ul><li><para><code>aws-</code></para></li><li><para><code>amazon</code></para></li><li><para><code>amzn</code></para></li></ul></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,8 +121,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Require
         /// <summary>
         /// <para>
-        /// <para>A list of SSM documents required by a document. For example, an <code>ApplicationConfiguration</code>
-        /// document requires an <code>ApplicationConfigurationSchema</code> document.</para>
+        /// <para>A list of SSM documents required by a document. This parameter is used exclusively
+        /// by AWS AppConfig. When a user creates an AppConfig configuration in an SSM document,
+        /// the user must also specify a required document for validation purposes. In this case,
+        /// an <code>ApplicationConfiguration</code> document requires an <code>ApplicationConfigurationSchema</code>
+        /// document for validation purposes. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig.html">AWS
+        /// AppConfig</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,7 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// If you specify a value of '/' the document can run on all types of resources. If you
         /// don't specify a value, the document can't run on any resources. For a list of valid
         /// resource types, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS
-        /// Resource Types Reference</a> in the <i>AWS CloudFormation User Guide</i>. </para>
+        /// resource and property types reference</a> in the <i>AWS CloudFormation User Guide</i>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.ElasticInference.Model;
 namespace Amazon.PowerShell.Cmdlets.EI
 {
     /// <summary>
-    /// Adds the specified tag(s) to an Elastic Inference Accelerator.
+    /// Adds the specified tags to an Elastic Inference Accelerator.
     /// </summary>
     [Cmdlet("Add", "EIResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The ARN of the Elastic Inference Accelerator
-        /// to tag.
+        /// <para> The ARN of the Elastic Inference Accelerator to tag. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The tags to add to the Elastic Inference Accelerator.
+        /// <para> The tags to add to the Elastic Inference Accelerator. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para> The filters. </para>
+        /// <para>The filters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImagePipelineArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the image pipeline whose images you want to view.
+        /// <para>The Amazon Resource Name (ARN) of the image pipeline whose images you want to view.
         /// </para>
         /// </para>
         /// </summary>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum items to return in a request. </para>
+        /// <para>The maximum items to return in a request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A token to specify where to start paginating. This is the NextToken from a previously
+        /// <para>A token to specify where to start paginating. This is the NextToken from a previously
         /// truncated response. </para>
         /// </para>
         /// <para>

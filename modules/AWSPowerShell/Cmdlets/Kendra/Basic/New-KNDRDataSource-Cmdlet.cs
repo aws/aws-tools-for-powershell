@@ -144,6 +144,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String Schedule { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of key-value pairs that identify the data source. You can use the tags to identify
+        /// and organize your resources and to control access to resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Kendra.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -252,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             #endif
             context.Schedule = this.Schedule;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Kendra.Model.Tag>(this.Tag);
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -298,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.Schedule != null)
             {
                 request.Schedule = cmdletContext.Schedule;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.Type != null)
             {
@@ -370,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
             public System.String Schedule { get; set; }
+            public List<Amazon.Kendra.Model.Tag> Tag { get; set; }
             public Amazon.Kendra.DataSourceType Type { get; set; }
             public System.Func<Amazon.Kendra.Model.CreateDataSourceResponse, NewKNDRDataSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;

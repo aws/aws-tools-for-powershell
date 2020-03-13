@@ -34,10 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// 
     ///  
     /// <para>
-    ///  The type of targets returned depends on the deployment's compute platform: 
+    ///  The type of targets returned depends on the deployment's compute platform or deployment
+    /// method: 
     /// </para><ul><li><para><b>EC2/On-premises</b>: Information about EC2 instance targets. 
     /// </para></li><li><para><b>AWS Lambda</b>: Information about Lambda functions targets. 
     /// </para></li><li><para><b>Amazon ECS</b>: Information about Amazon ECS service targets. 
+    /// </para></li><li><para><b>CloudFormation</b>: Information about targets of blue/green deployments initiated
+    /// by a CloudFormation stack update.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "CDDeploymentTargetBatch")]
@@ -70,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para></li><li><para> For deployments that use the AWS Lambda compute platform, the target IDs are the
         /// names of Lambda functions, and their target type is <code>instanceTarget</code>. </para></li><li><para> For deployments that use the Amazon ECS compute platform, the target IDs are pairs
         /// of Amazon ECS clusters and services specified using the format <code>&lt;clustername&gt;:&lt;servicename&gt;</code>.
-        /// Their target type is <code>ecsTarget</code>. </para></li></ul>
+        /// Their target type is <code>ecsTarget</code>. </para></li><li><para> For deployments that are deployed with AWS CloudFormation, the target IDs are CloudFormation
+        /// stack IDs. Their target type is <code>cloudFormationTarget</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

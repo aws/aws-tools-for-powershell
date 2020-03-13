@@ -38,12 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// If the group has policies, deleting the group deletes the policies, the underlying
     /// alarm actions, and any alarm that no longer has an associated action.
     /// </para><para>
-    /// To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a>
-    /// with the list of instances and the option to decrement the desired capacity. This
+    /// To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a>
+    /// API with the list of instances and the option to decrement the desired capacity. This
     /// ensures that Amazon EC2 Auto Scaling does not launch replacement instances.
     /// </para><para>
-    /// To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a>
-    /// and set the minimum size and desired capacity of the Auto Scaling group to zero.
+    /// To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a>
+    /// API and set the minimum size and desired capacity of the Auto Scaling group to zero.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ASAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

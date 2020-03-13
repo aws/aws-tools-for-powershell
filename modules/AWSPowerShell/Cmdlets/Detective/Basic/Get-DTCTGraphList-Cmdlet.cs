@@ -28,13 +28,11 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Amazon Detective is currently in preview.
+    /// Returns the list of behavior graphs that the calling account is a master of. This
+    /// operation can only be called by a master account.
     /// 
     ///  
     /// <para>
-    /// Returns the list of behavior graphs that the calling account is a master of. This
-    /// operation can only be called by a master account.
-    /// </para><para>
     /// Because an account can currently only be the master of one behavior graph within a
     /// Region, the results always contain a single graph.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

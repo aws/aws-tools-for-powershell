@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Disassociates a subnet from a route table.
+    /// Disassociates a subnet or gateway from a route table.
     /// 
     ///  
     /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The association ID representing the current association between the route table and
-        /// subnet.</para>
+        /// subnet or gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

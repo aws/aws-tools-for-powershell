@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Elastic Inference
 
 
+$EI_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ElasticInference.LocationType
+        "Get-EIAcceleratorOffering/LocationType"
+        {
+            $v = "availability-zone","availability-zone-id","region"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EI_map = @{
+    "LocationType"=@("Get-EIAcceleratorOffering")
+}
+
+_awsArgumentCompleterRegistration $EI_Completers $EI_map
+
 $EI_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,7 +149,10 @@ $EI_SelectCompleters = {
 }
 
 $EI_SelectMap = @{
-    "Select"=@("Get-EIResourceTag",
+    "Select"=@("Get-EIAcceleratorOffering",
+               "Get-EIAccelerator",
+               "Get-EIAcceleratorType",
+               "Get-EIResourceTag",
                "Add-EIResourceTag",
                "Remove-EIResourceTag")
 }

@@ -33,9 +33,6 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     ///  
     /// <para>
     /// You can filter the results using <code>ResourceIds</code> and <code>ScalableDimension</code>.
-    /// </para><para>
-    /// To create a scalable target or update an existing one, see <a>RegisterScalableTarget</a>.
-    /// If you are no longer using a scalable target, you can deregister it using <a>DeregisterScalableTarget</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AASScalableTarget")]
@@ -69,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <code>function</code> and the
         /// unique identifier is the function name with a function version or alias name suffix
         /// that is not <code>$LATEST</code>. Example: <code>function:my-function:prod</code>
-        /// or <code>function:my-function:1</code>.</para></li></ul>
+        /// or <code>function:my-function:1</code>.</para></li><li><para>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier
+        /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// for an Amazon SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
         /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
-        /// for a Lambda function.</para></li></ul>
+        /// for a Lambda function.</para></li><li><para><code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for
+        /// an Amazon Keyspaces table.</para></li><li><para><code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity
+        /// for an Amazon Keyspaces table.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,10 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the AWS service that provides the resource or <code>custom-resource</code>
-        /// for a resource provided by your own application or service. For more information,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// <para>The namespace of the AWS service that provides the resource. For a resource provided
+        /// by your own application or service, use <code>custom-resource</code> instead.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

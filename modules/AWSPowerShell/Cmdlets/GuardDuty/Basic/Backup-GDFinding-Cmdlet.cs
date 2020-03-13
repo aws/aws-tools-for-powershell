@@ -28,10 +28,10 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Archives GuardDuty findings specified by the list of finding IDs.
+    /// Archives GuardDuty findings that are specified by the list of finding IDs.
     /// 
     ///  <note><para>
-    /// Only the master account can archive findings. Member accounts do not have permission
+    /// Only the master account can archive findings. Member accounts don't have permission
     /// to archive findings from their accounts.
     /// </para></note>
     /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingId
         /// <summary>
         /// <para>
-        /// <para>IDs of the findings that you want to archive.</para>
+        /// <para>The IDs of the findings that you want to archive.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

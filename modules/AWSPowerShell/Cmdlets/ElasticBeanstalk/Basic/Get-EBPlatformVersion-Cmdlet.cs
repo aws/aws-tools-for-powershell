@@ -28,7 +28,15 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Lists the available platforms.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the platform versions available for your account in an AWS Region. Provides
+    /// summary information about each platform version. Compare to <a>DescribePlatformVersion</a>,
+    /// which provides full details about a single platform version.
+    /// 
+    ///  
+    /// <para>
+    /// For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS
+    /// Elastic Beanstalk Platforms Glossary</a>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EBPlatformVersion")]
     [OutputType("Amazon.ElasticBeanstalk.Model.PlatformSummary")]
@@ -43,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>List only the platforms where the platform member value relates to one of the supplied
-        /// values.</para>
+        /// <para>Criteria for restricting the resulting list of platform versions. The filter is interpreted
+        /// as a logical conjunction (AND) of the separate <code>PlatformFilter</code> terms.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of platform values returned in one call.</para>
+        /// <para>The maximum number of platform version values returned in one call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -72,8 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The starting index into the remaining list of platforms. Use the <code>NextToken</code>
-        /// value from a previous <code>ListPlatformVersion</code> call.</para>
+        /// <para>For a paginated request. Specify a token from a previous response page to retrieve
+        /// the next response page. All other parameter values must be identical to the ones specified
+        /// in the initial request.</para><para>If no <code>NextToken</code> is specified, the first page is retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

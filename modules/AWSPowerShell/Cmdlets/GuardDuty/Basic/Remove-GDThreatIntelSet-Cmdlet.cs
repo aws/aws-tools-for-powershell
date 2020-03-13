@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Deletes ThreatIntelSet specified by the ThreatIntelSet ID.
+    /// Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.
     /// </summary>
     [Cmdlet("Remove", "GDThreatIntelSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector the threatIntelSet is associated with.</para>
+        /// <para>The unique ID of the detector that the threatIntelSet is associated with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter ThreatIntelSetId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the threatIntelSet you want to delete.</para>
+        /// <para>The unique ID of the threatIntelSet that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -136,6 +136,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String SemanticVersion { get; set; }
         #endregion
         
+        #region Parameter SupportedOsVersion
+        /// <summary>
+        /// <para>
+        /// <para> The operating system (OS) version supported by the component. If the OS information
+        /// is available, a prefix match is performed against the parent image OS version during
+        /// image recipe creation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SupportedOsVersions")]
+        public System.String[] SupportedOsVersion { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -257,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter SemanticVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SupportedOsVersion != null)
+            {
+                context.SupportedOsVersion = new List<System.String>(this.SupportedOsVersion);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -313,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.SemanticVersion != null)
             {
                 request.SemanticVersion = cmdletContext.SemanticVersion;
+            }
+            if (cmdletContext.SupportedOsVersion != null)
+            {
+                request.SupportedOsVersions = cmdletContext.SupportedOsVersion;
             }
             if (cmdletContext.Tag != null)
             {
@@ -391,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String Name { get; set; }
             public Amazon.Imagebuilder.Platform Platform { get; set; }
             public System.String SemanticVersion { get; set; }
+            public List<System.String> SupportedOsVersion { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Uri { get; set; }
             public System.Func<Amazon.Imagebuilder.Model.CreateComponentResponse, NewEC2IBComponentCmdlet, object> Select { get; set; } =

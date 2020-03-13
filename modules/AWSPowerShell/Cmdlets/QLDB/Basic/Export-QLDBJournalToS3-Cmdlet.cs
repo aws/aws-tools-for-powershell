@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter EncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for a customer master key (CMK) in AWS Key Management
-        /// Service (AWS KMS).</para><para>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
+        /// <para>The Amazon Resource Name (ARN) for a symmetric customer master key (CMK) in AWS Key
+        /// Management Service (AWS KMS). Amazon QLDB does not support asymmetric CMKs.</para><para>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
         /// <code>ObjectEncryptionType</code>.</para><para><code>KmsKeyArn</code> is not required if you specify <code>SSE_S3</code> as the
         /// <code>ObjectEncryptionType</code>.</para>
         /// </para>

@@ -110,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BAKRecoveryPointRestoreMetadata', 
         'Get-BAKRecoveryPointsByBackupVaultList', 
         'Get-BAKRecoveryPointsByResourceList', 
+        'Get-BAKRegionSetting', 
         'Get-BAKResourceTag', 
         'Get-BAKRestoreJob', 
         'Get-BAKRestoreJobList', 
@@ -130,6 +131,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-BAKBackupJob', 
         'Update-BAKBackupPlan', 
         'Update-BAKRecoveryPointLifecycle', 
+        'Update-BAKRegionSetting', 
         'Write-BAKBackupVaultAccessPolicy', 
         'Write-BAKBackupVaultNotification')
 

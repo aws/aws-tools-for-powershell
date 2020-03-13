@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier returned from the previous ListGitHubAccountTokenNames call. It can
-        /// be used to return the next set of names in the list. </para>
+        /// <para>An identifier returned from the previous <code>ListGitHubAccountTokenNames</code>
+        /// call. It can be used to return the next set of names in the list. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

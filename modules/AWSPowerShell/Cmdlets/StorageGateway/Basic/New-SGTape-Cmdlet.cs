@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+        /// <para>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
         /// use a key managed by Amazon S3. Optional.</para>
         /// </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption.
+        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server-side encryption.
         /// This value can only be set when KMSEncrypted is true. Optional.</para>
         /// </para>
         /// </summary>
@@ -109,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>The ID of the pool that you want to add your tape to for archiving. The tape in this
         /// pool is archived in the S3 storage class that is associated with the pool. When you
         /// use your backup application to eject the tape, the tape is archived directly into
-        /// the storage class (Glacier or Deep Archive) that corresponds to the pool.</para><para>Valid values: "GLACIER", "DEEP_ARCHIVE"</para>
+        /// the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the
+        /// pool.</para><para>Valid values: "GLACIER", "DEEP_ARCHIVE"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter TapeSizeInBytes
         /// <summary>
         /// <para>
-        /// <para>The size, in bytes, of the virtual tapes that you want to create.</para><note><para>The size must be aligned by gigabyte (1024*1024*1024 byte).</para></note>
+        /// <para>The size, in bytes, of the virtual tapes that you want to create.</para><note><para>The size must be aligned by gigabyte (1024*1024*1024 bytes).</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

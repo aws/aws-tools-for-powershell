@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// public IP addresses when addressed between a linked EC2-Classic instance and instances
     /// in the VPC to which it's linked. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
     /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// 
+    ///  
+    /// <para>
+    /// You must specify a VPC ID in the request.
+    /// </para>
     /// </summary>
     [Cmdlet("Disable", "EC2VpcClassicLinkDnsSupport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

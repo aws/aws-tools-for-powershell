@@ -28,8 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Declines invitations sent to the current member account by AWS account specified by
-    /// their account IDs.
+    /// Declines invitations sent to the current member account by AWS accounts specified
+    /// by their account IDs.
     /// </summary>
     [Cmdlet("Deny", "GDInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GuardDuty.Model.UnprocessedAccount")]

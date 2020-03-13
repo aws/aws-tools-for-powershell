@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionQueueName
         /// <summary>
         /// <para>
-        /// <para>Name of the queue to use to place the new game session. You can use either the qieue
+        /// <para>Name of the queue to use to place the new game session. You can use either the queue
         /// name or ARN value. </para>
         /// </para>
         /// </summary>

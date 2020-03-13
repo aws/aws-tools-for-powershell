@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>mediastore</C2jFilename>
     <AssemblyName>MediaStore</AssemblyName>
@@ -45,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMetricPolicy" Verb="Remove" Noun="MetricPolicy" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeContainer" OutputProperty="Container" Verb="Get" Noun="Container" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params>
                 <Param Name="ContainerName" NewName="Name" />
@@ -62,6 +67,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetLifecyclePolicy" OutputProperty="LifecyclePolicy" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="ContainerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMetricPolicy" OutputProperty="MetricPolicy" Verb="Get" Noun="MetricPolicy" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -84,6 +93,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutLifecyclePolicy" Verb="Write" Noun="LifecyclePolicy" ShouldProcessTarget="ContainerName" PipelineParameter="LifecyclePolicy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutMetricPolicy" Verb="Write" Noun="MetricPolicy" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -28,7 +28,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Adds outputs to an existing flow. You can create up to 20 outputs per flow.
+    /// Adds outputs to an existing flow. You can create up to 50 outputs per flow.
     /// </summary>
     [Cmdlet("Add", "EMCNFlowOutput", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.Output")]

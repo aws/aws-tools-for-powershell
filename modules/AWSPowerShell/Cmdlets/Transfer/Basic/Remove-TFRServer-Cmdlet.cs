@@ -28,7 +28,7 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Deletes the Secure File Transfer Protocol (SFTP) server that you specify.
+    /// Deletes the file transfer protocol-enabled server that you specify.
     /// 
     ///  
     /// <para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A unique system-assigned identifier for an SFTP server instance.</para>
+        /// <para>A unique system-assigned identifier for a file transfer protocol-enabled server instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

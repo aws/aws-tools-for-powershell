@@ -28,12 +28,17 @@ using Amazon.WAFRegional.Model;
 namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
+    /// <note><para>
+    /// This is <b>AWS WAF Classic</b> documentation. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+    /// WAF Classic</a> in the developer guide.
+    /// </para><para><b>For the latest version of AWS WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+    /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
+    /// for regional and global use. 
+    /// </para></note><para>
     /// Permanently deletes an <a>XssMatchSet</a>. You can't delete an <code>XssMatchSet</code>
     /// if it's still used in any <code>Rules</code> or if it still contains any <a>XssMatchTuple</a>
     /// objects.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// If you just want to remove an <code>XssMatchSet</code> from a <code>Rule</code>, use
     /// <a>UpdateRule</a>.
     /// </para><para>

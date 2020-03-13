@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-SDResourceTag', 
         'Find-SDInstance', 
         'Get-SDInstance', 
         'Get-SDInstanceList', 
@@ -94,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SDNamespaceList', 
         'Get-SDOperation', 
         'Get-SDOperationList', 
+        'Get-SDResourceTag', 
         'Get-SDService', 
         'Get-SDServiceList', 
         'New-SDHttpNamespace', 
@@ -103,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-SDService', 
         'Remove-SDInstanceRegistration', 
         'Remove-SDNamespace', 
+        'Remove-SDResourceTag', 
         'Remove-SDService', 
         'Update-SDInstanceCustomHealthStatus', 
         'Update-SDService')

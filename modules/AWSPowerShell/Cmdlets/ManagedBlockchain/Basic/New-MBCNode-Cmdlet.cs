@@ -70,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter LogPublishingConfiguration_Fabric
+        /// <summary>
+        /// <para>
+        /// <para>Configuration properties for logging events associated with a node that is owned by
+        /// a member of a Managed Blockchain network using the Hyperledger Fabric framework.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("NodeConfiguration_LogPublishingConfiguration_Fabric")]
+        public Amazon.ManagedBlockchain.Model.NodeFabricLogPublishingConfiguration LogPublishingConfiguration_Fabric { get; set; }
+        #endregion
+        
         #region Parameter NodeConfiguration_InstanceType
         /// <summary>
         /// <para>
@@ -211,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
                 WriteWarning("You are passing $null as a value for parameter NodeConfiguration_InstanceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LogPublishingConfiguration_Fabric = this.LogPublishingConfiguration_Fabric;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -261,6 +274,31 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (requestNodeConfiguration_nodeConfiguration_InstanceType != null)
             {
                 request.NodeConfiguration.InstanceType = requestNodeConfiguration_nodeConfiguration_InstanceType;
+                requestNodeConfigurationIsNull = false;
+            }
+            Amazon.ManagedBlockchain.Model.NodeLogPublishingConfiguration requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration = null;
+            
+             // populate LogPublishingConfiguration
+            var requestNodeConfiguration_nodeConfiguration_LogPublishingConfigurationIsNull = true;
+            requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration = new Amazon.ManagedBlockchain.Model.NodeLogPublishingConfiguration();
+            Amazon.ManagedBlockchain.Model.NodeFabricLogPublishingConfiguration requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration_logPublishingConfiguration_Fabric = null;
+            if (cmdletContext.LogPublishingConfiguration_Fabric != null)
+            {
+                requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration_logPublishingConfiguration_Fabric = cmdletContext.LogPublishingConfiguration_Fabric;
+            }
+            if (requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration_logPublishingConfiguration_Fabric != null)
+            {
+                requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration.Fabric = requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration_logPublishingConfiguration_Fabric;
+                requestNodeConfiguration_nodeConfiguration_LogPublishingConfigurationIsNull = false;
+            }
+             // determine if requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration should be set to null
+            if (requestNodeConfiguration_nodeConfiguration_LogPublishingConfigurationIsNull)
+            {
+                requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration = null;
+            }
+            if (requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration != null)
+            {
+                request.NodeConfiguration.LogPublishingConfiguration = requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration;
                 requestNodeConfigurationIsNull = false;
             }
              // determine if request.NodeConfiguration should be set to null
@@ -334,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             public System.String NetworkId { get; set; }
             public System.String NodeConfiguration_AvailabilityZone { get; set; }
             public System.String NodeConfiguration_InstanceType { get; set; }
+            public Amazon.ManagedBlockchain.Model.NodeFabricLogPublishingConfiguration LogPublishingConfiguration_Fabric { get; set; }
             public System.Func<Amazon.ManagedBlockchain.Model.CreateNodeResponse, NewMBCNodeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NodeId;
         }

@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Deletes a Amazon GuardDuty detector specified by the detector ID.
+    /// Deletes an Amazon GuardDuty detector that is specified by the detector ID.
     /// </summary>
     [Cmdlet("Remove", "GDDetector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

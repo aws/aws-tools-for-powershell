@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter AssociationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) identifying the association.</para>
+        /// <para>The Amazon Resource Name (ARN) identifying the association. You can retrieve this
+        /// ARN by calling <code>ListRepositories</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

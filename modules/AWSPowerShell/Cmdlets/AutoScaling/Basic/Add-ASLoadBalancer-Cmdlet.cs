@@ -28,14 +28,16 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Attaches one or more Classic Load Balancers to the specified Auto Scaling group.
-    /// 
-    ///  
-    /// <para>
-    /// To attach an Application Load Balancer or a Network Load Balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.
+    /// <note><para>
+    /// To attach an Application Load Balancer or a Network Load Balancer, use the <a>AttachLoadBalancerTargetGroups</a>
+    /// API operation instead.
+    /// </para></note><para>
+    /// Attaches one or more Classic Load Balancers to the specified Auto Scaling group. Amazon
+    /// EC2 Auto Scaling registers the running instances with these Classic Load Balancers.
     /// </para><para>
-    /// To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>.
-    /// To detach the load balancer from the Auto Scaling group, use <a>DetachLoadBalancers</a>.
+    /// To describe the load balancers for an Auto Scaling group, call the <a>DescribeLoadBalancers</a>
+    /// API. To detach the load balancer from the Auto Scaling group, call the <a>DetachLoadBalancers</a>
+    /// API.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attaching
     /// a Load Balancer to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User

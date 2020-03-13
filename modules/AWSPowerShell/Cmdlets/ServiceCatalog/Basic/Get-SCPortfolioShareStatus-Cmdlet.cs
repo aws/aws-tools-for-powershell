@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Gets the status of the specified portfolio share operation. This API can only be called
-    /// by the master account in the organization.
+    /// by the master account in the organization or by a delegated admin.
     /// </summary>
     [Cmdlet("Get", "SCPortfolioShareStatus")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribePortfolioShareStatusResponse")]

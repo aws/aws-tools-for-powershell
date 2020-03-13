@@ -119,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The first name in the lexicographic ordering of resource record sets that you want
-        /// to list.</para>
+        /// to list. If the specified record name doesn't exist, the results begin with the first
+        /// resource record set that has a name greater than the value of <code>name</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -133,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <code>CAA</code> | <code>CNAME</code> | <code>MX</code> | <code>NAPTR</code> | <code>NS</code>
         /// | <code>PTR</code> | <code>SOA</code> | <code>SPF</code> | <code>SRV</code> | <code>TXT</code></para><para>Values for weighted, latency, geolocation, and failover resource record sets: <code>A</code>
         /// | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> | <code>MX</code> | <code>NAPTR</code>
-        /// | <code>PTR</code> | <code>SPF</code> | <code>SRV</code> | <code>TXT</code></para><para>Values for alias resource record sets: </para><ul><li><para><b>API Gateway custom regional API or edge-optimized API</b>: A</para></li><li><para><b>CloudFront distribution</b>: A or AAAA</para></li><li><para><b>Elastic Beanstalk environment that has a regionalized subdomain</b>: A</para></li><li><para><b>Elastic Load Balancing load balancer</b>: A | AAAA</para></li><li><para><b>Amazon S3 bucket</b>: A</para></li><li><para><b>Amazon VPC interface VPC endpoint</b>: A</para></li><li><para><b>Another resource record set in this hosted zone:</b> The type of the resource
+        /// | <code>PTR</code> | <code>SPF</code> | <code>SRV</code> | <code>TXT</code></para><para>Values for alias resource record sets: </para><ul><li><para><b>API Gateway custom regional API or edge-optimized API</b>: A</para></li><li><para><b>CloudFront distribution</b>: A or AAAA</para></li><li><para><b>Elastic Beanstalk environment that has a regionalized subdomain</b>: A</para></li><li><para><b>Elastic Load Balancing load balancer</b>: A | AAAA</para></li><li><para><b>S3 bucket</b>: A</para></li><li><para><b>VPC interface VPC endpoint</b>: A</para></li><li><para><b>Another resource record set in this hosted zone:</b> The type of the resource
         /// record set that the alias references.</para></li></ul><para>Constraint: Specifying <code>type</code> without specifying <code>name</code> returns
         /// an <code>InvalidInput</code> error.</para>
         /// </para>

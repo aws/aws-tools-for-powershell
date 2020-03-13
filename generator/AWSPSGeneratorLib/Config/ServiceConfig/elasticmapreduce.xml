@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>elasticmapreduce</C2jFilename>
     <AssemblyName>ElasticMapReduce</AssemblyName>
@@ -79,6 +80,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedScalingPolicy" OutputProperty="ManagedScalingPolicy" Verb="Get" Noun="ManagedScalingPolicy" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBootstrapActions" OutputProperty="BootstrapActions" Verb="Get" Noun="BootstrapActionList" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Get-EMRBootstrapActions">
             <Params />
             <TypesNotToFlatten />
@@ -127,7 +132,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutManagedScalingPolicy" Verb="Write" Noun="ManagedScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RemoveAutoScalingPolicy" Verb="Remove" Noun="AutoScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveManagedScalingPolicy" Verb="Remove" Noun="ManagedScalingPolicy" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

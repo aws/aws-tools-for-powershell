@@ -94,6 +94,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.AuthorizerStatus Status { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage the custom authorizer.</para><note><para>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</para><para>For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."</para><para>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TokenKeyName
         /// <summary>
         /// <para>
@@ -193,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #endif
             context.SigningDisabled = this.SigningDisabled;
             context.Status = this.Status;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IoT.Model.Tag>(this.Tag);
+            }
             context.TokenKeyName = this.TokenKeyName;
             if (this.TokenSigningPublicKey != null)
             {
@@ -233,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TokenKeyName != null)
             {
@@ -307,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String AuthorizerName { get; set; }
             public System.Boolean? SigningDisabled { get; set; }
             public Amazon.IoT.AuthorizerStatus Status { get; set; }
+            public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public System.String TokenKeyName { get; set; }
             public Dictionary<System.String, System.String> TokenSigningPublicKey { get; set; }
             public System.Func<Amazon.IoT.Model.CreateAuthorizerResponse, NewIOTAuthorizerCmdlet, object> Select { get; set; } =

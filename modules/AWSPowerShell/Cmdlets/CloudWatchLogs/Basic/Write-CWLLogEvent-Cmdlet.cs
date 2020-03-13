@@ -134,9 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The sequence token obtained from the response of the previous <code>PutLogEvents</code>
         /// call. An upload in a newly created log stream does not require a sequence token. You
-        /// can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code>
-        /// twice within a narrow time period using the same value for <code>sequenceToken</code>,
-        /// both calls may be successful, or one may be rejected.</para>
+        /// can also get the sequence token using <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html">DescribeLogStreams</a>.
+        /// If you call <code>PutLogEvents</code> twice within a narrow time period using the
+        /// same value for <code>sequenceToken</code>, both calls may be successful, or one may
+        /// be rejected.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

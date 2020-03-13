@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Location of a file containing the temporary overriding stack policy. The URL must
-        /// point to a policy (max size: 16KB) located in an S3 bucket in the same region as the
+        /// point to a policy (max size: 16KB) located in an S3 bucket in the same Region as the
         /// stack. You can specify either the <code>StackPolicyDuringUpdateBody</code> or the
         /// <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</para><para>If you want to update protected resources, specify a temporary overriding stack policy
         /// during this update. If you do not specify a stack policy, the current policy that
@@ -274,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Location of a file containing the updated stack policy. The URL must point to a policy
-        /// (max size: 16KB) located in an S3 bucket in the same region as the stack. You can
+        /// (max size: 16KB) located in an S3 bucket in the same Region as the stack. You can
         /// specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
         /// parameter, but not both.</para><para>You might update the stack policy, for example, in order to protect a new resource
         /// that you created during a stack update. If you do not specify a stack policy, the

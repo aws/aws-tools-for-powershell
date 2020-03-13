@@ -108,6 +108,16 @@ $FSX_Completers = {
             break
         }
 
+        # Amazon.FSx.StorageType
+        {
+            ($_ -eq "New-FSXFileSystem/StorageType") -Or
+            ($_ -eq "New-FSXFileSystemFromBackup/StorageType")
+        }
+        {
+            $v = "HDD","SSD"
+            break
+        }
+
 
     }
 
@@ -120,6 +130,7 @@ $FSX_map = @{
     "FileSystemType"=@("New-FSXFileSystem")
     "Report_Format"=@("New-FSXDataRepositoryTask")
     "Report_Scope"=@("New-FSXDataRepositoryTask")
+    "StorageType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
     "Type"=@("New-FSXDataRepositoryTask")
 }
 

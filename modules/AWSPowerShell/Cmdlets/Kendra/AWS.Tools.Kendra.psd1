@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-KNDRResourceTag', 
         'Get-KNDRDataSource', 
         'Get-KNDRDataSourceList', 
         'Get-KNDRDataSourceSyncJobList', 
@@ -93,13 +94,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-KNDRFaqList', 
         'Get-KNDRIndex', 
         'Get-KNDRIndexList', 
+        'Get-KNDRResourceTag', 
         'Invoke-KNDRQuery', 
         'New-KNDRDataSource', 
         'New-KNDRFaq', 
         'New-KNDRIndex', 
+        'Remove-KNDRDataSource', 
         'Remove-KNDRDocumentBatch', 
         'Remove-KNDRFaq', 
         'Remove-KNDRIndex', 
+        'Remove-KNDRResourceTag', 
         'Send-KNDRFeedback', 
         'Start-KNDRDataSourceSyncJob', 
         'Stop-KNDRDataSourceSyncJob', 

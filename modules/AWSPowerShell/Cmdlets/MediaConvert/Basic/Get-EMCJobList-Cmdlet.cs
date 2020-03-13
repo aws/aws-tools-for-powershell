@@ -46,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Order
         /// <summary>
         /// <para>
-        /// When you request lists of resources, you can optionally
-        /// specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by
-        /// resource.
+        /// Optional. When you request lists of resources, you
+        /// can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies
+        /// by resource.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Queue
         /// <summary>
         /// <para>
-        /// Provide a queue name to get back only jobs from
-        /// that queue.
+        /// Optional. Provide a queue name to get back only
+        /// jobs from that queue.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// A job's status can be SUBMITTED, PROGRESSING, COMPLETE,
-        /// CANCELED, or ERROR.
+        /// Optional. A job's status can be SUBMITTED, PROGRESSING,
+        /// COMPLETE, CANCELED, or ERROR.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// Use this string, provided with the response
-        /// to a previous request, to request the next batch of jobs.
+        /// Optional. Use this string, provided with the
+        /// response to a previous request, to request the next batch of jobs.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

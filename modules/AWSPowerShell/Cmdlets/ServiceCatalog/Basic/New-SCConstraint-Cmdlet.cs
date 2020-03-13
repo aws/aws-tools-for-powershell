@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Creates a constraint.
+    /// 
+    ///  
+    /// <para>
+    /// A delegated admin is authorized to invoke this command.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SCConstraint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.CreateConstraintResponse")]
@@ -74,7 +79,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>The constraint parameters, in JSON format. The syntax depends on the constraint type
-        /// as follows:</para><dl><dt>LAUNCH</dt><dd><para>Specify the <code>RoleArn</code> property as follows:</para><para><code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code></para><para>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</para><para>You also cannot have more than one <code>LAUNCH</code> constraint on a product and
+        /// as follows:</para><dl><dt>LAUNCH</dt><dd><para>You are required to specify either the <code>RoleArn</code> or the <code>LocalRoleName</code>
+        /// but can't use both.</para><para>Specify the <code>RoleArn</code> property as follows:</para><para><code>{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}</code></para><para>Specify the <code>LocalRoleName</code> property as follows:</para><para><code>{"LocalRoleName": "SCBasicLaunchRole"}</code></para><para>If you specify the <code>LocalRoleName</code> property, when an account uses the launch
+        /// constraint, the IAM role with that name in the account will be used. This allows launch-role
+        /// constraints to be account-agnostic so the administrator can create fewer resources
+        /// per shared account.</para><note><para>The given role name must exist in the account used to create the launch constraint
+        /// and the account of the user who launches a product with this launch constraint.</para></note><para>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</para><para>You also cannot have more than one <code>LAUNCH</code> constraint on a product and
         /// portfolio.</para></dd><dt>NOTIFICATION</dt><dd><para>Specify the <code>NotificationArns</code> property as follows:</para><para><code>{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}</code></para></dd><dt>RESOURCE_UPDATE</dt><dd><para>Specify the <code>TagUpdatesOnProvisionedProduct</code> property as follows:</para><para><code>{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}</code></para><para>The <code>TagUpdatesOnProvisionedProduct</code> property accepts a string value of
         /// <code>ALLOWED</code> or <code>NOT_ALLOWED</code>.</para></dd><dt>STACKSET</dt><dd><para>Specify the <code>Parameters</code> property as follows:</para><para><code>{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList":
         /// [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}</code></para><para>You cannot have both a <code>LAUNCH</code> and a <code>STACKSET</code> constraint.</para><para>You also cannot have more than one <code>STACKSET</code> constraint on a product and

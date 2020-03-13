@@ -28,7 +28,8 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Creates a snapshot schedule with the rate of every 12 hours.
+    /// Create a snapshot schedule that can be associated to a cluster and which overrides
+    /// the default system backup schedule.
     /// </summary>
     [Cmdlet("New", "RSSnapshotSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.CreateSnapshotScheduleResponse")]

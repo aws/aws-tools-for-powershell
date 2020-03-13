@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImagePipelineArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the image pipeline to delete. </para>
+        /// <para>The Amazon Resource Name (ARN) of the image pipeline to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

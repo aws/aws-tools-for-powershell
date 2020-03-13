@@ -164,6 +164,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String StreamId { get; set; }
         #endregion
         
+        #region Parameter VpcInterfaceName
+        /// <summary>
+        /// <para>
+        /// The name of the VPC Interface to configure
+        /// this Source with.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcInterfaceName { get; set; }
+        #endregion
+        
         #region Parameter WhitelistCidr
         /// <summary>
         /// <para>
@@ -259,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             }
             #endif
             context.StreamId = this.StreamId;
+            context.VpcInterfaceName = this.VpcInterfaceName;
             context.WhitelistCidr = this.WhitelistCidr;
             
             // allow further manipulation of loaded context prior to processing
@@ -315,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.StreamId != null)
             {
                 request.StreamId = cmdletContext.StreamId;
+            }
+            if (cmdletContext.VpcInterfaceName != null)
+            {
+                request.VpcInterfaceName = cmdletContext.VpcInterfaceName;
             }
             if (cmdletContext.WhitelistCidr != null)
             {
@@ -391,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public Amazon.MediaConnect.Protocol Protocol { get; set; }
             public System.String SourceArn { get; set; }
             public System.String StreamId { get; set; }
+            public System.String VpcInterfaceName { get; set; }
             public System.String WhitelistCidr { get; set; }
             public System.Func<Amazon.MediaConnect.Model.UpdateFlowSourceResponse, UpdateEMCNFlowSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Source;

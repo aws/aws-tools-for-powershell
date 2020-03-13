@@ -86,10 +86,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Export-COAutoScalingGroupRecommendation', 
+        'Export-COEC2InstanceRecommendation', 
         'Get-COAutoScalingGroupRecommendation', 
         'Get-COEC2InstanceRecommendation', 
         'Get-COEC2RecommendationProjectedMetric', 
         'Get-COEnrollmentStatus', 
+        'Get-CORecommendationExportJob', 
         'Get-CORecommendationSummary', 
         'Update-COEnrollmentStatus')
 

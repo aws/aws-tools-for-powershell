@@ -48,12 +48,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete
     /// the DB instance if both of the following conditions are true:
     /// </para><ul><li><para>
-    /// The DB cluster is a Read Replica of another Amazon Aurora DB cluster.
+    /// The DB cluster is a read replica of another Amazon Aurora DB cluster.
     /// </para></li><li><para>
     /// The DB instance is the only instance in the DB cluster.
     /// </para></li></ul><para>
     /// To delete a DB instance in this case, first call the <code>PromoteReadReplicaDBCluster</code>
-    /// API action to promote the DB cluster so it's no longer a Read Replica. After the promotion
+    /// API action to promote the DB cluster so it's no longer a read replica. After the promotion
     /// completes, then call the <code>DeleteDBInstance</code> API action to delete the final
     /// instance in the DB cluster.
     /// </para>
@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created
         /// when the <code>SkipFinalSnapshot</code> parameter is disabled. </para><note><para>Specifying this parameter and also specifying to skip final DB snapshot creation in
-        /// SkipFinalShapshot results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Can't be specified when deleting a Read Replica.</para></li></ul>
+        /// SkipFinalShapshot results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Can't be specified when deleting a read replica.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// the DB instance is deleted. If skip is specified, no DB snapshot is created. If skip
         /// isn't specified, a DB snapshot is created before the DB instance is deleted. By default,
         /// skip isn't specified, and the DB snapshot is created.</para><para>When a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore',
-        /// or 'incompatible-network', it can only be deleted when skip is specified.</para><para>Specify skip when deleting a Read Replica.</para><note><para>The FinalDBSnapshotIdentifier parameter must be specified if skip isn't specified.</para></note>
+        /// or 'incompatible-network', it can only be deleted when skip is specified.</para><para>Specify skip when deleting a read replica.</para><note><para>The FinalDBSnapshotIdentifier parameter must be specified if skip isn't specified.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

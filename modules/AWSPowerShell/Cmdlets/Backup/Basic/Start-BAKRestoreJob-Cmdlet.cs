@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A set of metadata key-value pairs. Contains information, such as a resource name,
-        /// required to restore a recovery point.</para><para> You can get configuration metadata about a resource at the time it was backed-up
+        /// required to restore a recovery point.</para><para> You can get configuration metadata about a resource at the time it was backed up
         /// by calling <code>GetRecoveryPointRestoreMetadata</code>. However, values in addition
         /// to those provided by <code>GetRecoveryPointRestoreMetadata</code> might be required
         /// to restore a resource. For example, you might need to provide a new resource name

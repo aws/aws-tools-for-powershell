@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// Lists all global tables that have a replica in the specified Region.
     /// 
     ///  <note><para>
-    /// This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
     /// 2017.11.29</a> of global tables.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

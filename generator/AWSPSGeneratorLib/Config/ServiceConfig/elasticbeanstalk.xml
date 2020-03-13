@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>elasticbeanstalk</C2jFilename>
     <AssemblyName>ElasticBeanstalk</AssemblyName>
@@ -30,7 +31,6 @@
         <Map From="EnvironmentCNAMEs" To="EnvironmentCNAME" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -43,6 +43,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ApplyEnvironmentManagedAction" OutputProperty="*" Verb="Submit" Noun="EnvironmentManagedAction" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateEnvironmentOperationsRole" Verb="Register" Noun="EnvironmentOperationsRole" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -164,7 +168,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateEnvironmentOperationsRole" Verb="Unregister" Noun="EnvironmentOperationsRole" ShouldProcessTarget="EnvironmentName" PipelineParameter="EnvironmentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAvailableSolutionStacks" OutputProperty="*" Verb="Get" Noun="AvailableSolutionStackList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-EBAvailableSolutionStack">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlatformBranches" OutputProperty="PlatformBranchSummaryList" Verb="Get" Noun="PlatformBranch" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -244,7 +256,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

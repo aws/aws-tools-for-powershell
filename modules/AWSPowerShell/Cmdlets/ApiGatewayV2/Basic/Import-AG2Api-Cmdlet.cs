@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <summary>
         /// <para>
         /// <para>Specifies how to interpret the base path of the API during import. Valid values are
-        /// ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://alpha-docs-aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set
+        /// ignore, prepend, and split. The default value is ignore. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api-basePath.html">Set
         /// the OpenAPI basePath Property</a>. Supported only for HTTP APIs.</para>
         /// </para>
         /// </summary>
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter FailOnWarning
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to rollback the API creation (true) or not (false) when a warning
-        /// is encountered. The default value is false.</para>
+        /// <para>Specifies whether to rollback the API creation when a warning is encountered. By default,
+        /// API creation continues if a warning is encountered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

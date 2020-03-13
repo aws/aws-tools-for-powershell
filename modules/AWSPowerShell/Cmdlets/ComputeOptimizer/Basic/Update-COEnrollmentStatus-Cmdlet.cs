@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
     /// 
     ///  
     /// <para>
-    /// If the account is a master account of an organization, this operation can also enroll
-    /// member accounts within the organization.
+    /// If the account is a master account of an organization, this action can also be used
+    /// to enroll member accounts within the organization.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "COEnrollmentStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter IncludeMemberAccount
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to enroll member accounts within the organization, if the account
-        /// is a master account of an organization.</para>
+        /// <para>Indicates whether to enroll member accounts of the organization if the your account
+        /// is the master account of an organization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

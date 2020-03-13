@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>codeguruprofiler</C2jFilename>
     <AssemblyName>CodeGuruProfiler</AssemblyName>
@@ -35,6 +36,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetProfile" OutputProperty="*" Verb="Get" Noun="Profile" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -48,6 +53,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PostAgentProfile" Verb="Send" Noun="AgentProfile" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="AgentProfile" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutPermission" OutputProperty="*" Verb="Write" Noun="Permission" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemovePermission" OutputProperty="*" Verb="Remove" Noun="Permission" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

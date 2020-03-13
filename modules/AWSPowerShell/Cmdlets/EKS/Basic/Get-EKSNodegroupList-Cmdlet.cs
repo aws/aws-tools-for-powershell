@@ -28,8 +28,8 @@ using Amazon.EKS.Model;
 namespace Amazon.PowerShell.Cmdlets.EKS
 {
     /// <summary>
-    /// Lists the Amazon EKS node groups associated with the specified cluster in your AWS
-    /// account in the specified Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Amazon EKS managed node groups associated with the specified cluster in
+    /// your AWS account in the specified Region. Self-managed node groups are not listed.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EKSNodegroupList")]
     [OutputType("System.String")]

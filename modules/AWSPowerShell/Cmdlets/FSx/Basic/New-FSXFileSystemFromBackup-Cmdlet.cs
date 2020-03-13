@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>A list of IDs for the security groups that apply to the specified network interfaces
         /// created for file system access. These security groups apply to all network interfaces.
-        /// This value isn't returned in later describe requests.</para>
+        /// This value isn't returned in later DescribeFileSystem requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,12 +113,34 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String[] SecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>Sets the storage type for the Windows file system you're creating from a backup. Valid
+        /// values are <code>SSD</code> and <code>HDD</code>.</para><ul><li><para>Set to <code>SSD</code> to use solid state drive storage. Supported on all Windows
+        /// deployment types.</para></li><li><para>Set to <code>HDD</code> to use hard disk drive storage. Supported on <code>SINGLE_AZ_2</code>
+        /// and <code>MULTI_AZ_1</code> Windows file system deployment types. </para></li></ul><para> Default value is <code>SSD</code>. </para><note><para>HDD and SSD storage types have different minimum storage capacity requirements. A
+        /// restored file system's storage capacity is tied to the file system that was backed
+        /// up. You can create a file system that uses HDD storage from a backup of a file system
+        /// that used SSD storage only if the original SSD file system had a storage capacity
+        /// of at least 2000 GiB. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.StorageType")]
+        public Amazon.FSx.StorageType StorageType { get; set; }
+        #endregion
+        
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of IDs for the subnets that the file system will be accessible from. Currently,
-        /// you can specify only one subnet. The file server is also launched in that subnet's
-        /// Availability Zone.</para>
+        /// <para>Specifies the IDs of the subnets that the file system will be accessible from. For
+        /// Windows <code>MULTI_AZ_1</code> file system deployment types, provide exactly two
+        /// subnet IDs, one for the preferred file server and one for the standby file server.
+        /// You specify one of these subnets as the preferred subnet using the <code>WindowsConfiguration
+        /// &gt; PreferredSubnetID</code> property.</para><para>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types
+        /// and Lustre file systems, provide exactly one subnet ID. The file server is launched
+        /// in that subnet's Availability Zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -228,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
             }
+            context.StorageType = this.StorageType;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -270,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.SecurityGroupId != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
+            }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -347,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.String BackupId { get; set; }
             public System.String ClientRequestToken { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
+            public Amazon.FSx.StorageType StorageType { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.FSx.Model.Tag> Tag { get; set; }
             public Amazon.FSx.Model.CreateFileSystemWindowsConfiguration WindowsConfiguration { get; set; }

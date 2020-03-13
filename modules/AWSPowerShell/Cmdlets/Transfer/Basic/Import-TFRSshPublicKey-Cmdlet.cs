@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
     /// Adds a Secure Shell (SSH) public key to a user account identified by a <code>UserName</code>
-    /// value assigned to a specific server, identified by <code>ServerId</code>.
+    /// value assigned to the specific file transfer protocol-enabled server, identified by
+    /// <code>ServerId</code>.
     /// 
     ///  
     /// <para>
@@ -49,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for an SFTP server.</para>
+        /// <para>A system-assigned unique identifier for a file transfer protocol-enabled server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user account that is assigned to one or more servers.</para>
+        /// <para>The name of the user account that is assigned to one or more file transfer protocol-enabled
+        /// servers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

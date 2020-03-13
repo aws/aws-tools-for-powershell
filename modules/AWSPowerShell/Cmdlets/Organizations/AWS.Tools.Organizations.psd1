@@ -104,6 +104,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ORGAccountList', 
         'Get-ORGAWSServiceAccessForOrganization', 
         'Get-ORGChild', 
+        'Get-ORGDelegatedAdministratorList', 
+        'Get-ORGDelegatedServicesForAccountList', 
         'Get-ORGEffectivePolicy', 
         'Get-ORGHandshake', 
         'Get-ORGOrganization', 
@@ -124,6 +126,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-ORGOrganization', 
         'New-ORGOrganizationalUnit', 
         'New-ORGPolicy', 
+        'Register-ORGDelegatedAdministrator', 
         'Remove-ORGAccountFromOrganization', 
         'Remove-ORGOrganization', 
         'Remove-ORGOrganizationalUnit', 
@@ -131,6 +134,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-ORGPolicy', 
         'Remove-ORGResourceTag', 
         'Stop-ORGHandshake', 
+        'Unregister-ORGDelegatedAdministrator', 
         'Update-ORGOrganizationalUnit', 
         'Update-ORGPolicy')
 

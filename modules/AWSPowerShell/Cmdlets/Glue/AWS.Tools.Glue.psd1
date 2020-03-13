@@ -196,6 +196,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-GLUEJobRunBatch', 
         'Stop-GLUEMLTaskRun', 
         'Stop-GLUETrigger', 
+        'Stop-GLUEWorkflowRun', 
         'Update-GLUEClassifier', 
         'Update-GLUEConnection', 
         'Update-GLUECrawler', 

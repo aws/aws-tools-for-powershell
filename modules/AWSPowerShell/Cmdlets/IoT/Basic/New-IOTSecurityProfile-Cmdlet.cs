@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTSecurityProfileCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter AdditionalMetricsToRetain
+        #region Parameter AdditionalMetricsToRetainV2
         /// <summary>
         /// <para>
         /// <para>A list of metrics whose data is retained (stored). By default, data is retained for
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] AdditionalMetricsToRetain { get; set; }
+        public Amazon.IoT.Model.MetricToRetain[] AdditionalMetricsToRetainV2 { get; set; }
         #endregion
         
         #region Parameter AlertTarget
@@ -112,6 +112,21 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter AdditionalMetricsToRetain
+        /// <summary>
+        /// <para>
+        /// <para>A list of metrics whose data is retained (stored). By default, data is retained for
+        /// any metric used in the profile's <code>behaviors</code>, but it is also retained for
+        /// any metric specified here.</para><para><b>Note:</b> This API field is deprecated. Please use <a>CreateSecurityProfileRequest$additionalMetricsToRetainV2</a>
+        /// instead.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("Use additionalMetricsToRetainV2.")]
+        public System.String[] AdditionalMetricsToRetain { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -153,9 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = CreateSelectDelegate<Amazon.IoT.Model.CreateSecurityProfileResponse, NewIOTSecurityProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.AdditionalMetricsToRetain != null)
             {
                 context.AdditionalMetricsToRetain = new List<System.String>(this.AdditionalMetricsToRetain);
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalMetricsToRetainV2 != null)
+            {
+                context.AdditionalMetricsToRetainV2 = new List<Amazon.IoT.Model.MetricToRetain>(this.AdditionalMetricsToRetainV2);
             }
             if (this.AlertTarget != null)
             {
@@ -197,9 +218,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.CreateSecurityProfileRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AdditionalMetricsToRetain != null)
             {
                 request.AdditionalMetricsToRetain = cmdletContext.AdditionalMetricsToRetain;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (cmdletContext.AdditionalMetricsToRetainV2 != null)
+            {
+                request.AdditionalMetricsToRetainV2 = cmdletContext.AdditionalMetricsToRetainV2;
             }
             if (cmdletContext.AlertTarget != null)
             {
@@ -282,7 +309,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public List<System.String> AdditionalMetricsToRetain { get; set; }
+            public List<Amazon.IoT.Model.MetricToRetain> AdditionalMetricsToRetainV2 { get; set; }
             public Dictionary<System.String, Amazon.IoT.Model.AlertTarget> AlertTarget { get; set; }
             public List<Amazon.IoT.Model.Behavior> Behavior { get; set; }
             public System.String SecurityProfileDescription { get; set; }

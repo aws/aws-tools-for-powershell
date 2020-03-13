@@ -69,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Order
         /// <summary>
         /// <para>
-        /// When you request lists of resources, you can optionally
-        /// specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by
-        /// resource.
+        /// Optional. When you request lists of resources, you
+        /// can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies
+        /// by resource.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

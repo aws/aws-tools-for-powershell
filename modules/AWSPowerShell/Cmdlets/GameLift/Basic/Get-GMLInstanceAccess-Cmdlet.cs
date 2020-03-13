@@ -29,25 +29,26 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Requests remote access to a fleet instance. Remote access is useful for debugging,
-    /// gathering benchmarking data, or watching activity in real time. 
+    /// gathering benchmarking data, or observing activity in real time. 
     /// 
     ///  
     /// <para>
-    /// Access requires credentials that match the operating system of the instance. For a
-    /// Windows instance, Amazon GameLift returns a user name and password as strings for
-    /// use with a Windows Remote Desktop client. For a Linux instance, Amazon GameLift returns
-    /// a user name and RSA private key, also as strings, for use with an SSH client. The
-    /// private key must be saved in the proper format to a <code>.pem</code> file before
-    /// using. If you're making this request using the AWS CLI, saving the secret can be handled
-    /// as part of the GetInstanceAccess request. (See the example later in this topic). For
-    /// more information on remote access, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
-    /// Accessing an Instance</a>.
+    /// To remotely access an instance, you need credentials that match the operating system
+    /// of the instance. For a Windows instance, Amazon GameLift returns a user name and password
+    /// as strings for use with a Windows Remote Desktop client. For a Linux instance, Amazon
+    /// GameLift returns a user name and RSA private key, also as strings, for use with an
+    /// SSH client. The private key must be saved in the proper format to a <code>.pem</code>
+    /// file before using. If you're making this request using the AWS CLI, saving the secret
+    /// can be handled as part of the GetInstanceAccess request, as shown in one of the examples
+    /// for this action. 
     /// </para><para>
     /// To request access to a specific instance, specify the IDs of both the instance and
     /// the fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a>DescribeInstances</a>.
-    /// If successful, an <a>InstanceAccess</a> object is returned containing the instance's
+    /// If successful, an <a>InstanceAccess</a> object is returned that contains the instance's
     /// IP address and a set of credentials.
-    /// </para>
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
+    /// Access Fleet Instances</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
+    /// Fleet Issues</a></para><para><b>Related operations</b></para><ul><li><para><a>DescribeInstances</a></para></li><li><para><a>GetInstanceAccess</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLInstanceAccess")]
     [OutputType("Amazon.GameLift.Model.InstanceAccess")]

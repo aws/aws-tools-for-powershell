@@ -72,6 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of messages that a campaign can send to a single endpoint during
+        /// a 24-hour period. For an application, this value specifies the default limit for the
+        /// number of messages that campaigns and journeys can send to a single endpoint during
         /// a 24-hour period. The maximum value is 100.</para>
         /// </para>
         /// </summary>
@@ -98,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint
-        /// invokes to send messages for a campaign.</para>
+        /// invokes to customize a segment for a campaign.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Limits_MessagesPerSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum number of messages that a campaign can send each second. The minimum value
-        /// is 50. The maximum value is 20,000.</para>
+        /// <para>The maximum number of messages that a campaign can send each second. For an application,
+        /// this value specifies the default limit for the number of messages that campaigns and
+        /// journeys can send each second. The minimum value is 50. The maximum value is 20,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +136,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter CampaignHook_Mode
         /// <summary>
         /// <para>
-        /// <para>Specifies which Lambda mode to use when invoking the AWS Lambda function.</para>
+        /// <para>The mode that Amazon Pinpoint uses to invoke the AWS Lambda function. Possible values
+        /// are:</para><ul><li><para>FILTER - Invoke the function to customize the segment that's used by a campaign.</para></li><li><para>DELIVERY - (Deprecated) Previously, invoked the function to send a campaign through
+        /// a custom channel. This functionality is not supported anymore. To send a campaign
+        /// through a custom channel, use the CustomDeliveryConfiguration and CampaignCustomMessage
+        /// objects of the campaign.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of messages that a campaign can send to a single endpoint during
-        /// the course of the campaign. The maximum value is 100.</para>
+        /// the course of the campaign. If a campaign recurs, this setting applies to all runs
+        /// of the campaign. The maximum value is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

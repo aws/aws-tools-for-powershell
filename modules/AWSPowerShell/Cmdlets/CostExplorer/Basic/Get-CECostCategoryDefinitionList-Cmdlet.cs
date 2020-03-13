@@ -28,16 +28,13 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// <important><para><i><b>Cost Category is in public beta for AWS Billing and Cost Management and is
-    /// subject to change. Your use of Cost Categories is subject to the Beta Service Participation
-    /// terms of the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>
-    /// (Section 1.10).</b></i></para></important><para>
-    /// Returns the name, ARN and effective dates of all Cost Categories defined in the account.
-    /// You have the option to use <code>EffectiveOn</code> to return a list of Cost Categories
-    /// that were active on a specific date. If there is no <code>EffectiveOn</code> specified,
-    /// you’ll see Cost Categories that are effective on the current date. If Cost Category
-    /// is still effective, <code>EffectiveEnd</code> is omitted in the response. 
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the name, ARN, <code>NumberOfRules</code> and effective dates of all Cost
+    /// Categories defined in the account. You have the option to use <code>EffectiveOn</code>
+    /// to return a list of Cost Categories that were active on a specific date. If there
+    /// is no <code>EffectiveOn</code> specified, you’ll see Cost Categories that are effective
+    /// on the current date. If Cost Category is still effective, <code>EffectiveEnd</code>
+    /// is omitted in the response. <code>ListCostCategoryDefinitions</code> supports pagination.
+    /// The request can have a <code>MaxResults</code> range up to 100.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CECostCategoryDefinitionList")]
     [OutputType("Amazon.CostExplorer.Model.CostCategoryReference")]
@@ -59,13 +56,23 @@ namespace Amazon.PowerShell.Cmdlets.CE
         public System.String EffectiveOn { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para> The number of entries a paginated response contains. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
         #region Parameter NextToken
         /// <summary>
         /// <para>
         /// <para> The token to retrieve the next set of results. Amazon Web Services provides the token
         /// when the response from a previous call has more results than the maximum page size.
-        /// </para><para>You can use this information to retrieve the full Cost Category information using
-        /// <code>DescribeCostCategory</code>.</para>
+        /// </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -112,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.EffectiveOn = this.EffectiveOn;
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -134,6 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.CE
             if (cmdletContext.EffectiveOn != null)
             {
                 request.EffectiveOn = cmdletContext.EffectiveOn;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -221,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EffectiveOn { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CostExplorer.Model.ListCostCategoryDefinitionsResponse, GetCECostCategoryDefinitionListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CostCategoryReferences;

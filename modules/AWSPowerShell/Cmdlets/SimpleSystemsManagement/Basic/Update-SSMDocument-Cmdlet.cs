@@ -83,7 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>(Required) The version of the document that you want to update. </para>
+        /// <para>(Required) The latest version of the document that you want to update. The latest
+        /// document version can be specified using the $LATEST variable or by the version number.
+        /// Updating a previous version of a document is not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

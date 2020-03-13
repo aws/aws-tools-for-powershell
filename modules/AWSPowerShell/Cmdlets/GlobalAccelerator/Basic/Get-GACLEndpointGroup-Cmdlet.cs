@@ -28,7 +28,8 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Describe an endpoint group.
+    /// Describe an endpoint group. To see an AWS CLI example of describing an endpoint group,
+    /// scroll down to <b>Example</b>.
     /// </summary>
     [Cmdlet("Get", "GACLEndpointGroup")]
     [OutputType("Amazon.GlobalAccelerator.Model.EndpointGroup")]

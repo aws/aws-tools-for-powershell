@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for a Secure File Transfer Protocol (SFTP) server
-        /// instance that has the user assigned to it.</para>
+        /// <para>A system-assigned unique identifier for a file transfer protocol-enabled server instance
+        /// that has the user assigned to it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

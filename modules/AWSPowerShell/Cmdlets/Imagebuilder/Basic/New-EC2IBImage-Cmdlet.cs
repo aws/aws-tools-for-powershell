@@ -52,6 +52,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String DistributionConfigurationArn { get; set; }
         #endregion
         
+        #region Parameter EnhancedImageMetadataEnabled
+        /// <summary>
+        /// <para>
+        /// <para> Collects additional information about the image being created, including the operating
+        /// system (OS) version and package list. This information is used to enhance the overall
+        /// experience of using EC2 Image Builder. Enabled by default. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnhancedImageMetadataEnabled { get; set; }
+        #endregion
+        
         #region Parameter ImageRecipeArn
         /// <summary>
         /// <para>
@@ -193,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.DistributionConfigurationArn = this.DistributionConfigurationArn;
+            context.EnhancedImageMetadataEnabled = this.EnhancedImageMetadataEnabled;
             context.ImageRecipeArn = this.ImageRecipeArn;
             #if MODULAR
             if (this.ImageRecipeArn == null && ParameterWasBound(nameof(this.ImageRecipeArn)))
@@ -240,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.DistributionConfigurationArn != null)
             {
                 request.DistributionConfigurationArn = cmdletContext.DistributionConfigurationArn;
+            }
+            if (cmdletContext.EnhancedImageMetadataEnabled != null)
+            {
+                request.EnhancedImageMetadataEnabled = cmdletContext.EnhancedImageMetadataEnabled.Value;
             }
             if (cmdletContext.ImageRecipeArn != null)
             {
@@ -345,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         {
             public System.String ClientToken { get; set; }
             public System.String DistributionConfigurationArn { get; set; }
+            public System.Boolean? EnhancedImageMetadataEnabled { get; set; }
             public System.String ImageRecipeArn { get; set; }
             public System.Boolean? ImageTestsConfiguration_ImageTestsEnabled { get; set; }
             public System.Int32? ImageTestsConfiguration_TimeoutMinute { get; set; }

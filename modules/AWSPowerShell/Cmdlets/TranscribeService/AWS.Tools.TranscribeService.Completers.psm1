@@ -82,9 +82,12 @@ $TRS_Completers = {
     {
         # Amazon.TranscribeService.LanguageCode
         {
+            ($_ -eq "New-TRSMedicalVocabulary/LanguageCode") -Or
             ($_ -eq "New-TRSVocabulary/LanguageCode") -Or
             ($_ -eq "New-TRSVocabularyFilter/LanguageCode") -Or
+            ($_ -eq "Start-TRSMedicalTranscriptionJob/LanguageCode") -Or
             ($_ -eq "Start-TRSTranscriptionJob/LanguageCode") -Or
+            ($_ -eq "Update-TRSMedicalVocabulary/LanguageCode") -Or
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
@@ -93,7 +96,10 @@ $TRS_Completers = {
         }
 
         # Amazon.TranscribeService.MediaFormat
-        "Start-TRSTranscriptionJob/MediaFormat"
+        {
+            ($_ -eq "Start-TRSMedicalTranscriptionJob/MediaFormat") -Or
+            ($_ -eq "Start-TRSTranscriptionJob/MediaFormat")
+        }
         {
             $v = "flac","mp3","mp4","wav"
             break
@@ -113,10 +119,27 @@ $TRS_Completers = {
             break
         }
 
+        # Amazon.TranscribeService.Specialty
+        "Start-TRSMedicalTranscriptionJob/Specialty"
+        {
+            $v = "PRIMARYCARE"
+            break
+        }
+
         # Amazon.TranscribeService.TranscriptionJobStatus
-        "Get-TRSTranscriptionJobList/Status"
+        {
+            ($_ -eq "Get-TRSMedicalTranscriptionJobList/Status") -Or
+            ($_ -eq "Get-TRSTranscriptionJobList/Status")
+        }
         {
             $v = "COMPLETED","FAILED","IN_PROGRESS","QUEUED"
+            break
+        }
+
+        # Amazon.TranscribeService.Type
+        "Start-TRSMedicalTranscriptionJob/Type"
+        {
+            $v = "CONVERSATION","DICTATION"
             break
         }
 
@@ -128,7 +151,10 @@ $TRS_Completers = {
         }
 
         # Amazon.TranscribeService.VocabularyState
-        "Get-TRSVocabularyList/StateEquals"
+        {
+            ($_ -eq "Get-TRSMedicalVocabularyList/StateEquals") -Or
+            ($_ -eq "Get-TRSVocabularyList/StateEquals")
+        }
         {
             $v = "FAILED","PENDING","READY"
             break
@@ -145,11 +171,13 @@ $TRS_Completers = {
 $TRS_map = @{
     "ContentRedaction_RedactionOutput"=@("Start-TRSTranscriptionJob")
     "ContentRedaction_RedactionType"=@("Start-TRSTranscriptionJob")
-    "LanguageCode"=@("New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSTranscriptionJob","Update-TRSVocabulary")
-    "MediaFormat"=@("Start-TRSTranscriptionJob")
+    "LanguageCode"=@("New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
+    "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
     "Settings_VocabularyFilterMethod"=@("Start-TRSTranscriptionJob")
-    "StateEquals"=@("Get-TRSVocabularyList")
-    "Status"=@("Get-TRSTranscriptionJobList")
+    "Specialty"=@("Start-TRSMedicalTranscriptionJob")
+    "StateEquals"=@("Get-TRSMedicalVocabularyList","Get-TRSVocabularyList")
+    "Status"=@("Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
+    "Type"=@("Start-TRSMedicalTranscriptionJob")
 }
 
 _awsArgumentCompleterRegistration $TRS_Completers $TRS_map
@@ -202,18 +230,27 @@ $TRS_SelectCompleters = {
 }
 
 $TRS_SelectMap = @{
-    "Select"=@("New-TRSVocabulary",
+    "Select"=@("New-TRSMedicalVocabulary",
+               "New-TRSVocabulary",
                "New-TRSVocabularyFilter",
+               "Remove-TRSMedicalTranscriptionJob",
+               "Remove-TRSMedicalVocabulary",
                "Remove-TRSTranscriptionJob",
                "Remove-TRSVocabulary",
                "Remove-TRSVocabularyFilter",
+               "Get-TRSMedicalTranscriptionJob",
+               "Get-TRSMedicalVocabulary",
                "Get-TRSTranscriptionJob",
                "Get-TRSVocabulary",
                "Get-TRSVocabularyFilter",
+               "Get-TRSMedicalTranscriptionJobList",
+               "Get-TRSMedicalVocabularyList",
                "Get-TRSTranscriptionJobList",
                "Get-TRSVocabularyList",
                "Get-TRSVocabularyFilterList",
+               "Start-TRSMedicalTranscriptionJob",
                "Start-TRSTranscriptionJob",
+               "Update-TRSMedicalVocabulary",
                "Update-TRSVocabulary",
                "Update-TRSVocabularyFilter")
 }

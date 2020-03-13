@@ -28,14 +28,25 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a Domain for Amazon SageMaker Amazon SageMaker Studio (Studio), which can
-    /// be accessed by end-users in a web browser. A Domain has an associated directory, list
-    /// of authorized users, and a variety of security, application, policies, and Amazon
-    /// Virtual Private Cloud configurations. An AWS account is limited to one Domain, per
-    /// region. Users within a domain can share notebook files and other artifacts with each
-    /// other. When a Domain is created, an Amazon Elastic File System (EFS) is also created
-    /// for use by all of the users within the Domain. Each user receives a private home directory
+    /// Creates a <code>Domain</code> used by SageMaker Studio. A domain consists of an associated
+    /// directory, a list of authorized users, and a variety of security, application, policy,
+    /// and Amazon Virtual Private Cloud (VPC) configurations. An AWS account is limited to
+    /// one domain per region. Users within a domain can share notebook files and other artifacts
+    /// with each other.
+    /// 
+    ///  
+    /// <para>
+    /// When a domain is created, an Amazon Elastic File System (EFS) volume is also created
+    /// for use by all of the users within the domain. Each user receives a private home directory
     /// within the EFS for notebooks, Git repositories, and data files.
+    /// </para><para>
+    /// All traffic between the domain and the EFS volume is communicated through the specified
+    /// subnet IDs. All other traffic goes over the Internet through an Amazon SageMaker system
+    /// VPC. The EFS traffic uses the NFS/TCP protocol over port 2049.
+    /// </para><important><para>
+    /// NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound
+    /// rules in order to launch a SageMaker Studio app successfully.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "SMDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMaker.Model.CreateDomainResponse")]
@@ -49,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AuthMode
         /// <summary>
         /// <para>
-        /// <para>The mode of authentication that member use to access the domain.</para>
+        /// <para>The mode of authentication that members use to access the domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HomeEfsFileSystemKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service encryption key ID.</para>
+        /// <para>The AWS Key Management Service (KMS) encryption key ID. Encryption with a customer
+        /// master key (CMK) is not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>Security setting to limit to a set of subnets.</para>
+        /// <para>The VPC subnets to use for communication with the EFS volume.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,7 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Each tag consists of a key and an optional value. Tag keys must be unique per resource.</para>
+        /// <para>Tags to associated with the Domain. Each tag consists of a key and an optional value.
+        /// Tag keys must be unique per resource. Tags are searchable using the <a>Search</a>
+        /// API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>Security setting to limit the domain's communication to a Amazon Virtual Private Cloud.</para>
+        /// <para>The ID of the Amazon Virtual Private Cloud (VPC) to use for communication with the
+        /// EFS volume.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

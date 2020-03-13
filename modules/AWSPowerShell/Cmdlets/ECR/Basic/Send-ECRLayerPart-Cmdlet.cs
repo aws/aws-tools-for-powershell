@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// of each image layer part can be 20971520 bytes (or about 20MB). The UploadLayerPart
     /// API is called once per each new image layer part.
     /// </para><note><para>
-    /// This operation is used by the Amazon ECR proxy, and it is not intended for general
-    /// use by customers for pulling and pushing images. In most cases, you should use the
-    /// <code>docker</code> CLI to pull, tag, and push images.
+    /// This operation is used by the Amazon ECR proxy and is not generally used by customers
+    /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
+    /// CLI to pull, tag, and push images.
     /// </para></note>
     /// </summary>
     [Cmdlet("Send", "ECRLayerPart", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName="FromBytes")]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter PartFirstByte
         /// <summary>
         /// <para>
-        /// <para>The integer value of the first byte of the layer part.</para>
+        /// <para>The position of the first byte of the layer part witin the overall image layer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter PartLastByte
         /// <summary>
         /// <para>
-        /// <para>The integer value of the last byte of the layer part.</para>
+        /// <para>The position of the last byte of the layer part within the overall image layer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

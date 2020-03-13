@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>One or more documents to add to the index. </para><para>Each document is limited to 5 Mb, the total size of the list is limited to 50 Mb.</para>
+        /// <para>One or more documents to add to the index. </para><para>Documents have the following file size limits.</para><ul><li><para>5 MB total size for inline documents</para></li><li><para>50 MB total size for files from an S3 bucket</para></li><li><para>5 MB extracted text for any file</para></li></ul><para>For more information about file size and transaction per second quotas, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

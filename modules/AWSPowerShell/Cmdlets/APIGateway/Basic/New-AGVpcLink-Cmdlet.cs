@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter TargetArn
         /// <summary>
         /// <para>
-        /// <para>[Required] The ARNs of network load balancers of the VPC targeted by the VPC link.
-        /// The network load balancers must be owned by the same AWS account of the API owner.</para>
+        /// <para>[Required] The ARN of the network load balancer of the VPC targeted by the VPC link.
+        /// The network load balancer must be owned by the same AWS account of the API owner.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

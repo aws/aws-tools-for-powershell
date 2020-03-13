@@ -126,6 +126,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String S3Destination_Path { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para> An updated list of tag key and value pairs associated with this report group. </para><para>These tags are available for use by AWS services that support AWS CodeBuild report
+        /// group tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.CodeBuild.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ReportGroup'.
@@ -200,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.S3Destination_EncryptionKey = this.S3Destination_EncryptionKey;
             context.S3Destination_Packaging = this.S3Destination_Packaging;
             context.S3Destination_Path = this.S3Destination_Path;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.CodeBuild.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -304,6 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.ExportConfig = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -372,6 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String S3Destination_EncryptionKey { get; set; }
             public Amazon.CodeBuild.ReportPackagingType S3Destination_Packaging { get; set; }
             public System.String S3Destination_Path { get; set; }
+            public List<Amazon.CodeBuild.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.CodeBuild.Model.UpdateReportGroupResponse, UpdateCBReportGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReportGroup;
         }

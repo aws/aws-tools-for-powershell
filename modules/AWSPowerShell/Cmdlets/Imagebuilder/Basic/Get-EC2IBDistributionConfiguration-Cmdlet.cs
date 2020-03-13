@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter DistributionConfigurationArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the distribution configuration that you want to
+        /// <para>The Amazon Resource Name (ARN) of the distribution configuration that you want to
         /// retrieve. </para>
         /// </para>
         /// </summary>

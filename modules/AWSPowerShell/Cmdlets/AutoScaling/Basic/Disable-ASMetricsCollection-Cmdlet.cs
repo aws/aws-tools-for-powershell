@@ -60,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// <para>One or more of the following metrics. If you omit this parameter, all metrics are
-        /// disabled.</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li></ul>
+        /// <para>Specifies one or more of the following metrics:</para><ul><li><para><code>GroupMinSize</code></para></li><li><para><code>GroupMaxSize</code></para></li><li><para><code>GroupDesiredCapacity</code></para></li><li><para><code>GroupInServiceInstances</code></para></li><li><para><code>GroupPendingInstances</code></para></li><li><para><code>GroupStandbyInstances</code></para></li><li><para><code>GroupTerminatingInstances</code></para></li><li><para><code>GroupTotalInstances</code></para></li><li><para><code>GroupInServiceCapacity</code></para></li><li><para><code>GroupPendingCapacity</code></para></li><li><para><code>GroupStandbyCapacity</code></para></li><li><para><code>GroupTerminatingCapacity</code></para></li><li><para><code>GroupTotalCapacity</code></para></li></ul><para>If you omit this parameter, all metrics are disabled. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

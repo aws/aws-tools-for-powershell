@@ -35,18 +35,21 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// Each scalable target is identified by a service namespace, resource ID, and scalable
     /// dimension. A scheduled action applies to the scalable target identified by those three
     /// attributes. You cannot create a scheduled action until you have registered the resource
-    /// as a scalable target using <a>RegisterScalableTarget</a>. 
+    /// as a scalable target.
     /// </para><para>
-    /// To update an action, specify its name and the parameters that you want to change.
-    /// If you don't specify start and end times, the old values are deleted. Any other parameters
-    /// that you don't specify are not changed by this update request.
+    /// When start and end times are specified with a recurring schedule using a cron expression
+    /// or rates, they form the boundaries of when the recurring action starts and stops.
     /// </para><para>
-    /// You can view the scheduled actions using <a>DescribeScheduledActions</a>. If you are
-    /// no longer using a scheduled action, you can delete it using <a>DeleteScheduledAction</a>.
+    /// To update a scheduled action, specify the parameters that you want to change. If you
+    /// don't specify start and end times, the old values are deleted.
     /// </para><para>
-    /// Learn more about how to work with scheduled actions in the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application
-    /// Auto Scaling User Guide</a>.
-    /// </para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled
+    /// Scaling</a> in the <i>Application Auto Scaling User Guide</i>.
+    /// </para><note><para>
+    /// If a scalable target is deregistered, the scalable target is no longer available to
+    /// run scheduled actions. Any scheduled actions that were specified for the scalable
+    /// target are deleted.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Set", "AASScheduledAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -61,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The date and time for the scheduled action to end.</para>
+        /// <para>The date and time for the recurring schedule to end.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ScalableTargetAction_MinCapacity
         /// <summary>
         /// <para>
-        /// <para>The minimum capacity.</para>
+        /// <para>The minimum capacity.</para><para>For Lambda provisioned concurrency, the minimum value allowed is 0. For all other
+        /// resources, the minimum value allowed is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <code>function</code> and the
         /// unique identifier is the function name with a function version or alias name suffix
         /// that is not <code>$LATEST</code>. Example: <code>function:my-function:prod</code>
-        /// or <code>function:my-function:1</code>.</para></li></ul>
+        /// or <code>function:my-function:1</code>.</para></li><li><para>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier
+        /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -139,7 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// for an Amazon SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
         /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
-        /// for a Lambda function.</para></li></ul>
+        /// for a Lambda function.</para></li><li><para><code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for
+        /// an Amazon Keyspaces table.</para></li><li><para><code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity
+        /// for an Amazon Keyspaces table.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,10 +163,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>The schedule for this action. The following formats are supported:</para><ul><li><para>At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"</para></li><li><para>Rate expressions - "<code>rate(<i>value</i><i>unit</i>)</code>"</para></li><li><para>Cron expressions - "<code>cron(<i>fields</i>)</code>"</para></li></ul><para>At expressions are useful for one-time schedules. Specify the time, in UTC.</para><para>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is <code>minute</code>
+        /// <para>The schedule for this action. The following formats are supported:</para><ul><li><para>At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"</para></li><li><para>Rate expressions - "<code>rate(<i>value</i><i>unit</i>)</code>"</para></li><li><para>Cron expressions - "<code>cron(<i>fields</i>)</code>"</para></li></ul><para>At expressions are useful for one-time schedules. Specify the time in UTC.</para><para>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is <code>minute</code>
         /// | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code>
         /// | <code>days</code>.</para><para>For more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
-        /// Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</para>
+        /// Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</para><para>For examples of using these expressions, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html">Scheduled
+        /// Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ScheduledActionName
         /// <summary>
         /// <para>
-        /// <para>The name of the scheduled action.</para>
+        /// <para>The name of the scheduled action. This name must be unique among all other scheduled
+        /// actions on the specified scalable target. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -186,10 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the AWS service that provides the resource or <code>custom-resource</code>
-        /// for a resource provided by your own application or service. For more information,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// <para>The namespace of the AWS service that provides the resource. For a resource provided
+        /// by your own application or service, use <code>custom-resource</code> instead.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -206,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The date and time for the scheduled action to start.</para>
+        /// <para>The date and time for this scheduled action to start.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

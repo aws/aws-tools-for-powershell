@@ -29,9 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Shares the specified portfolio with the specified account or organization node. Shares
-    /// to an organization node can only be created by the master account of an Organization.
-    /// AWSOrganizationsAccess must be enabled in order to create a portfolio share to an
-    /// organization node.
+    /// to an organization node can only be created by the master account of an organization
+    /// or by a delegated administrator. You can share portfolios to an organization, an organizational
+    /// unit, or a specific account.
+    /// 
+    ///  
+    /// <para>
+    /// Note that if a delegated admin is de-registered, they can no longer create portfolio
+    /// shares.
+    /// </para><para><code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio
+    /// share to an organization node.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

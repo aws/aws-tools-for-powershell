@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>iot</C2jFilename>
     <AssemblyName>IoT</AssemblyName>
@@ -110,6 +111,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDimension" OutputProperty="*" Verb="New" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDomainConfiguration" OutputProperty="*" Verb="New" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -210,6 +215,10 @@
             <Params>
                 <Param Name="ForceDelete" NewName="DeleteWithForce" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDimension" Verb="Remove" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDomainConfiguration" Verb="Remove" Noun="DomainConfiguration" ShouldProcessTarget="DomainConfigurationName" PipelineParameter="DomainConfigurationName" NoPipelineParameter="false">
@@ -337,6 +346,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDefaultAuthorizer" OutputProperty="AuthorizerDescription" Verb="Get" Noun="DefaultAuthorizer" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDimension" OutputProperty="*" Verb="Get" Noun="Dimension" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -546,6 +559,11 @@
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDimensions" OutputProperty="DimensionNames" Verb="Get" Noun="DimensionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDomainConfigurations" OutputProperty="DomainConfigurations" Verb="Get" Noun="DomainConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -629,7 +647,7 @@
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileIdentifiers" Verb="Get" Noun="SecurityProfileList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+        <ServiceOperation MethodName="ListSecurityProfiles" OutputProperty="SecurityProfileIdentifiers" Verb="Get" Noun="SecurityProfileList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
             <TypesNotToFlatten />
@@ -734,6 +752,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RegisterCertificateWithoutCA" OutputProperty="*" Verb="Register" Noun="CertificateWithoutCA" ShouldProcessTarget="CertificatePem" PipelineParameter="CertificatePem" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterThing" OutputProperty="*" Verb="Register" Noun="Thing" AnonymousShouldProcessTarget="true" PipelineParameter="TemplateBody" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -831,6 +853,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCertificate" Verb="Update" Noun="Certificate" ShouldProcessTarget="CertificateId" PipelineParameter="CertificateId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDimension" OutputProperty="*" Verb="Update" Noun="Dimension" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -100,6 +100,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }
         #endregion
         
+        #region Parameter AvailSuppression_Mode
+        /// <summary>
+        /// <para>
+        /// Sets the mode for avail suppression, also known as
+        /// ad suppression. By default, ad suppression is off and all ad breaks are filled by
+        /// MediaTailor with ads or slate.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.Mode")]
+        public Amazon.MediaTailor.Mode AvailSuppression_Mode { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -157,6 +170,18 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TranscodeProfileName { get; set; }
+        #endregion
+        
+        #region Parameter AvailSuppression_Value
+        /// <summary>
+        /// <para>
+        /// The avail suppression value is a live edge offset
+        /// time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest
+        /// lookback window.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailSuppression_Value { get; set; }
         #endregion
         
         #region Parameter VideoContentSourceUrl
@@ -232,6 +257,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AdDecisionServerUrl = this.AdDecisionServerUrl;
+            context.AvailSuppression_Mode = this.AvailSuppression_Mode;
+            context.AvailSuppression_Value = this.AvailSuppression_Value;
             context.CdnConfiguration = this.CdnConfiguration;
             context.DashConfiguration = this.DashConfiguration;
             context.LivePreRollConfiguration_AdDecisionServerUrl = this.LivePreRollConfiguration_AdDecisionServerUrl;
@@ -268,6 +295,35 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.AdDecisionServerUrl != null)
             {
                 request.AdDecisionServerUrl = cmdletContext.AdDecisionServerUrl;
+            }
+            
+             // populate AvailSuppression
+            var requestAvailSuppressionIsNull = true;
+            request.AvailSuppression = new Amazon.MediaTailor.Model.AvailSuppression();
+            Amazon.MediaTailor.Mode requestAvailSuppression_availSuppression_Mode = null;
+            if (cmdletContext.AvailSuppression_Mode != null)
+            {
+                requestAvailSuppression_availSuppression_Mode = cmdletContext.AvailSuppression_Mode;
+            }
+            if (requestAvailSuppression_availSuppression_Mode != null)
+            {
+                request.AvailSuppression.Mode = requestAvailSuppression_availSuppression_Mode;
+                requestAvailSuppressionIsNull = false;
+            }
+            System.String requestAvailSuppression_availSuppression_Value = null;
+            if (cmdletContext.AvailSuppression_Value != null)
+            {
+                requestAvailSuppression_availSuppression_Value = cmdletContext.AvailSuppression_Value;
+            }
+            if (requestAvailSuppression_availSuppression_Value != null)
+            {
+                request.AvailSuppression.Value = requestAvailSuppression_availSuppression_Value;
+                requestAvailSuppressionIsNull = false;
+            }
+             // determine if request.AvailSuppression should be set to null
+            if (requestAvailSuppressionIsNull)
+            {
+                request.AvailSuppression = null;
             }
             if (cmdletContext.CdnConfiguration != null)
             {
@@ -392,6 +448,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdDecisionServerUrl { get; set; }
+            public Amazon.MediaTailor.Mode AvailSuppression_Mode { get; set; }
+            public System.String AvailSuppression_Value { get; set; }
             public Amazon.MediaTailor.Model.CdnConfiguration CdnConfiguration { get; set; }
             public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
             public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }

@@ -182,7 +182,10 @@ $SD_SelectMap = @{
                "Get-SDNamespaceList",
                "Get-SDOperationList",
                "Get-SDServiceList",
+               "Get-SDResourceTag",
                "New-SDInstanceRegistration",
+               "Add-SDResourceTag",
+               "Remove-SDResourceTag",
                "Update-SDInstanceCustomHealthStatus",
                "Update-SDService")
 }

@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSOrderableDBInstanceOptionCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter AvailabilityZoneGroup
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone group associated with a Local Zone. Specify this parameter to
+        /// retrieve available offerings for the Local Zones in the group.</para><para>Omit this parameter to show the available offerings in the specified AWS Region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AvailabilityZoneGroup { get; set; }
+        #endregion
+        
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
@@ -201,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = (response, cmdlet) => this.Engine;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AvailabilityZoneGroup = this.AvailabilityZoneGroup;
             context.DBInstanceClass = this.DBInstanceClass;
             context.Engine = this.Engine;
             #if MODULAR
@@ -248,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request and set iteration invariants
             var request = new Amazon.RDS.Model.DescribeOrderableDBInstanceOptionsRequest();
             
+            if (cmdletContext.AvailabilityZoneGroup != null)
+            {
+                request.AvailabilityZoneGroup = cmdletContext.AvailabilityZoneGroup;
+            }
             if (cmdletContext.DBInstanceClass != null)
             {
                 request.DBInstanceClass = cmdletContext.DBInstanceClass;
@@ -331,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             // create request and set iteration invariants
             var request = new Amazon.RDS.Model.DescribeOrderableDBInstanceOptionsRequest();
+            if (cmdletContext.AvailabilityZoneGroup != null)
+            {
+                request.AvailabilityZoneGroup = cmdletContext.AvailabilityZoneGroup;
+            }
             if (cmdletContext.DBInstanceClass != null)
             {
                 request.DBInstanceClass = cmdletContext.DBInstanceClass;
@@ -467,6 +487,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AvailabilityZoneGroup { get; set; }
             public System.String DBInstanceClass { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }

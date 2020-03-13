@@ -28,7 +28,7 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Authorizes the DDoS Response team (DRT) to access the specified Amazon S3 bucket containing
+    /// Authorizes the DDoS Response Team (DRT) to access the specified Amazon S3 bucket containing
     /// your AWS WAF logs. You can associate up to 10 Amazon S3 buckets with your subscription.
     /// 
     ///  

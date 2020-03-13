@@ -28,12 +28,7 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Amazon Detective is currently in preview.
-    /// 
-    ///  
-    /// <para>
     /// Returns the membership details for specified member accounts for a behavior graph.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "DTCTMember")]
     [OutputType("Amazon.Detective.Model.GetMembersResponse")]

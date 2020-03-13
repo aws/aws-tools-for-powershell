@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Filters Savings Plans utilization coverage data for active Savings Plans dimensions.
-        /// You can filter data with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>SAVINGS_PLAN_ARN</code></para></li><li><para><code>REGION</code></para></li><li><para><code>PAYMENT_OPTION</code></para></li><li><para><code>INSTANCE_TYPE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansUtilizationDetails</code> uses the same <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// You can filter data with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>SAVINGS_PLAN_ARN</code></para></li><li><para><code>REGION</code></para></li><li><para><code>PAYMENT_OPTION</code></para></li><li><para><code>INSTANCE_TYPE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansUtilizationDetails</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
         /// object as the other operations, but only <code>AND</code> is supported among each
         /// dimension.</para>
         /// </para>

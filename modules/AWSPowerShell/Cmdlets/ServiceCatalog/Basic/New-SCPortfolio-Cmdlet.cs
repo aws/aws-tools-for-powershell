@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Creates a portfolio.
+    /// 
+    ///  
+    /// <para>
+    /// A delegated admin is authorized to invoke this command.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SCPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.CreatePortfolioResponse")]

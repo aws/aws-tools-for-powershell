@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the IAM role ARN used to copy the target recovery point; for example, arn:aws:iam::123456789012:role/S3Access.</para>
+        /// <para>Specifies the IAM role ARN used to copy the target recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,8 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>The name of a logical source container where backups are stored. Backup vaults are
         /// identified by names that are unique to the account used to create them and the AWS
-        /// Region where they are created. They consist of lowercase letters, numbers, and hyphens.
-        /// &gt;</para>
+        /// Region where they are created. They consist of lowercase letters, numbers, and hyphens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

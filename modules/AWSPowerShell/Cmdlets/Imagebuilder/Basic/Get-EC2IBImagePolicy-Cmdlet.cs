@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ImageArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the image whose policy you want to retrieve. </para>
+        /// <para>The Amazon Resource Name (ARN) of the image whose policy you want to retrieve. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

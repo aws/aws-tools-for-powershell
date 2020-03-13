@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>Information about the compliance as defined by the resource type. For example, for
         /// a patch compliance type, <code>Items</code> includes information about the PatchSeverity,
-        /// Classification, etc.</para>
+        /// Classification, and so on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -204,6 +204,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ResourceType { get; set; }
+        #endregion
+        
+        #region Parameter UploadType
+        /// <summary>
+        /// <para>
+        /// <para>The mode for uploading compliance items. You can specify <code>COMPLETE</code> or
+        /// <code>PARTIAL</code>. In <code>COMPLETE</code> mode, the system overwrites all existing
+        /// compliance information for the resource. You must provide a full list of compliance
+        /// items each time you send the request.</para><para>In <code>PARTIAL</code> mode, the system overwrites compliance information for a specific
+        /// association. The association must be configured with <code>SyncCompliance</code> set
+        /// to <code>MANUAL</code>. By default, all requests use <code>COMPLETE</code> mode.</para><note><para>This attribute is only valid for association compliance.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.ComplianceUploadType")]
+        public Amazon.SimpleSystemsManagement.ComplianceUploadType UploadType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -307,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UploadType = this.UploadType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -382,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.ResourceType = cmdletContext.ResourceType;
             }
+            if (cmdletContext.UploadType != null)
+            {
+                request.UploadType = cmdletContext.UploadType;
+            }
             
             CmdletOutput output;
             
@@ -451,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<Amazon.SimpleSystemsManagement.Model.ComplianceItemEntry> Item { get; set; }
             public System.String ResourceId { get; set; }
             public System.String ResourceType { get; set; }
+            public Amazon.SimpleSystemsManagement.ComplianceUploadType UploadType { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.PutComplianceItemsResponse, WriteSSMComplianceItemCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

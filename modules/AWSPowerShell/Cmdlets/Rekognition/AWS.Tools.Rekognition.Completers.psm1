@@ -204,6 +204,8 @@ $REK_SelectMap = @{
                "New-REKStreamProcessor",
                "Remove-REKCollection",
                "Remove-REKFace",
+               "Remove-REKProject",
+               "Remove-REKProjectVersion",
                "Remove-REKStreamProcessor",
                "Get-REKCollection",
                "Get-REKProject",

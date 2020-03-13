@@ -28,7 +28,14 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Describes the version of the platform.
+    /// Describes a platform version. Provides full details. Compare to <a>ListPlatformVersions</a>,
+    /// which provides summary information about a list of platform versions.
+    /// 
+    ///  
+    /// <para>
+    /// For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS
+    /// Elastic Beanstalk Platforms Glossary</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "EBPlatformVersionDetail")]
     [OutputType("Amazon.ElasticBeanstalk.Model.PlatformDescription")]
@@ -43,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter PlatformArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the version of the platform.</para>
+        /// <para>The ARN of the platform version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

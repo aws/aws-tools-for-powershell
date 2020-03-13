@@ -28,8 +28,8 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Returns a list of tags for the resource identified by a specified ARN. Tags are used
-    /// to organize and categorize your CodeDeploy resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of tags for the resource identified by a specified Amazon Resource
+    /// Name (ARN). Tags are used to organize and categorize your CodeDeploy resources.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CDResourceTag")]
     [OutputType("Amazon.CodeDeploy.Model.Tag")]

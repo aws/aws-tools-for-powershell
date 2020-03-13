@@ -88,6 +88,21 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public Amazon.FraudDetector.Model.ModelVersion[] ModelVersion { get; set; }
         #endregion
         
+        #region Parameter RuleExecutionMode
+        /// <summary>
+        /// <para>
+        /// <para>The rule execution mode for the rules included in the detector version.</para><para>You can define and edit the rule mode at the detector version level, when it is in
+        /// draft status.</para><para>If you specify <code>FIRST_MATCHED</code>, Amazon Fraud Detector evaluates rules sequentially,
+        /// first to last, stopping at the first matched rule. Amazon Fraud dectector then provides
+        /// the outcomes for that single rule.</para><para>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules
+        /// and returns the outcomes for all matched rules. </para><para>The default behavior is <code>FIRST_MATCHED</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FraudDetector.RuleExecutionMode")]
+        public Amazon.FraudDetector.RuleExecutionMode RuleExecutionMode { get; set; }
+        #endregion
+        
         #region Parameter Rule
         /// <summary>
         /// <para>
@@ -183,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
             {
                 context.ModelVersion = new List<Amazon.FraudDetector.Model.ModelVersion>(this.ModelVersion);
             }
+            context.RuleExecutionMode = this.RuleExecutionMode;
             if (this.Rule != null)
             {
                 context.Rule = new List<Amazon.FraudDetector.Model.Rule>(this.Rule);
@@ -224,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
             if (cmdletContext.ModelVersion != null)
             {
                 request.ModelVersions = cmdletContext.ModelVersion;
+            }
+            if (cmdletContext.RuleExecutionMode != null)
+            {
+                request.RuleExecutionMode = cmdletContext.RuleExecutionMode;
             }
             if (cmdletContext.Rule != null)
             {
@@ -294,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
             public System.String DetectorId { get; set; }
             public List<System.String> ExternalModelEndpoint { get; set; }
             public List<Amazon.FraudDetector.Model.ModelVersion> ModelVersion { get; set; }
+            public Amazon.FraudDetector.RuleExecutionMode RuleExecutionMode { get; set; }
             public List<Amazon.FraudDetector.Model.Rule> Rule { get; set; }
             public System.Func<Amazon.FraudDetector.Model.CreateDetectorVersionResponse, NewFDDetectorVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

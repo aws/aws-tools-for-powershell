@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ChangeDescription
         /// <summary>
         /// <para>
-        /// <para> The change description of the component. Describes what change has been made in this
+        /// <para>The change description of the component. Describes what change has been made in this
         /// version, or what makes this version different from other versions of this component.
         /// </para>
         /// </para>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Format
         /// <summary>
         /// <para>
-        /// <para> The format of the resource that you want to import as a component. </para>
+        /// <para>The format of the resource that you want to import as a component. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para> The ID of the KMS key that should be used to encrypt this component. </para>
+        /// <para>The ID of the KMS key that should be used to encrypt this component. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Platform
         /// <summary>
         /// <para>
-        /// <para> The platform of the component. </para>
+        /// <para>The platform of the component. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> The tags of the component. </para>
+        /// <para>The tags of the component. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> The idempotency token of the component. </para>
+        /// <para>The idempotency token of the component. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

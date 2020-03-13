@@ -501,7 +501,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrainingJobDefinition
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of the <a>HyperParameterTrainingJobDefinition</a> objects launched for this
+        /// tuning job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

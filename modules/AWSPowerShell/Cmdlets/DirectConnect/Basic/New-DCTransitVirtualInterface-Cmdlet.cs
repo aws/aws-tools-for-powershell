@@ -38,7 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// Autonomous System Number (ASN) used by the transit gateway and the Direct Connect
     /// gateway must be different. For example, if you use the default ASN 64512 for both
     /// your the transit gateway and Direct Connect gateway, the association request fails.
-    /// </para></important>
+    /// </para></important><para>
+    /// Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update
+    /// to the underlying physical connection if it wasn't updated to support jumbo frames.
+    /// Updating the connection disrupts network connectivity for all virtual interfaces associated
+    /// with the connection for up to 30 seconds. To check whether your connection supports
+    /// jumbo frames, call <a>DescribeConnections</a>. To check whether your virtual interface
+    /// supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DCTransitVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.VirtualInterface")]
@@ -154,7 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NewTransitVirtualInterface_VirtualInterfaceName
         /// <summary>
         /// <para>
-        /// <para>The name of the virtual interface assigned by the customer network.</para>
+        /// <para>The name of the virtual interface assigned by the customer network. The name has a
+        /// maximum of 100 characters. The following are valid characters: a-z, 0-9 and a hyphen
+        /// (-).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

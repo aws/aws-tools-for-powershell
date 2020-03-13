@@ -181,7 +181,9 @@ $R53D_SelectCompleters = {
 }
 
 $R53D_SelectMap = @{
-    "Select"=@("Test-R53DDomainAvailability",
+    "Select"=@("Approve-R53DDomainTransferFromAnotherAwsAccount",
+               "Stop-R53DDomainTransferToAnotherAwsAccount",
+               "Test-R53DDomainAvailability",
                "Test-R53DDomainTransferability",
                "Remove-R53DTagsForDomain",
                "Disable-R53DDomainAutoRenew",
@@ -196,10 +198,12 @@ $R53D_SelectMap = @{
                "Get-R53DOperationList",
                "Get-R53DTagsForDomain",
                "Register-R53DDomain",
+               "Deny-R53DDomainTransferFromAnotherAwsAccount",
                "Update-R53DDomainRenewal",
                "Send-R53DContactReachabilityEmail",
                "Get-R53DDomainAuthCode",
                "Invoke-R53DDomainTransfer",
+               "Move-R53DDomainToAnotherAwsAccount",
                "Update-R53DDomainContact",
                "Update-R53DDomainContactPrivacy",
                "Update-R53DDomainNameserver",

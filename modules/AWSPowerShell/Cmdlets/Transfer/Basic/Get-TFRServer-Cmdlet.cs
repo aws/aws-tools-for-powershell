@@ -28,11 +28,12 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Describes the server that you specify by passing the <code>ServerId</code> parameter.
+    /// Describes a file transfer protocol-enabled server that you specify by passing the
+    /// <code>ServerId</code> parameter.
     /// 
     ///  
     /// <para>
-    /// The response contains a description of the server's properties. When you set <code>EndpointType</code>
+    /// The response contains a description of a server's properties. When you set <code>EndpointType</code>
     /// to VPC, the response will contain the <code>EndpointDetails</code>.
     /// </para>
     /// </summary>
@@ -49,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for an SFTP server.</para>
+        /// <para>A system-assigned unique identifier for a file transfer protocol-enabled server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

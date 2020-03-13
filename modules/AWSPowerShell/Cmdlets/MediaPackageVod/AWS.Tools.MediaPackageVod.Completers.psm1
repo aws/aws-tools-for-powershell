@@ -134,7 +134,11 @@ $EMPV_SelectMap = @{
                "Get-EMPVPackagingGroup",
                "Get-EMPVAssetList",
                "Get-EMPVPackagingConfigurationList",
-               "Get-EMPVPackagingGroupList")
+               "Get-EMPVPackagingGroupList",
+               "Get-EMPVResourceTag",
+               "Add-EMPVResourceTag",
+               "Remove-EMPVResourceTag",
+               "Update-EMPVPackagingGroup")
 }
 
 _awsArgumentCompleterRegistration $EMPV_SelectCompleters $EMPV_SelectMap

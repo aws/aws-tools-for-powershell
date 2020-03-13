@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The alarm state to test.</para><para>An alarm has the following possible states that can be tested:</para><ul><li><para><code>ALARM</code> — The metric is outside of the defined threshold.</para></li><li><para><code>INSUFFICIENT_DATA</code> — The alarm has just started, the metric is not available,
-        /// or not enough data is available for the metric to determine the alarm state.</para></li><li><para><code>OK</code> — The metric is within the defined threshold.</para></li></ul>
+        /// <para>The alarm state to test.</para><para>An alarm has the following possible states that can be tested:</para><ul><li><para><code>ALARM</code> - The metric is outside of the defined threshold.</para></li><li><para><code>INSUFFICIENT_DATA</code> - The alarm has just started, the metric is not available,
+        /// or not enough data is available for the metric to determine the alarm state.</para></li><li><para><code>OK</code> - The metric is within the defined threshold.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

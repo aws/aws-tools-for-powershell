@@ -28,14 +28,18 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Sets the specified open ports for an Amazon Lightsail instance, and closes all ports
-    /// for every protocol not included in the current request.
+    /// Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses
+    /// allowed to connect to the instance through the ports, and the protocol. This action
+    /// also closes all currently open ports that are not included in the request. Include
+    /// all of the ports and the protocols you want to open in your <code>PutInstancePublicPorts</code>request.
+    /// Or use the <code>OpenInstancePublicPorts</code> action to open ports without closing
+    /// currently open ports.
     /// 
     ///  
     /// <para>
-    /// The <code>put instance public ports</code> operation supports tag-based access control
-    /// via resource tags applied to the resource identified by <code>instance name</code>.
-    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// The <code>PutInstancePublicPorts</code> action supports tag-based access control via
+    /// resource tags applied to the resource identified by <code>instanceName</code>. For
+    /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
     /// Dev Guide</a>.
     /// </para>
     /// </summary>
@@ -52,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter InstanceName
         /// <summary>
         /// <para>
-        /// <para>The Lightsail instance name of the public port(s) you are setting.</para>
+        /// <para>The name of the instance for which to open ports.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PortInfo
         /// <summary>
         /// <para>
-        /// <para>Specifies information about the public port(s).</para>
+        /// <para>An array of objects to describe the ports to open for the specified instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,27 +28,28 @@ using Amazon.ApplicationAutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Registers or updates a scalable target. A scalable target is a resource that Application
-    /// Auto Scaling can scale out and scale in. Scalable targets are uniquely identified
-    /// by the combination of resource ID, scalable dimension, and namespace. 
+    /// Registers or updates a scalable target. 
     /// 
     ///  
     /// <para>
-    /// When you register a new scalable target, you must specify values for minimum and maximum
-    /// capacity. Application Auto Scaling will not scale capacity to values that are outside
-    /// of this range. 
+    /// A scalable target is a resource that Application Auto Scaling can scale out and scale
+    /// in. Scalable targets are uniquely identified by the combination of resource ID, scalable
+    /// dimension, and namespace. 
     /// </para><para>
-    /// To update a scalable target, specify the parameter that you want to change as well
-    /// as the following parameters that identify the scalable target: resource ID, scalable
-    /// dimension, and namespace. Any parameters that you don't specify are not changed by
-    /// this update request. 
+    /// When you register a new scalable target, you must specify values for minimum and maximum
+    /// capacity. Application Auto Scaling scaling policies will not scale capacity to values
+    /// that are outside of this range.
     /// </para><para>
     /// After you register a scalable target, you do not need to register it again to use
     /// other Application Auto Scaling operations. To see which resources have been registered,
-    /// use <a>DescribeScalableTargets</a>. You can also view the scaling policies for a service
-    /// namespace by using <a>DescribeScalableTargets</a>. 
+    /// use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>.
+    /// You can also view the scaling policies for a service namespace by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>.
+    /// If you no longer need a scalable target, you can deregister it by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html">DeregisterScalableTarget</a>.
     /// </para><para>
-    /// If you no longer need a scalable target, you can deregister it by using <a>DeregisterScalableTarget</a>.
+    /// To update a scalable target, specify the parameters that you want to change. Include
+    /// the parameters that identify the scalable target: resource ID, scalable dimension,
+    /// and namespace. Any parameters that you don't specify are not changed by this update
+    /// request. 
     /// </para>
     /// </summary>
     [Cmdlet("Add", "AASScalableTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -89,8 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>The maximum value to scale to in response to a scale-out event. <code>MaxCapacity</code>
-        /// is required to register a scalable target.</para>
+        /// <para>The maximum value that you plan to scale out to. When a scaling policy is in effect,
+        /// Application Auto Scaling can scale out (expand) as needed to the maximum capacity
+        /// limit in response to changing demand. </para><para>This parameter is required if you are registering a scalable target.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,8 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter MinCapacity
         /// <summary>
         /// <para>
-        /// <para>The minimum value to scale to in response to a scale-in event. <code>MinCapacity</code>
-        /// is required to register a scalable target.</para>
+        /// <para>The minimum value that you plan to scale in to. When a scaling policy is in effect,
+        /// Application Auto Scaling can scale in (contract) as needed to the minimum capacity
+        /// limit in response to changing demand. </para><para>This parameter is required if you are registering a scalable target. For Lambda provisioned
+        /// concurrency, the minimum value allowed is 0. For all other resources, the minimum
+        /// value allowed is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <code>function</code> and the
         /// unique identifier is the function name with a function version or alias name suffix
         /// that is not <code>$LATEST</code>. Example: <code>function:my-function:prod</code>
-        /// or <code>function:my-function:1</code>.</para></li></ul>
+        /// or <code>function:my-function:1</code>.</para></li><li><para>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier
+        /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -145,10 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter RoleARN
         /// <summary>
         /// <para>
-        /// <para>Application Auto Scaling creates a service-linked role that grants it permissions
-        /// to modify the scalable target on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-service-linked-roles.html">Service-Linked
-        /// Roles for Application Auto Scaling</a>.</para><para>For Amazon EMR, this parameter is required, and it must specify the ARN of an IAM
-        /// role that allows Application Auto Scaling to modify the scalable target on your behalf.</para>
+        /// <para>This parameter is required for services that do not support service-linked roles (such
+        /// as Amazon EMR), and it must specify the ARN of an IAM role that allows Application
+        /// Auto Scaling to modify the scalable target on your behalf. </para><para>If the service supports service-linked roles, Application Auto Scaling uses a service-linked
+        /// role, which it creates if it does not yet exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles">Application
+        /// Auto Scaling IAM Roles</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// for an Amazon SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
         /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
-        /// for a Lambda function.</para></li></ul>
+        /// for a Lambda function.</para></li><li><para><code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for
+        /// an Amazon Keyspaces table.</para></li><li><para><code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity
+        /// for an Amazon Keyspaces table.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,10 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ServiceNamespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the AWS service that provides the resource or <code>custom-resource</code>
-        /// for a resource provided by your own application or service. For more information,
-        /// see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS
-        /// Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>. </para>
+        /// <para>The namespace of the AWS service that provides the resource. For a resource provided
+        /// by your own application or service, use <code>custom-resource</code> instead.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

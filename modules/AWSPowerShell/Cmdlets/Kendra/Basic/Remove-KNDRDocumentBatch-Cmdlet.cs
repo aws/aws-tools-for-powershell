@@ -48,6 +48,26 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     public partial class RemoveKNDRDocumentBatchCmdlet : AmazonKendraClientCmdlet, IExecutor
     {
         
+        #region Parameter DataSourceSyncJobMetricTarget_DataSourceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the data source that is running the sync job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceSyncJobMetricTarget_DataSourceId { get; set; }
+        #endregion
+        
+        #region Parameter DataSourceSyncJobMetricTarget_DataSourceSyncJobId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the sync job that is running on the data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataSourceSyncJobMetricTarget_DataSourceSyncJobId { get; set; }
+        #endregion
+        
         #region Parameter DocumentIdList
         /// <summary>
         /// <para>
@@ -143,6 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Select = (response, cmdlet) => this.IndexId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DataSourceSyncJobMetricTarget_DataSourceId = this.DataSourceSyncJobMetricTarget_DataSourceId;
+            context.DataSourceSyncJobMetricTarget_DataSourceSyncJobId = this.DataSourceSyncJobMetricTarget_DataSourceSyncJobId;
             if (this.DocumentIdList != null)
             {
                 context.DocumentIdList = new List<System.String>(this.DocumentIdList);
@@ -176,6 +198,35 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             // create request
             var request = new Amazon.Kendra.Model.BatchDeleteDocumentRequest();
             
+            
+             // populate DataSourceSyncJobMetricTarget
+            var requestDataSourceSyncJobMetricTargetIsNull = true;
+            request.DataSourceSyncJobMetricTarget = new Amazon.Kendra.Model.DataSourceSyncJobMetricTarget();
+            System.String requestDataSourceSyncJobMetricTarget_dataSourceSyncJobMetricTarget_DataSourceId = null;
+            if (cmdletContext.DataSourceSyncJobMetricTarget_DataSourceId != null)
+            {
+                requestDataSourceSyncJobMetricTarget_dataSourceSyncJobMetricTarget_DataSourceId = cmdletContext.DataSourceSyncJobMetricTarget_DataSourceId;
+            }
+            if (requestDataSourceSyncJobMetricTarget_dataSourceSyncJobMetricTarget_DataSourceId != null)
+            {
+                request.DataSourceSyncJobMetricTarget.DataSourceId = requestDataSourceSyncJobMetricTarget_dataSourceSyncJobMetricTarget_DataSourceId;
+                requestDataSourceSyncJobMetricTargetIsNull = false;
+            }
+            System.String requestDataSourceSyncJobMetricTarget_dataSourceSyncJobMetricTarget_DataSourceSyncJobId = null;
+            if (cmdletContext.DataSourceSyncJobMetricTarget_DataSourceSyncJobId != null)
+            {
+                requestDataSourceSyncJobMetricTarget_dataSourceSyncJobMetricTarget_DataSourceSyncJobId = cmdletContext.DataSourceSyncJobMetricTarget_DataSourceSyncJobId;
+            }
+            if (requestDataSourceSyncJobMetricTarget_dataSourceSyncJobMetricTarget_DataSourceSyncJobId != null)
+            {
+                request.DataSourceSyncJobMetricTarget.DataSourceSyncJobId = requestDataSourceSyncJobMetricTarget_dataSourceSyncJobMetricTarget_DataSourceSyncJobId;
+                requestDataSourceSyncJobMetricTargetIsNull = false;
+            }
+             // determine if request.DataSourceSyncJobMetricTarget should be set to null
+            if (requestDataSourceSyncJobMetricTargetIsNull)
+            {
+                request.DataSourceSyncJobMetricTarget = null;
+            }
             if (cmdletContext.DocumentIdList != null)
             {
                 request.DocumentIdList = cmdletContext.DocumentIdList;
@@ -245,6 +296,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DataSourceSyncJobMetricTarget_DataSourceId { get; set; }
+            public System.String DataSourceSyncJobMetricTarget_DataSourceSyncJobId { get; set; }
             public List<System.String> DocumentIdList { get; set; }
             public System.String IndexId { get; set; }
             public System.Func<Amazon.Kendra.Model.BatchDeleteDocumentResponse, RemoveKNDRDocumentBatchCmdlet, object> Select { get; set; } =

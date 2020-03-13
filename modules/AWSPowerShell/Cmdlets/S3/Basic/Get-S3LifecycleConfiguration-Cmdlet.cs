@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li><li><para>
     /// SOAP Fault Code Prefix: Client
     /// </para></li></ul></li></ul><para>
-    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:
+    /// The following operations are related to <code>GetBucketLifecycleConfiguration</code>:
     /// </para><ul><li><para><a>GetBucketLifecycle</a></para></li><li><para><a>PutBucketLifecycle</a></para></li><li><para><a>DeleteBucketLifecycle</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3LifecycleConfiguration")]

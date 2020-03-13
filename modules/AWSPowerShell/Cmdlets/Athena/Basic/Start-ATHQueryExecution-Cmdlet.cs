@@ -29,13 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
     /// Runs the SQL query statements contained in the <code>Query</code>. Requires you to
-    /// have access to the workgroup in which the query ran.
-    /// 
-    ///  
-    /// <para>
-    /// For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples
+    /// have access to the workgroup in which the query ran. Running queries against an external
+    /// catalog requires <a>GetDataCatalog</a> permission to the catalog. For code samples
+    /// using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples
     /// and Code Samples</a> in the <i>Amazon Athena User Guide</i>.
-    /// </para>
     /// </summary>
     [Cmdlet("Start", "ATHQueryExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     )]
     public partial class StartATHQueryExecutionCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
+        
+        #region Parameter QueryExecutionContext_Catalog
+        /// <summary>
+        /// <para>
+        /// <para>The name of the data catalog used in the query execution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String QueryExecutionContext_Catalog { get; set; }
+        #endregion
         
         #region Parameter ClientRequestToken
         /// <summary>
@@ -65,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter QueryExecutionContext_Database
         /// <summary>
         /// <para>
-        /// <para>The name of the database.</para>
+        /// <para>The name of the database used in the query execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.QueryExecutionContext_Catalog = this.QueryExecutionContext_Catalog;
             context.QueryExecutionContext_Database = this.QueryExecutionContext_Database;
             context.QueryString = this.QueryString;
             #if MODULAR
@@ -240,6 +248,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
              // populate QueryExecutionContext
             var requestQueryExecutionContextIsNull = true;
             request.QueryExecutionContext = new Amazon.Athena.Model.QueryExecutionContext();
+            System.String requestQueryExecutionContext_queryExecutionContext_Catalog = null;
+            if (cmdletContext.QueryExecutionContext_Catalog != null)
+            {
+                requestQueryExecutionContext_queryExecutionContext_Catalog = cmdletContext.QueryExecutionContext_Catalog;
+            }
+            if (requestQueryExecutionContext_queryExecutionContext_Catalog != null)
+            {
+                request.QueryExecutionContext.Catalog = requestQueryExecutionContext_queryExecutionContext_Catalog;
+                requestQueryExecutionContextIsNull = false;
+            }
             System.String requestQueryExecutionContext_queryExecutionContext_Database = null;
             if (cmdletContext.QueryExecutionContext_Database != null)
             {
@@ -379,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.String QueryExecutionContext_Catalog { get; set; }
             public System.String QueryExecutionContext_Database { get; set; }
             public System.String QueryString { get; set; }
             public Amazon.Athena.EncryptionOption EncryptionConfiguration_EncryptionOption { get; set; }

@@ -33,12 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     ///  
     /// <para>
     /// When an image is pushed and all new image layers have been uploaded, the PutImage
-    /// API is called once to create or update the image manifest and tags associated with
-    /// the image.
+    /// API is called once to create or update the image manifest and the tags associated
+    /// with the image.
     /// </para><note><para>
-    /// This operation is used by the Amazon ECR proxy, and it is not intended for general
-    /// use by customers for pulling and pushing images. In most cases, you should use the
-    /// <code>docker</code> CLI to pull, tag, and push images.
+    /// This operation is used by the Amazon ECR proxy and is not generally used by customers
+    /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
+    /// CLI to pull, tag, and push images.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "ECRImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ImageManifest { get; set; }
+        #endregion
+        
+        #region Parameter ImageManifestMediaType
+        /// <summary>
+        /// <para>
+        /// <para>The media type of the image manifest. If you push an image manifest that does not
+        /// contain the <code>mediaType</code> field, you must specify the <code>imageManifestMediaType</code>
+        /// in the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageManifestMediaType { get; set; }
         #endregion
         
         #region Parameter ImageTag
@@ -175,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 WriteWarning("You are passing $null as a value for parameter ImageManifest which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ImageManifestMediaType = this.ImageManifestMediaType;
             context.ImageTag = this.ImageTag;
             context.RegistryId = this.RegistryId;
             context.RepositoryName = this.RepositoryName;
@@ -203,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             if (cmdletContext.ImageManifest != null)
             {
                 request.ImageManifest = cmdletContext.ImageManifest;
+            }
+            if (cmdletContext.ImageManifestMediaType != null)
+            {
+                request.ImageManifestMediaType = cmdletContext.ImageManifestMediaType;
             }
             if (cmdletContext.ImageTag != null)
             {
@@ -278,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ImageManifest { get; set; }
+            public System.String ImageManifestMediaType { get; set; }
             public System.String ImageTag { get; set; }
             public System.String RegistryId { get; set; }
             public System.String RepositoryName { get; set; }

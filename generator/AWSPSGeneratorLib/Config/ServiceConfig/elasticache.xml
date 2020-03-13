@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>elasticache</C2jFilename>
     <AssemblyName>ElastiCache</AssemblyName>
@@ -82,11 +83,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="New" Noun="GlobalReplicationGroup" ShouldProcessTarget="PrimaryReplicationGroupId" PipelineParameter="PrimaryReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateReplicationGroup" OutputProperty="ReplicationGroup" Verb="New" Noun="ReplicationGroup" ShouldProcessTarget="PrimaryClusterId" PipelineParameter="PrimaryClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSnapshot" OutputProperty="Snapshot" Verb="New" Noun="Snapshot" ShouldProcessTarget="CacheClusterId" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DecreaseNodeGroupsInGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="NodeGroupDecreaseInGlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -107,6 +116,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCacheSubnetGroup" Verb="Remove" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Remove" Noun="GlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,6 +168,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGlobalReplicationGroups" OutputProperty="GlobalReplicationGroups" Verb="Get" Noun="GlobalReplicationGroup" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeReplicationGroups" OutputProperty="ReplicationGroups" Verb="Get" Noun="ReplicationGroup" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-ECReplicationGroups">
             <Params />
             <TypesNotToFlatten />
@@ -176,6 +193,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeUpdateActions" OutputProperty="UpdateActions" Verb="Get" Noun="UpdateAction" PipelineParameter="ServiceUpdateName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Remove" Noun="ReplicationGroupFromGlobalReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="FailoverGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="GlobalReplicationGroupFailover" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IncreaseNodeGroupsInGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="NodeGroupIncreaseInGlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -203,6 +232,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Edit" Noun="GlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyReplicationGroup" OutputProperty="ReplicationGroup" Verb="Edit" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -212,6 +245,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" OutputProperty="ReservedCacheNode" Verb="Request" Noun="ReservedCacheNodesOffering" ShouldProcessTarget="ReservedCacheNodesOfferingId" PositionalParameters="ReservedCacheNodeId;CacheNodeCount" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebalanceSlotsInGlobalReplicationGroup" OutputProperty="GlobalReplicationGroup" Verb="Request" Noun="SlotRebalanceInGlobalReplicationGroup" ShouldProcessTarget="GlobalReplicationGroupId" PipelineParameter="GlobalReplicationGroupId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

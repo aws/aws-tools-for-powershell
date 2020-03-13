@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SettingId
         /// <summary>
         /// <para>
-        /// <para>The ID of the service setting to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of the service setting to reset. For example, <code>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</code>.
+        /// The setting ID can be one of the following.</para><ul><li><para><code>/ssm/parameter-store/default-parameter-tier</code></para></li><li><para><code>/ssm/parameter-store/high-throughput-enabled</code></para></li><li><para><code>/ssm/managed-instance/activation-tier</code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter SettingValue
         /// <summary>
         /// <para>
-        /// <para>The new value to specify for the service setting.</para>
+        /// <para>The new value to specify for the service setting. For the <code>/ssm/parameter-store/default-parameter-tier</code>
+        /// setting ID, the setting value can be one of the following.</para><ul><li><para>Standard</para></li><li><para>Advanced</para></li><li><para>Intelligent-Tiering</para></li></ul><para>For the <code>/ssm/parameter-store/high-throughput-enabled</code>, and <code>/ssm/managed-instance/activation-tier</code>
+        /// setting IDs, the setting value can be true or false.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -80,6 +80,16 @@ $CGP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CodeGuruProfiler.ActionGroup
+        {
+            ($_ -eq "Remove-CGPPermission/ActionGroup") -Or
+            ($_ -eq "Write-CGPPermission/ActionGroup")
+        }
+        {
+            $v = "agentPermissions"
+            break
+        }
+
         # Amazon.CodeGuruProfiler.AggregationPeriod
         "Get-CGPProfileTimeList/Period"
         {
@@ -103,6 +113,7 @@ $CGP_Completers = {
 }
 
 $CGP_map = @{
+    "ActionGroup"=@("Remove-CGPPermission","Write-CGPPermission")
     "OrderBy"=@("Get-CGPProfileTimeList")
     "Period"=@("Get-CGPProfileTimeList")
 }
@@ -161,10 +172,13 @@ $CGP_SelectMap = @{
                "New-CGPProfilingGroup",
                "Remove-CGPProfilingGroup",
                "Get-CGPProfilingGroup",
+               "Get-CGPPolicy",
                "Get-CGPProfile",
                "Get-CGPProfileTimeList",
                "Get-CGPProfilingGroupList",
                "Send-CGPAgentProfile",
+               "Write-CGPPermission",
+               "Remove-CGPPermission",
                "Update-CGPProfilingGroup")
 }
 

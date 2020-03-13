@@ -55,11 +55,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? AssignIpv6AddressOnCreation { get; set; }
         #endregion
         
+        #region Parameter CustomerOwnedIpv4Pool
+        /// <summary>
+        /// <para>
+        /// <para>The customer-owned IPv4 address pool associated with the subnet.</para><para>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomerOwnedIpv4Pool { get; set; }
+        #endregion
+        
+        #region Parameter MapCustomerOwnedIpOnLaunch
+        /// <summary>
+        /// <para>
+        /// <para>Specify <code>true</code> to indicate that network interfaces attached to instances
+        /// created in the specified subnet should be assigned a customer-owned IPv4 address.</para><para>When this value is <code>true</code>, you must specify the customer-owned IP pool
+        /// using <code>CustomerOwnedIpv4Pool</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MapCustomerOwnedIpOnLaunch { get; set; }
+        #endregion
+        
         #region Parameter MapPublicIpOnLaunch
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to indicate that ENIs attached to instances created in the
-        /// specified subnet should be assigned a public IPv4 address.</para>
+        /// <para>Specify <code>true</code> to indicate that network interfaces attached to instances
+        /// created in the specified subnet should be assigned a public IPv4 address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -144,6 +166,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AssignIpv6AddressOnCreation = this.AssignIpv6AddressOnCreation;
+            context.CustomerOwnedIpv4Pool = this.CustomerOwnedIpv4Pool;
+            context.MapCustomerOwnedIpOnLaunch = this.MapCustomerOwnedIpOnLaunch;
             context.MapPublicIpOnLaunch = this.MapPublicIpOnLaunch;
             context.SubnetId = this.SubnetId;
             #if MODULAR
@@ -171,6 +195,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AssignIpv6AddressOnCreation != null)
             {
                 request.AssignIpv6AddressOnCreation = cmdletContext.AssignIpv6AddressOnCreation.Value;
+            }
+            if (cmdletContext.CustomerOwnedIpv4Pool != null)
+            {
+                request.CustomerOwnedIpv4Pool = cmdletContext.CustomerOwnedIpv4Pool;
+            }
+            if (cmdletContext.MapCustomerOwnedIpOnLaunch != null)
+            {
+                request.MapCustomerOwnedIpOnLaunch = cmdletContext.MapCustomerOwnedIpOnLaunch.Value;
             }
             if (cmdletContext.MapPublicIpOnLaunch != null)
             {
@@ -242,6 +274,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AssignIpv6AddressOnCreation { get; set; }
+            public System.String CustomerOwnedIpv4Pool { get; set; }
+            public System.Boolean? MapCustomerOwnedIpOnLaunch { get; set; }
             public System.Boolean? MapPublicIpOnLaunch { get; set; }
             public System.String SubnetId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifySubnetAttributeResponse, EditEC2SubnetAttributeCmdlet, object> Select { get; set; } =

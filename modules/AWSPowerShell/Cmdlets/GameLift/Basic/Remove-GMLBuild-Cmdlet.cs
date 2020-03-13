@@ -28,16 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes a build. This action permanently deletes the build record and any uploaded
-    /// build files.
+    /// Deletes a build. This action permanently deletes the build resource and any uploaded
+    /// build files. Deleting a build does not affect the status of any active fleets using
+    /// the build, but you can no longer create new fleets with the deleted build.
     /// 
     ///  
     /// <para>
-    /// To delete a build, specify its ID. Deleting a build does not affect the status of
-    /// any active fleets using the build, but you can no longer create new fleets with the
-    /// deleted build.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/build-intro.html">
-    /// Working with Builds</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
+    /// To delete a build, specify the build ID. 
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
+    /// Upload a Custom Server Build</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

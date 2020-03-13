@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// 
     ///  
     /// <para>
-    /// The following operations are related to <code>DeleteBucketMetricsConfiguration</code>:
+    /// The following operations are related to <code>DeletePublicAccessBlock</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">Using
     /// Amazon S3 Block Public Access</a></para></li><li><para><a>GetPublicAccessBlock</a></para></li><li><para><a>PutPublicAccessBlock</a></para></li><li><para><a>GetBucketPolicyStatus</a></para></li></ul>
     /// </summary>

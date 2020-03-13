@@ -166,7 +166,8 @@ $IOT_Completers = {
         # Amazon.IoT.CertificateStatus
         {
             ($_ -eq "Update-IOTCertificate/NewStatus") -Or
-            ($_ -eq "Register-IOTCertificate/Status")
+            ($_ -eq "Register-IOTCertificate/Status") -Or
+            ($_ -eq "Register-IOTCertificateWithoutCA/Status")
         }
         {
             $v = "ACTIVE","INACTIVE","PENDING_ACTIVATION","PENDING_TRANSFER","REGISTER_INACTIVE","REVOKED"
@@ -190,6 +191,13 @@ $IOT_Completers = {
         }
         {
             $v = "DEACTIVATE"
+            break
+        }
+
+        # Amazon.IoT.DimensionType
+        "New-IOTDimension/Type"
+        {
+            $v = "TOPIC_FILTER"
             break
         }
 
@@ -377,7 +385,7 @@ $IOT_map = @{
     "OtaUpdateStatus"=@("Get-IOTOTAUpdateList")
     "ReportType"=@("Get-IOTThingRegistrationTaskReportList")
     "ServiceType"=@("Get-IOTDomainConfigurationList","New-IOTDomainConfiguration")
-    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
+    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Register-IOTCertificateWithoutCA","Update-IOTAuthorizer","Update-IOTTopicRuleDestination")
     "TargetSelection"=@("Get-IOTJobList","New-IOTJob","New-IOTOTAUpdate")
     "TargetType"=@("Get-IOTV2LoggingLevelList","Remove-IOTV2LoggingLevel")
     "TaskStatus"=@("Get-IOTAuditMitigationActionsTaskList","Get-IOTTaskList")
@@ -389,6 +397,7 @@ $IOT_map = @{
     "TopicRulePayload_ErrorAction_DynamoDB_RangeKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "TopicRulePayload_ErrorAction_S3_CannedAcl"=@("New-IOTTopicRule","Set-IOTTopicRule")
     "TopicRulePayload_ErrorAction_Sns_MessageFormat"=@("New-IOTTopicRule","Set-IOTTopicRule")
+    "Type"=@("New-IOTDimension")
 }
 
 _awsArgumentCompleterRegistration $IOT_Completers $IOT_map
@@ -459,6 +468,7 @@ $IOT_SelectMap = @{
                "New-IOTAuthorizer",
                "New-IOTBillingGroup",
                "New-IOTCertificateFromCsr",
+               "New-IOTDimension",
                "New-IOTDomainConfiguration",
                "New-IOTDynamicThingGroup",
                "New-IOTJob",
@@ -484,6 +494,7 @@ $IOT_SelectMap = @{
                "Remove-IOTBillingGroup",
                "Remove-IOTCACertificate",
                "Remove-IOTCertificate",
+               "Remove-IOTDimension",
                "Remove-IOTDomainConfiguration",
                "Remove-IOTDynamicThingGroup",
                "Remove-IOTJob",
@@ -515,6 +526,7 @@ $IOT_SelectMap = @{
                "Get-IOTCACertificate",
                "Get-IOTCertificate",
                "Get-IOTDefaultAuthorizer",
+               "Get-IOTDimension",
                "Get-IOTDomainConfiguration",
                "Get-IOTEndpoint",
                "Get-IOTEventConfiguration",
@@ -563,6 +575,7 @@ $IOT_SelectMap = @{
                "Get-IOTCACertificateList",
                "Get-IOTCertificateList",
                "Get-IOTCertificateListByCA",
+               "Get-IOTDimensionList",
                "Get-IOTDomainConfigurationList",
                "Get-IOTIndexList",
                "Get-IOTJobExecutionsForJobList",
@@ -601,6 +614,7 @@ $IOT_SelectMap = @{
                "Get-IOTViolationEventList",
                "Register-IOTCACertificate",
                "Register-IOTCertificate",
+               "Register-IOTCertificateWithoutCA",
                "Register-IOTThing",
                "Deny-IOTCertificateTransfer",
                "Remove-IOTThingFromBillingGroup",
@@ -626,6 +640,7 @@ $IOT_SelectMap = @{
                "Update-IOTBillingGroup",
                "Update-IOTCACertificate",
                "Update-IOTCertificate",
+               "Update-IOTDimension",
                "Update-IOTDomainConfiguration",
                "Update-IOTDynamicThingGroup",
                "Update-IOTEventConfiguration",

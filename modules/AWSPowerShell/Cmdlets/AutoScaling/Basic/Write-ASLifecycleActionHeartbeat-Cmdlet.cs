@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Records a heartbeat for the lifecycle action associated with the specified token or
-    /// instance. This extends the timeout by the length of time defined using <a>PutLifecycleHook</a>.
+    /// instance. This extends the timeout by the length of time defined using the <a>PutLifecycleHook</a>
+    /// API call.
     /// 
     ///  
     /// <para>

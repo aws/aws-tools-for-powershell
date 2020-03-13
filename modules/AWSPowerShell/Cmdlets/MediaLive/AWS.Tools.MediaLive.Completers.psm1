@@ -100,6 +100,13 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.InputDeviceConfiguredInput
+        "Update-EMLInputDevice/HdDeviceSettings_ConfiguredInput"
+        {
+            $v = "AUTO","HDMI","SDI"
+            break
+        }
+
         # Amazon.MediaLive.InputMaximumBitrate
         {
             ($_ -eq "New-EMLChannel/InputSpecification_MaximumBitrate") -Or
@@ -123,7 +130,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputType
         "New-EMLInput/Type"
         {
-            $v = "MEDIACONNECT","MP4_FILE","RTMP_PULL","RTMP_PUSH","RTP_PUSH","UDP_PUSH","URL_PULL"
+            $v = "INPUT_DEVICE","MEDIACONNECT","MP4_FILE","RTMP_PULL","RTMP_PUSH","RTP_PUSH","UDP_PUSH","URL_PULL"
             break
         }
 
@@ -157,6 +164,7 @@ $EML_Completers = {
 
 $EML_map = @{
     "ChannelClass"=@("New-EMLChannel","Update-EMLChannelClass")
+    "HdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
@@ -232,6 +240,7 @@ $EML_SelectMap = @{
                "Remove-EMLResourceTag",
                "Get-EMLChannel",
                "Get-EMLInput",
+               "Get-EMLInputDevice",
                "Get-EMLInputSecurityGroup",
                "Get-EMLMultiplex",
                "Get-EMLMultiplexProgram",
@@ -239,6 +248,7 @@ $EML_SelectMap = @{
                "Get-EMLReservation",
                "Get-EMLSchedule",
                "Get-EMLChannelList",
+               "Get-EMLInputDeviceList",
                "Get-EMLInputList",
                "Get-EMLInputSecurityGroupList",
                "Get-EMLMultiplexList",
@@ -254,6 +264,7 @@ $EML_SelectMap = @{
                "Update-EMLChannel",
                "Update-EMLChannelClass",
                "Update-EMLInput",
+               "Update-EMLInputDevice",
                "Update-EMLInputSecurityGroup",
                "Update-EMLMultiplex",
                "Update-EMLMultiplexProgram",

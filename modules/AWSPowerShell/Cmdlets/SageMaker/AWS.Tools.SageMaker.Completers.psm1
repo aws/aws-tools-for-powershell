@@ -158,7 +158,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.AwsManagedHumanLoopRequestSource
-        "New-SMFlowDefinition/HumanLoopActivationConfig_HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
+        "New-SMFlowDefinition/HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
         {
             $v = "AWS/Rekognition/DetectModerationLabels/Image/V3","AWS/Textract/AnalyzeDocument/Forms/V1"
             break
@@ -258,7 +258,7 @@ $SM_Completers = {
         # Amazon.SageMaker.Framework
         "New-SMCompilationJob/InputConfig_Framework"
         {
-            $v = "KERAS","MXNET","ONNX","PYTORCH","TENSORFLOW","XGBOOST"
+            $v = "KERAS","MXNET","ONNX","PYTORCH","TENSORFLOW","TFLITE","XGBOOST"
             break
         }
 
@@ -559,7 +559,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
-            $v = "aisage","amba_cv22","deeplens","imx8qm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c"
+            $v = "aisage","amba_cv22","deeplens","imx8qm","jetson_nano","jetson_tx1","jetson_tx2","jetson_xavier","lambda","ml_c4","ml_c5","ml_inf1","ml_m4","ml_m5","ml_p2","ml_p3","qcs603","qcs605","rasp3b","rk3288","rk3399","sbe_c","sitara_am57x"
             break
         }
 
@@ -614,7 +614,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMTrialComponent/Status_PrimaryStatus")
         }
         {
-            $v = "Completed","Failed","InProgress"
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
             break
         }
 
@@ -640,7 +640,7 @@ $SM_map = @{
     "BatchStrategy"=@("New-SMTransformJob")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
-    "HumanLoopActivationConfig_HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
+    "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")

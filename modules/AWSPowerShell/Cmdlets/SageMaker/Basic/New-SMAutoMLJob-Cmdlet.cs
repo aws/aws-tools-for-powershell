@@ -29,6 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates an AutoPilot job.
+    /// 
+    ///  
+    /// <para>
+    /// After you run an AutoPilot job, you can find the best performing model by calling
+    /// , and then deploy that model by following the steps described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html">Step
+    /// 6.1: Deploy the Model to Amazon SageMaker Hosting Services</a>.
+    /// </para><para>
+    /// For information about how to use AutoPilot, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">Use
+    /// AutoPilot to Automate Model Development</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SMAutoMLJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -82,7 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter InputDataConfig
         /// <summary>
         /// <para>
-        /// <para>Similar to InputDataConfig supported by Tuning. Format(s) supported: CSV.</para>
+        /// <para>Similar to InputDataConfig supported by Tuning. Format(s) supported: CSV. Minimum
+        /// of 1000 rows.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

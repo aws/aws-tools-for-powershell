@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
     /// Updates the parameter values for stack instances for the specified accounts, within
-    /// the specified regions. A stack instance refers to a stack in a specific account and
-    /// region. 
+    /// the specified Regions. A stack instance refers to a stack in a specific account and
+    /// Region. 
     /// 
     ///  
     /// <para>
-    /// You can only update stack instances in regions and accounts where they already exist;
+    /// You can only update stack instances in Regions and accounts where they already exist;
     /// to create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a>.
     /// 
     /// </para><para>
@@ -63,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>[Self-managed permissions] The names of one or more AWS accounts for which you want
-        /// to update parameter values for stack instances. The overridden parameter values will
-        /// be applied to all stack instances in the specified accounts and regions.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
+        /// <para>[<code>Self-managed</code> permissions] The names of one or more AWS accounts for
+        /// which you want to update parameter values for stack instances. The overridden parameter
+        /// values will be applied to all stack instances in the specified accounts and Regions.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_OrganizationalUnitId
         /// <summary>
         /// <para>
-        /// <para>The organization root ID or organizational unit (OUs) IDs to which StackSets deploys.</para>
+        /// <para>The organization root ID or organizational unit (OU) IDs to which StackSets deploys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para> A list of input parameters whose values you want to update for the specified stack
         /// instances. </para><para>Any overridden parameter values will be applied to all stack instances in the specified
-        /// accounts and regions. When specifying parameters and their values, be aware of how
+        /// accounts and Regions. When specifying parameters and their values, be aware of how
         /// AWS CloudFormation sets parameter values during stack instance update operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
         /// value.</para></li><li><para>To leave a parameter set to its present value, you can do one of the following:</para><ul><li><para>Do not include the parameter in the list.</para></li><li><para>Include the parameter and specify <code>UsePreviousValue</code> as <code>true</code>.
         /// (You cannot specify both a value and set <code>UsePreviousValue</code> to <code>true</code>.)</para></li></ul></li><li><para>To set all overridden parameter back to the values specified in the stack set, specify
@@ -147,9 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The names of one or more regions in which you want to update parameter values for
+        /// <para>The names of one or more Regions in which you want to update parameter values for
         /// stack instances. The overridden parameter values will be applied to all stack instances
-        /// in the specified accounts and regions.</para>
+        /// in the specified accounts and Regions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,10 +28,18 @@ using Amazon.WAFRegional.Model;
 namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
+    /// <note><para>
+    /// This is <b>AWS WAF Classic</b> documentation. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+    /// WAF Classic</a> in the developer guide.
+    /// </para><para><b>For the latest version of AWS WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+    /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
+    /// for regional and global use. 
+    /// </para></note><para>
     /// Returns an array of IP addresses currently being blocked by the <a>RateBasedRule</a>
     /// that is specified by the <code>RuleId</code>. The maximum number of managed keys that
     /// will be blocked is 10,000. If more than 10,000 addresses exceed the rate limit, the
-    /// 10,000 addresses with the highest rates will be blocked.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// 10,000 addresses with the highest rates will be blocked.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WAFRRateBasedRuleManagedKey")]
     [OutputType("System.String")]

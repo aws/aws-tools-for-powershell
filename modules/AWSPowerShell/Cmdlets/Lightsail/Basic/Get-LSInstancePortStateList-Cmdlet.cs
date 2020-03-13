@@ -28,7 +28,8 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Returns the port states for a specific virtual private server, or <i>instance</i>.
+    /// Returns the firewall port states for a specific Amazon Lightsail instance, the IP
+    /// addresses allowed to connect to the instance through the ports, and the protocol.
     /// </summary>
     [Cmdlet("Get", "LSInstancePortStateList")]
     [OutputType("Amazon.Lightsail.Model.InstancePortState")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter InstanceName
         /// <summary>
         /// <para>
-        /// <para>The name of the instance.</para>
+        /// <para>The name of the instance for which to return firewall port states.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

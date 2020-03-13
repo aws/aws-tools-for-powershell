@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the signaling channel from which you want to remove tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove
+        /// tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -160,6 +160,16 @@ $FD_Completers = {
             break
         }
 
+        # Amazon.FraudDetector.RuleExecutionMode
+        {
+            ($_ -eq "New-FDDetectorVersion/RuleExecutionMode") -Or
+            ($_ -eq "Update-FDDetectorVersion/RuleExecutionMode")
+        }
+        {
+            $v = "ALL_MATCHED","FIRST_MATCHED"
+            break
+        }
+
 
     }
 
@@ -177,6 +187,7 @@ $FD_map = @{
     "ModelSource"=@("Write-FDExternalModel")
     "ModelType"=@("Get-FDModel","Get-FDModelVersion","Get-FDModelVersionList","New-FDModelVersion","Update-FDModelVersion","Write-FDModel")
     "OutputConfiguration_Format"=@("Write-FDExternalModel")
+    "RuleExecutionMode"=@("New-FDDetectorVersion","Update-FDDetectorVersion")
     "Status"=@("Update-FDDetectorVersionStatus","Update-FDModelVersion")
 }
 
@@ -236,8 +247,10 @@ $FD_SelectMap = @{
                "New-FDModelVersion",
                "New-FDRule",
                "New-FDVariable",
+               "Remove-FDDetector",
                "Remove-FDDetectorVersion",
                "Remove-FDEvent",
+               "Remove-FDRuleVersion",
                "Get-FDDetectorVersionList",
                "Get-FDModelVersionList",
                "Get-FDDetector",

@@ -28,24 +28,33 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation transfers a domain from another registrar to Amazon Route 53. When
-    /// the transfer is complete, the domain is registered either with Amazon Registrar (for
-    /// .com, .net, and .org domains) or with our registrar associate, Gandi (for all other
-    /// TLDs).
+    /// Transfers a domain from another registrar to Amazon Route 53. When the transfer is
+    /// complete, the domain is registered either with Amazon Registrar (for .com, .net, and
+    /// .org domains) or with our registrar associate, Gandi (for all other TLDs).
     /// 
     ///  
     /// <para>
+    /// For more information about transferring domains, see the following topics:
+    /// </para><ul><li><para>
     /// For transfer requirements, a detailed procedure, and information about viewing the
-    /// status of a domain transfer, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html">Transferring
+    /// status of a domain that you're transferring to Route 53, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html">Transferring
     /// Registration for a Domain to Amazon Route 53</a> in the <i>Amazon Route 53 Developer
     /// Guide</i>.
-    /// </para><para>
+    /// </para></li><li><para>
+    /// For information about how to transfer a domain from one AWS account to another, see
+    /// <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html">TransferDomainToAnotherAwsAccount</a>.
+    /// 
+    /// </para></li><li><para>
+    /// For information about how to transfer a domain to another domain registrar, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-from-route-53.html">Transferring
+    /// a Domain from Amazon Route 53 to Another Registrar</a> in the <i>Amazon Route 53 Developer
+    /// Guide</i>.
+    /// </para></li></ul><para>
     /// If the registrar for your domain is also the DNS service provider for the domain,
-    /// we highly recommend that you consider transferring your DNS service to Amazon Route
-    /// 53 or to another DNS service provider before you transfer your registration. Some
-    /// registrars provide free DNS service when you purchase a domain registration. When
-    /// you transfer the registration, the previous registrar will not renew your domain registration
-    /// and could end your DNS service at any time.
+    /// we highly recommend that you transfer your DNS service to Route 53 or to another DNS
+    /// service provider before you transfer your registration. Some registrars provide free
+    /// DNS service when you purchase a domain registration. When you transfer the registration,
+    /// the previous registrar will not renew your domain registration and could end your
+    /// DNS service at any time.
     /// </para><important><para>
     /// If the registrar for your domain is also the DNS service provider for the domain and
     /// you don't transfer DNS service to another provider, your website, email, and the web
@@ -181,8 +190,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// If you choose an option other than <code>PERSON</code>, you must enter an organization
-        /// name, and you can't enable privacy protection for the contact.</para>
+        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
+        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
+        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,8 +208,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// If you choose an option other than <code>PERSON</code>, you must enter an organization
-        /// name, and you can't enable privacy protection for the contact.</para>
+        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
+        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
+        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,8 +226,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// If you choose an option other than <code>PERSON</code>, you must enter an organization
-        /// name, and you can't enable privacy protection for the contact.</para>
+        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
+        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
+        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -252,8 +276,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The name of the domain that you want to transfer to Amazon Route 53.</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
-        /// 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.</para>
+        /// <para>The name of the domain that you want to transfer to Route 53. The top-level domain
+        /// (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported
+        /// TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i>.</para><para>The domain name can contain only the following characters:</para><ul><li><para>Letters a through z. Domain names are not case sensitive.</para></li><li><para>Numbers 0 through 9.</para></li><li><para>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </para></li><li><para>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

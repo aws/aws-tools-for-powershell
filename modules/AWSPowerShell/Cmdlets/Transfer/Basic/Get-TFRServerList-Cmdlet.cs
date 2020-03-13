@@ -28,8 +28,8 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Lists the Secure File Transfer Protocol (SFTP) servers that are associated with your
-    /// AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the file transfer protocol-enabled servers that are associated with your AWS
+    /// account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRServerList")]
     [OutputType("Amazon.Transfer.Model.ListedServer")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of servers to return as a response to the <code>ListServers</code>
-        /// query.</para>
+        /// <para>Specifies the number of file transfer protocol-enabled servers to return as a response
+        /// to the <code>ListServers</code> query.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When additional results are obtained from the <code>ListServers</code> command, a
-        /// <code>NextToken</code> parameter is returned in the output. You can then pass the
-        /// <code>NextToken</code> parameter in a subsequent command to continue listing additional
+        /// <para>When additional results are obtained from the<code>ListServers</code> command, a <code>NextToken</code>
+        /// parameter is returned in the output. You can then pass the <code>NextToken</code>
+        /// parameter in a subsequent command to continue listing additional file transfer protocol-enabled
         /// servers.</para>
         /// </para>
         /// <para>

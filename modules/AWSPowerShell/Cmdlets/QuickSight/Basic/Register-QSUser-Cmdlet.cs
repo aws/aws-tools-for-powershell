@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// IAM role. You don't need to provide the session name for other scenarios, for example
         /// when you are registering an IAM user or an Amazon QuickSight user. You can register
         /// multiple users using the same IAM role if each user has a different session name.
-        /// For more information on assuming IAM roles, see <a href="https://docs.aws.example.com/cli/latest/reference/sts/assume-role.html"><code>assume-role</code></a> in the <i>AWS CLI Reference.</i></para>
+        /// For more information on assuming IAM roles, see <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html"><code>assume-role</code></a> in the <i>AWS CLI Reference.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

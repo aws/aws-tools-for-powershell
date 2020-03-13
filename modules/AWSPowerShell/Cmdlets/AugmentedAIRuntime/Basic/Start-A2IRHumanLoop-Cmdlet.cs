@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         #region Parameter FlowDefinitionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the flow definition.</para>
+        /// <para>The Amazon Resource Name (ARN) of the flow definition associated with this human loop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

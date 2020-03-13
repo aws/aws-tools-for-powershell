@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Deletes stack instances for the specified accounts, in the specified regions.
+    /// Deletes stack instances for the specified accounts, in the specified Regions.
     /// </summary>
     [Cmdlet("Remove", "CFNStackInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Account
         /// <summary>
         /// <para>
-        /// <para>[Self-managed permissions] The names of the AWS accounts that you want to delete stack
-        /// instances for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
+        /// <para>[<code>Self-managed</code> permissions] The names of the AWS accounts that you want
+        /// to delete stack instances for.</para><para>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter DeploymentTargets_OrganizationalUnitId
         /// <summary>
         /// <para>
-        /// <para>The organization root ID or organizational unit (OUs) IDs to which StackSets deploys.</para>
+        /// <para>The organization root ID or organizational unit (OU) IDs to which StackSets deploys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
-        /// <para>The regions where you want to delete stack set instances. </para>
+        /// <para>The Regions where you want to delete stack set instances. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

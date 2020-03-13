@@ -115,6 +115,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-REKStreamProcessor', 
         'Remove-REKCollection', 
         'Remove-REKFace', 
+        'Remove-REKProject', 
+        'Remove-REKProjectVersion', 
         'Remove-REKStreamProcessor', 
         'Search-REKFace', 
         'Search-REKFacesByImage', 

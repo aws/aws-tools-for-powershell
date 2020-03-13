@@ -54,17 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
-        /// <para>The name of the catalog database where the functions are located.</para>
+        /// <para>The name of the catalog database where the functions are located. If none is provided,
+        /// functions from all the databases across the catalog will be returned.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DatabaseName { get; set; }
         #endregion
         
@@ -172,12 +166,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CatalogId = this.CatalogId;
             context.DatabaseName = this.DatabaseName;
-            #if MODULAR
-            if (this.DatabaseName == null && ParameterWasBound(nameof(this.DatabaseName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)

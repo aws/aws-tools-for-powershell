@@ -92,18 +92,21 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMSContainerPolicy', 
         'Get-EMSCorsPolicy', 
         'Get-EMSLifecyclePolicy', 
+        'Get-EMSMetricPolicy', 
         'Get-EMSResourceTag', 
         'New-EMSContainer', 
         'Remove-EMSContainer', 
         'Remove-EMSContainerPolicy', 
         'Remove-EMSCorsPolicy', 
         'Remove-EMSLifecyclePolicy', 
+        'Remove-EMSMetricPolicy', 
         'Remove-EMSResourceTag', 
         'Start-EMSAccessLogging', 
         'Stop-EMSAccessLogging', 
         'Write-EMSContainerPolicy', 
         'Write-EMSCorsPolicy', 
-        'Write-EMSLifecyclePolicy')
+        'Write-EMSLifecyclePolicy', 
+        'Write-EMSMetricPolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

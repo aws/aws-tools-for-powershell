@@ -103,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_ResourceType
         /// <summary>
         /// <para>
-        /// <para>The resource type.</para>
+        /// <para>The resource type. Use VOLUME to create snapshots of individual volumes or use INSTANCE
+        /// to create multi-volume snapshots from the volumes for an instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         /// <summary>
         /// <para>
         /// <para>The edition of Amazon Managed Blockchain that the network uses. For more information,
-        /// see <a href="https://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain
+        /// see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain
         /// Pricing</a>.</para>
         /// </para>
         /// </summary>
@@ -109,6 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         [Alias("FrameworkConfiguration_Fabric_Edition")]
         [AWSConstantClassSource("Amazon.ManagedBlockchain.Edition")]
         public Amazon.ManagedBlockchain.Edition Fabric_Edition { get; set; }
+        #endregion
+        
+        #region Parameter Cloudwatch_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether logging is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MemberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch_Enabled")]
+        public System.Boolean? Cloudwatch_Enabled { get; set; }
         #endregion
         
         #region Parameter Framework
@@ -304,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             context.MemberConfiguration_Description = this.MemberConfiguration_Description;
             context.Fabric_AdminPassword = this.Fabric_AdminPassword;
             context.Fabric_AdminUsername = this.Fabric_AdminUsername;
+            context.Cloudwatch_Enabled = this.Cloudwatch_Enabled;
             context.MemberConfiguration_Name = this.MemberConfiguration_Name;
             #if MODULAR
             if (this.MemberConfiguration_Name == null && ParameterWasBound(nameof(this.MemberConfiguration_Name)))
@@ -461,6 +473,76 @@ namespace Amazon.PowerShell.Cmdlets.MBC
                 request.MemberConfiguration.FrameworkConfiguration = requestMemberConfiguration_memberConfiguration_FrameworkConfiguration;
                 requestMemberConfigurationIsNull = false;
             }
+            Amazon.ManagedBlockchain.Model.MemberLogPublishingConfiguration requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration = null;
+            
+             // populate LogPublishingConfiguration
+            var requestMemberConfiguration_memberConfiguration_LogPublishingConfigurationIsNull = true;
+            requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration = new Amazon.ManagedBlockchain.Model.MemberLogPublishingConfiguration();
+            Amazon.ManagedBlockchain.Model.MemberFabricLogPublishingConfiguration requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric = null;
+            
+             // populate Fabric
+            var requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_FabricIsNull = true;
+            requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric = new Amazon.ManagedBlockchain.Model.MemberFabricLogPublishingConfiguration();
+            Amazon.ManagedBlockchain.Model.LogConfigurations requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs = null;
+            
+             // populate CaLogs
+            var requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogsIsNull = true;
+            requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs = new Amazon.ManagedBlockchain.Model.LogConfigurations();
+            Amazon.ManagedBlockchain.Model.LogConfiguration requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch = null;
+            
+             // populate Cloudwatch
+            var requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_CloudwatchIsNull = true;
+            requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch = new Amazon.ManagedBlockchain.Model.LogConfiguration();
+            System.Boolean? requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch_cloudwatch_Enabled = null;
+            if (cmdletContext.Cloudwatch_Enabled != null)
+            {
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch_cloudwatch_Enabled = cmdletContext.Cloudwatch_Enabled.Value;
+            }
+            if (requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch_cloudwatch_Enabled != null)
+            {
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch.Enabled = requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch_cloudwatch_Enabled.Value;
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_CloudwatchIsNull = false;
+            }
+             // determine if requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch should be set to null
+            if (requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_CloudwatchIsNull)
+            {
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch = null;
+            }
+            if (requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch != null)
+            {
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs.Cloudwatch = requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs_Cloudwatch;
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogsIsNull = false;
+            }
+             // determine if requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs should be set to null
+            if (requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogsIsNull)
+            {
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs = null;
+            }
+            if (requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs != null)
+            {
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric.CaLogs = requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric_memberConfiguration_LogPublishingConfiguration_Fabric_CaLogs;
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_FabricIsNull = false;
+            }
+             // determine if requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric should be set to null
+            if (requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_FabricIsNull)
+            {
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric = null;
+            }
+            if (requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric != null)
+            {
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration.Fabric = requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration_memberConfiguration_LogPublishingConfiguration_Fabric;
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfigurationIsNull = false;
+            }
+             // determine if requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration should be set to null
+            if (requestMemberConfiguration_memberConfiguration_LogPublishingConfigurationIsNull)
+            {
+                requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration = null;
+            }
+            if (requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration != null)
+            {
+                request.MemberConfiguration.LogPublishingConfiguration = requestMemberConfiguration_memberConfiguration_LogPublishingConfiguration;
+                requestMemberConfigurationIsNull = false;
+            }
              // determine if request.MemberConfiguration should be set to null
             if (requestMemberConfigurationIsNull)
             {
@@ -593,6 +675,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             public System.String MemberConfiguration_Description { get; set; }
             public System.String Fabric_AdminPassword { get; set; }
             public System.String Fabric_AdminUsername { get; set; }
+            public System.Boolean? Cloudwatch_Enabled { get; set; }
             public System.String MemberConfiguration_Name { get; set; }
             public System.String Name { get; set; }
             public System.Int32? ApprovalThresholdPolicy_ProposalDurationInHour { get; set; }

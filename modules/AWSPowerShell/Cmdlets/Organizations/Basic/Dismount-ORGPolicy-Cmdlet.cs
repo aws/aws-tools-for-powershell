@@ -33,17 +33,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// for IAM users and roles in affected accounts are immediate.
     /// 
     ///  
-    /// <para><b>Note:</b> Every root, OU, and account must have at least one SCP attached. You
-    /// can replace the default <code>FullAWSAccess</code> policy with one that limits the
-    /// permissions that can be delegated. To do that, you must attach the replacement policy
-    /// before you can remove the default one. This is the authorization strategy of using
-    /// an <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist">allow
-    /// list</a>. You could instead attach a second SCP and leave the <code>FullAWSAccess</code>
-    /// SCP still attached. You could then specify <code>"Effect": "Deny"</code> in the second
-    /// SCP to override the <code>"Effect": "Allow"</code> in the <code>FullAWSAccess</code>
-    /// policy (or any other attached SCP). If you take these steps, you're using the authorization
-    /// strategy of a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist">deny
-    /// list</a>. 
+    /// <para><b>Note:</b> Every root, OU, and account must have at least one SCP attached. If
+    /// you want to replace the default <code>FullAWSAccess</code> policy with one that limits
+    /// the permissions that can be delegated, you must attach the replacement policy before
+    /// you can remove the default one. This is the authorization strategy of an "<a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist">allow
+    /// list</a>". If you instead attach a second SCP and leave the <code>FullAWSAccess</code>
+    /// SCP still attached, and specify <code>"Effect": "Deny"</code> in the second SCP to
+    /// override the <code>"Effect": "Allow"</code> in the <code>FullAWSAccess</code> policy
+    /// (or any other attached SCP), you're using the authorization strategy of a "<a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist">deny
+    /// list</a>".
     /// </para><para>
     /// This operation can be called only from the organization's master account.
     /// </para>

@@ -28,17 +28,20 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes one or more of your instances. You can use this to get information about
-    /// instances like the operating system platform, the SSM Agent version (Linux), status
-    /// etc. If you specify one or more instance IDs, it returns information for those instances.
+    /// Describes one or more of your instances, including information about the operating
+    /// system platform, the version of SSM Agent installed on the instance, instance status,
+    /// and so on.
+    /// 
+    ///  
+    /// <para>
+    /// If you specify one or more instance IDs, it returns information for those instances.
     /// If you do not specify instance IDs, it returns information for all your instances.
     /// If you specify an instance ID that is not valid or an instance that you do not own,
-    /// you receive an error. 
-    /// 
-    ///  <note><para>
+    /// you receive an error.
+    /// </para><note><para>
     /// The IamRole field for this API action is the Amazon Identity and Access Management
     /// (IAM) role assigned to on-premises instances. This call does not return the IAM role
-    /// for Amazon EC2 instances.
+    /// for EC2 instances.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMInstanceInformation")]
@@ -55,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>One or more filters. Use a filter to return a more specific list of instances. You
-        /// can filter on Amazon EC2 tag. Specify tags by using a key-value mapping.</para>
+        /// can filter based on tags applied to EC2 instances. Use this <code>Filters</code> data
+        /// type instead of <code>InstanceInformationFilterList</code>, which is deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,11 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>This is a legacy method. We recommend that you don't use this method. Instead, use
-        /// the <a>InstanceInformationFilter</a> action. The <code>InstanceInformationFilter</code>
-        /// action enables you to return instance information by using tags that are specified
-        /// as a key-value mapping. </para><para>If you do use this method, then you can't use the <code>InstanceInformationFilter</code>
-        /// action. Using this method and the <code>InstanceInformationFilter</code> action causes
-        /// an exception error. </para>
+        /// the <code>Filters</code> data type. <code>Filters</code> enables you to return instance
+        /// information by filtering based on tags applied to managed instances.</para><note><para>Attempting to use <code>InstanceInformationFilterList</code> and <code>Filters</code>
+        /// leads to an exception error. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

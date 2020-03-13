@@ -62,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String DistributionConfigurationArn { get; set; }
         #endregion
         
+        #region Parameter EnhancedImageMetadataEnabled
+        /// <summary>
+        /// <para>
+        /// <para> Collects additional information about the image being created, including the operating
+        /// system (OS) version and package list. This information is used to enhance the overall
+        /// experience of using EC2 Image Builder. Enabled by default. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnhancedImageMetadataEnabled { get; set; }
+        #endregion
+        
         #region Parameter ImageRecipeArn
         /// <summary>
         /// <para>
@@ -128,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Schedule_PipelineExecutionStartCondition
         /// <summary>
         /// <para>
-        /// <para> The condition configures when the pipeline should trigger a new image build. When
+        /// <para>The condition configures when the pipeline should trigger a new image build. When
         /// the <code>pipelineExecutionStartCondition</code> is set to <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>,
         /// EC2 Image Builder will build a new image only when there are known changes pending.
         /// When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every
@@ -143,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Schedule_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para> The expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</para>
+        /// <para>The expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.DistributionConfigurationArn = this.DistributionConfigurationArn;
+            context.EnhancedImageMetadataEnabled = this.EnhancedImageMetadataEnabled;
             context.ImageRecipeArn = this.ImageRecipeArn;
             #if MODULAR
             if (this.ImageRecipeArn == null && ParameterWasBound(nameof(this.ImageRecipeArn)))
@@ -318,6 +331,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.DistributionConfigurationArn != null)
             {
                 request.DistributionConfigurationArn = cmdletContext.DistributionConfigurationArn;
+            }
+            if (cmdletContext.EnhancedImageMetadataEnabled != null)
+            {
+                request.EnhancedImageMetadataEnabled = cmdletContext.EnhancedImageMetadataEnabled.Value;
             }
             if (cmdletContext.ImageRecipeArn != null)
             {
@@ -461,6 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String DistributionConfigurationArn { get; set; }
+            public System.Boolean? EnhancedImageMetadataEnabled { get; set; }
             public System.String ImageRecipeArn { get; set; }
             public System.Boolean? ImageTestsConfiguration_ImageTestsEnabled { get; set; }
             public System.Int32? ImageTestsConfiguration_TimeoutMinute { get; set; }

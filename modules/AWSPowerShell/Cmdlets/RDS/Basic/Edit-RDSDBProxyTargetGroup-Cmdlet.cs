@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Typically used with <code>SET</code> statements to make sure that each connection
         /// has identical settings such as time zone and character set. For multiple statements,
         /// use semicolons as the separator. You can also include multiple variables in a single
-        /// <code>SET</code> statement, such as <code>SET x=1, y=2</code>. </para><para>Default: no initialization query</para>
+        /// <code>SET</code> statement, such as <code>SET x=1, y=2</code>. </para><para><code>InitQuery</code> is not currently supported for PostgreSQL.</para><para>Default: no initialization query</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para>
+        /// <para>One or more filters.</para><ul><li><para><code>local-gateway-id</code> - The ID of a local gateway.</para></li><li><para><code>local-gateway-route-table-id</code> - The ID of a local gateway route table.</para></li><li><para><code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</para></li><li><para><code>state</code> - The state of the local gateway route table.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

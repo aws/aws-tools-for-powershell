@@ -30,7 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Launches the specified number of instances using an AMI for which you have permissions.
     /// 
-    /// 
     ///  
     /// <para>
     /// You can specify a number of options, or leave the default options. The following rules
@@ -109,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The affinity setting for the instance on the Dedicated Host. This parameter is not
-        /// supported for the <a>ImportInstance</a> command.</para><para>This parameter is not supported by .</para>
+        /// supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
+        /// command.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The Availability Zone of the instance.</para><para>If not specified, an Availability Zone will be automatically chosen for you based
-        /// on the load balancing criteria for the Region.</para><para>This parameter is not supported by .</para>
+        /// on the load balancing criteria for the Region.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>An elastic inference accelerator to associate with the instance. Elastic inference
         /// accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
-        /// your Deep Learning (DL) inference workloads.</para>
+        /// your Deep Learning (DL) inference workloads.</para><para>You cannot specify accelerators from different generations in the same request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,7 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the Dedicated Host on which the instance resides. This parameter is not
-        /// supported for the <a>ImportInstance</a> command.</para><para>This parameter is not supported by .</para>
+        /// supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
+        /// command.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ARN of the host resource group in which to launch the instances. If you specify
-        /// a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</para><para>This parameter is not supported by .</para>
+        /// a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -530,7 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of the partition the instance is in. Valid only if the placement group
-        /// strategy is set to <code>partition</code>.</para><para>This parameter is not supported by .</para>
+        /// strategy is set to <code>partition</code>.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -594,7 +595,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_SpreadDomain
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para><para>This parameter is not supported by .</para>
+        /// <para>Reserved for future use.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -630,7 +631,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The tenancy of the instance (if the instance is running in a VPC). An instance with
         /// a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
-        /// tenancy is not supported for the <a>ImportInstance</a> command.</para><para>This parameter is not supported by .</para>
+        /// tenancy is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
+        /// command.</para><para>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

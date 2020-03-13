@@ -36,6 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// subdivisions for a country (for example, states or provinces), the subdivisions for
     /// that country are listed in alphabetical order immediately after the corresponding
     /// country.
+    /// </para><para>
+    /// For a list of supported geolocation codes, see the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a>
+    /// data type.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "R53GeoLocationList")]
@@ -70,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// Route 53 supports for geolocation. If Route 53 has already returned a page or more
         /// of results, if <code>IsTruncated</code> is <code>true</code>, and if <code>NextCountryCode</code>
         /// from the previous response has a value, enter that value in <code>startcountrycode</code>
-        /// to return the next page of results.</para><para>Route 53 uses the two-letter country codes that are specified in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
-        /// standard 3166-1 alpha-2</a>.</para>
+        /// to return the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,12 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.R53
         #region Parameter StartSubdivisionCode
         /// <summary>
         /// <para>
-        /// <para>The code for the subdivision (for example, state or province) with which you want
-        /// to start listing locations that Amazon Route 53 supports for geolocation. If Route
-        /// 53 has already returned a page or more of results, if <code>IsTruncated</code> is
-        /// <code>true</code>, and if <code>NextSubdivisionCode</code> from the previous response
-        /// has a value, enter that value in <code>startsubdivisioncode</code> to return the next
-        /// page of results.</para><para>To list subdivisions of a country, you must include both <code>startcountrycode</code>
+        /// <para>The code for the state of the United States with which you want to start listing locations
+        /// that Amazon Route 53 supports for geolocation. If Route 53 has already returned a
+        /// page or more of results, if <code>IsTruncated</code> is <code>true</code>, and if
+        /// <code>NextSubdivisionCode</code> from the previous response has a value, enter that
+        /// value in <code>startsubdivisioncode</code> to return the next page of results.</para><para>To list subdivisions (U.S. states), you must include both <code>startcountrycode</code>
         /// and <code>startsubdivisioncode</code>.</para>
         /// </para>
         /// </summary>

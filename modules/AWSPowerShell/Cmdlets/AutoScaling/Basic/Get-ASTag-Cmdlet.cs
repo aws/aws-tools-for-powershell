@@ -39,6 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// You can also specify multiple filters. The result includes information for a particular
     /// tag only if it matches all the filters. If there's no match, no special message is
     /// returned.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging
+    /// Auto Scaling Groups and Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASTag")]

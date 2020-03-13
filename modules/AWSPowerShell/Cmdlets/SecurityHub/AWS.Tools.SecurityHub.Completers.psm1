@@ -94,6 +94,27 @@ $SHUB_Completers = {
             break
         }
 
+        # Amazon.SecurityHub.SeverityLabel
+        "Update-SHUBFindingsBatch/Severity_Label"
+        {
+            $v = "CRITICAL","HIGH","INFORMATIONAL","LOW","MEDIUM"
+            break
+        }
+
+        # Amazon.SecurityHub.VerificationState
+        "Update-SHUBFindingsBatch/VerificationState"
+        {
+            $v = "BENIGN_POSITIVE","FALSE_POSITIVE","TRUE_POSITIVE","UNKNOWN"
+            break
+        }
+
+        # Amazon.SecurityHub.WorkflowStatus
+        "Update-SHUBFindingsBatch/Workflow_Status"
+        {
+            $v = "NEW","NOTIFIED","RESOLVED","SUPPRESSED"
+            break
+        }
+
 
     }
 
@@ -105,6 +126,9 @@ $SHUB_Completers = {
 $SHUB_map = @{
     "ControlStatus"=@("Update-SHUBStandardsControl")
     "RecordState"=@("Update-SHUBFinding")
+    "Severity_Label"=@("Update-SHUBFindingsBatch")
+    "VerificationState"=@("Update-SHUBFindingsBatch")
+    "Workflow_Status"=@("Update-SHUBFindingsBatch")
 }
 
 _awsArgumentCompleterRegistration $SHUB_Completers $SHUB_map
@@ -161,6 +185,7 @@ $SHUB_SelectMap = @{
                "Disable-SHUBStandardsBatch",
                "Enable-SHUBStandardsBatch",
                "Import-SHUBFindingsBatch",
+               "Update-SHUBFindingsBatch",
                "New-SHUBActionTarget",
                "New-SHUBInsight",
                "New-SHUBMember",

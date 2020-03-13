@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the operation for which you want to get the status. Amazon Route
-        /// 53 returned the identifier in the response to the original request.</para>
+        /// <para>The identifier for the operation for which you want to get the status. Route 53 returned
+        /// the identifier in the response to the original request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

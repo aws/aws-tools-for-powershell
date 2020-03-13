@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// <a>Decrypt</a> operation to decrypt the encrypted private key.
     /// </para><para>
     /// To generate a data key pair, you must specify a symmetric customer master key (CMK)
-    /// to encrypt the private key in a data key pair. You cannot use an asymmetric CMK. To
-    /// get the type of your CMK, use the <a>DescribeKey</a> operation.
+    /// to encrypt the private key in a data key pair. You cannot use an asymmetric CMK or
+    /// a CMK in a custom key store. To get the type and origin of your CMK, use the <a>DescribeKey</a>
+    /// operation. 
     /// </para><para>
     /// If you are using the data key pair to encrypt data, or for any operation where you
     /// don't immediately need a private key, consider using the <a>GenerateDataKeyPairWithoutPlaintext</a>
@@ -58,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// You can use the optional encryption context to add additional security to the encryption
     /// operation. If you specify an <code>EncryptionContext</code>, you must specify the
     /// same encryption context (a case-sensitive exact match) when decrypting the encrypted
-    /// data key. Otherwise, the request to decrypt fails with an InvalidCiphertextException.
+    /// data key. Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>.
     /// For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
     /// Context</a> in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para><para>
@@ -109,7 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the symmetric CMK that encrypts the private key in the data key pair. You
-        /// cannot specify an asymmetric CMKs.</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+        /// cannot specify an asymmetric CMK or a CMK in a custom key store. To get the type and
+        /// origin of your CMK, use the <a>DescribeKey</a> operation.</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
         /// ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a
         /// CMK in a different AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>

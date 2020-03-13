@@ -28,23 +28,24 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves fleet properties, including metadata, status, and configuration, for one
-    /// or more fleets. You can request attributes for all fleets, or specify a list of one
-    /// or more fleet IDs. When requesting multiple fleets, use the pagination parameters
-    /// to retrieve results as a set of sequential pages. If successful, a <a>FleetAttributes</a>
-    /// object is returned for each requested fleet ID. When specifying a list of fleet IDs,
-    /// attribute objects are returned only for fleets that currently exist. 
+    /// Retrieves core properties, including configuration, status, and metadata, for a fleet.
     /// 
-    ///  <note><para>
+    /// 
+    ///  
+    /// <para>
+    /// To get attributes for one or more fleets, provide a list of fleet IDs or fleet ARNs.
+    /// To get attributes for all fleets, do not specify a fleet identifier. When requesting
+    /// attributes for multiple fleets, use the pagination parameters to retrieve results
+    /// as a set of sequential pages. If successful, a <a>FleetAttributes</a> object is returned
+    /// for each fleet requested, unless the fleet identifier is not found.
+    /// </para><note><para>
     /// Some API actions may limit the number of fleet IDs allowed in one request. If a request
-    /// exceeds this limit, the request fails and the error message includes the maximum allowed.
-    /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-    /// Working with Fleets</a>.
-    /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
+    /// exceeds this limit, the request fails and the error message includes the maximum allowed
+    /// number.
+    /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
+    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
     /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para>
-    /// Manage fleet actions:
-    /// </para><ul><li><para><a>StartFleetActions</a></para></li><li><para><a>StopFleetActions</a></para></li></ul></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleetAttribute")]
     [OutputType("Amazon.GameLift.Model.FleetAttributes")]
@@ -59,8 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for a fleet(s) to retrieve attributes for. You can use either
-        /// the fleet ID or ARN value.</para>
+        /// <para>A list of unique fleet identifiers to retrieve attributes for. You can use either
+        /// the fleet ID or ARN value. To retrieve attributes for all current fleets, do not include
+        /// this parameter. If the list of fleet identifiers includes fleets that don't currently
+        /// exist, the request succeeds but no attributes for that fleet are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

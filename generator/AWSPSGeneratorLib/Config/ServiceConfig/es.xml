@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>es</C2jFilename>
     <AssemblyName>Elasticsearch</AssemblyName>
@@ -13,13 +14,20 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptInboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Approve" Noun="InboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="TagList" PipelineParameter="TagList" NoPipelineParameter="false" LegacyAlias="Add-ESTag">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="AssociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -31,11 +39,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateOutboundCrossClusterSearchConnection" OutputProperty="*" Verb="New" Noun="OutboundCrossClusterSearchConnection" ShouldProcessTarget="" PipelineParameter="ConnectionAlias" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePackage" OutputProperty="PackageDetails" Verb="New" Noun="Package" ShouldProcessTarget="PackageName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteElasticsearchDomain" OutputProperty="DomainStatus" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteElasticsearchServiceRole" Verb="Remove" Noun="ElasticsearchServiceRole" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Remove" Noun="InboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOutboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Remove" Noun="OutboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePackage" OutputProperty="PackageDetails" Verb="Remove" Noun="Package" ShouldProcessTarget="PackageID" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,11 +83,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInboundCrossClusterSearchConnections" OutputProperty="CrossClusterSearchConnections" Verb="Get" Noun="InboundCrossClusterSearchConnection" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOutboundCrossClusterSearchConnections" OutputProperty="CrossClusterSearchConnections" Verb="Get" Noun="OutboundCrossClusterSearchConnection" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePackages" OutputProperty="PackageDetailsList" Verb="Get" Noun="Package" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeReservedElasticsearchInstanceOfferings" OutputProperty="ReservedElasticsearchInstanceOfferings" Verb="Get" Noun="ReservedElasticsearchInstanceOfferingList" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeReservedElasticsearchInstances" OutputProperty="ReservedElasticsearchInstances" Verb="Get" Noun="ReservedElasticsearchInstanceList" PipelineParameter="ReservedElasticsearchInstanceId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DissociatePackage" OutputProperty="DomainPackageDetails" Verb="Start" Noun="DissociatePackage" ShouldProcessTarget="DomainName" PipelineParameter="PackageID" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,6 +123,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainsForPackage" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="DomainsForPackageList" PipelineParameter="PackageID" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListElasticsearchInstanceTypes" OutputProperty="ElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -87,11 +135,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPackagesForDomain" OutputProperty="DomainPackageDetailsList" Verb="Get" Noun="PackagesForDomainList" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTags" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ARN" NoPipelineParameter="false" LegacyAlias="Get-ESTag">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PurchaseReservedElasticsearchInstanceOffering" OutputProperty="*" Verb="New" Noun="ReservedElasticsearchInstanceOffering" ShouldProcessTarget="ReservedElasticsearchInstanceOfferingId" PipelineParameter="ReservedElasticsearchInstanceOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectInboundCrossClusterSearchConnection" OutputProperty="CrossClusterSearchConnection" Verb="Deny" Noun="InboundCrossClusterSearchConnection" ShouldProcessTarget="CrossClusterSearchConnectionId" PipelineParameter="CrossClusterSearchConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -112,8 +168,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.Elasticsearch.Model.EncryptionAtRestOptions</Type>
     </TypesNotToFlatten>

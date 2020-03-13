@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>codeartifact</C2jFilename>
+    <AssemblyName>CodeArtifact</AssemblyName>
+    <ServiceNounPrefix>CA</ServiceNounPrefix>
+    <ServiceName>AWS CodeArtifact</ServiceName>
+    <ServiceClientInterface>IAmazonCodeArtifact</ServiceClientInterface>
+    <ServiceClient>AmazonCodeArtifactClient</ServiceClient>
+    <ServiceModuleGuid>53003ced-93c9-4dd6-bfd6-ac667bcf7882</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateExternalConnection" OutputProperty="Repository" Verb="Connect" Noun="ExternalConnection" ShouldProcessTarget="Repository" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyPackageVersions" OutputProperty="*" Verb="Copy" Noun="PackageVersion" ShouldProcessTarget="Package" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomain" OutputProperty="Domain" Verb="New" Noun="Domain" ShouldProcessTarget="Domain" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRepository" OutputProperty="Repository" Verb="New" Noun="Repository" ShouldProcessTarget="Repository" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomain" OutputProperty="Domain" Verb="Remove" Noun="Domain" ShouldProcessTarget="Domain" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomainPermissionsPolicy" OutputProperty="Policy" Verb="Remove" Noun="DomainPermissionsPolicy" ShouldProcessTarget="Domain" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePackageVersions" OutputProperty="*" Verb="Remove" Noun="PackageVersion" ShouldProcessTarget="Package" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRepository" OutputProperty="Repository" Verb="Remove" Noun="Repository" ShouldProcessTarget="Repository" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRepositoryPermissionsPolicy" OutputProperty="Policy" Verb="Remove" Noun="RepositoryPermissionsPolicy" ShouldProcessTarget="Repository" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomain" OutputProperty="Domain" Verb="Get" Noun="Domain" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePackageVersion" OutputProperty="PackageVersion" Verb="Get" Noun="PackageVersion" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRepository" OutputProperty="Repository" Verb="Get" Noun="Repository" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateExternalConnection" OutputProperty="Repository" Verb="Disconnect" Noun="ExternalConnection" ShouldProcessTarget="ExternalConnection" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisposePackageVersions" OutputProperty="*" Verb="Unpublish" Noun="PackageVersion" ShouldProcessTarget="Package" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAuthorizationToken" OutputProperty="*" Verb="Get" Noun="AuthorizationToken" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainPermissionsPolicy" OutputProperty="Policy" Verb="Get" Noun="DomainPermissionsPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPackageVersionAsset" OutputProperty="*" Verb="Get" Noun="PackageVersionAsset" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPackageVersionReadme" OutputProperty="*" Verb="Get" Noun="PackageVersionReadme" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRepositoryEndpoint" OutputProperty="RepositoryEndpoint" Verb="Get" Noun="RepositoryEndpoint" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRepositoryPermissionsPolicy" OutputProperty="Policy" Verb="Get" Noun="RepositoryPermissionsPolicy" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPackages" OutputProperty="Packages" Verb="Get" Noun="PackageList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPackageVersionAssets" OutputProperty="*" Verb="Get" Noun="PackageVersionAssetList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPackageVersionDependencies" OutputProperty="*" Verb="Get" Noun="PackageVersionDependencyList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPackageVersions" OutputProperty="*" Verb="Get" Noun="PackageVersionList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRepositories" OutputProperty="Repositories" Verb="Get" Noun="RepositoryList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRepositoriesInDomain" OutputProperty="Repositories" Verb="Get" Noun="RepositoriesInDomainList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDomainPermissionsPolicy" OutputProperty="Policy" Verb="Write" Noun="DomainPermissionsPolicy" ShouldProcessTarget="Domain" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRepositoryPermissionsPolicy" OutputProperty="Policy" Verb="Write" Noun="RepositoryPermissionsPolicy" ShouldProcessTarget="Repository" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePackageVersionsStatus" OutputProperty="*" Verb="Update" Noun="PackageVersionsStatus" ShouldProcessTarget="Package" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRepository" OutputProperty="Repository" Verb="Update" Noun="Repository" ShouldProcessTarget="Repository" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

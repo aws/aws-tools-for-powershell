@@ -55,14 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         /// <para>The versions of Apache Kafka with which you can use this MSK configuration.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("KafkaVersions")]
         public System.String[] KafkaVersion { get; set; }
         #endregion
@@ -172,12 +165,6 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             {
                 context.KafkaVersion = new List<System.String>(this.KafkaVersion);
             }
-            #if MODULAR
-            if (this.KafkaVersion == null && ParameterWasBound(nameof(this.KafkaVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter KafkaVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))

@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// If a call isn't part of a transaction because it doesn't include the <code>transactionID</code>
     /// parameter, changes that result from the call are committed automatically.
     /// </para></important><para>
-    /// The response size limit is 1 MB or 1,000 records. If the call returns more than 1
-    /// MB of response data or over 1,000 records, the call is terminated.
+    /// The response size limit is 1 MB. If the call returns more than 1 MB of response data,
+    /// the call is terminated.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "RDSDStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the SQL statement.</para>
+        /// <para>The parameters for the SQL statement.</para><note><para>Array parameters are not supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

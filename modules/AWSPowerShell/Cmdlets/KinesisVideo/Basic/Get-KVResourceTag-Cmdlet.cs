@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the signaling channel for which you want to list tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the signaling channel for which you want to list
+        /// tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If you specify this parameter and the result of a ListTagsForResource call is truncated,
-        /// the response includes a token that you can use in the next request to fetch the next
-        /// batch of tags. </para>
+        /// <para>If you specify this parameter and the result of a <code>ListTagsForResource</code>
+        /// call is truncated, the response includes a token that you can use in the next request
+        /// to fetch the next batch of tags. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Sets the state of a customer master key (CMK) to disabled, thereby preventing its
-    /// use for cryptographic operations. You cannot perform this operation on a CMK in a
-    /// different AWS account.
+    /// use for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+    /// operations</a>. You cannot perform this operation on a CMK in a different AWS account.
     /// 
     ///  
     /// <para>

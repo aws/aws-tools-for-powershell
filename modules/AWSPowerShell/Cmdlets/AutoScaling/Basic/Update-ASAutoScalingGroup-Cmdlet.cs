@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Note the following about changing <code>DesiredCapacity</code>, <code>MaxSize</code>,
     /// or <code>MinSize</code>:
     /// </para><ul><li><para>
-    /// If a scale-in event occurs as a result of a new <code>DesiredCapacity</code> value
+    /// If a scale-in activity occurs as a result of a new <code>DesiredCapacity</code> value
     /// that is lower than the current size of the group, the Auto Scaling group uses its
     /// termination policy to determine which instances to terminate.
     /// </para></li><li><para>
@@ -66,9 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// current size of the group, this sets the group's <code>DesiredCapacity</code> to the
     /// new <code>MaxSize</code> value.
     /// </para></li></ul><para>
-    /// To see which parameters have been set, use <a>DescribeAutoScalingGroups</a>. You can
-    /// also view the scaling policies for an Auto Scaling group using <a>DescribePolicies</a>.
-    /// If the group has scaling policies, you can update them using <a>PutScalingPolicy</a>.
+    /// To see which parameters have been set, call the <a>DescribeAutoScalingGroups</a> API.
+    /// To view the scaling policies for an Auto Scaling group, call the <a>DescribePolicies</a>
+    /// API. If the group has scaling policies, you can update them by calling the <a>PutScalingPolicy</a>
+    /// API.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "ASAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -126,9 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter DesiredCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of EC2 instances that should be running in the Auto Scaling group. This
-        /// number must be greater than or equal to the minimum size of the group and less than
-        /// or equal to the maximum size of the group.</para>
+        /// <para>The desired capacity is the initial capacity of the Auto Scaling group after this
+        /// operation completes and the capacity it attempts to maintain.</para><para>This number must be greater than or equal to the minimum size of the group and less
+        /// than or equal to the maximum size of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -176,8 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchTemplate_LaunchTemplateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the launch template. You must specify either a template ID or a template
-        /// name.</para>
+        /// <para>The ID of the launch template. To get the template ID, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a>
+        /// API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a>
+        /// API.</para><para>You must specify either a template ID or a template name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,8 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchTemplate_LaunchTemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch template. You must specify either a template name or a template
-        /// ID.</para>
+        /// <para>The name of the launch template. To get the template name, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html">DescribeLaunchTemplates</a>
+        /// API operation. New launch templates can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">CreateLaunchTemplate</a>
+        /// API.</para><para>You must specify either a template ID or a template name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,9 +201,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxInstanceLifetime
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of time, in seconds, that an instance can be in service.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing
+        /// <para>The maximum amount of time, in seconds, that an instance can be in service. The default
+        /// is null.</para><para>This parameter is optional, but if you specify a value for it, you must specify a
+        /// value of at least 604,800 seconds (7 days). To clear a previously set value, specify
+        /// a new value of 0.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing
         /// Auto Scaling Instances Based on Maximum Instance Lifetime</a> in the <i>Amazon EC2
-        /// Auto Scaling User Guide</i>.</para><para>Valid Range: Minimum value of 604800.</para>
+        /// Auto Scaling User Guide</i>.</para><para>Valid Range: Minimum value of 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +216,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxSize
         /// <summary>
         /// <para>
-        /// <para>The maximum size of the Auto Scaling group.</para>
+        /// <para>The maximum size of the Auto Scaling group.</para><note><para>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling
+        /// may need to go above <code>MaxSize</code> to meet your capacity requirements. In this
+        /// event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than
+        /// your maximum instance weight (weights that define how many capacity units each instance
+        /// contributes to the capacity of the group).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -297,11 +307,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version number, <code>$Latest</code>, or <code>$Default</code>. If the value is
-        /// <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version of the launch
-        /// template when launching instances. If the value is <code>$Default</code>, Amazon EC2
-        /// Auto Scaling selects the default version of the launch template when launching instances.
-        /// The default value is <code>$Default</code>.</para>
+        /// <para>The version number, <code>$Latest</code>, or <code>$Default</code>. To get the version
+        /// number, use the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplateVersions.html">DescribeLaunchTemplateVersions</a>
+        /// API operation. New launch template versions can be created using the Amazon EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.html">CreateLaunchTemplateVersion</a>
+        /// API.</para><para>If the value is <code>$Latest</code>, Amazon EC2 Auto Scaling selects the latest version
+        /// of the launch template when launching instances. If the value is <code>$Default</code>,
+        /// Amazon EC2 Auto Scaling selects the default version of the launch template when launching
+        /// instances. The default value is <code>$Default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

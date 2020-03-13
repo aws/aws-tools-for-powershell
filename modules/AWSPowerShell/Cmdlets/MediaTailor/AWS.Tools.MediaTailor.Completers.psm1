@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Elemental MediaTailor
 
 
+$EMT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MediaTailor.Mode
+        "Set-EMTPlaybackConfiguration/AvailSuppression_Mode"
+        {
+            $v = "BEHIND_LIVE_EDGE","OFF"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMT_map = @{
+    "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+}
+
+_awsArgumentCompleterRegistration $EMT_Completers $EMT_map
+
 $EMT_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

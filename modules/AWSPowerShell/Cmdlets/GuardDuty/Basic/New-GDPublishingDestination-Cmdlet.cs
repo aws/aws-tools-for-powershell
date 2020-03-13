@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Creates a publishing destination to send findings to. The resource to send findings
+    /// Creates a publishing destination to export findings to. The resource to export findings
     /// to must exist before you use this operation.
     /// </summary>
     [Cmdlet("New", "GDPublishingDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DestinationType
         /// <summary>
         /// <para>
-        /// <para>The type of resource for the publishing destination. Currently only S3 is supported.</para>
+        /// <para>The type of resource for the publishing destination. Currently only Amazon S3 buckets
+        /// are supported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

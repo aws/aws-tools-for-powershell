@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>route53domains</C2jFilename>
     <AssemblyName>Route53Domains</AssemblyName>
@@ -25,6 +26,14 @@
         <Property>NextPageMarker</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptDomainTransferFromAnotherAwsAccount" OutputProperty="OperationId" Verb="Approve" Noun="DomainTransferFromAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelDomainTransferToAnotherAwsAccount" OutputProperty="OperationId" Verb="Stop" Noun="DomainTransferToAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CheckDomainAvailability" OutputProperty="Availability" Verb="Test" Noun="DomainAvailability" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-R53DDomainAvailability">
             <Params />
             <TypesNotToFlatten />
@@ -87,6 +96,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RejectDomainTransferFromAnotherAwsAccount" OutputProperty="OperationId" Verb="Deny" Noun="DomainTransferFromAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RenewDomain" OutputProperty="OperationId" Verb="Update" Noun="DomainRenewal" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -103,6 +116,10 @@
             <Params>
                 <Param Name="DurationInYears" AutoRename="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TransferDomainToAnotherAwsAccount" OutputProperty="*" Verb="Move" Noun="DomainToAnotherAwsAccount" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomainContact" OutputProperty="OperationId" Verb="Update" Noun="DomainContact" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">

@@ -133,7 +133,10 @@ $S3C_Completers = {
         }
 
         # Amazon.S3Control.S3ObjectLockLegalHoldStatus
-        "New-S3CJob/Operation_S3PutObjectCopy_ObjectLockLegalHoldStatus"
+        {
+            ($_ -eq "New-S3CJob/Operation_S3PutObjectCopy_ObjectLockLegalHoldStatus") -Or
+            ($_ -eq "New-S3CJob/Operation_S3PutObjectLegalHold_LegalHold_Status")
+        }
         {
             $v = "OFF","ON"
             break
@@ -141,6 +144,13 @@ $S3C_Completers = {
 
         # Amazon.S3Control.S3ObjectLockMode
         "New-S3CJob/Operation_S3PutObjectCopy_ObjectLockMode"
+        {
+            $v = "COMPLIANCE","GOVERNANCE"
+            break
+        }
+
+        # Amazon.S3Control.S3ObjectLockRetentionMode
+        "New-S3CJob/Operation_S3PutObjectRetention_Retention_Mode"
         {
             $v = "COMPLIANCE","GOVERNANCE"
             break
@@ -178,6 +188,8 @@ $S3C_map = @{
     "Operation_S3PutObjectCopy_ObjectLockLegalHoldStatus"=@("New-S3CJob")
     "Operation_S3PutObjectCopy_ObjectLockMode"=@("New-S3CJob")
     "Operation_S3PutObjectCopy_StorageClass"=@("New-S3CJob")
+    "Operation_S3PutObjectLegalHold_LegalHold_Status"=@("New-S3CJob")
+    "Operation_S3PutObjectRetention_Retention_Mode"=@("New-S3CJob")
     "Report_Format"=@("New-S3CJob")
     "Report_ReportScope"=@("New-S3CJob")
     "RequestedJobStatus"=@("Update-S3CJobStatus")
@@ -237,15 +249,18 @@ $S3C_SelectMap = @{
                "New-S3CJob",
                "Remove-S3CAccessPoint",
                "Remove-S3CAccessPointPolicy",
+               "Remove-S3CJobTagging",
                "Remove-S3CPublicAccessBlock",
                "Get-S3CJob",
                "Get-S3CAccessPoint",
                "Get-S3CAccessPointPolicy",
                "Get-S3CAccessPointPolicyStatus",
+               "Get-S3CJobTagging",
                "Get-S3CPublicAccessBlock",
                "Get-S3CAccessPointList",
                "Get-S3CJobList",
                "Write-S3CAccessPointPolicy",
+               "Add-S3CJobTagging",
                "Add-S3CPublicAccessBlock",
                "Update-S3CJobPriority",
                "Update-S3CJobStatus")

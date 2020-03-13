@@ -90,8 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The name of the API's stage that you want to use for this mapping. Specify '(none)'
-        /// if you do not want callers to explicitly specify the stage name after any base path
-        /// name.</para>
+        /// if you want callers to explicitly specify the stage name after any base path name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

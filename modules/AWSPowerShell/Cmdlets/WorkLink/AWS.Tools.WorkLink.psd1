@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-WLResourceTag', 
         'Add-WLWebsiteAuthorizationProviderToFleet', 
         'Disconnect-WLUser', 
         'Get-WLAuditStreamConfiguration', 
@@ -98,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WLFleetList', 
         'Get-WLFleetMetadata', 
         'Get-WLIdentityProviderConfiguration', 
+        'Get-WLResourceTag', 
         'Get-WLWebsiteAuthorizationProviderList', 
         'Get-WLWebsiteCertificateAuthority', 
         'Get-WLWebsiteCertificateAuthorityList', 
@@ -105,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Register-WLDomain', 
         'Register-WLWebsiteCertificateAuthority', 
         'Remove-WLFleet', 
+        'Remove-WLResourceTag', 
         'Remove-WLWebsiteAuthorizationProviderFromFleet', 
         'Restore-WLDomainAccess', 
         'Revoke-WLDomainAccess', 

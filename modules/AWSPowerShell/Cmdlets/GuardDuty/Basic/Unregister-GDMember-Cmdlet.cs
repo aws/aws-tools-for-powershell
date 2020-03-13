@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>A list of account IDs of the GuardDuty member accounts that you want to disassociate
-        /// from master.</para>
+        /// from the master account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>The unique ID of the detector of the GuardDuty account whose members you want to disassociate
-        /// from master.</para>
+        /// from the master account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

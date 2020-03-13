@@ -28,10 +28,10 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Instantiates an autoscaling virtual server based on Secure File Transfer Protocol
-    /// (SFTP) in AWS. When you make updates to your server or when you work with users, use
-    /// the service-generated <code>ServerId</code> property that is assigned to the newly
-    /// created server.
+    /// Instantiates an autoscaling virtual server based on the selected file transfer protocol
+    /// in AWS. When you make updates to your file transfer protocol-enabled server or when
+    /// you work with users, use the service-generated <code>ServerId</code> property that
+    /// is assigned to the newly created server.
     /// </summary>
     [Cmdlet("New", "TFRServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>A list of address allocation IDs that are required to attach an Elastic IP address
-        /// to your SFTP server's endpoint. This is only valid in the <code>UpdateServer</code>
-        /// API.</para><note><para>This property can only be use when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
+        /// to your file transfer protocol-enabled server's endpoint. This is only valid in the
+        /// <code>UpdateServer</code> API.</para><note><para>This property can only be use when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,13 +56,32 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String[] EndpointDetails_AddressAllocationId { get; set; }
         #endregion
         
+        #region Parameter Certificate
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. Required
+        /// when <code>Protocols</code> is set to <code>FTPS</code>.</para><para>To request a new public certificate, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">Request
+        /// a public certificate</a> in the <i> AWS Certificate Manager User Guide</i>.</para><para>To import an existing certificate into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
+        /// certificates into ACM</a> in the <i> AWS Certificate Manager User Guide</i>.</para><para>To request a private certificate to use FTPS through private IP addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-private.html">Request
+        /// a private certificate</a> in the <i> AWS Certificate Manager User Guide</i>.</para><para>Certificates with the following cryptographic algorithms and key sizes are supported:</para><ul><li><para>2048-bit RSA (RSA_2048)</para></li><li><para>4096-bit RSA (RSA_4096)</para></li><li><para>Elliptic Prime Curve 256 bit (EC_prime256v1)</para></li><li><para>Elliptic Prime Curve 384 bit (EC_secp384r1)</para></li><li><para>Elliptic Prime Curve 521 bit (EC_secp521r1)</para></li></ul><note><para>The certificate must be a valid SSL/TLS X.509 version 3 certificate with FQDN or IP
+        /// address specified and information about the issuer.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Certificate { get; set; }
+        #endregion
+        
         #region Parameter EndpointType
         /// <summary>
         /// <para>
-        /// <para>The type of VPC endpoint that you want your SFTP server to connect to. You can choose
-        /// to connect to the public internet or a virtual private cloud (VPC) endpoint. With
-        /// a VPC endpoint, you can restrict access to your SFTP server and resources only within
-        /// your VPC.</para>
+        /// <para>The type of VPC endpoint that you want your file transfer protocol-enabled server
+        /// to connect to. You can choose to connect to the public internet or a VPC endpoint.
+        /// With a VPC endpoint, you can restrict access to your server and resources only within
+        /// your VPC.</para><note><para>It is recommended that you use <code>VPC</code> as the <code>EndpointType</code>.
+        /// With this endpoint type, you have the option to directly associate up to three Elastic
+        /// IPv4 addresses (BYO IP included) with your server's endpoint and use VPC security
+        /// groups to restrict traffic by the client's public IP address. This is not possible
+        /// with <code>EndpointType</code> set to <code>VPC_ENDPOINT</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,11 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter HostKey
         /// <summary>
         /// <para>
-        /// <para>The RSA private key as generated by the <code>ssh-keygen -N "" -f my-new-server-key</code>
-        /// command.</para><important><para>If you aren't planning to migrate existing users from an existing SFTP server to a
-        /// new AWS SFTP server, don't update the host key. Accidentally changing a server's host
-        /// key can be disruptive.</para></important><para> For more information, see "https://alpha-docs-aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key"
-        /// in the <i>AWS SFTP User Guide.</i></para>
+        /// <para>The RSA private key as generated by the <code>ssh-keygen -N "" -m PEM -f my-new-server-key</code>
+        /// command.</para><important><para>If you aren't planning to migrate existing users from an existing SFTP-enabled server
+        /// to a new server, don't update the host key. Accidentally changing a server's host
+        /// key can be disruptive.</para></important><para>For more information, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key">Change
+        /// the host key for your SFTP-enabled server</a> in the <i>AWS Transfer Family User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,12 +106,12 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderType
         /// <summary>
         /// <para>
-        /// <para>Specifies the mode of authentication for the SFTP server. The default value is <code>SERVICE_MANAGED</code>,
-        /// which allows you to store and access SFTP user credentials within the AWS Transfer
-        /// for SFTP service. Use the <code>API_GATEWAY</code> value to integrate with an identity
-        /// provider of your choosing. The <code>API_GATEWAY</code> setting requires you to provide
-        /// an API Gateway endpoint URL to call for authentication using the <code>IdentityProviderDetails</code>
-        /// parameter.</para>
+        /// <para>Specifies the mode of authentication for a file transfer protocol-enabled server.
+        /// The default value is <code>SERVICE_MANAGED</code>, which allows you to store and access
+        /// user credentials within the AWS Transfer Family service. Use the <code>API_GATEWAY</code>
+        /// value to integrate with an identity provider of your choosing. The <code>API_GATEWAY</code>
+        /// setting requires you to provide an API Gateway endpoint URL to call for authentication
+        /// using the <code>IdentityProviderDetails</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_InvocationRole
         /// <summary>
         /// <para>
-        /// <para>The <code>InvocationRole</code> parameter provides the type of <code>InvocationRole</code>
-        /// used to authenticate the user account.</para>
+        /// <para>Provides the type of <code>InvocationRole</code> used to authenticate the user account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,18 +132,39 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter LoggingRole
         /// <summary>
         /// <para>
-        /// <para>A value that allows the service to write your SFTP users' activity to your Amazon
-        /// CloudWatch logs for monitoring and auditing purposes.</para>
+        /// <para>Allows the service to write your users' activity to your Amazon CloudWatch logs for
+        /// monitoring and auditing purposes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LoggingRole { get; set; }
         #endregion
         
+        #region Parameter Protocol
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the file transfer protocol or protocols over which your file transfer protocol
+        /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para><code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
+        /// SSH</para></li><li><para><code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</para></li></ul><note><para>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate
+        /// Manager (ACM) which will be used to identify your server when clients connect to it
+        /// over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
+        /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
+        /// must be <code>API_GATEWAY</code>.</para><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
+        /// cannot be associated.</para><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
+        /// can be set to <code>PUBLIC</code> and the <code>IdentityProviderType</code> can be
+        /// set to <code>SERVICE_MANAGED</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Protocols")]
+        public System.String[] Protocol { get; set; }
+        #endregion
+        
         #region Parameter EndpointDetails_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of subnet IDs that are required to host your SFTP server endpoint in your VPC.</para>
+        /// <para>A list of subnet IDs that are required to host your file transfer protocol-enabled
+        /// server endpoint in your VPC.</para><note><para>This property can only be used when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Key-value pairs that can be used to group and search for servers.</para>
+        /// <para>Key-value pairs that can be used to group and search for file transfer protocol-enabled
+        /// servers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,8 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter IdentityProviderDetails_Url
         /// <summary>
         /// <para>
-        /// <para>The <code>Url</code> parameter provides contains the location of the service endpoint
-        /// used to authenticate users.</para>
+        /// <para>Provides the location of the service endpoint used to authenticate users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC endpoint.</para>
+        /// <para>The ID of the VPC endpoint.</para><note><para>This property can only be used when <code>EndpointType</code> is set to <code>VPC_ENDPOINT</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter EndpointDetails_VpcId
         /// <summary>
         /// <para>
-        /// <para>The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be
-        /// hosted.</para>
+        /// <para>The VPC ID of the VPC in which a file transfer protocol-enabled server's endpoint
+        /// will be hosted.</para><note><para>This property can only be used when <code>EndpointType</code> is set to <code>VPC</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 context.Select = CreateSelectDelegate<Amazon.Transfer.Model.CreateServerResponse, NewTFRServerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.Certificate = this.Certificate;
             if (this.EndpointDetails_AddressAllocationId != null)
             {
                 context.EndpointDetails_AddressAllocationId = new List<System.String>(this.EndpointDetails_AddressAllocationId);
@@ -233,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.IdentityProviderType = this.IdentityProviderType;
             context.LoggingRole = this.LoggingRole;
+            if (this.Protocol != null)
+            {
+                context.Protocol = new List<System.String>(this.Protocol);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Transfer.Model.Tag>(this.Tag);
@@ -253,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             // create request
             var request = new Amazon.Transfer.Model.CreateServerRequest();
             
+            if (cmdletContext.Certificate != null)
+            {
+                request.Certificate = cmdletContext.Certificate;
+            }
             
              // populate EndpointDetails
             var requestEndpointDetailsIsNull = true;
@@ -347,6 +395,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.LoggingRole = cmdletContext.LoggingRole;
             }
+            if (cmdletContext.Protocol != null)
+            {
+                request.Protocols = cmdletContext.Protocol;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -412,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Certificate { get; set; }
             public List<System.String> EndpointDetails_AddressAllocationId { get; set; }
             public List<System.String> EndpointDetails_SubnetId { get; set; }
             public System.String EndpointDetails_VpcEndpointId { get; set; }
@@ -422,6 +475,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityProviderDetails_Url { get; set; }
             public Amazon.Transfer.IdentityProviderType IdentityProviderType { get; set; }
             public System.String LoggingRole { get; set; }
+            public List<System.String> Protocol { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Transfer.Model.CreateServerResponse, NewTFRServerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServerId;

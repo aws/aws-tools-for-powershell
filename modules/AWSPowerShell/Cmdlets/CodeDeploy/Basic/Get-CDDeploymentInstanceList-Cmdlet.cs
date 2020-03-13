@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// <note><para>
-    ///  The newer BatchGetDeploymentTargets should be used instead because it works with
-    /// all compute types. <code>ListDeploymentInstances</code> throws an exception if it
-    /// is used with a compute platform other than EC2/On-premises or AWS Lambda. 
+    ///  The newer <code>BatchGetDeploymentTargets</code> should be used instead because it
+    /// works with all compute types. <code>ListDeploymentInstances</code> throws an exception
+    /// if it is used with a compute platform other than EC2/On-premises or AWS Lambda. 
     /// </para></note><para>
     ///  Lists the instance for a deployment associated with the IAM user or AWS account.
     /// 
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceStatusFilter
         /// <summary>
         /// <para>
-        /// <para>A subset of instances to list by status:</para><ul><li><para>Pending: Include those instances with pending deployments.</para></li><li><para>InProgress: Include those instances where deployments are still in progress.</para></li><li><para>Succeeded: Include those instances with successful deployments.</para></li><li><para>Failed: Include those instances with failed deployments.</para></li><li><para>Skipped: Include those instances with skipped deployments.</para></li><li><para>Unknown: Include those instances with deployments in an unknown state.</para></li></ul>
+        /// <para>A subset of instances to list by status:</para><ul><li><para><code>Pending</code>: Include those instances with pending deployments.</para></li><li><para><code>InProgress</code>: Include those instances where deployments are still in progress.</para></li><li><para><code>Succeeded</code>: Include those instances with successful deployments.</para></li><li><para><code>Failed</code>: Include those instances with failed deployments.</para></li><li><para><code>Skipped</code>: Include those instances with skipped deployments.</para></li><li><para><code>Unknown</code>: Include those instances with deployments in an unknown state.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

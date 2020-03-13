@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Definition
         /// <summary>
         /// <para>
-        /// <para>The self-service action definition. Can be one of the following:</para><dl><dt>Name</dt><dd><para>The name of the AWS Systems Manager Document. For example, <code>AWS-RestartEC2Instance</code>.</para></dd><dt>Version</dt><dd><para>The AWS Systems Manager automation document version. For example, <code>"Version":
+        /// <para>The self-service action definition. Can be one of the following:</para><dl><dt>Name</dt><dd><para>The name of the AWS Systems Manager document (SSM document). For example, <code>AWS-RestartEC2Instance</code>.</para><para>If you are using a shared SSM document, you must provide the ARN instead of the name.</para></dd><dt>Version</dt><dd><para>The AWS Systems Manager automation document version. For example, <code>"Version":
         /// "1"</code></para></dd><dt>AssumeRole</dt><dd><para>The Amazon Resource Name (ARN) of the role that performs the self-service actions
         /// on your behalf. For example, <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</para><para>To reuse the provisioned product launch role, set to <code>"AssumeRole": "LAUNCH_ROLE"</code>.</para></dd><dt>Parameters</dt><dd><para>The list of parameters in JSON format.</para><para>For example: <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code> or <code>[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]</code>.</para></dd></dl>
         /// </para>

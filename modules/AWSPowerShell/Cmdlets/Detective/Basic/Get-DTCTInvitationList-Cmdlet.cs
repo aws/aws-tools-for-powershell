@@ -28,13 +28,11 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Amazon Detective is currently in preview.
+    /// Retrieves the list of open and accepted behavior graph invitations for the member
+    /// account. This operation can only be called by a member account.
     /// 
     ///  
     /// <para>
-    /// Retrieves the list of open and accepted behavior graph invitations for the member
-    /// account. This operation can only be called by a member account.
-    /// </para><para>
     /// Open invitations are invitations that the member account has not responded to.
     /// </para><para>
     /// The results do not include behavior graphs for which the member account declined the

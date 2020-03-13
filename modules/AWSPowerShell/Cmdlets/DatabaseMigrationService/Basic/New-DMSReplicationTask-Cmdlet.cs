@@ -133,8 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationTaskSetting
         /// <summary>
         /// <para>
-        /// <para>Overall settings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html">Task
-        /// Settings</a> in the <i>AWS Database Migration User Guide.</i></para>
+        /// <para>Overall settings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html">Specifying
+        /// Task Settings for AWS Database Migration Service Tasks</a> in the <i>AWS Database
+        /// Migration User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter TableMapping
         /// <summary>
         /// <para>
-        /// <para>The table mappings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html">Table
-        /// Mapping</a> in the <i>AWS Database Migration User Guide.</i></para>
+        /// <para>The table mappings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html">Using
+        /// Table Mapping to Specify Task Settings</a> in the <i>AWS Database Migration User Guide.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -204,6 +205,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetEndpointArn { get; set; }
+        #endregion
+        
+        #region Parameter TaskData
+        /// <summary>
+        /// <para>
+        /// <para>Supplemental information that the task requires to migrate the data for certain source
+        /// and target endpoints. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying
+        /// Supplemental Data for Task Settings</a> in the <i>AWS Database Migration User Guide.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaskData { get; set; }
         #endregion
         
         #region Parameter Select
@@ -317,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 WriteWarning("You are passing $null as a value for parameter TargetEndpointArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TaskData = this.TaskData;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -376,6 +390,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.TargetEndpointArn != null)
             {
                 request.TargetEndpointArn = cmdletContext.TargetEndpointArn;
+            }
+            if (cmdletContext.TaskData != null)
+            {
+                request.TaskData = cmdletContext.TaskData;
             }
             
             CmdletOutput output;
@@ -449,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String TableMapping { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.Tag> Tag { get; set; }
             public System.String TargetEndpointArn { get; set; }
+            public System.String TaskData { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.CreateReplicationTaskResponse, NewDMSReplicationTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplicationTask;
         }

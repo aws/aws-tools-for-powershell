@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>
         /// <para>When specified, the vocabularies returned in the list are limited to vocabularies
         /// whose name contains the specified string. The search is case-insensitive, <code>ListVocabularies</code>
-        /// will return both "vocabularyname" and "VocabularyName" in the response list.</para>
+        /// returns both "vocabularyname" and "VocabularyName" in the response list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

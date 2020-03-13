@@ -32,7 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// requests that reference this queue will fail. To delete a queue, specify the queue
     /// name.
     /// 
-    ///  <ul><li><para><a>CreateGameSessionQueue</a></para></li><li><para><a>DescribeGameSessionQueues</a></para></li><li><para><a>UpdateGameSessionQueue</a></para></li><li><para><a>DeleteGameSessionQueue</a></para></li></ul>
+    ///  
+    /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html">
+    /// Using Multi-Region Queues</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameSessionQueue</a></para></li><li><para><a>DescribeGameSessionQueues</a></para></li><li><para><a>UpdateGameSessionQueue</a></para></li><li><para><a>DeleteGameSessionQueue</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

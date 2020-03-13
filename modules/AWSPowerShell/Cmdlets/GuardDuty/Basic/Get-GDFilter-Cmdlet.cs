@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector the filter is associated with.</para>
+        /// <para>The unique ID of the detector that the filter is associated with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

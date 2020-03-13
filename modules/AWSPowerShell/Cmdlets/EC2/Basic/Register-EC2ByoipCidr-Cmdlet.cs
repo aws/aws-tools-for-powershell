@@ -97,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String CidrAuthorizationContext_Message { get; set; }
         #endregion
         
+        #region Parameter PoolTagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the address pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PoolTagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] PoolTagSpecification { get; set; }
+        #endregion
+        
         #region Parameter PubliclyAdvertisable
         /// <summary>
         /// <para>
@@ -189,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CidrAuthorizationContext_Message = this.CidrAuthorizationContext_Message;
             context.CidrAuthorizationContext_Signature = this.CidrAuthorizationContext_Signature;
             context.Description = this.Description;
+            if (this.PoolTagSpecification != null)
+            {
+                context.PoolTagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.PoolTagSpecification);
+            }
             context.PubliclyAdvertisable = this.PubliclyAdvertisable;
             
             // allow further manipulation of loaded context prior to processing
@@ -242,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.PoolTagSpecification != null)
+            {
+                request.PoolTagSpecifications = cmdletContext.PoolTagSpecification;
             }
             if (cmdletContext.PubliclyAdvertisable != null)
             {
@@ -312,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CidrAuthorizationContext_Message { get; set; }
             public System.String CidrAuthorizationContext_Signature { get; set; }
             public System.String Description { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> PoolTagSpecification { get; set; }
             public System.Boolean? PubliclyAdvertisable { get; set; }
             public System.Func<Amazon.EC2.Model.ProvisionByoipCidrResponse, RegisterEC2ByoipCidrCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ByoipCidr;

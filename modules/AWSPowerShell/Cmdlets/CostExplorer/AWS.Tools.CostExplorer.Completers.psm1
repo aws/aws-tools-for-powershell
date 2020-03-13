@@ -81,7 +81,10 @@ $CE_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.CostExplorer.AccountScope
-        "Get-CEReservationPurchaseRecommendation/AccountScope"
+        {
+            ($_ -eq "Get-CEReservationPurchaseRecommendation/AccountScope") -Or
+            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/AccountScope")
+        }
         {
             $v = "LINKED","PAYER"
             break
@@ -107,7 +110,7 @@ $CE_Completers = {
         # Amazon.CostExplorer.Dimension
         "Get-CEDimensionValue/Dimension"
         {
-            $v = "AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","OPERATING_SYSTEM","OPERATION","PAYMENT_OPTION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RESOURCE_ID","RIGHTSIZING_TYPE","SAVINGS_PLANS_TYPE","SAVINGS_PLAN_ARN","SCOPE","SERVICE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
+            $v = "AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","LINKED_ACCOUNT_NAME","OPERATING_SYSTEM","OPERATION","PAYMENT_OPTION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","RESOURCE_ID","RIGHTSIZING_TYPE","SAVINGS_PLANS_TYPE","SAVINGS_PLAN_ARN","SCOPE","SERVICE","SERVICE_CODE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
             break
         }
 
@@ -164,6 +167,13 @@ $CE_Completers = {
             break
         }
 
+        # Amazon.CostExplorer.RecommendationTarget
+        "Get-CERightsizingRecommendation/Configuration_RecommendationTarget"
+        {
+            $v = "CROSS_INSTANCE_FAMILY","SAME_INSTANCE_FAMILY"
+            break
+        }
+
         # Amazon.CostExplorer.SupportedSavingsPlansType
         "Get-CESavingsPlansPurchaseRecommendation/SavingsPlansType"
         {
@@ -190,7 +200,8 @@ $CE_Completers = {
 }
 
 $CE_map = @{
-    "AccountScope"=@("Get-CEReservationPurchaseRecommendation")
+    "AccountScope"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
+    "Configuration_RecommendationTarget"=@("Get-CERightsizingRecommendation")
     "Context"=@("Get-CEDimensionValue")
     "Dimension"=@("Get-CEDimensionValue")
     "Granularity"=@("Get-CECostAndUsage","Get-CECostAndUsageWithResource","Get-CECostForecast","Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CEUsageForecast")

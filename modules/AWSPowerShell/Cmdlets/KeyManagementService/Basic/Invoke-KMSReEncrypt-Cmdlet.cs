@@ -32,16 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// operation to change the customer master key (CMK) under which data is encrypted, such
     /// as when you <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-manually">manually
     /// rotate</a> a CMK or change the CMK that protects a ciphertext. You can also use it
-    /// to reencrypt ciphertext under the same CMK, such as to change the encryption context
-    /// of a ciphertext. 
+    /// to reencrypt ciphertext under the same CMK, such as to change the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">encryption
+    /// context</a> of a ciphertext.
     /// 
     ///  
     /// <para>
     /// The <code>ReEncrypt</code> operation can decrypt ciphertext that was encrypted by
     /// using an AWS KMS CMK in an AWS KMS operation, such as <a>Encrypt</a> or <a>GenerateDataKey</a>.
-    /// It can also decrypt ciphertext that was encrypted by using the public key of an asymmetric
-    /// CMK outside of AWS KMS. However, it cannot decrypt ciphertext produced by other libraries,
-    /// such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">AWS
+    /// It can also decrypt ciphertext that was encrypted by using the public key of an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks">asymmetric
+    /// CMK</a> outside of AWS KMS. However, it cannot decrypt ciphertext produced by other
+    /// libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">AWS
     /// Encryption SDK</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon
     /// S3 client-side encryption</a>. These libraries return a ciphertext format that is
     /// incompatible with AWS KMS.
@@ -75,15 +75,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para></important></li></ul><para>
     /// Unlike other AWS KMS API operations, <code>ReEncrypt</code> callers must have two
     /// permissions:
-    /// </para><ul><li><para><code>kms:EncryptFrom</code> permission on the source CMK
-    /// </para></li><li><para><code>kms:EncryptTo</code> permission on the destination CMK
+    /// </para><ul><li><para><code>kms:ReEncryptFrom</code> permission on the source CMK
+    /// </para></li><li><para><code>kms:ReEncryptTo</code> permission on the destination CMK
     /// </para></li></ul><para>
-    /// To permit reencryption from
-    /// </para><para>
-    ///  or to a CMK, include the <code>"kms:ReEncrypt*"</code> permission in your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key
+    /// To permit reencryption from or to a CMK, include the <code>"kms:ReEncrypt*"</code>
+    /// permission in your <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key
     /// policy</a>. This permission is automatically included in the key policy when you use
     /// the console to create a CMK. But you must include it manually when you create a CMK
-    /// programmatically or when you use the <a>PutKeyPolicy</a> operation set a key policy.
+    /// programmatically or when you use the <a>PutKeyPolicy</a> operation to set a key policy.
     /// </para><para>
     /// The CMK that you use for this operation must be in a compatible key state. For details,
     /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How

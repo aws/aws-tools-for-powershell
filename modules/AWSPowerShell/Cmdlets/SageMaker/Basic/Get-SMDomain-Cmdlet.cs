@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// The desciption of the domain.
+    /// The description of the domain.
     /// </summary>
     [Cmdlet("Get", "SMDomain")]
     [OutputType("Amazon.SageMaker.Model.DescribeDomainResponse")]

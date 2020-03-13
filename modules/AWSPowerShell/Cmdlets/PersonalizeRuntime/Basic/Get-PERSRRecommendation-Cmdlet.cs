@@ -72,12 +72,22 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         /// <para>
         /// <para>The contextual metadata to use when getting recommendations. Contextual metadata includes
         /// any interaction information that might be relevant when getting a user's recommendations,
-        /// such as the user's current location or device type. For more information, see Contextual
-        /// Metadata.</para>
+        /// such as the user's current location or device type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Collections.Hashtable Context { get; set; }
+        #endregion
+        
+        #region Parameter FilterArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the filter to apply to the returned recommendations. For more information,
+        /// see Using Filters with Amazon Personalize.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterArn { get; set; }
         #endregion
         
         #region Parameter ItemId
@@ -171,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                     context.Context.Add((String)hashKey, (String)(this.Context[hashKey]));
                 }
             }
+            context.FilterArn = this.FilterArn;
             context.ItemId = this.ItemId;
             context.NumResult = this.NumResult;
             context.UserId = this.UserId;
@@ -197,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             if (cmdletContext.Context != null)
             {
                 request.Context = cmdletContext.Context;
+            }
+            if (cmdletContext.FilterArn != null)
+            {
+                request.FilterArn = cmdletContext.FilterArn;
             }
             if (cmdletContext.ItemId != null)
             {
@@ -273,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         {
             public System.String CampaignArn { get; set; }
             public Dictionary<System.String, System.String> Context { get; set; }
+            public System.String FilterArn { get; set; }
             public System.String ItemId { get; set; }
             public System.Int32? NumResult { get; set; }
             public System.String UserId { get; set; }

@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Lists Amazon GuardDuty findings' statistics for the specified detector ID.
+    /// Lists Amazon GuardDuty findings statistics for the specified detector ID.
     /// </summary>
     [Cmdlet("Get", "GDFindingStatistic")]
     [OutputType("Amazon.GuardDuty.Model.FindingStatistics")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingCriterion
         /// <summary>
         /// <para>
-        /// <para>Represents the criteria used for querying findings.</para>
+        /// <para>Represents the criteria that is used for querying findings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingStatisticType
         /// <summary>
         /// <para>
-        /// <para>Types of finding statistics to retrieve.</para>
+        /// <para>The types of finding statistics to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

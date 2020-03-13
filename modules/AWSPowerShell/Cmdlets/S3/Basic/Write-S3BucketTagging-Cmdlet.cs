@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><ul><li><para>
     /// Error code: <code>InvalidTagError</code></para><ul><li><para>
     /// Description: The tag provided was not a valid tag. This error can occur if the tag
-    /// did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//allocation-tag-restrictions.html">User-Defined
-    /// Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2//aws-tag-restrictions.html">AWS-Generated
+    /// did not pass input validation. For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined
+    /// Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">AWS-Generated
     /// Cost Allocation Tag Restrictions</a>.
     /// </para></li></ul></li><li><para>
     /// Error code: <code>MalformedXMLError</code></para><ul><li><para>

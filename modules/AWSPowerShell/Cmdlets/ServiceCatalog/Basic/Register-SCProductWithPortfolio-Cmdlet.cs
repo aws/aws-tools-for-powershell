@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
     /// Associates the specified product with the specified portfolio.
+    /// 
+    ///  
+    /// <para>
+    /// A delegated admin is authorized to invoke this command.
+    /// </para>
     /// </summary>
     [Cmdlet("Register", "SCProductWithPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

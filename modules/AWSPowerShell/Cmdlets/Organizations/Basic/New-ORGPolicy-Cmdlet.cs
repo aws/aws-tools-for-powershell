@@ -52,10 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The policy content to add to the new policy. For example, you could create a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">service
-        /// control policy</a> (SCP) that specifies the permissions that administrators in attached
-        /// accounts can delegate to their users, groups, and roles. The string for this SCP must
-        /// be JSON text. For more information about the SCP syntax, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
+        /// <para>The policy content to add to the new policy. For example, if you create a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">service
+        /// control policy</a> (SCP), this string must be JSON text that specifies the permissions
+        /// that admins in attached accounts can delegate to their users, groups, and roles. For
+        /// more information about the SCP syntax, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
         /// Control Policy Syntax</a> in the <i>AWS Organizations User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -108,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of policy to create.</para>
+        /// <para>The type of policy to create.</para><note><para>In the current release, the only type of policy that you can create is a service control
+        /// policy (SCP).</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

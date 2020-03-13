@@ -157,18 +157,22 @@ $QLDB_SelectCompleters = {
 }
 
 $QLDB_SelectMap = @{
-    "Select"=@("New-QLDBLedger",
+    "Select"=@("Stop-QLDBJournalKinesisStream",
+               "New-QLDBLedger",
                "Remove-QLDBLedger",
+               "Get-QLDBJournalKinesisStream",
                "Get-QLDBJournalS3Export",
                "Get-QLDBLedger",
                "Export-QLDBJournalToS3",
                "Get-QLDBBlock",
                "Get-QLDBDigest",
                "Get-QLDBRevision",
+               "Get-QLDBJournalKinesisStreamsForLedgerList",
                "Get-QLDBJournalS3ExportList",
                "Get-QLDBJournalS3ExportsForLedgerList",
                "Get-QLDBLedgerList",
                "Get-QLDBResourceTag",
+               "Start-QLDBStreamJournalToKinesi",
                "Add-QLDBResourceTag",
                "Remove-QLDBResourceTag",
                "Update-QLDBLedger")

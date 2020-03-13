@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// Disassociates a Web ACL from a regional application resource. A regional application
     /// can be an Application Load Balancer (ALB) or an API Gateway stage. 
     /// </para><para>
-    /// For AWS CloudFront, you can disassociate the Web ACL by providing an empty web ACL
-    /// ARN in the CloudFront API call <code>UpdateDistribution</code>. For information, see
-    /// <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
+    /// For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution
+    /// configuration. To disassociate a Web ACL, provide an empty web ACL ID in the CloudFront
+    /// call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "WAF2WebACLFromResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

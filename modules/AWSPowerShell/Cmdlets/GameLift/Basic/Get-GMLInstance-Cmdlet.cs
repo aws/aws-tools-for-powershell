@@ -38,7 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// in a fleet, specify a fleet ID only. Use the pagination parameters to retrieve results
     /// as a set of sequential pages. If successful, an <a>Instance</a> object is returned
     /// for each result.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
+    /// Access Fleet Instances</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
+    /// Fleet Issues</a></para><para><b>Related operations</b></para><ul><li><para><a>DescribeInstances</a></para></li><li><para><a>GetInstanceAccess</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLInstance")]
     [OutputType("Amazon.GameLift.Model.Instance")]

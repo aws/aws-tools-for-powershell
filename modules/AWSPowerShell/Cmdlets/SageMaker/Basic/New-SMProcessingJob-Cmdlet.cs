@@ -61,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] AppSpecification_ContainerEntrypoint { get; set; }
         #endregion
         
+        #region Parameter NetworkConfig_EnableInterContainerTrafficEncryption
+        /// <summary>
+        /// <para>
+        /// <para>Whether to encrypt all communications between distributed processing jobs. Choose
+        /// <code>True</code> to encrypt communications. Encryption provides greater security
+        /// for distributed processing jobs, but the processing might take longer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? NetworkConfig_EnableInterContainerTrafficEncryption { get; set; }
+        #endregion
+        
         #region Parameter NetworkConfig_EnableNetworkIsolation
         /// <summary>
         /// <para>
@@ -256,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs-aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using
+        /// <para>(Optional) An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using
         /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -403,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ExperimentConfig_ExperimentName = this.ExperimentConfig_ExperimentName;
             context.ExperimentConfig_TrialComponentDisplayName = this.ExperimentConfig_TrialComponentDisplayName;
             context.ExperimentConfig_TrialName = this.ExperimentConfig_TrialName;
+            context.NetworkConfig_EnableInterContainerTrafficEncryption = this.NetworkConfig_EnableInterContainerTrafficEncryption;
             context.NetworkConfig_EnableNetworkIsolation = this.NetworkConfig_EnableNetworkIsolation;
             if (this.VpcConfig_SecurityGroupId != null)
             {
@@ -564,6 +577,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate NetworkConfig
             var requestNetworkConfigIsNull = true;
             request.NetworkConfig = new Amazon.SageMaker.Model.NetworkConfig();
+            System.Boolean? requestNetworkConfig_networkConfig_EnableInterContainerTrafficEncryption = null;
+            if (cmdletContext.NetworkConfig_EnableInterContainerTrafficEncryption != null)
+            {
+                requestNetworkConfig_networkConfig_EnableInterContainerTrafficEncryption = cmdletContext.NetworkConfig_EnableInterContainerTrafficEncryption.Value;
+            }
+            if (requestNetworkConfig_networkConfig_EnableInterContainerTrafficEncryption != null)
+            {
+                request.NetworkConfig.EnableInterContainerTrafficEncryption = requestNetworkConfig_networkConfig_EnableInterContainerTrafficEncryption.Value;
+                requestNetworkConfigIsNull = false;
+            }
             System.Boolean? requestNetworkConfig_networkConfig_EnableNetworkIsolation = null;
             if (cmdletContext.NetworkConfig_EnableNetworkIsolation != null)
             {
@@ -810,6 +833,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ExperimentConfig_ExperimentName { get; set; }
             public System.String ExperimentConfig_TrialComponentDisplayName { get; set; }
             public System.String ExperimentConfig_TrialName { get; set; }
+            public System.Boolean? NetworkConfig_EnableInterContainerTrafficEncryption { get; set; }
             public System.Boolean? NetworkConfig_EnableNetworkIsolation { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }

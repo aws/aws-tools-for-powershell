@@ -162,8 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags, separated by commas, that you want to attach to the workgroup as
-        /// you create it.</para>
+        /// <para>A list of comma separated tags to add to the workgroup that is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

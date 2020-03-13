@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
 {
     /// <summary>
     /// Returns the most current information about the signaling channel. You must specify
-    /// either the name or the ARN of the channel that you want to describe.
+    /// either the name or the Amazon Resource Name (ARN) of the channel that you want to
+    /// describe.
     /// </summary>
     [Cmdlet("Get", "KVSignalingChannel")]
     [OutputType("Amazon.KinesisVideo.Model.ChannelInfo")]

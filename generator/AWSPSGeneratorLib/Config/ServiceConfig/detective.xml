@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>detective</C2jFilename>
     <AssemblyName>Detective</AssemblyName>
@@ -60,6 +61,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RejectInvitation" Verb="Deny" Noun="Invitation" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMonitoringMember" Verb="Start" Noun="MonitoringMember" ShouldProcessTarget="GraphArn" PipelineParameter="GraphArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

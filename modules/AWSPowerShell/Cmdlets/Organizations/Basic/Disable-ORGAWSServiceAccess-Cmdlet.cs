@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// the documentation for the other AWS service.
     /// </para></important><para>
     /// After you perform the <code>DisableAWSServiceAccess</code> operation, the specified
-    /// service can no longer perform operations in your organization's accounts. The only
-    /// exception is when the operations are explicitly permitted by IAM policies that are
-    /// attached to your roles. 
+    /// service can no longer perform operations in your organization's accounts unless the
+    /// operations are explicitly permitted by the IAM policies that are attached to your
+    /// roles.
     /// </para><para>
     /// For more information about integrating other services with AWS Organizations, including
     /// the list of services that work with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating

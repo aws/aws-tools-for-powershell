@@ -83,7 +83,7 @@ $KV_Completers = {
         # Amazon.KinesisVideo.APIName
         "Get-KVDataEndpoint/APIName"
         {
-            $v = "GET_DASH_STREAMING_SESSION_URL","GET_HLS_STREAMING_SESSION_URL","GET_MEDIA","GET_MEDIA_FOR_FRAGMENT_LIST","LIST_FRAGMENTS","PUT_MEDIA"
+            $v = "GET_CLIP","GET_DASH_STREAMING_SESSION_URL","GET_HLS_STREAMING_SESSION_URL","GET_MEDIA","GET_MEDIA_FOR_FRAGMENT_LIST","LIST_FRAGMENTS","PUT_MEDIA"
             break
         }
 

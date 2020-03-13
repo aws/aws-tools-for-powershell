@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationTaskSetting
         /// <summary>
         /// <para>
-        /// <para>JSON file that contains settings for the task, such as target metadata settings.</para>
+        /// <para>JSON file that contains settings for the task, such as task metadata settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,6 +149,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TableMappings")]
         public System.String TableMapping { get; set; }
+        #endregion
+        
+        #region Parameter TaskData
+        /// <summary>
+        /// <para>
+        /// <para>Supplemental information that the task requires to migrate the data for certain source
+        /// and target endpoints. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying
+        /// Supplemental Data for Task Settings</a> in the <i>AWS Database Migration User Guide.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TaskData { get; set; }
         #endregion
         
         #region Parameter Select
@@ -226,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.ReplicationTaskIdentifier = this.ReplicationTaskIdentifier;
             context.ReplicationTaskSetting = this.ReplicationTaskSetting;
             context.TableMapping = this.TableMapping;
+            context.TaskData = this.TaskData;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -273,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.TableMapping != null)
             {
                 request.TableMappings = cmdletContext.TableMapping;
+            }
+            if (cmdletContext.TaskData != null)
+            {
+                request.TaskData = cmdletContext.TaskData;
             }
             
             CmdletOutput output;
@@ -343,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String ReplicationTaskIdentifier { get; set; }
             public System.String ReplicationTaskSetting { get; set; }
             public System.String TableMapping { get; set; }
+            public System.String TaskData { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.ModifyReplicationTaskResponse, EditDMSReplicationTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ReplicationTask;
         }

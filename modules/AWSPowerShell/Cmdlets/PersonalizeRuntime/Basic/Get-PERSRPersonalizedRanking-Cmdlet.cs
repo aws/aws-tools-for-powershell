@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         /// <para>
         /// <para>The contextual metadata to use when getting recommendations. Contextual metadata includes
         /// any interaction information that might be relevant when getting a user's recommendations,
-        /// such as the user's current location or device type. For more information, see Contextual
-        /// Metadata.</para>
+        /// such as the user's current location or device type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

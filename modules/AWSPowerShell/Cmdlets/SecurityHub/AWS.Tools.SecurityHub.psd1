@@ -125,6 +125,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Send-SHUBMemberInvitation', 
         'Update-SHUBActionTarget', 
         'Update-SHUBFinding', 
+        'Update-SHUBFindingsBatch', 
         'Update-SHUBInsight', 
         'Update-SHUBStandardsControl')
 

@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-AG2ResourceTag', 
+        'Export-AG2Api', 
         'Get-AG2Api', 
         'Get-AG2ApiList', 
         'Get-AG2ApiMapping', 

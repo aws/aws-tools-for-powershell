@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter S3Location_BundleType
         /// <summary>
         /// <para>
-        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li><para>tar: A tar archive file.</para></li><li><para>tgz: A compressed tar archive file.</para></li><li><para>zip: A zip archive file.</para></li></ul>
+        /// <para>The file type of the application revision. Must be one of the following:</para><ul><li><para><code>tar</code>: A tar archive file.</para></li><li><para><code>tgz</code>: A compressed tar archive file.</para></li><li><para><code>zip</code>: A zip archive file.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>The name of a deployment configuration associated with the IAM user or AWS account.</para><para>If not specified, the value configured in the deployment group is used as the default.
         /// If the deployment group does not have a deployment configuration associated with it,
-        /// CodeDeployDefault.OneAtATime is used by default.</para>
+        /// <code>CodeDeployDefault</code>.<code>OneAtATime</code> is used by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>Information about how AWS CodeDeploy handles files that already exist in a deployment
-        /// target location but weren't part of the previous successful deployment.</para><para>The fileExistsBehavior parameter takes any of the following values:</para><ul><li><para>DISALLOW: The deployment fails. This is also the default behavior if no option is
+        /// target location but weren't part of the previous successful deployment.</para><para>The <code>fileExistsBehavior</code> parameter takes any of the following values:</para><ul><li><para>DISALLOW: The deployment fails. This is also the default behavior if no option is
         /// specified.</para></li><li><para>OVERWRITE: The version of the file from the application revision currently being deployed
         /// replaces the version already on the instance.</para></li><li><para>RETAIN: The version of the file already on the instance is kept and used as part of
         /// the new deployment.</para></li></ul>
@@ -229,21 +229,23 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter IgnoreApplicationStopFailure
         /// <summary>
         /// <para>
-        /// <para> If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment
-        /// lifecycle event to an instance fails, then the deployment continues to the next deployment
-        /// lifecycle event. For example, if ApplicationStop fails, the deployment continues with
-        /// DownloadBundle. If BeforeBlockTraffic fails, the deployment continues with BlockTraffic.
-        /// If AfterBlockTraffic fails, the deployment continues with ApplicationStop. </para><para> If false or not specified, then if a lifecycle event fails during a deployment to
+        /// <para> If true, then if an <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>,
+        /// or <code>AfterBlockTraffic</code> deployment lifecycle event to an instance fails,
+        /// then the deployment continues to the next deployment lifecycle event. For example,
+        /// if <code>ApplicationStop</code> fails, the deployment continues with <code>DownloadBundle</code>.
+        /// If <code>BeforeBlockTraffic</code> fails, the deployment continues with <code>BlockTraffic</code>.
+        /// If <code>AfterBlockTraffic</code> fails, the deployment continues with <code>ApplicationStop</code>.
+        /// </para><para> If false or not specified, then if a lifecycle event fails during a deployment to
         /// an instance, that deployment fails. If deployment to that instance is part of an overall
         /// deployment and the number of healthy hosts is not less than the minimum number of
-        /// healthy hosts, then a deployment to the next instance is attempted. </para><para> During a deployment, the AWS CodeDeploy agent runs the scripts specified for ApplicationStop,
-        /// BeforeBlockTraffic, and AfterBlockTraffic in the AppSpec file from the previous successful
-        /// deployment. (All other scripts are run from the AppSpec file in the current deployment.)
-        /// If one of these scripts contains an error and does not run successfully, the deployment
-        /// can fail. </para><para> If the cause of the failure is a script from the last successful deployment that
+        /// healthy hosts, then a deployment to the next instance is attempted. </para><para> During a deployment, the AWS CodeDeploy agent runs the scripts specified for <code>ApplicationStop</code>,
+        /// <code>BeforeBlockTraffic</code>, and <code>AfterBlockTraffic</code> in the AppSpec
+        /// file from the previous successful deployment. (All other scripts are run from the
+        /// AppSpec file in the current deployment.) If one of these scripts contains an error
+        /// and does not run successfully, the deployment can fail. </para><para> If the cause of the failure is a script from the last successful deployment that
         /// will never run successfully, create a new deployment and use <code>ignoreApplicationStopFailures</code>
-        /// to specify that the ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic failures
-        /// should be ignored. </para>
+        /// to specify that the <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>,
+        /// and <code>AfterBlockTraffic</code> failures should be ignored. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -278,7 +280,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter RevisionType
         /// <summary>
         /// <para>
-        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).</para></li></ul>
+        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).</para></li><li><para>AppSpecContent: An <code>AppSpecContent</code> object that contains the contents of
+        /// an AppSpec file for an AWS Lambda or Amazon ECS deployment. The content is formatted
+        /// as JSON or YAML stored as a RawString.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement
-        /// environment for a blue/green deployment. Cannot be used in the same call as ec2TagSet.</para>
+        /// environment for a blue/green deployment. Cannot be used in the same call as <code>ec2TagSet</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

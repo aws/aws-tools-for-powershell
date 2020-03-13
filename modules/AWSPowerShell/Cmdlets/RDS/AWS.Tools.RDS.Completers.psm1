@@ -90,7 +90,7 @@ $RDS_Completers = {
         # Amazon.RDS.EngineFamily
         "New-RDSDBProxy/EngineFamily"
         {
-            $v = "MYSQL"
+            $v = "MYSQL","POSTGRESQL"
             break
         }
 

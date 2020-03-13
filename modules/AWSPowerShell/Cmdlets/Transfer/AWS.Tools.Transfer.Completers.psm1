@@ -107,6 +107,13 @@ $TFR_Completers = {
             break
         }
 
+        # Amazon.Transfer.Protocol
+        "Test-TFRIdentityProvider/ServerProtocol"
+        {
+            $v = "FTP","FTPS","SFTP"
+            break
+        }
+
 
     }
 
@@ -119,6 +126,7 @@ $TFR_map = @{
     "EndpointType"=@("New-TFRServer","Update-TFRServer")
     "HomeDirectoryType"=@("New-TFRUser","Update-TFRUser")
     "IdentityProviderType"=@("New-TFRServer")
+    "ServerProtocol"=@("Test-TFRIdentityProvider")
 }
 
 _awsArgumentCompleterRegistration $TFR_Completers $TFR_map

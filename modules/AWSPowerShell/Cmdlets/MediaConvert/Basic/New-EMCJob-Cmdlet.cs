@@ -59,18 +59,33 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// Idempotency token for CreateJob operation.
+        /// Optional. Idempotency token for CreateJob
+        /// operation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter HopDestination
+        /// <summary>
+        /// <para>
+        /// Optional. Use queue hopping to avoid overly
+        /// long waits in the backlog of the queue that you submit your job to. Specify an alternate
+        /// queue and the maximum time that your job will wait in the initial queue before hopping.
+        /// For more information about this feature, see the AWS Elemental MediaConvert User Guide.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HopDestinations")]
+        public Amazon.MediaConvert.Model.HopDestination[] HopDestination { get; set; }
+        #endregion
+        
         #region Parameter JobTemplate
         /// <summary>
         /// <para>
-        /// When you create a job, you can either specify
-        /// a job template or specify the transcoding settings individually
+        /// Optional. When you create a job, you can either
+        /// specify a job template or specify the transcoding settings individually.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -92,11 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// Specify the relative priority for this job. In
-        /// any given queue, the service begins processing the job with the highest value first.
-        /// When more than one job has the same priority, the service begins processing the job
-        /// that you submitted first. If you don't specify a priority, the service uses the default
-        /// value 0.
+        /// Optional. Specify the relative priority for this
+        /// job. In any given queue, the service begins processing the job with the highest value
+        /// first. When more than one job has the same priority, the service begins processing
+        /// the job that you submitted first. If you don't specify a priority, the service uses
+        /// the default value 0.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,11 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter SimulateReservedQueue
         /// <summary>
         /// <para>
-        /// Enable this setting when you run
-        /// a test job to estimate how many reserved transcoding slots (RTS) you need. When this
-        /// is enabled, MediaConvert runs your job from an on-demand queue with similar performance
-        /// to what you will see with one RTS in a reserved queue. This setting is disabled by
-        /// default.
+        /// Optional. Enable this setting when
+        /// you run a test job to estimate how many reserved transcoding slots (RTS) you need.
+        /// When this is enabled, MediaConvert runs your job from an on-demand queue with similar
+        /// performance to what you will see with one RTS in a reserved queue. This setting is
+        /// disabled by default.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,11 +185,11 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter StatusUpdateInterval
         /// <summary>
         /// <para>
-        /// Specify how often MediaConvert sends
-        /// STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between
-        /// status updates. MediaConvert sends an update at this interval from the time the service
-        /// begins processing your job to the time it completes the transcode or encounters an
-        /// error.
+        /// Optional. Specify how often MediaConvert
+        /// sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds,
+        /// between status updates. MediaConvert sends an update at this interval from the time
+        /// the service begins processing your job to the time it completes the transcode or encounters
+        /// an error.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,8 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The tags that you want to add to the resource. You
-        /// can tag resources with a key-value pair or with only a key.
+        /// Optional. The tags that you want to add to the resource.
+        /// You can tag resources with a key-value pair or with only a key.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -197,8 +212,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter UserMetadata
         /// <summary>
         /// <para>
-        /// User-defined metadata that you want to associate
-        /// with an MediaConvert job. You specify metadata in key/value pairs.
+        /// Optional. User-defined metadata that you
+        /// want to associate with an MediaConvert job. You specify metadata in key/value pairs.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             context.AccelerationSettings_Mode = this.AccelerationSettings_Mode;
             context.BillingTagsSource = this.BillingTagsSource;
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.HopDestination != null)
+            {
+                context.HopDestination = new List<Amazon.MediaConvert.Model.HopDestination>(this.HopDestination);
+            }
             context.JobTemplate = this.JobTemplate;
             context.Priority = this.Priority;
             context.Queue = this.Queue;
@@ -346,6 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.HopDestination != null)
+            {
+                request.HopDestinations = cmdletContext.HopDestination;
             }
             if (cmdletContext.JobTemplate != null)
             {
@@ -447,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             public Amazon.MediaConvert.AccelerationMode AccelerationSettings_Mode { get; set; }
             public Amazon.MediaConvert.BillingTagsSource BillingTagsSource { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public List<Amazon.MediaConvert.Model.HopDestination> HopDestination { get; set; }
             public System.String JobTemplate { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String Queue { get; set; }

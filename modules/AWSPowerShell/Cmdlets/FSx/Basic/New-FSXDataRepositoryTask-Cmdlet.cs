@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// operation will fail if a data repository is not linked to the FSx file system. To
     /// learn more about data repository tasks, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-repository-tasks.html">Using
     /// Data Repository Tasks</a>. To learn more about linking a data repository to your file
-    /// system, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/getting-started-step1.html">Step
-    /// 1: Create Your Amazon FSx for Lustre File System</a>.
+    /// system, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/export-data-repository.html#export-prefix">Setting
+    /// the Export Prefix</a>.
     /// </summary>
     [Cmdlet("New", "FSXDataRepositoryTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FSx.Model.DataRepositoryTask")]
@@ -132,7 +132,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>(Optional) The path or paths on the Amazon FSx file system to use when the data repository
-        /// task is processed. The default path is the file system root directory.</para>
+        /// task is processed. The default path is the file system root directory. The paths you
+        /// provide need to be relative to the mount point of the file system. If the mount point
+        /// is <code>/mnt/fsx</code> and <code>/mnt/fsx/path1</code> is a directory or file on
+        /// the file system you want to export, then the path to provide is <code>path1</code>.
+        /// If a path that you provide isn't valid, the task fails.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

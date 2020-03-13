@@ -103,7 +103,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-MBCProposal', 
         'Remove-MBCMember', 
         'Remove-MBCNode', 
-        'Send-MBCProposalVote')
+        'Send-MBCProposalVote', 
+        'Update-MBCMember', 
+        'Update-MBCNode')
 
     # Variables to export from this module
     VariablesToExport = '*'

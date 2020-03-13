@@ -63,6 +63,20 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter HopDestination
+        /// <summary>
+        /// <para>
+        /// Optional. Use queue hopping to avoid overly
+        /// long waits in the backlog of the queue that you submit your job to. Specify an alternate
+        /// queue and the maximum time that your job will wait in the initial queue before hopping.
+        /// For more information about this feature, see the AWS Elemental MediaConvert User Guide.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HopDestinations")]
+        public Amazon.MediaConvert.Model.HopDestination[] HopDestination { get; set; }
+        #endregion
+        
         #region Parameter AccelerationSettings_Mode
         /// <summary>
         /// <para>
@@ -226,6 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             context.AccelerationSettings_Mode = this.AccelerationSettings_Mode;
             context.Category = this.Category;
             context.Description = this.Description;
+            if (this.HopDestination != null)
+            {
+                context.HopDestination = new List<Amazon.MediaConvert.Model.HopDestination>(this.HopDestination);
+            }
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -293,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.HopDestination != null)
+            {
+                request.HopDestinations = cmdletContext.HopDestination;
             }
             if (cmdletContext.Name != null)
             {
@@ -382,6 +404,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             public Amazon.MediaConvert.AccelerationMode AccelerationSettings_Mode { get; set; }
             public System.String Category { get; set; }
             public System.String Description { get; set; }
+            public List<Amazon.MediaConvert.Model.HopDestination> HopDestination { get; set; }
             public System.String Name { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String Queue { get; set; }

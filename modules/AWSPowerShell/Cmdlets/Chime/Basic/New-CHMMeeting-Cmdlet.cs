@@ -53,6 +53,16 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter ExternalMeetingId
+        /// <summary>
+        /// <para>
+        /// <para>The external meeting ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExternalMeetingId { get; set; }
+        #endregion
+        
         #region Parameter MediaRegion
         /// <summary>
         /// <para>
@@ -95,6 +105,17 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NotificationsConfiguration_SqsQueueArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag key-value pairs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Chime.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,10 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ExternalMeetingId = this.ExternalMeetingId;
             context.MediaRegion = this.MediaRegion;
             context.MeetingHostId = this.MeetingHostId;
             context.NotificationsConfiguration_SnsTopicArn = this.NotificationsConfiguration_SnsTopicArn;
             context.NotificationsConfiguration_SqsQueueArn = this.NotificationsConfiguration_SqsQueueArn;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Chime.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.ExternalMeetingId != null)
+            {
+                request.ExternalMeetingId = cmdletContext.ExternalMeetingId;
             }
             if (cmdletContext.MediaRegion != null)
             {
@@ -219,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             if (requestNotificationsConfigurationIsNull)
             {
                 request.NotificationsConfiguration = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -282,10 +316,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.String ExternalMeetingId { get; set; }
             public System.String MediaRegion { get; set; }
             public System.String MeetingHostId { get; set; }
             public System.String NotificationsConfiguration_SnsTopicArn { get; set; }
             public System.String NotificationsConfiguration_SqsQueueArn { get; set; }
+            public List<Amazon.Chime.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Chime.Model.CreateMeetingResponse, NewCHMMeetingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Meeting;
         }

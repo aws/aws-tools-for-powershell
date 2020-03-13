@@ -28,10 +28,10 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Creates a new IPSet, called Trusted IP list in the consoler user interface. An IPSet
-    /// is a list IP addresses trusted for secure communication with AWS infrastructure and
-    /// applications. GuardDuty does not generate findings for IP addresses included in IPSets.
-    /// Only users from the master account can use this operation.
+    /// Creates a new IPSet, which is called a trusted IP list in the console user interface.
+    /// An IPSet is a list of IP addresses that are trusted for secure communication with
+    /// AWS infrastructure and applications. GuardDuty doesn't generate findings for IP addresses
+    /// that are included in IPSets. Only users from the master account can use this operation.
     /// </summary>
     [Cmdlet("New", "GDIPSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Activate
         /// <summary>
         /// <para>
-        /// <para>A boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.</para>
+        /// <para>A Boolean value that indicates whether GuardDuty is to start using the uploaded IPSet.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty account for which you want to create
-        /// an IPSet.</para>
+        /// <para>The unique ID of the detector of the GuardDuty account that you want to create an
+        /// IPSet for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Location
         /// <summary>
         /// <para>
-        /// <para>The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)</para>
+        /// <para>The URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,8 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The user friendly name to identify the IPSet. This name is displayed in all findings
-        /// that are triggered by activity that involves IP addresses included in this IPSet.</para>
+        /// <para>The user-friendly name to identify the IPSet.</para><para> Allowed characters are alphanumerics, spaces, hyphens (-), and underscores (_).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

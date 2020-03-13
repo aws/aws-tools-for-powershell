@@ -96,7 +96,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-DTCTMember', 
         'Remove-DTCTGraph', 
         'Remove-DTCTMember', 
-        'Remove-DTCTMembership')
+        'Remove-DTCTMembership', 
+        'Start-DTCTMonitoringMember')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// This operation describes only Classic Load Balancers. If you have Application Load
-    /// Balancers or Network Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.
+    /// Balancers or Network Load Balancers, use the <a>DescribeLoadBalancerTargetGroups</a>
+    /// API instead.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASLoadBalancer")]

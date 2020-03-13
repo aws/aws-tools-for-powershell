@@ -135,9 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>The storage capacity of the file system being created.</para><para>For Windows file systems, valid values are 32 GiB - 65,536 GiB.</para><para>For <code>SCRATCH_1</code> Lustre file systems, valid values are 1,200, 2,400, 3,600,
-        /// then continuing in increments of 3600 GiB. For <code>SCRATCH_2</code> and <code>PERSISTENT_1</code>
-        /// file systems, valid values are 1200, 2400, then continuing in increments of 2400 GiB.</para>
+        /// <para>Sets the storage capacity of the file system that you're creating.</para><para>For Lustre file systems:</para><ul><li><para>For <code>SCRATCH_2</code> and <code>PERSISTENT_1</code> deployment types, valid values
+        /// are 1.2, 2.4, and increments of 2.4 TiB.</para></li><li><para>For <code>SCRATCH_1</code> deployment type, valid values are 1.2, 2.4, and increments
+        /// of 3.6 TiB.</para></li></ul><para>For Windows file systems:</para><ul><li><para>If <code>StorageType=SSD</code>, valid values are 32 GiB - 65,536 GiB (64 TiB).</para></li><li><para>If <code>StorageType=HDD</code>, valid values are 2000 GiB - 65,536 GiB (64 TiB).</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -150,6 +150,21 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.Int32? StorageCapacity { get; set; }
         #endregion
         
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>Sets the storage type for the Amazon FSx for Windows file system you're creating.
+        /// Valid values are <code>SSD</code> and <code>HDD</code>.</para><ul><li><para>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all
+        /// Windows deployment types.</para></li><li><para>Set to <code>HDD</code> to use hard disk drive storage. HDD is supported on <code>SINGLE_AZ_2</code>
+        /// and <code>MULTI_AZ_1</code> Windows file system deployment types. </para></li></ul><para> Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
+        /// Storage Type Options</a> in the <i>Amazon FSx for Windows User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FSx.StorageType")]
+        public Amazon.FSx.StorageType StorageType { get; set; }
+        #endregion
+        
         #region Parameter SubnetId
         /// <summary>
         /// <para>
@@ -157,9 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// Windows <code>MULTI_AZ_1</code> file system deployment types, provide exactly two
         /// subnet IDs, one for the preferred file server and one for the standby file server.
         /// You specify one of these subnets as the preferred subnet using the <code>WindowsConfiguration
-        /// &gt; PreferredSubnetID</code> property.</para><para>For Windows <code>SINGLE_AZ_1</code> file system deployment types and Lustre file
-        /// systems, provide exactly one subnet ID. The file server is launched in that subnet's
-        /// Availability Zone.</para>
+        /// &gt; PreferredSubnetID</code> property.</para><para>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment
+        /// types and Lustre file systems, provide exactly one subnet ID. The file server is launched
+        /// in that subnet's Availability Zone.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -189,8 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter WindowsConfiguration
         /// <summary>
         /// <para>
-        /// <para>The Microsoft Windows configuration for the file system being created. This value
-        /// is required if <code>FileSystemType</code> is set to <code>WINDOWS</code>.</para>
+        /// <para>The Microsoft Windows configuration for the file system being created. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 WriteWarning("You are passing $null as a value for parameter StorageCapacity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.StorageType = this.StorageType;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -313,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.StorageCapacity != null)
             {
                 request.StorageCapacity = cmdletContext.StorageCapacity.Value;
+            }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -393,6 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public Amazon.FSx.Model.CreateFileSystemLustreConfiguration LustreConfiguration { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.Int32? StorageCapacity { get; set; }
+            public Amazon.FSx.StorageType StorageType { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.FSx.Model.Tag> Tag { get; set; }
             public Amazon.FSx.Model.CreateFileSystemWindowsConfiguration WindowsConfiguration { get; set; }

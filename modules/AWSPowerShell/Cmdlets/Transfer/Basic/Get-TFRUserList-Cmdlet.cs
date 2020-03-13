@@ -28,8 +28,8 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Lists the users for the server that you specify by passing the <code>ServerId</code>
-    /// parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the users for a file transfer protocol-enabled server that you specify by passing
+    /// the <code>ServerId</code> parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRUserList")]
     [OutputType("Amazon.Transfer.Model.ListedUser")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for a Secure File Transfer Protocol (SFTP) server
-        /// that has users assigned to it.</para>
+        /// <para>A system-assigned unique identifier for a file transfer protocol-enabled server that
+        /// has users assigned to it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

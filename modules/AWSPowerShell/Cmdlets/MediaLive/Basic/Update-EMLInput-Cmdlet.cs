@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.InputDestinationRequest[] Destination { get; set; }
         #endregion
         
+        #region Parameter InputDevice
+        /// <summary>
+        /// <para>
+        /// Settings for the devices.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDevices")]
+        public Amazon.MediaLive.Model.InputDeviceRequest[] InputDevice { get; set; }
+        #endregion
+        
         #region Parameter InputId
         /// <summary>
         /// <para>
@@ -194,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.Destination = new List<Amazon.MediaLive.Model.InputDestinationRequest>(this.Destination);
             }
+            if (this.InputDevice != null)
+            {
+                context.InputDevice = new List<Amazon.MediaLive.Model.InputDeviceRequest>(this.InputDevice);
+            }
             context.InputId = this.InputId;
             #if MODULAR
             if (this.InputId == null && ParameterWasBound(nameof(this.InputId)))
@@ -234,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Destination != null)
             {
                 request.Destinations = cmdletContext.Destination;
+            }
+            if (cmdletContext.InputDevice != null)
+            {
+                request.InputDevices = cmdletContext.InputDevice;
             }
             if (cmdletContext.InputId != null)
             {
@@ -321,6 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.MediaLive.Model.InputDestinationRequest> Destination { get; set; }
+            public List<Amazon.MediaLive.Model.InputDeviceRequest> InputDevice { get; set; }
             public System.String InputId { get; set; }
             public List<System.String> InputSecurityGroup { get; set; }
             public List<Amazon.MediaLive.Model.MediaConnectFlowRequest> MediaConnectFlow { get; set; }

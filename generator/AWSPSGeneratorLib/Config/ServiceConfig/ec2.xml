@@ -340,7 +340,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePlacementGroup" Verb="New" Noun="PlacementGroup" ShouldProcessTarget="GroupName" PositionalParameters="Strategy" PipelineParameter="GroupName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePlacementGroup" OutputProperty="*" Verb="New" Noun="PlacementGroup" ShouldProcessTarget="GroupName" PositionalParameters="Strategy" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -672,6 +672,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterInstanceEventNotificationAttributes" OutputProperty="InstanceTagAttribute" Verb="Unregister" Noun="InstanceEventNotificationAttribute" ShouldProcessTarget="InstanceTagAttribute_IncludeAllTagsOfInstance" PipelineParameter="InstanceTagAttribute_IncludeAllTagsOfInstance" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeregisterTransitGatewayMulticastGroupMembers" OutputProperty="DeregisteredMulticastGroupMembers" Verb="Unregister" Noun="TransitGatewayMulticastGroupMember" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -844,6 +848,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceCreditSpecifications" OutputProperty="InstanceCreditSpecifications" Verb="Get" Noun="CreditSpecification" PipelineParameter="InstanceIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceEventNotificationAttributes" OutputProperty="InstanceTagAttribute" Verb="Get" Noun="InstanceEventNotificationAttribute" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1590,6 +1598,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterImage" OutputProperty="ImageId" Verb="Register" Noun="Image" ShouldProcessTarget="ImageLocation" PositionalParameters="Name;Description" PipelineParameter="ImageLocation" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterInstanceEventNotificationAttributes" OutputProperty="InstanceTagAttribute" Verb="Register" Noun="InstanceEventNotificationAttribute" ShouldProcessTarget="InstanceTagAttribute_IncludeAllTagsOfInstance" PipelineParameter="InstanceTagAttribute_IncludeAllTagsOfInstance" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -396,6 +396,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUECrawler",
                "Stop-GLUECrawlerSchedule",
                "Stop-GLUETrigger",
+               "Stop-GLUEWorkflowRun",
                "Add-GLUEResourceTag",
                "Remove-GLUEResourceTag",
                "Update-GLUEClassifier",

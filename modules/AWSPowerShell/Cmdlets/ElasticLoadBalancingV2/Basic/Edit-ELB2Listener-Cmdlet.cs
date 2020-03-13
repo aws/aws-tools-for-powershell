@@ -53,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class EditELB2ListenerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter AlpnPolicy
+        /// <summary>
+        /// <para>
+        /// <para>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy.
+        /// You can specify one policy name. The following are the possible values:</para><ul><li><para><code>HTTP1Only</code></para></li><li><para><code>HTTP2Only</code></para></li><li><para><code>HTTP2Optional</code></para></li><li><para><code>HTTP2Preferred</code></para></li><li><para><code>None</code></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN
+        /// Policies</a> in the <i>Network Load Balancers Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AlpnPolicy { get; set; }
+        #endregion
+        
         #region Parameter Certificate
         /// <summary>
         /// <para>
@@ -199,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 context.Select = (response, cmdlet) => this.ListenerArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AlpnPolicy != null)
+            {
+                context.AlpnPolicy = new List<System.String>(this.AlpnPolicy);
+            }
             if (this.Certificate != null)
             {
                 context.Certificate = new List<Amazon.ElasticLoadBalancingV2.Model.Certificate>(this.Certificate);
@@ -233,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // create request
             var request = new Amazon.ElasticLoadBalancingV2.Model.ModifyListenerRequest();
             
+            if (cmdletContext.AlpnPolicy != null)
+            {
+                request.AlpnPolicy = cmdletContext.AlpnPolicy;
+            }
             if (cmdletContext.Certificate != null)
             {
                 request.Certificates = cmdletContext.Certificate;
@@ -318,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AlpnPolicy { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.Certificate> Certificate { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.Action> DefaultAction { get; set; }
             public System.String ListenerArn { get; set; }

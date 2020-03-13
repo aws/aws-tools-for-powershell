@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>An array of strings that identify disks that are to be configured as working storage.
-        /// Each string have a minimum length of 1 and maximum length of 300. You can get the
-        /// disk IDs from the <a>ListLocalDisks</a> API.</para>
+        /// Each string has a minimum length of 1 and maximum length of 300. You can get the disk
+        /// IDs from the <a>ListLocalDisks</a> API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

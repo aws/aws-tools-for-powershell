@@ -32,13 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// 
     ///          
     /// <para>
-    /// A virtual node acts as a logical pointer to a particular task group, such as an Amazon
+    ///  A virtual node acts as a logical pointer to a particular task group, such as an Amazon
     /// ECS         service or a Kubernetes deployment. When you create a virtual node, you
-    /// can specify the         service discovery information for your task group.
+    /// can specify the         service discovery information for your task group, and whether
+    /// the proxy running in a task         group will communicate with other proxies using
+    /// Transport Layer Security (TLS).
     /// </para><para>
-    /// Any inbound traffic that your virtual node expects should be specified as a      
-    ///      <code>listener</code>. Any outbound traffic that your virtual node expects to
-    /// reach         should be specified as a <code>backend</code>.
+    /// You define a <code>listener</code> for any inbound traffic that your virtual node
+    ///         expects. Any virtual service that your virtual node expects to communicate
+    /// to is specified         as a <code>backend</code>.
     /// </para><para>
     /// The response metadata for your new virtual node contains the <code>arn</code> that
     /// is         associated with the virtual node. Set this value (either the full ARN or
@@ -53,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// with the               <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.
     /// </para></note><para>
     /// For more information about virtual nodes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html">Virtual
-    /// Nodes</a>.
+    /// nodes</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "AMSHVirtualNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -105,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The certificate trust chain for a certificate stored on the file system of the virtual
-        /// node that the proxy is running on.</para>
+        ///         node that the proxy is running on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>Whether the policy is enforced. The default is <code>True</code>, if a value isn't
-        /// specified.</para>
+        ///         specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,8 +141,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Listener
         /// <summary>
         /// <para>
-        /// <para>The listener that the virtual node is expected to receive inbound traffic from.  
-        ///       You can specify one listener.</para>
+        /// <para>The listener that the virtual node is expected to receive inbound traffic from. You
+        /// can         specify one listener.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -209,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Tls_Port
         /// <summary>
         /// <para>
-        /// <para>The range of ports that the policy is enforced for.</para>
+        /// <para>One or more ports that the policy is enforced for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

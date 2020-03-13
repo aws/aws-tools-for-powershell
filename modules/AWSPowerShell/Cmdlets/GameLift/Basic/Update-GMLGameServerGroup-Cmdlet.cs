@@ -1,0 +1,323 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.GameLift;
+using Amazon.GameLift.Model;
+
+namespace Amazon.PowerShell.Cmdlets.GML
+{
+    /// <summary>
+    /// <b>This action is part of Amazon GameLift FleetIQ with game server groups, which
+    /// is in preview release and is subject to change.</b><para>
+    /// Updates GameLift FleetIQ-specific properties for a game server group. These properties
+    /// include instance rebalancing and game server protection. Many Auto Scaling group properties
+    /// are updated directly. These include autoscaling policies, minimum/maximum/desired
+    /// instance counts, and launch template. 
+    /// </para><para>
+    /// To update the game server group, specify the game server group ID and provide the
+    /// updated values.
+    /// </para><para>
+    /// Updated properties are validated to ensure that GameLift FleetIQ can continue to perform
+    /// its core instance rebalancing activity. When you change Auto Scaling group properties
+    /// directly and the changes cause errors with GameLift FleetIQ activities, an alert is
+    /// sent.
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift
+    /// FleetIQ Guide</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-asgroups.html">Updating
+    /// a GameLift FleetIQ-Linked Auto Scaling Group</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li></ul>
+    /// </summary>
+    [Cmdlet("Update", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.GameLift.Model.GameServerGroup")]
+    [AWSCmdlet("Calls the Amazon GameLift Service UpdateGameServerGroup API operation.", Operation = new[] {"UpdateGameServerGroup"}, SelectReturnType = typeof(Amazon.GameLift.Model.UpdateGameServerGroupResponse))]
+    [AWSCmdletOutput("Amazon.GameLift.Model.GameServerGroup or Amazon.GameLift.Model.UpdateGameServerGroupResponse",
+        "This cmdlet returns an Amazon.GameLift.Model.GameServerGroup object.",
+        "The service call response (type Amazon.GameLift.Model.UpdateGameServerGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class UpdateGMLGameServerGroupCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    {
+        
+        #region Parameter BalancingStrategy
+        /// <summary>
+        /// <para>
+        /// <para>The fallback balancing method to use for the game server group when Spot instances
+        /// in a Region become unavailable or are not viable for game hosting. Once triggered,
+        /// this method remains active until Spot instances can once again be used. Method options
+        /// include:</para><ul><li><para>SPOT_ONLY -- If Spot instances are unavailable, the game server group provides no
+        /// hosting capacity. No new instances are started, and the existing nonviable Spot instances
+        /// are terminated (once current gameplay ends) and not replaced.</para></li><li><para>SPOT_PREFERRED -- If Spot instances are unavailable, the game server group continues
+        /// to provide hosting capacity by using On-Demand instances. Existing nonviable Spot
+        /// instances are terminated (once current gameplay ends) and replaced with new On-Demand
+        /// instances. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GameLift.BalancingStrategy")]
+        public Amazon.GameLift.BalancingStrategy BalancingStrategy { get; set; }
+        #endregion
+        
+        #region Parameter GameServerGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the game server group to update. Use either the <a>GameServerGroup</a>
+        /// name or ARN value.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String GameServerGroupName { get; set; }
+        #endregion
+        
+        #region Parameter GameServerProtectionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>A flag that indicates whether instances in the game server group are protected from
+        /// early termination. Unprotected instances that have active game servers running may
+        /// by terminated during a scale-down event, causing players to be dropped from the game.
+        /// Protected instances cannot be terminated while there are active game servers running.
+        /// An exception to this is Spot Instances, which may be terminated by AWS regardless
+        /// of protection status. This property is set to NO_PROTECTION by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GameLift.GameServerProtectionPolicy")]
+        public Amazon.GameLift.GameServerProtectionPolicy GameServerProtectionPolicy { get; set; }
+        #endregion
+        
+        #region Parameter InstanceDefinition
+        /// <summary>
+        /// <para>
+        /// <para>An updated list of EC2 instance types to use when creating instances in the group.
+        /// The instance definition must specify instance types that are supported by GameLift
+        /// FleetIQ, and must include at least two instance types. This updated list replaces
+        /// the entire current list of instance definitions for the game server group. For more
+        /// information on instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2
+        /// Instance Types</a> in the <i>Amazon EC2 User Guide</i>..</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceDefinitions")]
+        public Amazon.GameLift.Model.InstanceDefinition[] InstanceDefinition { get; set; }
+        #endregion
+        
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
+        /// for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
+        /// The submitted role is validated to ensure that it contains the necessary permissions
+        /// for game server groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'GameServerGroup'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.UpdateGameServerGroupResponse).
+        /// Specifying the name of a property of type Amazon.GameLift.Model.UpdateGameServerGroupResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "GameServerGroup";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the GameServerGroupName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GameServerGroupName' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GameServerGroupName' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GameServerGroupName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-GMLGameServerGroup (UpdateGameServerGroup)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.UpdateGameServerGroupResponse, UpdateGMLGameServerGroupCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.GameServerGroupName;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BalancingStrategy = this.BalancingStrategy;
+            context.GameServerGroupName = this.GameServerGroupName;
+            #if MODULAR
+            if (this.GameServerGroupName == null && ParameterWasBound(nameof(this.GameServerGroupName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter GameServerGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.GameServerProtectionPolicy = this.GameServerProtectionPolicy;
+            if (this.InstanceDefinition != null)
+            {
+                context.InstanceDefinition = new List<Amazon.GameLift.Model.InstanceDefinition>(this.InstanceDefinition);
+            }
+            context.RoleArn = this.RoleArn;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.GameLift.Model.UpdateGameServerGroupRequest();
+            
+            if (cmdletContext.BalancingStrategy != null)
+            {
+                request.BalancingStrategy = cmdletContext.BalancingStrategy;
+            }
+            if (cmdletContext.GameServerGroupName != null)
+            {
+                request.GameServerGroupName = cmdletContext.GameServerGroupName;
+            }
+            if (cmdletContext.GameServerProtectionPolicy != null)
+            {
+                request.GameServerProtectionPolicy = cmdletContext.GameServerProtectionPolicy;
+            }
+            if (cmdletContext.InstanceDefinition != null)
+            {
+                request.InstanceDefinitions = cmdletContext.InstanceDefinition;
+            }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.GameLift.Model.UpdateGameServerGroupResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.UpdateGameServerGroupRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "UpdateGameServerGroup");
+            try
+            {
+                #if DESKTOP
+                return client.UpdateGameServerGroup(request);
+                #elif CORECLR
+                return client.UpdateGameServerGroupAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public Amazon.GameLift.BalancingStrategy BalancingStrategy { get; set; }
+            public System.String GameServerGroupName { get; set; }
+            public Amazon.GameLift.GameServerProtectionPolicy GameServerProtectionPolicy { get; set; }
+            public List<Amazon.GameLift.Model.InstanceDefinition> InstanceDefinition { get; set; }
+            public System.String RoleArn { get; set; }
+            public System.Func<Amazon.GameLift.Model.UpdateGameServerGroupResponse, UpdateGMLGameServerGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.GameServerGroup;
+        }
+        
+    }
+}

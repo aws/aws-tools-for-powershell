@@ -28,8 +28,8 @@ using Amazon.MigrationHubConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.MHC
 {
     /// <summary>
-    /// This API permits filtering on the <code>ControlId</code>, <code>HomeRegion</code>,
-    /// and <code>RegionControlScope</code> fields.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>
+    /// fields.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MHCHomeRegionControl")]
     [OutputType("Amazon.MigrationHubConfig.Model.HomeRegionControl")]

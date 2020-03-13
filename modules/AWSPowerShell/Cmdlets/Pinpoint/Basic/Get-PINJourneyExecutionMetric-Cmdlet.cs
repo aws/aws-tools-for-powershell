@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The  string that specifies which page of results to return in a paginated response.
-        /// This parameter is currently not supported for application, campaign, and journey metrics.</para>
+        /// This parameter is not supported for application, campaign, and journey metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to include in each page of a paginated response. This
-        /// parameter is currently not supported for application, campaign, and journey metrics.</para>
+        /// parameter is not supported for application, campaign, and journey metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

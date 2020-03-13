@@ -47,10 +47,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// To check the encryption status of a delivery stream, use <a>DescribeDeliveryStream</a>.
     /// </para><para>
     /// Even if encryption is currently enabled for a delivery stream, you can still invoke
-    /// this operation on it to change the ARN of the CMK or both its type and ARN. In this
-    /// case, Kinesis Data Firehose schedules the grant it had on the old CMK for retirement
-    /// and creates a grant that enables it to use the new CMK to encrypt and decrypt data
-    /// and to manage the grant.
+    /// this operation on it to change the ARN of the CMK or both its type and ARN. If you
+    /// invoke this method to change the CMK, and the old CMK is of type <code>CUSTOMER_MANAGED_CMK</code>,
+    /// Kinesis Data Firehose schedules the grant it had on the old CMK for retirement. If
+    /// the new CMK is of type <code>CUSTOMER_MANAGED_CMK</code>, Kinesis Data Firehose creates
+    /// a grant that enables it to use the new CMK to encrypt and decrypt data and to manage
+    /// the grant.
     /// </para><para>
     /// If a delivery stream already has encryption enabled and then you invoke this operation
     /// to change the ARN of the CMK or both its type and ARN and you get <code>ENABLING_FAILED</code>,
@@ -58,10 +60,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// remains enabled with the old CMK.
     /// </para><para>
     /// If the encryption status of your delivery stream is <code>ENABLING_FAILED</code>,
-    /// you can invoke this operation again. 
+    /// you can invoke this operation again with a valid CMK. The CMK must be enabled and
+    /// the key policy mustn't explicitly deny the permission for Kinesis Data Firehose to
+    /// invoke KMS encrypt and decrypt operations.
     /// </para><para>
-    /// You can only enable SSE for a delivery stream that uses <code>DirectPut</code> as
-    /// its source. 
+    /// You can enable SSE for a delivery stream only if it's a delivery stream that uses
+    /// <code>DirectPut</code> as its source. 
     /// </para><para>
     /// The <code>StartDeliveryStreamEncryption</code> and <code>StopDeliveryStreamEncryption</code>
     /// operations have a combined limit of 25 calls per delivery stream per 24 hours. For
@@ -121,8 +125,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// to create a grant that allows the Kinesis Data Firehose service to use the customer
         /// managed CMK to perform encryption and decryption. Kinesis Data Firehose manages that
         /// grant. </para><para>When you invoke <a>StartDeliveryStreamEncryption</a> to change the CMK for a delivery
-        /// stream that is already encrypted with a customer managed CMK, Kinesis Data Firehose
-        /// schedules the grant it had on the old CMK for retirement.</para>
+        /// stream that is encrypted with a customer managed CMK, Kinesis Data Firehose schedules
+        /// the grant it had on the old CMK for retirement.</para><para>You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams.
+        /// If a <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a> operation
+        /// exceeds this limit, Kinesis Data Firehose throws a <code>LimitExceededException</code>.
+        /// </para><important><para>To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't
+        /// support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see
+        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
+        /// Symmetric and Asymmetric CMKs</a> in the AWS Key Management Service developer guide.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

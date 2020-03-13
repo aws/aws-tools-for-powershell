@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter GreenFleetProvisioningOptionAction
         /// <summary>
         /// <para>
-        /// <para>The method used to add instances to a replacement environment.</para><ul><li><para>DISCOVER_EXISTING: Use instances that already exist or will be created manually.</para></li><li><para>COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to define
-        /// and create instances in a new Auto Scaling group.</para></li></ul>
+        /// <para>The method used to add instances to a replacement environment.</para><ul><li><para><code>DISCOVER_EXISTING</code>: Use instances that already exist or will be created
+        /// manually.</para></li><li><para><code>COPY_AUTO_SCALING_GROUP</code>: Use settings from a specified Auto Scaling
+        /// group to define and create instances in a new Auto Scaling group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The action to take on instances in the original environment after a successful blue/green
-        /// deployment.</para><ul><li><para>TERMINATE: Instances are terminated after a specified wait time.</para></li><li><para>KEEP_ALIVE: Instances are left running after they are deregistered from the load balancer
-        /// and removed from the deployment group.</para></li></ul>
+        /// deployment.</para><ul><li><para><code>TERMINATE</code>: Instances are terminated after a specified wait time.</para></li><li><para><code>KEEP_ALIVE</code>: Instances are left running after they are deregistered from
+        /// the load balancer and removed from the deployment group.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,10 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>If specified, the deployment configuration name can be either one of the predefined
         /// configurations provided with AWS CodeDeploy or a custom deployment configuration that
-        /// you create by calling the create deployment configuration operation.</para><para>CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if
-        /// a configuration isn't specified for the deployment or deployment group.</para><para>For more information about the predefined deployment configurations in AWS CodeDeploy,
+        /// you create by calling the create deployment configuration operation.</para><para><code>CodeDeployDefault.OneAtATime</code> is the default deployment configuration.
+        /// It is used if a configuration isn't specified for the deployment or deployment group.</para><para>For more information about the predefined deployment configurations in AWS CodeDeploy,
         /// see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working
-        /// with Deployment Groups in AWS CodeDeploy</a> in the AWS CodeDeploy User Guide.</para>
+        /// with Deployment Configurations in CodeDeploy</a> in the <i>AWS CodeDeploy User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,9 +267,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>Indicates whether a deployment should continue if information about the current state
-        /// of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</para><ul><li><para>true: The deployment proceeds even if alarm status information can't be retrieved
-        /// from Amazon CloudWatch.</para></li><li><para>false: The deployment stops if alarm status information can't be retrieved from Amazon
-        /// CloudWatch.</para></li></ul>
+        /// of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</para><ul><li><para><code>true</code>: The deployment proceeds even if alarm status information can't
+        /// be retrieved from Amazon CloudWatch.</para></li><li><para><code>false</code>: The deployment stops if alarm status information can't be retrieved
+        /// from Amazon CloudWatch.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The on-premises instance tags on which to filter. The deployment group includes on-premises
-        /// instances with any of the specified tags. Cannot be used in the same call as OnPremisesTagSet.</para>
+        /// instances with any of the specified tags. Cannot be used in the same call as <code>OnPremisesTagSet</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -302,8 +303,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>A service role ARN that allows AWS CodeDeploy to act on the user's behalf when interacting
-        /// with AWS services.</para>
+        /// <para>A service role Amazon Resource Name (ARN) that allows AWS CodeDeploy to act on the
+        /// user's behalf when interacting with AWS services.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -372,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>Information about triggers to create when the deployment group is created. For examples,
         /// see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html">Create
-        /// a Trigger for an AWS CodeDeploy Event</a> in the AWS CodeDeploy User Guide.</para>
+        /// a Trigger for an AWS CodeDeploy Event</a> in the <i>AWS CodeDeploy User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -384,8 +385,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The number of minutes to wait before the status of a blue/green deployment is changed
-        /// to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT
-        /// option for actionOnTimeout</para>
+        /// to Stopped if rerouting is not started manually. Applies only to the <code>STOP_DEPLOYMENT</code>
+        /// option for <code>actionOnTimeout</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

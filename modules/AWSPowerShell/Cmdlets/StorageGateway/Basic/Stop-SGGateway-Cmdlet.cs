@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// component in the VM to avoid unpredictable conditions.
     /// </para></note><para>
     /// After the gateway is shutdown, you cannot call any other API except <a>StartGateway</a>,
-    /// <a>DescribeGatewayInformation</a>, and <a>ListGateways</a>. For more information,
-    /// see <a>ActivateGateway</a>. Your applications cannot read from or write to the gateway's
+    /// <a>DescribeGatewayInformation</a> and <a>ListGateways</a>. For more information, see
+    /// <a>ActivateGateway</a>. Your applications cannot read from or write to the gateway's
     /// storage volumes, and there are no snapshots taken.
     /// </para><note><para>
     /// When you make a shutdown request, you will get a <code>200 OK</code> success response

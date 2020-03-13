@@ -75,10 +75,21 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.DateTime? CreateTimeRange_End { get; set; }
         #endregion
         
+        #region Parameter ExternalId
+        /// <summary>
+        /// <para>
+        /// <para>The unique ID of an external resource for returning deployments linked to the external
+        /// resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExternalId { get; set; }
+        #endregion
+        
         #region Parameter IncludeOnlyStatus
         /// <summary>
         /// <para>
-        /// <para>A subset of deployments to list by status:</para><ul><li><para>Created: Include created deployments in the resulting list.</para></li><li><para>Queued: Include queued deployments in the resulting list.</para></li><li><para>In Progress: Include in-progress deployments in the resulting list.</para></li><li><para>Succeeded: Include successful deployments in the resulting list.</para></li><li><para>Failed: Include failed deployments in the resulting list.</para></li><li><para>Stopped: Include stopped deployments in the resulting list.</para></li></ul>
+        /// <para>A subset of deployments to list by status:</para><ul><li><para><code>Created</code>: Include created deployments in the resulting list.</para></li><li><para><code>Queued</code>: Include queued deployments in the resulting list.</para></li><li><para><code>In Progress</code>: Include in-progress deployments in the resulting list.</para></li><li><para><code>Succeeded</code>: Include successful deployments in the resulting list.</para></li><li><para><code>Failed</code>: Include failed deployments in the resulting list.</para></li><li><para><code>Stopped</code>: Include stopped deployments in the resulting list.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -170,6 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.CreateTimeRange_End = this.CreateTimeRange_End;
             context.CreateTimeRange_Start = this.CreateTimeRange_Start;
             context.DeploymentGroupName = this.DeploymentGroupName;
+            context.ExternalId = this.ExternalId;
             if (this.IncludeOnlyStatus != null)
             {
                 context.IncludeOnlyStatus = new List<System.String>(this.IncludeOnlyStatus);
@@ -231,6 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.DeploymentGroupName != null)
             {
                 request.DeploymentGroupName = cmdletContext.DeploymentGroupName;
+            }
+            if (cmdletContext.ExternalId != null)
+            {
+                request.ExternalId = cmdletContext.ExternalId;
             }
             if (cmdletContext.IncludeOnlyStatus != null)
             {
@@ -325,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.DateTime? CreateTimeRange_End { get; set; }
             public System.DateTime? CreateTimeRange_Start { get; set; }
             public System.String DeploymentGroupName { get; set; }
+            public System.String ExternalId { get; set; }
             public List<System.String> IncludeOnlyStatus { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CodeDeploy.Model.ListDeploymentsResponse, GetCDDeploymentListCmdlet, object> Select { get; set; } =

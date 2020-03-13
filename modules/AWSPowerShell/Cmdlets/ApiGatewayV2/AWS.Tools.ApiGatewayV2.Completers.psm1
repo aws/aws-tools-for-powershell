@@ -256,6 +256,7 @@ $AG2_SelectMap = @{
                "Remove-AG2RouteSetting",
                "Remove-AG2Stage",
                "Remove-AG2VpcLink",
+               "Export-AG2Api",
                "Get-AG2Api",
                "Get-AG2ApiMapping",
                "Get-AG2ApiMappingList",

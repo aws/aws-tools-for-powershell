@@ -34,14 +34,22 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     ///  
     /// <para>
     /// When you enable Security Hub, you grant to Security Hub the permissions necessary
-    /// to gather findings from AWS Config, Amazon GuardDuty, Amazon Inspector, and Amazon
-    /// Macie.
+    /// to gather findings from other services that are integrated with Security Hub.
     /// </para><para>
     /// When you use the <code>EnableSecurityHub</code> operation to enable Security Hub,
-    /// you also automatically enable the CIS AWS Foundations standard. You do not enable
-    /// the Payment Card Industry Data Security Standard (PCI DSS) standard. To enable a standard,
-    /// use the <code><a>BatchEnableStandards</a></code> operation. To disable a standard,
-    /// use the <code><a>BatchDisableStandards</a></code> operation.
+    /// you also automatically enable the following standards.
+    /// </para><ul><li><para>
+    /// CIS AWS Foundations
+    /// </para></li><li><para>
+    /// AWS Foundational Security Best Practices
+    /// </para></li></ul><para>
+    /// You do not enable the Payment Card Industry Data Security Standard (PCI DSS) standard.
+    /// 
+    /// </para><para>
+    /// To not enable the automatically enabled standards, set <code>EnableDefaultStandards</code>
+    /// to <code>false</code>.
+    /// </para><para>
+    /// After you enable Security Hub, to enable a standard, use the <code><a>BatchEnableStandards</a></code> operation. To disable a standard, use the <code><a>BatchDisableStandards</a></code> operation.
     /// </para><para>
     /// To learn more, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">Setting
     /// Up AWS Security Hub</a> in the <i>AWS Security Hub User Guide</i>.
@@ -57,10 +65,24 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     public partial class EnableSHUBSecurityHubCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
     {
         
+        #region Parameter EnableDefaultStandard
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable the security standards that Security Hub has designated as automatically
+        /// enabled. If you do not provide a value for <code>EnableDefaultStandards</code>, it
+        /// is set to <code>true</code>. To not enable the automatically enabled standards, set
+        /// <code>EnableDefaultStandards</code> to <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnableDefaultStandards")]
+        public System.Boolean? EnableDefaultStandard { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the Hub resource when you enable Security Hub.</para>
+        /// <para>The tags to add to the hub resource when you enable Security Hub.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,6 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.EnableSecurityHubResponse, EnableSHUBSecurityHubCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.EnableDefaultStandard = this.EnableDefaultStandard;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -132,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             // create request
             var request = new Amazon.SecurityHub.Model.EnableSecurityHubRequest();
             
+            if (cmdletContext.EnableDefaultStandard != null)
+            {
+                request.EnableDefaultStandards = cmdletContext.EnableDefaultStandard.Value;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -197,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? EnableDefaultStandard { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.SecurityHub.Model.EnableSecurityHubResponse, EnableSHUBSecurityHubCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

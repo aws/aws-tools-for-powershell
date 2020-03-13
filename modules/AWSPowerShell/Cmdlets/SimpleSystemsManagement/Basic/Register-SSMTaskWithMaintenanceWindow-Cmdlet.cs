@@ -231,9 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The different events for which you can receive notifications. These events include
         /// the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To
-        /// learn more about these events, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Configuring
-        /// Amazon SNS Notifications for AWS Systems Manager</a> in the <i>AWS Systems Manager
-        /// User Guide</i>.</para>
+        /// learn more about these events, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring
+        /// Systems Manager status changes using Amazon SNS notifications</a> in the <i>AWS Systems
+        /// Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_OutputS3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon S3 bucket.</para>
+        /// <para>The name of the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_OutputS3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket subfolder.</para>
+        /// <para>The S3 bucket subfolder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter LoggingInfo_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of an Amazon S3 bucket where execution logs are stored .</para>
+        /// <para>The name of an S3 bucket where execution logs are stored .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -360,7 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter LoggingInfo_S3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>(Optional) The Amazon S3 bucket subfolder. </para>
+        /// <para>(Optional) The S3 bucket subfolder. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -370,7 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter LoggingInfo_S3Region
         /// <summary>
         /// <para>
-        /// <para>The region where the Amazon S3 bucket is located.</para>
+        /// <para>The Region where the S3 bucket is located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -384,9 +384,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// window task. If you do not specify a service role ARN, Systems Manager uses your account's
         /// service-linked role. If no service-linked role for Systems Manager exists in your
         /// account, it is created when you run <code>RegisterTaskWithMaintenanceWindow</code>.</para><para>For more information, see the following topics in the in the <i>AWS Systems Manager
-        /// User Guide</i>:</para><ul><li><para><a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Service-Linked
-        /// Role Permissions for Systems Manager</a></para></li><li><para><a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should
-        /// I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks?
+        /// User Guide</i>:</para><ul><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
+        /// service-linked roles for Systems Manager</a></para></li><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should
+        /// I use a service-linked role or a custom service role to run maintenance window tasks?
         /// </a></para></li></ul>
         /// </para>
         /// </summary>

@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC
     /// <summary>
     /// Updates the classification types for the specified S3 resources. If memberAccountId
     /// isn't specified, the action updates the classification types of the S3 resources associated
-    /// with Amazon Macie for the current master account. If memberAccountId is specified,
+    /// with Amazon Macie Classic for the current master account. If memberAccountId is specified,
     /// the action updates the classification types of the S3 resources associated with Amazon
-    /// Macie for the specified member account.
+    /// Macie Classic for the specified member account.
     /// </summary>
     [Cmdlet("Update", "MACS3Resource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Macie.Model.FailedS3Resource")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC
         #region Parameter MemberAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS ID of the Amazon Macie member account whose S3 resources' classification types
-        /// you want to update. </para>
+        /// <para>The AWS ID of the Amazon Macie Classic member account whose S3 resources' classification
+        /// types you want to update. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

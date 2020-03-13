@@ -28,13 +28,11 @@ using Amazon.CostExplorer.Model;
 namespace Amazon.PowerShell.Cmdlets.CE
 {
     /// <summary>
-    /// <important><para><i><b>Cost Category is in public beta for AWS Billing and Cost Management and is
-    /// subject to change. Your use of Cost Categories is subject to the Beta Service Participation
-    /// terms of the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>
-    /// (Section 1.10).</b></i></para></important><para>
     /// Returns the name, ARN, rules, definition, and effective dates of a Cost Category that's
     /// defined in the account.
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     /// You have the option to use <code>EffectiveOn</code> to return a Cost Category that
     /// is active on a specific date. If there is no <code>EffectiveOn</code> specified, you’ll
     /// see a Cost Category that is effective on the current date. If Cost Category is still

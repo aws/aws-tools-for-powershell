@@ -28,8 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Stops GuardDuty monitoring for the specified member accounnts. Use the <code>StartMonitoringMembers</code>
-    /// to restart monitoring for those accounts.
+    /// Stops GuardDuty monitoring for the specified member accounts. Use the <code>StartMonitoringMembers</code>
+    /// operation to restart monitoring for those accounts.
     /// </summary>
     [Cmdlet("Stop", "GDMonitoringMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GuardDuty.Model.UnprocessedAccount")]
@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>A list of account IDs of the GuardDuty member accounts whose findings you want the
-        /// master account to stop monitoring.</para>
+        /// <para>A list of account IDs for the member accounts to stop monitoring.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty account that you want to stop from
-        /// monitor members' findings.</para>
+        /// <para>The unique ID of the detector associated with the GuardDuty master account that is
+        /// monitoring member accounts.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

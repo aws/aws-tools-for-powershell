@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// <para>
     /// When you register a domain, Amazon Route 53 does the following:
     /// </para><ul><li><para>
-    /// Creates a Amazon Route 53 hosted zone that has the same name as the domain. Amazon
-    /// Route 53 assigns four name servers to your hosted zone and automatically updates your
-    /// domain registration with the names of these name servers.
+    /// Creates a Route 53 hosted zone that has the same name as the domain. Route 53 assigns
+    /// four name servers to your hosted zone and automatically updates your domain registration
+    /// with the names of these name servers.
     /// </para></li><li><para>
     /// Enables autorenew, so your domain registration will renew automatically each year.
     /// We'll notify you in advance of the renewal date so you can choose whether to renew
@@ -173,8 +173,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// If you choose an option other than <code>PERSON</code>, you must enter an organization
-        /// name, and you can't enable privacy protection for the contact.</para>
+        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
+        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
+        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,8 +191,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// If you choose an option other than <code>PERSON</code>, you must enter an organization
-        /// name, and you can't enable privacy protection for the contact.</para>
+        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
+        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
+        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,8 +209,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// If you choose an option other than <code>PERSON</code>, you must enter an organization
-        /// name, and you can't enable privacy protection for the contact.</para>
+        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
+        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
+        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,8 +259,14 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain name that you want to register.</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
-        /// 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.</para>
+        /// <para>The domain name that you want to register. The top-level domain (TLD), such as .com,
+        /// must be a TLD that Route 53 supports. For a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i>.</para><para>The domain name can contain only the following characters:</para><ul><li><para>Letters a through z. Domain names are not case sensitive.</para></li><li><para>Numbers 0 through 9.</para></li><li><para>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </para></li><li><para>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</para></li></ul><para>Internationalized domain names are not supported for some top-level domains. To determine
+        /// whether the TLD that you want to use supports internationalized domain names, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a>. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns">Formatting
+        /// Internationalized Domain Names</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -264,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>
         /// <para>The number of years that you want to register the domain for. Domains are registered
         /// for a minimum of one year. The maximum period depends on the top-level domain. For
-        /// the range of valid values for your domain, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// the range of valid values for your domain, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
         /// Guide</i>.</para><para>Default: 1</para>
         /// </para>

@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon CodeGuru Reviewer
 
 
+$CGR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CodeGuruReviewer.Type
+        "Get-CGRCodeReviewList/Type"
+        {
+            $v = "PullRequest"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CGR_map = @{
+    "Type"=@("Get-CGRCodeReviewList")
+}
+
+_awsArgumentCompleterRegistration $CGR_Completers $CGR_map
+
 $CGR_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -124,9 +150,15 @@ $CGR_SelectCompleters = {
 
 $CGR_SelectMap = @{
     "Select"=@("Register-CGRRepository",
+               "Get-CGRCodeReview",
+               "Get-CGRRecommendationFeedback",
                "Get-CGRRepositoryAssociation",
                "Unregister-CGRRepository",
-               "Get-CGRRepositoryAssociationList")
+               "Get-CGRCodeReviewList",
+               "Get-CGRRecommendationFeedbackList",
+               "Get-CGRRecommendationList",
+               "Get-CGRRepositoryAssociationList",
+               "Write-CGRRecommendationFeedback")
 }
 
 _awsArgumentCompleterRegistration $CGR_SelectCompleters $CGR_SelectMap

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para> The filters. </para>
+        /// <para>The filters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum items to return in a request. </para>
+        /// <para>The maximum items to return in a request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> A token to specify where to start paginating. This is the NextToken from a previously
+        /// <para>A token to specify where to start paginating. This is the NextToken from a previously
         /// truncated response. </para>
         /// </para>
         /// <para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para> The owner defines which components you want to list. By default, this request will
+        /// <para>The owner defines which components you want to list. By default, this request will
         /// only show components owned by your account. You can use this field to specify if you
         /// want to view components owned by yourself, by Amazon, or those components that have
         /// been shared with you by other customers. </para>

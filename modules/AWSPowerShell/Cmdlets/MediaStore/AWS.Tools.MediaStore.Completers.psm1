@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Elemental MediaStore
 
 
+$EMS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MediaStore.ContainerLevelMetrics
+        "Write-EMSMetricPolicy/MetricPolicy_ContainerLevelMetrics"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMS_map = @{
+    "MetricPolicy_ContainerLevelMetrics"=@("Write-EMSMetricPolicy")
+}
+
+_awsArgumentCompleterRegistration $EMS_Completers $EMS_map
+
 $EMS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -128,15 +154,18 @@ $EMS_SelectMap = @{
                "Remove-EMSContainerPolicy",
                "Remove-EMSCorsPolicy",
                "Remove-EMSLifecyclePolicy",
+               "Remove-EMSMetricPolicy",
                "Get-EMSContainer",
                "Get-EMSContainerPolicy",
                "Get-EMSCorsPolicy",
                "Get-EMSLifecyclePolicy",
+               "Get-EMSMetricPolicy",
                "Get-EMSContainerList",
                "Get-EMSResourceTag",
                "Write-EMSContainerPolicy",
                "Write-EMSCorsPolicy",
                "Write-EMSLifecyclePolicy",
+               "Write-EMSMetricPolicy",
                "Start-EMSAccessLogging",
                "Stop-EMSAccessLogging",
                "Add-EMSResourceTag",

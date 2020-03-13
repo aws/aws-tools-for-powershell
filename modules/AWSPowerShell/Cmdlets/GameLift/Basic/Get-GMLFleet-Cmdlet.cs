@@ -28,17 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a collection of fleet records for this AWS account. You can filter the result
-    /// set to find only those fleets that are deployed with a specific build or script. Use
-    /// the pagination parameters to retrieve results in sequential pages.
+    /// Retrieves a collection of fleet resources for this AWS account. You can filter the
+    /// result set to find only those fleets that are deployed with a specific build or script.
+    /// Use the pagination parameters to retrieve results in sequential pages.
     /// 
     ///  <note><para>
-    /// Fleet records are not listed in a particular order.
-    /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
-    /// Set Up Fleets</a>.
-    /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para>
-    /// Manage fleet actions:
-    /// </para><ul><li><para><a>StartFleetActions</a></para></li><li><para><a>StopFleetActions</a></para></li></ul></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Fleet resources are not listed in a particular order.
+    /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
+    /// up GameLift Fleets</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>StartFleetActions</a> or <a>StopFleetActions</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleet")]
     [OutputType("System.String")]
@@ -54,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for a build to return fleets for. Use this parameter to return
-        /// only fleets using the specified build. Use either the build ID or ARN value.To retrieve
-        /// all fleets, leave this parameter empty.</para>
+        /// only fleets using a specified build. Use either the build ID or ARN value. To retrieve
+        /// all fleets, do not include either a BuildId and ScriptID parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A unique identifier for a Realtime script to return fleets for. Use this parameter
-        /// to return only fleets using the specified script. Use either the script ID or ARN
-        /// value.To retrieve all fleets, leave this parameter empty.</para>
+        /// to return only fleets using a specified script. Use either the script ID or ARN value.
+        /// To retrieve all fleets, leave this parameter empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

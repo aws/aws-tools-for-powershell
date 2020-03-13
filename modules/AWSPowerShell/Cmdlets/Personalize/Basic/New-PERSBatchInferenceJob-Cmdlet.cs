@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     public partial class NewPERSBatchInferenceJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
+        #region Parameter FilterArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the filter to apply to the batch inference job. For more information on
+        /// using filters, see Using Filters with Amazon Personalize.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterArn { get; set; }
+        #endregion
+        
         #region Parameter JobName
         /// <summary>
         /// <para>
@@ -228,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.Select = (response, cmdlet) => this.JobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.FilterArn = this.FilterArn;
             context.S3DataSource_KmsKeyArn = this.S3DataSource_KmsKeyArn;
             context.S3DataSource_Path = this.S3DataSource_Path;
             #if MODULAR
@@ -282,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             // create request
             var request = new Amazon.Personalize.Model.CreateBatchInferenceJobRequest();
             
+            if (cmdletContext.FilterArn != null)
+            {
+                request.FilterArn = cmdletContext.FilterArn;
+            }
             
              // populate JobInput
             var requestJobInputIsNull = true;
@@ -447,6 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String FilterArn { get; set; }
             public System.String S3DataSource_KmsKeyArn { get; set; }
             public System.String S3DataSource_Path { get; set; }
             public System.String JobName { get; set; }

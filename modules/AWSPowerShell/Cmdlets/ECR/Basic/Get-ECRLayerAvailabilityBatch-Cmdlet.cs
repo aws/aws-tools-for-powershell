@@ -33,14 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     ///  
     /// <para>
     /// When an image is pushed to a repository, each image layer is checked to verify if
-    /// it has been uploaded before. If it is, then the image layer is skipped.
-    /// </para><para>
-    /// When an image is pulled from a repository, each image layer is checked once to verify
-    /// it is available to be pulled.
+    /// it has been uploaded before. If it has been uploaded, then the image layer is skipped.
     /// </para><note><para>
-    /// This operation is used by the Amazon ECR proxy, and it is not intended for general
-    /// use by customers for pulling and pushing images. In most cases, you should use the
-    /// <code>docker</code> CLI to pull, tag, and push images.
+    /// This operation is used by the Amazon ECR proxy and is not generally used by customers
+    /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
+    /// CLI to pull, tag, and push images.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "ECRLayerAvailabilityBatch")]

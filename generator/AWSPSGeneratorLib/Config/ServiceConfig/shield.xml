@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -29,6 +28,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateHealthCheck" Verb="Add" Noun="HealthCheck" ShouldProcessTarget="HealthCheckArn" PipelineParameter="HealthCheckArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateProactiveEngagementDetails" Verb="Add" Noun="ProactiveEngagementDetail" ShouldProcessTarget="EmergencyContactList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -68,6 +71,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableProactiveEngagement" Verb="Disable" Noun="ProactiveEngagement" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateDRTLogBucket" Verb="Revoke" Noun="DRTLogBucketAssociation" ShouldProcessTarget="LogBucket" PipelineParameter="LogBucket" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -77,6 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateHealthCheck" Verb="Remove" Noun="HealthCheck" ShouldProcessTarget="HealthCheckArn" PipelineParameter="HealthCheckArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableProactiveEngagement" Verb="Enable" Noun="ProactiveEngagement" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -101,7 +112,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

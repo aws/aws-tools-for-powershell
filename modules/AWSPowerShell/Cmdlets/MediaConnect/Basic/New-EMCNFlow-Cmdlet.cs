@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
     /// Creates a new flow. The request must include one source. The request optionally can
-    /// include outputs (up to 20) and entitlements (up to 50).
+    /// include outputs (up to 50) and entitlements (up to 50).
     /// </summary>
     [Cmdlet("New", "EMCNFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConnect.Model.Flow")]
@@ -93,20 +93,47 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.Model.AddOutputRequest[] Output { get; set; }
         #endregion
         
+        #region Parameter SourceFailoverConfig_RecoveryWindow
+        /// <summary>
+        /// <para>
+        /// Search window time to look for dash-7 packets
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SourceFailoverConfig_RecoveryWindow { get; set; }
+        #endregion
+        
         #region Parameter Source
         /// <summary>
         /// <para>
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.MediaConnect.Model.SetSourceRequest Source { get; set; }
+        [Alias("Sources")]
+        public Amazon.MediaConnect.Model.SetSourceRequest[] Source { get; set; }
+        #endregion
+        
+        #region Parameter SourceFailoverConfig_State
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.State")]
+        public Amazon.MediaConnect.State SourceFailoverConfig_State { get; set; }
+        #endregion
+        
+        #region Parameter VpcInterface
+        /// <summary>
+        /// <para>
+        /// The VPC interfaces you want on the flow.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcInterfaces")]
+        public Amazon.MediaConnect.Model.VpcInterfaceRequest[] VpcInterface { get; set; }
         #endregion
         
         #region Parameter Select
@@ -186,13 +213,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             {
                 context.Output = new List<Amazon.MediaConnect.Model.AddOutputRequest>(this.Output);
             }
-            context.Source = this.Source;
-            #if MODULAR
-            if (this.Source == null && ParameterWasBound(nameof(this.Source)))
+            context.SourceFailoverConfig_RecoveryWindow = this.SourceFailoverConfig_RecoveryWindow;
+            context.SourceFailoverConfig_State = this.SourceFailoverConfig_State;
+            if (this.Source != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Source which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Source = new List<Amazon.MediaConnect.Model.SetSourceRequest>(this.Source);
             }
-            #endif
+            if (this.VpcInterface != null)
+            {
+                context.VpcInterface = new List<Amazon.MediaConnect.Model.VpcInterfaceRequest>(this.VpcInterface);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -225,9 +255,42 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             {
                 request.Outputs = cmdletContext.Output;
             }
+            
+             // populate SourceFailoverConfig
+            var requestSourceFailoverConfigIsNull = true;
+            request.SourceFailoverConfig = new Amazon.MediaConnect.Model.FailoverConfig();
+            System.Int32? requestSourceFailoverConfig_sourceFailoverConfig_RecoveryWindow = null;
+            if (cmdletContext.SourceFailoverConfig_RecoveryWindow != null)
+            {
+                requestSourceFailoverConfig_sourceFailoverConfig_RecoveryWindow = cmdletContext.SourceFailoverConfig_RecoveryWindow.Value;
+            }
+            if (requestSourceFailoverConfig_sourceFailoverConfig_RecoveryWindow != null)
+            {
+                request.SourceFailoverConfig.RecoveryWindow = requestSourceFailoverConfig_sourceFailoverConfig_RecoveryWindow.Value;
+                requestSourceFailoverConfigIsNull = false;
+            }
+            Amazon.MediaConnect.State requestSourceFailoverConfig_sourceFailoverConfig_State = null;
+            if (cmdletContext.SourceFailoverConfig_State != null)
+            {
+                requestSourceFailoverConfig_sourceFailoverConfig_State = cmdletContext.SourceFailoverConfig_State;
+            }
+            if (requestSourceFailoverConfig_sourceFailoverConfig_State != null)
+            {
+                request.SourceFailoverConfig.State = requestSourceFailoverConfig_sourceFailoverConfig_State;
+                requestSourceFailoverConfigIsNull = false;
+            }
+             // determine if request.SourceFailoverConfig should be set to null
+            if (requestSourceFailoverConfigIsNull)
+            {
+                request.SourceFailoverConfig = null;
+            }
             if (cmdletContext.Source != null)
             {
-                request.Source = cmdletContext.Source;
+                request.Sources = cmdletContext.Source;
+            }
+            if (cmdletContext.VpcInterface != null)
+            {
+                request.VpcInterfaces = cmdletContext.VpcInterface;
             }
             
             CmdletOutput output;
@@ -294,7 +357,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public List<Amazon.MediaConnect.Model.GrantEntitlementRequest> Entitlement { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.MediaConnect.Model.AddOutputRequest> Output { get; set; }
-            public Amazon.MediaConnect.Model.SetSourceRequest Source { get; set; }
+            public System.Int32? SourceFailoverConfig_RecoveryWindow { get; set; }
+            public Amazon.MediaConnect.State SourceFailoverConfig_State { get; set; }
+            public List<Amazon.MediaConnect.Model.SetSourceRequest> Source { get; set; }
+            public List<Amazon.MediaConnect.Model.VpcInterfaceRequest> VpcInterface { get; set; }
             public System.Func<Amazon.MediaConnect.Model.CreateFlowResponse, NewEMCNFlowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Flow;
         }

@@ -59,6 +59,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Boolean? Enabled { get; set; }
         #endregion
         
+        #region Parameter PreProvisioningHook_PayloadVersion
+        /// <summary>
+        /// <para>
+        /// <para>The payload that was sent to the target function.</para><para><i>Note:</i> Only Lambda functions are currently supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreProvisioningHook_PayloadVersion { get; set; }
+        #endregion
+        
         #region Parameter ProvisioningRoleArn
         /// <summary>
         /// <para>
@@ -86,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.IoT.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter PreProvisioningHook_TargetArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the target function.</para><para><i>Note:</i> Only Lambda functions are currently supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreProvisioningHook_TargetArn { get; set; }
         #endregion
         
         #region Parameter TemplateBody
@@ -185,6 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
             context.Enabled = this.Enabled;
+            context.PreProvisioningHook_PayloadVersion = this.PreProvisioningHook_PayloadVersion;
+            context.PreProvisioningHook_TargetArn = this.PreProvisioningHook_TargetArn;
             context.ProvisioningRoleArn = this.ProvisioningRoleArn;
             #if MODULAR
             if (this.ProvisioningRoleArn == null && ParameterWasBound(nameof(this.ProvisioningRoleArn)))
@@ -233,6 +255,35 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.Enabled != null)
             {
                 request.Enabled = cmdletContext.Enabled.Value;
+            }
+            
+             // populate PreProvisioningHook
+            var requestPreProvisioningHookIsNull = true;
+            request.PreProvisioningHook = new Amazon.IoT.Model.ProvisioningHook();
+            System.String requestPreProvisioningHook_preProvisioningHook_PayloadVersion = null;
+            if (cmdletContext.PreProvisioningHook_PayloadVersion != null)
+            {
+                requestPreProvisioningHook_preProvisioningHook_PayloadVersion = cmdletContext.PreProvisioningHook_PayloadVersion;
+            }
+            if (requestPreProvisioningHook_preProvisioningHook_PayloadVersion != null)
+            {
+                request.PreProvisioningHook.PayloadVersion = requestPreProvisioningHook_preProvisioningHook_PayloadVersion;
+                requestPreProvisioningHookIsNull = false;
+            }
+            System.String requestPreProvisioningHook_preProvisioningHook_TargetArn = null;
+            if (cmdletContext.PreProvisioningHook_TargetArn != null)
+            {
+                requestPreProvisioningHook_preProvisioningHook_TargetArn = cmdletContext.PreProvisioningHook_TargetArn;
+            }
+            if (requestPreProvisioningHook_preProvisioningHook_TargetArn != null)
+            {
+                request.PreProvisioningHook.TargetArn = requestPreProvisioningHook_preProvisioningHook_TargetArn;
+                requestPreProvisioningHookIsNull = false;
+            }
+             // determine if request.PreProvisioningHook should be set to null
+            if (requestPreProvisioningHookIsNull)
+            {
+                request.PreProvisioningHook = null;
             }
             if (cmdletContext.ProvisioningRoleArn != null)
             {
@@ -313,6 +364,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String Description { get; set; }
             public System.Boolean? Enabled { get; set; }
+            public System.String PreProvisioningHook_PayloadVersion { get; set; }
+            public System.String PreProvisioningHook_TargetArn { get; set; }
             public System.String ProvisioningRoleArn { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public System.String TemplateBody { get; set; }

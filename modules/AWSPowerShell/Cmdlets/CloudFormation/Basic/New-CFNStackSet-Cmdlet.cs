@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name to associate with the stack set. The name must be unique in the region where
+        /// <para>The name to associate with the stack set. The name must be unique in the Region where
         /// you create your stack set.</para><note><para>A stack name can contain only alphanumeric characters (case-sensitive) and hyphens.
         /// It must start with an alphabetic character and can't be longer than 128 characters.</para></note>
         /// </para>

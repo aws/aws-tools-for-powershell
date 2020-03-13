@@ -90,6 +90,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.State
+        {
+            ($_ -eq "New-EMCNFlow/SourceFailoverConfig_State") -Or
+            ($_ -eq "Update-EMCNFlow/SourceFailoverConfig_State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -100,6 +110,7 @@ $EMCN_Completers = {
 
 $EMCN_map = @{
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
+    "SourceFailoverConfig_State"=@("New-EMCNFlow","Update-EMCNFlow")
 }
 
 _awsArgumentCompleterRegistration $EMCN_Completers $EMCN_map
@@ -153,6 +164,8 @@ $EMCN_SelectCompleters = {
 
 $EMCN_SelectMap = @{
     "Select"=@("Add-EMCNFlowOutput",
+               "Add-EMCNFlowSource",
+               "Add-EMCNFlowVpcInterface",
                "New-EMCNFlow",
                "Remove-EMCNFlow",
                "Get-EMCNFlow",
@@ -161,11 +174,14 @@ $EMCN_SelectMap = @{
                "Get-EMCNFlowList",
                "Get-EMCNResourceTag",
                "Remove-EMCNFlowOutput",
+               "Remove-EMCNFlowSource",
+               "Remove-EMCNFlowVpcInterface",
                "Revoke-EMCNFlowEntitlement",
                "Start-EMCNFlow",
                "Stop-EMCNFlow",
                "Add-EMCNResourceTag",
                "Remove-EMCNResourceTag",
+               "Update-EMCNFlow",
                "Update-EMCNFlowEntitlement",
                "Update-EMCNFlowOutput",
                "Update-EMCNFlowSource")

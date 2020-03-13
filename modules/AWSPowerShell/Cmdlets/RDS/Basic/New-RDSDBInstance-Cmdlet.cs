@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The number of days for which automated backups are retained. Setting this parameter
         /// to a positive number enables backups. Setting this parameter to 0 disables automated
-        /// backups.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can't be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
+        /// backups.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can't be set to 0 if the DB instance is a source to read replicas</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// SQL Server and Oracle DB instances can be created in an Active Directory Domain.</para><para>For Microsoft SQL Server DB instances, Amazon RDS can use Windows Authentication to
         /// authenticate users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
         /// Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL
-        /// Server</a> in the <i>Amazon RDS User Guide</i>.</para><para>For Oracle DB instance, Amazon RDS can use Kerberos Authentication to authenticate
+        /// Server</a> in the <i>Amazon RDS User Guide</i>.</para><para>For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate
         /// users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
         /// Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS
         /// User Guide</i>.</para>
@@ -488,9 +488,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the database accepts connections.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
-        /// <code>47001</code>, <code>49152</code>, and <code>49152</code> through <code>49156</code>.
-        /// </para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer</para>
+        /// <para>The port number on which the database accepts connections.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid values: <code>1150-65535</code> except <code>1234</code>, <code>1434</code>,
+        /// <code>3260</code>, <code>3343</code>, <code>3389</code>, <code>47001</code>, and <code>49152-49156</code>.</para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para>Type: Integer</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

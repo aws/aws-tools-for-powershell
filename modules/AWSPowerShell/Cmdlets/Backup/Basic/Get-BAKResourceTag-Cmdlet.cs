@@ -29,7 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Returns a list of key-value pairs assigned to a target recovery point, backup plan,
-    /// or backup vault.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// or backup vault.
+    /// 
+    ///  <note><para><code>ListTags</code> are currently only supported with Amazon EFS backups.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKResourceTag")]
     [OutputType("System.String")]

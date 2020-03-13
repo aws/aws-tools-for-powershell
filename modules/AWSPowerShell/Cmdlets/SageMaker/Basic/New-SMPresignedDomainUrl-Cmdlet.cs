@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Creates a URL for a specified UserProfile in a Domain. When accessed in a web browser,
-    /// the user will be automatically signed in to Amazon SageMaker Amazon SageMaker Studio
-    /// (Studio), and granted access to all of the Apps and files associated with that Amazon
-    /// Elastic File System (EFS). This operation can only be called when AuthMode equals
+    /// the user will be automatically signed in to Amazon SageMaker Studio, and granted access
+    /// to all of the Apps and files associated with the Domain's Amazon Elastic File System
+    /// (EFS) volume. This operation can only be called when the authentication mode equals
     /// IAM.
     /// </summary>
     [Cmdlet("New", "SMPresignedDomainUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

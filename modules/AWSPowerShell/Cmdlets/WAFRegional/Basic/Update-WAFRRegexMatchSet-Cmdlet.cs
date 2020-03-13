@@ -28,11 +28,17 @@ using Amazon.WAFRegional.Model;
 namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
+    /// <note><para>
+    /// This is <b>AWS WAF Classic</b> documentation. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+    /// WAF Classic</a> in the developer guide.
+    /// </para><para><b>For the latest version of AWS WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+    /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
+    /// for regional and global use. 
+    /// </para></note><para>
     /// Inserts or deletes <a>RegexMatchTuple</a> objects (filters) in a <a>RegexMatchSet</a>.
     /// For each <code>RegexMatchSetUpdate</code> object, you specify the following values:
     /// 
-    /// 
-    ///  <ul><li><para>
+    /// </para><ul><li><para>
     /// Whether to insert or delete the object from the array. If you want to change a <code>RegexMatchSetUpdate</code>
     /// object, you delete the existing object and add a new one.
     /// </para></li><li><para>

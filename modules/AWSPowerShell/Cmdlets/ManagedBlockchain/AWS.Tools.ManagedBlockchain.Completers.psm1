@@ -100,7 +100,7 @@ $MBC_Completers = {
         # Amazon.ManagedBlockchain.MemberStatus
         "Get-MBCMemberList/Status"
         {
-            $v = "AVAILABLE","CREATE_FAILED","CREATING","DELETED","DELETING"
+            $v = "AVAILABLE","CREATE_FAILED","CREATING","DELETED","DELETING","UPDATING"
             break
         }
 
@@ -114,7 +114,7 @@ $MBC_Completers = {
         # Amazon.ManagedBlockchain.NodeStatus
         "Get-MBCNodeList/Status"
         {
-            $v = "AVAILABLE","CREATE_FAILED","CREATING","DELETED","DELETING","FAILED"
+            $v = "AVAILABLE","CREATE_FAILED","CREATING","DELETED","DELETING","FAILED","UPDATING"
             break
         }
 
@@ -215,6 +215,8 @@ $MBC_SelectMap = @{
                "Get-MBCProposalList",
                "Get-MBCProposalVoteList",
                "Deny-MBCInvitation",
+               "Update-MBCMember",
+               "Update-MBCNode",
                "Send-MBCProposalVote")
 }
 

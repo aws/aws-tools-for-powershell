@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+        /// <para>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
         /// use a key managed by Amazon S3. Optional. </para>
         /// </para>
         /// </summary>
@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption.
+        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server-side encryption.
         /// This value can only be set when KMSEncrypted is true. Optional. </para>
         /// </para>
         /// </summary>

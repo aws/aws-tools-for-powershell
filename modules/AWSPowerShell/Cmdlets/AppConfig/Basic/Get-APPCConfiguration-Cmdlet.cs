@@ -28,7 +28,19 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Retrieve information about a configuration.
+    /// Receive information about a configuration.
+    /// 
+    ///  <important><para>
+    /// AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
+    /// to identify the configuration version on your clients. If you don’t send <code>ClientConfigurationVersion</code>
+    /// with each call to <code>GetConfiguration</code>, your clients receive the current
+    /// configuration. You are charged each time your clients receive a configuration.
+    /// </para><para>
+    /// To avoid excess charges, we recommend that you include the <code>ClientConfigurationVersion</code>
+    /// value with every call to <code>GetConfiguration</code>. This value must be saved on
+    /// your client. Subsequent calls to <code>GetConfiguration</code> must pass this value
+    /// by using the <code>ClientConfigurationVersion</code> parameter. 
+    /// </para></important>
     /// </summary>
     [Cmdlet("Get", "APPCConfiguration")]
     [OutputType("Amazon.AppConfig.Model.GetConfigurationResponse")]
@@ -42,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <para>The application to get.</para>
+        /// <para>The application to get. Specify either the application name or the application ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +71,15 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter ClientConfigurationVersion
         /// <summary>
         /// <para>
-        /// <para>The configuration version returned in the most recent GetConfiguration response.</para>
+        /// <para>The configuration version returned in the most recent <code>GetConfiguration</code>
+        /// response.</para><important><para>AWS AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter
+        /// to identify the configuration version on your clients. If you don’t send <code>ClientConfigurationVersion</code>
+        /// with each call to <code>GetConfiguration</code>, your clients receive the current
+        /// configuration. You are charged each time your clients receive a configuration.</para><para>To avoid excess charges, we recommend that you include the <code>ClientConfigurationVersion</code>
+        /// value with every call to <code>GetConfiguration</code>. This value must be saved on
+        /// your client. Subsequent calls to <code>GetConfiguration</code> must pass this value
+        /// by using the <code>ClientConfigurationVersion</code> parameter. </para></important><para>For more information about working with configurations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-retrieving-the-configuration.html">Retrieving
+        /// the Configuration</a> in the <i>AWS AppConfig User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>The configuration to get.</para>
+        /// <para>The configuration to get. Specify either the configuration name or the configuration
+        /// ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Environment
         /// <summary>
         /// <para>
-        /// <para>The environment to get.</para>
+        /// <para>The environment to get. Specify either the environment name or the environment ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

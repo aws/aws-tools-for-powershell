@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// proxy, or operating system to allow for long connections with timeout or keep-alive
     /// settings.
     /// </para><para>
-    /// This operation requires permission for the <code>lambda:InvokeFunction</code> action.
+    /// This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a>
+    /// action.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low)]

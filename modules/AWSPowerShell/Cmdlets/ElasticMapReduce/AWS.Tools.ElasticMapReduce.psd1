@@ -101,12 +101,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMRInstanceGroupList', 
         'Get-EMRInstanceList', 
         'Get-EMRJobFlow', 
+        'Get-EMRManagedScalingPolicy', 
         'Get-EMRSecurityConfiguration', 
         'Get-EMRSecurityConfigurationList', 
         'Get-EMRStep', 
         'Get-EMRStepList', 
         'New-EMRSecurityConfiguration', 
         'Remove-EMRAutoScalingPolicy', 
+        'Remove-EMRManagedScalingPolicy', 
         'Remove-EMRResourceTag', 
         'Remove-EMRSecurityConfiguration', 
         'Set-EMRTerminationProtection', 
@@ -115,7 +117,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Stop-EMRJobFlow', 
         'Stop-EMRStep', 
         'Write-EMRAutoScalingPolicy', 
-        'Write-EMRBlockPublicAccessConfiguration')
+        'Write-EMRBlockPublicAccessConfiguration', 
+        'Write-EMRManagedScalingPolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

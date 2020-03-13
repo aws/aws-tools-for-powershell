@@ -28,18 +28,13 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Adds one or more attachments to an attachment set. If an <code>attachmentSetId</code>
-    /// is not specified, a new attachment set is created, and the ID of the set is returned
-    /// in the response. If an <code>attachmentSetId</code> is specified, the attachments
-    /// are added to the specified set, if it exists.
+    /// Adds one or more attachments to an attachment set. 
     /// 
     ///  
     /// <para>
-    /// An attachment set is a temporary container for attachments that are to be added to
-    /// a case or case communication. The set is available for one hour after it is created;
-    /// the <code>expiryTime</code> returned in the response indicates when the set expires.
-    /// The maximum number of attachments in a set is 3, and the maximum size of any attachment
-    /// in the set is 5 MB.
+    /// An attachment set is a temporary container for attachments that you add to a case
+    /// or case communication. The set is available for 1 hour after it's created. The <code>expiryTime</code>
+    /// returned in the response is when the set expires. 
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ASAAttachmentsToSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -54,8 +49,12 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter Attachment
         /// <summary>
         /// <para>
-        /// <para>One or more attachments to add to the set. The limit is 3 attachments per set, and
-        /// the size limit is 5 MB per attachment.</para>
+        /// <para>One or more attachments to add to the set. You can add up to three attachments per
+        /// set. The size limit is 5 MB per attachment.</para><para>In the <code>Attachment</code> object, use the <code>data</code> parameter to specify
+        /// the contents of the attachment file. In the previous request syntax, the value for
+        /// <code>data</code> appear as <code>blob</code>, which is represented as a base64-encoded
+        /// string. The value for <code>fileName</code> is the name of the attachment, such as
+        /// <code>troubleshoot-screenshot.png</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

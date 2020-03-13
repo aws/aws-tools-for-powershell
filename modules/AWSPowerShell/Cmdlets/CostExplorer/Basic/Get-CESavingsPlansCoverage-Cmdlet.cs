@@ -30,8 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// <summary>
     /// Retrieves the Savings Plans covered for your account. This enables you to see how
     /// much of your cost is covered by a Savings Plan. An organization’s master account can
-    /// see the coverage of the associated member accounts. For any time period, you can filter
-    /// data for Savings Plans usage with the following dimensions:
+    /// see the coverage of the associated member accounts. This supports dimensions, Cost
+    /// Categories, and nested expressions. For any time period, you can filter data for Savings
+    /// Plans usage with the following dimensions:
     /// 
     ///  <ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>INSTANCE_FAMILY</code></para></li></ul><para>
     /// To determine valid values for a dimension, use the <code>GetDimensionValues</code>
@@ -52,9 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>Filters Savings Plans coverage data by dimensions. You can filter data for Savings
-        /// Plans usage with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>INSTANCE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansCoverage</code> uses the same <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+        /// Plans usage with the following dimensions:</para><ul><li><para><code>LINKED_ACCOUNT</code></para></li><li><para><code>REGION</code></para></li><li><para><code>SERVICE</code></para></li><li><para><code>INSTANCE_FAMILY</code></para></li></ul><para><code>GetSavingsPlansCoverage</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
         /// object as the other operations, but only <code>AND</code> is supported among each
-        /// dimension. If there are multiple values for a dimension, they are OR'd together.</para>
+        /// dimension. If there are multiple values for a dimension, they are OR'd together.</para><para>Cost category is also supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

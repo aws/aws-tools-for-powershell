@@ -28,8 +28,8 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Describes the user assigned to a specific server, as identified by its <code>ServerId</code>
-    /// property.
+    /// Describes the user assigned to the specific file transfer protocol-enabled server,
+    /// as identified by its <code>ServerId</code> property.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter ServerId
         /// <summary>
         /// <para>
-        /// <para>A system-assigned unique identifier for an SFTP server that has this user assigned.</para>
+        /// <para>A system-assigned unique identifier for a file transfer protocol-enabled server that
+        /// has this user assigned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user assigned to one or more servers. User names are part of the sign-in
-        /// credentials to use the AWS Transfer for SFTP service and perform file transfer tasks.</para>
+        /// <para>The name of the user assigned to one or more file transfer protocol-enabled servers.
+        /// User names are part of the sign-in credentials to use the AWS Transfer Family service
+        /// and perform file transfer tasks.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

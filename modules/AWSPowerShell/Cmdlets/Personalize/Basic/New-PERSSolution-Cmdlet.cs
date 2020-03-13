@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter HpoObjective_Type
         /// <summary>
         /// <para>
-        /// <para>The data type of the metric.</para>
+        /// <para>The type of the metric. Valid values are <code>Maximize</code> and <code>Minimize</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

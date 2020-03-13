@@ -29,14 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Creates a delegation set (a group of four name servers) that can be reused by multiple
-    /// hosted zones. If a hosted zoned ID is specified, <code>CreateReusableDelegationSet</code>
-    /// marks the delegation set associated with that zone as reusable.
+    /// hosted zones that were created by the same AWS account. 
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// You can also create a reusable delegation set that uses the four name servers that
+    /// are associated with an existing hosted zone. Specify the hosted zone ID in the <code>CreateReusableDelegationSet</code>
+    /// request.
+    /// </para><note><para>
     /// You can't associate a reusable delegation set with a private hosted zone.
     /// </para></note><para>
     /// For information about using a reusable delegation set to configure white label name
-    /// servers, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html">Configuring
+    /// servers, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html">Configuring
     /// White Label Name Servers</a>.
     /// </para><para>
     /// The process for migrating existing hosted zones to use a reusable delegation set is

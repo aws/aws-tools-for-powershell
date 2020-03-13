@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingId
         /// <summary>
         /// <para>
-        /// <para>IDs of the findings that you want to retrieve.</para>
+        /// <para>The IDs of the findings that you want to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

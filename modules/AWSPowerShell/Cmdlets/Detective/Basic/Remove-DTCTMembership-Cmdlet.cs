@@ -28,13 +28,8 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Amazon Detective is currently in preview.
-    /// 
-    ///  
-    /// <para>
     /// Removes the member account from the specified behavior graph. This operation can only
     /// be called by a member account that has the <code>ENABLED</code> status.
-    /// </para>
     /// </summary>
     [Cmdlet("Remove", "DTCTMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

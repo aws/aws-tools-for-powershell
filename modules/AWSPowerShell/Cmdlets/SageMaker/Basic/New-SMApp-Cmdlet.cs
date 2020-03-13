@@ -28,13 +28,11 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a running App for the specified UserProfile. Supported Apps are JupyterServer
-    /// and KernelGateway. This operation is automatically invoked by Amazon SageMaker Amazon
-    /// SageMaker Studio (Studio) upon access to the associated Studio Domain, and when new
-    /// kernel configurations are selected by the user. A user may have multiple Apps active
-    /// simultaneously. Apps will automatically terminate and be deleted when stopped from
-    /// within Studio, or when the DeleteApp API is manually called. UserProfiles are limited
-    /// to 5 concurrently running Apps at a time.
+    /// Creates a running App for the specified UserProfile. Supported Apps are JupyterServer,
+    /// KernelGateway, and TensorBoard. This operation is automatically invoked by Amazon
+    /// SageMaker Studio upon access to the associated Domain, and when new kernel configurations
+    /// are selected by the user. A user may have multiple Apps active simultaneously. UserProfiles
+    /// are limited to 5 concurrently running Apps at a time.
     /// </summary>
     [Cmdlet("New", "SMApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -97,16 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String DomainId { get; set; }
         #endregion
         
-        #region Parameter ResourceSpec_EnvironmentArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the environment.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceSpec_EnvironmentArn { get; set; }
-        #endregion
-        
         #region Parameter ResourceSpec_InstanceType
         /// <summary>
         /// <para>
@@ -116,6 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SageMaker.AppInstanceType")]
         public Amazon.SageMaker.AppInstanceType ResourceSpec_InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter ResourceSpec_SageMakerImageArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the SageMaker image created on the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceSpec_SageMakerImageArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -228,8 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ResourceSpec_EnvironmentArn = this.ResourceSpec_EnvironmentArn;
             context.ResourceSpec_InstanceType = this.ResourceSpec_InstanceType;
+            context.ResourceSpec_SageMakerImageArn = this.ResourceSpec_SageMakerImageArn;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -273,16 +271,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate ResourceSpec
             var requestResourceSpecIsNull = true;
             request.ResourceSpec = new Amazon.SageMaker.Model.ResourceSpec();
-            System.String requestResourceSpec_resourceSpec_EnvironmentArn = null;
-            if (cmdletContext.ResourceSpec_EnvironmentArn != null)
-            {
-                requestResourceSpec_resourceSpec_EnvironmentArn = cmdletContext.ResourceSpec_EnvironmentArn;
-            }
-            if (requestResourceSpec_resourceSpec_EnvironmentArn != null)
-            {
-                request.ResourceSpec.EnvironmentArn = requestResourceSpec_resourceSpec_EnvironmentArn;
-                requestResourceSpecIsNull = false;
-            }
             Amazon.SageMaker.AppInstanceType requestResourceSpec_resourceSpec_InstanceType = null;
             if (cmdletContext.ResourceSpec_InstanceType != null)
             {
@@ -291,6 +279,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestResourceSpec_resourceSpec_InstanceType != null)
             {
                 request.ResourceSpec.InstanceType = requestResourceSpec_resourceSpec_InstanceType;
+                requestResourceSpecIsNull = false;
+            }
+            System.String requestResourceSpec_resourceSpec_SageMakerImageArn = null;
+            if (cmdletContext.ResourceSpec_SageMakerImageArn != null)
+            {
+                requestResourceSpec_resourceSpec_SageMakerImageArn = cmdletContext.ResourceSpec_SageMakerImageArn;
+            }
+            if (requestResourceSpec_resourceSpec_SageMakerImageArn != null)
+            {
+                request.ResourceSpec.SageMakerImageArn = requestResourceSpec_resourceSpec_SageMakerImageArn;
                 requestResourceSpecIsNull = false;
             }
              // determine if request.ResourceSpec should be set to null
@@ -370,8 +368,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String AppName { get; set; }
             public Amazon.SageMaker.AppType AppType { get; set; }
             public System.String DomainId { get; set; }
-            public System.String ResourceSpec_EnvironmentArn { get; set; }
             public Amazon.SageMaker.AppInstanceType ResourceSpec_InstanceType { get; set; }
+            public System.String ResourceSpec_SageMakerImageArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String UserProfileName { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateAppResponse, NewSMAppCmdlet, object> Select { get; set; } =

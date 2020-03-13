@@ -28,11 +28,17 @@ using Amazon.WAFRegional.Model;
 namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
+    /// <note><para>
+    /// This is <b>AWS WAF Classic</b> documentation. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+    /// WAF Classic</a> in the developer guide.
+    /// </para><para><b>For the latest version of AWS WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+    /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
+    /// for regional and global use. 
+    /// </para></note><para>
     /// Inserts or deletes <a>ActivatedRule</a> objects in a <code>WebACL</code>. Each <code>Rule</code>
     /// identifies web requests that you want to allow, block, or count. When you update a
     /// <code>WebACL</code>, you specify the following values:
-    /// 
-    ///  <ul><li><para>
+    /// </para><ul><li><para>
     /// A default action for the <code>WebACL</code>, either <code>ALLOW</code> or <code>BLOCK</code>.
     /// AWS WAF performs the default action if a request doesn't match the criteria in any
     /// of the <code>Rules</code> in a <code>WebACL</code>.
@@ -72,12 +78,12 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// to associate the <code>WebACL</code> with a CloudFront distribution. 
     /// </para><para>
     /// The <code>ActivatedRule</code> can be a rule group. If you specify a rule group as
-    /// your <code>ActivatedRule</code>, you can exclude specific rules from that rule group.
+    /// your <code>ActivatedRule</code> , you can exclude specific rules from that rule group.
     /// </para><para>
     /// If you already have a rule group associated with a web ACL and want to submit an <code>UpdateWebACL</code>
     /// request to exclude certain rules from that rule group, you must first remove the rule
     /// group from the web ACL, the re-insert it again, specifying the excluded rules. For
-    /// details, see <a>ActivatedRule$ExcludedRules</a>. 
+    /// details, see <a>ActivatedRule$ExcludedRules</a> . 
     /// </para></li></ol><para>
     /// Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the
     /// rule type when first creating the rule, the <a>UpdateWebACL</a> request will fail

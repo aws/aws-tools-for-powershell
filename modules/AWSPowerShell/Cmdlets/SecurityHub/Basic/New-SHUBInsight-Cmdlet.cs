@@ -67,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter GroupByAttribute
         /// <summary>
         /// <para>
-        /// <para>The attribute used as the aggregator to group related findings for the insight.</para>
+        /// <para>The attribute used to group the findings for the insight. The grouping attribute identifies
+        /// the type of item that the insight applies to. For example, if an insight is grouped
+        /// by resource identifier, then the insight produces a list of resource identifiers.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

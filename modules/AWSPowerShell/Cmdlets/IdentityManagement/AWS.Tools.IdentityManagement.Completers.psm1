@@ -80,6 +80,13 @@ $IAM_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IdentityManagement.AccessAdvisorUsageGranularityType
+        "Request-IAMServiceLastAccessedDetail/Granularity"
+        {
+            $v = "ACTION_LEVEL","SERVICE_LEVEL"
+            break
+        }
+
         # Amazon.IdentityManagement.AssignmentStatusType
         "Get-IAMVirtualMFADevice/AssignmentStatus"
         {
@@ -157,6 +164,7 @@ $IAM_map = @{
     "Encoding"=@("Get-IAMSSHPublicKey")
     "EntityFilter"=@("Get-IAMEntitiesForPolicy")
     "GlobalEndpointTokenVersion"=@("Set-IAMSecurityTokenServicePreference")
+    "Granularity"=@("Request-IAMServiceLastAccessedDetail")
     "PolicyUsageFilter"=@("Get-IAMEntitiesForPolicy","Get-IAMPolicyList")
     "Scope"=@("Get-IAMPolicyList")
     "SortKey"=@("Get-IAMOrganizationsAccessReport")

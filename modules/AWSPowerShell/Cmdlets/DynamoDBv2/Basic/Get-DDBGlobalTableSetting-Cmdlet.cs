@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// Describes Region-specific settings for a global table.
     /// 
     ///  <note><para>
-    /// This method only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
     /// 2017.11.29</a> of global tables.
     /// </para></note>
     /// </summary>

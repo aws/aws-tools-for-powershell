@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>managedblockchain</C2jFilename>
     <AssemblyName>ManagedBlockchain</AssemblyName>
@@ -88,6 +89,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMember" Verb="Update" Noun="Member" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNode" Verb="Update" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="VoteOnProposal" Verb="Send" Noun="ProposalVote" ShouldProcessTarget="ProposalId" PipelineParameter="ProposalId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -95,5 +104,7 @@
     </ServiceOperations>
     <InputObjectMappingRules />
     <SupportsShouldProcessVerbs />
-    <TypesNotToFlatten />
+    <TypesNotToFlatten>
+        <Type>Amazon.ManagedBlockchain.Model.NodeFabricLogPublishingConfiguration</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

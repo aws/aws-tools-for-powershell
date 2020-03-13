@@ -28,7 +28,14 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Retrieves the configuration parameters and status for a batch operations job.
+    /// Retrieves the configuration parameters and status for a Batch Operations job. For
+    /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">Amazon
+    /// S3 Batch Operations</a> in the Amazon Simple Storage Service Developer Guide.
+    /// 
+    ///   
+    /// <para>
+    /// Related actions include:
+    /// </para><ul><li><para><a>CreateJob</a></para></li><li><para><a>ListJobs</a></para></li><li><para><a>UpdateJobPriority</a></para></li><li><para><a>UpdateJobStatus</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3CJob")]
     [OutputType("Amazon.S3Control.Model.JobDescriptor")]

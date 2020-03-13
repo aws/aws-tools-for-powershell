@@ -28,8 +28,7 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Removes one or more tags from the workgroup resource. Takes as an input a list of
-    /// TagKey Strings separated by commas, and removes their tags at the same time.
+    /// Removes one or more tags from a data catalog or workgroup resource.
     /// </summary>
     [Cmdlet("Remove", "ATHResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>Removes one or more tags from the workgroup resource for the specified ARN.</para>
+        /// <para>Specifies the ARN of the resource from which tags are to be removed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>Removes the tags associated with one or more tag keys from the workgroup resource.</para>
+        /// <para>A comma-separated list of one or more tag keys whose tags are to be removed from the
+        /// specified resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

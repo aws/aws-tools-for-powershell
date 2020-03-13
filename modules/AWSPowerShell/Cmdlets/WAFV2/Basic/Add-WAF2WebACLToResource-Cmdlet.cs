@@ -38,9 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// A regional application can be an Application Load Balancer (ALB) or an API Gateway
     /// stage. 
     /// </para><para>
-    /// For AWS CloudFront, you can associate the Web ACL by providing the <code>ARN</code>
-    /// of the <a>WebACL</a> to the CloudFront API call <code>UpdateDistribution</code>. For
-    /// information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
+    /// For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution
+    /// configuration. To associate a Web ACL, in the CloudFront call <code>UpdateDistribution</code>,
+    /// set the web ACL ID to the Amazon Resource Name (ARN) of the Web ACL. For information,
+    /// see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "WAF2WebACLToResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

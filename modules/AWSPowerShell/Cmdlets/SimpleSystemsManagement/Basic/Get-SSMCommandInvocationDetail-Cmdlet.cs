@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>(Required) The ID of the managed instance targeted by the command. A managed instance
-        /// can be an Amazon EC2 instance or an instance in your hybrid environment that is configured
+        /// can be an EC2 instance or an instance in your hybrid environment that is configured
         /// for Systems Manager.</para>
         /// </para>
         /// </summary>

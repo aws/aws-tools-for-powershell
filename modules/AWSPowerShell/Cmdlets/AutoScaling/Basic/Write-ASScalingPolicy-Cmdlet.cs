@@ -32,9 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information about using scaling policies to scale your Auto Scaling group
-    /// automatically, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html">Dynamic
-    /// Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// For more information about using scaling policies to scale your Auto Scaling group,
+    /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target
+    /// Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step
+    /// and Simple Scaling Policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -167,15 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MinAdjustmentMagnitude
         /// <summary>
         /// <para>
-        /// <para>The minimum number of instances to scale. If the value of <code>AdjustmentType</code>
-        /// is <code>PercentChangeInCapacity</code>, the scaling policy changes the <code>DesiredCapacity</code>
-        /// of the Auto Scaling group by at least this many instances. Otherwise, the error is
-        /// <code>ValidationError</code>.</para><para>This property replaces the <code>MinAdjustmentStep</code> property. For example, suppose
-        /// that you create a step scaling policy to scale out an Auto Scaling group by 25 percent
+        /// <para>The minimum value to scale by when scaling by percentages. For example, suppose that
+        /// you create a step scaling policy to scale out an Auto Scaling group by 25 percent
         /// and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the group has 4 instances
         /// and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified
         /// a <code>MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out the
-        /// group by 2 instances.</para><para>Valid only if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</para>
+        /// group by 2 instances. </para><para>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>
+        /// and the adjustment type is <code>PercentChangeInCapacity</code>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling
+        /// Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

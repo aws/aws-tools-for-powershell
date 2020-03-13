@@ -28,7 +28,7 @@ using Amazon.CloudFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Lists all exported output values in the account and region in which you call this
+    /// Lists all exported output values in the account and Region in which you call this
     /// action. Use this action to see the exported output values that you can import into
     /// other stacks. To import values, use the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html"><code>Fn::ImportValue</code></a> function. 
     /// 

@@ -386,6 +386,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.Boolean? Instances_KeepJobFlowAliveWhenNoStep { get; set; }
         #endregion
         
+        #region Parameter LogEncryptionKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The AWS KMS customer master key (CMK) used for encrypting log files. If a value is
+        /// not provided, the logs will remain encrypted by AES-256. This attribute is only available
+        /// with EMR version 5.30.0 and later, excluding EMR 6.0.0.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LogEncryptionKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter LogUri
         /// <summary>
         /// <para>
@@ -405,6 +417,49 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Instances_MasterInstanceType { get; set; }
+        #endregion
+        
+        #region Parameter ComputeLimits_MaximumCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para> The upper boundary of EC2 units. It is measured through VCPU cores or instances for
+        /// instance groups and measured through units for instance fleets. Managed scaling activities
+        /// are not allowed beyond this boundary. The limit only applies to the core and task
+        /// nodes. The master node cannot be scaled after initial configuration. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManagedScalingPolicy_ComputeLimits_MaximumCapacityUnits")]
+        public System.Int32? ComputeLimits_MaximumCapacityUnit { get; set; }
+        #endregion
+        
+        #region Parameter ComputeLimits_MaximumOnDemandCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para> The upper boundary of on-demand EC2 units. It is measured through VCPU cores or instances
+        /// for instance groups and measured through units for instance fleets. The on-demand
+        /// units are not allowed to scale beyond this boundary. The limit only applies to the
+        /// core and task nodes. The master node cannot be scaled after initial configuration.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManagedScalingPolicy_ComputeLimits_MaximumOnDemandCapacityUnits")]
+        public System.Int32? ComputeLimits_MaximumOnDemandCapacityUnit { get; set; }
+        #endregion
+        
+        #region Parameter ComputeLimits_MinimumCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para> The lower boundary of EC2 units. It is measured through VCPU cores or instances for
+        /// instance groups and measured through units for instance fleets. Managed scaling activities
+        /// are not allowed beyond this boundary. The limit only applies to the core and task
+        /// nodes. The master node cannot be scaled after initial configuration. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManagedScalingPolicy_ComputeLimits_MinimumCapacityUnits")]
+        public System.Int32? ComputeLimits_MinimumCapacityUnit { get; set; }
         #endregion
         
         #region Parameter Name
@@ -602,6 +657,18 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.Boolean? Instances_TerminationProtected { get; set; }
         #endregion
         
+        #region Parameter ComputeLimits_UnitType
+        /// <summary>
+        /// <para>
+        /// <para> The unit type used for specifying a managed scaling policy. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManagedScalingPolicy_ComputeLimits_UnitType")]
+        [AWSConstantClassSource("Amazon.ElasticMapReduce.ComputeLimitsUnitType")]
+        public Amazon.ElasticMapReduce.ComputeLimitsUnitType ComputeLimits_UnitType { get; set; }
+        #endregion
+        
         #region Parameter VisibleToAllUser
         /// <summary>
         /// <para>
@@ -736,7 +803,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.KerberosAttributes_CrossRealmTrustPrincipalPassword = this.KerberosAttributes_CrossRealmTrustPrincipalPassword;
             context.KerberosAttributes_KdcAdminPassword = this.KerberosAttributes_KdcAdminPassword;
             context.KerberosAttributes_Realm = this.KerberosAttributes_Realm;
+            context.LogEncryptionKmsKeyId = this.LogEncryptionKmsKeyId;
             context.LogUri = this.LogUri;
+            context.ComputeLimits_MaximumCapacityUnit = this.ComputeLimits_MaximumCapacityUnit;
+            context.ComputeLimits_MaximumOnDemandCapacityUnit = this.ComputeLimits_MaximumOnDemandCapacityUnit;
+            context.ComputeLimits_MinimumCapacityUnit = this.ComputeLimits_MinimumCapacityUnit;
+            context.ComputeLimits_UnitType = this.ComputeLimits_UnitType;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -1082,9 +1154,77 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.KerberosAttributes = null;
             }
+            if (cmdletContext.LogEncryptionKmsKeyId != null)
+            {
+                request.LogEncryptionKmsKeyId = cmdletContext.LogEncryptionKmsKeyId;
+            }
             if (cmdletContext.LogUri != null)
             {
                 request.LogUri = cmdletContext.LogUri;
+            }
+            
+             // populate ManagedScalingPolicy
+            var requestManagedScalingPolicyIsNull = true;
+            request.ManagedScalingPolicy = new Amazon.ElasticMapReduce.Model.ManagedScalingPolicy();
+            Amazon.ElasticMapReduce.Model.ComputeLimits requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits = null;
+            
+             // populate ComputeLimits
+            var requestManagedScalingPolicy_managedScalingPolicy_ComputeLimitsIsNull = true;
+            requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits = new Amazon.ElasticMapReduce.Model.ComputeLimits();
+            System.Int32? requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCapacityUnit = null;
+            if (cmdletContext.ComputeLimits_MaximumCapacityUnit != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCapacityUnit = cmdletContext.ComputeLimits_MaximumCapacityUnit.Value;
+            }
+            if (requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCapacityUnit != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits.MaximumCapacityUnits = requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCapacityUnit.Value;
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimitsIsNull = false;
+            }
+            System.Int32? requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumOnDemandCapacityUnit = null;
+            if (cmdletContext.ComputeLimits_MaximumOnDemandCapacityUnit != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumOnDemandCapacityUnit = cmdletContext.ComputeLimits_MaximumOnDemandCapacityUnit.Value;
+            }
+            if (requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumOnDemandCapacityUnit != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits.MaximumOnDemandCapacityUnits = requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumOnDemandCapacityUnit.Value;
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimitsIsNull = false;
+            }
+            System.Int32? requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MinimumCapacityUnit = null;
+            if (cmdletContext.ComputeLimits_MinimumCapacityUnit != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MinimumCapacityUnit = cmdletContext.ComputeLimits_MinimumCapacityUnit.Value;
+            }
+            if (requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MinimumCapacityUnit != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits.MinimumCapacityUnits = requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MinimumCapacityUnit.Value;
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimitsIsNull = false;
+            }
+            Amazon.ElasticMapReduce.ComputeLimitsUnitType requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_UnitType = null;
+            if (cmdletContext.ComputeLimits_UnitType != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_UnitType = cmdletContext.ComputeLimits_UnitType;
+            }
+            if (requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_UnitType != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits.UnitType = requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_UnitType;
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimitsIsNull = false;
+            }
+             // determine if requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits should be set to null
+            if (requestManagedScalingPolicy_managedScalingPolicy_ComputeLimitsIsNull)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits = null;
+            }
+            if (requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits != null)
+            {
+                request.ManagedScalingPolicy.ComputeLimits = requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits;
+                requestManagedScalingPolicyIsNull = false;
+            }
+             // determine if request.ManagedScalingPolicy should be set to null
+            if (requestManagedScalingPolicyIsNull)
+            {
+                request.ManagedScalingPolicy = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -1227,7 +1367,12 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String KerberosAttributes_CrossRealmTrustPrincipalPassword { get; set; }
             public System.String KerberosAttributes_KdcAdminPassword { get; set; }
             public System.String KerberosAttributes_Realm { get; set; }
+            public System.String LogEncryptionKmsKeyId { get; set; }
             public System.String LogUri { get; set; }
+            public System.Int32? ComputeLimits_MaximumCapacityUnit { get; set; }
+            public System.Int32? ComputeLimits_MaximumOnDemandCapacityUnit { get; set; }
+            public System.Int32? ComputeLimits_MinimumCapacityUnit { get; set; }
+            public Amazon.ElasticMapReduce.ComputeLimitsUnitType ComputeLimits_UnitType { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ElasticMapReduce.Model.SupportedProductConfig> NewSupportedProduct { get; set; }
             public System.String ReleaseLabel { get; set; }

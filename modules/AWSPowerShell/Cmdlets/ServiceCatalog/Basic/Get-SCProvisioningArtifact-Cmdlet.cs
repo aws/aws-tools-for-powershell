@@ -56,15 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>The product identifier.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProductId { get; set; }
+        #endregion
+        
+        #region Parameter ProductName
+        /// <summary>
+        /// <para>
+        /// <para>The product name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProductName { get; set; }
         #endregion
         
         #region Parameter ProvisioningArtifactId
@@ -73,15 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>The identifier of the provisioning artifact.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProvisioningArtifactId { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningArtifactName
+        /// <summary>
+        /// <para>
+        /// <para>The provisioning artifact name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProvisioningArtifactName { get; set; }
         #endregion
         
         #region Parameter ReturnCloudFormationTemplate
@@ -141,19 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AcceptLanguage = this.AcceptLanguage;
             context.ProductId = this.ProductId;
-            #if MODULAR
-            if (this.ProductId == null && ParameterWasBound(nameof(this.ProductId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProductId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ProductName = this.ProductName;
             context.ProvisioningArtifactId = this.ProvisioningArtifactId;
-            #if MODULAR
-            if (this.ProvisioningArtifactId == null && ParameterWasBound(nameof(this.ProvisioningArtifactId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProvisioningArtifactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ProvisioningArtifactName = this.ProvisioningArtifactName;
             context.ReturnCloudFormationTemplate = this.ReturnCloudFormationTemplate;
             
             // allow further manipulation of loaded context prior to processing
@@ -179,9 +175,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 request.ProductId = cmdletContext.ProductId;
             }
+            if (cmdletContext.ProductName != null)
+            {
+                request.ProductName = cmdletContext.ProductName;
+            }
             if (cmdletContext.ProvisioningArtifactId != null)
             {
                 request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+            }
+            if (cmdletContext.ProvisioningArtifactName != null)
+            {
+                request.ProvisioningArtifactName = cmdletContext.ProvisioningArtifactName;
             }
             if (cmdletContext.ReturnCloudFormationTemplate != null)
             {
@@ -250,7 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             public System.String AcceptLanguage { get; set; }
             public System.String ProductId { get; set; }
+            public System.String ProductName { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
+            public System.String ProvisioningArtifactName { get; set; }
             public System.Boolean? ReturnCloudFormationTemplate { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.DescribeProvisioningArtifactResponse, GetSCProvisioningArtifactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

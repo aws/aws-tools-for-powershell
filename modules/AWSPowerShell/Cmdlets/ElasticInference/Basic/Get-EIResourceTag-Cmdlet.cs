@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EI
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The ARN of the Elastic Inference Accelerator
-        /// to list the tags for.
+        /// <para> The ARN of the Elastic Inference Accelerator to list the tags for. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

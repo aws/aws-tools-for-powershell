@@ -46,11 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// </para></li></ul></li><li><para>
     /// Optionally, a health check
     /// </para></li></ul><para>
-    /// After you create the service, you can submit a <a>RegisterInstance</a> request, and
-    /// AWS Cloud Map uses the values in the configuration to create the specified entities.
+    /// After you create the service, you can submit a <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html">RegisterInstance</a>
+    /// request, and AWS Cloud Map uses the values in the configuration to create the specified
+    /// entities.
     /// </para><para>
     /// For the current limit on the number of instances that you can register using the same
-    /// namespace and using the same service, see <a href="http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
+    /// namespace and using the same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
     /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>
         /// <para>The number of consecutive health checks that an endpoint must pass or fail for Route
         /// 53 to change the current status of the endpoint from unhealthy to healthy or vice
-        /// versa. For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// versa. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
         /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
         /// Guide</i>.</para>
         /// </para>
@@ -115,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>A complex type that contains information about an optional custom health check.</para><important><para>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code>
-        /// or <code>HealthCheckConfig</code> but not both.</para></important>
+        /// or <code>HealthCheckConfig</code> but not both.</para></important><para>You can't add, update, or delete a <code>HealthCheckCustomConfig</code> configuration
+        /// from an existing service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name that you want to assign to the service.</para>
+        /// <para>The name that you want to assign to the service.</para><para>If you want AWS Cloud Map to create an SRV record when you register an instance, and
+        /// if you're using a system that requires a specific SRV format, such as <a href="http://www.haproxy.org/">HAProxy</a>,
+        /// specify the following for <code>Name</code>:</para><ul><li><para>Start the name with an underscore (_), such as <code>_exampleservice</code></para></li><li><para>End the name with <i>._protocol</i>, such as <code>._tcp</code></para></li></ul><para>When you register an instance, AWS Cloud Map creates an SRV record and assigns a name
+        /// to the record by concatenating the service name and the namespace name, for example:</para><para><code>_exampleservice._tcp.example.com</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,6 +169,19 @@ namespace Amazon.PowerShell.Cmdlets.SD
         public System.String HealthCheckConfig_ResourcePath { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to add to the service. Each tag consists of a key and an optional value,
+        /// both of which you define. Tag keys can have a maximum character length of 128 characters,
+        /// and tag values can have a maximum length of 256 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ServiceDiscovery.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckConfig_Type
         /// <summary>
         /// <para>
@@ -173,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// than 400.</para></li><li><para><b>HTTPS</b>: Route 53 tries to establish a TCP connection. If successful, Route
         /// 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and
         /// less than 400.</para><important><para>If you specify HTTPS for the value of <code>Type</code>, the endpoint must support
-        /// TLS v1.0 or later.</para></important></li><li><para><b>TCP</b>: Route 53 tries to establish a TCP connection.</para><para>If you specify <code>TCP</code> for <code>Type</code>, don't specify a value for <code>ResourcePath</code>.</para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// TLS v1.0 or later.</para></important></li><li><para><b>TCP</b>: Route 53 tries to establish a TCP connection.</para><para>If you specify <code>TCP</code> for <code>Type</code>, don't specify a value for <code>ResourcePath</code>.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
         /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
         /// Guide</i>.</para>
         /// </para>
@@ -259,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
             }
             #endif
             context.NamespaceId = this.NamespaceId;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ServiceDiscovery.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -338,6 +360,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
             {
                 request.NamespaceId = cmdletContext.NamespaceId;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -408,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             public Amazon.ServiceDiscovery.Model.HealthCheckCustomConfig HealthCheckCustomConfig { get; set; }
             public System.String Name { get; set; }
             public System.String NamespaceId { get; set; }
+            public List<Amazon.ServiceDiscovery.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ServiceDiscovery.Model.CreateServiceResponse, NewSDServiceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Service;
         }

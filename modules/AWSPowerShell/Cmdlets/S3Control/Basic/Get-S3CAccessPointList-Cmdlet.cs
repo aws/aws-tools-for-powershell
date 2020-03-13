@@ -30,9 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// <summary>
     /// Returns a list of the access points currently associated with the specified bucket.
     /// You can retrieve up to 1000 access points per call. If the specified bucket has more
-    /// than 1000 access points (or the number specified in <code>maxResults</code>, whichever
-    /// is less), then the response will include a continuation token that you can use to
-    /// list the additional access points.
+    /// than 1,000 access points (or the number specified in <code>maxResults</code>, whichever
+    /// is less), the response will include a continuation token that you can use to list
+    /// the additional access points.
     /// </summary>
     [Cmdlet("Get", "S3CAccessPointList")]
     [OutputType("Amazon.S3Control.Model.AccessPoint")]

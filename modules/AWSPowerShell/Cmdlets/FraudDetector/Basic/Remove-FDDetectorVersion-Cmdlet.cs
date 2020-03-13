@@ -28,7 +28,8 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Deletes the detector version.
+    /// Deletes the detector version. You cannot delete detector versions that are in <code>ACTIVE</code>
+    /// status.
     /// </summary>
     [Cmdlet("Remove", "FDDetectorVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

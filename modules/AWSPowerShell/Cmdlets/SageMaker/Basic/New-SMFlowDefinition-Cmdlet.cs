@@ -49,7 +49,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("HumanLoopActivationConfig_HumanLoopRequestSource_AwsManagedHumanLoopRequestSource")]
         [AWSConstantClassSource("Amazon.SageMaker.AwsManagedHumanLoopRequestSource")]
         public Amazon.SageMaker.AwsManagedHumanLoopRequestSource HumanLoopRequestSource_AwsManagedHumanLoopRequestSource { get; set; }
         #endregion
@@ -98,7 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>JSON expressing use-case specific conditions declaratively. If any condition is matched,
         /// atomic tasks are created against the configured work team. The set of conditions is
-        /// different for Rekognition and Textract.</para>
+        /// different for Rekognition and Textract. For more information about how to structure
+        /// the JSON, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html">JSON
+        /// Schema for Human Loop Activation Conditions in Amazon Augmented AI</a> in the <i>Amazon
+        /// SageMaker Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -363,7 +365,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.HumanLoopActivationConditionsConfig_HumanLoopActivationCondition = this.HumanLoopActivationConditionsConfig_HumanLoopActivationCondition;
-            context.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource = this.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource;
             context.HumanLoopConfig_HumanTaskUiArn = this.HumanLoopConfig_HumanTaskUiArn;
             #if MODULAR
             if (this.HumanLoopConfig_HumanTaskUiArn == null && ParameterWasBound(nameof(this.HumanLoopConfig_HumanTaskUiArn)))
@@ -408,6 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter HumanLoopConfig_WorkteamArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource = this.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource;
             context.OutputConfig_KmsKeyId = this.OutputConfig_KmsKeyId;
             context.OutputConfig_S3OutputPath = this.OutputConfig_S3OutputPath;
             #if MODULAR
@@ -474,31 +476,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopActivationConditionsConfig != null)
             {
                 request.HumanLoopActivationConfig.HumanLoopActivationConditionsConfig = requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopActivationConditionsConfig;
-                requestHumanLoopActivationConfigIsNull = false;
-            }
-            Amazon.SageMaker.Model.HumanLoopRequestSource requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource = null;
-            
-             // populate HumanLoopRequestSource
-            var requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSourceIsNull = true;
-            requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource = new Amazon.SageMaker.Model.HumanLoopRequestSource();
-            Amazon.SageMaker.AwsManagedHumanLoopRequestSource requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource_humanLoopRequestSource_AwsManagedHumanLoopRequestSource = null;
-            if (cmdletContext.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource != null)
-            {
-                requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource_humanLoopRequestSource_AwsManagedHumanLoopRequestSource = cmdletContext.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource;
-            }
-            if (requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource_humanLoopRequestSource_AwsManagedHumanLoopRequestSource != null)
-            {
-                requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource.AwsManagedHumanLoopRequestSource = requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource_humanLoopRequestSource_AwsManagedHumanLoopRequestSource;
-                requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSourceIsNull = false;
-            }
-             // determine if requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource should be set to null
-            if (requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSourceIsNull)
-            {
-                requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource = null;
-            }
-            if (requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource != null)
-            {
-                request.HumanLoopActivationConfig.HumanLoopRequestSource = requestHumanLoopActivationConfig_humanLoopActivationConfig_HumanLoopRequestSource;
                 requestHumanLoopActivationConfigIsNull = false;
             }
              // determine if request.HumanLoopActivationConfig should be set to null
@@ -656,6 +633,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.HumanLoopConfig = null;
             }
             
+             // populate HumanLoopRequestSource
+            var requestHumanLoopRequestSourceIsNull = true;
+            request.HumanLoopRequestSource = new Amazon.SageMaker.Model.HumanLoopRequestSource();
+            Amazon.SageMaker.AwsManagedHumanLoopRequestSource requestHumanLoopRequestSource_humanLoopRequestSource_AwsManagedHumanLoopRequestSource = null;
+            if (cmdletContext.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource != null)
+            {
+                requestHumanLoopRequestSource_humanLoopRequestSource_AwsManagedHumanLoopRequestSource = cmdletContext.HumanLoopRequestSource_AwsManagedHumanLoopRequestSource;
+            }
+            if (requestHumanLoopRequestSource_humanLoopRequestSource_AwsManagedHumanLoopRequestSource != null)
+            {
+                request.HumanLoopRequestSource.AwsManagedHumanLoopRequestSource = requestHumanLoopRequestSource_humanLoopRequestSource_AwsManagedHumanLoopRequestSource;
+                requestHumanLoopRequestSourceIsNull = false;
+            }
+             // determine if request.HumanLoopRequestSource should be set to null
+            if (requestHumanLoopRequestSourceIsNull)
+            {
+                request.HumanLoopRequestSource = null;
+            }
+            
              // populate OutputConfig
             var requestOutputConfigIsNull = true;
             request.OutputConfig = new Amazon.SageMaker.Model.FlowDefinitionOutputConfig();
@@ -755,7 +751,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String FlowDefinitionName { get; set; }
             public System.String HumanLoopActivationConditionsConfig_HumanLoopActivationCondition { get; set; }
-            public Amazon.SageMaker.AwsManagedHumanLoopRequestSource HumanLoopRequestSource_AwsManagedHumanLoopRequestSource { get; set; }
             public System.String HumanLoopConfig_HumanTaskUiArn { get; set; }
             public System.Int32? AmountInUsd_Cent { get; set; }
             public System.Int32? AmountInUsd_Dollar { get; set; }
@@ -767,6 +762,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? HumanLoopConfig_TaskTimeLimitInSecond { get; set; }
             public System.String HumanLoopConfig_TaskTitle { get; set; }
             public System.String HumanLoopConfig_WorkteamArn { get; set; }
+            public Amazon.SageMaker.AwsManagedHumanLoopRequestSource HumanLoopRequestSource_AwsManagedHumanLoopRequestSource { get; set; }
             public System.String OutputConfig_KmsKeyId { get; set; }
             public System.String OutputConfig_S3OutputPath { get; set; }
             public System.String RoleArn { get; set; }

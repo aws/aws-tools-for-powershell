@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         /// <para>
         /// <para>Provides input data, in the format specified in the <code>ContentType</code> request
         /// header. Amazon SageMaker passes all of the data in the body to the model. </para><para>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common
-        /// Data Formats—Inference</a>.</para>
+        /// Data Formats-Inference</a>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -145,12 +145,24 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         #region Parameter TargetModel
         /// <summary>
         /// <para>
-        /// <para>Specifies the model to be requested for an inference when invoking a multi-model endpoint.
-        /// </para>
+        /// <para>The model to request for inference when invoking a multi-model endpoint. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TargetModel { get; set; }
+        #endregion
+        
+        #region Parameter TargetVariant
+        /// <summary>
+        /// <para>
+        /// <para>Specify the production variant to send the inference request to when invoking an endpoint
+        /// that is running two or more variants. Note that this parameter overrides the default
+        /// behavior for the endpoint, which is to distribute the invocation traffic based on
+        /// the variant weights.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetVariant { get; set; }
         #endregion
         
         #region Parameter Select
@@ -232,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             }
             #endif
             context.TargetModel = this.TargetModel;
+            context.TargetVariant = this.TargetVariant;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -276,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.TargetModel != null)
                 {
                     request.TargetModel = cmdletContext.TargetModel;
+                }
+                if (cmdletContext.TargetVariant != null)
+                {
+                    request.TargetVariant = cmdletContext.TargetVariant;
                 }
                 
                 CmdletOutput output;
@@ -352,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String CustomAttribute { get; set; }
             public System.String EndpointName { get; set; }
             public System.String TargetModel { get; set; }
+            public System.String TargetVariant { get; set; }
             public System.Func<Amazon.SageMakerRuntime.Model.InvokeEndpointResponse, InvokeSMREndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

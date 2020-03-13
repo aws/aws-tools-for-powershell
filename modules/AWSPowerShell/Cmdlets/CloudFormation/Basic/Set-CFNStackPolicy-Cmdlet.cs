@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Location of a file containing the stack policy. The URL must point to a policy (maximum
-        /// size: 16 KB) located in an S3 bucket in the same region as the stack. You can specify
+        /// size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify
         /// either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter,
         /// but not both.</para>
         /// </para>

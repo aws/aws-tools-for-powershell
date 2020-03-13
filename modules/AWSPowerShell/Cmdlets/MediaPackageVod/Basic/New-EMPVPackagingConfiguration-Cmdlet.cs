@@ -113,6 +113,17 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
         public System.String PackagingGroupId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -192,6 +203,14 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
                 WriteWarning("You are passing $null as a value for parameter PackagingGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -231,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
             if (cmdletContext.PackagingGroupId != null)
             {
                 request.PackagingGroupId = cmdletContext.PackagingGroupId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -299,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.EMPV
             public System.String Id { get; set; }
             public Amazon.MediaPackageVod.Model.MssPackage MssPackage { get; set; }
             public System.String PackagingGroupId { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MediaPackageVod.Model.CreatePackagingConfigurationResponse, NewEMPVPackagingConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

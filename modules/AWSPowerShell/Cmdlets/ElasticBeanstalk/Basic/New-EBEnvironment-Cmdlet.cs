@@ -28,7 +28,8 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Launches an environment for the specified application using the specified configuration.
+    /// Launches an AWS Elastic Beanstalk environment for the specified application using
+    /// the specified configuration.
     /// </summary>
     [Cmdlet("New", "EBEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.CreateEnvironmentResponse")]
@@ -42,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of the application that contains the version to be deployed.</para><para> If no application is found with this name, <code>CreateEnvironment</code> returns
-        /// an <code>InvalidParameterValue</code> error. </para>
+        /// <para>The name of the application that is associated with this environment.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter CNAMEPrefix
         /// <summary>
         /// <para>
-        /// <para>If specified, the environment attempts to use this value as the prefix for the CNAME.
-        /// If not specified, the CNAME is generated automatically by appending a random alphanumeric
-        /// string to the environment name.</para>
+        /// <para>If specified, the environment attempts to use this value as the prefix for the CNAME
+        /// in your Elastic Beanstalk environment URL. If not specified, the CNAME is generated
+        /// automatically by appending a random alphanumeric string to the environment name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Describes this environment.</para>
+        /// <para>Your description for this environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,11 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para>A unique name for the deployment environment. Used in the application URL.</para><para>Constraint: Must be from 4 to 40 characters in length. The name can contain only letters,
-        /// numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique
+        /// <para>A unique name for the environment.</para><para>Constraint: Must be from 4 to 40 characters in length. The name can contain only letters,
+        /// numbers, and hyphens. It can't start or end with a hyphen. This name must be unique
         /// within a region in your account. If the specified name already exists in the region,
-        /// AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para>Default: If the CNAME parameter is not specified, the environment name becomes part
-        /// of the CNAME, and therefore part of the visible URL for your application.</para>
+        /// Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para>If you don't specify the <code>CNAMEPrefix</code> parameter, the environment name
+        /// becomes part of the CNAME, and therefore part of the visible URL for your application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -116,6 +116,21 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.String Tier_Name { get; set; }
         #endregion
         
+        #region Parameter OperationsRole
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's
+        /// operations role. If specified, Elastic Beanstalk uses the operations role for permissions
+        /// to downstream services during this call and during subsequent calls acting on this
+        /// environment. To specify an operations role, you must have the <code>iam:PassRole</code>
+        /// permission for the role. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations
+        /// roles</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OperationsRole { get; set; }
+        #endregion
+        
         #region Parameter OptionSetting
         /// <summary>
         /// <para>
@@ -143,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter PlatformArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the platform.</para>
+        /// <para>The Amazon Resource Name (ARN) of the custom platform to use with the environment.
+        /// For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html">Custom
+        /// Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</para><note><para>If you specify <code>PlatformArn</code>, don't specify <code>SolutionStackName</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,10 +170,12 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter SolutionStackName
         /// <summary>
         /// <para>
-        /// <para>This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk
-        /// sets the configuration values to the default values associated with the specified
-        /// solution stack.</para><para>For a list of current solution stacks, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic
-        /// Beanstalk Supported Platforms</a>.</para>
+        /// <para>The name of an Elastic Beanstalk solution stack (platform version) to use with the
+        /// environment. If specified, Elastic Beanstalk sets the configuration values to the
+        /// default values associated with the specified solution stack. For a list of current
+        /// solution stacks, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html">Elastic
+        /// Beanstalk Supported Platforms</a> in the <i>AWS Elastic Beanstalk Platforms</i> guide.</para><note><para>If you specify <code>SolutionStackName</code>, don't specify <code>PlatformArn</code>
+        /// or <code>TemplateName</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,9 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter TemplateName
         /// <summary>
         /// <para>
-        /// <para> The name of the configuration template to use in deployment. If no configuration
-        /// template is found with this name, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code>
-        /// error. </para>
+        /// <para>The name of the Elastic Beanstalk configuration template to use with the environment.</para><note><para>If you specify <code>TemplateName</code>, then don't specify <code>SolutionStackName</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,10 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter VersionLabel
         /// <summary>
         /// <para>
-        /// <para>The name of the application version to deploy.</para><para> If the specified application has no associated application versions, AWS Elastic
-        /// Beanstalk <code>UpdateEnvironment</code> returns an <code>InvalidParameterValue</code>
-        /// error. </para><para>Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample application
-        /// in the container.</para>
+        /// <para>The name of the application version to deploy.</para><para>Default: If not specified, Elastic Beanstalk attempts to deploy the sample application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,6 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.Description = this.Description;
             context.EnvironmentName = this.EnvironmentName;
             context.GroupName = this.GroupName;
+            context.OperationsRole = this.OperationsRole;
             if (this.OptionSetting != null)
             {
                 context.OptionSetting = new List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting>(this.OptionSetting);
@@ -347,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
+            }
+            if (cmdletContext.OperationsRole != null)
+            {
+                request.OperationsRole = cmdletContext.OperationsRole;
             }
             if (cmdletContext.OptionSetting != null)
             {
@@ -481,6 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String Description { get; set; }
             public System.String EnvironmentName { get; set; }
             public System.String GroupName { get; set; }
+            public System.String OperationsRole { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSetting { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.OptionSpecification> OptionsToRemove { get; set; }
             public System.String PlatformArn { get; set; }

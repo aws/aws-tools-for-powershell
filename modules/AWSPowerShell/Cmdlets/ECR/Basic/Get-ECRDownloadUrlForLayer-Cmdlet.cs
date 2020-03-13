@@ -33,11 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// 
     ///  
     /// <para>
-    /// When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer.
+    /// When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
+    /// that is not already cached.
     /// </para><note><para>
-    /// This operation is used by the Amazon ECR proxy, and it is not intended for general
-    /// use by customers for pulling and pushing images. In most cases, you should use the
-    /// <code>docker</code> CLI to pull, tag, and push images.
+    /// This operation is used by the Amazon ECR proxy and is not generally used by customers
+    /// for pulling and pushing images. In most cases, you should use the <code>docker</code>
+    /// CLI to pull, tag, and push images.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "ECRDownloadUrlForLayer")]

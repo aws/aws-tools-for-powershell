@@ -88,6 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter CapacityUnits_QueryCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para>The amount of extra query capacity for an index. Each capacity unit provides 0.5 queries
+        /// per second and 40,000 queries per day.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityUnits_QueryCapacityUnits")]
+        public System.Int32? CapacityUnits_QueryCapacityUnit { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -97,6 +109,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter CapacityUnits_StorageCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para>The amount of extra storage capacity for an index. Each capacity unit provides 150
+        /// Gb of storage space or 500,000 documents, whichever is reached first.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityUnits_StorageCapacityUnits")]
+        public System.Int32? CapacityUnits_StorageCapacityUnit { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,6 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CapacityUnits_QueryCapacityUnit = this.CapacityUnits_QueryCapacityUnit;
+            context.CapacityUnits_StorageCapacityUnit = this.CapacityUnits_StorageCapacityUnit;
             context.Description = this.Description;
             if (this.DocumentMetadataConfigurationUpdate != null)
             {
@@ -189,6 +215,35 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             // create request
             var request = new Amazon.Kendra.Model.UpdateIndexRequest();
             
+            
+             // populate CapacityUnits
+            var requestCapacityUnitsIsNull = true;
+            request.CapacityUnits = new Amazon.Kendra.Model.CapacityUnitsConfiguration();
+            System.Int32? requestCapacityUnits_capacityUnits_QueryCapacityUnit = null;
+            if (cmdletContext.CapacityUnits_QueryCapacityUnit != null)
+            {
+                requestCapacityUnits_capacityUnits_QueryCapacityUnit = cmdletContext.CapacityUnits_QueryCapacityUnit.Value;
+            }
+            if (requestCapacityUnits_capacityUnits_QueryCapacityUnit != null)
+            {
+                request.CapacityUnits.QueryCapacityUnits = requestCapacityUnits_capacityUnits_QueryCapacityUnit.Value;
+                requestCapacityUnitsIsNull = false;
+            }
+            System.Int32? requestCapacityUnits_capacityUnits_StorageCapacityUnit = null;
+            if (cmdletContext.CapacityUnits_StorageCapacityUnit != null)
+            {
+                requestCapacityUnits_capacityUnits_StorageCapacityUnit = cmdletContext.CapacityUnits_StorageCapacityUnit.Value;
+            }
+            if (requestCapacityUnits_capacityUnits_StorageCapacityUnit != null)
+            {
+                request.CapacityUnits.StorageCapacityUnits = requestCapacityUnits_capacityUnits_StorageCapacityUnit.Value;
+                requestCapacityUnitsIsNull = false;
+            }
+             // determine if request.CapacityUnits should be set to null
+            if (requestCapacityUnitsIsNull)
+            {
+                request.CapacityUnits = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -270,6 +325,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? CapacityUnits_QueryCapacityUnit { get; set; }
+            public System.Int32? CapacityUnits_StorageCapacityUnit { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.Kendra.Model.DocumentMetadataConfiguration> DocumentMetadataConfigurationUpdate { get; set; }
             public System.String Id { get; set; }

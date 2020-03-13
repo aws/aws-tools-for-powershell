@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// 
     ///  
     /// <para><code>Protocols</code> is used to determine the communication mechanism. For example,
-    /// specifying <code>WSS</code> as the protocol, results in this API producing a secure
-    /// websocket endpoint, and specifying <code>HTTPS</code> as the protocol, results in
-    /// this API generating an HTTPS endpoint. 
+    /// if you specify <code>WSS</code> as the protocol, this API produces a secure websocket
+    /// endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an
+    /// HTTPS endpoint. 
     /// </para><para><code>Role</code> determines the messaging permissions. A <code>MASTER</code> role
     /// results in this API generating an endpoint that a client can use to communicate with
     /// any of the viewers on the channel. A <code>VIEWER</code> role results in this API
@@ -57,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ChannelARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the signalling channel for which you want to get an endpoint.</para>
+        /// <para>The Amazon Resource Name (ARN) of the signalling channel for which you want to get
+        /// an endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

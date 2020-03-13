@@ -28,7 +28,9 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Discovers registered instances for a specified namespace and service.
+    /// Discovers registered instances for a specified namespace and service. You can use
+    /// <code>DiscoverInstances</code> to discover instances for any type of namespace. For
+    /// public and private DNS namespaces, you can also use DNS queries to discover instances.
     /// </summary>
     [Cmdlet("Find", "SDInstance")]
     [OutputType("Amazon.ServiceDiscovery.Model.HttpInstanceSummary")]
@@ -101,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of instances that you want Cloud Map to return in the response
+        /// <para>The maximum number of instances that you want AWS Cloud Map to return in the response
         /// to a <code>DiscoverInstances</code> request. If you don't specify a value for <code>MaxResults</code>,
-        /// Cloud Map returns up to 100 instances.</para>
+        /// AWS Cloud Map returns up to 100 instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

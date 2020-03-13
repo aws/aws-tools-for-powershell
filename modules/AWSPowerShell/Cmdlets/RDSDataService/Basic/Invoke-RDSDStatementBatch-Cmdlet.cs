@@ -63,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
         #region Parameter ParameterSet
         /// <summary>
         /// <para>
-        /// <para>The parameter set for the batch operation.</para><para>The maximum number of parameters in a parameter set is 1,000.</para>
+        /// <para>The parameter set for the batch operation.</para><para>The SQL statement is executed as many times as the number of parameter sets provided.
+        /// To execute a SQL statement with no parameters, use one of the following options:</para><ul><li><para>Specify one or more empty parameter sets.</para></li><li><para>Use the <code>ExecuteStatement</code> operation instead of the <code>BatchExecuteStatement</code>
+        /// operation.</para></li></ul><note><para>Array parameters are not supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,13 +28,8 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Amazon Detective is currently in preview.
-    /// 
-    ///  
-    /// <para>
     /// Rejects an invitation to contribute the account data to a behavior graph. This operation
     /// must be called by a member account that has the <code>INVITED</code> status.
-    /// </para>
     /// </summary>
     [Cmdlet("Deny", "DTCTInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

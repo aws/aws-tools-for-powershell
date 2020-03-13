@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <summary>
         /// <para>
         /// <para>A name for the signaling channel that you are creating. It must be unique for each
-        /// account and region.</para>
+        /// AWS account and AWS Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A set of tags (key/value pairs) that you want to associate with this channel.</para>
+        /// <para>A set of tags (key-value pairs) that you want to associate with this channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

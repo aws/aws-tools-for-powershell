@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para> Whether to list revisions based on whether the revision is the target revision of
-        /// an deployment group: </para><ul><li><para>include: List revisions that are target revisions of a deployment group.</para></li><li><para>exclude: Do not list revisions that are target revisions of a deployment group.</para></li><li><para>ignore: List all revisions.</para></li></ul>
+        /// a deployment group: </para><ul><li><para><code>include</code>: List revisions that are target revisions of a deployment group.</para></li><li><para><code>exclude</code>: Do not list revisions that are target revisions of a deployment
+        /// group.</para></li><li><para><code>ignore</code>: List all revisions.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The column name to use to sort the list results:</para><ul><li><para>registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.</para></li><li><para>firstUsedTime: Sort by the time the revisions were first used in a deployment.</para></li><li><para>lastUsedTime: Sort by the time the revisions were last used in a deployment.</para></li></ul><para> If not specified or set to null, the results are returned in an arbitrary order.
+        /// <para>The column name to use to sort the list results:</para><ul><li><para><code>registerTime</code>: Sort by the time the revisions were registered with AWS
+        /// CodeDeploy.</para></li><li><para><code>firstUsedTime</code>: Sort by the time the revisions were first used in a deployment.</para></li><li><para><code>lastUsedTime</code>: Sort by the time the revisions were last used in a deployment.</para></li></ul><para> If not specified or set to null, the results are returned in an arbitrary order.
         /// </para>
         /// </para>
         /// </summary>
@@ -106,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para> The order in which to sort the list results: </para><ul><li><para>ascending: ascending order.</para></li><li><para>descending: descending order.</para></li></ul><para>If not specified, the results are sorted in ascending order.</para><para>If set to null, the results are sorted in an arbitrary order.</para>
+        /// <para> The order in which to sort the list results: </para><ul><li><para><code>ascending</code>: ascending order.</para></li><li><para><code>descending</code>: descending order.</para></li></ul><para>If not specified, the results are sorted in ascending order.</para><para>If set to null, the results are sorted in an arbitrary order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

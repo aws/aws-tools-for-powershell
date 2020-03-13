@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>[Required] The ARN of a resource that can be tagged. The resource ARN must be URL-encoded.</para>
+        /// <para>[Required] The ARN of a resource that can be tagged.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

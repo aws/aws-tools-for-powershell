@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <para>The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall Manager
         /// administrator account. This can be an AWS Organizations master account or a member
         /// account. For more information about AWS Organizations and master accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing
-        /// the AWS Accounts in Your Organization</a>.</para>
+        /// the AWS Accounts in Your Organization</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

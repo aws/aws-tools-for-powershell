@@ -51,7 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><ul><li><para><a>GetServiceLastAccessedDetails</a> – Use this operation for users, groups, roles,
     /// or policies to list every AWS service that the resource could access using permissions
     /// policies. For each service, the response includes information about the most recent
-    /// access attempt. 
+    /// access attempt.
+    /// </para><para>
+    /// The <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code>
+    /// must be used by the same role within a session, or by the same user when used to call
+    /// <code>GetServiceLastAccessedDetail</code>.
     /// </para></li><li><para><a>GetServiceLastAccessedDetailsWithEntities</a> – Use this operation for groups
     /// and policies to list information about the associated entities (users or roles) that
     /// attempted to access a specific AWS service. 
@@ -71,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating
     /// Policies</a> in the <i>IAM User Guide</i>.
     /// </para></note><para>
-    /// For more information about service last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
-    /// Policy Scope by Viewing User Activity</a> in the <i>IAM User Guide</i>.
+    /// For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing
+    /// Permissions Using Service Last Accessed Data</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "IAMServiceLastAccessedDetail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -101,6 +105,21 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Arn { get; set; }
+        #endregion
+        
+        #region Parameter Granularity
+        /// <summary>
+        /// <para>
+        /// <para>The level of detail that you want to generate. You can specify whether you want to
+        /// generate information about the last attempt to access services or actions. If you
+        /// specify service-level granularity, this operation generates only service data. If
+        /// you specify action-level granularity, it generates service and action data. If you
+        /// don't include this optional parameter, the operation generates service data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IdentityManagement.AccessAdvisorUsageGranularityType")]
+        public Amazon.IdentityManagement.AccessAdvisorUsageGranularityType Granularity { get; set; }
         #endregion
         
         #region Parameter Select
@@ -171,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Granularity = this.Granularity;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.Granularity != null)
+            {
+                request.Granularity = cmdletContext.Granularity;
             }
             
             CmdletOutput output;
@@ -253,6 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public Amazon.IdentityManagement.AccessAdvisorUsageGranularityType Granularity { get; set; }
             public System.Func<Amazon.IdentityManagement.Model.GenerateServiceLastAccessedDetailsResponse, RequestIAMServiceLastAccessedDetailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobId;
         }

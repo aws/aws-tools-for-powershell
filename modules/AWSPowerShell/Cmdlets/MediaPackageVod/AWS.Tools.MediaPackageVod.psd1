@@ -86,18 +86,22 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-EMPVResourceTag', 
         'Get-EMPVAsset', 
         'Get-EMPVAssetList', 
         'Get-EMPVPackagingConfiguration', 
         'Get-EMPVPackagingConfigurationList', 
         'Get-EMPVPackagingGroup', 
         'Get-EMPVPackagingGroupList', 
+        'Get-EMPVResourceTag', 
         'New-EMPVAsset', 
         'New-EMPVPackagingConfiguration', 
         'New-EMPVPackagingGroup', 
         'Remove-EMPVAsset', 
         'Remove-EMPVPackagingConfiguration', 
-        'Remove-EMPVPackagingGroup')
+        'Remove-EMPVPackagingGroup', 
+        'Remove-EMPVResourceTag', 
+        'Update-EMPVPackagingGroup')
 
     # Variables to export from this module
     VariablesToExport = '*'

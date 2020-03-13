@@ -88,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code>
         /// specified for the group, by default, this call respects the grace period. Set this
         /// to <code>False</code>, to have the call not respect the grace period associated with
-        /// the group.</para><para>For more information about the health check grace period, see <a>CreateAutoScalingGroup</a>.</para>
+        /// the group.</para><para>For more information about the health check grace period, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a>
+        /// in the <i>Amazon EC2 Auto Scaling API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

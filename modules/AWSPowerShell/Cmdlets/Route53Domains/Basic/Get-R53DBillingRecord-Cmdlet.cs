@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The end date and time for the time period for which you want a list of billing records.
-        /// Specify the date and time in Coordinated Universal time (UTC).</para>
+        /// Specify the date and time in Unix time format and Coordinated Universal time (UTC).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>The beginning date and time for the time period for which you want a list of billing
-        /// records. Specify the date and time in Coordinated Universal time (UTC).</para>
+        /// records. Specify the date and time in Unix time format and Coordinated Universal time
+        /// (UTC).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

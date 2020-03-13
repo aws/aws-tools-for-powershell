@@ -28,8 +28,9 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Updates the details of the list of email addresses that the DRT can use to contact
-    /// you during a suspected attack.
+    /// Updates the details of the list of email addresses and phone numbers that the DDoS
+    /// Response Team (DRT) can use to contact you if you have proactive engagement enabled,
+    /// for escalations to the DRT and to initiate proactive customer support.
     /// </summary>
     [Cmdlet("Update", "SHLDEmergencyContactSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -44,7 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter EmergencyContactList
         /// <summary>
         /// <para>
-        /// <para>A list of email addresses that the DRT can use to contact you during a suspected attack.</para>
+        /// <para>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can
+        /// use to contact you if you have proactive engagement enabled, for escalations to the
+        /// DRT and to initiate proactive customer support.</para><para>If you have proactive engagement enabled, the contact list must include at least one
+        /// phone number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

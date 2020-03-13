@@ -37,19 +37,27 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// This operation can be called only from a member account in the organization.
     /// </para><important><ul><li><para>
     /// The master account in an organization with all features enabled can set service control
-    /// policies (SCPs) that can restrict what administrators of member accounts can do. These
-    /// restrictions can include preventing member accounts from successfully calling <code>LeaveOrganization</code>.
-    /// 
+    /// policies (SCPs) that can restrict what administrators of member accounts can do. This
+    /// includes preventing them from successfully calling <code>LeaveOrganization</code>
+    /// and leaving the organization. 
     /// </para></li><li><para>
     /// You can leave an organization as a member account only if the account is configured
     /// with the information required to operate as a standalone account. When you create
-    /// an account in an organization using the AWS Organizations console, API, or CLI, the
-    /// information required of standalone accounts is <i>not</i> automatically collected.
-    /// For each account that you want to make standalone, you must accept the end user license
-    /// agreement (EULA). You must also choose a support plan, provide and verify the required
-    /// contact information, and provide a current payment method. AWS uses the payment method
-    /// to charge for any billable (not free tier) AWS activity that occurs while the account
-    /// isn't attached to an organization. Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
+    /// an account in an organization using the AWS Organizations console, API, or CLI commands,
+    /// the information required of standalone accounts is <i>not</i> automatically collected.
+    /// For each account that you want to make standalone, you must do the following steps:
+    /// </para><ul><li><para>
+    /// Accept the end user license agreement (EULA)
+    /// </para></li><li><para>
+    /// Choose a support plan
+    /// </para></li><li><para>
+    /// Provide and verify the required contact information
+    /// </para></li><li><para>
+    /// Provide a current payment method
+    /// </para></li></ul><para>
+    /// AWS uses the payment method to charge for any billable (not free tier) AWS activity
+    /// that occurs while the account isn't attached to an organization. Follow the steps
+    /// at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
     /// To leave an organization when all required account information has not yet been provided</a>
     /// in the <i>AWS Organizations User Guide.</i></para></li><li><para>
     /// You can leave an organization only after you enable IAM user access to billing in

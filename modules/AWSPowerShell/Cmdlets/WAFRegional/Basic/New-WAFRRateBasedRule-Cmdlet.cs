@@ -28,33 +28,38 @@ using Amazon.WAFRegional.Model;
 namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
+    /// <note><para>
+    /// This is <b>AWS WAF Classic</b> documentation. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html">AWS
+    /// WAF Classic</a> in the developer guide.
+    /// </para><para><b>For the latest version of AWS WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS
+    /// WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints
+    /// for regional and global use. 
+    /// </para></note><para>
     /// Creates a <a>RateBasedRule</a>. The <code>RateBasedRule</code> contains a <code>RateLimit</code>,
     /// which specifies the maximum number of requests that AWS WAF allows from a specified
     /// IP address in a five-minute period. The <code>RateBasedRule</code> also contains the
     /// <code>IPSet</code> objects, <code>ByteMatchSet</code> objects, and other predicates
     /// that identify the requests that you want to count or block if these requests exceed
     /// the <code>RateLimit</code>.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// If you add more than one predicate to a <code>RateBasedRule</code>, a request not
-    /// only must exceed the <code>RateLimit</code>, but it also must match all the specifications
+    /// only must exceed the <code>RateLimit</code>, but it also must match all the conditions
     /// to be counted or blocked. For example, suppose you add the following to a <code>RateBasedRule</code>:
     /// </para><ul><li><para>
     /// An <code>IPSet</code> that matches the IP address <code>192.0.2.44/32</code></para></li><li><para>
     /// A <code>ByteMatchSet</code> that matches <code>BadBot</code> in the <code>User-Agent</code>
     /// header
     /// </para></li></ul><para>
-    /// Further, you specify a <code>RateLimit</code> of 15,000.
+    /// Further, you specify a <code>RateLimit</code> of 1,000.
     /// </para><para>
     /// You then add the <code>RateBasedRule</code> to a <code>WebACL</code> and specify that
     /// you want to block requests that meet the conditions in the rule. For a request to
     /// be blocked, it must come from the IP address 192.0.2.44 <i>and</i> the <code>User-Agent</code>
     /// header in the request must contain the value <code>BadBot</code>. Further, requests
-    /// that match these two conditions must be received at a rate of more than 15,000 requests
+    /// that match these two conditions must be received at a rate of more than 1,000 requests
     /// every five minutes. If both conditions are met and the rate is exceeded, AWS WAF blocks
-    /// the requests. If the rate drops below 15,000 for a five-minute period, AWS WAF no
-    /// longer blocks the requests.
+    /// the requests. If the rate drops below 1,000 for a five-minute period, AWS WAF no longer
+    /// blocks the requests.
     /// </para><para>
     /// As a second example, suppose you want to limit requests to a particular page on your
     /// site. To do this, you could add the following to a <code>RateBasedRule</code>:
@@ -62,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// A <code>ByteMatchSet</code> with <code>FieldToMatch</code> of <code>URI</code></para></li><li><para>
     /// A <code>PositionalConstraint</code> of <code>STARTS_WITH</code></para></li><li><para>
     /// A <code>TargetString</code> of <code>login</code></para></li></ul><para>
-    /// Further, you specify a <code>RateLimit</code> of 15,000.
+    /// Further, you specify a <code>RateLimit</code> of 1,000.
     /// </para><para>
     /// By adding this <code>RateBasedRule</code> to a <code>WebACL</code>, you could limit
     /// requests to your login page without affecting the rest of your site.

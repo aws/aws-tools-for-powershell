@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns a list of all instance types offered in your current AWS Region. The results
+    /// Describes the details of the instance types that are offered in a location. The results
     /// can be filtered by the attributes of the instance types.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2InstanceType")]
@@ -48,7 +48,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// (<code>true</code> | <code>false</code>)</para></li><li><para><code>bare-metal</code> - Indicates whether it is a bare metal instance type. (<code>true</code>
         /// | <code>false</code>)</para></li><li><para><code>burstable-performance-supported</code> - Indicates whether it is a burstable
         /// performance instance type. (<code>true</code> | <code>false</code>)</para></li><li><para><code>current-generation</code> - Indicates whether this instance type is the latest
-        /// generation instance type of an instance family. (<code>true</code> | <code>false</code>)</para></li><li><para><code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type
+        /// generation instance type of an instance family. (<code>true</code> | <code>false</code>)</para></li><li><para><code>ebs-info.ebs-optimized-info.baseline-bandwidth-in-mbps</code> - The baseline
+        /// bandwidth performance for an EBS-optimized instance type, in Mbps.</para></li><li><para><code>ebs-info.ebs-optimized-info.baseline-throughput-in-mbps</code> - The baseline
+        /// throughput performance for an EBS-optimized instance type, in MBps.</para></li><li><para><code>ebs-info.ebs-optimized-info.baseline-iops</code> - The baseline input/output
+        /// storage operations per second for an EBS-optimized instance type.</para></li><li><para><code>ebs-info.ebs-optimized-info.maximum-bandwidth-in-mbps</code> - The maximum
+        /// bandwidth performance for an EBS-optimized instance type, in Mbps.</para></li><li><para><code>ebs-info.ebs-optimized-info.maximum-throughput-in-mbps</code> - The maximum
+        /// throughput performance for an EBS-optimized instance type, in MBps.</para></li><li><para><code>ebs-info.ebs-optimized-info.maximum-iops</code> - The maximum input/output
+        /// storage operations per second for an EBS-optimized instance type.</para></li><li><para><code>ebs-info.ebs-optimized-support</code> - Indicates whether the instance type
         /// is EBS-optimized. (<code>supported</code> | <code>unsupported</code> | <code>default</code>)</para></li><li><para><code>ebs-info.encryption-support</code> - Indicates whether EBS encryption is supported.
         /// (<code>supported</code> | <code>unsupported</code>)</para></li><li><para><code>free-tier-eligible</code> - Indicates whether the instance type is eligible
         /// to use in the free tier. (<code>true</code> | <code>false</code>)</para></li><li><para><code>hibernation-supported</code> - Indicates whether On-Demand hibernation is supported.
@@ -58,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// available from all local instance storage, in GB.</para></li><li><para><code>instance-storage-supported</code> - Indicates whether the instance type has
         /// local instance storage. (<code>true</code> | <code>false</code>)</para></li><li><para><code>memory-info.size-in-mib</code> - The memory size.</para></li><li><para><code>network-info.ena-support</code> - Indicates whether Elastic Network Adapter
         /// (ENA) is supported or required. (<code>required</code> | <code>supported</code> |
-        /// <code>unsupported</code>)</para></li><li><para><code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private
+        /// <code>unsupported</code>)</para></li><li><para><code>network-info.efa-supported</code> - Indicates whether the instance type supports
+        /// Elastic Fabric Adapter (EFA). (<code>true</code> | <code>false</code>)</para></li><li><para><code>network-info.ipv4-addresses-per-interface</code> - The maximum number of private
         /// IPv4 addresses per network interface.</para></li><li><para><code>network-info.ipv6-addresses-per-interface</code> - The maximum number of private
         /// IPv6 addresses per network interface.</para></li><li><para><code>network-info.ipv6-supported</code> - Indicates whether the instance type supports
         /// IPv6. (<code>true</code> | <code>false</code>)</para></li><li><para><code>network-info.maximum-network-interfaces</code> - The maximum number of network

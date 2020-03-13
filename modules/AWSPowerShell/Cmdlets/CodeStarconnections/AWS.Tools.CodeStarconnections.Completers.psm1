@@ -156,7 +156,10 @@ $CSTC_SelectMap = @{
     "Select"=@("New-CSTCConnection",
                "Remove-CSTCConnection",
                "Get-CSTCConnection",
-               "Get-CSTCConnectionList")
+               "Get-CSTCConnectionList",
+               "Get-CSTCResourceTagList",
+               "Add-CSTCResourceTag",
+               "Remove-CSTCResourceTag")
 }
 
 _awsArgumentCompleterRegistration $CSTC_SelectCompleters $CSTC_SelectMap

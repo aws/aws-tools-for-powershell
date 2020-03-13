@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A friendly description of the Web ACL. You cannot change the description of a Web
-        /// ACL after you create it.</para>
+        /// <para>A description of the Web ACL that helps with identification. You cannot change the
+        /// description of a Web ACL after you create it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter VisibilityConfig_MetricName
         /// <summary>
         /// <para>
-        /// <para>A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters
+        /// <para>A name of the CloudWatch metric. The name can contain only alphanumeric characters
         /// (A-Z, a-z, 0-9), with length from one to 128 characters. It can't contain whitespace
         /// or metric names reserved for AWS WAF, for example "All" and "Default_Action." You
         /// can't change a <code>MetricName</code> after you create a <code>VisibilityConfig</code>.</para>
@@ -128,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A friendly name of the Web ACL. You cannot change the name of a Web ACL after you
-        /// create it.</para>
+        /// <para>The name of the Web ACL. You cannot change the name of a Web ACL after you create
+        /// it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <para>Specifies whether this is for an AWS CloudFront distribution or for a regional application.
         /// A regional application can be an Application Load Balancer (ALB) or an API Gateway
         /// stage. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
-        /// follows: </para><ul><li><para>CLI - Specify the region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
+        /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>
         /// </summary>

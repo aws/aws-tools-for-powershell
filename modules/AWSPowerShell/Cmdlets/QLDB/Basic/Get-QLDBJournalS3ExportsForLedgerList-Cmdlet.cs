@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
     /// This action returns a maximum of <code>MaxResults</code> items, and is paginated so
     /// that you can retrieve all the items by calling <code>ListJournalS3ExportsForLedger</code>
     /// multiple times.
+    /// </para><para>
+    /// This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export
+    /// Job Expiration</a> in the <i>Amazon QLDB Developer Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "QLDBJournalS3ExportsForLedgerList")]

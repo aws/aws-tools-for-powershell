@@ -28,7 +28,8 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes a user profile.
+    /// Deletes a user profile. When a user profile is deleted, the user loses access to their
+    /// EFS volume, including data, notebooks, and other artifacts.
     /// </summary>
     [Cmdlet("Remove", "SMUserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

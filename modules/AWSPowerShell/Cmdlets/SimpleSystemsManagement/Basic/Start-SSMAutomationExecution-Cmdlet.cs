@@ -143,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>A location is a combination of AWS Regions and/or AWS accounts where you want to run
         /// the Automation. Use this action to start an Automation in multiple Regions and multiple
-        /// accounts. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Executing
-        /// Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager
-        /// User Guide</i>. </para>
+        /// accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running
+        /// Automation workflows in multiple AWS Regions and accounts</a> in the <i>AWS Systems
+        /// Manager User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

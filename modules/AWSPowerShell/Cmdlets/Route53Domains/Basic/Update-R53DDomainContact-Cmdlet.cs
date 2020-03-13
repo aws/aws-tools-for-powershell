@@ -142,8 +142,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// If you choose an option other than <code>PERSON</code>, you must enter an organization
-        /// name, and you can't enable privacy protection for the contact.</para>
+        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
+        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
+        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,8 +160,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// If you choose an option other than <code>PERSON</code>, you must enter an organization
-        /// name, and you can't enable privacy protection for the contact.</para>
+        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
+        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
+        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,8 +178,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>Indicates whether the contact is a person, company, association, or public organization.
-        /// If you choose an option other than <code>PERSON</code>, you must enter an organization
-        /// name, and you can't enable privacy protection for the contact.</para>
+        /// Note the following:</para><ul><li><para>If you specify a value other than <code>PERSON</code>, you must also specify a value
+        /// for <code>OrganizationName</code>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <code>Contact Type</code>. For the privacy protection settings for your TLD, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, if you specify <code>PERSON</code>, you must specify <code>INDIVIDUAL</code>
+        /// for the value of <code>ES_LEGAL_FORM</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

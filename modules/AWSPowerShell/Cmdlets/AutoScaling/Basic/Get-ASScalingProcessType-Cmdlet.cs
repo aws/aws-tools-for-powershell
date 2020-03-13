@@ -28,7 +28,8 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Describes the scaling process types for use with <a>ResumeProcesses</a> and <a>SuspendProcesses</a>.
+    /// Describes the scaling process types for use with the <a>ResumeProcesses</a> and <a>SuspendProcesses</a>
+    /// APIs.
     /// </summary>
     [Cmdlet("Get", "ASScalingProcessType")]
     [OutputType("Amazon.AutoScaling.Model.ProcessType")]

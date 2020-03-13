@@ -186,6 +186,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String StreamId { get; set; }
         #endregion
         
+        #region Parameter VpcInterfaceAttachment_VpcInterfaceName
+        /// <summary>
+        /// <para>
+        /// The name of the VPC interface to use
+        /// for this output.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcInterfaceAttachment_VpcInterfaceName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Output'.
@@ -274,6 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.RemoteId = this.RemoteId;
             context.SmoothingLatency = this.SmoothingLatency;
             context.StreamId = this.StreamId;
+            context.VpcInterfaceAttachment_VpcInterfaceName = this.VpcInterfaceAttachment_VpcInterfaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -337,6 +349,25 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.StreamId != null)
             {
                 request.StreamId = cmdletContext.StreamId;
+            }
+            
+             // populate VpcInterfaceAttachment
+            var requestVpcInterfaceAttachmentIsNull = true;
+            request.VpcInterfaceAttachment = new Amazon.MediaConnect.Model.VpcInterfaceAttachment();
+            System.String requestVpcInterfaceAttachment_vpcInterfaceAttachment_VpcInterfaceName = null;
+            if (cmdletContext.VpcInterfaceAttachment_VpcInterfaceName != null)
+            {
+                requestVpcInterfaceAttachment_vpcInterfaceAttachment_VpcInterfaceName = cmdletContext.VpcInterfaceAttachment_VpcInterfaceName;
+            }
+            if (requestVpcInterfaceAttachment_vpcInterfaceAttachment_VpcInterfaceName != null)
+            {
+                request.VpcInterfaceAttachment.VpcInterfaceName = requestVpcInterfaceAttachment_vpcInterfaceAttachment_VpcInterfaceName;
+                requestVpcInterfaceAttachmentIsNull = false;
+            }
+             // determine if request.VpcInterfaceAttachment should be set to null
+            if (requestVpcInterfaceAttachmentIsNull)
+            {
+                request.VpcInterfaceAttachment = null;
             }
             
             CmdletOutput output;
@@ -411,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String RemoteId { get; set; }
             public System.Int32? SmoothingLatency { get; set; }
             public System.String StreamId { get; set; }
+            public System.String VpcInterfaceAttachment_VpcInterfaceName { get; set; }
             public System.Func<Amazon.MediaConnect.Model.UpdateFlowOutputResponse, UpdateEMCNFlowOutputCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Output;
         }

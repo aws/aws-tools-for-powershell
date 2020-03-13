@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// to retrieve data for. This value describes the associated metric and consists of two
         /// or more terms, which are comprised of lowercase alphanumeric characters, separated
         /// by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list
-        /// of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/welcome.html">Amazon
+        /// of valid values, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon
         /// Pinpoint Developer Guide</a>.</para>
         /// </para>
         /// </summary>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The  string that specifies which page of results to return in a paginated response.
-        /// This parameter is currently not supported for application, campaign, and journey metrics.</para>
+        /// This parameter is not supported for application, campaign, and journey metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of items to include in each page of a paginated response. This
-        /// parameter is currently not supported for application, campaign, and journey metrics.</para>
+        /// parameter is not supported for application, campaign, and journey metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

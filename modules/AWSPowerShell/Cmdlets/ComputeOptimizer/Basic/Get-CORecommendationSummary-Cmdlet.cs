@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account IDs for which to return recommendation summaries.</para><para>Only one account ID can be specified per request.</para>
+        /// <para>The IDs of the AWS accounts for which to return recommendation summaries.</para><para>If your account is the master account of an organization, use this parameter to specify
+        /// the member accounts for which you want to return recommendation summaries.</para><para>Only one account ID can be specified per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of recommendation summaries to return with a single call.</para><para>To retrieve the remaining results, make another call with the returned <code>NextToken</code>
+        /// <para>The maximum number of recommendation summaries to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <code>NextToken</code>
         /// value.</para>
         /// </para>
         /// </summary>

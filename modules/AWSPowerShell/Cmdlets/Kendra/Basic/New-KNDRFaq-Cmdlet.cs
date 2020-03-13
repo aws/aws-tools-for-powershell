@@ -137,6 +137,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of key-value pairs that identify the FAQ. You can use the tags to identify
+        /// and organize your resources and to control access to resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Kendra.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
@@ -234,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
                 WriteWarning("You are passing $null as a value for parameter S3Path_Key which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Kendra.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -294,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (requestS3PathIsNull)
             {
                 request.S3Path = null;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -362,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public System.String RoleArn { get; set; }
             public System.String S3Path_Bucket { get; set; }
             public System.String S3Path_Key { get; set; }
+            public List<Amazon.Kendra.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Kendra.Model.CreateFaqResponse, NewKNDRFaqCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Id;
         }

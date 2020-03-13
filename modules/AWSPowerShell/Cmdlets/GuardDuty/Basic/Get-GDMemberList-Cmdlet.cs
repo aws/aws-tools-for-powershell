@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>Specifies whether to only return associated members or to return all members (including
-        /// members which haven't been invited yet or have been disassociated).</para>
+        /// members who haven't been invited yet or have been disassociated).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to null on your first call to the list action. For subsequent calls to the action
+        /// to null on your first call to the list action. For subsequent calls to the action,
         /// fill nextToken in the request with the value of NextToken from the previous response
         /// to continue listing data.</para>
         /// </para>

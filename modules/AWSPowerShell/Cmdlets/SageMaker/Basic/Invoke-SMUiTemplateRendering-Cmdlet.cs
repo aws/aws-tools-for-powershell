@@ -45,15 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The content of the Liquid template for the worker user interface.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UiTemplate_Content { get; set; }
+        #endregion
+        
+        #region Parameter HumanTaskUiArn
+        /// <summary>
+        /// <para>
+        /// <para>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not provide
+        /// a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HumanTaskUiArn { get; set; }
         #endregion
         
         #region Parameter Task_Input
@@ -155,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.UiTemplate_Content;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.HumanTaskUiArn = this.HumanTaskUiArn;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -170,12 +175,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.UiTemplate_Content = this.UiTemplate_Content;
-            #if MODULAR
-            if (this.UiTemplate_Content == null && ParameterWasBound(nameof(this.UiTemplate_Content)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UiTemplate_Content which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -192,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.RenderUiTemplateRequest();
             
+            if (cmdletContext.HumanTaskUiArn != null)
+            {
+                request.HumanTaskUiArn = cmdletContext.HumanTaskUiArn;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -295,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String HumanTaskUiArn { get; set; }
             public System.String RoleArn { get; set; }
             public System.String Task_Input { get; set; }
             public System.String UiTemplate_Content { get; set; }

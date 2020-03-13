@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>Specifies whether (<code>true</code>) or not (<code>false</code>) the key identifier
-        /// is distinct from the created API key value.</para>
+        /// is distinct from the created API key value. This parameter is deprecated and should
+        /// not be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

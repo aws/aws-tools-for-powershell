@@ -33,6 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// your organization. Current shares will not be in sync with your organization structure
     /// if it changes after calling this API. This API can only be called by the master account
     /// in the organization.
+    /// 
+    ///  
+    /// <para>
+    /// This API can't be invoked if there are active delegated administrators in the organization.
+    /// </para><para>
+    /// Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Disable", "SCAWSOrganizationsAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -227,8 +227,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The value of <code>ID</code> for the field-level encryption configuration that you
-        /// want CloudFront to use for encrypting specific fields of data for a cache behavior
-        /// or for the default cache behavior in your distribution.</para>
+        /// want CloudFront to use for encrypting specific fields of data for the default cache
+        /// behavior.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -876,8 +876,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The value of <code>ID</code> for the origin that you want CloudFront to route requests
-        /// to when a request matches the path pattern either for a cache behavior or for the
-        /// default cache behavior in your distribution.</para>
+        /// to when they use the default cache behavior.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -900,16 +899,14 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// the following options:</para><ul><li><para><code>allow-all</code>: Viewers can use HTTP or HTTPS.</para></li><li><para><code>redirect-to-https</code>: If a viewer submits an HTTP request, CloudFront returns
         /// an HTTP status code of 301 (Moved Permanently) to the viewer along with the HTTPS
         /// URL. The viewer then resubmits the request using the new URL.</para></li><li><para><code>https-only</code>: If a viewer sends an HTTP request, CloudFront returns an
-        /// HTTP status code of 403 (Forbidden).</para></li></ul><para>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/SecureConnections.html">Using
-        /// an HTTPS Connection to Access Your Objects</a> in the <i>Amazon CloudFront Developer
-        /// Guide</i>.</para><note><para>The only way to guarantee that viewers retrieve an object that was fetched from the
+        /// HTTP status code of 403 (Forbidden).</para></li></ul><para>For more information about requiring the HTTPS protocol, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-https-viewers-to-cloudfront.html">Requiring
+        /// HTTPS Between Viewers and CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><note><para>The only way to guarantee that viewers retrieve an object that was fetched from the
         /// origin using HTTPS is never to use any other protocol to fetch the object. If you
-        /// have recently changed from HTTP to HTTPS, we recommend that you clear your objects'
+        /// have recently changed from HTTP to HTTPS, we recommend that you clear your objects’
         /// cache because cached objects are protocol agnostic. That means that an edge location
         /// will return an object from the cache regardless of whether the current request protocol
         /// matches the protocol used previously. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
-        /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para></note>
+        /// Cache Expiration</a> in the <i>Amazon CloudFront Developer Guide</i>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

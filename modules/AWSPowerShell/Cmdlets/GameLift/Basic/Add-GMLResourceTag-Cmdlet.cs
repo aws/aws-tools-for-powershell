@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// MatchmakingRuleSet
     /// </para></li></ul><para>
     /// To add a tag to a resource, specify the unique ARN value for the resource and provide
-    /// a trig list containing one or more tags. The operation succeeds even if the list includes
+    /// a tag list containing one or more tags. The operation succeeds even if the list includes
     /// tags that are already assigned to the specified resource. 
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// AWS Resources</a> in the <i>AWS General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">

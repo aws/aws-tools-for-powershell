@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
         #region Parameter FleetArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the fleet.</para>
+        /// <para>The Amazon Resource Name (ARN) of the fleet.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

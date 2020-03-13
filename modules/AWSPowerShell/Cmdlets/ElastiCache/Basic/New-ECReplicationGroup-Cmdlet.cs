@@ -33,6 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// 
     ///  
     /// <para>
+    /// This API can be used to create a standalone regional replication group or a secondary
+    /// replication group associated with a Global Datastore.
+    /// </para><para>
     /// A Redis (cluster mode disabled) replication group is a collection of clusters, where
     /// one of the clusters is a read/write primary and the others are read-only replicas.
     /// Writes to the primary are asynchronously propagated to the replicas.
@@ -123,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M5 node types:</b><code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
         /// <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>, <code>cache.m5.12xlarge</code>,
         /// <code>cache.m5.24xlarge</code></para><para><b>M4 node types:</b><code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
-        /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code></para><para><b>T2 node types:</b><code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
+        /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code></para><para><b>T3 node types:</b><code>cache.t3.micro</code>, <code>cache.t3.small</code>, <code>cache.t3.medium</code></para><para><b>T2 node types:</b><code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>T1 node types:</b><code>cache.t1.micro</code></para><para><b>M1 node types:</b><code>cache.m1.small</code>, <code>cache.m1.medium</code>,
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para><para><b>M3 node types:</b><code>cache.m3.medium</code>, <code>cache.m3.large</code>,
         /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R5 node types:</b><code>cache.r5.large</code>, <code>cache.r5.xlarge</code>,
         /// <code>cache.r5.2xlarge</code>, <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
@@ -203,14 +206,34 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter GlobalReplicationGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Global Datastore</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GlobalReplicationGroupId { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The ID of the KMS key used to encrypt the disk on the cluster.</para>
+        /// <para>The ID of the KMS key used to encrypt the disk in the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter MultiAZEnabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MultiAZEnabled { get; set; }
         #endregion
         
         #region Parameter NodeGroupConfiguration
@@ -220,9 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// has the following members: <code>PrimaryAvailabilityZone</code>, <code>ReplicaAvailabilityZones</code>,
         /// <code>ReplicaCount</code>, and <code>Slots</code>.</para><para>If you're creating a Redis (cluster mode disabled) or a Redis (cluster mode enabled)
         /// replication group, you can use this parameter to individually configure each node
-        /// group (shard), or you can omit this parameter. However, when seeding a Redis (cluster
-        /// mode enabled) cluster from a S3 rdb file, you must configure each node group (shard)
-        /// using this parameter because you must specify the slots for each node group.</para>
+        /// group (shard), or you can omit this parameter. However, it is required when seeding
+        /// a Redis (cluster mode enabled) cluster from a S3 rdb file. You must configure each
+        /// node group (shard) using this parameter because you must specify the slots for each
+        /// node group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NumCacheCluster
         /// <summary>
         /// <para>
-        /// <para>The number of clusters this replication group initially has.</para><para>This parameter is not used if there is more than one node group (shard). You should
+        /// <para>The number of nodes in the cluster.</para><para>This parameter is not used if there is more than one node group (shard). You should
         /// use <code>ReplicasPerNodeGroup</code> instead.</para><para>If <code>AutomaticFailoverEnabled</code> is <code>true</code>, the value of this parameter
         /// must be at least 2. If <code>AutomaticFailoverEnabled</code> is <code>false</code>
         /// you can omit this parameter (it will default to 1), or you can explicitly set it to
@@ -534,7 +558,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.CacheSubnetGroupName = this.CacheSubnetGroupName;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
+            context.GlobalReplicationGroupId = this.GlobalReplicationGroupId;
             context.KmsKeyId = this.KmsKeyId;
+            context.MultiAZEnabled = this.MultiAZEnabled;
             if (this.NodeGroupConfiguration != null)
             {
                 context.NodeGroupConfiguration = new List<Amazon.ElastiCache.Model.NodeGroupConfiguration>(this.NodeGroupConfiguration);
@@ -636,9 +662,17 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
             }
+            if (cmdletContext.GlobalReplicationGroupId != null)
+            {
+                request.GlobalReplicationGroupId = cmdletContext.GlobalReplicationGroupId;
+            }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.MultiAZEnabled != null)
+            {
+                request.MultiAZEnabled = cmdletContext.MultiAZEnabled.Value;
             }
             if (cmdletContext.NodeGroupConfiguration != null)
             {
@@ -783,7 +817,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheSubnetGroupName { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String GlobalReplicationGroupId { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.Boolean? MultiAZEnabled { get; set; }
             public List<Amazon.ElastiCache.Model.NodeGroupConfiguration> NodeGroupConfiguration { get; set; }
             public System.String NotificationTopicArn { get; set; }
             public System.Int32? NumCacheCluster { get; set; }

@@ -98,6 +98,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CWLLogStream', 
         'Get-CWLMetricFilter', 
         'Get-CWLQuery', 
+        'Get-CWLQueryDefinition', 
         'Get-CWLQueryResult', 
         'Get-CWLResourcePolicy', 
         'Get-CWLSubscriptionFilter', 
@@ -110,6 +111,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CWLLogGroupTag', 
         'Remove-CWLLogStream', 
         'Remove-CWLMetricFilter', 
+        'Remove-CWLQueryDefinition', 
         'Remove-CWLResourcePolicy', 
         'Remove-CWLRetentionPolicy', 
         'Remove-CWLSubscriptionFilter', 
@@ -122,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-CWLDestinationPolicy', 
         'Write-CWLLogEvent', 
         'Write-CWLMetricFilter', 
+        'Write-CWLQueryDefinition', 
         'Write-CWLResourcePolicy', 
         'Write-CWLRetentionPolicy', 
         'Write-CWLSubscriptionFilter')

@@ -124,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CDDeploymentGroup', 
         'Remove-CDGitHubAccountToken', 
         'Remove-CDOnPremiseInstanceTag', 
+        'Remove-CDResourcesByExternalId', 
         'Remove-CDResourceTag', 
         'Resume-CDDeployment', 
         'Skip-CDWaitTimeForInstanceTermination', 

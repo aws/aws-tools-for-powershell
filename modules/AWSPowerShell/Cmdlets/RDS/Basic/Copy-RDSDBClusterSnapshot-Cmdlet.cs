@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// API action in the AWS Region that contains the source DB cluster snapshot to copy.
         /// The <code>PreSignedUrl</code> parameter must be used when copying an encrypted DB
         /// cluster snapshot from another AWS Region. Don't specify <code>PreSignedUrl</code>
-        /// when you are copying an encrypted DB cluster snapshot in the same AWS Region.</para><para>The pre-signed URL must be a valid request for the <code>CopyDBSClusterSnapshot</code>
+        /// when you are copying an encrypted DB cluster snapshot in the same AWS Region.</para><para>The pre-signed URL must be a valid request for the <code>CopyDBClusterSnapshot</code>
         /// API action that can be executed in the source AWS Region that contains the encrypted
         /// DB cluster snapshot to be copied. The pre-signed URL request must contain the following
         /// parameter values:</para><ul><li><para><code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt

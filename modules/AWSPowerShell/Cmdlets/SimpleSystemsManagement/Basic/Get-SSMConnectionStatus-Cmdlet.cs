@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Retrieves the Session Manager connection status for an instance to determine whether
-    /// it is connected and ready to receive Session Manager connections.
+    /// it is running and ready to receive Session Manager connections.
     /// </summary>
     [Cmdlet("Get", "SSMConnectionStatus")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetConnectionStatusResponse")]

@@ -1,0 +1,3 @@
+﻿# Synthetics
+
+Export-ModuleMember -Alias *

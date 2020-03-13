@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the signaling channel to which you want to add tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

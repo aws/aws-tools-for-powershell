@@ -83,7 +83,9 @@ $CMPM_Completers = {
         # Amazon.ComprehendMedical.JobStatus
         {
             ($_ -eq "Get-CMPMEntitiesDetectionV2JobList/Filter_JobStatus") -Or
-            ($_ -eq "Get-CMPMPersonalHealthInformationDetectionJobList/Filter_JobStatus")
+            ($_ -eq "Get-CMPMICD10CMInferenceJobList/Filter_JobStatus") -Or
+            ($_ -eq "Get-CMPMPersonalHealthInformationDetectionJobList/Filter_JobStatus") -Or
+            ($_ -eq "Get-CMPMRxNormInferenceJobList/Filter_JobStatus")
         }
         {
             $v = "COMPLETED","FAILED","IN_PROGRESS","PARTIAL_SUCCESS","STOPPED","STOP_REQUESTED","SUBMITTED"
@@ -93,7 +95,9 @@ $CMPM_Completers = {
         # Amazon.ComprehendMedical.LanguageCode
         {
             ($_ -eq "Start-CMPMEntitiesDetectionV2Job/LanguageCode") -Or
-            ($_ -eq "Start-CMPMPersonalHealthInformationDetectionJob/LanguageCode")
+            ($_ -eq "Start-CMPMICD10CMInferenceJob/LanguageCode") -Or
+            ($_ -eq "Start-CMPMPersonalHealthInformationDetectionJob/LanguageCode") -Or
+            ($_ -eq "Start-CMPMRxNormInferenceJob/LanguageCode")
         }
         {
             $v = "en"
@@ -109,8 +113,8 @@ $CMPM_Completers = {
 }
 
 $CMPM_map = @{
-    "Filter_JobStatus"=@("Get-CMPMEntitiesDetectionV2JobList","Get-CMPMPersonalHealthInformationDetectionJobList")
-    "LanguageCode"=@("Start-CMPMEntitiesDetectionV2Job","Start-CMPMPersonalHealthInformationDetectionJob")
+    "Filter_JobStatus"=@("Get-CMPMEntitiesDetectionV2JobList","Get-CMPMICD10CMInferenceJobList","Get-CMPMPersonalHealthInformationDetectionJobList","Get-CMPMRxNormInferenceJobList")
+    "LanguageCode"=@("Start-CMPMEntitiesDetectionV2Job","Start-CMPMICD10CMInferenceJob","Start-CMPMPersonalHealthInformationDetectionJob","Start-CMPMRxNormInferenceJob")
 }
 
 _awsArgumentCompleterRegistration $CMPM_Completers $CMPM_map
@@ -164,18 +168,26 @@ $CMPM_SelectCompleters = {
 
 $CMPM_SelectMap = @{
     "Select"=@("Get-CMPMEntitiesDetectionV2Job",
+               "Get-CMPMICD10CMInferenceJob",
                "Get-CMPMPersonalHealthInformationDetectionJob",
+               "Get-CMPMRxNormInferenceJob",
                "Find-CMPMMedicalEntity",
                "Find-CMPMMedicalEntityV2",
                "Find-CMPMPersonalHealthInformation",
                "Find-CMPMICD10CM",
                "Find-CMPMRxNorm",
                "Get-CMPMEntitiesDetectionV2JobList",
+               "Get-CMPMICD10CMInferenceJobList",
                "Get-CMPMPersonalHealthInformationDetectionJobList",
+               "Get-CMPMRxNormInferenceJobList",
                "Start-CMPMEntitiesDetectionV2Job",
+               "Start-CMPMICD10CMInferenceJob",
                "Start-CMPMPersonalHealthInformationDetectionJob",
+               "Start-CMPMRxNormInferenceJob",
                "Stop-CMPMEntitiesDetectionV2Job",
-               "Stop-CMPMPersonalHealthInformationDetectionJob")
+               "Stop-CMPMICD10CMInferenceJob",
+               "Stop-CMPMPersonalHealthInformationDetectionJob",
+               "Stop-CMPMRxNormInferenceJob")
 }
 
 _awsArgumentCompleterRegistration $CMPM_SelectCompleters $CMPM_SelectMap

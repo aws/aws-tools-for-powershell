@@ -42,6 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating
     /// Resource Providers</a> in the <i>CloudFormation CLI User Guide</i>.
     /// </para><para>
+    /// You can have a maximum of 50 resource type versions registered at a time. This maximum
+    /// is per account and per region. Use <a href="AWSCloudFormation/latest/APIReference/API_DeregisterType.html">DeregisterType</a>
+    /// to deregister specific resource type versions if necessary.
+    /// </para><para>
     /// Once you have initiated a registration request using <code><a>RegisterType</a></code>,
     /// you can use <code><a>DescribeTypeRegistration</a></code> to monitor the progress
     /// of the registration request.

@@ -111,8 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>Specifies the encryption context to use when decrypting the data. An encryption context
-        /// is valid only for cryptographic operations with a symmetric CMK. The standard asymmetric
-        /// encryption algorithms that AWS KMS uses do not support an encryption context.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents
+        /// is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
+        /// operations</a> with a symmetric CMK. The standard asymmetric encryption algorithms
+        /// that AWS KMS uses do not support an encryption context.</para><para>An <i>encryption context</i> is a collection of non-secret key-value pairs that represents
         /// additional authenticated data. When you use an encryption context to encrypt data,
         /// you must specify the same (an exact case-sensitive match) encryption context to decrypt
         /// the data. An encryption context is optional when encrypting with a symmetric CMK,

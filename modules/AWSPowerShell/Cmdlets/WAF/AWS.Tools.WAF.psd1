@@ -132,6 +132,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-WAFSizeConstraintSet', 
         'New-WAFSqlInjectionMatchSet', 
         'New-WAFWebACL', 
+        'New-WAFWebACLMigrationStack', 
         'New-WAFXssMatchSet', 
         'Remove-WAFByteMatchSet', 
         'Remove-WAFGeoMatchSet', 

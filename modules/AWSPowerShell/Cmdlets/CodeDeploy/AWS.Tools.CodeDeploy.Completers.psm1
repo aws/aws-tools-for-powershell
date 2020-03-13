@@ -320,6 +320,7 @@ $CD_SelectMap = @{
                "Remove-CDDeploymentConfig",
                "Remove-CDDeploymentGroup",
                "Remove-CDGitHubAccountToken",
+               "Remove-CDResourcesByExternalId",
                "Unregister-CDOnPremiseInstance",
                "Get-CDApplication",
                "Get-CDApplicationRevision",

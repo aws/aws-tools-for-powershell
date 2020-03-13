@@ -28,7 +28,8 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Displays the tags associated with a CloudWatch resource. Alarms support tagging.
+    /// Displays the tags associated with a CloudWatch resource. Currently, alarms and Contributor
+    /// Insights rules support tagging.
     /// </summary>
     [Cmdlet("Get", "CWResourceTag")]
     [OutputType("Amazon.CloudWatch.Model.Tag")]
@@ -43,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the CloudWatch resource that you want to view tags for. For more information
-        /// on ARN format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-cloudwatch">Example
-        /// ARNs</a> in the <i>Amazon Web Services General Reference</i>.</para>
+        /// <para>The ARN of the CloudWatch resource that you want to view tags for.</para><para>The ARN format of an alarm is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:alarm:<i>alarm-name</i></code></para><para>The ARN format of a Contributor Insights rule is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule:<i>insight-rule-name</i></code></para><para>For more information on ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies">
+        /// Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General
+        /// Reference</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

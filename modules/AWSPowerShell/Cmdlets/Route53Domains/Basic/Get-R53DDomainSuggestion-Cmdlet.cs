@@ -28,8 +28,7 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// The GetDomainSuggestions operation returns a list of suggested domain names given
-    /// a string, which can either be a domain name or simply a word or phrase (without spaces).
+    /// The GetDomainSuggestions operation returns a list of suggested domain names.
     /// </summary>
     [Cmdlet("Get", "R53DDomainSuggestion")]
     [OutputType("Amazon.Route53Domains.Model.DomainSuggestion")]
@@ -45,10 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <summary>
         /// <para>
         /// <para>A domain name that you want to use as the basis for a list of possible domain names.
-        /// The domain name must contain a top-level domain (TLD), such as .com, that Amazon Route
-        /// 53 supports. For a list of TLDs, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For
+        /// a list of supported TLDs, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
         /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
-        /// Guide</i>.</para>
+        /// Guide</i>.</para><para>The domain name can contain only the following characters:</para><ul><li><para>Letters a through z. Domain names are not case sensitive.</para></li><li><para>Numbers 0 through 9.</para></li><li><para>Hyphen (-). You can't specify a hyphen at the beginning or end of a label. </para></li><li><para>Period (.) to separate the labels in the name, such as the <code>.</code> in <code>example.com</code>.</para></li></ul><para>Internationalized domain names are not supported for some top-level domains. To determine
+        /// whether the TLD that you want to use supports internationalized domain names, see
+        /// <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,9 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter OnlyAvailable
         /// <summary>
         /// <para>
-        /// <para>If <code>OnlyAvailable</code> is <code>true</code>, Amazon Route 53 returns only domain
-        /// names that are available. If <code>OnlyAvailable</code> is <code>false</code>, Amazon
-        /// Route 53 returns domain names without checking whether they're available to be registered.
+        /// <para>If <code>OnlyAvailable</code> is <code>true</code>, Route 53 returns only domain names
+        /// that are available. If <code>OnlyAvailable</code> is <code>false</code>, Route 53
+        /// returns domain names without checking whether they're available to be registered.
         /// To determine whether the domain is available, you can call <code>checkDomainAvailability</code>
         /// for each suggestion.</para>
         /// </para>
@@ -85,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         #region Parameter SuggestionCount
         /// <summary>
         /// <para>
-        /// <para>The number of suggested domain names that you want Amazon Route 53 to return.</para>
+        /// <para>The number of suggested domain names that you want Route 53 to return. Specify a value
+        /// between 1 and 50.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

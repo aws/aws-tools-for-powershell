@@ -161,6 +161,19 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         public Amazon.RoboMaker.Model.SimulationApplicationConfig[] SimulationApplication { get; set; }
         #endregion
         
+        #region Parameter Compute_SimulationUnitLimit
+        /// <summary>
+        /// <para>
+        /// <para>The simulation unit limit. Your simulation is allocated CPU and memory proportional
+        /// to the supplied simulation unit limit. A simulation unit is 1 vcpu and 2GB of memory.
+        /// You are only billed for the SU utilization you consume up to the maximim value provided.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Compute_SimulationUnitLimit { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -246,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.Compute_SimulationUnitLimit = this.Compute_SimulationUnitLimit;
             if (this.DataSource != null)
             {
                 context.DataSource = new List<Amazon.RoboMaker.Model.DataSourceConfig>(this.DataSource);
@@ -303,6 +317,25 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate Compute
+            var requestComputeIsNull = true;
+            request.Compute = new Amazon.RoboMaker.Model.Compute();
+            System.Int32? requestCompute_compute_SimulationUnitLimit = null;
+            if (cmdletContext.Compute_SimulationUnitLimit != null)
+            {
+                requestCompute_compute_SimulationUnitLimit = cmdletContext.Compute_SimulationUnitLimit.Value;
+            }
+            if (requestCompute_compute_SimulationUnitLimit != null)
+            {
+                request.Compute.SimulationUnitLimit = requestCompute_compute_SimulationUnitLimit.Value;
+                requestComputeIsNull = false;
+            }
+             // determine if request.Compute should be set to null
+            if (requestComputeIsNull)
+            {
+                request.Compute = null;
             }
             if (cmdletContext.DataSource != null)
             {
@@ -421,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.Int32? Compute_SimulationUnitLimit { get; set; }
             public List<Amazon.RoboMaker.Model.DataSourceConfig> DataSource { get; set; }
             public Amazon.RoboMaker.FailureBehavior FailureBehavior { get; set; }
             public System.String IamRole { get; set; }

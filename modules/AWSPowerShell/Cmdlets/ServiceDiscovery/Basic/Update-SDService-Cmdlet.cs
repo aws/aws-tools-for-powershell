@@ -31,18 +31,22 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// Submits a request to perform the following operations:
     /// 
     ///  <ul><li><para>
-    /// Add or delete <code>DnsRecords</code> configurations
-    /// </para></li><li><para>
     /// Update the TTL setting for existing <code>DnsRecords</code> configurations
     /// </para></li><li><para>
     /// Add, update, or delete <code>HealthCheckConfig</code> for a specified service
+    /// </para><note><para>
+    /// You can't add, update, or delete a <code>HealthCheckCustomConfig</code> configuration.
+    /// </para></note></li></ul><para>
+    /// For public and private DNS namespaces, note the following:
+    /// </para><ul><li><para>
+    /// If you omit any existing <code>DnsRecords</code> or <code>HealthCheckConfig</code>
+    /// configurations from an <code>UpdateService</code> request, the configurations are
+    /// deleted from the service.
+    /// </para></li><li><para>
+    /// If you omit an existing <code>HealthCheckCustomConfig</code> configuration from an
+    /// <code>UpdateService</code> request, the configuration is not deleted from the service.
     /// </para></li></ul><para>
-    /// For public and private DNS namespaces, you must specify all <code>DnsRecords</code>
-    /// configurations (and, optionally, <code>HealthCheckConfig</code>) that you want to
-    /// appear in the updated service. Any current configurations that don't appear in an
-    /// <code>UpdateService</code> request are deleted.
-    /// </para><para>
-    /// When you update the TTL setting for a service, AWS Cloud Map also updates the corresponding
+    /// When you update settings for a service, AWS Cloud Map also updates the corresponding
     /// settings in all the records and health checks that were created by using the specified
     /// service.
     /// </para>

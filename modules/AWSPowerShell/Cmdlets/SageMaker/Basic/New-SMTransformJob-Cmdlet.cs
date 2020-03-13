@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Specifies the number of records to include in a mini-batch for an HTTP inference request.
         /// A <i>record</i><i /> is a single unit of input data that inference can be made on.
-        /// For example, a single line in a CSV file is a record. </para><para>To enable the batch strategy, you must set the <code>SplitType</code> property of
-        /// the <a>DataProcessing</a> object to <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</para><para>To use only one record when making an HTTP invocation request to a container, set
+        /// For example, a single line in a CSV file is a record. </para><para>To enable the batch strategy, you must set the <code>SplitType</code> property to
+        /// <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</para><para>To use only one record when making an HTTP invocation request to a container, set
         /// <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code>
         /// to <code>Line</code>.</para><para>To fit as many records in a mini-batch as can fit within the <code>MaxPayloadInMB</code>
         /// limit, set <code>BatchStrategy</code> to <code>MultiRecord</code> and <code>SplitType</code>

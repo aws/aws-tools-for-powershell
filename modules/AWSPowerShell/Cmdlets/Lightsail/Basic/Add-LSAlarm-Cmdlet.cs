@@ -146,14 +146,16 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>The name of the metric to associate with the alarm.</para><para>You can configure up to two alarms per metric.</para><para>The following metrics are available for each resource type:</para><ul><li><para><b>Instances</b>: <code>CPUUtilization</code>, <code>NetworkIn</code>, <code>NetworkOut</code>,
-        /// <code>StatusCheckFailed</code>, <code>StatusCheckFailed_Instance</code>, and <code>StatusCheckFailed_System</code>.</para></li><li><para><b>Load balancers</b>: <code>ClientTLSNegotiationErrorCount</code>, <code>HealthyHostCount</code>,
+        /// <para>The name of the metric to associate with the alarm.</para><para>You can configure up to two alarms per metric.</para><para>The following metrics are available for each resource type:</para><ul><li><para><b>Instances</b>: <code>BurstCapacityPercentage</code>, <code>BurstCapacityTime</code>,
+        /// <code>CPUUtilization</code>, <code>NetworkIn</code>, <code>NetworkOut</code>, <code>StatusCheckFailed</code>,
+        /// <code>StatusCheckFailed_Instance</code>, and <code>StatusCheckFailed_System</code>.</para></li><li><para><b>Load balancers</b>: <code>ClientTLSNegotiationErrorCount</code>, <code>HealthyHostCount</code>,
         /// <code>UnhealthyHostCount</code>, <code>HTTPCode_LB_4XX_Count</code>, <code>HTTPCode_LB_5XX_Count</code>,
         /// <code>HTTPCode_Instance_2XX_Count</code>, <code>HTTPCode_Instance_3XX_Count</code>,
         /// <code>HTTPCode_Instance_4XX_Count</code>, <code>HTTPCode_Instance_5XX_Count</code>,
         /// <code>InstanceResponseTime</code>, <code>RejectedConnectionCount</code>, and <code>RequestCount</code>.</para></li><li><para><b>Relational databases</b>: <code>CPUUtilization</code>, <code>DatabaseConnections</code>,
         /// <code>DiskQueueDepth</code>, <code>FreeStorageSpace</code>, <code>NetworkReceiveThroughput</code>,
-        /// and <code>NetworkTransmitThroughput</code>.</para></li></ul>
+        /// and <code>NetworkTransmitThroughput</code>.</para></li></ul><para>For more information about these metrics, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-resource-health-metrics#available-metrics">Metrics
+        /// available in Lightsail</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -198,8 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter NotificationTrigger
         /// <summary>
         /// <para>
-        /// <para>The alarm states that trigger a notification.</para><para>An alarm has the following possible states:</para><ul><li><para><code>ALARM</code> — The metric is outside of the defined threshold.</para></li><li><para><code>INSUFFICIENT_DATA</code> — The alarm has just started, the metric is not available,
-        /// or not enough data is available for the metric to determine the alarm state.</para></li><li><para><code>OK</code> — The metric is within the defined threshold.</para></li></ul><para>When you specify a notification trigger, the <code>ALARM</code> state must be specified.
+        /// <para>The alarm states that trigger a notification.</para><para>An alarm has the following possible states:</para><ul><li><para><code>ALARM</code> - The metric is outside of the defined threshold.</para></li><li><para><code>INSUFFICIENT_DATA</code> - The alarm has just started, the metric is not available,
+        /// or not enough data is available for the metric to determine the alarm state.</para></li><li><para><code>OK</code> - The metric is within the defined threshold.</para></li></ul><para>When you specify a notification trigger, the <code>ALARM</code> state must be specified.
         /// The <code>INSUFFICIENT_DATA</code> and <code>OK</code> states can be specified in
         /// addition to the <code>ALARM</code> state.</para><ul><li><para>If you specify <code>OK</code> as an alarm trigger, a notification is sent when the
         /// alarm switches from an <code>ALARM</code> or <code>INSUFFICIENT_DATA</code> alarm
@@ -234,9 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter TreatMissingData
         /// <summary>
         /// <para>
-        /// <para>Sets how this alarm will handle missing data points.</para><para>An alarm can treat missing data in the following ways:</para><ul><li><para><code>breaching</code> — Assume the missing data is not within the threshold. Missing
-        /// data counts towards the number of times the metric is not within the threshold.</para></li><li><para><code>notBreaching</code> — Assume the missing data is within the threshold. Missing
-        /// data does not count towards the number of times the metric is not within the threshold.</para></li><li><para><code>ignore</code> — Ignore the missing data. Maintains the current alarm state.</para></li><li><para><code>missing</code> — Missing data is treated as missing.</para></li></ul><para>If <code>treatMissingData</code> is not specified, the default behavior of <code>missing</code>
+        /// <para>Sets how this alarm will handle missing data points.</para><para>An alarm can treat missing data in the following ways:</para><ul><li><para><code>breaching</code> - Assume the missing data is not within the threshold. Missing
+        /// data counts towards the number of times the metric is not within the threshold.</para></li><li><para><code>notBreaching</code> - Assume the missing data is within the threshold. Missing
+        /// data does not count towards the number of times the metric is not within the threshold.</para></li><li><para><code>ignore</code> - Ignore the missing data. Maintains the current alarm state.</para></li><li><para><code>missing</code> - Missing data is treated as missing.</para></li></ul><para>If <code>treatMissingData</code> is not specified, the default behavior of <code>missing</code>
         /// is used.</para>
         /// </para>
         /// </summary>

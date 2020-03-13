@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// such as a <code>CreateService</code> request.
     /// 
     ///  <note><para>
-    /// To get a list of operations that match specified criteria, see <a>ListOperations</a>.
+    /// To get a list of operations that match specified criteria, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html">ListOperations</a>.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SDOperation")]

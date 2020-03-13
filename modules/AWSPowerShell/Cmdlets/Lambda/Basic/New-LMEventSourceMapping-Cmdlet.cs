@@ -149,7 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumBatchingWindowInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of time to gather records before invoking the function, in seconds.</para>
+        /// <para>(Streams) The maximum amount of time to gather records before invoking the function,
+        /// in seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

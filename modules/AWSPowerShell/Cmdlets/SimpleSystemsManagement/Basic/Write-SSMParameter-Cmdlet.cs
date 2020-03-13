@@ -52,6 +52,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String AllowedPattern { get; set; }
         #endregion
         
+        #region Parameter DataType
+        /// <summary>
+        /// <para>
+        /// <para>The data type for a <code>String</code> parameter. Supported data types include plain
+        /// text and Amazon Machine Image IDs.</para><para><b>The following data type values are supported.</b></para><ul><li><para><code>text</code></para></li><li><para><code>aws:ec2:image</code></para></li></ul><para>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
+        /// Systems Manager validates the parameter value is in the required format, such as <code>ami-12345abcdeEXAMPLE</code>,
+        /// and that the specified AMI is available in your AWS account. For more information,
+        /// see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native
+        /// parameter support for Amazon Machine Image IDs</a> in the <i>AWS Systems Manager User
+        /// Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataType { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -85,8 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The fully qualified name of the parameter that you want to add to the system. The
         /// fully qualified name includes the complete hierarchy of the parameter path and name.
         /// For parameters in a hierarchy, you must include a leading forward slash character
-        /// (/) when you create or reference a parameter. For example: <code>/Dev/DBServer/MySQL/db-string13</code></para><para>Naming Constraints:</para><ul><li><para>Parameter names are case sensitive.</para></li><li><para>A parameter name must be unique within an AWS Region</para></li><li><para>A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).</para></li><li><para>Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code></para></li><li><para>A parameter name can't include spaces.</para></li><li><para>Parameter hierarchies are limited to a maximum depth of fifteen levels.</para></li></ul><para>For additional information about valid values for parameter names, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements
-        /// and Constraints for Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>.</para><note><para>The maximum length constraint listed below includes capacity for additional system
+        /// (/) when you create or reference a parameter. For example: <code>/Dev/DBServer/MySQL/db-string13</code></para><para>Naming Constraints:</para><ul><li><para>Parameter names are case sensitive.</para></li><li><para>A parameter name must be unique within an AWS Region</para></li><li><para>A parameter name can't be prefixed with "aws" or "ssm" (case-insensitive).</para></li><li><para>Parameter names can include only the following symbols and letters: <code>a-zA-Z0-9_.-/</code></para></li><li><para>A parameter name can't include spaces.</para></li><li><para>Parameter hierarchies are limited to a maximum depth of fifteen levels.</para></li></ul><para>For additional information about valid values for parameter names, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">About
+        /// requirements and constraints for parameter names</a> in the <i>AWS Systems Manager
+        /// User Guide</i>.</para><note><para>The maximum length constraint listed below includes capacity for additional system
         /// attributes that are not part of the name. The maximum length for a parameter name,
         /// including the full length of the parameter ARN, is 1011 characters. For example, the
         /// length of the following parameter name is 65 characters, not 20 characters:</para><para><code>arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName</code></para></note>
@@ -126,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// been modified for a specified period of time. This policy type is useful when, for
         /// example, a secret needs to be changed within a period of time, but it has not been
         /// changed.</para><para>All existing policies are preserved until you send new policies or an empty policy.
-        /// For more information about parameter policies, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-policies.html">Working
-        /// with Parameter Policies</a>. </para>
+        /// For more information about parameter policies, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Assigning
+        /// parameter policies</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,8 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// an AWS account. Standard parameters are offered at no additional cost. </para><para>Advanced parameters have a content size limit of 8 KB and can be configured to use
         /// parameter policies. You can create a maximum of 100,000 advanced parameters for each
         /// Region in an AWS account. Advanced parameters incur a charge. For more information,
-        /// see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">About
-        /// Advanced Parameters</a> in the <i>AWS Systems Manager User Guide</i>.</para><para>You can change a standard parameter to an advanced parameter any time. But you can't
+        /// see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Standard
+        /// and advanced parameter tiers</a> in the <i>AWS Systems Manager User Guide</i>.</para><para>You can change a standard parameter to an advanced parameter any time. But you can't
         /// revert an advanced parameter to a standard parameter. Reverting an advanced parameter
         /// to a standard parameter would result in data loss because the system would truncate
         /// the size of the parameter from 8 KB to 4 KB. Reverting would also remove any policies
@@ -180,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// parameter is created in the standard-parameter tier. If one or more options requiring
         /// an advanced parameter are included in the request, Parameter Store create a parameter
         /// in the advanced-parameter tier.</para><para>This approach helps control your parameter-related costs by always creating standard
-        /// parameters unless an advanced parameter is necessary. </para></li></ul><para>Options that require an advanced parameter include the following:</para><ul><li><para>The content size of the parameter is more than 4 KB.</para></li><li><para>The parameter uses a parameter policy.</para></li><li><para>More than 10,000 parameters already exist in your AWS account in the current Region.</para></li></ul><para>For more information about configuring the default tier option, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html">Specifying
-        /// a Default Parameter Tier</a> in the <i>AWS Systems Manager User Guide</i>.</para>
+        /// parameters unless an advanced parameter is necessary. </para></li></ul><para>Options that require an advanced parameter include the following:</para><ul><li><para>The content size of the parameter is more than 4 KB.</para></li><li><para>The parameter uses a parameter policy.</para></li><li><para>More than 10,000 parameters already exist in your AWS account in the current Region.</para></li></ul><para>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html">Specifying
+        /// a default parameter tier</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,13 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// or in the China Regions.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.SimpleSystemsManagement.ParameterType")]
         public Amazon.SimpleSystemsManagement.ParameterType Type { get; set; }
         #endregion
@@ -289,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AllowedPattern = this.AllowedPattern;
+            context.DataType = this.DataType;
             context.Description = this.Description;
             context.KeyId = this.KeyId;
             context.Name = this.Name;
@@ -306,12 +318,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             context.Tier = this.Tier;
             context.Type = this.Type;
-            #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Value = this.Value;
             #if MODULAR
             if (this.Value == null && ParameterWasBound(nameof(this.Value)))
@@ -338,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.AllowedPattern != null)
             {
                 request.AllowedPattern = cmdletContext.AllowedPattern;
+            }
+            if (cmdletContext.DataType != null)
+            {
+                request.DataType = cmdletContext.DataType;
             }
             if (cmdletContext.Description != null)
             {
@@ -437,6 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AllowedPattern { get; set; }
+            public System.String DataType { get; set; }
             public System.String Description { get; set; }
             public System.String KeyId { get; set; }
             public System.String Name { get; set; }

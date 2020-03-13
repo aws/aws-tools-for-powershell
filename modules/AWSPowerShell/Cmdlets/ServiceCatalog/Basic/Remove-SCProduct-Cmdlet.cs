@@ -33,6 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     ///  
     /// <para>
     /// You cannot delete a product if it was shared with you or is associated with a portfolio.
+    /// </para><para>
+    /// A delegated admin is authorized to invoke this command.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

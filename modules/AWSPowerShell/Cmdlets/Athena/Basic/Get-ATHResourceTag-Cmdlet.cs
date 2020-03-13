@@ -28,7 +28,7 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Lists the tags associated with this workgroup.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the tags associated with an Athena workgroup or data catalog resource.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ATHResourceTag")]
     [OutputType("Amazon.Athena.Model.Tag")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>Lists the tags for the workgroup resource with the specified ARN.</para>
+        /// <para>Lists the tags for the resource with the specified ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to be returned per request that lists the tags for the
-        /// workgroup resource.</para>
+        /// resource.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The token for the next set of results, or null if there are no additional results
-        /// for this request, where the request lists the tags for the workgroup resource with
-        /// the specified ARN.</para>
+        /// for this request, where the request lists the tags for the resource with the specified
+        /// ARN.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -65,6 +65,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String[] AdminUserList { get; set; }
         #endregion
         
+        #region Parameter AuditDestinationARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the storage used for the audit logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuditDestinationARN { get; set; }
+        #endregion
+        
         #region Parameter DefaultStorageClass
         /// <summary>
         /// <para>
@@ -122,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>True to use Amazon S3 server side encryption with your own AWS KMS key, or false to
+        /// <para>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
         /// use a key managed by Amazon S3. Optional.</para>
         /// </para>
         /// </summary>
@@ -133,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption.
+        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server-side encryption.
         /// This value can only be set when KMSEncrypted is true. Optional.</para>
         /// </para>
         /// </summary>
@@ -269,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 context.AdminUserList = new List<System.String>(this.AdminUserList);
             }
+            context.AuditDestinationARN = this.AuditDestinationARN;
             context.DefaultStorageClass = this.DefaultStorageClass;
             context.FileShareARN = this.FileShareARN;
             #if MODULAR
@@ -311,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.AdminUserList != null)
             {
                 request.AdminUserList = cmdletContext.AdminUserList;
+            }
+            if (cmdletContext.AuditDestinationARN != null)
+            {
+                request.AuditDestinationARN = cmdletContext.AuditDestinationARN;
             }
             if (cmdletContext.DefaultStorageClass != null)
             {
@@ -418,6 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AdminUserList { get; set; }
+            public System.String AuditDestinationARN { get; set; }
             public System.String DefaultStorageClass { get; set; }
             public System.String FileShareARN { get; set; }
             public System.Boolean? GuessMIMETypeEnabled { get; set; }

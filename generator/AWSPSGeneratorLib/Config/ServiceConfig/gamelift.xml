@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>gamelift</C2jFilename>
     <AssemblyName>GameLift</AssemblyName>
@@ -23,6 +24,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ClaimGameServer" OutputProperty="GameServer" Verb="Request" Noun="GameServer" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAlias" OutputProperty="Alias" Verb="New" Noun="Alias" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -32,6 +37,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateFleet" OutputProperty="FleetAttributes" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGameServerGroup" OutputProperty="GameServerGroup" Verb="New" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,6 +92,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGameServerGroup" OutputProperty="GameServerGroup" Verb="Remove" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteGameSessionQueue" Verb="Remove" Noun="GameSessionQueue" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -108,6 +121,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVpcPeeringConnection" Verb="Remove" Noun="VpcPeeringConnection" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterGameServer" Verb="Unregister" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -140,6 +157,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetUtilization" OutputProperty="FleetUtilization" Verb="Get" Noun="FleetUtilization" PipelineParameter="FleetIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGameServer" OutputProperty="GameServer" Verb="Get" Noun="GameServer" PipelineParameter="GameServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGameServerGroup" OutputProperty="GameServerGroup" Verb="Get" Noun="GameServerGroup" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -219,6 +244,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListGameServerGroups" OutputProperty="GameServerGroups" Verb="Get" Noun="GameServerGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGameServers" OutputProperty="GameServers" Verb="Get" Noun="GameServerList" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListScripts" OutputProperty="Scripts" Verb="Get" Noun="ScriptList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -231,11 +264,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RegisterGameServer" OutputProperty="GameServer" Verb="Register" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RequestUploadCredentials" OutputProperty="*" Verb="Request" Noun="UploadCredential" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResolveAlias" OutputProperty="FleetId" Verb="Resolve" Noun="Alias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeGameServerGroup" OutputProperty="GameServerGroup" Verb="Resume" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -271,6 +312,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SuspendGameServerGroup" OutputProperty="GameServerGroup" Verb="Suspend" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -296,6 +341,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFleetPortSettings" OutputProperty="FleetId" Verb="Update" Noun="FleetPortSetting" ShouldProcessTarget="FleetId" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGameServer" OutputProperty="GameServer" Verb="Update" Noun="GameServer" ShouldProcessTarget="GameServerId" PipelineParameter="GameServerId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGameServerGroup" OutputProperty="GameServerGroup" Verb="Update" Noun="GameServerGroup" ShouldProcessTarget="GameServerGroupName" PipelineParameter="GameServerGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

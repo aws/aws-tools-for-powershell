@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
     ///  
     /// <para>
     /// If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced),
-    /// then it only applies to new messages sent via this channel after it's been updated.
-    /// Existing messages are still expire as per the previous <code>MessageTtlSeconds</code>
-    /// value.
+    /// it only applies to new messages sent via this channel after it's been updated. Existing
+    /// messages are still expired as per the previous <code>MessageTtlSeconds</code> value.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KVSignalingChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter ChannelARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the signaling channel that you want to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of the signaling channel that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

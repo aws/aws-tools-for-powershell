@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Promotes a Read Replica DB cluster to a standalone DB cluster.
+    /// Promotes a read replica DB cluster to a standalone DB cluster.
     /// 
     ///  <note><para>
     /// This action only applies to Aurora DB clusters.
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB cluster Read Replica to promote. This parameter isn't case-sensitive.
-        /// </para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBCluster Read Replica.</para></li></ul><para>Example: <code>my-cluster-replica1</code></para>
+        /// <para>The identifier of the DB cluster read replica to promote. This parameter isn't case-sensitive.
+        /// </para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DB cluster read replica.</para></li></ul><para>Example: <code>my-cluster-replica1</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

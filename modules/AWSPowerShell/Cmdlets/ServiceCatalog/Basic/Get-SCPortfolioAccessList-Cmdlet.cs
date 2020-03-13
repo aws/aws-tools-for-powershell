@@ -28,7 +28,13 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists the account IDs that have access to the specified portfolio.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the account IDs that have access to the specified portfolio.
+    /// 
+    ///  
+    /// <para>
+    /// A delegated admin can list the accounts that have access to the shared portfolio.
+    /// Note that if a delegated admin is de-registered, they can no longer perform this operation.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SCPortfolioAccessList")]
     [OutputType("System.String")]

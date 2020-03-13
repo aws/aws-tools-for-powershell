@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Returns the description of the gateway volumes specified in the request. The list
-    /// of gateway volumes in the request must be from one gateway. In the response Amazon
-    /// Storage Gateway returns volume information sorted by volume ARNs. This operation is
-    /// only supported in stored volume gateway type.
+    /// of gateway volumes in the request must be from one gateway. In the response AWS Storage
+    /// Gateway returns volume information sorted by volume ARNs. This operation is only supported
+    /// in stored volume gateway type.
     /// </summary>
     [Cmdlet("Get", "SGStorediSCSIVolume")]
     [OutputType("Amazon.StorageGateway.Model.StorediSCSIVolume")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>An array of strings where each string represents the Amazon Resource Name (ARN) of
-        /// a stored volume. All of the specified stored volumes must from the same gateway. Use
-        /// <a>ListVolumes</a> to get volume ARNs for a gateway.</para>
+        /// a stored volume. All of the specified stored volumes must be from the same gateway.
+        /// Use <a>ListVolumes</a> to get volume ARNs for a gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

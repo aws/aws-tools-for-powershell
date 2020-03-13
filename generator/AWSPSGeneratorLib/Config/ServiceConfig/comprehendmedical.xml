@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>comprehendmedical</C2jFilename>
     <AssemblyName>ComprehendMedical</AssemblyName>
@@ -22,7 +23,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeICD10CMInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="ICD10CMInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribePHIDetectionJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="PersonalHealthInformationDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRxNormInferenceJob" OutputProperty="ComprehendMedicalAsyncJobProperties" Verb="Get" Noun="RxNormInferenceJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -50,7 +59,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListICD10CMInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="ICD10CMInferenceJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPHIDetectionJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="PersonalHealthInformationDetectionJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRxNormInferenceJobs" OutputProperty="ComprehendMedicalAsyncJobPropertiesList" Verb="Get" Noun="RxNormInferenceJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -58,7 +75,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartICD10CMInferenceJob" OutputProperty="JobId" Verb="Start" Noun="ICD10CMInferenceJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartPHIDetectionJob" OutputProperty="JobId" Verb="Start" Noun="PersonalHealthInformationDetectionJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartRxNormInferenceJob" OutputProperty="JobId" Verb="Start" Noun="RxNormInferenceJob" ShouldProcessTarget="DataAccessRoleArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -66,7 +91,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopICD10CMInferenceJob" OutputProperty="JobId" Verb="Stop" Noun="ICD10CMInferenceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopPHIDetectionJob" OutputProperty="JobId" Verb="Stop" Noun="PersonalHealthInformationDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopRxNormInferenceJob" OutputProperty="JobId" Verb="Stop" Noun="RxNormInferenceJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The listeners that the virtual router is expected to receive inbound traffic from.
-        ///         You can specify one listener.</para>
+        /// You         can specify one listener.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

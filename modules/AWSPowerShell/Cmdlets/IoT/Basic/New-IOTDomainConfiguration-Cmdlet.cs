@@ -107,12 +107,23 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ServiceType
         /// <summary>
         /// <para>
-        /// <para>The type of service delivered by the endpoint.</para>
+        /// <para>The type of service delivered by the endpoint.</para><note><para>AWS IoT Core currently supports only the <code>DATA</code> service type.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.IoT.ServiceType")]
         public Amazon.IoT.ServiceType ServiceType { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage the domain configuration.</para><note><para>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</para><para>For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."</para><para>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter ValidationCertificateArn
@@ -203,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.ServerCertificateArn = new List<System.String>(this.ServerCertificateArn);
             }
             context.ServiceType = this.ServiceType;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.IoT.Model.Tag>(this.Tag);
+            }
             context.ValidationCertificateArn = this.ValidationCertificateArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -264,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ServiceType != null)
             {
                 request.ServiceType = cmdletContext.ServiceType;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.ValidationCertificateArn != null)
             {
@@ -336,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String DomainName { get; set; }
             public List<System.String> ServerCertificateArn { get; set; }
             public Amazon.IoT.ServiceType ServiceType { get; set; }
+            public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public System.String ValidationCertificateArn { get; set; }
             public System.Func<Amazon.IoT.Model.CreateDomainConfigurationResponse, NewIOTDomainConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL
         /// AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates
         /// in the confirmationUrl, you must create and enable topic rule destinations that match
-        /// each possible value of the substituion template before traffic is allowed to your
+        /// each possible value of the substitution template before traffic is allowed to your
         /// endpoint URL.</para>
         /// </para>
         /// </summary>

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// <summary>
     /// Creates a single Amazon GuardDuty detector. A detector is a resource that represents
     /// the GuardDuty service. To start using GuardDuty, you must create a detector in each
-    /// region that you enable the service. You can have only one detector per account per
-    /// region.
+    /// Region where you enable the service. You can have only one detector per account per
+    /// Region.
     /// </summary>
     [Cmdlet("New", "GDDetector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Enable
         /// <summary>
         /// <para>
-        /// <para>A boolean value that specifies whether the detector is to be enabled.</para>
+        /// <para>A Boolean value that specifies whether the detector is to be enabled.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter FindingPublishingFrequency
         /// <summary>
         /// <para>
-        /// <para>A enum value that specifies how frequently customer got Finding updates published.</para>
+        /// <para>An enum value that specifies how frequently updated findings are exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

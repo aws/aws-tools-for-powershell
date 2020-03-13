@@ -128,6 +128,19 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         public System.String ImportAssetsFromS3_DataSetId { get; set; }
         #endregion
         
+        #region Parameter Encryption_KmsKeyArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the the AWS KMS key you want to use to encrypt the
+        /// Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption
+        /// type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ExportAssetsToS3_Encryption_KmsKeyArn")]
+        public System.String Encryption_KmsKeyArn { get; set; }
+        #endregion
+        
         #region Parameter ImportAssetFromSignedUrl_Md5Hash
         /// <summary>
         /// <para>
@@ -182,6 +195,18 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Details_ImportAssetsFromS3_RevisionId")]
         public System.String ImportAssetsFromS3_RevisionId { get; set; }
+        #endregion
+        
+        #region Parameter Encryption_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of server side encryption used for encrypting the objects in Amazon S3.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Details_ExportAssetsToS3_Encryption_Type")]
+        [AWSConstantClassSource("Amazon.DataExchange.ServerSideEncryptionTypes")]
+        public Amazon.DataExchange.ServerSideEncryptionTypes Encryption_Type { get; set; }
         #endregion
         
         #region Parameter Type
@@ -267,6 +292,8 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
                 context.ExportAssetsToS3_AssetDestination = new List<Amazon.DataExchange.Model.AssetDestinationEntry>(this.ExportAssetsToS3_AssetDestination);
             }
             context.ExportAssetsToS3_DataSetId = this.ExportAssetsToS3_DataSetId;
+            context.Encryption_KmsKeyArn = this.Encryption_KmsKeyArn;
+            context.Encryption_Type = this.Encryption_Type;
             context.ExportAssetsToS3_RevisionId = this.ExportAssetsToS3_RevisionId;
             context.ExportAssetToSignedUrl_AssetId = this.ExportAssetToSignedUrl_AssetId;
             context.ExportAssetToSignedUrl_DataSetId = this.ExportAssetToSignedUrl_DataSetId;
@@ -308,51 +335,6 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
              // populate Details
             var requestDetailsIsNull = true;
             request.Details = new Amazon.DataExchange.Model.RequestDetails();
-            Amazon.DataExchange.Model.ExportAssetsToS3RequestDetails requestDetails_details_ExportAssetsToS3 = null;
-            
-             // populate ExportAssetsToS3
-            var requestDetails_details_ExportAssetsToS3IsNull = true;
-            requestDetails_details_ExportAssetsToS3 = new Amazon.DataExchange.Model.ExportAssetsToS3RequestDetails();
-            List<Amazon.DataExchange.Model.AssetDestinationEntry> requestDetails_details_ExportAssetsToS3_exportAssetsToS3_AssetDestination = null;
-            if (cmdletContext.ExportAssetsToS3_AssetDestination != null)
-            {
-                requestDetails_details_ExportAssetsToS3_exportAssetsToS3_AssetDestination = cmdletContext.ExportAssetsToS3_AssetDestination;
-            }
-            if (requestDetails_details_ExportAssetsToS3_exportAssetsToS3_AssetDestination != null)
-            {
-                requestDetails_details_ExportAssetsToS3.AssetDestinations = requestDetails_details_ExportAssetsToS3_exportAssetsToS3_AssetDestination;
-                requestDetails_details_ExportAssetsToS3IsNull = false;
-            }
-            System.String requestDetails_details_ExportAssetsToS3_exportAssetsToS3_DataSetId = null;
-            if (cmdletContext.ExportAssetsToS3_DataSetId != null)
-            {
-                requestDetails_details_ExportAssetsToS3_exportAssetsToS3_DataSetId = cmdletContext.ExportAssetsToS3_DataSetId;
-            }
-            if (requestDetails_details_ExportAssetsToS3_exportAssetsToS3_DataSetId != null)
-            {
-                requestDetails_details_ExportAssetsToS3.DataSetId = requestDetails_details_ExportAssetsToS3_exportAssetsToS3_DataSetId;
-                requestDetails_details_ExportAssetsToS3IsNull = false;
-            }
-            System.String requestDetails_details_ExportAssetsToS3_exportAssetsToS3_RevisionId = null;
-            if (cmdletContext.ExportAssetsToS3_RevisionId != null)
-            {
-                requestDetails_details_ExportAssetsToS3_exportAssetsToS3_RevisionId = cmdletContext.ExportAssetsToS3_RevisionId;
-            }
-            if (requestDetails_details_ExportAssetsToS3_exportAssetsToS3_RevisionId != null)
-            {
-                requestDetails_details_ExportAssetsToS3.RevisionId = requestDetails_details_ExportAssetsToS3_exportAssetsToS3_RevisionId;
-                requestDetails_details_ExportAssetsToS3IsNull = false;
-            }
-             // determine if requestDetails_details_ExportAssetsToS3 should be set to null
-            if (requestDetails_details_ExportAssetsToS3IsNull)
-            {
-                requestDetails_details_ExportAssetsToS3 = null;
-            }
-            if (requestDetails_details_ExportAssetsToS3 != null)
-            {
-                request.Details.ExportAssetsToS3 = requestDetails_details_ExportAssetsToS3;
-                requestDetailsIsNull = false;
-            }
             Amazon.DataExchange.Model.ExportAssetToSignedUrlRequestDetails requestDetails_details_ExportAssetToSignedUrl = null;
             
              // populate ExportAssetToSignedUrl
@@ -441,6 +423,86 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
             if (requestDetails_details_ImportAssetsFromS3 != null)
             {
                 request.Details.ImportAssetsFromS3 = requestDetails_details_ImportAssetsFromS3;
+                requestDetailsIsNull = false;
+            }
+            Amazon.DataExchange.Model.ExportAssetsToS3RequestDetails requestDetails_details_ExportAssetsToS3 = null;
+            
+             // populate ExportAssetsToS3
+            var requestDetails_details_ExportAssetsToS3IsNull = true;
+            requestDetails_details_ExportAssetsToS3 = new Amazon.DataExchange.Model.ExportAssetsToS3RequestDetails();
+            List<Amazon.DataExchange.Model.AssetDestinationEntry> requestDetails_details_ExportAssetsToS3_exportAssetsToS3_AssetDestination = null;
+            if (cmdletContext.ExportAssetsToS3_AssetDestination != null)
+            {
+                requestDetails_details_ExportAssetsToS3_exportAssetsToS3_AssetDestination = cmdletContext.ExportAssetsToS3_AssetDestination;
+            }
+            if (requestDetails_details_ExportAssetsToS3_exportAssetsToS3_AssetDestination != null)
+            {
+                requestDetails_details_ExportAssetsToS3.AssetDestinations = requestDetails_details_ExportAssetsToS3_exportAssetsToS3_AssetDestination;
+                requestDetails_details_ExportAssetsToS3IsNull = false;
+            }
+            System.String requestDetails_details_ExportAssetsToS3_exportAssetsToS3_DataSetId = null;
+            if (cmdletContext.ExportAssetsToS3_DataSetId != null)
+            {
+                requestDetails_details_ExportAssetsToS3_exportAssetsToS3_DataSetId = cmdletContext.ExportAssetsToS3_DataSetId;
+            }
+            if (requestDetails_details_ExportAssetsToS3_exportAssetsToS3_DataSetId != null)
+            {
+                requestDetails_details_ExportAssetsToS3.DataSetId = requestDetails_details_ExportAssetsToS3_exportAssetsToS3_DataSetId;
+                requestDetails_details_ExportAssetsToS3IsNull = false;
+            }
+            System.String requestDetails_details_ExportAssetsToS3_exportAssetsToS3_RevisionId = null;
+            if (cmdletContext.ExportAssetsToS3_RevisionId != null)
+            {
+                requestDetails_details_ExportAssetsToS3_exportAssetsToS3_RevisionId = cmdletContext.ExportAssetsToS3_RevisionId;
+            }
+            if (requestDetails_details_ExportAssetsToS3_exportAssetsToS3_RevisionId != null)
+            {
+                requestDetails_details_ExportAssetsToS3.RevisionId = requestDetails_details_ExportAssetsToS3_exportAssetsToS3_RevisionId;
+                requestDetails_details_ExportAssetsToS3IsNull = false;
+            }
+            Amazon.DataExchange.Model.ExportServerSideEncryption requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption = null;
+            
+             // populate Encryption
+            var requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_EncryptionIsNull = true;
+            requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption = new Amazon.DataExchange.Model.ExportServerSideEncryption();
+            System.String requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption_encryption_KmsKeyArn = null;
+            if (cmdletContext.Encryption_KmsKeyArn != null)
+            {
+                requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption_encryption_KmsKeyArn = cmdletContext.Encryption_KmsKeyArn;
+            }
+            if (requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption_encryption_KmsKeyArn != null)
+            {
+                requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption.KmsKeyArn = requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption_encryption_KmsKeyArn;
+                requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_EncryptionIsNull = false;
+            }
+            Amazon.DataExchange.ServerSideEncryptionTypes requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption_encryption_Type = null;
+            if (cmdletContext.Encryption_Type != null)
+            {
+                requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption_encryption_Type = cmdletContext.Encryption_Type;
+            }
+            if (requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption_encryption_Type != null)
+            {
+                requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption.Type = requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption_encryption_Type;
+                requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_EncryptionIsNull = false;
+            }
+             // determine if requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption should be set to null
+            if (requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_EncryptionIsNull)
+            {
+                requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption = null;
+            }
+            if (requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption != null)
+            {
+                requestDetails_details_ExportAssetsToS3.Encryption = requestDetails_details_ExportAssetsToS3_details_ExportAssetsToS3_Encryption;
+                requestDetails_details_ExportAssetsToS3IsNull = false;
+            }
+             // determine if requestDetails_details_ExportAssetsToS3 should be set to null
+            if (requestDetails_details_ExportAssetsToS3IsNull)
+            {
+                requestDetails_details_ExportAssetsToS3 = null;
+            }
+            if (requestDetails_details_ExportAssetsToS3 != null)
+            {
+                request.Details.ExportAssetsToS3 = requestDetails_details_ExportAssetsToS3;
                 requestDetailsIsNull = false;
             }
             Amazon.DataExchange.Model.ImportAssetFromSignedUrlRequestDetails requestDetails_details_ImportAssetFromSignedUrl = null;
@@ -570,6 +632,8 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
         {
             public List<Amazon.DataExchange.Model.AssetDestinationEntry> ExportAssetsToS3_AssetDestination { get; set; }
             public System.String ExportAssetsToS3_DataSetId { get; set; }
+            public System.String Encryption_KmsKeyArn { get; set; }
+            public Amazon.DataExchange.ServerSideEncryptionTypes Encryption_Type { get; set; }
             public System.String ExportAssetsToS3_RevisionId { get; set; }
             public System.String ExportAssetToSignedUrl_AssetId { get; set; }
             public System.String ExportAssetToSignedUrl_DataSetId { get; set; }

@@ -170,6 +170,7 @@ $BAK_SelectMap = @{
                "Get-BAKCopyJob",
                "Get-BAKProtectedResource",
                "Get-BAKRecoveryPoint",
+               "Get-BAKRegionSetting",
                "Get-BAKRestoreJob",
                "Export-BAKBackupPlanTemplate",
                "Get-BAKBackupPlan",
@@ -201,7 +202,8 @@ $BAK_SelectMap = @{
                "Add-BAKResourceTag",
                "Remove-BAKResourceTag",
                "Update-BAKBackupPlan",
-               "Update-BAKRecoveryPointLifecycle")
+               "Update-BAKRecoveryPointLifecycle",
+               "Update-BAKRegionSetting")
 }
 
 _awsArgumentCompleterRegistration $BAK_SelectCompleters $BAK_SelectMap

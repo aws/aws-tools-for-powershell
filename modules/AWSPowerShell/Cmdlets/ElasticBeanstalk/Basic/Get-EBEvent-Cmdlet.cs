@@ -91,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter PlatformArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the version of the custom platform.</para>
+        /// <para>The ARN of a custom platform version. If specified, AWS Elastic Beanstalk restricts
+        /// the returned descriptions to those associated with this custom platform version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

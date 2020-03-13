@@ -48,6 +48,17 @@ namespace Amazon.PowerShell.Cmdlets.CE
     public partial class GetCERightsizingRecommendationCmdlet : AmazonCostExplorerClientCmdlet, IExecutor
     {
         
+        #region Parameter Configuration_BenefitsConsidered
+        /// <summary>
+        /// <para>
+        /// <para> The option to consider RI or Savings Plans discount benefits in your savings calculation.
+        /// The default value is <code>TRUE</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Configuration_BenefitsConsidered { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -56,6 +67,19 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.CostExplorer.Model.Expression Filter { get; set; }
+        #endregion
+        
+        #region Parameter Configuration_RecommendationTarget
+        /// <summary>
+        /// <para>
+        /// <para> The option to see recommendations within the same instance family, or recommendations
+        /// for instances across other families. The default value is <code>SAME_INSTANCE_FAMILY</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CostExplorer.RecommendationTarget")]
+        public Amazon.CostExplorer.RecommendationTarget Configuration_RecommendationTarget { get; set; }
         #endregion
         
         #region Parameter Service
@@ -158,6 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 context.Select = (response, cmdlet) => this.Service;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Configuration_BenefitsConsidered = this.Configuration_BenefitsConsidered;
+            context.Configuration_RecommendationTarget = this.Configuration_RecommendationTarget;
             context.Filter = this.Filter;
             context.NextPageToken = this.NextPageToken;
             context.PageSize = this.PageSize;
@@ -189,6 +215,35 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // create request and set iteration invariants
             var request = new Amazon.CostExplorer.Model.GetRightsizingRecommendationRequest();
             
+            
+             // populate Configuration
+            var requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.CostExplorer.Model.RightsizingRecommendationConfiguration();
+            System.Boolean? requestConfiguration_configuration_BenefitsConsidered = null;
+            if (cmdletContext.Configuration_BenefitsConsidered != null)
+            {
+                requestConfiguration_configuration_BenefitsConsidered = cmdletContext.Configuration_BenefitsConsidered.Value;
+            }
+            if (requestConfiguration_configuration_BenefitsConsidered != null)
+            {
+                request.Configuration.BenefitsConsidered = requestConfiguration_configuration_BenefitsConsidered.Value;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.CostExplorer.RecommendationTarget requestConfiguration_configuration_RecommendationTarget = null;
+            if (cmdletContext.Configuration_RecommendationTarget != null)
+            {
+                requestConfiguration_configuration_RecommendationTarget = cmdletContext.Configuration_RecommendationTarget;
+            }
+            if (requestConfiguration_configuration_RecommendationTarget != null)
+            {
+                request.Configuration.RecommendationTarget = requestConfiguration_configuration_RecommendationTarget;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filter = cmdletContext.Filter;
@@ -255,6 +310,35 @@ namespace Amazon.PowerShell.Cmdlets.CE
             // create request
             var request = new Amazon.CostExplorer.Model.GetRightsizingRecommendationRequest();
             
+            
+             // populate Configuration
+            var requestConfigurationIsNull = true;
+            request.Configuration = new Amazon.CostExplorer.Model.RightsizingRecommendationConfiguration();
+            System.Boolean? requestConfiguration_configuration_BenefitsConsidered = null;
+            if (cmdletContext.Configuration_BenefitsConsidered != null)
+            {
+                requestConfiguration_configuration_BenefitsConsidered = cmdletContext.Configuration_BenefitsConsidered.Value;
+            }
+            if (requestConfiguration_configuration_BenefitsConsidered != null)
+            {
+                request.Configuration.BenefitsConsidered = requestConfiguration_configuration_BenefitsConsidered.Value;
+                requestConfigurationIsNull = false;
+            }
+            Amazon.CostExplorer.RecommendationTarget requestConfiguration_configuration_RecommendationTarget = null;
+            if (cmdletContext.Configuration_RecommendationTarget != null)
+            {
+                requestConfiguration_configuration_RecommendationTarget = cmdletContext.Configuration_RecommendationTarget;
+            }
+            if (requestConfiguration_configuration_RecommendationTarget != null)
+            {
+                request.Configuration.RecommendationTarget = requestConfiguration_configuration_RecommendationTarget;
+                requestConfigurationIsNull = false;
+            }
+             // determine if request.Configuration should be set to null
+            if (requestConfigurationIsNull)
+            {
+                request.Configuration = null;
+            }
             if (cmdletContext.Filter != null)
             {
                 request.Filter = cmdletContext.Filter;
@@ -333,6 +417,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Configuration_BenefitsConsidered { get; set; }
+            public Amazon.CostExplorer.RecommendationTarget Configuration_RecommendationTarget { get; set; }
             public Amazon.CostExplorer.Model.Expression Filter { get; set; }
             public System.String NextPageToken { get; set; }
             public System.Int32? PageSize { get; set; }

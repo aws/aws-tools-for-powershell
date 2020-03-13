@@ -63,7 +63,14 @@ namespace Amazon.PowerShell.Cmdlets.WM
         /// <para>The identifier for the organization.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OrganizationId { get; set; }
         #endregion
         
@@ -135,6 +142,12 @@ namespace Amazon.PowerShell.Cmdlets.WM
             }
             #endif
             context.OrganizationId = this.OrganizationId;
+            #if MODULAR
+            if (this.OrganizationId == null && ParameterWasBound(nameof(this.OrganizationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OrganizationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

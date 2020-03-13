@@ -86,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String PublicKey { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the imported key pair.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -161,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter PublicKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -184,6 +199,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PublicKey != null)
             {
                 request.PublicKeyMaterial = cmdletContext.PublicKey;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -248,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String KeyName { get; set; }
             public System.String PublicKey { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.ImportKeyPairResponse, ImportEC2KeyPairCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

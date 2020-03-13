@@ -44,11 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2PlacementGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.EC2.Model.CreatePlacementGroupResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) CreatePlacementGroup API operation.", Operation = new[] {"CreatePlacementGroup"}, SelectReturnType = typeof(Amazon.EC2.Model.CreatePlacementGroupResponse))]
-    [AWSCmdletOutput("None or Amazon.EC2.Model.CreatePlacementGroupResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.EC2.Model.CreatePlacementGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.CreatePlacementGroupResponse",
+        "This cmdlet returns an Amazon.EC2.Model.CreatePlacementGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class NewEC2PlacementGroupCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -85,10 +84,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.PlacementStrategy Strategy { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the new placement group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.CreatePlacementGroupResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.CreatePlacementGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.GroupName = this.GroupName;
             context.PartitionCount = this.PartitionCount;
             context.Strategy = this.Strategy;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -175,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Strategy != null)
             {
                 request.Strategy = cmdletContext.Strategy;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -240,8 +259,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String GroupName { get; set; }
             public System.Int32? PartitionCount { get; set; }
             public Amazon.EC2.PlacementStrategy Strategy { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreatePlacementGroupResponse, NewEC2PlacementGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

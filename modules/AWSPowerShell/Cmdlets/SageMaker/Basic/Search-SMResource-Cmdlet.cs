@@ -28,9 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Finds Amazon SageMaker resources that match a search query. Matching resource objects
-    /// are returned as a list of <code>SearchResult</code> objects in the response. You can
-    /// sort the search results by any resource property in a ascending or descending order.
+    /// Finds Amazon SageMaker resources that match a search query. Matching resources are
+    /// returned as a list of <code>SearchRecord</code> objects in the response. You can sort
+    /// the search results by any resource property in a ascending or descending order.
     /// 
     ///  
     /// <para>
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a <code>SearchResponse</code>.</para>
+        /// <para>The maximum number of results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -155,10 +155,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If more than <code>MaxResults</code> resource objects match the specified <code>SearchExpression</code>,
-        /// the <code>SearchResponse</code> includes a <code>NextToken</code>. The <code>NextToken</code>
-        /// can be passed to the next <code>SearchRequest</code> to continue retrieving results
-        /// for the specified <code>SearchExpression</code> and <code>Sort</code> parameters.</para>
+        /// <para>If more than <code>MaxResults</code> resources match the specified <code>SearchExpression</code>,
+        /// the response includes a <code>NextToken</code>. The <code>NextToken</code> can be
+        /// passed to the next <code>SearchRequest</code> to continue retrieving results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

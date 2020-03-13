@@ -28,51 +28,30 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Creates a new case in the AWS Support Center. This operation is modeled on the behavior
-    /// of the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
-    /// Case</a> page. Its parameters require you to specify the following information:
-    /// 
-    ///  <ul><li><para><b>issueType.</b> The type of issue for the case. You can specify either "customer-service"
-    /// or "technical." If you do not indicate a value, the default is "technical."
-    /// </para><note><para>
-    /// Service limit increases are not supported by the Support API; you must submit service
-    /// limit increase requests in <a href="https://console.aws.amazon.com/support">Support
-    /// Center</a>.
-    /// </para><para>
-    /// The <code>caseId</code> is not the <code>displayId</code> that appears in <a href="https://console.aws.amazon.com/support">Support
-    /// Center</a>. You can use the <a>DescribeCases</a> API to get the <code>displayId</code>.
-    /// </para></note></li><li><para><b>serviceCode.</b> The code for an AWS service. You can get the possible <code>serviceCode</code>
-    /// values by calling <a>DescribeServices</a>.
-    /// </para></li><li><para><b>categoryCode.</b> The category for the service defined for the <code>serviceCode</code>
-    /// value. You also get the category code for a service by calling <a>DescribeServices</a>.
-    /// Each AWS service defines its own set of category codes.
-    /// </para></li><li><para><b>severityCode.</b> A value that indicates the urgency of the case, which in turn
-    /// determines the response time according to your service level agreement with AWS Support.
-    /// You can get the possible <code>severityCode</code> values by calling <a>DescribeSeverityLevels</a>.
-    /// For more information about the meaning of the codes, see <a>SeverityLevel</a> and
-    /// <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing
-    /// a Severity</a>.
-    /// </para></li><li><para><b>subject.</b> The <b>Subject</b> field on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
+    /// Creates a case in the AWS Support Center. This operation is similar to how you create
+    /// a case in the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
     /// Case</a> page.
-    /// </para></li><li><para><b>communicationBody.</b> The <b>Description</b> field on the AWS Support Center
-    /// <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a>
-    /// page.
-    /// </para></li><li><para><b>attachmentSetId.</b> The ID of a set of attachments that has been created by using
-    /// <a>AddAttachmentsToSet</a>.
-    /// </para></li><li><para><b>language.</b> The human language in which AWS Support handles the case. English
-    /// and Japanese are currently supported.
-    /// </para></li><li><para><b>ccEmailAddresses.</b> The AWS Support Center <b>CC</b> field on the <a href="https://console.aws.amazon.com/support/home#/case/create">Create
-    /// Case</a> page. You can list email addresses to be copied on any correspondence about
-    /// the case. The account that opens the case is already identified by passing the AWS
-    /// Credentials in the HTTP POST method or in a method or function call from one of the
-    /// programming languages supported by an <a href="http://aws.amazon.com/tools/">AWS SDK</a>.
     /// 
-    /// </para></li></ul><note><para>
-    /// To add additional communication or attachments to an existing case, use <a>AddCommunicationToCase</a>.
-    /// </para></note><para>
-    /// A successful <a>CreateCase</a> request returns an AWS Support case number. Case numbers
-    /// are used by the <a>DescribeCases</a> operation to retrieve existing AWS Support cases.
-    /// </para>
+    ///  
+    /// <para>
+    /// The AWS Support API doesn't support requesting service limit increases. You can submit
+    /// a service limit increase in the following ways: 
+    /// </para><ul><li><para>
+    /// Submit a request from the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
+    /// Case</a> page.
+    /// </para></li><li><para>
+    /// Use the Service Quotas <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html">RequestServiceQuotaIncrease</a>
+    /// operation.
+    /// </para></li></ul><para>
+    /// A successful <a>CreateCase</a> request returns an AWS Support case number. You can
+    /// use the <a>DescribeCases</a> operation and specify the case number to get existing
+    /// AWS Support cases. After you create a case, you can use the <a>AddCommunicationToCase</a>
+    /// operation to add additional communication or attachments to an existing case.
+    /// </para><note><ul><li><para>
+    /// The <code>caseId</code> is separate from the <code>displayId</code> that appears in
+    /// the <a href="https://console.aws.amazon.com/support">Support Center</a>. You can use
+    /// the <a>DescribeCases</a> operation to get the <code>displayId</code>.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "ASACase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -87,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter AttachmentSetId
         /// <summary>
         /// <para>
-        /// <para>The ID of a set of one or more attachments for the case. Create the set by using <a>AddAttachmentsToSet</a>.</para>
+        /// <para>The ID of a set of one or more attachments for the case. Create the set by using the
+        /// <a>AddAttachmentsToSet</a> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter CategoryCode
         /// <summary>
         /// <para>
-        /// <para>The category of problem for the AWS Support case.</para>
+        /// <para>The category of problem for the AWS Support case. You also use the <a>DescribeServices</a>
+        /// operation to get the category code for a service. Each AWS service defines its own
+        /// set of category codes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -107,7 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter CcEmailAddress
         /// <summary>
         /// <para>
-        /// <para>A list of email addresses that AWS Support copies on case correspondence.</para>
+        /// <para>A list of email addresses that AWS Support copies on case correspondence. AWS Support
+        /// identifies the account that creates the case when you specify your AWS credentials
+        /// in an HTTP POST method or use the <a href="http://aws.amazon.com/tools/">AWS SDKs</a>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter CommunicationBody
         /// <summary>
         /// <para>
-        /// <para>The communication body text when you create an AWS Support case by calling <a>CreateCase</a>.</para>
+        /// <para>The communication body text that describes the issue. This text appears in the <b>Description</b>
+        /// field on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
+        /// Case</a> page.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -135,10 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter IssueType
         /// <summary>
         /// <para>
-        /// <para>The type of issue for the case. You can specify either "customer-service" or "technical."
-        /// If you do not indicate a value, the default is "technical."</para><note><para>Service limit increases are not supported by the Support API; you must submit service
-        /// limit increase requests in <a href="https://console.aws.amazon.com/support">Support
-        /// Center</a>.</para></note>
+        /// <para>The type of issue for the case. You can specify <code>customer-service</code> or <code>technical</code>.
+        /// If you don't specify a value, the default is <code>technical</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,9 +133,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter Language
         /// <summary>
         /// <para>
-        /// <para>The ISO 639-1 code for the language in which AWS provides support. AWS Support currently
-        /// supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly
-        /// for operations that take them.</para>
+        /// <para>The language in which AWS Support handles the case. You must specify the ISO 639-1
+        /// code for the <code>language</code> parameter if you want support in that language.
+        /// Currently, English ("en") and Japanese ("ja") are supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
-        /// <para>The code for the AWS service returned by the call to <a>DescribeServices</a>.</para>
+        /// <para>The code for the AWS service. You can use the <a>DescribeServices</a> operation to
+        /// get the possible <code>serviceCode</code> values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -170,7 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter SeverityCode
         /// <summary>
         /// <para>
-        /// <para>The code for the severity level returned by the call to <a>DescribeSeverityLevels</a>.</para><note><para>The availability of severity levels depends on the support plan for the account.</para></note>
+        /// <para>A value that indicates the urgency of the case. This value determines the response
+        /// time according to your service level agreement with AWS Support. You can use the <a>DescribeSeverityLevels</a>
+        /// operation to get the possible values for <code>severityCode</code>. </para><para>For more information, see <a>SeverityLevel</a> and <a href="https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity">Choosing
+        /// a Severity</a> in the <i>AWS Support User Guide</i>.</para><note><para>The availability of severity levels depends on the support plan for the AWS account.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -180,7 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter Subject
         /// <summary>
         /// <para>
-        /// <para>The title of the AWS Support case.</para>
+        /// <para>The title of the AWS Support case. The title appears in the <b>Subject</b> field on
+        /// the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
+        /// Case</a> page.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

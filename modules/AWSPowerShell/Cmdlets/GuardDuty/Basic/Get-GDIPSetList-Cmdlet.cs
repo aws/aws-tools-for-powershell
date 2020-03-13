@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector the ipSet is associated with.</para>
+        /// <para>The unique ID of the detector that the IPSet is associated with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>You can use this parameter when paginating results. Set the value of this parameter
-        /// to null on your first call to the list action. For subsequent calls to the action
+        /// to null on your first call to the list action. For subsequent calls to the action,
         /// fill nextToken in the request with the value of NextToken from the previous response
         /// to continue listing data.</para>
         /// </para>

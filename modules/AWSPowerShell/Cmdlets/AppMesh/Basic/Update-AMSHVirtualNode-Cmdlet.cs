@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>The certificate trust chain for a certificate stored on the file system of the virtual
-        /// node that the proxy is running on.</para>
+        ///         node that the proxy is running on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <summary>
         /// <para>
         /// <para>Whether the policy is enforced. The default is <code>True</code>, if a value isn't
-        /// specified.</para>
+        ///         specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Listener
         /// <summary>
         /// <para>
-        /// <para>The listener that the virtual node is expected to receive inbound traffic from.  
-        ///       You can specify one listener.</para>
+        /// <para>The listener that the virtual node is expected to receive inbound traffic from. You
+        /// can         specify one listener.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Tls_Port
         /// <summary>
         /// <para>
-        /// <para>The range of ports that the policy is enforced for.</para>
+        /// <para>One or more ports that the policy is enforced for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

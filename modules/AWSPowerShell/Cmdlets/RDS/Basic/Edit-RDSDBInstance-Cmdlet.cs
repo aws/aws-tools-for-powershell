@@ -112,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// window unless the <code>ApplyImmediately</code> parameter is enabled for this request.
         /// If you change the parameter from one non-zero value to another non-zero value, the
         /// change is asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
-        /// For more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
-        /// or later</para></li><li><para>Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL
-        /// 9.3.5</para></li><li><para>Can't be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
+        /// For more information, see <code>ModifyDBCluster</code>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL read replica only if the source is running MySQL 5.6
+        /// or later</para></li><li><para>Can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
+        /// 9.3.5</para></li><li><para>Can't be set to 0 if the DB instance is a source to read replicas</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,9 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The port number on which the database accepts connections.</para><para>The value of the <code>DBPortNumber</code> parameter must not match any of the port
         /// values specified for options in the option group for the DB instance.</para><para>Your database will restart when you change the <code>DBPortNumber</code> value regardless
-        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid Values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid Values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid Values: <code>1150-65535</code> except for <code>1434</code>, <code>3389</code>,
-        /// <code>47001</code>, <code>49152</code>, and <code>49152</code> through <code>49156</code>.
-        /// </para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid Values: <code>1150-65535</code></para>
+        /// of the value of the <code>ApplyImmediately</code> parameter.</para><para><b>MySQL</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para><b>MariaDB</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para><para><b>PostgreSQL</b></para><para> Default: <code>5432</code></para><para> Valid values: <code>1150-65535</code></para><para>Type: Integer</para><para><b>Oracle</b></para><para> Default: <code>1521</code></para><para> Valid values: <code>1150-65535</code></para><para><b>SQL Server</b></para><para> Default: <code>1433</code></para><para> Valid values: <code>1150-65535</code> except <code>1234</code>, <code>1434</code>,
+        /// <code>3260</code>, <code>3343</code>, <code>3389</code>, <code>47001</code>, and <code>49152-49156</code>.</para><para><b>Amazon Aurora</b></para><para> Default: <code>3306</code></para><para> Valid values: <code>1150-65535</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -374,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// degradation. While the migration takes place, nightly backups for the instance are
         /// suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// Read Replica for the instance, and creating a DB snapshot of the instance. </para><para>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be
+        /// read replica for the instance, and creating a DB snapshot of the instance. </para><para>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be
         /// at least 10% greater than the current value. Values that are not at least 10% greater
         /// than the existing value are rounded up so that they are 10% greater than the current
         /// value. </para><para>Default: Uses existing setting</para>
@@ -608,7 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// degradation. While the migration takes place, nightly backups for the instance are
         /// suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// Read Replica for the instance, and creating a DB snapshot of the instance. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
+        /// read replica for the instance, and creating a DB snapshot of the instance. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>gp2</code></para>
         /// </para>
         /// </summary>

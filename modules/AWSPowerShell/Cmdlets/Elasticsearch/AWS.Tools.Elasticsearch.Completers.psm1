@@ -103,6 +103,13 @@ $ES_Completers = {
             break
         }
 
+        # Amazon.Elasticsearch.PackageType
+        "New-ESPackage/PackageType"
+        {
+            $v = "TXT-DICTIONARY"
+            break
+        }
+
         # Amazon.Elasticsearch.TLSSecurityPolicy
         {
             ($_ -eq "New-ESDomain/DomainEndpointOptions_TLSSecurityPolicy") -Or
@@ -138,6 +145,7 @@ $ES_map = @{
     "ElasticsearchClusterConfig_InstanceType"=@("New-ESDomain","Update-ESDomainConfig")
     "ElasticsearchClusterConfig_WarmType"=@("New-ESDomain","Update-ESDomainConfig")
     "InstanceType"=@("Get-ESInstanceTypeLimit")
+    "PackageType"=@("New-ESPackage")
 }
 
 _awsArgumentCompleterRegistration $ES_Completers $ES_map
@@ -190,25 +198,39 @@ $ES_SelectCompleters = {
 }
 
 $ES_SelectMap = @{
-    "Select"=@("Add-ESResourceTag",
+    "Select"=@("Approve-ESInboundCrossClusterSearchConnection",
+               "Add-ESResourceTag",
+               "Start-ESAssociatePackage",
                "Stop-ESElasticsearchServiceSoftwareUpdate",
                "New-ESDomain",
+               "New-ESOutboundCrossClusterSearchConnection",
+               "New-ESPackage",
                "Remove-ESDomain",
                "Remove-ESElasticsearchServiceRole",
+               "Remove-ESInboundCrossClusterSearchConnection",
+               "Remove-ESOutboundCrossClusterSearchConnection",
+               "Remove-ESPackage",
                "Get-ESDomain",
                "Get-ESDomainConfig",
                "Get-ESDomainList",
                "Get-ESInstanceTypeLimit",
+               "Get-ESInboundCrossClusterSearchConnection",
+               "Get-ESOutboundCrossClusterSearchConnection",
+               "Get-ESPackage",
                "Get-ESReservedElasticsearchInstanceOfferingList",
                "Get-ESReservedElasticsearchInstanceList",
+               "Start-ESDissociatePackage",
                "Get-ESCompatibleElasticsearchVersion",
                "Get-ESUpgradeHistory",
                "Get-ESUpgradeStatus",
                "Get-ESDomainNameList",
+               "Get-ESDomainsForPackageList",
                "Get-ESInstanceTypeList",
                "Get-ESVersionList",
+               "Get-ESPackagesForDomainList",
                "Get-ESResourceTag",
                "New-ESReservedElasticsearchInstanceOffering",
+               "Deny-ESInboundCrossClusterSearchConnection",
                "Remove-ESResourceTag",
                "Start-ESElasticsearchServiceSoftwareUpdate",
                "Update-ESDomainConfig",

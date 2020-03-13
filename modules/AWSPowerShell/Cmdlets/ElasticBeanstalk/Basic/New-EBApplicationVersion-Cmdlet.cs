@@ -42,9 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// Omit both <code>SourceBuildInformation</code> and <code>SourceBundle</code> to use
     /// the default sample application.
     /// </para><note><para>
-    /// Once you create an application version with a specified Amazon S3 bucket and key location,
-    /// you cannot change that Amazon S3 location. If you change the Amazon S3 location, you
-    /// receive an exception when you attempt to launch an environment from the application
+    /// After you create an application version with a specified Amazon S3 bucket and key
+    /// location, you can't change that Amazon S3 location. If you change the Amazon S3 location,
+    /// you receive an exception when you attempt to launch an environment from the application
     /// version.
     /// </para></note>
     /// </summary>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Describes this version.</para>
+        /// <para>A description of this application version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// that follow this format can have a maximum of 15 digits, and they are prefixed with
         /// the plus character (+) and the country code. For example, a U.S. phone number in E.164
         /// format would be specified as +1XXX5550100. For more information, see <a href="https://en.wikipedia.org/wiki/E.164">E.164</a>
-        /// in Wikipedia.</para>
+        /// on <i>Wikipedia</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

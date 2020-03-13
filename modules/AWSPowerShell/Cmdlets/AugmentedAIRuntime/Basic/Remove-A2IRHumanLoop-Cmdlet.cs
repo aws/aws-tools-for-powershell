@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.A2IR
         #region Parameter HumanLoopName
         /// <summary>
         /// <para>
-        /// <para>The name of the human loop you want to delete.</para>
+        /// <para>The name of the human loop that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
