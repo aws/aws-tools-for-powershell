@@ -33,7 +33,7 @@ namespace AWSPowerShellGenerator.Utils
         public string SdkAssembliesFolder { get; }
 
         public const string SDKAssemblyNamePrefix = "AWSSDK.";
-        public const string DotNetPlatformNet35 = "net35";
+        public const string DotNetPlatformNet45 = "net45";
         public const string DotNetPlatformNetStandard20 = "netstandard2.0";
 
         private const string AWSPowerShellCommonGuid = "e5b05bf3-9eee-47b2-81f2-41ddc0501b86";
@@ -64,7 +64,7 @@ namespace AWSPowerShellGenerator.Utils
         // aliases file and is not loaded by default
         public const string AdditionalAliasesFilename = "AWSAliases.ps1";
 
-        private static string[] PlatformsToExtractLibrariesFor = new string[] { DotNetPlatformNet35, DotNetPlatformNetStandard20 };
+        private static string[] PlatformsToExtractLibrariesFor = new string[] { DotNetPlatformNet45, DotNetPlatformNetStandard20 };
 
         public string ModuleVersionNumber { get; }
 
@@ -255,8 +255,8 @@ namespace AWSPowerShellGenerator.Utils
                 "The AWS Tools for Windows PowerShell lets developers and administrators manage their AWS services from the Windows PowerShell scripting environment." + Environment.NewLine +
                     "This version of AWS Tools for Windows PowerShell is compatible with Windows PowerShell 2-5.1. An alternative module, AWSPowerShell.NetCore, provides support for Windows PowerShell 3+ and PowerShell Core 6+ on Windows, Linux and macOS." + Environment.NewLine +
                     "This product provides support for all AWS services in a single module. As an alternative, a modular variant is also available: separate smaller modules (e.g. AWS.Tools.EC2, AWS.Tools.S3...) allow managing each AWS Service.",
-                compatiblePowerShellVersion: netStandard ? 3 : 2,
-                compatibleFrameworkVersion: netStandard ? "4.7.2" : "3.5",
+                compatiblePowerShellVersion: 3,
+                compatibleFrameworkVersion: netStandard ? "4.7.2" : "4.5",
                 netStandard: netStandard,
                 assemblies: Assemblies.Keys,
                 typesToProcessFiles: new string[] { "AWSPowerShell.TypeExtensions.ps1xml" },

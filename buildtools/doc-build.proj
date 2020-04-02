@@ -22,7 +22,7 @@
         <!-- expected location of SDK assemblies to be consumed by generator; these should have been fetched via
              the get-references (=> get-reference-sdk) target
         -->
-        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\assemblies\net35</SDKAssembliesFolder>
+        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\assemblies\net45</SDKAssembliesFolder>
 	
         <!-- the relative location (to the project file) of the generator executable -->
         <GeneratorPath>$(RootPath)\generator\AWSPSGenerator\bin\$(Configuration)</GeneratorPath>

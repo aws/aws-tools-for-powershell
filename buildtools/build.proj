@@ -54,7 +54,7 @@
         <NetCoreDeploymentArtifacts>$(Deployment)/AWSPowerShell.NetCore/</NetCoreDeploymentArtifacts>
         <ModularDeploymentArtifacts>$(Deployment)/AWS.Tools/</ModularDeploymentArtifacts>
         <AWSPowerShellSourceFolder>$(RootPath)/modules/AWSPowerShell</AWSPowerShellSourceFolder>
-        <DesktopBuildFolder>$(AWSPowerShellSourceFolder)/bin/$(Configuration)/net35/</DesktopBuildFolder>
+        <DesktopBuildFolder>$(AWSPowerShellSourceFolder)/bin/$(Configuration)/net45/</DesktopBuildFolder>
         <NetCoreBuildFolder>$(AWSPowerShellSourceFolder)/bin/$(Configuration)/netstandard2.0/</NetCoreBuildFolder>
 
         <DocDeployment Condition="'$(DocDeployment)'==''">$(RootPath)/DocDeployment</DocDeployment>
@@ -100,7 +100,7 @@
 
     <Target Name="build-desktop-module" DependsOnTargets="create-cmdlets;build-netcore-module">
         <Message Text="Building AWSPowerShell desktop module edition"/>
-        <Exec Command="dotnet build -c $(Configuration) -f net35 --force --no-incremental ../solutions/AWSPowerShell.sln"/>   
+        <Exec Command="dotnet build -c $(Configuration) -f net45 --force --no-incremental ../solutions/AWSPowerShell.sln"/>   
     </Target>
 
     <Target Name="build-netcore-module" DependsOnTargets="create-cmdlets">
@@ -159,7 +159,7 @@
         <Message Text="Consolidating Desktop edition artifacts from $(DesktopBuildFolder) to $(DesktopDeploymentArtifacts)"/>
        
         <ItemGroup>
-            <SDKAssemblies Include="$(SDKAssembliesFolder)/net35/AWSSDK.*.dll" />
+            <SDKAssemblies Include="$(SDKAssembliesFolder)/net45/AWSSDK.*.dll" />
         </ItemGroup>
         <Copy SourceFiles="@(SDKAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
@@ -175,7 +175,7 @@
         <!-- clone the generated file from coreclr -->
         <Copy SourceFiles="$(NetCoreBuildFolder)/AWSPowerShell.NetCore.Format.ps1xml" DestinationFiles="$(DesktopDeploymentArtifacts)/AWSPowerShell.Format.ps1xml" />
 
-        <Copy SourceFiles="$(RootPath)/ThirdParty/log4net.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(RootPath)/thirdparty/log4net.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)/CHANGELOG.md" DestinationFiles="$(DesktopDeploymentArtifacts)/CHANGELOG.txt"/>
     </Target>
 
