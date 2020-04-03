@@ -54,6 +54,7 @@ Else {
   Invoke-WebRequest -Uri $SdkArtifactsZipUri -OutFile ./Include/sdk.zip
 }
 Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdktmp -Force
+Remove-Item ./Include/sdktmp/assemblies/*/AWSSDK.Core.*
 Move-Item ./Include/sdktmp/assemblies ./Include/sdk/assemblies
 Remove-Item ./Include/sdktmp -Recurse
 
