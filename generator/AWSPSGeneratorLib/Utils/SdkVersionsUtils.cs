@@ -46,7 +46,7 @@ namespace AWSPowerShellGenerator.Utils
                     }
                     else
                     {
-                        throw new Exception($"Couldn't find package {packageName} in versions file");
+                        return new string[0];
                     }
                 }
             }
