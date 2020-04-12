@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Disable-DSRadius -DirectoryId d-123456ijkl</code>
+    <description>This example disables RADIUS server configured for an AD Connector or Microsoft AD directory.</description>
+  </example>
+</examples>
