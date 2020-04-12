@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-DSCertificate -DirectoryId d-123456ijkl -CertificateId c-906731e34f
+
+CertificateId      : c-906731e34f
+CommonName         : contoso-EC2AMAZ-CTGG2NM-CA
+ExpiryDateTime     : 4/15/2025 6:34:15 PM
+RegisteredDateTime : 4/15/2020 6:38:56 PM
+State              : Registered
+StateReason        : Certificate registered successfully.</code>
+    <description>This example displays information about the certificate registered for a secured LDAP connection.</description>
+  </example>
+</examples>

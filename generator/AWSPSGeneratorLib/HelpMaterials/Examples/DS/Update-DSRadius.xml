@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Update-DSRadius -DirectoryId d-123456ijkl -RadiusSettings_RadiusRetry 3</code>
+    <description>This example updates RADIUS server information for an AD Connector or Microsoft AD directory.</description>
+  </example>
+</examples>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Enable-DSRadius -DirectoryId d-123456ijkl 
+-RadiusSettings_AuthenticationProtocol PAP 
+-RadiusSettings_DisplayLabel Radius 
+-RadiusSettings_RadiusPort 1812 
+-RadiusSettings_RadiusRetry 4 
+-RadiusSettings_RadiusServer 10.4.185.113 
+-RadiusSettings_RadiusTimeout 50 
+-RadiusSettings_SharedSecret wJalrXUtnFEMI</code>
+    <description>This example enables multi-factor authentication (MFA) with the provided RADIUS server configuration for an AD Connector or Microsoft AD directory.</description>
+  </example>
+</examples>

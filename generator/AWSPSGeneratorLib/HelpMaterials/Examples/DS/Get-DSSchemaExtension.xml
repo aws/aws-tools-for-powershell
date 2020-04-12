@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-DSSchemaExtension -DirectoryId d-123456ijkl
+
+Description                 : ManagedADSchemaExtension
+DirectoryId                 : d-123456ijkl
+EndDateTime                 : 4/12/2020 10:30:49 AM
+SchemaExtensionId           : e-9067306643
+SchemaExtensionStatus       : Completed
+SchemaExtensionStatusReason : Schema updates are complete.
+StartDateTime               : 4/12/2020 10:28:42 AM</code>
+    <description>This example lists all schema extensions applied to a Microsoft AD Directory.</description>
+  </example>
+</examples>
