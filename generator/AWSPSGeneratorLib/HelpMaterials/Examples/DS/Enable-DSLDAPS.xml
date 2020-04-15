@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Enable-DSLDAPS -DirectoryId d-123456ijkl -Type Client</code>
+    <description>This example activates the switch for the specific directory to always use LDAP secure calls.</description>
+  </example>
+</examples>

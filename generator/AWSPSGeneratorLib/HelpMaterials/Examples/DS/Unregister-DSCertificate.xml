@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Unregister-DSCertificate -DirectoryId d-123456ijkl -CertificateId c-906731e34f</code>
+    <description>This example deletes from the system the certificate that was registered for a secured LDAP connection..</description>
+  </example>
+</examples>
