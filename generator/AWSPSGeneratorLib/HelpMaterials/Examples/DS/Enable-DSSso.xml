@@ -3,6 +3,6 @@
 <examples>
   <example>
     <code>Enable-DSSso -DirectoryId d-123456ijkl</code>
-    <description>Enables single sign-on for a directory. </description>
+    <description>This example enables single sign-on for a directory. </description>
   </example>
 </examples>
