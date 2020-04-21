@@ -4,29 +4,102 @@
     <xsd:complexType>
       <xsd:sequence>
         <xsd:element minOccurs="0" maxOccurs="unbounded" name="Service">
+          <xsd:annotation>
+            <xsd:documentation>AWS Tools for PowerShell configuration for a service.</xsd:documentation>
+          </xsd:annotation>
           <xsd:complexType>
             <xsd:all>
-              <xsd:element name="FileVersion" type="xsd:int" />
-              <xsd:element minOccurs="0" name="SkipCmdletGeneration" type="xsd:boolean" />
-              <xsd:element name="C2jFilename" type="xsd:string" />
-              <xsd:element minOccurs="0" name="AssemblyName" type="xsd:string" />
-              <xsd:element minOccurs="0" name="ServiceNounPrefix" type="xsd:string" />
-              <xsd:element minOccurs="0" name="ServiceName" type="xsd:string" />
-              <xsd:element minOccurs="0" name="ServiceClientInterface" type="xsd:string" />
-              <xsd:element minOccurs="0" name="ServiceClient" type="xsd:string" />
-              <xsd:element minOccurs="0" name="ServiceModuleGuid" type="xsd:string" />
-              <xsd:element minOccurs="0" name="DefaultRegion" type="xsd:string" />
-              <xsd:element minOccurs="0" name="PipelineParameter" type="xsd:string" />
+              <xsd:element name="FileVersion" type="xsd:int">
+                 <xsd:annotation>
+                    <xsd:documentation>ADVANCED CONFIGURATION. Current version of this configuration file. Defaults to 0 for services with older configurations. This is incremented during manual updates to the configuration of a service in order to forbid release automation to use older configuration overrides.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="SkipCmdletGeneration" type="xsd:boolean">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Defaults to false. Set to true to disable generation of cmdlets for this service.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element name="C2jFilename" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Name of the C2J file for this service (whithout extension). This is part of the initial configuration for the service and shouldn't be changed after release.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="AssemblyName" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Name of the AWS SDK for .NET assembly/package/namespace for the service, not including extension and AWSSDK prefix. This is part of the initial configuration for the service and shouldn't be changed after release.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="ServiceNounPrefix" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. 2-5 characters abbreviation used to identify cmdlets for the service. This must be unique between all the services. The only valid characters are capital letters and numbers. Services that are part of the same "family" (e.g. CloudWatch-related services) usually have similar ServiceNounPrefix. This is part of the initial configuration for the service and shouldn't be changed after release.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="ServiceName" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Marketing name of the service, this should be the same name used on the product page for the service. This is part of the initial configuration for the service. This can be changed after release through a PR and has mild backward compatibility concerns.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="ServiceClientInterface" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Name of the interface for the service client in the AWS SDK for .NET, not including the namespace. This is part of the initial configuration for the service and shouldn't be changed after release.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="ServiceClient" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Name of the service client class in the AWS SDK for .NET, not including the namespace. This is part of the initial configuration for the service and shouldn't be changed after release.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="ServiceModuleGuid" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Unique UUID for the service PowerShell module. A new UUID is created manually and assigned when the module for a new service is configured. An empty ServiceModuleGuid is used if: 1) the service cmdlets should be included in AWSPowerShell and AWSPowerShell.NetCore but not in AWS.Tools 2) the service cmdlets should be included in another service module (see the configuration of dynamodbstreams). This is part of the initial configuration for the service and shouldn't be changed after release.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="DefaultRegion" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
+              <xsd:element minOccurs="0" name="PipelineParameter" type="xsd:string">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Parameter name to be used by default, if present, for pipeline-by-value (see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pipelines). This configuration affects the choices of the AWS Tools for PowerShell code generator when first configuring new cmdlets. It is suggested to leave this emtpy and manually configure each operation.</xsd:documentation>
+                </xsd:annotation>
+              </xsd:element>
               <xsd:element minOccurs="0" name="AutoIterate">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Parameters to use, if present, to perform auto-pagination for this service. If the service implements multiple pagination patterns, this can be overridden for single cmdlets. Adding an AutoIterate configuration to a service is backward compatible. Removing or changing the AutoIterate configuration for a service has backward compatibility concerns.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
-                  <xsd:attribute name="Start" type="xsd:string" use="required" />
-                  <xsd:attribute name="Next" type="xsd:string" use="required" />
-                  <xsd:attribute name="EmitLimit" type="xsd:string" use="optional" />
-                  <xsd:attribute name="ServicePageSize" type="xsd:int" use="optional" />
-                  <xsd:attribute name="PageSizeIsRequired" type="xsd:boolean" use="optional" />
+                  <xsd:attribute name="Start" type="xsd:string" use="required">
+                    <xsd:annotation>
+                      <xsd:documentation>ADVANCED CONFIGURATION. Name of the pagination token field in the request class to be used for auto-pagination, if present.</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:attribute>
+                  <xsd:attribute name="Next" type="xsd:string" use="required">
+                    <xsd:annotation>
+                      <xsd:documentation>ADVANCED CONFIGURATION. Name of the next pagination token field in the response class to be used for auto-pagination, if present.</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:attribute>
+                  <xsd:attribute name="EmitLimit" type="xsd:string" use="optional">
+                    <xsd:annotation>
+                      <xsd:documentation>ADVANCED CONFIGURATION. This applies only to cmdlets configured with LegacyPagination="UseEmitLimit". Name of the page size field in the request class to be used for auto-pagination, if present. This applies only to the AWSPowerShell and AWSPowerShell.NetCore modules (see "Simplified and extended auto-iteration" in https://github.com/aws/aws-tools-for-powershell/issues/67).</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:attribute>
+                  <xsd:attribute name="ServicePageSize" type="xsd:int" use="optional">
+                    <xsd:annotation>
+                      <xsd:documentation>ADVANCED CONFIGURATION. This applies only to cmdlets configured with LegacyPagination="UseEmitLimit". In the AWSPowerShell and AWSPowerShell.NetCore modules, this represents the maximum allowed value for the EmitLimit parameter.</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:attribute>
+                  <xsd:attribute name="PageSizeIsRequired" type="xsd:boolean" use="optional">
+                    <xsd:annotation>
+                      <xsd:documentation>ADVANCED CONFIGURATION. This applies only to cmdlets configured with LegacyPagination="UseEmitLimit" for the AWSPowerShell and AWSPowerShell.NetCore modules. If true, the ServicePageSize value will be assigned to the EmitLimit field in service requests. This is used to prevent the service from returning an error when EmitLimit is required. In the AWS.Tools module (or in all modules if LegacyPagination is not "true"), this configures the EmitLimit parameters to have a default of ServicePageSize.</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:attribute>
                 </xsd:complexType>
               </xsd:element>
               <xsd:element minOccurs="0" name="VerbMappings">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Default configuration to be used for this service to map operation verbs to PowerShell verbs (see https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands). This only applies when the AWS Tools for PowerShell code generator first proposes a cmdlet configuration. For global (non service-specific) configurations, edit https://github.com/aws/aws-tools-for-powershell/blob/master/generator/AWSPSGeneratorLib/Config/Configs.xml instead.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">
                     <xsd:element maxOccurs="unbounded" name="Map">
@@ -39,6 +112,9 @@
                 </xsd:complexType>
               </xsd:element>
               <xsd:element minOccurs="0" name="NounMappings">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Default configuration to be used for this service to map operation nouns (everything following the verb) to PowerShell nouns. This only applies when the generator first proposes a cmdlet configuration. Because the AWS Tools for PowerShell code generator will automatically perform noun singularization, configuring NounMappings is rarely needed.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">
                     <xsd:element maxOccurs="unbounded" name="Map">
@@ -51,20 +127,37 @@
                 </xsd:complexType>
               </xsd:element>
               <xsd:element minOccurs="0" name="Params">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Configuration for parameters to be applied to all cmdlets. Don't use this, perform this configuration for each cmdlet instead.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">
                     <xsd:element name="Param">
                       <xsd:complexType>
-                        <xsd:attribute name="Name" type="xsd:string" use="required" />
-                        <xsd:attribute name="Exclude" type="xsd:boolean" use="optional" />
-                        <xsd:attribute name="DefaultValue" type="xsd:string" use="optional" />
+                        <xsd:attribute name="Name" type="xsd:string" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Name of the cmdlet parameter this configuration is applied to.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="Exclude" type="xsd:boolean" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. If true, this parameter is excluded from the cmdlet.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="DefaultValue" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Default value to be assigned to the request field if the user doesn't specify a value for the parameter.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
                       </xsd:complexType>
                     </xsd:element>
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
-              <xsd:element minOccurs="0" name="AdditionalNamespaces" />
               <xsd:element minOccurs="0" name="CustomAliases">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Don't use this configuration. These are cmdlet aliases that are included in the awsaliases.ps1. The awsaliases.ps1 file is deprecated and will be removed in the future.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">
                     <xsd:element maxOccurs="unbounded" name="AliasSet">
@@ -80,6 +173,9 @@
                 </xsd:complexType>
               </xsd:element>
               <xsd:element minOccurs="0" name="LegacyAliases">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. These are legacy alias for service cmdlets. If possible, use LegacyAlias on each cmdlet instead of this. This is used: 1) for non-generated ("advanced") cmdlets 2) when a cmdlet requires multiple aliases.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">
                     <xsd:element maxOccurs="unbounded" name="AliasSet">
@@ -95,20 +191,42 @@
                 </xsd:complexType>
               </xsd:element>
               <xsd:element minOccurs="0" name="ParamEmitters">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">
                     <xsd:element maxOccurs="unbounded" name="ParamEmitter">
                       <xsd:complexType>
-                        <xsd:attribute name="ParamType" type="xsd:string" use="required" />
-                        <xsd:attribute name="ParamName" type="xsd:string" use="required" />
-                        <xsd:attribute name="EmitterType" type="xsd:string" use="required" />
-                        <xsd:attribute name="Exclude" type="xsd:string" use="required" />
+                        <xsd:attribute name="ParamType" type="xsd:string" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="ParamName" type="xsd:string" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="EmitterType" type="xsd:string" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="Exclude" type="xsd:string" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
                       </xsd:complexType>
                     </xsd:element>
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
               <xsd:element minOccurs="0" name="MetadataProperties">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. Names of response properties that are considered "metadata". These properties won't be considered by the AWS Tools for PowerShell code generator when identifying if the cmdlet should return a single response property or the whole response object.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">
                     <xsd:element maxOccurs="unbounded" name="Property" type="xsd:string" />
@@ -116,35 +234,99 @@
                 </xsd:complexType>
               </xsd:element>
               <xsd:element name="ServiceOperations">
+                <xsd:annotation>
+                  <xsd:documentation>List of service operations and their corresponding cmdlet configurations. All operations exposed for the service by the AWS SDK for .NET must be configured here. The AWS Tools for PowerShell code generator will provide suggested configurations for missing operations and it will fail.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">
                     <xsd:element maxOccurs="unbounded" name="ServiceOperation">
+                      <xsd:annotation>
+                        <xsd:documentation>Configuration for a service operation.</xsd:documentation>
+                      </xsd:annotation>
                       <xsd:complexType>
                         <xsd:all>
                           <xsd:element name="Params">
+                            <xsd:annotation>
+                              <xsd:documentation>ADVANCED CONFIGURATION. List of cmdlet parameters with custom configurations.</xsd:documentation>
+                            </xsd:annotation>
                             <xsd:complexType>
                               <xsd:sequence minOccurs="0">
                                 <xsd:element maxOccurs="unbounded" name="Param">
                                   <xsd:complexType>
-                                    <xsd:attribute name="Name" type="xsd:string" use="required" />
-                                    <xsd:attribute name="NewName" type="xsd:string" use="optional" />
-                                    <xsd:attribute name="AutoApplyAlias" type="xsd:boolean" use="optional" />
-                                    <xsd:attribute name="Alias" type="xsd:string" use="optional" />
-                                    <xsd:attribute name="ExclusiveParameters" type="xsd:string" use="optional" />
-                                    <xsd:attribute name="ReplacementObsoleteMessage" type="xsd:string" use="optional" />
-                                    <xsd:attribute name="AutoRename" type="xsd:boolean" use="optional" />
-                                    <xsd:attribute name="ParameterSetName" type="xsd:string" use="optional" />
-                                    <xsd:attribute name="AutoConvert" type="xsd:string" use="optional" />
-                                    <xsd:attribute name="Mandatory" type="xsd:boolean" use="optional" />
-                                    <xsd:attribute name="DefaultValue" type="xsd:string" use="optional" />
-                                    <xsd:attribute name="ParameterReplacementDocumentation" type="xsd:string" use="optional" />
-                                    <xsd:attribute name="Exclude" type="xsd:boolean" use="optional" />
+                                    <xsd:attribute name="Name" type="xsd:string" use="required">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Name of the cmdlet parameter this configuration is applied to.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="NewName" type="xsd:string" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Renames a cmdlet parameter. The original name will be used as alias, unless AutoApplyAlias="false" is configured.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="AutoApplyAlias" type="xsd:boolean" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. If true, when a parameter is renamed, the original name is used as parameter alias. This includes auto-renames performed by the AWS Tools for PowerShell code generator to singularize parameter names. Defaults to true. This is usually set to false in order to avoid parameter name conflicts of if the original name of the parameter is forbidden (e.g. "Force", "Select", etc.).</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="Alias" type="xsd:string" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Alias for the parameter name. This is normally used for maintaining backward compatibility when a parameter is renamed.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="ExclusiveParameters" type="xsd:string" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. List of parameter names that cannot be used when the current parameter is used.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="ReplacementObsoleteMessage" type="xsd:string" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Replaces the deprecation message provided by the AWS SDK for .NET for this parameter. If set, this parameter is always considered deprecated.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="AutoRename" type="xsd:boolean" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Defaults to false. If true, disables the automated renaming performed by the AWS Tools for PowerShell code generator.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="ParameterSetName" type="xsd:string" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Parameter sets this parameter is part of. This should be used only for backward compatibility with existing non-generated cmdlets that already implement multiple parameter sets.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="AutoConvert" type="xsd:string" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Set to AutoConvert="ToBase64" to automatically convert the value provided by the user to Base64 before sending it to the service. Adding this to an existing parameter is not backward compatible.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="Mandatory" type="xsd:boolean" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Marks this parameter as required. If used in conjunction with ParameterSetName, the parameter is considered required only when the specified parameter set is used.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="DefaultValue" type="xsd:string" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Default value to be assigned to the request field if the user doesn't specify a value for the parameter.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="ParameterReplacementDocumentation" type="xsd:string" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. Replaces the documentation for the parameter.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
+                                    <xsd:attribute name="Exclude" type="xsd:boolean" use="optional">
+                                      <xsd:annotation>
+                                        <xsd:documentation>ADVANCED CONFIGURATION. If true, this parameter is excluded from the cmdlet.</xsd:documentation>
+                                      </xsd:annotation>
+                                    </xsd:attribute>
                                   </xsd:complexType>
                                 </xsd:element>
                               </xsd:sequence>
                             </xsd:complexType>
                           </xsd:element>
                           <xsd:element minOccurs="0" name="PassThru">
+                            <xsd:annotation>
+                              <xsd:documentation>ADVANCED CONFIGURATION. This is a legacy configuration, the PassThru feature is deprecated (see https://github.com/aws/aws-tools-for-powershell/issues/67).</xsd:documentation>
+                            </xsd:annotation>
                             <xsd:complexType>
                               <xsd:sequence>
                                 <xsd:element name="Expression" type="xsd:string" />
@@ -154,15 +336,41 @@
                             </xsd:complexType>
                           </xsd:element>
                           <xsd:element minOccurs="0" name="AutoIterate">
+                            <xsd:annotation>
+                              <xsd:documentation>ADVANCED CONFIGURATION. Parameters to use, if present, to perform auto-pagination for this operation. This overrides the service-level AutoIterate configuration. Adding an AutoIterate configuration to an operation is backward compatible. Removing or changing the AutoIterate configuration for an operation has backward compatibility concerns.</xsd:documentation>
+                            </xsd:annotation>
                             <xsd:complexType>
-                              <xsd:attribute name="Start" type="xsd:string" use="required" />
-                              <xsd:attribute name="Next" type="xsd:string" use="required" />
-                              <xsd:attribute name="EmitLimit" type="xsd:string" use="optional" />
-                              <xsd:attribute name="ServicePageSize" type="xsd:int" use="optional" />
-                              <xsd:attribute name="PageSizeIsRequired" type="xsd:boolean" use="optional" />
+                              <xsd:attribute name="Start" type="xsd:string" use="required">
+                                <xsd:annotation>
+                                  <xsd:documentation>ADVANCED CONFIGURATION. Name of the pagination token field in the request class to be used for auto-pagination, if present.</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:attribute>
+                              <xsd:attribute name="Next" type="xsd:string" use="required">
+                                <xsd:annotation>
+                                  <xsd:documentation>ADVANCED CONFIGURATION. Name of the next pagination token field in the response class to be used for auto-pagination, if present.</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:attribute>
+                              <xsd:attribute name="EmitLimit" type="xsd:string" use="optional">
+                                <xsd:annotation>
+                                  <xsd:documentation>ADVANCED CONFIGURATION. This applies only to cmdlets configured with LegacyPagination="UseEmitLimit". Name of the page size field in the request class to be used for auto-pagination, if present. This applies only to the AWSPowerShell and AWSPowerShell.NetCore modules (see "Simplified and extended auto-iteration" in https://github.com/aws/aws-tools-for-powershell/issues/67).</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:attribute>
+                              <xsd:attribute name="ServicePageSize" type="xsd:int" use="optional">
+                                <xsd:annotation>
+                                  <xsd:documentation>ADVANCED CONFIGURATION. This applies only to cmdlets configured with LegacyPagination="UseEmitLimit". In the AWSPowerShell and AWSPowerShell.NetCore modules, this represents the maximum allowed value for the EmitLimit parameter.</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:attribute>
+                              <xsd:attribute name="PageSizeIsRequired" type="xsd:boolean" use="optional">
+                                <xsd:annotation>
+                                  <xsd:documentation>ADVANCED CONFIGURATION. This applies only to cmdlets configured with LegacyPagination="UseEmitLimit" for the AWSPowerShell and AWSPowerShell.NetCore modules. If true, the ServicePageSize value will be assigned to the EmitLimit field in service requests. This is used to prevent the service from returning an error when EmitLimit is required. In the AWS.Tools module (or in all modules if LegacyPagination is not present), this configures the EmitLimit parameters to have a default of ServicePageSize.</xsd:documentation>
+                                </xsd:annotation>
+                              </xsd:attribute>
                             </xsd:complexType>
                           </xsd:element>
                           <xsd:element name="TypesNotToFlatten">
+                            <xsd:annotation>
+                              <xsd:documentation>ADVANCED CONFIGURATION. List of fully qualified .NET class names that should not be flattened when converting the request class (and descendants) into cmdlet parameters. This is used to: 1) avoid parameter names that are too long 2) avoid parameter name conflicts. Unless required due to backward compatibility concerns, don't use this, use the service-level TypesNotToFlatten instead.</xsd:documentation>
+                            </xsd:annotation>
                             <xsd:complexType>
                               <xsd:sequence minOccurs="0">
                                 <xsd:element maxOccurs="unbounded" name="Type" type="xsd:string" />
@@ -170,35 +378,120 @@
                             </xsd:complexType>
                           </xsd:element>
                         </xsd:all>
-                        <xsd:attribute name="MethodName" type="xsd:string" use="required" />
-                        <xsd:attribute name="OutputProperty" type="xsd:string" use="optional" />
-                        <xsd:attribute name="Verb" type="xsd:string" use="required" />
-                        <xsd:attribute name="Noun" type="xsd:string" use="required" />
-                        <xsd:attribute name="ShouldProcessTarget" type="xsd:string" use="optional" />
-                        <xsd:attribute name="PipelineParameter" type="xsd:string" use="required" />
-                        <xsd:attribute name="NoPipelineParameter" type="xsd:boolean" use="required" />
-                        <xsd:attribute name="PositionalParameters" type="xsd:string" use="optional" />
-                        <xsd:attribute name="LegacyPagination" type="xsd:string" use="optional" />
-                        <xsd:attribute name="AnonymousShouldProcessTarget" type="xsd:boolean" use="optional" />
-                        <xsd:attribute name="LegacyAlias" type="xsd:string" use="optional" />
-                        <xsd:attribute name="LegacyPaginationCountParameter" type="xsd:string" use="optional" />
-                        <xsd:attribute name="OutputWrapper" type="xsd:string" use="optional" />
-                        <xsd:attribute name="Exclude" type="xsd:boolean" use="optional" />
-                        <xsd:attribute name="Remove" type="xsd:boolean" use="optional" />
-                        <xsd:attribute name="AnonymousAuthentication" type="xsd:string" use="optional" />
-                        <xsd:attribute name="ShouldProcessMsgNoun" type="xsd:string" use="optional" />
-                        <xsd:attribute name="DefaultParameterSet" type="xsd:string" use="optional" />
-                        <xsd:attribute name="IgnoreSupportsShouldProcess" type="xsd:boolean" use="optional" />
-                        <xsd:attribute name="ConfirmImpact" type="xsd:string" use="optional" />
-                        <xsd:attribute name="ReplacementObsoleteMessage" type="xsd:string" use="optional" />
+                        <xsd:attribute name="MethodName" type="xsd:string" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>Name of the AWS SDK for .NET method to generate a cmdlet for.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="OutputProperty" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>Name of the response property the cmdlet should return by default. Use OutputProperty="*" to return the full response object. For paginated operations, specify the name of the paginated list property. A descendant property of the response can be specified using '.' as separator, this is rarely needed. If the operation is returning an empty object, OutputProperty must be omitted.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="Verb" type="xsd:string" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>Verb to be used for this cmdlet. This must be a valid PowerShell verb (see https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands). Cmdlets are named as {Verb}-{Prefix}{Noun}. Verb choices should be coherent within the same service and, if possible, across services.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="Noun" type="xsd:string" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>Noun to be used for this cmdlet. Cmdlets are named as {Verb}-{Prefix}{Noun} (e.g. Get-S3Bucket). Noun cannot end with a plural word.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="ShouldProcessTarget" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>If the cmdlet Verb requires confirmation (e.g. "Remove" requires confirmation, "Get" doesn't), ShouldProcessTarget specifies which cmdlet parameter should be used in the confirmation prompt. This can be set to ShouldProcessTarget="" if AnonymousShouldProcessTarget="true". ShouldProcessTarget cannot be present if the Verb doesn't require confirmation.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="PipelineParameter" type="xsd:string" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>Parameter name to be used for pipe-by-value (see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pipelines). This is what can be considered the "primary" parameter, or the "object" of the operation. If an entity is named as part of the operation name, than it is ideal to specify the parameter corresponding to that entity identifier (e.g. if the operatio is called DeleteResource, a parameter named ResourceArn is likely a better choice than another parameter called AccountId). If the operation has required parameters, the PipelineParameter should be one of the required parameters. This can be configured as PipelineParameter="": 1) if the operation doesn't have parameters (or the AWS Tools for PowerShell code generator identifies all parameters to be metadata) 2) if NoPipelineParameter="true".</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="NoPipelineParameter" type="xsd:boolean" use="required">
+                          <xsd:annotation>
+                            <xsd:documentation>Defaults to false. When set to true, allows to set PipelineParameter="" even if the cmdlet has non-metadata parameters.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="PositionalParameters" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Semicolumn-separated list of parameter names that can be used positionally. Using positional parameters has backward compatibility concerns, don't use this configuration except to maintain backward compatibility when converting handwritten ("advanced") cmdlets to generated.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="LegacyPagination" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Valid values are "UseEmitLimit" or "DisablePagination". This effects only the AWSPowerShell and AWSPowerShell.NetCore modules. Don't use this when configuring new operations. LegacyPagination="UseEmitLimit" configures the cmdlet to treat the EmitLimit parameter as the maximum number of items to be returned (instead of simply the page size), this doesn't affect the AWS.Tools modules. LegacyPagination="DisablePagination" disables pagination for the AWSPowerShell and AWSPowerShell.NetCore modules, this doesn't affect the AWS.Tools modules.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="AnonymousShouldProcessTarget" type="xsd:boolean" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>If the cmdlet Verb requires confirmation (e.g. "Remove" requires confirmation, "Get" doesn't), AnonymousShouldProcessTarget allows ShouldProcessTarget="", this is useful when no cmdlet parameter is a good choice to be printed as part of the confirmation prompt. AnonymousShouldProcessTarget cannot be present if the Verb doesn't require confirmation.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="LegacyAlias" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Alias for this cmdlet. This is used to maintain backward compatibility when renaming cmdlets. If more than one alias is required for a single cmdlet, use the service-wide LegacyAliases.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="LegacyPaginationCountParameter" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. This effects only the AWSPowerShell and AWSPowerShell.NetCore modules and applies only to cmdlets configured with LegacyPagination="UseEmitLimit". This attribute specifies where the number of returned items can be read in the response object. This is very rarely used.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="OutputWrapper" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. This is used for services that have an extra encapsulation layer of the response object. This specifies the name of the property of the response object representing the actual service response. Because OutputProperty supports descendant properties, configuring OutputWrapper is only needed for paginated operations (AutoIterate doesn't support nested properties).</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="Exclude" type="xsd:boolean" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Defaults to false. When set to true, a cmdlet won't be generated for this operation. This is normally used only when an handwritten ("advanced") cmdlet is created instead.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="Remove" type="xsd:boolean" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Defaults to false. This attribute is not part of the service configuration. This is used only as part of the configuration override to remove an existing cmdlet from the existing service configuration and is needed if an operation is removed from the AWS SDK for .NET.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="AnonymousAuthentication" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Defaults to "Never", valid values are "Never", "Optional", "Always" specifies that the service operation should use anonymous credentials. "Optional" adds a "UseAnonymousCredentials" parameter to the cmdlet.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="ShouldProcessMsgNoun" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. This is rarely used. When specifying ShouldProcessTarget, this configures which label is used for the ShouldProcessTarget value in the confirmation prompt.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="DefaultParameterSet" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. This is rarely used. If the cmdlet has multiple parameter sets, this configures which one is used in case the user specifies a sequence of parameters that could match more than one set.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="IgnoreSupportsShouldProcess" type="xsd:boolean" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Defaults to false. If the cmdlet Verb requires confirmation (e.g. "Remove" requires confirmation, "Get" doesn't), IgnoreSupportsShouldProcess="true" disables the confirmation prompt.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="ConfirmImpact" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. This is rarely used. This attribute changes the cmdlet impact used by PowerShell to decide whether to show a confirmation prompt.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
+                        <xsd:attribute name="ReplacementObsoleteMessage" type="xsd:string" use="optional">
+                          <xsd:annotation>
+                            <xsd:documentation>ADVANCED CONFIGURATION. Replaces the deprecation message provided by the AWS SDK for .NET for this operation. If set, this cmdlet is always considered deprecated.</xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:attribute>
                       </xsd:complexType>
                     </xsd:element>
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
-              <xsd:element minOccurs="0" name="InputObjectMappingRules" />
-              <xsd:element minOccurs="0" name="SupportsShouldProcessVerbs" />
               <xsd:element minOccurs="0" name="TypesNotToFlatten">
+                <xsd:annotation>
+                  <xsd:documentation>ADVANCED CONFIGURATION. List of fully qualified .NET class names that should not be flattened when converting the request class (and descendants) into cmdlet parameters. This is used to: 1) avoid parameter names that are too long 2) avoid parameter name conflicts.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:complexType>
                   <xsd:sequence minOccurs="0">
                     <xsd:element maxOccurs="unbounded" name="Type" type="xsd:string" />

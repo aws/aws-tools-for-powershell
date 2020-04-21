@@ -26,7 +26,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         public static void Write(IndentedTextWriter writer, ConfigModel serviceConfig, string clientName, string serviceApiVersion)
         {
             WriteSourceLicenseHeader(writer);
-            WriteNamespaces(writer, serviceConfig.ServiceNamespace, serviceConfig.AdditionalNamespaces);
+            WriteNamespaces(writer, serviceConfig.ServiceNamespace);
             writer.WriteLine();
 
             var prefix = serviceConfig.ServiceNounPrefix;

@@ -69,14 +69,6 @@
     <Property>RequestId</Property>
   </MetadataProperties>
 
-  <!--
-    any cmdlet generated with these verbs will have 'shouldprocess'
-    attributing and operation confirmation code added automatically
-  -->
-  <SupportsShouldProcessVerbs>
-    <Verb>Remove</Verb>
-  </SupportsShouldProcessVerbs>
-
   <CommonModuleAliases>
     <AliasSet Cmdlet="Set-AWSCredential">Set-AWSCredentials</AliasSet>
     <AliasSet Cmdlet="New-AWSCredential">New-AWSCredentials</AliasSet>
