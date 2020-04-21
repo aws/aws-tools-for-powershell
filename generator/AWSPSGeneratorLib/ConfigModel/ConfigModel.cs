@@ -139,26 +139,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
             }
         }
 
-        /// <summary>
-        /// Global cmdlet verbs that should have 'SupportsShouldProcess' attributing and operation
-        /// confirmation checks added automatically.
-        /// </summary>
-        [XmlArray("SupportsShouldProcessVerbs")]
-        [XmlArrayItem("Verb")]
-        public List<string> SupportsShouldProcessVerbsList { get; set; }
-
-        HashSet<string> _supportsShouldProcessVerbs;
-        [XmlIgnore]
-        public HashSet<string> SupportsShouldProcessVerbs
-        {
-            get
-            {
-                if (_supportsShouldProcessVerbs == null)
-                    _supportsShouldProcessVerbs = new HashSet<string>(SupportsShouldProcessVerbsList);
-                return _supportsShouldProcessVerbs;
-            }
-        }
-
         [XmlArray("IncludeLibraries")]
         public List<Library> IncludeLibrariesList = new List<Library>();
 
@@ -502,15 +482,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
         }
 
         /// <summary>
-        /// List of additional namespaces to be included as 'using' statements in the cmdlet
-        /// and therefore assumed when referencing types. The service root namespace plus
-        /// '.Model' variant will be automatically added to the namespaces defined in 
-        /// this list.
-        /// </summary>
-        [XmlArrayItem("Namespace")]
-        public List<string> AdditionalNamespaces = new List<string>();
-
-        /// <summary>
         /// Additional aliases defined in the config, beyond the automatic aliases we generate.
         /// These go into awsaliases.ps1.
         /// Key is the cmdlet name; value is the alias (including parameters)
@@ -652,52 +623,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
                     _serviceOperations = ServiceOperationsList.ToDictionary(a => a.MethodName + "Async", a => a);
                 return _serviceOperations;
             }
-        }
-
-        /// <summary>
-        /// Service-specific definition of types our cmdlets can accept as 'InputObject' 
-        /// from the pipeline and the type member to cmdlet parameter mapping(s) 
-        /// that should be performed if the type is detected
-        /// </summary>
-        [XmlArray("InputObjectMappingRules")]
-        [XmlArrayItem("InputObjectMapping")]
-        public List<InputObjectMapping> InputObjectMappingRulesList { get; set; }
-
-        Dictionary<string, InputObjectMapping> _inputObjectMappingRules;
-        [XmlIgnore]
-        public Dictionary<string, InputObjectMapping> InputObjectMappingRules
-        {
-            get
-            {
-                if (_inputObjectMappingRules == null)
-                    _inputObjectMappingRules = InputObjectMappingRulesList.ToDictionary(a => a.MappingRefName, a => a);
-                return _inputObjectMappingRules;
-            }
-        }
-
-        /// <summary>
-        /// Cmdlet verbs that should have 'SupportsShouldProcess' attributing and operation
-        /// confirmation checks added automatically.
-        /// </summary>
-        [XmlArray("SupportsShouldProcessVerbs")]
-        [XmlArrayItem("Verb")]
-        public List<string> SupportsShouldProcessVerbsList { get; set; }
-
-        HashSet<string> _supportsShouldProcessVerbs;
-        [XmlIgnore]
-        public HashSet<string> SupportsShouldProcessVerbs
-        {
-            get
-            {
-                if (_supportsShouldProcessVerbs == null)
-                    _supportsShouldProcessVerbs = new HashSet<string>(SupportsShouldProcessVerbsList);
-                return _supportsShouldProcessVerbs;
-            }
-        }
-
-        public bool RequiresShouldSupportProcess(string selectedVerb)
-        {
-            return SupportsShouldProcessVerbs.Contains(selectedVerb);
         }
 
         public string GetServiceCmdletClassName(bool usingAnonymousAuth)

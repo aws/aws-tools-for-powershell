@@ -52,19 +52,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine();
         }
 
-        protected static void WriteNamespaces(IndentedTextWriter writer, string clientNamespace, IEnumerable<string> additionalNamespaces)
+        protected static void WriteNamespaces(IndentedTextWriter writer, string clientNamespace)
         {
             foreach (var ns in DefaultNamespaces)
             {
                 writer.WriteLine("using {0};", ns);
-            }
-
-            if (additionalNamespaces != null)
-            {
-                foreach (var ns in additionalNamespaces)
-                {
-                    writer.WriteLine("using {0};", ns);
-                }
             }
 
             writer.WriteLine("using {0};", clientNamespace);

@@ -70,7 +70,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var commentedTypeDocumentation = DocumentationUtils.CommentDocumentation(methodDocumentation);
 
             WriteSourceLicenseHeader(writer);
-            WriteNamespaces(writer, ServiceConfig.ServiceNamespace, ServiceConfig.AdditionalNamespaces);
+            WriteNamespaces(writer, ServiceConfig.ServiceNamespace);
 
             writer.WriteLine();
 
