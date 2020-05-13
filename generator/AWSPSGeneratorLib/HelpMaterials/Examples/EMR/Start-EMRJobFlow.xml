@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>
+	$masterInstanceGroup = @{
+		InstanceCount = 1
+		InstanceRole = "MASTER"
+		InstanceType = "m4.xlarge"
+		EbsConfiguration = @{
+			EbsOptimized = $true
+			EbsBlockDeviceConfigs = @(
+				@{
+					VolumesPerInstance = 1;
+					VolumeSpecification =  @{
+						SizeInGb = 40; 
+						VolumeType = "gp2"
+					};
+				}
+			)
+		}
+	}
+
+	$coreInstanceGroup = @{
+		InstanceCount = 1
+		InstanceRole = "CORE"
+		InstanceType = "m4.xlarge"
+		EbsConfiguration = @{
+			EbsOptimized = $true
+			EbsBlockDeviceConfigs = @(
+				@{
+					VolumesPerInstance = 2;
+					VolumeSpecification = @{
+						SizeInGb = 40; 
+						VolumeType = "gp2"
+					}
+				}
+			)
+		}
+	}
+
+
+	$props =@{
+		Instances_KeepJobFlowAliveWhenNoStep= $true 
+		Instances_Placement_AvailabilityZone = "eu-west-1a"
+		LogUri ="s3n://kt-EMR/" 
+		VisibleToAllUser =$true 
+		Instances_Ec2KeyName = "0-ireland" 
+		Name ="EMR-BOM4" 
+		JobFlowRole = "EMR_EC2_DefaultRole"
+		ServiceRole= "EMR_DefaultRole"
+		Instances_InstanceGroup= @($coreInstanceGroup,$masterInstanceGroup)
+		ReleaseLabel ='emr-5.7.0'
+		
+	}
+	Start-EMRJobFlow @props</code>
+    <description>This sample provisions a new cluster with InstanceRole CORE with additional EBS volumes</description>
+  </example>
+</examples>
