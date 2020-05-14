@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-EMRCluster -ClusterId j-JAQJ6IM99WC0 | Select-Object ClusterArn, ScaleDownBehavior, Name
+
+ClusterArn                                                             ScaleDownBehavior          Name
+----------                                                             -----------------          ----
+arn:aws:elasticmapreduce:eu-west-1:123456789012:cluster/j-JAQJ1IM23WC4 TERMINATE_AT_INSTANCE_HOUR EMR-BOM4</code>
+    <description>This sample describes the given instance, showing selected properties in output.</description>
+  </example>
+</examples>

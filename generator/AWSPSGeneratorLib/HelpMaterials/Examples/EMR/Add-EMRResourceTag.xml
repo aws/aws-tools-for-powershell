@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Add-EMRResourceTag -ResourceId j-JAQJ6IM99WC0 -Tag @{Key="Build";Value="PROD-JC-21"} -Select ^Tag
+
+Key   Value
+---   -----
+Build PROD-JC-21</code>
+    <description>This sample adds a tag to the cluster resource and returns Tag.</description>
+  </example>
+</examples>
