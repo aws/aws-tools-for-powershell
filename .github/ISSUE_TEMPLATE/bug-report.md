@@ -17,7 +17,7 @@ labels: bug, needs-triage
 <!--- Include as many relevant details about the environment where the bug was discovered -->
 * Build Version: <!-- Info from Nuget Package -->
 * OS Info: <!-- Windows 10 | OSX Mojave | Ubuntu | AmazonLinux | etc. -->
-* Build Environment <!-- Visual Studio | VSCode + Terminal `dotnet` | etc. -->
+* Build Environment: <!-- Visual Studio | VSCode + Terminal `dotnet` | etc. -->
 * Targeted .NET Platform:  
 
 ## Resolution
