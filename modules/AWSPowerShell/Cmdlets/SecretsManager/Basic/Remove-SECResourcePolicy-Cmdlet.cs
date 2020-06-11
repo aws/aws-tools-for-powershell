@@ -28,7 +28,7 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Deletes the resource-based permission policy that's attached to the secret.
+    /// Deletes the resource-based permission policy attached to the secret.
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>
@@ -65,8 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// (before Secrets Manager adds the hyphen and six characters to the ARN) and you try
         /// to use that as a partial ARN, then those characters cause Secrets Manager to assume
         /// that you’re specifying a complete ARN. This confusion can cause unexpected results.
-        /// To avoid this situation, we recommend that you don’t create secret names that end
-        /// with a hyphen followed by six characters.</para></note>
+        /// To avoid this situation, we recommend that you don’t create secret names ending with
+        /// a hyphen followed by six characters.</para><para>If you specify an incomplete ARN without the random suffix, and instead provide the
+        /// 'friendly name', you <i>must</i> not include the random suffix. If you do include
+        /// the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i>
+        /// or an <i>AccessDeniedException</i> error, depending on your permissions.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

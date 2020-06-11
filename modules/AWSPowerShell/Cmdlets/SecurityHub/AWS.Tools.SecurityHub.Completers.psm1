@@ -222,6 +222,7 @@ $SHUB_SelectMap = @{
                "Update-SHUBActionTarget",
                "Update-SHUBFinding",
                "Update-SHUBInsight",
+               "Update-SHUBSecurityHubConfiguration",
                "Update-SHUBStandardsControl")
 }
 

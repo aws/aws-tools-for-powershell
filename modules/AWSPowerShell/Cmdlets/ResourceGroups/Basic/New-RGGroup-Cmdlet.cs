@@ -28,7 +28,8 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Creates a group with a specified name, description, and resource query.
+    /// Creates a resource group with the specified name and description. You can optionally
+    /// include a resource query, or a service configuration.
     /// </summary>
     [Cmdlet("New", "RGGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.CreateGroupResponse")]
@@ -39,11 +40,24 @@ namespace Amazon.PowerShell.Cmdlets.RG
     public partial class NewRGGroupCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
+        #region Parameter Configuration
+        /// <summary>
+        /// <para>
+        /// <para>A configuration associates the resource group with an AWS service and specifies how
+        /// the service can interact with the resources in the group. A configuration is an array
+        /// of <a>GroupConfigurationItem</a> elements.</para><note><para>You can specify either a <code>Configuration</code> or a <code>ResourceQuery</code>
+        /// in a group, but not both.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.ResourceGroups.Model.GroupConfigurationItem[] Configuration { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the resource group. Descriptions can have a maximum of 511 characters,
-        /// including letters, numbers, hyphens, underscores, punctuation, and spaces.</para>
+        /// <para>The description of the resource group. Descriptions can consist of letters, numbers,
+        /// hyphens, underscores, periods, and spaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,11 +67,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the group, which is the identifier of the group in other operations. A
-        /// resource group name cannot be updated after it is created. A resource group name can
-        /// have a maximum of 128 characters, including letters, numbers, hyphens, dots, and underscores.
-        /// The name cannot start with <code>AWS</code> or <code>aws</code>; these are reserved.
-        /// A resource group name must be unique within your account.</para>
+        /// <para>The name of the group, which is the identifier of the group in other operations. You
+        /// can't change the name of a resource group after you create it. A resource group name
+        /// can consist of letters, numbers, hyphens, periods, and underscores. The name cannot
+        /// start with <code>AWS</code> or <code>aws</code>; these are reserved. A resource group
+        /// name must be unique within each AWS Region in your AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,25 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter ResourceQuery
         /// <summary>
         /// <para>
-        /// <para>The resource query that determines which AWS resources are members of this group.</para>
+        /// <para>The resource query that determines which AWS resources are members of this group.</para><note><para>You can specify either a <code>ResourceQuery</code> or a <code>Configuration</code>,
+        /// but not both.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.ResourceGroups.Model.ResourceQuery ResourceQuery { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the group. A tag is a string-to-string map of key-value pairs.
-        /// Tag keys can have a maximum character length of 128 characters, and tag values can
-        /// have a maximum length of 256 characters.</para>
+        /// <para>The tags to add to the group. A tag is key-value pair string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 context.Select = (response, cmdlet) => this.ResourceQuery;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Configuration != null)
+            {
+                context.Configuration = new List<Amazon.ResourceGroups.Model.GroupConfigurationItem>(this.Configuration);
+            }
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -170,12 +181,6 @@ namespace Amazon.PowerShell.Cmdlets.RG
             }
             #endif
             context.ResourceQuery = this.ResourceQuery;
-            #if MODULAR
-            if (this.ResourceQuery == null && ParameterWasBound(nameof(this.ResourceQuery)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceQuery which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -200,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             // create request
             var request = new Amazon.ResourceGroups.Model.CreateGroupRequest();
             
+            if (cmdletContext.Configuration != null)
+            {
+                request.Configuration = cmdletContext.Configuration;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -277,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.ResourceGroups.Model.GroupConfigurationItem> Configuration { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public Amazon.ResourceGroups.Model.ResourceQuery ResourceQuery { get; set; }

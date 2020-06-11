@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>[Required] The POST request body containing external API definitions. Currently, only
         /// OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition
-        /// file is 2MB.</para>
+        /// file is 6MB.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

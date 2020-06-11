@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// request. 
     /// </para><para>
     /// If a <a>GetShardIterator</a> request is made too often, you receive a <code>ProvisionedThroughputExceededException</code>.
-    /// For more information about throughput limits, see <a>GetRecords</a>, and <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
+    /// For more information about throughput limits, see <a>GetRecords</a>, and <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
     /// Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para>
     /// If the shard is closed, <a>GetShardIterator</a> returns a valid iterator for the last

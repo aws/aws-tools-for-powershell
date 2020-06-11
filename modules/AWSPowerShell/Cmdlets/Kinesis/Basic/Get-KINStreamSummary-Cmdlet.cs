@@ -36,6 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// The information returned includes the stream name, Amazon Resource Name (ARN), status,
     /// record retention period, approximate creation time, monitoring, encryption details,
     /// and open shard count. 
+    /// </para><para><a>DescribeStreamSummary</a> has a limit of 20 transactions per second per account.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINStreamSummary")]

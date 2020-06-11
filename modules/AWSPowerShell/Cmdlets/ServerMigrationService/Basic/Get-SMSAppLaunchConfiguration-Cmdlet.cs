@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Retrieves the application launch configuration associated with an application.
+    /// Retrieves the application launch configuration associated with the specified application.
     /// </summary>
     [Cmdlet("Get", "SMSAppLaunchConfiguration")]
     [OutputType("Amazon.ServerMigrationService.Model.GetAppLaunchConfigurationResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>ID of the application launch configuration.</para>
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

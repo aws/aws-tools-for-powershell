@@ -28,7 +28,7 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Start a batch job to transcribe medical speech to text.
+    /// Starts a batch job to transcribe medical speech to text.
     /// </summary>
     [Cmdlet("Start", "TRSMedicalTranscriptionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.MedicalTranscriptionJob")]
@@ -140,10 +140,11 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter MedicalTranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the medical transcription job. You can't use the strings "." or ".." by
-        /// themselves as the job name. The name must also be unique within an AWS account. If
-        /// you try to create a medical transcription job with the same name as a previous medical
-        /// transcription job you will receive a <code>ConflictException</code> error.</para>
+        /// <para>The name of the medical transcription job. You can't use the strings "<code>.</code>"
+        /// or "<code>..</code>" by themselves as the job name. The name must also be unique within
+        /// an AWS account. If you try to create a medical transcription job with the same name
+        /// as a previous medical transcription job, you get a <code>ConflictException</code>
+        /// error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -217,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>Determines whether the transcription job uses speaker recognition to identify different
-        /// speakers in the input audio. Speaker recongition labels individual speakers in the
+        /// speakers in the input audio. Speaker recognition labels individual speakers in the
         /// audio file. If you set the <code>ShowSpeakerLabels</code> field to true, you must
         /// also set the maximum number of speaker labels in the <code>MaxSpeakerLabels</code>
         /// field.</para><para>You can't set both <code>ShowSpeakerLabels</code> and <code>ChannelIdentification</code>

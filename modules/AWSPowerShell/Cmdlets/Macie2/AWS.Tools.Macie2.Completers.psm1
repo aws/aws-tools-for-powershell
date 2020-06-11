@@ -170,7 +170,7 @@ $MAC2_Completers = {
         # Amazon.Macie2.UsageStatisticsSortKey
         "Get-MAC2UsageStatistic/SortBy_Key"
         {
-            $v = "accountId","total"
+            $v = "accountId","freeTrialStartDate","serviceLimitValue","total"
             break
         }
 

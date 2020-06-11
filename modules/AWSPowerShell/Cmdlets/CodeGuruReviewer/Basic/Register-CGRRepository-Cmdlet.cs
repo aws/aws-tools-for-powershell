@@ -28,15 +28,22 @@ using Amazon.CodeGuruReviewer.Model;
 namespace Amazon.PowerShell.Cmdlets.CGR
 {
     /// <summary>
-    /// Associates an AWS CodeCommit repository with Amazon CodeGuru Reviewer. When you associate
-    /// an AWS CodeCommit repository with Amazon CodeGuru Reviewer, Amazon CodeGuru Reviewer
-    /// will provide recommendations for each pull request raised within the repository. You
-    /// can view recommendations in the AWS CodeCommit repository.
-    /// 
-    ///  
-    /// <para>
-    /// You can associate a GitHub repository using the Amazon CodeGuru Reviewer console.
-    /// </para>
+    /// Use to associate an AWS CodeCommit repository or a repostory managed by AWS CodeStar
+    /// Connections with Amazon CodeGuru Reviewer. When you associate a repository, CodeGuru
+    /// Reviewer reviews source code changes in the repository's pull requests and provides
+    /// automatic recommendations. You can view recommendations using the CodeGuru Reviewer
+    /// console. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html">Recommendations
+    /// in Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i><para>
+    /// If you associate a CodeCommit repository, it must be in the same AWS Region and AWS
+    /// account where its CodeGuru Reviewer code reviews are configured.
+    /// </para><para>
+    ///  Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar Connections
+    /// to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider">Connect
+    /// to a repository source provider</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i></para><note><para>
+    ///  You cannot use the CodeGuru Reviewer SDK or the AWS CLI to associate a GitHub repository
+    /// with Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console.
+    /// For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-with-guru.html">Getting
+    /// started with CodeGuru Reviewer</a> in the <i>CodeGuru Reviewer User Guide.</i></para></note>
     /// </summary>
     [Cmdlet("Register", "CGRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruReviewer.Model.RepositoryAssociation")]
@@ -71,12 +78,29 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter Bitbucket_ConnectionArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) identifying the repository connection. </para>
+        /// <para> The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format
+        /// is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a>
+        /// in the <i>AWS CodeStar Connections API Reference</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Repository_Bitbucket_ConnectionArn")]
         public System.String Bitbucket_ConnectionArn { get; set; }
+        #endregion
+        
+        #region Parameter GitHubEnterpriseServer_ConnectionArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format
+        /// is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a>
+        /// in the <i>AWS CodeStar Connections API Reference</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Repository_GitHubEnterpriseServer_ConnectionArn")]
+        public System.String GitHubEnterpriseServer_ConnectionArn { get; set; }
         #endregion
         
         #region Parameter Bitbucket_Name
@@ -93,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter CodeCommit_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS CodeCommit repository.</para>
+        /// <para>The name of the AWS CodeCommit repository. For more information, see <a href="https://docs.aws.amazon.com/codecommit/latest/APIReference/API_GetRepository.html#CodeCommit-GetRepository-request-repositoryName">repositoryName</a>
+        /// in the <i>AWS CodeCommit API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -101,15 +126,39 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         public System.String CodeCommit_Name { get; set; }
         #endregion
         
+        #region Parameter GitHubEnterpriseServer_Name
+        /// <summary>
+        /// <para>
+        /// <para> The name of the third party source repository. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Repository_GitHubEnterpriseServer_Name")]
+        public System.String GitHubEnterpriseServer_Name { get; set; }
+        #endregion
+        
         #region Parameter Bitbucket_Owner
         /// <summary>
         /// <para>
-        /// <para> The username of the owner of the repository. </para>
+        /// <para> The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
+        /// this is the username for the account that owns the repository. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Repository_Bitbucket_Owner")]
         public System.String Bitbucket_Owner { get; set; }
+        #endregion
+        
+        #region Parameter GitHubEnterpriseServer_Owner
+        /// <summary>
+        /// <para>
+        /// <para> The owner of the repository. For a GitHub, GitHub Enterprise, or Bitbucket repository,
+        /// this is the username for the account that owns the repository. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Repository_GitHubEnterpriseServer_Owner")]
+        public System.String GitHubEnterpriseServer_Owner { get; set; }
         #endregion
         
         #region Parameter Select
@@ -178,6 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             context.Bitbucket_Name = this.Bitbucket_Name;
             context.Bitbucket_Owner = this.Bitbucket_Owner;
             context.CodeCommit_Name = this.CodeCommit_Name;
+            context.GitHubEnterpriseServer_ConnectionArn = this.GitHubEnterpriseServer_ConnectionArn;
+            context.GitHubEnterpriseServer_Name = this.GitHubEnterpriseServer_Name;
+            context.GitHubEnterpriseServer_Owner = this.GitHubEnterpriseServer_Owner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -272,6 +324,51 @@ namespace Amazon.PowerShell.Cmdlets.CGR
                 request.Repository.Bitbucket = requestRepository_repository_Bitbucket;
                 requestRepositoryIsNull = false;
             }
+            Amazon.CodeGuruReviewer.Model.ThirdPartySourceRepository requestRepository_repository_GitHubEnterpriseServer = null;
+            
+             // populate GitHubEnterpriseServer
+            var requestRepository_repository_GitHubEnterpriseServerIsNull = true;
+            requestRepository_repository_GitHubEnterpriseServer = new Amazon.CodeGuruReviewer.Model.ThirdPartySourceRepository();
+            System.String requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_ConnectionArn = null;
+            if (cmdletContext.GitHubEnterpriseServer_ConnectionArn != null)
+            {
+                requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_ConnectionArn = cmdletContext.GitHubEnterpriseServer_ConnectionArn;
+            }
+            if (requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_ConnectionArn != null)
+            {
+                requestRepository_repository_GitHubEnterpriseServer.ConnectionArn = requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_ConnectionArn;
+                requestRepository_repository_GitHubEnterpriseServerIsNull = false;
+            }
+            System.String requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_Name = null;
+            if (cmdletContext.GitHubEnterpriseServer_Name != null)
+            {
+                requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_Name = cmdletContext.GitHubEnterpriseServer_Name;
+            }
+            if (requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_Name != null)
+            {
+                requestRepository_repository_GitHubEnterpriseServer.Name = requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_Name;
+                requestRepository_repository_GitHubEnterpriseServerIsNull = false;
+            }
+            System.String requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_Owner = null;
+            if (cmdletContext.GitHubEnterpriseServer_Owner != null)
+            {
+                requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_Owner = cmdletContext.GitHubEnterpriseServer_Owner;
+            }
+            if (requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_Owner != null)
+            {
+                requestRepository_repository_GitHubEnterpriseServer.Owner = requestRepository_repository_GitHubEnterpriseServer_gitHubEnterpriseServer_Owner;
+                requestRepository_repository_GitHubEnterpriseServerIsNull = false;
+            }
+             // determine if requestRepository_repository_GitHubEnterpriseServer should be set to null
+            if (requestRepository_repository_GitHubEnterpriseServerIsNull)
+            {
+                requestRepository_repository_GitHubEnterpriseServer = null;
+            }
+            if (requestRepository_repository_GitHubEnterpriseServer != null)
+            {
+                request.Repository.GitHubEnterpriseServer = requestRepository_repository_GitHubEnterpriseServer;
+                requestRepositoryIsNull = false;
+            }
              // determine if request.Repository should be set to null
             if (requestRepositoryIsNull)
             {
@@ -343,6 +440,9 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             public System.String Bitbucket_Name { get; set; }
             public System.String Bitbucket_Owner { get; set; }
             public System.String CodeCommit_Name { get; set; }
+            public System.String GitHubEnterpriseServer_ConnectionArn { get; set; }
+            public System.String GitHubEnterpriseServer_Name { get; set; }
+            public System.String GitHubEnterpriseServer_Owner { get; set; }
             public System.Func<Amazon.CodeGuruReviewer.Model.AssociateRepositoryResponse, RegisterCGRRepositoryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RepositoryAssociation;
         }

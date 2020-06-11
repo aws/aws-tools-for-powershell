@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Untag resource with resourceArn.
+    /// Untags a resource with a specified Amazon Resource Name (ARN).
     /// </summary>
     [Cmdlet("Remove", "AMPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> Resource arn used to untag resource. </para>
+        /// <para> The Amazon Resource Name (ARN) to use to untag a resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para> Tag keys used to untag resource. </para>
+        /// <para> The tag keys to use to untag a resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

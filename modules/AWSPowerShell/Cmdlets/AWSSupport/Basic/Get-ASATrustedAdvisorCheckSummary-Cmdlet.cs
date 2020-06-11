@@ -28,13 +28,21 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Returns the summaries of the results of the Trusted Advisor checks that have the specified
-    /// check IDs. Check IDs can be obtained by calling <a>DescribeTrustedAdvisorChecks</a>.
+    /// Returns the results for the AWS Trusted Advisor check summaries for the check IDs
+    /// that you specified. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
+    /// operation.
     /// 
     ///  
     /// <para>
     /// The response contains an array of <a>TrustedAdvisorCheckSummary</a> objects.
-    /// </para>
+    /// </para><note><ul><li><para>
+    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// </para></li><li><para>
+    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
+    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// Support</a>.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "ASATrustedAdvisorCheckSummary")]
     [OutputType("Amazon.AWSSupport.Model.TrustedAdvisorCheckSummary")]

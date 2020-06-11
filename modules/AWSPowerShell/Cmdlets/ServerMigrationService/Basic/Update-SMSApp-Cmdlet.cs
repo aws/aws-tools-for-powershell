@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Updates an application.
+    /// Updates the specified application.
     /// </summary>
     [Cmdlet("Update", "SMSApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServerMigrationService.Model.UpdateAppResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>ID of the application to update.</para>
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>New description of the application.</para>
+        /// <para>The new description of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>New name of the application.</para>
+        /// <para>The new name of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>Name of the service role in the customer's account used by AWS SMS.</para>
+        /// <para>The name of the service role in the customer's account used by AWS SMS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ServerGroup
         /// <summary>
         /// <para>
-        /// <para>List of server groups in the application to update.</para>
+        /// <para>The server groups in the application to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>List of tags to associate with the application.</para>
+        /// <para>The tags to associate with the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

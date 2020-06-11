@@ -28,22 +28,18 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Reports the current modification status of EBS volumes.
+    /// Describes the most recent volume modification request for the specified EBS volumes.
     /// 
     ///  
     /// <para>
-    /// Current-generation EBS volumes support modification of attributes including type,
-    /// size, and (for <code>io1</code> volumes) IOPS provisioning while either attached to
-    /// or detached from an instance. Following an action from the API or the console to modify
-    /// a volume, the status of the modification may be <code>modifying</code>, <code>optimizing</code>,
-    /// <code>completed</code>, or <code>failed</code>. If a volume has never been modified,
-    /// then certain elements of the returned <code>VolumeModification</code> objects are
-    /// null. 
+    /// If a volume has never been modified, some information in the output will be null.
+    /// If a volume has been modified more than once, the output includes only the most recent
+    /// modification request.
     /// </para><para>
-    ///  You can also use CloudWatch Events to check the status of a modification to an EBS
+    /// You can also use CloudWatch Events to check the status of a modification to an EBS
     /// volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon
     /// CloudWatch Events User Guide</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring
-    /// Volume Modifications"</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Volume Modifications</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VolumeModification")]
@@ -59,11 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters. Supported filters: <code>volume-id</code> | <code>modification-state</code>
-        /// | <code>target-size</code> | <code>target-iops</code> | <code>target-volume-type</code>
-        /// | <code>original-size</code> | <code>original-iops</code> | <code>original-volume-type</code>
-        /// | <code>start-time</code> | <code>originalMultiAttachEnabled</code> | <code>targetMultiAttachEnabled</code>.
-        /// </para>
+        /// <para>The filters.</para><ul><li><para><code>modification-state</code> - The current modification state (modifying | optimizing
+        /// | completed | failed).</para></li><li><para><code>original-iops</code> - The original IOPS rate of the volume.</para></li><li><para><code>original-size</code> - The original size of the volume, in GiB.</para></li><li><para><code>original-volume-type</code> - The original volume type of the volume (standard
+        /// | io1 | gp2 | sc1 | st1).</para></li><li><para><code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support
+        /// was enabled (true | false).</para></li><li><para><code>start-time</code> - The modification start time.</para></li><li><para><code>target-iops</code> - The target IOPS rate of the volume.</para></li><li><para><code>target-size</code> - The target size of the volume, in GiB.</para></li><li><para><code>target-volume-type</code> - The target volume type of the volume (standard
+        /// | io1 | gp2 | sc1 | st1).</para></li><li><para><code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is
+        /// to be enabled (true | false).</para></li><li><para><code>volume-id</code> - The ID of the volume.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -74,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the volumes for which in-progress modifications will be described.</para>
+        /// <para>The IDs of the volumes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// the tag by using a key-value pair. You can apply a tag to just one private CA if you
     /// want to identify a specific characteristic of that CA, or you can apply the same tag
     /// to multiple private CAs if you want to filter for a common relationship among those
-    /// CAs. To remove one or more tags, use the <a>UntagCertificateAuthority</a> action.
-    /// Call the <a>ListTags</a> action to see what tags are associated with your CA.
+    /// CAs. To remove one or more tags, use the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UntagCertificateAuthority.html">UntagCertificateAuthority</a>
+    /// action. Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html">ListTags</a>
+    /// action to see what tags are associated with your CA.
     /// </summary>
     [Cmdlet("Add", "PCACertificateAuthorityTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -50,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter CertificateAuthorityArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>.
+        /// <para>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>.
         /// This must be of the form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>

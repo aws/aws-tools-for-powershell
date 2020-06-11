@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExperimentConfig_ExperimentName
         /// <summary>
         /// <para>
-        /// <para>The name of the experiment.</para>
+        /// <para>The name of an existing experiment to associate the trial component with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -430,7 +430,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExperimentConfig_TrialComponentDisplayName
         /// <summary>
         /// <para>
-        /// <para>Display name for the trial component.</para>
+        /// <para>The display name for the trial component. If this key isn't specified, the display
+        /// name is the trial component name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -440,7 +441,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExperimentConfig_TrialName
         /// <summary>
         /// <para>
-        /// <para>The name of the trial.</para>
+        /// <para>The name of an existing trial to associate the trial component with. If not specified,
+        /// a new trial is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

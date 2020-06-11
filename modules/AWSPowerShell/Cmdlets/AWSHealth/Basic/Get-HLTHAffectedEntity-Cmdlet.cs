@@ -38,7 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// <para>
     /// At least one event ARN is required. Results are sorted by the <code>lastUpdatedTime</code>
     /// of the entity, starting with the most recent.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
+    /// the next request to return more results.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HLTHAffectedEntity")]
     [OutputType("Amazon.AWSHealth.Model.AffectedEntity")]
@@ -128,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Tag
         /// <summary>
         /// <para>
-        /// <para>A map of entity tags attached to the affected entity.</para>
+        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <code>tags</code> property isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

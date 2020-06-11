@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Creates or updates the configuration settings for exporting data classification results.
+    /// Creates or updates the configuration settings for storing data classification results.
     /// </summary>
     [Cmdlet("Write", "MAC2ClassificationExportConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Macie2.Model.ClassificationExportConfiguration")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter S3Destination_BucketName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the bucket. This must be the ARN of an existing
-        /// bucket.</para>
+        /// <para>The name of the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter S3Destination_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service master key to use
-        /// for encryption of the exported results. This must be the ARN of an existing KMS key.
-        /// In addition, the key must be in the same AWS Region as the bucket.</para>
+        /// <para>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer
+        /// master key (CMK) to use for encryption of the results. This must be the ARN of an
+        /// existing CMK that's in the same AWS Region as the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

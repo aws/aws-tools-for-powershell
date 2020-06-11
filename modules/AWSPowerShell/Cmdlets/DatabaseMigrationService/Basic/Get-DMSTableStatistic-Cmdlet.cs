@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the describe table statistics action.</para><para>Valid filter names: schema-name | table-name | table-state</para><para>A combination of filters creates an AND condition where each record matches all specified
+        /// <para>Filters applied to table statistics.</para><para>Valid filter names: schema-name | table-name | table-state</para><para>A combination of filters creates an AND condition where each record matches all specified
         /// filters.</para>
         /// </para>
         /// </summary>

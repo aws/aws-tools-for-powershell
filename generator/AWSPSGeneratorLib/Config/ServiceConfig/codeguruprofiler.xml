@@ -14,12 +14,19 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddNotificationChannels" OutputProperty="NotificationConfiguration" Verb="Add" Noun="NotificationChannel" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetFrameMetricData" OutputProperty="*" Verb="Get" Noun="GetFrameMetricData" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ConfigureAgent" OutputProperty="Configuration" Verb="Set" Noun="AgentConfiguration" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -36,11 +43,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFindingsReportAccountSummary" OutputProperty="ReportSummaries" Verb="Get" Noun="FindingsReportAccountSummary" PipelineParameter="DailyReportsOnly" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNotificationConfiguration" OutputProperty="NotificationConfiguration" Verb="Get" Noun="NotificationConfiguration" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetProfile" OutputProperty="*" Verb="Get" Noun="Profile" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRecommendations" OutputProperty="*" Verb="Get" Noun="Recommendation" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFindingsReports" OutputProperty="FindingsReportSummaries" Verb="Get" Noun="FindingsReportList" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -52,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PostAgentProfile" Verb="Send" Noun="AgentProfile" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="AgentProfile" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -60,7 +87,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RemoveNotificationChannel" OutputProperty="NotificationConfiguration" Verb="Remove" Noun="NotificationChannel" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RemovePermission" OutputProperty="*" Verb="Remove" Noun="Permission" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubmitFeedback" Verb="Submit" Noun="Feedback" ShouldProcessTarget="ProfilingGroupName" PipelineParameter="ProfilingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -69,7 +112,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

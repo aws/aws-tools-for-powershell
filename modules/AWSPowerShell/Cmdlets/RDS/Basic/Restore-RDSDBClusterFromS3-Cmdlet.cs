@@ -28,11 +28,11 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket. Amazon
-    /// RDS must be authorized to access the Amazon S3 bucket and the data must be created
-    /// using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.html">
-    /// Migrating Data to an Amazon Aurora MySQL DB Cluster</a> in the <i>Amazon Aurora User
-    /// Guide</i>.
+    /// Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucket.
+    /// Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be
+    /// created using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3">
+    /// Migrating Data from MySQL by Using an Amazon S3 Bucket</a> in the <i>Amazon Aurora
+    /// User Guide</i>.
     /// 
     ///  <note><para>
     /// This action only restores the DB cluster, not the DB instances for that DB cluster.
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para></note><para>
     /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
     /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><note><para>
-    /// This action only applies to Aurora DB clusters.
+    /// This action only applies to Aurora DB clusters. The source DB engine must be MySQL.
     /// </para></note>
     /// </summary>
     [Cmdlet("Restore", "RDSDBClusterFromS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The target backtrack window, in seconds. To disable backtracking, set this value to
-        /// 0.</para><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
+        /// 0.</para><note><para>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</para></note><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster to create from the source data in the Amazon S3 bucket.
-        /// This parameter is isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
+        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster1</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -225,7 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for the restored DB cluster.</para><para>Valid Values: <code>aurora</code>, <code>aurora-postgresql</code></para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora), <code>aurora-mysql</code>
+        /// (for MySQL 5.7-compatible Aurora), and <code>aurora-postgresql</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -422,7 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceEngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the database that the backup files were created from.</para><para>MySQL version 5.5 and 5.6 are supported. </para><para>Example: <code>5.6.22</code></para>
+        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.5, 5.6, and 5.7 are supported. </para><para>Example: <code>5.6.40</code>, <code>5.7.28</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -103,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53HostedZoneLimit', 
         'Get-R53HostedZoneList', 
         'Get-R53HostedZonesByName', 
+        'Get-R53HostedZonesByVPC', 
         'Get-R53QueryLoggingConfig', 
         'Get-R53QueryLoggingConfigList', 
         'Get-R53ResourceRecordSet', 

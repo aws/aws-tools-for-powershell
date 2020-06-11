@@ -58,6 +58,25 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter CustomPermissionsName
+        /// <summary>
+        /// <para>
+        /// <para>(Enterprise edition only) The name of the custom permissions profile that you want
+        /// to assign to this user. Customized permissions allows you to control a user's access
+        /// by restricting access the following operations:</para><ul><li><para>Create and update data sources</para></li><li><para>Create and update datasets</para></li><li><para>Create and update email reports</para></li><li><para>Subscribe to email reports</para></li></ul><para>To add custom permissions to an existing user, use <code><a>UpdateUser</a></code>
+        /// instead.</para><para>A set of custom permissions includes any combination of these restrictions. Currently,
+        /// you need to create the profile names for custom permission sets by using the QuickSight
+        /// console. Then, you use the <code>RegisterUser</code> API operation to assign the named
+        /// set of permissions to a QuickSight user. </para><para>QuickSight custom permissions are applied through IAM policies. Therefore, they override
+        /// the permissions typically granted by assigning QuickSight users to one of the default
+        /// security cohorts in QuickSight (admin, author, reader).</para><para>This feature is available only to QuickSight Enterprise edition subscriptions that
+        /// use SAML 2.0-Based Federation for Single Sign-On (SSO).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomPermissionsName { get; set; }
+        #endregion
+        
         #region Parameter Email
         /// <summary>
         /// <para>
@@ -232,6 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CustomPermissionsName = this.CustomPermissionsName;
             context.Email = this.Email;
             #if MODULAR
             if (this.Email == null && ParameterWasBound(nameof(this.Email)))
@@ -282,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.AwsAccountId != null)
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
+            if (cmdletContext.CustomPermissionsName != null)
+            {
+                request.CustomPermissionsName = cmdletContext.CustomPermissionsName;
             }
             if (cmdletContext.Email != null)
             {
@@ -373,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
+            public System.String CustomPermissionsName { get; set; }
             public System.String Email { get; set; }
             public System.String IamArn { get; set; }
             public Amazon.QuickSight.IdentityType IdentityType { get; set; }

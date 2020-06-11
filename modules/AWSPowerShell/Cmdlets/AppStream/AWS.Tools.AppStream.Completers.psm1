@@ -109,6 +109,16 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.StreamView
+        {
+            ($_ -eq "New-APSFleet/StreamView") -Or
+            ($_ -eq "Update-APSFleet/StreamView")
+        }
+        {
+            $v = "APP","DESKTOP"
+            break
+        }
+
         # Amazon.AppStream.VisibilityType
         "Get-APSImageList/Type"
         {
@@ -128,6 +138,7 @@ $APS_map = @{
     "AuthenticationType"=@("Disable-APSUser","Enable-APSUser","Get-APSSessionList","Get-APSUser","Get-APSUserStackAssociation","New-APSUser","Remove-APSUser")
     "FleetType"=@("New-APSFleet")
     "MessageAction"=@("New-APSUser")
+    "StreamView"=@("New-APSFleet","Update-APSFleet")
     "Type"=@("Get-APSImageList")
 }
 

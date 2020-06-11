@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CacheKeyParameter
         /// <summary>
         /// <para>
-        /// <para>An API-specific tag group of related cached parameters.</para>
+        /// <para>A list of request parameters whose values API Gateway caches. To be valid values for
+        /// <code>cacheKeyParameters</code>, these parameters must also be specified for <a>Method</a><code>requestParameters</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CacheNamespace
         /// <summary>
         /// <para>
-        /// <para>A list of request parameters whose values are to be cached.</para>
+        /// <para>Specifies a group of related cached parameters. By default, API Gateway uses the resource
+        /// ID as the <code>cacheNamespace</code>. You can specify the same <code>cacheNamespace</code>
+        /// across resources to return the same cached data for requests to different resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,13 +136,13 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter TlsConfig_InsecureSkipVerification
         /// <summary>
         /// <para>
-        /// <para>Specifies whether API Gateway skips trust chain validation of the server certificate
-        /// during the TLS handshake. Supported only for <code>HTTP</code> and <code>HTTP_PROXY</code>
-        /// integrations. By default, API Gateway validates that certificates for integration
-        /// endpoints are issued by a <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html">supported
-        /// Certificate Authority</a>. If enabled, API Gateway skips trust chain validation of
-        /// the server certificate. This is not recommended, but it enables you to use certificates
-        /// that are signed by private Certificate Authorities, or certificates that are self-signed.</para>
+        /// <para>Specifies whether or not API Gateway skips verification that the certificate for an
+        /// integration endpoint is issued by a <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html">supported
+        /// certificate authority</a>. This isn’t recommended, but it enables you to use certificates
+        /// that are signed by private certificate authorities, or certificates that are self-signed.
+        /// If enabled, API Gateway still performs basic certificate validation, which includes
+        /// checking the certificate's expiration date, hostname, and presence of a root certificate
+        /// authority. Supported only for <code>HTTP</code> and <code>HTTP_PROXY</code> integrations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

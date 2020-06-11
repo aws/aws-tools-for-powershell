@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </para><para>
     /// You can create up to 20 load balancers per region per account. You can request an
     /// increase for the number of load balancers for your account. For more information,
-    /// see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
+    /// see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits
     /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter Listener
         /// <summary>
         /// <para>
-        /// <para>The listeners.</para><para>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners
+        /// <para>The listeners.</para><para>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners
         /// for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         /// <para>
         /// <para>The type of a load balancer. Valid only for load balancers in a VPC.</para><para>By default, Elastic Load Balancing creates an Internet-facing load balancer with a
         /// DNS name that resolves to public IP addresses. For more information about Internet-facing
-        /// and Internal load balancers, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme">Load
+        /// and Internal load balancers, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme">Load
         /// Balancer Scheme</a> in the <i>Elastic Load Balancing User Guide</i>.</para><para>Specify <code>internal</code> to create a load balancer with a DNS name that resolves
         /// to private IP addresses.</para>
         /// </para>
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags to assign to the load balancer.</para><para>For more information about tagging your load balancer, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag
+        /// <para>A list of tags to assign to the load balancer.</para><para>For more information about tagging your load balancer, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag
         /// Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</para>
         /// </para>
         /// </summary>

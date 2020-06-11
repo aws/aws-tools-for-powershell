@@ -28,30 +28,30 @@ using Amazon.SecretsManager.Model;
 namespace Amazon.PowerShell.Cmdlets.SEC
 {
     /// <summary>
-    /// Disables automatic scheduled rotation and cancels the rotation of a secret if one
-    /// is currently in progress.
+    /// Disables automatic scheduled rotation and cancels the rotation of a secret if currently
+    /// in progress.
     /// 
     ///  
     /// <para>
     /// To re-enable scheduled rotation, call <a>RotateSecret</a> with <code>AutomaticallyRotateAfterDays</code>
-    /// set to a value greater than 0. This will immediately rotate your secret and then enable
+    /// set to a value greater than 0. This immediately rotates your secret and then enables
     /// the automatic schedule.
     /// </para><note><para>
-    /// If you cancel a rotation that is in progress, it can leave the <code>VersionStage</code>
-    /// labels in an unexpected state. Depending on what step of the rotation was in progress,
+    /// If you cancel a rotation while in progress, it can leave the <code>VersionStage</code>
+    /// labels in an unexpected state. Depending on the step of the rotation in progress,
     /// you might need to remove the staging label <code>AWSPENDING</code> from the partially
     /// created version, specified by the <code>VersionId</code> response value. You should
     /// also evaluate the partially rotated new version to see if it should be deleted, which
-    /// you can do by removing all staging labels from the new version's <code>VersionStage</code>
+    /// you can do by removing all staging labels from the new version <code>VersionStage</code>
     /// field.
     /// </para></note><para>
     /// To successfully start a rotation, the staging label <code>AWSPENDING</code> must be
     /// in one of the following states:
     /// </para><ul><li><para>
-    /// Not be attached to any version at all
+    /// Not attached to any version at all
     /// </para></li><li><para>
     /// Attached to the same version as the staging label <code>AWSCURRENT</code></para></li></ul><para>
-    /// If the staging label <code>AWSPENDING</code> is attached to a different version than
+    /// If the staging label <code>AWSPENDING</code> attached to a different version than
     /// the version with <code>AWSCURRENT</code> then the attempt to rotate fails.
     /// </para><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret for which you want to cancel a rotation request. You can specify
-        /// either the Amazon Resource Name (ARN) or the friendly name of the secret.</para><note><para>If you specify an ARN, we generally recommend that you specify a complete ARN. You
+        /// <para>Specifies the secret to cancel a rotation request. You can specify either the Amazon
+        /// Resource Name (ARN) or the friendly name of the secret.</para><note><para>If you specify an ARN, we generally recommend that you specify a complete ARN. You
         /// can specify a partial ARN too—for example, if you don’t include the final hyphen and
         /// six random characters that Secrets Manager adds at the end of the ARN when you created
         /// the secret. A partial ARN match can work as long as it uniquely matches only one secret.
@@ -88,8 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// (before Secrets Manager adds the hyphen and six characters to the ARN) and you try
         /// to use that as a partial ARN, then those characters cause Secrets Manager to assume
         /// that you’re specifying a complete ARN. This confusion can cause unexpected results.
-        /// To avoid this situation, we recommend that you don’t create secret names that end
-        /// with a hyphen followed by six characters.</para></note>
+        /// To avoid this situation, we recommend that you don’t create secret names ending with
+        /// a hyphen followed by six characters.</para><para>If you specify an incomplete ARN without the random suffix, and instead provide the
+        /// 'friendly name', you <i>must</i> not include the random suffix. If you do include
+        /// the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i>
+        /// or an <i>AccessDeniedException</i> error, depending on your permissions.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

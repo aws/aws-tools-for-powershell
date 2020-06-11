@@ -58,9 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The end of the time range from which you want <code>GetSampledRequests</code> to return
-        /// a sample of the requests that your AWS resource received. Specify the date and time
-        /// in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify any time
-        /// range in the previous three hours.</para>
+        /// a sample of the requests that your AWS resource received. You must specify the times
+        /// in Coordinated Universal Time (UTC) format. UTC format includes the special designator,
+        /// <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. You can specify any
+        /// time range in the previous three hours.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,9 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>The beginning of the time range from which you want <code>GetSampledRequests</code>
-        /// to return a sample of the requests that your AWS resource received. Specify the date
-        /// and time in the following format: <code>"2016-09-27T14:50Z"</code>. You can specify
-        /// any time range in the previous three hours.</para>
+        /// to return a sample of the requests that your AWS resource received. You must specify
+        /// the times in Coordinated Universal Time (UTC) format. UTC format includes the special
+        /// designator, <code>Z</code>. For example, <code>"2016-09-27T14:50Z"</code>. You can
+        /// specify any time range in the previous three hours.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

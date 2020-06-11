@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// You can use <a>DescribeLoadBalancers</a> to verify that the instance is deregistered
     /// from the load balancer.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
+    /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register
     /// or De-Register EC2 Instances</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>

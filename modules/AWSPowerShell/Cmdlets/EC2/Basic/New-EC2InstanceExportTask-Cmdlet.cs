@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Exports a running or stopped instance to an S3 bucket.
+    /// Exports a running or stopped instance to an Amazon S3 bucket.
     /// 
     ///  
     /// <para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>A description for the conversion task or the resource being exported. The maximum
-        /// length is 255 bytes.</para>
+        /// length is 255 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ExportToS3Task_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket for the destination image. The destination bucket must exist and grant
-        /// WRITE and READ_ACP permissions to the AWS account <code>vm-import-export@amazon.com</code>.</para>
+        /// <para>The Amazon S3 bucket for the destination image. The destination bucket must exist
+        /// and grant WRITE and READ_ACP permissions to the AWS account <code>vm-import-export@amazon.com</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,12 +112,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ExportToS3Task_S3Prefix
         /// <summary>
         /// <para>
-        /// <para>The image is written to a single object in the S3 bucket at the S3 key s3prefix +
-        /// exportTaskId + '.' + diskImageFormat.</para>
+        /// <para>The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix
+        /// + exportTaskId + '.' + diskImageFormat.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ExportToS3Task_S3Prefix { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the instance export task during creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter TargetEnvironment
@@ -204,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.TargetEnvironment = this.TargetEnvironment;
             
             // allow further manipulation of loaded context prior to processing
@@ -278,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             if (cmdletContext.TargetEnvironment != null)
             {
                 request.TargetEnvironment = cmdletContext.TargetEnvironment;
@@ -349,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ExportToS3Task_S3Bucket { get; set; }
             public System.String ExportToS3Task_S3Prefix { get; set; }
             public System.String InstanceId { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.ExportEnvironment TargetEnvironment { get; set; }
             public System.Func<Amazon.EC2.Model.CreateInstanceExportTaskResponse, NewEC2InstanceExportTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ExportTask;

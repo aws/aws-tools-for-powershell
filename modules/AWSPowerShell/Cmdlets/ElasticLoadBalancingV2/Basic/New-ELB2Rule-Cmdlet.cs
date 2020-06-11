@@ -33,6 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
+    /// Each rule consists of a priority, one or more actions, and one or more conditions.
     /// Rules are evaluated in priority order, from the lowest value to the highest value.
     /// When the conditions for a rule are met, its actions are performed. If the conditions
     /// for no rules are met, the actions for the default rule are performed. For more information,
@@ -84,9 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Condition
         /// <summary>
         /// <para>
-        /// <para>The conditions. Each rule can include zero or one of the following conditions: <code>http-request-method</code>,
-        /// <code>host-header</code>, <code>path-pattern</code>, and <code>source-ip</code>, and
-        /// zero or more of the following conditions: <code>http-header</code> and <code>query-string</code>.</para>
+        /// <para>The conditions. Each rule can optionally include up to one of each of the following
+        /// conditions: <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>,
+        /// and <code>source-ip</code>. Each rule can also optionally include one or more of each
+        /// of the following conditions: <code>http-header</code> and <code>query-string</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

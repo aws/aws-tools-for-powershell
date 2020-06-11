@@ -128,6 +128,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.UsageStatisticType
+        "Get-GDUsageStatistic/UsageStatisticType"
+        {
+            $v = "SUM_BY_ACCOUNT","SUM_BY_DATA_SOURCE","SUM_BY_RESOURCE","TOP_RESOURCES"
+            break
+        }
+
 
     }
 
@@ -142,6 +149,7 @@ $GD_map = @{
     "Feedback"=@("Update-GDFindingFeedback")
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
+    "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
 
 _awsArgumentCompleterRegistration $GD_Completers $GD_map
@@ -224,8 +232,10 @@ $GD_SelectMap = @{
                "Get-GDInvitationCount",
                "Get-GDIPSet",
                "Get-GDMasterAccount",
+               "Get-GDMemberDetector",
                "Get-GDMember",
                "Get-GDThreatIntelSet",
+               "Get-GDUsageStatistic",
                "Send-GDMemberInvitation",
                "Get-GDDetectorList",
                "Get-GDFilterList",
@@ -246,6 +256,7 @@ $GD_SelectMap = @{
                "Update-GDFilter",
                "Update-GDFindingFeedback",
                "Update-GDIPSet",
+               "Update-GDMemberDetector",
                "Update-GDOrganizationConfiguration",
                "Update-GDPublishingDestination",
                "Update-GDThreatIntelSet")

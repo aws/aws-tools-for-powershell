@@ -40,10 +40,25 @@ namespace Amazon.PowerShell.Cmdlets.CGP
     public partial class NewCGPProfilingGroupCmdlet : AmazonCodeGuruProfilerClientCmdlet, IExecutor
     {
         
+        #region Parameter ComputePlatform
+        /// <summary>
+        /// <para>
+        /// <para> The compute platform of the profiling group. Use <code>AWSLambda</code> if your application
+        /// runs on AWS Lambda. Use <code>Default</code> if your application runs on a compute
+        /// platform that is not AWS Lambda, such an Amazon EC2 instance, an on-premises server,
+        /// or a different platform. If not specified, <code>Default</code> is used. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeGuruProfiler.ComputePlatform")]
+        public Amazon.CodeGuruProfiler.ComputePlatform ComputePlatform { get; set; }
+        #endregion
+        
         #region Parameter AgentOrchestrationConfig_ProfilingEnabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> A <code>Boolean</code> that specifies whether the profiling agent collects profiling
+        /// data or not. Set to <code>true</code> to enable profiling. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfilingGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the profiling group.</para>
+        /// <para>The name of the profiling group to create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,12 +82,23 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         public System.String ProfilingGroupName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para> A list of tags to add to the created profiling group. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para><para>This parameter specifies a unique identifier for the new profiling group that helps
-        /// ensure idempotency.</para>
+        /// <para> Amazon CodeGuru Profiler uses this universally unique identifier (UUID) to prevent
+        /// the accidental creation of duplicate profiling groups if there are failures and retries.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AgentOrchestrationConfig_ProfilingEnabled = this.AgentOrchestrationConfig_ProfilingEnabled;
             context.ClientToken = this.ClientToken;
+            context.ComputePlatform = this.ComputePlatform;
             context.ProfilingGroupName = this.ProfilingGroupName;
             #if MODULAR
             if (this.ProfilingGroupName == null && ParameterWasBound(nameof(this.ProfilingGroupName)))
@@ -149,6 +176,14 @@ namespace Amazon.PowerShell.Cmdlets.CGP
                 WriteWarning("You are passing $null as a value for parameter ProfilingGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -188,9 +223,17 @@ namespace Amazon.PowerShell.Cmdlets.CGP
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.ComputePlatform != null)
+            {
+                request.ComputePlatform = cmdletContext.ComputePlatform;
+            }
             if (cmdletContext.ProfilingGroupName != null)
             {
                 request.ProfilingGroupName = cmdletContext.ProfilingGroupName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -255,7 +298,9 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         {
             public System.Boolean? AgentOrchestrationConfig_ProfilingEnabled { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.CodeGuruProfiler.ComputePlatform ComputePlatform { get; set; }
             public System.String ProfilingGroupName { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CodeGuruProfiler.Model.CreateProfilingGroupResponse, NewCGPProfilingGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ProfilingGroup;
         }

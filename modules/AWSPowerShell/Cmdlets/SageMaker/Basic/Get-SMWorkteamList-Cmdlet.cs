@@ -28,8 +28,9 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Gets a list of work teams that you have defined in a region. The list may be empty
-    /// if no work team satisfies the filter specified in the <code>NameContains</code> parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a list of private work teams that you have defined in a region. The list may
+    /// be empty if no work team satisfies the filter specified in the <code>NameContains</code>
+    /// parameter.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMWorkteamList")]
     [OutputType("Amazon.SageMaker.Model.Workteam")]

@@ -28,17 +28,14 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Creates a dashboard from a template. To first create a template, see the CreateTemplate
-    /// API operation.
+    /// Creates a dashboard from a template. To first create a template, see the <code><a>CreateTemplate</a></code> API operation.
     /// 
     ///  
     /// <para>
     /// A dashboard is an entity in QuickSight that identifies QuickSight reports, created
     /// from analyses. You can share QuickSight dashboards. With the right permissions, you
-    /// can create scheduled email reports from them. The <code>CreateDashboard</code>, <code>DescribeDashboard</code>,
-    /// and <code>ListDashboardsByUser</code> API operations act on the dashboard entity.
-    /// If you have the correct permissions, you can create a dashboard from a template that
-    /// exists in a different AWS account.
+    /// can create scheduled email reports from them. If you have the correct permissions,
+    /// you can create a dashboard from a template that exists in a different AWS account.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -133,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DateTimeParameter
         /// <summary>
         /// <para>
-        /// <para>DateTime parameters.</para>
+        /// <para>Date-time parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>A structure that contains the permissions of the dashboard. You can use this structure
-        /// for granting permissions with principal and action information.</para>
+        /// for granting permissions by providing a list of IAM action information for each principal
+        /// ARN. </para><para>To specify no permissions, omit the permissions list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,6 +211,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.QuickSight.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter ThemeArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard.
+        /// If you add a value for this field, it overrides the value that is used in the source
+        /// entity. The theme ARN must exist in the same AWS account where you create the dashboard.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ThemeArn { get; set; }
         #endregion
         
         #region Parameter VersionDescription
@@ -351,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
             }
+            context.ThemeArn = this.ThemeArn;
             context.VersionDescription = this.VersionDescription;
             
             // allow further manipulation of loaded context prior to processing
@@ -565,6 +576,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.Tags = cmdletContext.Tag;
             }
+            if (cmdletContext.ThemeArn != null)
+            {
+                request.ThemeArn = cmdletContext.ThemeArn;
+            }
             if (cmdletContext.VersionDescription != null)
             {
                 request.VersionDescription = cmdletContext.VersionDescription;
@@ -644,6 +659,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String SourceTemplate_Arn { get; set; }
             public List<Amazon.QuickSight.Model.DataSetReference> SourceTemplate_DataSetReference { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
+            public System.String ThemeArn { get; set; }
             public System.String VersionDescription { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateDashboardResponse, NewQSDashboardCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

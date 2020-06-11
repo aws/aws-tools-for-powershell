@@ -29,9 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Adds the specified IAM role to the specified instance profile. An instance profile
-    /// can contain only one role, and this limit cannot be increased. You can remove the
-    /// existing role and then add a different role to an instance profile. You must then
-    /// wait for the change to appear across all of AWS because of <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual
+    /// can contain only one role. (The number and size of IAM resources in an AWS account
+    /// are limited. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+    /// and STS Quotas</a> in the <i>IAM User Guide</i>.) You can remove the existing role
+    /// and then add a different role to an instance profile. You must then wait for the change
+    /// to appear across all of AWS because of <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual
     /// consistency</a>. To force the change, you must <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">disassociate
     /// the instance profile</a> and then <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate
     /// the instance profile</a>, or you can stop your instance and then restart it.

@@ -28,7 +28,7 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Lists profiling groups.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of profiling groups. The profiling groups are returned as <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html"><code>ProfilingGroupDescription</code></a> objects.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGPProfilingGroupList")]
     [OutputType("Amazon.CodeGuruProfiler.Model.ListProfilingGroupsResponse")]
@@ -42,7 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter IncludeDescription
         /// <summary>
         /// <para>
-        /// <para>A Boolean value indicating whether to include a description.</para>
+        /// <para>A <code>Boolean</code> value indicating whether to include a description. If <code>true</code>,
+        /// then a list of <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html"><code>ProfilingGroupDescription</code></a> objects that contain detailed information
+        /// about profiling groups is returned. If <code>false</code>, then a list of profiling
+        /// group names is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -28,11 +28,12 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Gets all of detectors. This is a paginated API. If you provide a null <code>maxSizePerPage</code>,
-    /// this actions retrieves a maximum of 10 records per page. If you provide a <code>maxSizePerPage</code>,
+    /// Gets all detectors or a single detector if a <code>detectorId</code> is specified.
+    /// This is a paginated API. If you provide a null <code>maxResults</code>, this action
+    /// retrieves a maximum of 10 records per page. If you provide a <code>maxResults</code>,
     /// the value must be between 5 and 10. To get the next page results, provide the pagination
-    /// token from the <code>GetEventTypesResponse</code> as part of your request. A null
-    /// pagination token fetches the records from the beginning.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// token from the <code>GetDetectorsResponse</code> as part of your request. A null pagination
+    /// token fetches the records from the beginning.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FDDetector")]
     [OutputType("Amazon.FraudDetector.Model.Detector")]

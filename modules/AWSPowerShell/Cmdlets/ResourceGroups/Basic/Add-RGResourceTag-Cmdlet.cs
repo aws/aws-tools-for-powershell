@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.RG
     /// <summary>
     /// Adds tags to a resource group with the specified ARN. Existing tags on a resource
     /// group are not changed if they are not specified in the request parameters.
+    /// 
+    ///  <important><para>
+    /// Do not store personally identifiable information (PII) or other confidential or sensitive
+    /// information in tags. We use tags to provide you with billing and administration services.
+    /// Tags are not intended to be used for private or sensitive data.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Add", "RGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.TagResponse")]
@@ -43,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to which to add tags.</para>
+        /// <para>The ARN of the resource group to which to add tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,9 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the specified resource. A tag is a string-to-string map of key-value
-        /// pairs. Tag keys can have a maximum character length of 128 characters, and tag values
-        /// can have a maximum length of 256 characters.</para>
+        /// <para>The tags to add to the specified resource group. A tag is a string-to-string map of
+        /// key-value pairs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

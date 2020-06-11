@@ -75,6 +75,43 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon EBS
 
 
+$EBS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.EBS.ChecksumAggregationMethod
+        "Complete-EBSSnapshot/ChecksumAggregationMethod"
+        {
+            $v = "LINEAR"
+            break
+        }
+
+        # Amazon.EBS.ChecksumAlgorithm
+        {
+            ($_ -eq "Complete-EBSSnapshot/ChecksumAlgorithm") -Or
+            ($_ -eq "Write-EBSSnapshotBlock/ChecksumAlgorithm")
+        }
+        {
+            $v = "SHA256"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EBS_map = @{
+    "ChecksumAggregationMethod"=@("Complete-EBSSnapshot")
+    "ChecksumAlgorithm"=@("Complete-EBSSnapshot","Write-EBSSnapshotBlock")
+}
+
+_awsArgumentCompleterRegistration $EBS_Completers $EBS_map
+
 $EBS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -123,9 +160,12 @@ $EBS_SelectCompleters = {
 }
 
 $EBS_SelectMap = @{
-    "Select"=@("Get-EBSSnapshotBlock",
+    "Select"=@("Complete-EBSSnapshot",
+               "Get-EBSSnapshotBlock",
                "Get-EBSChangedBlockList",
-               "Get-EBSSnapshotBlockList")
+               "Get-EBSSnapshotBlockList",
+               "Write-EBSSnapshotBlock",
+               "Start-EBSSnapshot")
 }
 
 _awsArgumentCompleterRegistration $EBS_SelectCompleters $EBS_SelectMap

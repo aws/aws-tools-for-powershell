@@ -78,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>A map of key-value pairs that specifies the tags to associate with the account in
-        /// Amazon Macie.</para><para>An account can have a maximum of 50 tags. Each tag consists of a required tag key
-        /// and an associated tag value. The maximum length of a tag key is 128 characters. The
-        /// maximum length of a tag value is 256 characters.</para>
+        /// Amazon Macie.</para><para>An account can have a maximum of 50 tags. Each tag consists of a tag key and an associated
+        /// tag value. The maximum length of a tag key is 128 characters. The maximum length of
+        /// a tag value is 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

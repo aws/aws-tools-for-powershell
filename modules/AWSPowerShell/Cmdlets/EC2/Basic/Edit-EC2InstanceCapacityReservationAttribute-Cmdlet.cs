@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityReservationTarget_CapacityReservationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Capacity Reservation.</para>
+        /// <para>The ID of the Capacity Reservation in which to run the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,6 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.EC2.CapacityReservationPreference")]
         public Amazon.EC2.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
+        #endregion
+        
+        #region Parameter CapacityReservationTarget_CapacityReservationResourceGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Capacity Reservation resource group in which to run the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArn")]
+        public System.String CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
         #endregion
         
         #region Parameter InstanceId
@@ -146,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CapacityReservationSpecification_CapacityReservationPreference = this.CapacityReservationSpecification_CapacityReservationPreference;
             context.CapacityReservationTarget_CapacityReservationId = this.CapacityReservationTarget_CapacityReservationId;
+            context.CapacityReservationTarget_CapacityReservationResourceGroupArn = this.CapacityReservationTarget_CapacityReservationResourceGroupArn;
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -196,6 +208,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId != null)
             {
                 requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget.CapacityReservationId = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId;
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = false;
+            }
+            System.String requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn = null;
+            if (cmdletContext.CapacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn = cmdletContext.CapacityReservationTarget_CapacityReservationResourceGroupArn;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget.CapacityReservationResourceGroupArn = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn;
                 requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = false;
             }
              // determine if requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget should be set to null
@@ -280,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public Amazon.EC2.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
             public System.String CapacityReservationTarget_CapacityReservationId { get; set; }
+            public System.String CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
             public System.String InstanceId { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyInstanceCapacityReservationAttributesResponse, EditEC2InstanceCapacityReservationAttributeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;

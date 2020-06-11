@@ -168,10 +168,13 @@ $ROBO_SelectCompleters = {
 }
 
 $ROBO_SelectMap = @{
-    "Select"=@("Get-ROBOSimulationJobList",
+    "Select"=@("Remove-ROBODeleteWorld",
+               "Get-ROBOSimulationJobList",
                "Stop-ROBODeploymentJob",
                "Stop-ROBOSimulationJob",
                "Stop-ROBOSimulationJobBatch",
+               "Stop-ROBOWorldExportJob",
+               "Stop-ROBOWorldGenerationJob",
                "New-ROBODeploymentJob",
                "New-ROBOFleet",
                "New-ROBORobot",
@@ -180,10 +183,14 @@ $ROBO_SelectMap = @{
                "New-ROBOSimulationApplication",
                "New-ROBOSimulationApplicationVersion",
                "New-ROBOSimulationJob",
+               "New-ROBOWorldExportJob",
+               "New-ROBOWorldGenerationJob",
+               "New-ROBOWorldTemplate",
                "Remove-ROBOFleet",
                "Remove-ROBORobot",
                "Remove-ROBORobotApplication",
                "Remove-ROBOSimulationApplication",
+               "Remove-ROBOWorldTemplate",
                "Unregister-ROBORobot",
                "Get-ROBODeploymentJob",
                "Get-ROBOFleet",
@@ -192,6 +199,11 @@ $ROBO_SelectMap = @{
                "Get-ROBOSimulationApplication",
                "Get-ROBOSimulationJob",
                "Get-ROBOSimulationJobBatch",
+               "Get-ROBOWorld",
+               "Get-ROBOWorldExportJob",
+               "Get-ROBOWorldGenerationJob",
+               "Get-ROBOWorldTemplate",
+               "Get-ROBOWorldTemplateBody",
                "Get-ROBODeploymentJobList",
                "Get-ROBOFleetList",
                "Get-ROBORobotApplicationList",
@@ -200,6 +212,10 @@ $ROBO_SelectMap = @{
                "Get-ROBOSimulationJobBatchList",
                "Get-ROBOSimulationJobSummary",
                "Get-ROBOResourceTag",
+               "Get-ROBOWorldExportJobList",
+               "Get-ROBOWorldGenerationJobList",
+               "Get-ROBOWorldList",
+               "Get-ROBOWorldTemplateList",
                "Register-ROBORobot",
                "Restart-ROBOSimulationJob",
                "Start-ROBOSimulationJobBatch",
@@ -207,7 +223,8 @@ $ROBO_SelectMap = @{
                "Add-ROBOResourceTag",
                "Remove-ROBOResourceTag",
                "Update-ROBORobotApplication",
-               "Update-ROBOSimulationApplication")
+               "Update-ROBOSimulationApplication",
+               "Update-ROBOWorldTemplate")
 }
 
 _awsArgumentCompleterRegistration $ROBO_SelectCompleters $ROBO_SelectMap

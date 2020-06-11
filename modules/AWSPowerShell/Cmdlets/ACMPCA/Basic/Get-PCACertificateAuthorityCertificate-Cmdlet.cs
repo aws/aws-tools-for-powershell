@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
     /// Retrieves the certificate and certificate chain for your private certificate authority
-    /// (CA). Both the certificate and the chain are base64 PEM-encoded. The chain does not
-    /// include the CA certificate. Each certificate in the chain signs the one before it.
+    /// (CA) or one that has been shared with you. Both the certificate and the chain are
+    /// base64 PEM-encoded. The chain does not include the CA certificate. Each certificate
+    /// in the chain signs the one before it.
     /// </summary>
     [Cmdlet("Get", "PCACertificateAuthorityCertificate")]
     [OutputType("Amazon.ACMPCA.Model.GetCertificateAuthorityCertificateResponse")]

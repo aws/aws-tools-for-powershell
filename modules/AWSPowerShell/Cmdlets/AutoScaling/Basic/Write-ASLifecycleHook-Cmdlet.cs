@@ -138,8 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The instance state to which you want to attach the lifecycle hook. The valid values
-        /// are:</para><ul><li><para>autoscaling:EC2_INSTANCE_LAUNCHING</para></li><li><para>autoscaling:EC2_INSTANCE_TERMINATING</para></li></ul><para>Conditional: This parameter is required for new lifecycle hooks, but optional when
-        /// updating existing hooks.</para>
+        /// are:</para><ul><li><para>autoscaling:EC2_INSTANCE_LAUNCHING</para></li><li><para>autoscaling:EC2_INSTANCE_TERMINATING</para></li></ul><para>Required for new lifecycle hooks, but optional when updating existing hooks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,8 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
-        /// notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</para><para>Conditional: This parameter is required for new lifecycle hooks, but optional when
-        /// updating existing hooks.</para>
+        /// notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</para><para>Required for new lifecycle hooks, but optional when updating existing hooks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

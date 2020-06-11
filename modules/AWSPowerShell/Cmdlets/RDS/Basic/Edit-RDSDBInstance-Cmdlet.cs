@@ -278,14 +278,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Active Directory directory ID to move the DB instance to. Specify <code>none</code>
         /// to remove the instance from its current domain. The domain must be created prior to
-        /// this operation. Currently, only Microsoft SQL Server and Oracle DB instances can be
-        /// created in an Active Directory Domain. </para><para>For Microsoft SQL Server DB instances, Amazon RDS can use Windows Authentication to
-        /// authenticate users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
-        /// Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL
-        /// Server</a> in the <i>Amazon RDS User Guide</i>.</para><para>For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate
-        /// users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
-        /// Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS
-        /// User Guide</i>.</para>
+        /// this operation. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL
+        /// DB instances can be created in an Active Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
+        /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -579,11 +574,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is publicly accessible. When the DB
-        /// instance is publicly accessible, it is an Internet-facing instance with a publicly
-        /// resolvable DNS name, which resolves to a public IP address. When the DB instance isn't
-        /// publicly accessible, it is an internal instance with a DNS name that resolves to a
-        /// private IP address. </para><para><code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance
+        /// <para>A value that indicates whether the DB instance is publicly accessible. </para><para>When the DB instance is publicly accessible, its DNS endpoint resolves to the private
+        /// IP address from within the DB instance's VPC, and to the public IP address from outside
+        /// of the DB instance's VPC. Access to the DB instance is ultimately controlled by the
+        /// security group it uses, and that public access is not permitted if the security group
+        /// assigned to the DB instance doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
+        /// a DNS name that resolves to a private IP address.</para><para><code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance
         /// must be part of a public subnet and <code>PubliclyAccessible</code> must be enabled
         /// for it to be publicly accessible. </para><para>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
         /// of the value of the <code>ApplyImmediately</code> parameter.</para>
@@ -591,6 +587,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? PubliclyAccessible { get; set; }
+        #endregion
+        
+        #region Parameter ReplicaMode
+        /// <summary>
+        /// <para>
+        /// <para>A value that sets the open mode of a replica database to either mounted or read-only.</para><note><para>Currently, this parameter is only supported for Oracle DB instances.</para></note><para>Mounted DB replicas are included in Oracle Enterprise Edition. The main use case for
+        /// mounted replicas is cross-Region disaster recovery. The primary database doesn't use
+        /// Active Data Guard to transmit information to the mounted replica. Because it doesn't
+        /// accept user connections, a mounted replica can't serve a read-only workload. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working
+        /// with Oracle Read Replicas for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.ReplicaMode")]
+        public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
         #endregion
         
         #region Parameter StorageType
@@ -777,6 +789,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.PromotionTier = this.PromotionTier;
             context.PubliclyAccessible = this.PubliclyAccessible;
+            context.ReplicaMode = this.ReplicaMode;
             context.StorageType = this.StorageType;
             context.TdeCredentialArn = this.TdeCredentialArn;
             context.TdeCredentialPassword = this.TdeCredentialPassword;
@@ -974,6 +987,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
+            if (cmdletContext.ReplicaMode != null)
+            {
+                request.ReplicaMode = cmdletContext.ReplicaMode;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -1093,6 +1110,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeature { get; set; }
             public System.Int32? PromotionTier { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
+            public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
             public System.String StorageType { get; set; }
             public System.String TdeCredentialArn { get; set; }
             public System.String TdeCredentialPassword { get; set; }

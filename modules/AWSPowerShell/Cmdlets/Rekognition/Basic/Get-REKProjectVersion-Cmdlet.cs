@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>A list of model version names that you want to describe. You can add up to 10 model
         /// version names to the list. If you don't specify a value, all model descriptions are
-        /// returned.</para>
+        /// returned. A version name is part of a model (ProjectVersion) ARN. For example, <code>my-model.2020-01-21T09.10.15</code>
+        /// is the version name in the following ARN. <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

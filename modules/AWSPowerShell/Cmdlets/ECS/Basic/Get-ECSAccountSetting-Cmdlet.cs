@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The resource name you want to list the account settings for.</para>
+        /// <para>The name of the account setting you want to list the settings for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

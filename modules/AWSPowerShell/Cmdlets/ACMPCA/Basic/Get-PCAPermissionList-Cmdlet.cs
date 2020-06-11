@@ -28,9 +28,7 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Lists all the permissions, if any, that have been assigned by a private CA. Permissions
-    /// can be granted with the <a>CreatePermission</a> action and revoked with the <a>DeletePermission</a>
-    /// action.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Amazon.ACMPCA.IAmazonACMPCA.ListPermissions<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PCAPermissionList")]
     [OutputType("Amazon.ACMPCA.Model.Permission")]
@@ -46,9 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Number (ARN) of the private CA to inspect. You can find the ARN
-        /// by calling the <a>ListCertificateAuthorities</a> action. This must be of the form:
-        /// <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
-        /// You can get a private CA's ARN by running the <a>ListCertificateAuthorities</a> action.</para>
+        /// by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>
+        /// action. This must be of the form: <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
+        /// You can get a private CA's ARN by running the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>
+        /// action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

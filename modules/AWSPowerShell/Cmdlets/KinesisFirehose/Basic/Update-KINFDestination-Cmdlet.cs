@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     public partial class UpdateKINFDestinationCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
+        #region Parameter HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey
+        /// <summary>
+        /// <para>
+        /// <para>The access key required for Kinesis Firehose to authenticate with the HTTP endpoint
+        /// selected as the destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchDestinationUpdate_ClusterEndpoint
         /// <summary>
         /// <para>
@@ -80,6 +91,29 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ElasticsearchDestinationUpdate_ClusterEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes
+        /// <summary>
+        /// <para>
+        /// <para>Describes the metadata sent to the HTTP endpoint destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.KinesisFirehose.Model.HttpEndpointCommonAttribute[] HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding
+        /// <summary>
+        /// <para>
+        /// <para>Kinesis Data Firehose uses the content encoding to compress the body of a request
+        /// before sending the request to the destination. For more information, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding">Content-Encoding</a>
+        /// in MDN Web Docs, the official Mozilla documentation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.ContentEncoding")]
+        public Amazon.KinesisFirehose.ContentEncoding HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding { get; set; }
         #endregion
         
         #region Parameter CurrentDeliveryStreamVersionId
@@ -166,6 +200,19 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.Int32? RetryOptions_DurationInSecond { get; set; }
         #endregion
         
+        #region Parameter HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds
+        /// <summary>
+        /// <para>
+        /// <para>The total amount of time that Kinesis Data Firehose spends on retries. This duration
+        /// starts after the initial attempt to send data to the custom destination via HTTPS
+        /// endpoint fails. It doesn't include the periods during which Kinesis Data Firehose
+        /// waits for acknowledgment from the specified destination after each attempt. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLoggingOptions_Enabled
         /// <summary>
         /// <para>
@@ -186,6 +233,26 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ElasticsearchDestinationUpdate_ProcessingConfiguration_Enabled")]
         public System.Boolean? ProcessingConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables CloudWatch logging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables data processing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled { get; set; }
         #endregion
         
         #region Parameter ExtendedS3DestinationUpdate
@@ -233,6 +300,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.Int32? BufferingHints_IntervalInSecond { get; set; }
         #endregion
         
+        #region Parameter HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds
+        /// <summary>
+        /// <para>
+        /// <para>Buffer incoming data for the specified period of time, in seconds, before delivering
+        /// it to the destination. The default value is 300 (5 minutes). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLoggingOptions_LogGroupName
         /// <summary>
         /// <para>
@@ -243,6 +321,17 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ElasticsearchDestinationUpdate_CloudWatchLoggingOptions_LogGroupName")]
         public System.String CloudWatchLoggingOptions_LogGroupName { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch group name for logging. This value is required if CloudWatch logging
+        /// is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName { get; set; }
         #endregion
         
         #region Parameter CloudWatchLoggingOptions_LogStreamName
@@ -257,6 +346,28 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String CloudWatchLoggingOptions_LogStreamName { get; set; }
         #endregion
         
+        #region Parameter HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName
+        /// <summary>
+        /// <para>
+        /// <para>The CloudWatch log stream name for logging. This value is required if CloudWatch logging
+        /// is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName { get; set; }
+        #endregion
+        
+        #region Parameter EndpointConfiguration_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the HTTP endpoint selected as the destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HttpEndpointDestinationUpdate_EndpointConfiguration_Name")]
+        public System.String EndpointConfiguration_Name { get; set; }
+        #endregion
+        
         #region Parameter ProcessingConfiguration_Processor
         /// <summary>
         /// <para>
@@ -266,6 +377,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ElasticsearchDestinationUpdate_ProcessingConfiguration_Processors")]
         public Amazon.KinesisFirehose.Model.Processor[] ProcessingConfiguration_Processor { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors
+        /// <summary>
+        /// <para>
+        /// <para>The data processors.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.KinesisFirehose.Model.Processor[] HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors { get; set; }
         #endregion
         
         #region Parameter RedshiftDestinationUpdate
@@ -292,6 +413,31 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String ElasticsearchDestinationUpdate_RoleARN { get; set; }
         #endregion
         
+        #region Parameter HttpEndpointDestinationUpdate_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>Kinesis Data Firehose uses this IAM role for all the permissions that the delivery
+        /// stream needs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HttpEndpointDestinationUpdate_RoleARN { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_S3BackupMode
+        /// <summary>
+        /// <para>
+        /// <para>Describes the S3 bucket backup options for the data that Kinesis Firehose delivers
+        /// to the HTTP endpoint destination. You can back up all documents (<code>AllData</code>)
+        /// or only the documents that Kinesis Data Firehose could not deliver to the specified
+        /// HTTP endpoint destination (<code>FailedDataOnly</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.HttpEndpointS3BackupMode")]
+        public Amazon.KinesisFirehose.HttpEndpointS3BackupMode HttpEndpointDestinationUpdate_S3BackupMode { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchDestinationUpdate_S3Update
         /// <summary>
         /// <para>
@@ -300,6 +446,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.KinesisFirehose.Model.S3DestinationUpdate ElasticsearchDestinationUpdate_S3Update { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_S3Update
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.KinesisFirehose.Model.S3DestinationUpdate HttpEndpointDestinationUpdate_S3Update { get; set; }
         #endregion
         
         #region Parameter BufferingHints_SizeInMBs
@@ -314,6 +470,19 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ElasticsearchDestinationUpdate_BufferingHints_SizeInMBs")]
         public System.Int32? BufferingHints_SizeInMBs { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs
+        /// <summary>
+        /// <para>
+        /// <para>Buffer incoming data to the specified size, in MBs, before delivering it to the destination.
+        /// The default value is 5. </para><para>We recommend setting this parameter to a value greater than the amount of data you
+        /// typically ingest into the delivery stream in 10 seconds. For example, if you typically
+        /// ingest data at 1 MB/sec, the value should be 10 MB or higher. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs { get; set; }
         #endregion
         
         #region Parameter SplunkDestinationUpdate
@@ -339,6 +508,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ElasticsearchDestinationUpdate_TypeName { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_EndpointConfiguration_Url
+        /// <summary>
+        /// <para>
+        /// <para>The URL of the HTTP endpoint selected as the destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HttpEndpointDestinationUpdate_EndpointConfiguration_Url { get; set; }
         #endregion
         
         #region Parameter S3DestinationUpdate
@@ -433,6 +612,28 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.ElasticsearchDestinationUpdate_S3Update = this.ElasticsearchDestinationUpdate_S3Update;
             context.ElasticsearchDestinationUpdate_TypeName = this.ElasticsearchDestinationUpdate_TypeName;
             context.ExtendedS3DestinationUpdate = this.ExtendedS3DestinationUpdate;
+            context.HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds = this.HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds;
+            context.HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs = this.HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs;
+            context.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled = this.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled;
+            context.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName = this.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName;
+            context.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName = this.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName;
+            context.HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey = this.HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey;
+            context.EndpointConfiguration_Name = this.EndpointConfiguration_Name;
+            context.HttpEndpointDestinationUpdate_EndpointConfiguration_Url = this.HttpEndpointDestinationUpdate_EndpointConfiguration_Url;
+            context.HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled = this.HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled;
+            if (this.HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors != null)
+            {
+                context.HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors = new List<Amazon.KinesisFirehose.Model.Processor>(this.HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors);
+            }
+            if (this.HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes != null)
+            {
+                context.HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes = new List<Amazon.KinesisFirehose.Model.HttpEndpointCommonAttribute>(this.HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes);
+            }
+            context.HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding = this.HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding;
+            context.HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds = this.HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds;
+            context.HttpEndpointDestinationUpdate_RoleARN = this.HttpEndpointDestinationUpdate_RoleARN;
+            context.HttpEndpointDestinationUpdate_S3BackupMode = this.HttpEndpointDestinationUpdate_S3BackupMode;
+            context.HttpEndpointDestinationUpdate_S3Update = this.HttpEndpointDestinationUpdate_S3Update;
             context.RedshiftDestinationUpdate = this.RedshiftDestinationUpdate;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.S3DestinationUpdate = this.S3DestinationUpdate;
@@ -689,6 +890,265 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 request.ExtendedS3DestinationUpdate = cmdletContext.ExtendedS3DestinationUpdate;
             }
+            
+             // populate HttpEndpointDestinationUpdate
+            var requestHttpEndpointDestinationUpdateIsNull = true;
+            request.HttpEndpointDestinationUpdate = new Amazon.KinesisFirehose.Model.HttpEndpointDestinationUpdate();
+            System.String requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RoleARN = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_RoleARN != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RoleARN = cmdletContext.HttpEndpointDestinationUpdate_RoleARN;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RoleARN != null)
+            {
+                request.HttpEndpointDestinationUpdate.RoleARN = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RoleARN;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.HttpEndpointS3BackupMode requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_S3BackupMode = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_S3BackupMode != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_S3BackupMode = cmdletContext.HttpEndpointDestinationUpdate_S3BackupMode;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_S3BackupMode != null)
+            {
+                request.HttpEndpointDestinationUpdate.S3BackupMode = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_S3BackupMode;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.S3DestinationUpdate requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_S3Update = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_S3Update != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_S3Update = cmdletContext.HttpEndpointDestinationUpdate_S3Update;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_S3Update != null)
+            {
+                request.HttpEndpointDestinationUpdate.S3Update = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_S3Update;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.HttpEndpointRetryOptions requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions = null;
+            
+             // populate RetryOptions
+            var requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptionsIsNull = true;
+            requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions = new Amazon.KinesisFirehose.Model.HttpEndpointRetryOptions();
+            System.Int32? requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions_httpEndpointDestinationUpdate_RetryOptions_DurationInSeconds = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions_httpEndpointDestinationUpdate_RetryOptions_DurationInSeconds = cmdletContext.HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds.Value;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions_httpEndpointDestinationUpdate_RetryOptions_DurationInSeconds != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions.DurationInSeconds = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions_httpEndpointDestinationUpdate_RetryOptions_DurationInSeconds.Value;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptionsIsNull = false;
+            }
+             // determine if requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions should be set to null
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptionsIsNull)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions = null;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions != null)
+            {
+                request.HttpEndpointDestinationUpdate.RetryOptions = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RetryOptions;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.HttpEndpointBufferingHints requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints = null;
+            
+             // populate BufferingHints
+            var requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHintsIsNull = true;
+            requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints = new Amazon.KinesisFirehose.Model.HttpEndpointBufferingHints();
+            System.Int32? requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints_httpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints_httpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds = cmdletContext.HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds.Value;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints_httpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints.IntervalInSeconds = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints_httpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds.Value;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHintsIsNull = false;
+            }
+            System.Int32? requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints_httpEndpointDestinationUpdate_BufferingHints_SizeInMBs = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints_httpEndpointDestinationUpdate_BufferingHints_SizeInMBs = cmdletContext.HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs.Value;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints_httpEndpointDestinationUpdate_BufferingHints_SizeInMBs != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints.SizeInMBs = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints_httpEndpointDestinationUpdate_BufferingHints_SizeInMBs.Value;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHintsIsNull = false;
+            }
+             // determine if requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints should be set to null
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHintsIsNull)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints = null;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints != null)
+            {
+                request.HttpEndpointDestinationUpdate.BufferingHints = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_BufferingHints;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.ProcessingConfiguration requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration = null;
+            
+             // populate ProcessingConfiguration
+            var requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfigurationIsNull = true;
+            requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration = new Amazon.KinesisFirehose.Model.ProcessingConfiguration();
+            System.Boolean? requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration_httpEndpointDestinationUpdate_ProcessingConfiguration_Enabled = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration_httpEndpointDestinationUpdate_ProcessingConfiguration_Enabled = cmdletContext.HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled.Value;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration_httpEndpointDestinationUpdate_ProcessingConfiguration_Enabled != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration.Enabled = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration_httpEndpointDestinationUpdate_ProcessingConfiguration_Enabled.Value;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfigurationIsNull = false;
+            }
+            List<Amazon.KinesisFirehose.Model.Processor> requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration_httpEndpointDestinationUpdate_ProcessingConfiguration_Processors = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration_httpEndpointDestinationUpdate_ProcessingConfiguration_Processors = cmdletContext.HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration_httpEndpointDestinationUpdate_ProcessingConfiguration_Processors != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration.Processors = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration_httpEndpointDestinationUpdate_ProcessingConfiguration_Processors;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfigurationIsNull = false;
+            }
+             // determine if requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration should be set to null
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfigurationIsNull)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration = null;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration != null)
+            {
+                request.HttpEndpointDestinationUpdate.ProcessingConfiguration = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_ProcessingConfiguration;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.HttpEndpointRequestConfiguration requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration = null;
+            
+             // populate RequestConfiguration
+            var requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfigurationIsNull = true;
+            requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration = new Amazon.KinesisFirehose.Model.HttpEndpointRequestConfiguration();
+            List<Amazon.KinesisFirehose.Model.HttpEndpointCommonAttribute> requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration_httpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration_httpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes = cmdletContext.HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration_httpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration.CommonAttributes = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration_httpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfigurationIsNull = false;
+            }
+            Amazon.KinesisFirehose.ContentEncoding requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration_httpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration_httpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding = cmdletContext.HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration_httpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration.ContentEncoding = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration_httpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfigurationIsNull = false;
+            }
+             // determine if requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration should be set to null
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfigurationIsNull)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration = null;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration != null)
+            {
+                request.HttpEndpointDestinationUpdate.RequestConfiguration = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_RequestConfiguration;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.CloudWatchLoggingOptions requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions = null;
+            
+             // populate CloudWatchLoggingOptions
+            var requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptionsIsNull = true;
+            requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions = new Amazon.KinesisFirehose.Model.CloudWatchLoggingOptions();
+            System.Boolean? requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled = cmdletContext.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled.Value;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions.Enabled = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled.Value;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptionsIsNull = false;
+            }
+            System.String requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName = cmdletContext.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions.LogGroupName = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptionsIsNull = false;
+            }
+            System.String requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName = cmdletContext.HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions.LogStreamName = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_httpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptionsIsNull = false;
+            }
+             // determine if requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions should be set to null
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptionsIsNull)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions = null;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions != null)
+            {
+                request.HttpEndpointDestinationUpdate.CloudWatchLoggingOptions = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_CloudWatchLoggingOptions;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
+            Amazon.KinesisFirehose.Model.HttpEndpointConfiguration requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration = null;
+            
+             // populate EndpointConfiguration
+            var requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfigurationIsNull = true;
+            requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration = new Amazon.KinesisFirehose.Model.HttpEndpointConfiguration();
+            System.String requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_httpEndpointDestinationUpdate_EndpointConfiguration_AccessKey = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_httpEndpointDestinationUpdate_EndpointConfiguration_AccessKey = cmdletContext.HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_httpEndpointDestinationUpdate_EndpointConfiguration_AccessKey != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration.AccessKey = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_httpEndpointDestinationUpdate_EndpointConfiguration_AccessKey;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfigurationIsNull = false;
+            }
+            System.String requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_endpointConfiguration_Name = null;
+            if (cmdletContext.EndpointConfiguration_Name != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_endpointConfiguration_Name = cmdletContext.EndpointConfiguration_Name;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_endpointConfiguration_Name != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration.Name = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_endpointConfiguration_Name;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfigurationIsNull = false;
+            }
+            System.String requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_httpEndpointDestinationUpdate_EndpointConfiguration_Url = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_EndpointConfiguration_Url != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_httpEndpointDestinationUpdate_EndpointConfiguration_Url = cmdletContext.HttpEndpointDestinationUpdate_EndpointConfiguration_Url;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_httpEndpointDestinationUpdate_EndpointConfiguration_Url != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration.Url = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration_httpEndpointDestinationUpdate_EndpointConfiguration_Url;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfigurationIsNull = false;
+            }
+             // determine if requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration should be set to null
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfigurationIsNull)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration = null;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration != null)
+            {
+                request.HttpEndpointDestinationUpdate.EndpointConfiguration = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
+             // determine if request.HttpEndpointDestinationUpdate should be set to null
+            if (requestHttpEndpointDestinationUpdateIsNull)
+            {
+                request.HttpEndpointDestinationUpdate = null;
+            }
             if (cmdletContext.RedshiftDestinationUpdate != null)
             {
                 request.RedshiftDestinationUpdate = cmdletContext.RedshiftDestinationUpdate;
@@ -783,6 +1243,22 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public Amazon.KinesisFirehose.Model.S3DestinationUpdate ElasticsearchDestinationUpdate_S3Update { get; set; }
             public System.String ElasticsearchDestinationUpdate_TypeName { get; set; }
             public Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate ExtendedS3DestinationUpdate { get; set; }
+            public System.Int32? HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds { get; set; }
+            public System.Int32? HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs { get; set; }
+            public System.Boolean? HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled { get; set; }
+            public System.String HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName { get; set; }
+            public System.String HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName { get; set; }
+            public System.String HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey { get; set; }
+            public System.String EndpointConfiguration_Name { get; set; }
+            public System.String HttpEndpointDestinationUpdate_EndpointConfiguration_Url { get; set; }
+            public System.Boolean? HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled { get; set; }
+            public List<Amazon.KinesisFirehose.Model.Processor> HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors { get; set; }
+            public List<Amazon.KinesisFirehose.Model.HttpEndpointCommonAttribute> HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes { get; set; }
+            public Amazon.KinesisFirehose.ContentEncoding HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding { get; set; }
+            public System.Int32? HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds { get; set; }
+            public System.String HttpEndpointDestinationUpdate_RoleARN { get; set; }
+            public Amazon.KinesisFirehose.HttpEndpointS3BackupMode HttpEndpointDestinationUpdate_S3BackupMode { get; set; }
+            public Amazon.KinesisFirehose.Model.S3DestinationUpdate HttpEndpointDestinationUpdate_S3Update { get; set; }
             public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
             [System.ObsoleteAttribute]
             public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }

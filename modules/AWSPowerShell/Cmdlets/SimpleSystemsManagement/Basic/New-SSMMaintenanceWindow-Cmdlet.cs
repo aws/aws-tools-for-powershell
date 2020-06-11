@@ -159,6 +159,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String Schedule { get; set; }
         #endregion
         
+        #region Parameter ScheduleOffset
+        /// <summary>
+        /// <para>
+        /// <para>The number of days to wait after the date and time specified by a CRON expression
+        /// before running the maintenance window.</para><para>For example, the following cron expression schedules a maintenance window to run on
+        /// the third Tuesday of every month at 11:30 PM.</para><para><code>cron(0 30 23 ? * TUE#3 *)</code></para><para>If the schedule offset is <code>2</code>, the maintenance window won't run until two
+        /// days later.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ScheduleOffset { get; set; }
+        #endregion
+        
         #region Parameter ScheduleTimezone
         /// <summary>
         /// <para>
@@ -308,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 WriteWarning("You are passing $null as a value for parameter Schedule which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ScheduleOffset = this.ScheduleOffset;
             context.ScheduleTimezone = this.ScheduleTimezone;
             context.StartDate = this.StartDate;
             if (this.Tag != null)
@@ -361,6 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Schedule != null)
             {
                 request.Schedule = cmdletContext.Schedule;
+            }
+            if (cmdletContext.ScheduleOffset != null)
+            {
+                request.ScheduleOffset = cmdletContext.ScheduleOffset.Value;
             }
             if (cmdletContext.ScheduleTimezone != null)
             {
@@ -443,6 +461,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String EndDate { get; set; }
             public System.String Name { get; set; }
             public System.String Schedule { get; set; }
+            public System.Int32? ScheduleOffset { get; set; }
             public System.String ScheduleTimezone { get; set; }
             public System.String StartDate { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }

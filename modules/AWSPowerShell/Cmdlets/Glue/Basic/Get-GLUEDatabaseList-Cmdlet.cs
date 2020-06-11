@@ -51,6 +51,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String CatalogId { get; set; }
         #endregion
         
+        #region Parameter ResourceShareType
+        /// <summary>
+        /// <para>
+        /// <para>Allows you to specify that you want to list the databases shared with your account.
+        /// The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </para><ul><li><para>If set to <code>FOREIGN</code>, will list the databases shared with your account.
+        /// </para></li><li><para>If set to <code>ALL</code>, will list the databases shared with your account, as well
+        /// as the databases in yor local account. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.ResourceShareType")]
+        public Amazon.Glue.ResourceShareType ResourceShareType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -148,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ResourceShareType = this.ResourceShareType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ResourceShareType != null)
+            {
+                request.ResourceShareType = cmdletContext.ResourceShareType;
             }
             
             // Initialize loop variant and commence piping
@@ -235,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.CatalogId != null)
             {
                 request.CatalogId = cmdletContext.CatalogId;
+            }
+            if (cmdletContext.ResourceShareType != null)
+            {
+                request.ResourceShareType = cmdletContext.ResourceShareType;
             }
             
             // Initialize loop variants and commence piping
@@ -358,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String CatalogId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.Glue.ResourceShareType ResourceShareType { get; set; }
             public System.Func<Amazon.Glue.Model.GetDatabasesResponse, GetGLUEDatabaseListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DatabaseList;
         }

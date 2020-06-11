@@ -108,6 +108,13 @@ $KNDR_Completers = {
             break
         }
 
+        # Amazon.Kendra.SortOrder
+        "Invoke-KNDRQuery/SortingConfiguration_SortOrder"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
 
     }
 
@@ -119,6 +126,7 @@ $KNDR_Completers = {
 $KNDR_map = @{
     "Edition"=@("New-KNDRIndex")
     "QueryResultTypeFilter"=@("Invoke-KNDRQuery")
+    "SortingConfiguration_SortOrder"=@("Invoke-KNDRQuery")
     "StatusFilter"=@("Get-KNDRDataSourceSyncJobList")
     "Type"=@("New-KNDRDataSource")
 }

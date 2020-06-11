@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>The action to perform on findings that meet the filter criteria (findingCriteria).
-        /// Valid values are: ARCHIVE, automatically archive the findings; and, NOOP, don't perform
-        /// any action on the findings.</para>
+        /// Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP,
+        /// don't perform any action on the findings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

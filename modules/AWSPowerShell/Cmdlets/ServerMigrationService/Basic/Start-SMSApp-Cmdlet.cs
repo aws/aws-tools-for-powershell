@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Launches an application stack.
+    /// Launches the specified application as a stack in AWS CloudFormation.
     /// </summary>
     [Cmdlet("Start", "SMSApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>ID of the application to launch.</para>
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

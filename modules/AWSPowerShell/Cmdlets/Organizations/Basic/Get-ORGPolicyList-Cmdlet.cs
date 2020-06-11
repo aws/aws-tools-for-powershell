@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of policy that you want to include in the response.</para>
+        /// <para>Specifies the type of policy that you want to include in the response. You must specify
+        /// one of the following values:</para><ul><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

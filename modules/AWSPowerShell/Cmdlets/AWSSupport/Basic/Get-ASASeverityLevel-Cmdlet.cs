@@ -29,8 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
     /// Returns the list of severity levels that you can assign to an AWS Support case. The
-    /// severity level for a case is also a field in the <a>CaseDetails</a> data type included
-    /// in any <a>CreateCase</a> request.
+    /// severity level for a case is also a field in the <a>CaseDetails</a> data type that
+    /// you include for a <a>CreateCase</a> request.
+    /// 
+    ///  <note><ul><li><para>
+    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// </para></li><li><para>
+    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
+    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// Support</a>.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "ASASeverityLevel")]
     [OutputType("Amazon.AWSSupport.Model.SeverityLevel")]

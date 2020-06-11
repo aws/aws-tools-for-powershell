@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Displays a list of categories for all event source types, or, if specified, for a
     /// specified source type. You can see a list of the event categories and source types
-    /// in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">
-    /// Events</a> topic in the <i>Amazon RDS User Guide.</i>
+    /// in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">
+    /// Events</a> in the <i>Amazon RDS User Guide.</i>
     /// </summary>
     [Cmdlet("Get", "RDSEventCategory")]
     [OutputType("Amazon.RDS.Model.EventCategoriesMap")]
@@ -57,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceType
         /// <summary>
         /// <para>
-        /// <para>The type of source that is generating the events.</para><para>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</para>
+        /// <para>The type of source that is generating the events.</para><para>Valid values: <code>db-instance</code> | <code>db-cluster</code> | <code>db-parameter-group</code>
+        /// | <code>db-security-group</code> | <code>db-snapshot</code> | <code>db-cluster-snapshot</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

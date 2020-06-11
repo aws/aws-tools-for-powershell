@@ -90,10 +90,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SMSAppLaunchConfiguration', 
         'Get-SMSAppList', 
         'Get-SMSAppReplicationConfiguration', 
+        'Get-SMSAppValidationConfiguration', 
+        'Get-SMSAppValidationOutput', 
         'Get-SMSConnector', 
         'Get-SMSReplicationJob', 
         'Get-SMSReplicationRun', 
         'Get-SMSServer', 
+        'Import-SMSAppCatalog', 
         'Import-SMSServerCatalog', 
         'New-SMSApp', 
         'New-SMSChangeSet', 
@@ -102,10 +105,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-SMSApp', 
         'Remove-SMSAppLaunchConfiguration', 
         'Remove-SMSAppReplicationConfiguration', 
+        'Remove-SMSAppValidationConfiguration', 
         'Remove-SMSReplicationJob', 
         'Remove-SMSServerCatalog', 
         'Start-SMSApp', 
         'Start-SMSAppReplication', 
+        'Start-SMSOnDemandAppReplication', 
         'Start-SMSOnDemandReplicationRun', 
         'Stop-SMSApp', 
         'Stop-SMSAppReplication', 
@@ -113,7 +118,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SMSApp', 
         'Update-SMSReplicationJob', 
         'Write-SMSAppLaunchConfiguration', 
-        'Write-SMSAppReplicationConfiguration')
+        'Write-SMSAppReplicationConfiguration', 
+        'Write-SMSAppValidationConfiguration', 
+        'Write-SMSAppValidationOutput')
 
     # Variables to export from this module
     VariablesToExport = '*'

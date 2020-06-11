@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String PolicyHashCondition { get; set; }
         #endregion
         
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the AWS Glue resource for the resource policy to be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -111,6 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.PolicyHashCondition = this.PolicyHashCondition;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.PolicyHashCondition != null)
             {
                 request.PolicyHashCondition = cmdletContext.PolicyHashCondition;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -193,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String PolicyHashCondition { get; set; }
+            public System.String ResourceArn { get; set; }
             public System.Func<Amazon.Glue.Model.DeleteResourcePolicyResponse, RemoveGLUEResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

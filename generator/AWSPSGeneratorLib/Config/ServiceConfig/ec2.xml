@@ -58,7 +58,6 @@
     <Params>
         <Param Name="DryRun" Exclude="true" />
     </Params>
-    <AdditionalNamespaces />
     <CustomAliases>
         <AliasSet Cmdlet="Stop-EC2Instance">EC2-StopInstance</AliasSet>
     </CustomAliases>
@@ -238,6 +237,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCarrierGateway" OutputProperty="CarrierGateway" Verb="New" Noun="CarrierGateway" ShouldProcessTarget="VpcId" PipelineParameter="VpcId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateClientVpnEndpoint" OutputProperty="*" Verb="New" Noun="ClientVpnEndpoint" ShouldProcessTarget="ServerCertificateArn" PipelineParameter="ServerCertificateArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -293,7 +296,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInternetGateway" OutputProperty="InternetGateway" Verb="New" Noun="InternetGateway" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateInternetGateway" OutputProperty="InternetGateway" Verb="New" Noun="InternetGateway" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -314,6 +317,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLocalGatewayRouteTableVpcAssociation" OutputProperty="LocalGatewayRouteTableVpcAssociation" Verb="New" Noun="LocalGatewayRouteTableVpcAssociation" ShouldProcessTarget="LocalGatewayRouteTableId" PipelineParameter="LocalGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateManagedPrefixList" OutputProperty="PrefixList" Verb="New" Noun="ManagedPrefixList" ShouldProcessTarget="PrefixListName" PipelineParameter="PrefixListName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -468,6 +475,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCarrierGateway" OutputProperty="CarrierGateway" Verb="Remove" Noun="CarrierGateway" ShouldProcessTarget="CarrierGatewayId" PipelineParameter="CarrierGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteClientVpnEndpoint" OutputProperty="Status" Verb="Remove" Noun="ClientVpnEndpoint" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -521,6 +532,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteLocalGatewayRouteTableVpcAssociation" OutputProperty="LocalGatewayRouteTableVpcAssociation" Verb="Remove" Noun="LocalGatewayRouteTableVpcAssociation" ShouldProcessTarget="LocalGatewayRouteTableVpcAssociationId" PipelineParameter="LocalGatewayRouteTableVpcAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteManagedPrefixList" OutputProperty="PrefixList" Verb="Remove" Noun="ManagedPrefixList" ShouldProcessTarget="PrefixListId" PipelineParameter="PrefixListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -711,6 +726,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCapacityReservations" OutputProperty="CapacityReservations" Verb="Get" Noun="CapacityReservation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCarrierGateways" OutputProperty="CarrierGateways" Verb="Get" Noun="CarrierGateway" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -912,6 +931,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLocalGatewayVirtualInterfaces" OutputProperty="LocalGatewayVirtualInterfaces" Verb="Get" Noun="LocalGatewayVirtualInterface" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeManagedPrefixLists" OutputProperty="PrefixLists" Verb="Get" Noun="ManagedPrefixList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1333,11 +1356,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupsForCapacityReservation" OutputProperty="CapacityReservationGroups" Verb="Get" Noun="GroupsForCapacityReservation" PipelineParameter="CapacityReservationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetHostReservationPurchasePreview" OutputProperty="*" Verb="Get" Noun="HostReservationPurchasePreview" PipelineParameter="OfferingId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetLaunchTemplateData" OutputProperty="LaunchTemplateData" Verb="Get" Noun="LaunchTemplateData" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedPrefixListAssociations" OutputProperty="PrefixListAssociations" Verb="Get" Noun="ManagedPrefixListAssociation" PipelineParameter="PrefixListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetManagedPrefixListEntries" OutputProperty="Entries" Verb="Get" Noun="ManagedPrefixListEntry" PipelineParameter="PrefixListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1474,6 +1509,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyLaunchTemplate" OutputProperty="LaunchTemplate" Verb="Edit" Noun="LaunchTemplate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyManagedPrefixList" OutputProperty="PrefixList" Verb="Edit" Noun="ManagedPrefixList" ShouldProcessTarget="PrefixListId" PipelineParameter="PrefixListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1720,6 +1759,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RestoreManagedPrefixListVersion" OutputProperty="PrefixList" Verb="Restore" Noun="ManagedPrefixListVersion" ShouldProcessTarget="PrefixListId" PipelineParameter="PrefixListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RevokeClientVpnIngress" OutputProperty="Status" Verb="Revoke" Noun="ClientVpnIngress" ShouldProcessTarget="ClientVpnEndpointId" PipelineParameter="ClientVpnEndpointId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1828,8 +1871,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.EC2.Model.RequestLaunchTemplateData</Type>
     </TypesNotToFlatten>

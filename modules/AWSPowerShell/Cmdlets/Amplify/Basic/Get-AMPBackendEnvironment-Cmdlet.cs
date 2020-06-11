@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Retrieves a backend environment for an Amplify App.
+    /// Returns a backend environment for an Amplify app.
     /// </summary>
     [Cmdlet("Get", "AMPBackendEnvironment")]
     [OutputType("Amazon.Amplify.Model.BackendEnvironment")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique id for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> Name for the backend environment. </para>
+        /// <para> The name for the backend environment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

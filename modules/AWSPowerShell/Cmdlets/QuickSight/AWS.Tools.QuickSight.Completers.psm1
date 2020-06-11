@@ -130,6 +130,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.IdentityStore
+        "New-QSNamespace/IdentityStore"
+        {
+            $v = "QUICKSIGHT"
+            break
+        }
+
         # Amazon.QuickSight.IdentityType
         {
             ($_ -eq "Get-QSDashboardEmbedUrl/IdentityType") -Or
@@ -147,6 +154,13 @@ $QS_Completers = {
         }
         {
             $v = "DENY_ACCESS","GRANT_ACCESS"
+            break
+        }
+
+        # Amazon.QuickSight.ThemeType
+        "Get-QSThemeList/Type"
+        {
+            $v = "ALL","CUSTOM","QUICKSIGHT"
             break
         }
 
@@ -173,11 +187,12 @@ $QS_map = @{
     "DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "DashboardPublishOptions_SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
+    "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
     "Role"=@("Update-QSUser")
     "RowLevelPermissionDataSet_PermissionPolicy"=@("New-QSDataSet","Update-QSDataSet")
-    "Type"=@("New-QSDataSource")
+    "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
 }
 
@@ -232,6 +247,8 @@ $QS_SelectCompleters = {
 
 $QS_SelectMap = @{
     "Select"=@("Stop-QSIngestion",
+               "New-QSAccountCustomization",
+               "New-QSAnalysis",
                "New-QSDashboard",
                "New-QSDataSet",
                "New-QSDataSource",
@@ -239,18 +256,30 @@ $QS_SelectMap = @{
                "New-QSGroupMembership",
                "New-QSIAMPolicyAssignment",
                "New-QSIngestion",
+               "New-QSNamespace",
                "New-QSTemplate",
                "New-QSTemplateAlias",
+               "New-QSTheme",
+               "New-QSThemeAlias",
+               "Remove-QSAccountCustomization",
+               "Remove-QSAnalysis",
                "Remove-QSDashboard",
                "Remove-QSDataSet",
                "Remove-QSDataSource",
                "Remove-QSGroup",
                "Remove-QSGroupMembership",
                "Remove-QSIAMPolicyAssignment",
+               "Remove-QSNamespace",
                "Remove-QSTemplate",
                "Remove-QSTemplateAlias",
+               "Remove-QSTheme",
+               "Remove-QSThemeAlias",
                "Remove-QSUser",
                "Remove-QSUserByPrincipalId",
+               "Get-QSAccountCustomization",
+               "Get-QSAccountSetting",
+               "Get-QSAnalysis",
+               "Get-QSAnalysisPermission",
                "Get-QSDashboard",
                "Get-QSDashboardPermission",
                "Get-QSDataSet",
@@ -260,11 +289,17 @@ $QS_SelectMap = @{
                "Get-QSGroup",
                "Get-QSIAMPolicyAssignment",
                "Get-QSIngestion",
+               "Get-QSNamespace",
                "Get-QSTemplate",
                "Get-QSTemplateAlias",
                "Get-QSTemplatePermission",
+               "Get-QSTheme",
+               "Get-QSThemeAlias",
+               "Get-QSThemePermission",
                "Get-QSUser",
                "Get-QSDashboardEmbedUrl",
+               "Get-QSSessionEmbedUrl",
+               "Get-QSAnalysisList",
                "Get-QSDashboardList",
                "Get-QSDashboardVersionList",
                "Get-QSDataSetList",
@@ -274,16 +309,26 @@ $QS_SelectMap = @{
                "Get-QSIAMPolicyAssignmentList",
                "Get-QSIAMPolicyAssignmentsForUserList",
                "Get-QSIngestionList",
+               "Get-QSNamespaceList",
                "Get-QSResourceTag",
                "Get-QSTemplateAliasList",
                "Get-QSTemplateList",
                "Get-QSTemplateVersionList",
+               "Get-QSThemeAliasList",
+               "Get-QSThemeList",
+               "Get-QSThemeVersionList",
                "Get-QSUserGroupList",
                "Get-QSUserList",
                "Register-QSUser",
+               "Restore-QSAnalysis",
+               "Search-QSAnalysis",
                "Search-QSDashboard",
                "Add-QSResourceTag",
                "Remove-QSResourceTag",
+               "Update-QSAccountCustomization",
+               "Update-QSAccountSetting",
+               "Update-QSAnalysis",
+               "Update-QSAnalysisPermission",
                "Update-QSDashboard",
                "Update-QSDashboardPermission",
                "Update-QSDashboardPublishedVersion",
@@ -296,6 +341,9 @@ $QS_SelectMap = @{
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
                "Update-QSTemplatePermission",
+               "Update-QSTheme",
+               "Update-QSThemeAlias",
+               "Update-QSThemePermission",
                "Update-QSUser")
 }
 

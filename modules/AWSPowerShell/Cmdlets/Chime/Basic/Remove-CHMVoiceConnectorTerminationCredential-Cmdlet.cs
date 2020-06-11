@@ -47,7 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// <para>The RFC2617 compliant username associated with the SIP credentials, in US-ASCII format.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Usernames")]
         public System.String[] Username { get; set; }
         #endregion
@@ -133,6 +140,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             {
                 context.Username = new List<System.String>(this.Username);
             }
+            #if MODULAR
+            if (this.Username == null && ParameterWasBound(nameof(this.Username)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Username which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.VoiceConnectorId = this.VoiceConnectorId;
             #if MODULAR
             if (this.VoiceConnectorId == null && ParameterWasBound(nameof(this.VoiceConnectorId)))

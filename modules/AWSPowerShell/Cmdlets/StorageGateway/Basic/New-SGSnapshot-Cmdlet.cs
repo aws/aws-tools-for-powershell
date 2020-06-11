@@ -33,12 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
     ///  
     /// <para>
     /// AWS Storage Gateway provides the ability to back up point-in-time snapshots of your
-    /// data to Amazon Simple Storage Service (Amazon S3) for durable off-site recovery, as
-    /// well as import the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic
-    /// Compute Cloud (EC2). You can take snapshots of your gateway volume on a scheduled
-    /// or ad hoc basis. This API enables you to take an ad hoc snapshot. For more information,
-    /// see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
-    /// a Snapshot Schedule</a>.
+    /// data to Amazon Simple Storage (Amazon S3) for durable off-site recovery, as well as
+    /// import the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute
+    /// Cloud (EC2). You can take snapshots of your gateway volume on a scheduled or ad hoc
+    /// basis. This API enables you to take ad-hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
+    /// a snapshot schedule</a>.
     /// </para><para>
     /// In the CreateSnapshot request you identify the volume by providing its Amazon Resource
     /// Name (ARN). You must also provide description for the snapshot. When AWS Storage Gateway
@@ -49,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// and cached volume gateway type.
     /// </para><note><para>
     /// To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
-    /// see DescribeSnapshots or DeleteSnapshot in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html">EC2
-    /// API reference</a>.
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a>
+    /// or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html">DeleteSnapshot</a>
+    /// in the <i>Amazon Elastic Compute Cloud API Reference</i>.
     /// </para></note><important><para>
     /// Volume and snapshot IDs are changing to a longer length ID format. For more information,
     /// see the important note on the <a href="https://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html">Welcome</a>
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
         /// Block Store snapshots panel in the <b>Description</b> field, and in the AWS Storage
-        /// Gateway snapshot <b>Details</b> pane, <b>Description</b> field</para>
+        /// Gateway snapshot <b>Details</b> pane, <b>Description</b> field.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

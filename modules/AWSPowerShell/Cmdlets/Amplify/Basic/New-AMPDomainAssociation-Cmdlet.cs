@@ -28,7 +28,8 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Create a new DomainAssociation on an App
+    /// Creates a new domain association for an Amplify app. This action associates a custom
+    /// domain with the Amplify app
     /// </summary>
     [Cmdlet("New", "AMPDomainAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Amplify.Model.DomainAssociation")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,10 +58,32 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String AppId { get; set; }
         #endregion
         
+        #region Parameter AutoSubDomainCreationPattern
+        /// <summary>
+        /// <para>
+        /// <para> Sets the branch patterns for automatic subdomain creation. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoSubDomainCreationPatterns")]
+        public System.String[] AutoSubDomainCreationPattern { get; set; }
+        #endregion
+        
+        #region Parameter AutoSubDomainIAMRole
+        /// <summary>
+        /// <para>
+        /// <para> The required AWS Identity and Access Management (IAM) service role for the Amazon
+        /// Resource Name (ARN) for automatically creating subdomains. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AutoSubDomainIAMRole { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para> Domain name for the Domain Association. </para>
+        /// <para> The domain name for the domain association. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,8 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnableAutoSubDomain
         /// <summary>
         /// <para>
-        /// <para> Enables automated creation of Subdomains for branches. (Currently not supported)
-        /// </para>
+        /// <para> Enables the automated creation of subdomains for branches. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter SubDomainSetting
         /// <summary>
         /// <para>
-        /// <para> Setting structure for the Subdomain. </para>
+        /// <para> The setting for the subdomain. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -171,6 +193,11 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.AutoSubDomainCreationPattern != null)
+            {
+                context.AutoSubDomainCreationPattern = new List<System.String>(this.AutoSubDomainCreationPattern);
+            }
+            context.AutoSubDomainIAMRole = this.AutoSubDomainIAMRole;
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -208,6 +235,14 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (cmdletContext.AppId != null)
             {
                 request.AppId = cmdletContext.AppId;
+            }
+            if (cmdletContext.AutoSubDomainCreationPattern != null)
+            {
+                request.AutoSubDomainCreationPatterns = cmdletContext.AutoSubDomainCreationPattern;
+            }
+            if (cmdletContext.AutoSubDomainIAMRole != null)
+            {
+                request.AutoSubDomainIAMRole = cmdletContext.AutoSubDomainIAMRole;
             }
             if (cmdletContext.DomainName != null)
             {
@@ -283,6 +318,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppId { get; set; }
+            public List<System.String> AutoSubDomainCreationPattern { get; set; }
+            public System.String AutoSubDomainIAMRole { get; set; }
             public System.String DomainName { get; set; }
             public System.Boolean? EnableAutoSubDomain { get; set; }
             public List<Amazon.Amplify.Model.SubDomainSetting> SubDomainSetting { get; set; }

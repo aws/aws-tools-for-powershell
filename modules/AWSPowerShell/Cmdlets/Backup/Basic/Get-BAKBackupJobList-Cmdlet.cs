@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKBackupJobListCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        #region Parameter ByAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID to list the jobs from. Returns only backup jobs associated with the
+        /// specified account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByAccountId { get; set; }
+        #endregion
+        
         #region Parameter ByBackupVaultName
         /// <summary>
         /// <para>
@@ -86,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByResourceType
         /// <summary>
         /// <para>
-        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>Storage Gateway</code> for AWS Storage Gateway</para></li></ul>
+        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>Storage Gateway</code> for AWS Storage Gateway</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = CreateSelectDelegate<Amazon.Backup.Model.ListBackupJobsResponse, GetBAKBackupJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ByAccountId = this.ByAccountId;
             context.ByBackupVaultName = this.ByBackupVaultName;
             context.ByCreatedAfter = this.ByCreatedAfter;
             context.ByCreatedBefore = this.ByCreatedBefore;
@@ -208,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             // create request and set iteration invariants
             var request = new Amazon.Backup.Model.ListBackupJobsRequest();
             
+            if (cmdletContext.ByAccountId != null)
+            {
+                request.ByAccountId = cmdletContext.ByAccountId;
+            }
             if (cmdletContext.ByBackupVaultName != null)
             {
                 request.ByBackupVaultName = cmdletContext.ByBackupVaultName;
@@ -291,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             
             // create request and set iteration invariants
             var request = new Amazon.Backup.Model.ListBackupJobsRequest();
+            if (cmdletContext.ByAccountId != null)
+            {
+                request.ByAccountId = cmdletContext.ByAccountId;
+            }
             if (cmdletContext.ByBackupVaultName != null)
             {
                 request.ByBackupVaultName = cmdletContext.ByBackupVaultName;
@@ -434,6 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ByAccountId { get; set; }
             public System.String ByBackupVaultName { get; set; }
             public System.DateTime? ByCreatedAfter { get; set; }
             public System.DateTime? ByCreatedBefore { get; set; }

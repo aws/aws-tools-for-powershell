@@ -28,8 +28,8 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Returns a list of vocabularies that match the specified criteria. You get the entire
-    /// list of vocabularies if you don't enter a value in any of the request parameters.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of vocabularies that match the specified criteria. If you don't enter
+    /// a value in any of the request parameters, returns the entire list of vocabularies.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TRSMedicalVocabularyList")]
     [OutputType("Amazon.TranscribeService.Model.VocabularyInfo")]
@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para>Returns vocabularies in the list whose name contains the specified string. The search
-        /// is case-insensitive, <code>ListMedicalVocabularies</code> returns both "vocabularyname"
-        /// and "VocabularyName" in the response list.</para>
+        /// <para>Returns vocabularies whose names contain the specified string. The search is not case
+        /// sensitive. <code>ListMedicalVocabularies</code> returns both "<code>vocabularyname</code>"
+        /// and "<code>VocabularyName</code>".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,8 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter StateEqual
         /// <summary>
         /// <para>
-        /// <para>When specified, only returns vocabularies with the <code>VocabularyState</code> equal
-        /// to the specified vocabulary state.</para>
+        /// <para>When specified, returns only vocabularies with the <code>VocabularyState</code> equal
+        /// to the specified vocabulary state. Use this field to see which vocabularies are ready
+        /// for your medical transcription jobs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>If the result of your previous request to <code>ListMedicalVocabularies</code> was
-        /// truncated, include the <code>NextToken</code> to fetch the next set of jobs.</para>
+        /// truncated, include the <code>NextToken</code> to fetch the next set of vocabularies.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

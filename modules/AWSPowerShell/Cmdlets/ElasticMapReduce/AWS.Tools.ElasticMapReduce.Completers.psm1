@@ -100,6 +100,13 @@ $EMR_Completers = {
             break
         }
 
+        # Amazon.ElasticMapReduce.OnDemandProvisioningAllocationStrategy
+        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"
+        {
+            $v = "lowest-price"
+            break
+        }
+
         # Amazon.ElasticMapReduce.RepoUpgradeOnBoot
         "Start-EMRJobFlow/RepoUpgradeOnBoot"
         {
@@ -111,6 +118,13 @@ $EMR_Completers = {
         "Start-EMRJobFlow/ScaleDownBehavior"
         {
             $v = "TERMINATE_AT_INSTANCE_HOUR","TERMINATE_AT_TASK_COMPLETION"
+            break
+        }
+
+        # Amazon.ElasticMapReduce.SpotProvisioningAllocationStrategy
+        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_SpotSpecification_AllocationStrategy"
+        {
+            $v = "capacity-optimized"
             break
         }
 
@@ -138,6 +152,8 @@ $EMR_Completers = {
 
 $EMR_map = @{
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
+    "InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
+    "InstanceFleet_LaunchSpecifications_SpotSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
     "InstanceFleetType"=@("Get-EMRInstanceList")
     "ManagedScalingPolicy_ComputeLimits_UnitType"=@("Start-EMRJobFlow","Write-EMRManagedScalingPolicy")

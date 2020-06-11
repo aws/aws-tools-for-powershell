@@ -28,7 +28,9 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    
+    /// Used by profiler agents to report their current state and to receive remote configuration
+    /// updates. For example, <code>ConfigureAgent</code> can be used to tell and agent whether
+    /// to profile or not and for how long to return profiling data.
     /// </summary>
     [Cmdlet("Set", "CGPAgentConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruProfiler.Model.AgentConfiguration")]
@@ -43,17 +45,38 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter FleetInstanceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> A universally unique identifier (UUID) for a profiling instance. For example, if
+        /// the profiling instance is an Amazon EC2 instance, it is the instance ID. If it is
+        /// an AWS Fargate container, it is the container's task ID. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String FleetInstanceId { get; set; }
         #endregion
         
+        #region Parameter Metadata
+        /// <summary>
+        /// <para>
+        /// <para> Metadata captured about the compute platform the agent is running on. It includes
+        /// information about sampling and reporting. The valid fields are:</para><ul><li><para><code>COMPUTE_PLATFORM</code> - The compute platform on which the agent is running
+        /// </para></li><li><para><code>AGENT_ID</code> - The ID for an agent instance. </para></li><li><para><code>AWS_REQUEST_ID</code> - The AWS request ID of a Lambda invocation. </para></li><li><para><code>EXECUTION_ENVIRONMENT</code> - The execution environment a Lambda function
+        /// is running on. </para></li><li><para><code>LAMBDA_FUNCTION_ARN</code> - The Amazon Resource Name (ARN) that is used to
+        /// invoke a Lambda function. </para></li><li><para><code>LAMBDA_MEMORY_LIMIT_IN_MB</code> - The memory allocated to a Lambda function.
+        /// </para></li><li><para><code>LAMBDA_REMAINING_TIME_IN_MILLISECONDS</code> - The time in milliseconds before
+        /// execution of a Lambda function times out. </para></li><li><para><code>LAMBDA_TIME_GAP_BETWEEN_INVOKES_IN_MILLISECONDS</code> - The time in milliseconds
+        /// between two invocations of a Lambda function. </para></li><li><para><code>LAMBDA_PREVIOUS_EXECUTION_TIME_IN_MILLISECONDS</code> - The time in milliseconds
+        /// for the previous Lambda invocation. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable Metadata { get; set; }
+        #endregion
+        
         #region Parameter ProfilingGroupName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The name of the profiling group for which the configured agent is collecting profiling
+        /// data. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -129,6 +152,14 @@ namespace Amazon.PowerShell.Cmdlets.CGP
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FleetInstanceId = this.FleetInstanceId;
+            if (this.Metadata != null)
+            {
+                context.Metadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Metadata.Keys)
+                {
+                    context.Metadata.Add((String)hashKey, (String)(this.Metadata[hashKey]));
+                }
+            }
             context.ProfilingGroupName = this.ProfilingGroupName;
             #if MODULAR
             if (this.ProfilingGroupName == null && ParameterWasBound(nameof(this.ProfilingGroupName)))
@@ -155,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
             if (cmdletContext.FleetInstanceId != null)
             {
                 request.FleetInstanceId = cmdletContext.FleetInstanceId;
+            }
+            if (cmdletContext.Metadata != null)
+            {
+                request.Metadata = cmdletContext.Metadata;
             }
             if (cmdletContext.ProfilingGroupName != null)
             {
@@ -222,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String FleetInstanceId { get; set; }
+            public Dictionary<System.String, System.String> Metadata { get; set; }
             public System.String ProfilingGroupName { get; set; }
             public System.Func<Amazon.CodeGuruProfiler.Model.ConfigureAgentResponse, SetCGPAgentConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Configuration;

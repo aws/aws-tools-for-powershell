@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class NewFDVariableBatchCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A collection of key and value pairs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.FraudDetector.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VariableEntry
         /// <summary>
         /// <para>
@@ -99,6 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 context.Select = CreateSelectDelegate<Amazon.FraudDetector.Model.BatchCreateVariableResponse, NewFDVariableBatchCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.FraudDetector.Model.Tag>(this.Tag);
+            }
             if (this.VariableEntry != null)
             {
                 context.VariableEntry = new List<Amazon.FraudDetector.Model.VariableEntry>(this.VariableEntry);
@@ -125,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
             // create request
             var request = new Amazon.FraudDetector.Model.BatchCreateVariableRequest();
             
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.VariableEntry != null)
             {
                 request.VariableEntries = cmdletContext.VariableEntry;
@@ -190,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.FraudDetector.Model.Tag> Tag { get; set; }
             public List<Amazon.FraudDetector.Model.VariableEntry> VariableEntry { get; set; }
             public System.Func<Amazon.FraudDetector.Model.BatchCreateVariableResponse, NewFDVariableBatchCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Errors;

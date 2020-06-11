@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The name of the vocabulary filter to update. If you try to update a vocabulary filter
-        /// with the same name as a previous vocabulary filter you will receive a <code>ConflictException</code>
+        /// with the same name as another vocabulary filter, you get a <code>ConflictException</code>
         /// error.</para>
         /// </para>
         /// </summary>

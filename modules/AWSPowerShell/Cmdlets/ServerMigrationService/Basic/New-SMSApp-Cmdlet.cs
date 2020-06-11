@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Description of the new application</para>
+        /// <para>The description of the new application</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the new application.</para>
+        /// <para>The name of the new application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>Name of service role in customer's account to be used by AWS SMS.</para>
+        /// <para>The name of the service role in the customer's account to be used by AWS SMS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ServerGroup
         /// <summary>
         /// <para>
-        /// <para>List of server groups to include in the application.</para>
+        /// <para>The server groups to include in the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>List of tags to be associated with the application.</para>
+        /// <para>The tags to be associated with the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A unique, case-sensitive identifier you provide to ensure idempotency of application
-        /// creation.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// application creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

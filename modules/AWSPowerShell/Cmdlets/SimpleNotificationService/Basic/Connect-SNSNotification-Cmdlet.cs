@@ -28,13 +28,15 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Prepares to subscribe an endpoint by sending the endpoint a confirmation message.
-    /// To actually create a subscription, the endpoint owner must call the <code>ConfirmSubscription</code>
-    /// action with the token from the confirmation message. Confirmation tokens are valid
-    /// for three days.
+    /// Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email,
+    /// or if the endpoint and the topic are not in the same AWS account, the endpoint owner
+    /// must the <code>ConfirmSubscription</code> action to confirm the subscription.
     /// 
     ///  
     /// <para>
+    /// You call the <code>ConfirmSubscription</code> action with the token from the subscription
+    /// response. Confirmation tokens are valid for three days.
+    /// </para><para>
     /// This action is throttled at 100 transactions per second (TPS).
     /// </para>
     /// </summary>
@@ -71,7 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Endpoint
         /// <summary>
         /// <para>
-        /// <para>The endpoint that you want to receive notifications. Endpoints vary by protocol:</para><ul><li><para>For the <code>http</code> protocol, the endpoint is an URL beginning with <code>http://</code></para></li><li><para>For the <code>https</code> protocol, the endpoint is a URL beginning with <code>https://</code></para></li><li><para>For the <code>email</code> protocol, the endpoint is an email address</para></li><li><para>For the <code>email-json</code> protocol, the endpoint is an email address</para></li><li><para>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled
+        /// <para>The endpoint that you want to receive notifications. Endpoints vary by protocol:</para><ul><li><para>For the <code>http</code> protocol, the (public) endpoint is a URL beginning with
+        /// <code>http://</code></para></li><li><para>For the <code>https</code> protocol, the (public) endpoint is a URL beginning with
+        /// <code>https://</code></para></li><li><para>For the <code>email</code> protocol, the endpoint is an email address</para></li><li><para>For the <code>email-json</code> protocol, the endpoint is an email address</para></li><li><para>For the <code>sms</code> protocol, the endpoint is a phone number of an SMS-enabled
         /// device</para></li><li><para>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS queue</para></li><li><para>For the <code>application</code> protocol, the endpoint is the EndpointArn of a mobile
         /// app and device.</para></li><li><para>For the <code>lambda</code> protocol, the endpoint is the ARN of an Amazon Lambda
         /// function.</para></li></ul>
@@ -103,12 +107,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>Sets whether the response from the <code>Subscribe</code> request includes the subscription
-        /// ARN, even if the subscription is not yet confirmed.</para><ul><li><para>If you have the subscription ARN returned, the response includes the ARN in all cases,
-        /// even if the subscription is not yet confirmed.</para></li><li><para>If you don't have the subscription ARN returned, in addition to the ARN for confirmed
+        /// ARN, even if the subscription is not yet confirmed.</para><ul><li><para>If you set this parameter to <code>true</code>, the response includes the ARN in all
+        /// cases, even if the subscription is not yet confirmed. In addition to the ARN for confirmed
         /// subscriptions, the response also includes the <code>pending subscription</code> ARN
         /// value for subscriptions that aren't yet confirmed. A subscription becomes confirmed
         /// when the subscriber calls the <code>ConfirmSubscription</code> action with a confirmation
-        /// token.</para></li></ul><para>If you set this parameter to <code>true</code>, .</para><para>The default value is <code>false</code>.</para>
+        /// token.</para></li></ul><para>The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Amazon EBS snapshots persist and you will continue to be billed for these snapshots. You
     /// can choose to remove all remaining Amazon EBS snapshots by canceling your Amazon EC2
     /// subscription.  If you prefer not to cancel your Amazon EC2 subscription, you can delete
-    /// your snapshots using the Amazon EC2 console. For more information, see the <a href="http://aws.amazon.com/storagegateway">
-    /// AWS Storage Gateway Detail Page</a>. 
+    /// your snapshots using the Amazon EC2 console. For more information, see the <a href="http://aws.amazon.com/storagegateway">AWS
+    /// Storage Gateway detail page</a>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "SGGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

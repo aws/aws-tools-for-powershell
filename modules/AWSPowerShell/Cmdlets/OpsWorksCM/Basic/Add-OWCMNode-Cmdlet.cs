@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     ///  On a Puppet server, this command is an alternative to the <code>puppet cert sign</code>
     /// command that signs a Puppet node CSR. 
     /// </para><para>
-    ///  Example (Chef): <code>aws opsworks-cm associate-node --server-name <i>MyServer</i>
+    ///  Example (Puppet): <code>aws opsworks-cm associate-node --server-name <i>MyServer</i>
     /// --node-name <i>MyManagedNode</i> --engine-attributes "Name=<i>PUPPET_NODE_CSR</i>,Value=<i>csr-pem</i>"</code></para><para>
     ///  A node can can only be associated with servers that are in a <code>HEALTHY</code>
     /// state. Otherwise, an <code>InvalidStateException</code> is thrown. A <code>ResourceNotFoundException</code>

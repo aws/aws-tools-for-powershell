@@ -192,6 +192,20 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.TimeUnitsType
+        {
+            ($_ -eq "New-CGIPUserPoolClient/TokenValidityUnits_AccessToken") -Or
+            ($_ -eq "Update-CGIPUserPoolClient/TokenValidityUnits_AccessToken") -Or
+            ($_ -eq "New-CGIPUserPoolClient/TokenValidityUnits_IdToken") -Or
+            ($_ -eq "Update-CGIPUserPoolClient/TokenValidityUnits_IdToken") -Or
+            ($_ -eq "New-CGIPUserPoolClient/TokenValidityUnits_RefreshToken") -Or
+            ($_ -eq "Update-CGIPUserPoolClient/TokenValidityUnits_RefreshToken")
+        }
+        {
+            $v = "days","hours","minutes","seconds"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.UserPoolMfaType
         {
             ($_ -eq "New-CGIPUserPool/MfaConfiguration") -Or
@@ -225,6 +239,9 @@ $CGIP_map = @{
     "MfaConfiguration"=@("New-CGIPUserPool","Set-CGIPUserPoolMfaConfig","Update-CGIPUserPool")
     "PreventUserExistenceErrors"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "ProviderType"=@("New-CGIPIdentityProvider")
+    "TokenValidityUnits_AccessToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
+    "TokenValidityUnits_IdToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
+    "TokenValidityUnits_RefreshToken"=@("New-CGIPUserPoolClient","Update-CGIPUserPoolClient")
     "UserPoolAddOns_AdvancedSecurityMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "VerificationMessageTemplate_DefaultEmailOption"=@("New-CGIPUserPool","Update-CGIPUserPool")
 }

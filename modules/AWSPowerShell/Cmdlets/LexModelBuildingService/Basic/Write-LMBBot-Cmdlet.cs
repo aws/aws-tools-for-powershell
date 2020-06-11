@@ -160,6 +160,28 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.Boolean? DetectSentiment { get; set; }
         #endregion
         
+        #region Parameter EnableModelImprovement
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>true</code> to enable the use of a new natural language understanding
+        /// (NLU) model. Using the new NLU may improve the performance of your bot. </para><para>When you set the <code>enableModelImprovements</code> parameter to <code>true</code>
+        /// you can use the <code>nluIntentConfidenceThreshold</code> parameter to configure confidence
+        /// scores. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html">Confidence
+        /// Scores</a>.</para><para>You can only set the <code>enableModelImprovements</code> parameter in certain Regions.
+        /// If you set the parameter to <code>true</code>, your bot will use the new NLU. If you
+        /// set the parameter to <code>false</code>, your bot will continue to use the original
+        /// NLU. If you set the parameter to <code>false</code> after setting it to <code>true</code>,
+        /// your bot will return to the original NLU.</para><para>The Regions where you can set the <code>enableModelImprovements</code> parameter to
+        /// <code>true</code> are:</para><ul><li><para>US East (N. Virginia) (us-east-1)</para></li><li><para>US West (Oregon) (us-west-2)</para></li><li><para>Asia Pacific (Sydney) (ap-southeast-2)</para></li><li><para>EU (Ireland) (eu-west-1)</para></li></ul><para>In other Regions, the <code>enableModelImprovements</code> parameter is set to <code>true</code>
+        /// by default. In these Regions setting the parameter to <code>false</code> throws a
+        /// <code>ValidationException</code> exception.</para><ul><li><para>Asia Pacific (Singapore) (ap-southeast-1)</para></li><li><para>Asia Pacific (Tokyo) (ap-northeast-1)</para></li><li><para>EU (Frankfurt) (eu-central-1)</para></li><li><para>EU (London) (eu-west-2)</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnableModelImprovements")]
+        public System.Boolean? EnableModelImprovement { get; set; }
+        #endregion
+        
         #region Parameter IdleSessionTTLInSecond
         /// <summary>
         /// <para>
@@ -247,6 +269,25 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter NluIntentConfidenceThreshold
+        /// <summary>
+        /// <para>
+        /// <para>Determines the threshold where Amazon Lex will insert the <code>AMAZON.FallbackIntent</code>,
+        /// <code>AMAZON.KendraSearchIntent</code>, or both when returning alternative intents
+        /// in a <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html">PostContent</a>
+        /// or <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a>
+        /// response. <code>AMAZON.FallbackIntent</code> and <code>AMAZON.KendraSearchIntent</code>
+        /// are only inserted if they are configured for the bot.</para><para>You must set the <code>enableModelImprovements</code> parameter to <code>true</code>
+        /// to use confidence scores.</para><para>For example, suppose a bot is configured with the confidence threshold of 0.80 and
+        /// the <code>AMAZON.FallbackIntent</code>. Amazon Lex returns three alternative intents
+        /// with the following confidence scores: IntentA (0.70), IntentB (0.60), IntentC (0.50).
+        /// The response from the <code>PostText</code> operation would be:</para><ul><li><para>AMAZON.FallbackIntent</para></li><li><para>IntentA</para></li><li><para>IntentB</para></li><li><para>IntentC</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? NluIntentConfidenceThreshold { get; set; }
         #endregion
         
         #region Parameter ProcessBehavior
@@ -379,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             context.CreateVersion = this.CreateVersion;
             context.Description = this.Description;
             context.DetectSentiment = this.DetectSentiment;
+            context.EnableModelImprovement = this.EnableModelImprovement;
             context.IdleSessionTTLInSecond = this.IdleSessionTTLInSecond;
             if (this.Intent != null)
             {
@@ -398,6 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NluIntentConfidenceThreshold = this.NluIntentConfidenceThreshold;
             context.ProcessBehavior = this.ProcessBehavior;
             if (this.Tag != null)
             {
@@ -483,6 +526,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             {
                 request.DetectSentiment = cmdletContext.DetectSentiment.Value;
             }
+            if (cmdletContext.EnableModelImprovement != null)
+            {
+                request.EnableModelImprovements = cmdletContext.EnableModelImprovement.Value;
+            }
             if (cmdletContext.IdleSessionTTLInSecond != null)
             {
                 request.IdleSessionTTLInSeconds = cmdletContext.IdleSessionTTLInSecond.Value;
@@ -498,6 +545,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.NluIntentConfidenceThreshold != null)
+            {
+                request.NluIntentConfidenceThreshold = cmdletContext.NluIntentConfidenceThreshold.Value;
             }
             if (cmdletContext.ProcessBehavior != null)
             {
@@ -581,10 +632,12 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public System.Boolean? CreateVersion { get; set; }
             public System.String Description { get; set; }
             public System.Boolean? DetectSentiment { get; set; }
+            public System.Boolean? EnableModelImprovement { get; set; }
             public System.Int32? IdleSessionTTLInSecond { get; set; }
             public List<Amazon.LexModelBuildingService.Model.Intent> Intent { get; set; }
             public Amazon.LexModelBuildingService.Locale Locale { get; set; }
             public System.String Name { get; set; }
+            public System.Double? NluIntentConfidenceThreshold { get; set; }
             public Amazon.LexModelBuildingService.ProcessBehavior ProcessBehavior { get; set; }
             public List<Amazon.LexModelBuildingService.Model.Tag> Tag { get; set; }
             public System.String VoiceId { get; set; }

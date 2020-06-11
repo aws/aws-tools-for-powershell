@@ -80,6 +80,13 @@ $ECR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ECR.EncryptionType
+        "New-ECRRepository/EncryptionConfiguration_EncryptionType"
+        {
+            $v = "AES256","KMS"
+            break
+        }
+
         # Amazon.ECR.ImageTagMutability
         {
             ($_ -eq "New-ECRRepository/ImageTagMutability") -Or
@@ -110,6 +117,7 @@ $ECR_Completers = {
 }
 
 $ECR_map = @{
+    "EncryptionConfiguration_EncryptionType"=@("New-ECRRepository")
     "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
     "ImageTagMutability"=@("New-ECRRepository","Write-ECRImageTagMutability")
 }

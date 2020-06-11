@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Deletes a DomainAssociation.
+    /// Deletes a domain association for an Amplify app.
     /// </summary>
     [Cmdlet("Remove", "AMPDomainAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Amplify.Model.DomainAssociation")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique id for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para> Name of the domain. </para>
+        /// <para> The name of the domain. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

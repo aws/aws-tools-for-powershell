@@ -28,7 +28,7 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Gets a model version.
+    /// Gets the details of the specified model version.
     /// </summary>
     [Cmdlet("Get", "FDModelVersion")]
     [OutputType("Amazon.FraudDetector.Model.GetModelVersionResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter ModelId
         /// <summary>
         /// <para>
-        /// <para>The model ID. </para>
+        /// <para>The model ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter ModelType
         /// <summary>
         /// <para>
-        /// <para>The model type. </para>
+        /// <para>The model type.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter ModelVersionNumber
         /// <summary>
         /// <para>
-        /// <para>The model version. </para>
+        /// <para>The model version number.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

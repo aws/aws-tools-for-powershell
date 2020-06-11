@@ -221,8 +221,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PreferredAvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The EC2 Availability Zone in which the cluster is created.</para><para>All nodes belonging to this Memcached cluster are placed in the preferred Availability
-        /// Zone. If you want to create your nodes across multiple Availability Zones, use <code>PreferredAvailabilityZones</code>.</para><para>Default: System chosen Availability Zone.</para>
+        /// <para>The EC2 Availability Zone in which the cluster is created.</para><para>All nodes belonging to this cluster are placed in the preferred Availability Zone.
+        /// If you want to create your nodes across multiple Availability Zones, use <code>PreferredAvailabilityZones</code>.</para><para>Default: System chosen Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

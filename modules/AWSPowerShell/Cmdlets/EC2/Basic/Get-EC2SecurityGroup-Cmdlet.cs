@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// port range for the TCP and UDP protocols, or an ICMP type number.</para></li><li><para><code>egress.ip-permission.group-id</code> - The ID of a security group that has
         /// been referenced in an outbound security group rule.</para></li><li><para><code>egress.ip-permission.group-name</code> - The name of a security group that
         /// has been referenced in an outbound security group rule.</para></li><li><para><code>egress.ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an outbound
-        /// security group rule.</para></li><li><para><code>egress.ip-permission.prefix-list-id</code> - The ID (prefix) of the AWS service
-        /// to which a security group rule allows outbound access.</para></li><li><para><code>egress.ip-permission.protocol</code> - The IP protocol for an outbound security
+        /// security group rule.</para></li><li><para><code>egress.ip-permission.prefix-list-id</code> - The ID of a prefix list to which
+        /// a security group rule allows outbound access.</para></li><li><para><code>egress.ip-permission.protocol</code> - The IP protocol for an outbound security
         /// group rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol
         /// number).</para></li><li><para><code>egress.ip-permission.to-port</code> - For an outbound rule, the end of port
         /// range for the TCP and UDP protocols, or an ICMP code.</para></li><li><para><code>egress.ip-permission.user-id</code> - The ID of an AWS account that has been
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for the TCP and UDP protocols, or an ICMP type number.</para></li><li><para><code>ip-permission.group-id</code> - The ID of a security group that has been referenced
         /// in an inbound security group rule.</para></li><li><para><code>ip-permission.group-name</code> - The name of a security group that has been
         /// referenced in an inbound security group rule.</para></li><li><para><code>ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an inbound security
-        /// group rule.</para></li><li><para><code>ip-permission.prefix-list-id</code> - The ID (prefix) of the AWS service from
-        /// which a security group rule allows inbound access.</para></li><li><para><code>ip-permission.protocol</code> - The IP protocol for an inbound security group
+        /// group rule.</para></li><li><para><code>ip-permission.prefix-list-id</code> - The ID of a prefix list from which a
+        /// security group rule allows inbound access.</para></li><li><para><code>ip-permission.protocol</code> - The IP protocol for an inbound security group
         /// rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</para></li><li><para><code>ip-permission.to-port</code> - For an inbound rule, the end of port range for
         /// the TCP and UDP protocols, or an ICMP code.</para></li><li><para><code>ip-permission.user-id</code> - The ID of an AWS account that has been referenced
         /// in an inbound security group rule.</para></li><li><para><code>owner-id</code> - The AWS account ID of the owner of the security group.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the

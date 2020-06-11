@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
     /// list with two elements looks like this:
-    /// </para><para><code>&amp;Attribute.1=first</code></para><para><code>&amp;Attribute.2=second</code></para>
+    /// </para><para><code>&amp;AttributeName.1=first</code></para><para><code>&amp;AttributeName.2=second</code></para>
     /// </summary>
     [Cmdlet("Remove", "SQSMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SQS.Model.DeleteMessageBatchResponse")]

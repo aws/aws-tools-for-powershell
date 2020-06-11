@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata, such as the path and user information about a SMB location.
+    /// Returns metadata, such as the path and user information about an SMB location.
     /// </summary>
     [Cmdlet("Get", "DSYNLocationSmb")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationSmbResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource Name (ARN) of the SMB location to describe.</para>
+        /// <para>The Amazon Resource Name (ARN) of the SMB location to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

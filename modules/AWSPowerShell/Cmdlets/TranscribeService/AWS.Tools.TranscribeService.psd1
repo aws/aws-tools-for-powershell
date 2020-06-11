@@ -86,6 +86,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-TRSLanguageModel', 
+        'Get-TRSLanguageModelList', 
         'Get-TRSMedicalTranscriptionJob', 
         'Get-TRSMedicalTranscriptionJobList', 
         'Get-TRSMedicalVocabulary', 
@@ -96,9 +98,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-TRSVocabularyFilter', 
         'Get-TRSVocabularyFilterList', 
         'Get-TRSVocabularyList', 
+        'New-TRSLanguageModel', 
         'New-TRSMedicalVocabulary', 
         'New-TRSVocabulary', 
         'New-TRSVocabularyFilter', 
+        'Remove-TRSLanguageModel', 
         'Remove-TRSMedicalTranscriptionJob', 
         'Remove-TRSMedicalVocabulary', 
         'Remove-TRSTranscriptionJob', 

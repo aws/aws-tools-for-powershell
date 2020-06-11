@@ -28,9 +28,10 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Uses your private certificate authority (CA) to issue a client certificate. This action
-    /// returns the Amazon Resource Name (ARN) of the certificate. You can retrieve the certificate
-    /// by calling the <a>GetCertificate</a> action and specifying the ARN. 
+    /// Uses your private certificate authority (CA), or one that has been shared with you,
+    /// to issue a client certificate. This action returns the Amazon Resource Name (ARN)
+    /// of the certificate. You can retrieve the certificate by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificate.html">GetCertificate</a>
+    /// action and specifying the ARN. 
     /// 
     ///  <note><para>
     /// You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs
@@ -50,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter CertificateAuthorityArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>.
+        /// <para>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>.
         /// This must be of the form:</para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>
@@ -73,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// </para><para><code>openssl req -new -newkey rsa:2048 -days 365 -keyout private/test_cert_priv_key.pem
         /// -out csr/test_cert_.csr</code></para><para>If you have a configuration file, you can use the following OpenSSL command. The <code>usr_cert</code>
         /// block in the configuration file contains your X509 version 3 extensions. </para><para><code>openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048
-        /// -days -365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</code></para>
+        /// -days -365 -keyout private/test_cert_priv_key.pem -out csr/test_cert_.csr</code></para><para>Note: A CSR must provide either a <i>subject name</i> or a <i>subject alternative
+        /// name</i> or the request will be rejected. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -106,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter SigningAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The name of the algorithm that will be used to sign the certificate to be issued.</para>
+        /// <para>The name of the algorithm that will be used to sign the certificate to be issued.
+        /// </para><para>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
+        /// used to sign a CSR.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -125,8 +129,12 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <para>
         /// <para>Specifies a custom configuration template to use when issuing a certificate. If this
         /// parameter is not provided, ACM Private CA defaults to the <code>EndEntityCertificate/V1</code>
-        /// template.</para><para>The following service-owned <code>TemplateArn</code> values are supported by ACM Private
-        /// CA: </para><ul><li><para>arn:aws:acm-pca:::template/EndEntityCertificate/V1</para></li><li><para>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen0/V1</para></li><li><para>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen1/V1</para></li><li><para>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1</para></li><li><para>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1</para></li><li><para>arn:aws:acm-pca:::template/RootCACertificate/V1</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Using
+        /// template. For CA certificates, you should choose the shortest path length that meets
+        /// your needs. The path length is indicated by the PathLen<i>N</i> portion of the ARN,
+        /// where <i>N</i> is the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaTerms.html#terms-cadepth">CA
+        /// depth</a>.</para><para>Note: The CA depth configured on a subordinate CA certificate must not exceed the
+        /// limit set by its parents in the CA hierarchy.</para><para>The following service-owned <code>TemplateArn</code> values are supported by ACM Private
+        /// CA: </para><ul><li><para>arn:aws:acm-pca:::template/CodeSigningCertificate/V1</para></li><li><para>arn:aws:acm-pca:::template/CodeSigningCertificate_CSRPassthrough/V1</para></li><li><para>arn:aws:acm-pca:::template/EndEntityCertificate/V1</para></li><li><para>arn:aws:acm-pca:::template/EndEntityCertificate_CSRPassthrough/V1</para></li><li><para>arn:aws:acm-pca:::template/EndEntityClientAuthCertificate/V1</para></li><li><para>arn:aws:acm-pca:::template/EndEntityClientAuthCertificate_CSRPassthrough/V1</para></li><li><para>arn:aws:acm-pca:::template/EndEntityServerAuthCertificate/V1</para></li><li><para>arn:aws:acm-pca:::template/EndEntityServerAuthCertificate_CSRPassthrough/V1</para></li><li><para>arn:aws:acm-pca:::template/OCSPSigningCertificate/V1</para></li><li><para>arn:aws:acm-pca:::template/OCSPSigningCertificate_CSRPassthrough/V1</para></li><li><para>arn:aws:acm-pca:::template/RootCACertificate/V1</para></li><li><para>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen0/V1</para></li><li><para>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen1/V1</para></li><li><para>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen2/V1</para></li><li><para>arn:aws:acm-pca:::template/SubordinateCACertificate_PathLen3/V1</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html">Using
         /// Templates</a>.</para>
         /// </para>
         /// </summary>
@@ -137,7 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter Validity
         /// <summary>
         /// <para>
-        /// <para>The type of the validity period.</para>
+        /// <para>Information describing the validity period of the certificate.</para><para>When issuing a certificate, ACM Private CA sets the "Not Before" date in the validity
+        /// field to date and time minus 60 minutes. This is intended to compensate for time inconsistencies
+        /// across systems of 60 minutes or less. </para><para>The validity period configured on a certificate must not exceed the limit set by its
+        /// parents in the CA hierarchy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

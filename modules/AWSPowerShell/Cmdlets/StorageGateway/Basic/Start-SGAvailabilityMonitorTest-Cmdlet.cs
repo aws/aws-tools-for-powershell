@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// monitoring in your host environment. This request only initiates the test and that
     /// a successful response only indicates that the test was started. It doesn't indicate
     /// that the test passed. For the status of the test, invoke the <code>DescribeAvailabilityMonitorTest</code>
-    /// API. 
+    /// API.
     /// 
     ///  <note><para>
     /// Starting this test will cause your gateway to go offline for a brief period.

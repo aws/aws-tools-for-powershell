@@ -29,11 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
     /// Calling this operation enables AWS Health to work with AWS Organizations. This applies
-    /// a Service Linked Role (SLR) to the master account in the organization. To learn more
-    /// about the steps in this process, visit enabling service access for AWS Health in AWS
-    /// Organizations. To call this operation, you must sign in as an IAM user, assume an
-    /// IAM role, or sign in as the root user (not recommended) in the organization's master
-    /// account.
+    /// a service-linked role (SLR) to the master account in the organization. To call this
+    /// operation, you must sign in as an IAM user, assume an IAM role, or sign in as the
+    /// root user (not recommended) in the organization's master account.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
+    /// AWS Health events</a> in the <i>AWS Health User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Enable", "HLTHHealthServiceAccessForOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -149,8 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the replication instance.</para><para> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
-        /// dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code></para>
+        /// <para>The compute and memory capacity of the replication instance as defined for the specified
+        /// replication instance class. For example to specify the instance class dms.c4.large,
+        /// set this parameter to <code>"dms.c4.large"</code>.</para><para>For more information on the settings and capacities for the available replication
+        /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
+        /// Selecting the right AWS DMS replication instance for your migration</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Retrieve information about an application.
+    /// Retrieve information about the specified application.
     /// </summary>
     [Cmdlet("Get", "SMSApp")]
     [OutputType("Amazon.ServerMigrationService.Model.GetAppResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>ID of the application whose information is being retrieved.</para>
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

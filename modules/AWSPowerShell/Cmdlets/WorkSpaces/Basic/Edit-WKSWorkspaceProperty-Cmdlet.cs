@@ -28,7 +28,9 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Modifies the specified WorkSpace properties.
+    /// Modifies the specified WorkSpace properties. For important information about how to
+    /// modify the size of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">
+    /// Modify a WorkSpace</a>.
     /// </summary>
     [Cmdlet("Edit", "WKSWorkspaceProperty", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -55,7 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceProperties_RootVolumeSizeGib
         /// <summary>
         /// <para>
-        /// <para>The size of the root volume.</para>
+        /// <para>The size of the root volume. For important information about how to modify the size
+        /// of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">Modify
+        /// a WorkSpace</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceProperties_UserVolumeSizeGib
         /// <summary>
         /// <para>
-        /// <para>The size of the user storage.</para>
+        /// <para>The size of the user storage. For important information about how to modify the size
+        /// of the root and user volumes, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">Modify
+        /// a WorkSpace</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

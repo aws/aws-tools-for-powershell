@@ -28,7 +28,7 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Updates a rule's metadata.
+    /// Updates a rule's metadata. The description attribute can be updated.
     /// </summary>
     [Cmdlet("Update", "FDRuleMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

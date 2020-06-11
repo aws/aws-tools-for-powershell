@@ -28,7 +28,12 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Returns information about comments made on the comparison between two commits.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about comments made on the comparison between two commits.
+    /// 
+    ///  <note><para>
+    /// Reaction counts might include numbers from user identities who were deleted after
+    /// the reaction was made. For a count of reactions from active identities, use GetCommentReactions.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CCCommentsForComparedCommit")]
     [OutputType("Amazon.CodeCommit.Model.CommentsForComparedCommit")]

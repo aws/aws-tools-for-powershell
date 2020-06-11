@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// <para>The AWS IAM account ID of the service mesh owner. If the account ID is not your own,
         /// then it's               the ID of the account that shared the mesh with your account.
         /// For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working
-        /// with Shared Meshes</a>.</para>
+        /// with shared meshes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,6 +357,28 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public Amazon.AppMesh.DurationUnit Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit { get; set; }
         #endregion
         
+        #region Parameter Spec_GrpcRoute_Timeout_Idle_Unit
+        /// <summary>
+        /// <para>
+        /// <para>A unit of time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppMesh.DurationUnit")]
+        public Amazon.AppMesh.DurationUnit Spec_GrpcRoute_Timeout_Idle_Unit { get; set; }
+        #endregion
+        
+        #region Parameter Spec_GrpcRoute_Timeout_PerRequest_Unit
+        /// <summary>
+        /// <para>
+        /// <para>A unit of time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppMesh.DurationUnit")]
+        public Amazon.AppMesh.DurationUnit Spec_GrpcRoute_Timeout_PerRequest_Unit { get; set; }
+        #endregion
+        
         #region Parameter Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit
         /// <summary>
         /// <para>
@@ -366,6 +388,28 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.AppMesh.DurationUnit")]
         public Amazon.AppMesh.DurationUnit Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit { get; set; }
+        #endregion
+        
+        #region Parameter Spec_Http2Route_Timeout_Idle_Unit
+        /// <summary>
+        /// <para>
+        /// <para>A unit of time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppMesh.DurationUnit")]
+        public Amazon.AppMesh.DurationUnit Spec_Http2Route_Timeout_Idle_Unit { get; set; }
+        #endregion
+        
+        #region Parameter Spec_Http2Route_Timeout_PerRequest_Unit
+        /// <summary>
+        /// <para>
+        /// <para>A unit of time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppMesh.DurationUnit")]
+        public Amazon.AppMesh.DurationUnit Spec_Http2Route_Timeout_PerRequest_Unit { get; set; }
         #endregion
         
         #region Parameter Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit
@@ -380,6 +424,41 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public Amazon.AppMesh.DurationUnit Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit { get; set; }
         #endregion
         
+        #region Parameter Spec_HttpRoute_Timeout_Idle_Unit
+        /// <summary>
+        /// <para>
+        /// <para>A unit of time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Timeout_Idle_Unit")]
+        [AWSConstantClassSource("Amazon.AppMesh.DurationUnit")]
+        public Amazon.AppMesh.DurationUnit Spec_HttpRoute_Timeout_Idle_Unit { get; set; }
+        #endregion
+        
+        #region Parameter Spec_HttpRoute_Timeout_PerRequest_Unit
+        /// <summary>
+        /// <para>
+        /// <para>A unit of time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Timeout_PerRequest_Unit")]
+        [AWSConstantClassSource("Amazon.AppMesh.DurationUnit")]
+        public Amazon.AppMesh.DurationUnit Spec_HttpRoute_Timeout_PerRequest_Unit { get; set; }
+        #endregion
+        
+        #region Parameter Spec_TcpRoute_Timeout_Idle_Unit
+        /// <summary>
+        /// <para>
+        /// <para>A unit of time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppMesh.DurationUnit")]
+        public Amazon.AppMesh.DurationUnit Spec_TcpRoute_Timeout_Idle_Unit { get; set; }
+        #endregion
+        
         #region Parameter Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value
         /// <summary>
         /// <para>
@@ -388,6 +467,26 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int64? Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value { get; set; }
+        #endregion
+        
+        #region Parameter Spec_GrpcRoute_Timeout_Idle_Value
+        /// <summary>
+        /// <para>
+        /// <para>A number of time units.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Spec_GrpcRoute_Timeout_Idle_Value { get; set; }
+        #endregion
+        
+        #region Parameter Spec_GrpcRoute_Timeout_PerRequest_Value
+        /// <summary>
+        /// <para>
+        /// <para>A number of time units.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Spec_GrpcRoute_Timeout_PerRequest_Value { get; set; }
         #endregion
         
         #region Parameter Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value
@@ -400,6 +499,26 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public System.Int64? Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value { get; set; }
         #endregion
         
+        #region Parameter Spec_Http2Route_Timeout_Idle_Value
+        /// <summary>
+        /// <para>
+        /// <para>A number of time units.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Spec_Http2Route_Timeout_Idle_Value { get; set; }
+        #endregion
+        
+        #region Parameter Spec_Http2Route_Timeout_PerRequest_Value
+        /// <summary>
+        /// <para>
+        /// <para>A number of time units.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Spec_Http2Route_Timeout_PerRequest_Value { get; set; }
+        #endregion
+        
         #region Parameter Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value
         /// <summary>
         /// <para>
@@ -409,6 +528,38 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PerRetryTimeout_Value")]
         public System.Int64? Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value { get; set; }
+        #endregion
+        
+        #region Parameter Spec_HttpRoute_Timeout_Idle_Value
+        /// <summary>
+        /// <para>
+        /// <para>A number of time units.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Timeout_Idle_Value")]
+        public System.Int64? Spec_HttpRoute_Timeout_Idle_Value { get; set; }
+        #endregion
+        
+        #region Parameter Spec_HttpRoute_Timeout_PerRequest_Value
+        /// <summary>
+        /// <para>
+        /// <para>A number of time units.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Timeout_PerRequest_Value")]
+        public System.Int64? Spec_HttpRoute_Timeout_PerRequest_Value { get; set; }
+        #endregion
+        
+        #region Parameter Spec_TcpRoute_Timeout_Idle_Value
+        /// <summary>
+        /// <para>
+        /// <para>A number of time units.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? Spec_TcpRoute_Timeout_Idle_Value { get; set; }
         #endregion
         
         #region Parameter VirtualRouterName
@@ -589,6 +740,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             {
                 context.Spec_GrpcRoute_RetryPolicy_TcpRetryEvent = new List<System.String>(this.Spec_GrpcRoute_RetryPolicy_TcpRetryEvent);
             }
+            context.Spec_GrpcRoute_Timeout_Idle_Unit = this.Spec_GrpcRoute_Timeout_Idle_Unit;
+            context.Spec_GrpcRoute_Timeout_Idle_Value = this.Spec_GrpcRoute_Timeout_Idle_Value;
+            context.Spec_GrpcRoute_Timeout_PerRequest_Unit = this.Spec_GrpcRoute_Timeout_PerRequest_Unit;
+            context.Spec_GrpcRoute_Timeout_PerRequest_Value = this.Spec_GrpcRoute_Timeout_PerRequest_Value;
             if (this.Spec_Http2Route_Action_WeightedTarget != null)
             {
                 context.Spec_Http2Route_Action_WeightedTarget = new List<Amazon.AppMesh.Model.WeightedTarget>(this.Spec_Http2Route_Action_WeightedTarget);
@@ -611,6 +766,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             {
                 context.Spec_Http2Route_RetryPolicy_TcpRetryEvent = new List<System.String>(this.Spec_Http2Route_RetryPolicy_TcpRetryEvent);
             }
+            context.Spec_Http2Route_Timeout_Idle_Unit = this.Spec_Http2Route_Timeout_Idle_Unit;
+            context.Spec_Http2Route_Timeout_Idle_Value = this.Spec_Http2Route_Timeout_Idle_Value;
+            context.Spec_Http2Route_Timeout_PerRequest_Unit = this.Spec_Http2Route_Timeout_PerRequest_Unit;
+            context.Spec_Http2Route_Timeout_PerRequest_Value = this.Spec_Http2Route_Timeout_PerRequest_Value;
             if (this.Spec_HttpRoute_Action_WeightedTarget != null)
             {
                 context.Spec_HttpRoute_Action_WeightedTarget = new List<Amazon.AppMesh.Model.WeightedTarget>(this.Spec_HttpRoute_Action_WeightedTarget);
@@ -633,11 +792,17 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             {
                 context.Spec_HttpRoute_RetryPolicy_TcpRetryEvent = new List<System.String>(this.Spec_HttpRoute_RetryPolicy_TcpRetryEvent);
             }
+            context.Spec_HttpRoute_Timeout_Idle_Unit = this.Spec_HttpRoute_Timeout_Idle_Unit;
+            context.Spec_HttpRoute_Timeout_Idle_Value = this.Spec_HttpRoute_Timeout_Idle_Value;
+            context.Spec_HttpRoute_Timeout_PerRequest_Unit = this.Spec_HttpRoute_Timeout_PerRequest_Unit;
+            context.Spec_HttpRoute_Timeout_PerRequest_Value = this.Spec_HttpRoute_Timeout_PerRequest_Value;
             context.Spec_Priority = this.Spec_Priority;
             if (this.Spec_TcpRoute_Action_WeightedTarget != null)
             {
                 context.Spec_TcpRoute_Action_WeightedTarget = new List<Amazon.AppMesh.Model.WeightedTarget>(this.Spec_TcpRoute_Action_WeightedTarget);
             }
+            context.Spec_TcpRoute_Timeout_Idle_Unit = this.Spec_TcpRoute_Timeout_Idle_Unit;
+            context.Spec_TcpRoute_Timeout_Idle_Value = this.Spec_TcpRoute_Timeout_Idle_Value;
             context.VirtualRouterName = this.VirtualRouterName;
             #if MODULAR
             if (this.VirtualRouterName == null && ParameterWasBound(nameof(this.VirtualRouterName)))
@@ -721,6 +886,56 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 requestSpec_spec_TcpRoute.Action = requestSpec_spec_TcpRoute_spec_TcpRoute_Action;
                 requestSpec_spec_TcpRouteIsNull = false;
             }
+            Amazon.AppMesh.Model.TcpTimeout requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout = null;
+            
+             // populate Timeout
+            var requestSpec_spec_TcpRoute_spec_TcpRoute_TimeoutIsNull = true;
+            requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout = new Amazon.AppMesh.Model.TcpTimeout();
+            Amazon.AppMesh.Model.Duration requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle = null;
+            
+             // populate Idle
+            var requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_IdleIsNull = true;
+            requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle = new Amazon.AppMesh.Model.Duration();
+            Amazon.AppMesh.DurationUnit requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle_spec_TcpRoute_Timeout_Idle_Unit = null;
+            if (cmdletContext.Spec_TcpRoute_Timeout_Idle_Unit != null)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle_spec_TcpRoute_Timeout_Idle_Unit = cmdletContext.Spec_TcpRoute_Timeout_Idle_Unit;
+            }
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle_spec_TcpRoute_Timeout_Idle_Unit != null)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle.Unit = requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle_spec_TcpRoute_Timeout_Idle_Unit;
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_IdleIsNull = false;
+            }
+            System.Int64? requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle_spec_TcpRoute_Timeout_Idle_Value = null;
+            if (cmdletContext.Spec_TcpRoute_Timeout_Idle_Value != null)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle_spec_TcpRoute_Timeout_Idle_Value = cmdletContext.Spec_TcpRoute_Timeout_Idle_Value.Value;
+            }
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle_spec_TcpRoute_Timeout_Idle_Value != null)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle.Value = requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle_spec_TcpRoute_Timeout_Idle_Value.Value;
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_IdleIsNull = false;
+            }
+             // determine if requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle should be set to null
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_IdleIsNull)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle = null;
+            }
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle != null)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout.Idle = requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout_spec_TcpRoute_Timeout_Idle;
+                requestSpec_spec_TcpRoute_spec_TcpRoute_TimeoutIsNull = false;
+            }
+             // determine if requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout should be set to null
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_TimeoutIsNull)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout = null;
+            }
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout != null)
+            {
+                requestSpec_spec_TcpRoute.Timeout = requestSpec_spec_TcpRoute_spec_TcpRoute_Timeout;
+                requestSpec_spec_TcpRouteIsNull = false;
+            }
              // determine if requestSpec_spec_TcpRoute should be set to null
             if (requestSpec_spec_TcpRouteIsNull)
             {
@@ -759,6 +974,91 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Action != null)
             {
                 requestSpec_spec_GrpcRoute.Action = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Action;
+                requestSpec_spec_GrpcRouteIsNull = false;
+            }
+            Amazon.AppMesh.Model.GrpcTimeout requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout = null;
+            
+             // populate Timeout
+            var requestSpec_spec_GrpcRoute_spec_GrpcRoute_TimeoutIsNull = true;
+            requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout = new Amazon.AppMesh.Model.GrpcTimeout();
+            Amazon.AppMesh.Model.Duration requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle = null;
+            
+             // populate Idle
+            var requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_IdleIsNull = true;
+            requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle = new Amazon.AppMesh.Model.Duration();
+            Amazon.AppMesh.DurationUnit requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle_spec_GrpcRoute_Timeout_Idle_Unit = null;
+            if (cmdletContext.Spec_GrpcRoute_Timeout_Idle_Unit != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle_spec_GrpcRoute_Timeout_Idle_Unit = cmdletContext.Spec_GrpcRoute_Timeout_Idle_Unit;
+            }
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle_spec_GrpcRoute_Timeout_Idle_Unit != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle.Unit = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle_spec_GrpcRoute_Timeout_Idle_Unit;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_IdleIsNull = false;
+            }
+            System.Int64? requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle_spec_GrpcRoute_Timeout_Idle_Value = null;
+            if (cmdletContext.Spec_GrpcRoute_Timeout_Idle_Value != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle_spec_GrpcRoute_Timeout_Idle_Value = cmdletContext.Spec_GrpcRoute_Timeout_Idle_Value.Value;
+            }
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle_spec_GrpcRoute_Timeout_Idle_Value != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle.Value = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle_spec_GrpcRoute_Timeout_Idle_Value.Value;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_IdleIsNull = false;
+            }
+             // determine if requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle should be set to null
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_IdleIsNull)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle = null;
+            }
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout.Idle = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_Idle;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_TimeoutIsNull = false;
+            }
+            Amazon.AppMesh.Model.Duration requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest = null;
+            
+             // populate PerRequest
+            var requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequestIsNull = true;
+            requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest = new Amazon.AppMesh.Model.Duration();
+            Amazon.AppMesh.DurationUnit requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest_spec_GrpcRoute_Timeout_PerRequest_Unit = null;
+            if (cmdletContext.Spec_GrpcRoute_Timeout_PerRequest_Unit != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest_spec_GrpcRoute_Timeout_PerRequest_Unit = cmdletContext.Spec_GrpcRoute_Timeout_PerRequest_Unit;
+            }
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest_spec_GrpcRoute_Timeout_PerRequest_Unit != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest.Unit = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest_spec_GrpcRoute_Timeout_PerRequest_Unit;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequestIsNull = false;
+            }
+            System.Int64? requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest_spec_GrpcRoute_Timeout_PerRequest_Value = null;
+            if (cmdletContext.Spec_GrpcRoute_Timeout_PerRequest_Value != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest_spec_GrpcRoute_Timeout_PerRequest_Value = cmdletContext.Spec_GrpcRoute_Timeout_PerRequest_Value.Value;
+            }
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest_spec_GrpcRoute_Timeout_PerRequest_Value != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest.Value = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest_spec_GrpcRoute_Timeout_PerRequest_Value.Value;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequestIsNull = false;
+            }
+             // determine if requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest should be set to null
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequestIsNull)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest = null;
+            }
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest != null)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout.PerRequest = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout_spec_GrpcRoute_Timeout_PerRequest;
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_TimeoutIsNull = false;
+            }
+             // determine if requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout should be set to null
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_TimeoutIsNull)
+            {
+                requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout = null;
+            }
+            if (requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout != null)
+            {
+                requestSpec_spec_GrpcRoute.Timeout = requestSpec_spec_GrpcRoute_spec_GrpcRoute_Timeout;
                 requestSpec_spec_GrpcRouteIsNull = false;
             }
             Amazon.AppMesh.Model.GrpcRouteMatch requestSpec_spec_GrpcRoute_spec_GrpcRoute_Match = null;
@@ -936,6 +1236,91 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 requestSpec_spec_Http2Route.Action = requestSpec_spec_Http2Route_spec_Http2Route_Action;
                 requestSpec_spec_Http2RouteIsNull = false;
             }
+            Amazon.AppMesh.Model.HttpTimeout requestSpec_spec_Http2Route_spec_Http2Route_Timeout = null;
+            
+             // populate Timeout
+            var requestSpec_spec_Http2Route_spec_Http2Route_TimeoutIsNull = true;
+            requestSpec_spec_Http2Route_spec_Http2Route_Timeout = new Amazon.AppMesh.Model.HttpTimeout();
+            Amazon.AppMesh.Model.Duration requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle = null;
+            
+             // populate Idle
+            var requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_IdleIsNull = true;
+            requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle = new Amazon.AppMesh.Model.Duration();
+            Amazon.AppMesh.DurationUnit requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle_spec_Http2Route_Timeout_Idle_Unit = null;
+            if (cmdletContext.Spec_Http2Route_Timeout_Idle_Unit != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle_spec_Http2Route_Timeout_Idle_Unit = cmdletContext.Spec_Http2Route_Timeout_Idle_Unit;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle_spec_Http2Route_Timeout_Idle_Unit != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle.Unit = requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle_spec_Http2Route_Timeout_Idle_Unit;
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_IdleIsNull = false;
+            }
+            System.Int64? requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle_spec_Http2Route_Timeout_Idle_Value = null;
+            if (cmdletContext.Spec_Http2Route_Timeout_Idle_Value != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle_spec_Http2Route_Timeout_Idle_Value = cmdletContext.Spec_Http2Route_Timeout_Idle_Value.Value;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle_spec_Http2Route_Timeout_Idle_Value != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle.Value = requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle_spec_Http2Route_Timeout_Idle_Value.Value;
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_IdleIsNull = false;
+            }
+             // determine if requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle should be set to null
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_IdleIsNull)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle = null;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout.Idle = requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_Idle;
+                requestSpec_spec_Http2Route_spec_Http2Route_TimeoutIsNull = false;
+            }
+            Amazon.AppMesh.Model.Duration requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest = null;
+            
+             // populate PerRequest
+            var requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequestIsNull = true;
+            requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest = new Amazon.AppMesh.Model.Duration();
+            Amazon.AppMesh.DurationUnit requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest_spec_Http2Route_Timeout_PerRequest_Unit = null;
+            if (cmdletContext.Spec_Http2Route_Timeout_PerRequest_Unit != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest_spec_Http2Route_Timeout_PerRequest_Unit = cmdletContext.Spec_Http2Route_Timeout_PerRequest_Unit;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest_spec_Http2Route_Timeout_PerRequest_Unit != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest.Unit = requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest_spec_Http2Route_Timeout_PerRequest_Unit;
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequestIsNull = false;
+            }
+            System.Int64? requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest_spec_Http2Route_Timeout_PerRequest_Value = null;
+            if (cmdletContext.Spec_Http2Route_Timeout_PerRequest_Value != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest_spec_Http2Route_Timeout_PerRequest_Value = cmdletContext.Spec_Http2Route_Timeout_PerRequest_Value.Value;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest_spec_Http2Route_Timeout_PerRequest_Value != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest.Value = requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest_spec_Http2Route_Timeout_PerRequest_Value.Value;
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequestIsNull = false;
+            }
+             // determine if requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest should be set to null
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequestIsNull)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest = null;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest != null)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout.PerRequest = requestSpec_spec_Http2Route_spec_Http2Route_Timeout_spec_Http2Route_Timeout_PerRequest;
+                requestSpec_spec_Http2Route_spec_Http2Route_TimeoutIsNull = false;
+            }
+             // determine if requestSpec_spec_Http2Route_spec_Http2Route_Timeout should be set to null
+            if (requestSpec_spec_Http2Route_spec_Http2Route_TimeoutIsNull)
+            {
+                requestSpec_spec_Http2Route_spec_Http2Route_Timeout = null;
+            }
+            if (requestSpec_spec_Http2Route_spec_Http2Route_Timeout != null)
+            {
+                requestSpec_spec_Http2Route.Timeout = requestSpec_spec_Http2Route_spec_Http2Route_Timeout;
+                requestSpec_spec_Http2RouteIsNull = false;
+            }
             Amazon.AppMesh.Model.HttpRouteMatch requestSpec_spec_Http2Route_spec_Http2Route_Match = null;
             
              // populate Match
@@ -1109,6 +1494,91 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             if (requestSpec_spec_HttpRoute_spec_HttpRoute_Action != null)
             {
                 requestSpec_spec_HttpRoute.Action = requestSpec_spec_HttpRoute_spec_HttpRoute_Action;
+                requestSpec_spec_HttpRouteIsNull = false;
+            }
+            Amazon.AppMesh.Model.HttpTimeout requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout = null;
+            
+             // populate Timeout
+            var requestSpec_spec_HttpRoute_spec_HttpRoute_TimeoutIsNull = true;
+            requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout = new Amazon.AppMesh.Model.HttpTimeout();
+            Amazon.AppMesh.Model.Duration requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle = null;
+            
+             // populate Idle
+            var requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_IdleIsNull = true;
+            requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle = new Amazon.AppMesh.Model.Duration();
+            Amazon.AppMesh.DurationUnit requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle_spec_HttpRoute_Timeout_Idle_Unit = null;
+            if (cmdletContext.Spec_HttpRoute_Timeout_Idle_Unit != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle_spec_HttpRoute_Timeout_Idle_Unit = cmdletContext.Spec_HttpRoute_Timeout_Idle_Unit;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle_spec_HttpRoute_Timeout_Idle_Unit != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle.Unit = requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle_spec_HttpRoute_Timeout_Idle_Unit;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_IdleIsNull = false;
+            }
+            System.Int64? requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle_spec_HttpRoute_Timeout_Idle_Value = null;
+            if (cmdletContext.Spec_HttpRoute_Timeout_Idle_Value != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle_spec_HttpRoute_Timeout_Idle_Value = cmdletContext.Spec_HttpRoute_Timeout_Idle_Value.Value;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle_spec_HttpRoute_Timeout_Idle_Value != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle.Value = requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle_spec_HttpRoute_Timeout_Idle_Value.Value;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_IdleIsNull = false;
+            }
+             // determine if requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle should be set to null
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_IdleIsNull)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle = null;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout.Idle = requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_Idle;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_TimeoutIsNull = false;
+            }
+            Amazon.AppMesh.Model.Duration requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest = null;
+            
+             // populate PerRequest
+            var requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequestIsNull = true;
+            requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest = new Amazon.AppMesh.Model.Duration();
+            Amazon.AppMesh.DurationUnit requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest_spec_HttpRoute_Timeout_PerRequest_Unit = null;
+            if (cmdletContext.Spec_HttpRoute_Timeout_PerRequest_Unit != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest_spec_HttpRoute_Timeout_PerRequest_Unit = cmdletContext.Spec_HttpRoute_Timeout_PerRequest_Unit;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest_spec_HttpRoute_Timeout_PerRequest_Unit != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest.Unit = requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest_spec_HttpRoute_Timeout_PerRequest_Unit;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequestIsNull = false;
+            }
+            System.Int64? requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest_spec_HttpRoute_Timeout_PerRequest_Value = null;
+            if (cmdletContext.Spec_HttpRoute_Timeout_PerRequest_Value != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest_spec_HttpRoute_Timeout_PerRequest_Value = cmdletContext.Spec_HttpRoute_Timeout_PerRequest_Value.Value;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest_spec_HttpRoute_Timeout_PerRequest_Value != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest.Value = requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest_spec_HttpRoute_Timeout_PerRequest_Value.Value;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequestIsNull = false;
+            }
+             // determine if requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest should be set to null
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequestIsNull)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest = null;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest != null)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout.PerRequest = requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout_spec_HttpRoute_Timeout_PerRequest;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_TimeoutIsNull = false;
+            }
+             // determine if requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout should be set to null
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_TimeoutIsNull)
+            {
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout = null;
+            }
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout != null)
+            {
+                requestSpec_spec_HttpRoute.Timeout = requestSpec_spec_HttpRoute_spec_HttpRoute_Timeout;
                 requestSpec_spec_HttpRouteIsNull = false;
             }
             Amazon.AppMesh.Model.HttpRouteMatch requestSpec_spec_HttpRoute_spec_HttpRoute_Match = null;
@@ -1340,6 +1810,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public Amazon.AppMesh.DurationUnit Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit { get; set; }
             public System.Int64? Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value { get; set; }
             public List<System.String> Spec_GrpcRoute_RetryPolicy_TcpRetryEvent { get; set; }
+            public Amazon.AppMesh.DurationUnit Spec_GrpcRoute_Timeout_Idle_Unit { get; set; }
+            public System.Int64? Spec_GrpcRoute_Timeout_Idle_Value { get; set; }
+            public Amazon.AppMesh.DurationUnit Spec_GrpcRoute_Timeout_PerRequest_Unit { get; set; }
+            public System.Int64? Spec_GrpcRoute_Timeout_PerRequest_Value { get; set; }
             public List<Amazon.AppMesh.Model.WeightedTarget> Spec_Http2Route_Action_WeightedTarget { get; set; }
             public List<Amazon.AppMesh.Model.HttpRouteHeader> Spec_Http2Route_Match_Header { get; set; }
             public Amazon.AppMesh.HttpMethod Spec_Http2Route_Match_Method { get; set; }
@@ -1350,6 +1824,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public Amazon.AppMesh.DurationUnit Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit { get; set; }
             public System.Int64? Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value { get; set; }
             public List<System.String> Spec_Http2Route_RetryPolicy_TcpRetryEvent { get; set; }
+            public Amazon.AppMesh.DurationUnit Spec_Http2Route_Timeout_Idle_Unit { get; set; }
+            public System.Int64? Spec_Http2Route_Timeout_Idle_Value { get; set; }
+            public Amazon.AppMesh.DurationUnit Spec_Http2Route_Timeout_PerRequest_Unit { get; set; }
+            public System.Int64? Spec_Http2Route_Timeout_PerRequest_Value { get; set; }
             public List<Amazon.AppMesh.Model.WeightedTarget> Spec_HttpRoute_Action_WeightedTarget { get; set; }
             public List<Amazon.AppMesh.Model.HttpRouteHeader> Spec_HttpRoute_Match_Header { get; set; }
             public Amazon.AppMesh.HttpMethod Spec_HttpRoute_Match_Method { get; set; }
@@ -1360,8 +1838,14 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public Amazon.AppMesh.DurationUnit Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit { get; set; }
             public System.Int64? Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value { get; set; }
             public List<System.String> Spec_HttpRoute_RetryPolicy_TcpRetryEvent { get; set; }
+            public Amazon.AppMesh.DurationUnit Spec_HttpRoute_Timeout_Idle_Unit { get; set; }
+            public System.Int64? Spec_HttpRoute_Timeout_Idle_Value { get; set; }
+            public Amazon.AppMesh.DurationUnit Spec_HttpRoute_Timeout_PerRequest_Unit { get; set; }
+            public System.Int64? Spec_HttpRoute_Timeout_PerRequest_Value { get; set; }
             public System.Int32? Spec_Priority { get; set; }
             public List<Amazon.AppMesh.Model.WeightedTarget> Spec_TcpRoute_Action_WeightedTarget { get; set; }
+            public Amazon.AppMesh.DurationUnit Spec_TcpRoute_Timeout_Idle_Unit { get; set; }
+            public System.Int64? Spec_TcpRoute_Timeout_Idle_Value { get; set; }
             public System.String VirtualRouterName { get; set; }
             public System.Func<Amazon.AppMesh.Model.UpdateRouteResponse, UpdateAMSHRouteCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Route;

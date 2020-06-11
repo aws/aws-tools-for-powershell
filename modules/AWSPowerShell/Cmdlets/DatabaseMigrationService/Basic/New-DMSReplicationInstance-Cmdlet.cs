@@ -88,7 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter DnsNameServer
         /// <summary>
         /// <para>
-        /// <para>A list of DNS name servers supported for the replication instance.</para>
+        /// <para>A list of custom DNS name servers supported for the replication instance to access
+        /// your on-premise source or target database. This list overrides the default name servers
+        /// supported by the replication instance. You can specify a comma-separated list of internet
+        /// addresses for up to four on-premise DNS name servers. For example: <code>"1.1.1.1,2.2.2.2,3.3.3.3,4.4.4.4"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,9 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the replication instance as specified by the replication
-        /// instance class.</para><para> Valid Values: <code>dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large |
-        /// dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge </code></para>
+        /// <para>The compute and memory capacity of the replication instance as defined for the specified
+        /// replication instance class. For example to specify the instance class dms.c4.large,
+        /// set this parameter to <code>"dms.c4.large"</code>.</para><para>For more information on the settings and capacities for the available replication
+        /// instance classes, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth">
+        /// Selecting the right AWS DMS replication instance for your migration</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -176,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The replication instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>myrepinstance</code></para>
+        /// <para>The replication instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain 1-63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>myrepinstance</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -58,6 +58,24 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String AwsAccountId { get; set; }
         #endregion
         
+        #region Parameter CustomPermissionsName
+        /// <summary>
+        /// <para>
+        /// <para>(Enterprise edition only) The name of the custom permissions profile that you want
+        /// to assign to this user. Customized permissions allows you to control a user's access
+        /// by restricting access the following operations:</para><ul><li><para>Create and update data sources</para></li><li><para>Create and update datasets</para></li><li><para>Create and update email reports</para></li><li><para>Subscribe to email reports</para></li></ul><para>A set of custom permissions includes any combination of these restrictions. Currently,
+        /// you need to create the profile names for custom permission sets by using the QuickSight
+        /// console. Then, you use the <code>RegisterUser</code> API operation to assign the named
+        /// set of permissions to a QuickSight user. </para><para>QuickSight custom permissions are applied through IAM policies. Therefore, they override
+        /// the permissions typically granted by assigning QuickSight users to one of the default
+        /// security cohorts in QuickSight (admin, author, reader).</para><para>This feature is available only to QuickSight Enterprise edition subscriptions that
+        /// use SAML 2.0-Based Federation for Single Sign-On (SSO).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomPermissionsName { get; set; }
+        #endregion
+        
         #region Parameter Email
         /// <summary>
         /// <para>
@@ -95,9 +113,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight role of the user. The user role can be one of the following:</para><ul><li><para><code>READER</code>: A user who has read-only access to dashboards.</para></li><li><para><code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
+        /// <para>The Amazon QuickSight role of the user. The role can be one of the following default
+        /// security cohorts:</para><ul><li><para><code>READER</code>: A user who has read-only access to dashboards.</para></li><li><para><code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
         /// dashboards.</para></li><li><para><code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight
-        /// settings.</para></li></ul>
+        /// settings.</para></li></ul><para>The name of the QuickSight role is invisible to the user except for the console screens
+        /// dealing with permissions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,6 +129,20 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.QuickSight.UserRole")]
         public Amazon.QuickSight.UserRole Role { get; set; }
+        #endregion
+        
+        #region Parameter UnapplyCustomPermission
+        /// <summary>
+        /// <para>
+        /// <para>A flag that you use to indicate that you want to remove all custom permissions from
+        /// this user. Using this parameter resets the user to the state it was in before a custom
+        /// permissions profile was applied. This parameter defaults to NULL and it doesn't accept
+        /// any other value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UnapplyCustomPermissions")]
+        public System.Boolean? UnapplyCustomPermission { get; set; }
         #endregion
         
         #region Parameter UserName
@@ -196,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.CustomPermissionsName = this.CustomPermissionsName;
             context.Email = this.Email;
             #if MODULAR
             if (this.Email == null && ParameterWasBound(nameof(this.Email)))
@@ -217,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter Role which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.UnapplyCustomPermission = this.UnapplyCustomPermission;
             context.UserName = this.UserName;
             #if MODULAR
             if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
@@ -244,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.AwsAccountId = cmdletContext.AwsAccountId;
             }
+            if (cmdletContext.CustomPermissionsName != null)
+            {
+                request.CustomPermissionsName = cmdletContext.CustomPermissionsName;
+            }
             if (cmdletContext.Email != null)
             {
                 request.Email = cmdletContext.Email;
@@ -255,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.Role != null)
             {
                 request.Role = cmdletContext.Role;
+            }
+            if (cmdletContext.UnapplyCustomPermission != null)
+            {
+                request.UnapplyCustomPermissions = cmdletContext.UnapplyCustomPermission.Value;
             }
             if (cmdletContext.UserName != null)
             {
@@ -322,9 +366,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
+            public System.String CustomPermissionsName { get; set; }
             public System.String Email { get; set; }
             public System.String Namespace { get; set; }
             public Amazon.QuickSight.UserRole Role { get; set; }
+            public System.Boolean? UnapplyCustomPermission { get; set; }
             public System.String UserName { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateUserResponse, UpdateQSUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.User;

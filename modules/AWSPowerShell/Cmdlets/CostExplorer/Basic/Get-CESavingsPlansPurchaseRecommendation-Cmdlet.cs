@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TermInYear
         /// <summary>
         /// <para>
-        /// <para>The savings plan recommendation term used to generated these recommendations.</para>
+        /// <para>The savings plan recommendation term used to generate these recommendations.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

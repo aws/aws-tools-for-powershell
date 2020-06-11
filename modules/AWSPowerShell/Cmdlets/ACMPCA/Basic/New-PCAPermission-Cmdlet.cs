@@ -28,19 +28,7 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Assigns permissions from a private CA to a designated AWS service. Services are specified
-    /// by their service principals and can be given permission to create and retrieve certificates
-    /// on a private CA. Services can also be given permission to list the active permissions
-    /// that the private CA has granted. For ACM to automatically renew your private CA's
-    /// certificates, you must assign all possible permissions from the CA to the ACM service
-    /// principal.
-    /// 
-    ///  
-    /// <para>
-    /// At this time, you can only assign permissions to ACM (<code>acm.amazonaws.com</code>).
-    /// Permissions can be revoked with the <a>DeletePermission</a> action and listed with
-    /// the <a>ListPermissions</a> action.
-    /// </para>
+    /// Amazon.ACMPCA.IAmazonACMPCA.CreatePermission
     /// </summary>
     [Cmdlet("New", "PCAPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -75,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can find
-        /// the ARN by calling the <a>ListCertificateAuthorities</a> action. This must have the
-        /// following form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
+        /// the ARN by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>
+        /// action. This must have the following form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -104,6 +104,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.EnableHybridValues
+        "Set-GLUEResourcePolicy/EnableHybrid"
+        {
+            $v = "FALSE","TRUE"
+            break
+        }
+
         # Amazon.Glue.ExistCondition
         "Set-GLUEResourcePolicy/PolicyExistsCondition"
         {
@@ -125,6 +132,16 @@ $GLUE_Completers = {
         }
         {
             $v = "PYTHON","SCALA"
+            break
+        }
+
+        # Amazon.Glue.ResourceShareType
+        {
+            ($_ -eq "Find-GLUETable/ResourceShareType") -Or
+            ($_ -eq "Get-GLUEDatabaseList/ResourceShareType")
+        }
+        {
+            $v = "ALL","FOREIGN"
             break
         }
 
@@ -223,6 +240,7 @@ $GLUE_Completers = {
 $GLUE_map = @{
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
+    "EnableHybrid"=@("Set-GLUEResourcePolicy")
     "EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
@@ -231,6 +249,7 @@ $GLUE_map = @{
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
+    "ResourceShareType"=@("Find-GLUETable","Get-GLUEDatabaseList")
     "Sort_Column"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Sort_SortDirection"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Type"=@("New-GLUETrigger")
@@ -315,6 +334,8 @@ $GLUE_SelectMap = @{
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
                "Remove-GLUEClassifier",
+               "Remove-GLUEColumnStatisticsForPartition",
+               "Remove-GLUEColumnStatisticsForTable",
                "Remove-GLUEConnection",
                "Remove-GLUECrawler",
                "Remove-GLUEDatabase",
@@ -332,6 +353,8 @@ $GLUE_SelectMap = @{
                "Get-GLUECatalogImportStatus",
                "Get-GLUEClassifier",
                "Get-GLUEClassifierList",
+               "Get-GLUEColumnStatisticsForPartition",
+               "Get-GLUEColumnStatisticsForTable",
                "Get-GLUEConnection",
                "Get-GLUEConnectionList",
                "Get-GLUECrawler",
@@ -356,6 +379,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEPartition",
                "Get-GLUEPartitionList",
                "Get-GLUEPlan",
+               "Get-GLUEGluePolicyList",
                "Get-GLUEResourcePolicy",
                "Get-GLUESecurityConfiguration",
                "Get-GLUESecurityConfigurationList",
@@ -383,6 +407,7 @@ $GLUE_SelectMap = @{
                "Set-GLUEResourcePolicy",
                "Write-GLUEWorkflowRunProperty",
                "Reset-GLUEJobBookmark",
+               "Resume-GLUEWorkflowRun",
                "Find-GLUETable",
                "Start-GLUECrawler",
                "Start-GLUECrawlerSchedule",
@@ -400,6 +425,8 @@ $GLUE_SelectMap = @{
                "Add-GLUEResourceTag",
                "Remove-GLUEResourceTag",
                "Update-GLUEClassifier",
+               "Update-GLUEColumnStatisticsForPartition",
+               "Update-GLUEColumnStatisticsForTable",
                "Update-GLUEConnection",
                "Update-GLUECrawler",
                "Update-GLUECrawlerSchedule",

@@ -61,9 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that is used to
-        /// monitor and log events in the task. </para><para>For more information on these groups, see Working with Log Groups and Log Streams
-        /// in the <i>Amazon CloudWatch User Guide.</i></para><para>For more information about how to use CloudWatch Logs with DataSync, see Monitoring
-        /// Your Task in the <i>AWS DataSync User Guide.</i></para>
+        /// monitor and log events in the task. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// the task that occurs when you call <code>StartTaskExecution</code>. You can configure
         /// these options to preserve metadata such as user ID (UID) and group ID (GID), file
         /// permissions, data integrity verification, and so on.</para><para>For each individual task execution, you can override these options by specifying the
-        /// <code>OverrideOptions</code> before starting a the task execution. For more information,
+        /// <code>OverrideOptions</code> before starting the task execution. For more information,
         /// see the operation. </para>
         /// </para>
         /// </summary>

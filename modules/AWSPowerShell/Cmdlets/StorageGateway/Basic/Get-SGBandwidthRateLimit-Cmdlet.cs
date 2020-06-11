@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <summary>
     /// Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
     /// which means no bandwidth rate limiting is in effect. This operation is supported for
-    /// the stored volume, cached volume and tape gateway types.'
+    /// the stored volume, cached volume and tape gateway types.
     /// 
     ///  
     /// <para>

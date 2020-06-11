@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// all of the following are counted as approvals coming from that user:</para><ul><li><para>An IAM user in the account (arn:aws:iam::<i>123456789012</i>:user/<i>Mary_Major</i>)</para></li><li><para>A federated user identified in IAM as Mary_Major (arn:aws:sts::<i>123456789012</i>:federated-user/<i>Mary_Major</i>)</para></li></ul><para>This option does not recognize an active session of someone assuming the role of CodeCommitReview
         /// with a role session name of <i>Mary_Major</i> (arn:aws:sts::<i>123456789012</i>:assumed-role/CodeCommitReview/<i>Mary_Major</i>)
         /// unless you include a wildcard (*Mary_Major).</para></li><li><para><b>Fully qualified ARN</b>: This option allows you to specify the fully qualified
-        /// Amazon Resource Name (ARN) of the IAM user or role. </para></li></ul><para>For more information about IAM ARNs, wildcards, and formats, see <a href="https://docs.aws.amazon.com/iam/latest/UserGuide/reference_identifiers.html">IAM
+        /// Amazon Resource Name (ARN) of the IAM user or role. </para></li></ul><para>For more information about IAM ARNs, wildcards, and formats, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
         /// Identifiers</a> in the <i>IAM User Guide</i>.</para></note>
         /// </para>
         /// </summary>

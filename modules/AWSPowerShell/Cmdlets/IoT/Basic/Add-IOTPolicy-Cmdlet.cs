@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-security-identity.html">identity</a>
+        /// <para>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a>
         /// to which the policy is attached.</para>
         /// </para>
         /// </summary>

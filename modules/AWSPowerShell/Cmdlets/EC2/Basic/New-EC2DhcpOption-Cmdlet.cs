@@ -43,12 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para><code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>,
     /// specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in another Region,
     /// specify <code>region.compute.internal</code> (for example, <code>ap-northeast-1.compute.internal</code>).
-    /// Otherwise, specify a domain name (for example, <code>MyCompany.com</code>). This value
-    /// is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux operating
-    /// systems accept multiple domain names separated by spaces. However, Windows and other
-    /// Linux operating systems treat the value as a single domain, which results in unexpected
-    /// behavior. If your DHCP options set is associated with a VPC that has instances with
-    /// multiple operating systems, specify only one domain name.
+    /// Otherwise, specify a domain name (for example, <code>ExampleCompany.com</code>). This
+    /// value is used to complete unqualified DNS hostnames. <b>Important</b>: Some Linux
+    /// operating systems accept multiple domain names separated by spaces. However, Windows
+    /// and other Linux operating systems treat the value as a single domain, which results
+    /// in unexpected behavior. If your DHCP options set is associated with a VPC that has
+    /// instances with multiple operating systems, specify only one domain name.
     /// </para></li><li><para><code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP)
     /// servers.
     /// </para></li><li><para><code>netbios-name-servers</code> - The IP addresses of up to four NetBIOS name servers.
@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("DhcpConfigurations")]
         public Amazon.EC2.Model.DhcpConfiguration[] DhcpConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the DHCP option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter Select
@@ -164,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter DhcpConfiguration which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -183,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DhcpConfiguration != null)
             {
                 request.DhcpConfigurations = cmdletContext.DhcpConfiguration;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -246,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.DhcpConfiguration> DhcpConfiguration { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreateDhcpOptionsResponse, NewEC2DhcpOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DhcpOptions;
         }

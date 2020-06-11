@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
     /// Deletes the specified image from your account. To delete an image, you must first
-    /// delete any bundles that are associated with the image and un-share the image if it
+    /// delete any bundles that are associated with the image and unshare the image if it
     /// is shared with other accounts.
     /// </summary>
     [Cmdlet("Remove", "WKSWorkspaceImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// 
     ///  
     /// <para>
-    /// This operation has a limit of 10 transactions per second per account.
+    /// This operation has a limit of 5 transactions per second per stream.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "KINStreamConsumerList")]

@@ -150,14 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specify the Active Directory directory ID to restore the DB instance in. The domain
-        /// must be created prior to this operation. Currently, only Microsoft SQL Server and
-        /// Oracle DB instances can be created in an Active Directory Domain. </para><para>For Microsoft SQL Server DB instances, Amazon RDS can use Windows Authentication to
-        /// authenticate users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
-        /// Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL
-        /// Server</a> in the <i>Amazon RDS User Guide</i>.</para><para>For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate
-        /// users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
-        /// Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS
-        /// User Guide</i>.</para>
+        /// must be created prior to this operation. Currently, only MySQL, Microsoft SQL Server,
+        /// Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
+        /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -282,11 +277,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is publicly accessible. When the DB
-        /// instance is publicly accessible, it is an Internet-facing instance with a publicly
-        /// resolvable DNS name, which resolves to a public IP address. When the DB instance isn't
-        /// publicly accessible, it is an internal instance with a DNS name that resolves to a
-        /// private IP address. For more information, see <a>CreateDBInstance</a>.</para>
+        /// <para>A value that indicates whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its DNS endpoint resolves to the private
+        /// IP address from within the DB instance's VPC, and to the public IP address from outside
+        /// of the DB instance's VPC. Access to the DB instance is ultimately controlled by the
+        /// security group it uses, and that public access is not permitted if the security group
+        /// assigned to the DB instance doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
+        /// a DNS name that resolves to a private IP address.</para><para>For more information, see <a>CreateDBInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

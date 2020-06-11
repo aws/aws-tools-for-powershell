@@ -35,8 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// For information about limits on the number of MFA devices you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on Entities</a> in the <i>IAM User Guide</i>.
+    /// The number and size of IAM resources in an AWS account are limited. For more information,
+    /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+    /// and STS Quotas</a> in the <i>IAM User Guide</i>.
     /// </para><important><para>
     /// The seed information contained in the QR code and the Base32 string should be treated
     /// like any other secret access information. In other words, protect the seed information

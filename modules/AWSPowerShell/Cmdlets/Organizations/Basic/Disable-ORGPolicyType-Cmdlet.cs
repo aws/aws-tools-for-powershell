@@ -28,16 +28,16 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Disables an organizational control policy type in a root. A policy of a certain type
-    /// can be attached to entities in a root only if that type is enabled in the root. After
-    /// you perform this operation, you no longer can attach policies of the specified type
-    /// to that root or to any organizational unit (OU) or account in that root. You can undo
+    /// Disables an organizational policy type in a root. A policy of a certain type can be
+    /// attached to entities in a root only if that type is enabled in the root. After you
+    /// perform this operation, you no longer can attach policies of the specified type to
+    /// that root or to any organizational unit (OU) or account in that root. You can undo
     /// this by using the <a>EnablePolicyType</a> operation.
     /// 
     ///  
     /// <para>
     /// This is an asynchronous request that AWS performs in the background. If you disable
-    /// a policy for a root, it still appears enabled for the organization if <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
+    /// a policy type for a root, it still appears enabled for the organization if <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
     /// features</a> are enabled for the organization. AWS recommends that you first use <a>ListRoots</a>
     /// to see the status of policy types for a specified root, and then use this operation.
     /// 
@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type that you want to disable in this root.</para>
+        /// <para>The policy type that you want to disable in this root. You can specify one of the
+        /// following values:</para><ul><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Get a job for a branch, part of an Amplify App.
+    /// Returns a job for a branch of an Amplify app.
     /// </summary>
     [Cmdlet("Get", "AMPJob")]
     [OutputType("Amazon.Amplify.Model.Job")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> Name for the branch, for the Job. </para>
+        /// <para> The branch name for the job. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for the Job. </para>
+        /// <para> The unique ID for the job. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

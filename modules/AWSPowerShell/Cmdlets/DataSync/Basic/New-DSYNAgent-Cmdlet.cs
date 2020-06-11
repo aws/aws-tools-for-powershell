@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// 
     ///  
     /// <para>
-    /// You can activate the agent in a VPC (Virtual private Cloud) or provide the agent access
+    /// You can activate the agent in a VPC (virtual private cloud) or provide the agent access
     /// to a VPC endpoint so you can run tasks without going over the public Internet.
     /// </para><para>
     /// You can use an agent for more than one location. If a task uses multiple agents, all
@@ -137,10 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC (Virtual Private Cloud) endpoint that the agent has access to. This
+        /// <para>The ID of the VPC (virtual private cloud) endpoint that the agent has access to. This
         /// is the client-side VPC endpoint, also called a PrivateLink. If you don't have a PrivateLink
         /// VPC endpoint, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html#create-endpoint-service">Creating
-        /// a VPC Endpoint Service Configuration</a> in the AWS VPC User Guide.</para><para>VPC endpoint ID looks like this: <code>vpce-01234d5aff67890e1</code>.</para>
+        /// a VPC Endpoint Service Configuration</a> in the Amazon VPC User Guide.</para><para>VPC endpoint ID looks like this: <code>vpce-01234d5aff67890e1</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

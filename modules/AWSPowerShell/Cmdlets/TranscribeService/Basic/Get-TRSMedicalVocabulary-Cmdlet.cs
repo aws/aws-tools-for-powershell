@@ -28,7 +28,7 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Retrieve information about a medical vocabulary.
+    /// Retrieves information about a medical vocabulary.
     /// </summary>
     [Cmdlet("Get", "TRSMedicalVocabulary")]
     [OutputType("Amazon.TranscribeService.Model.GetMedicalVocabularyResponse")]
@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary you are trying to get information about. The value you
-        /// enter for this request is case-sensitive. </para>
+        /// <para>The name of the vocabulary that you want information about. The value is case sensitive.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

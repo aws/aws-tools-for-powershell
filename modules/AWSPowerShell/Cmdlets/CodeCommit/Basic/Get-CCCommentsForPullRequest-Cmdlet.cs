@@ -28,7 +28,12 @@ using Amazon.CodeCommit.Model;
 namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    /// Returns comments made on a pull request.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns comments made on a pull request.
+    /// 
+    ///  <note><para>
+    /// Reaction counts might include numbers from user identities who were deleted after
+    /// the reaction was made. For a count of reactions from active identities, use GetCommentReactions.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CCCommentsForPullRequest")]
     [OutputType("Amazon.CodeCommit.Model.CommentsForPullRequest")]

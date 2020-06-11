@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The name for the alarm. This name must be unique within your AWS account.</para>
+        /// <para>The name for the alarm. This name must be unique within the Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -320,8 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// 30 for a metric that does not have sub-minute resolution, the alarm still attempts
         /// to gather data at the period rate that you specify. In this case, it does not receive
         /// data for the attempts that do not correspond to a one-minute data resolution, and
-        /// the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets
-        /// this alarm as a high-resolution alarm, which has a higher charge than other alarms.
+        /// the alarm might often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also
+        /// sets this alarm as a high-resolution alarm, which has a higher charge than other alarms.
         /// For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
         /// CloudWatch Pricing</a>.</para><para>An alarm's total current evaluation period can be no longer than one day, so <code>Period</code>
         /// multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.</para>
@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>A list of key-value pairs to associate with the alarm. You can associate as many as
         /// 50 tags with an alarm.</para><para>Tags can help you organize and categorize your resources. You can also use them to
-        /// scope user permissions, by granting a user permission to access or change only resources
+        /// scope user permissions by granting a user permission to access or change only resources
         /// with certain tag values.</para>
         /// </para>
         /// </summary>
@@ -403,9 +403,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// on all network interfaces. You can also specify a unit when you create a custom metric.
         /// Units help provide conceptual meaning to your data. Metric data points that specify
         /// a unit of measure, such as Percent, are aggregated separately.</para><para>If you don't specify <code>Unit</code>, CloudWatch retrieves all unit types that have
-        /// been published for the metric and attempts to evaluate the alarm. Usually metrics
-        /// are published with only one unit, so the alarm will work as intended.</para><para>However, if the metric is published with multiple types of units and you don't specify
-        /// a unit, the alarm's behavior is not defined and will behave un-predictably.</para><para>We recommend omitting <code>Unit</code> so that you don't inadvertently specify an
+        /// been published for the metric and attempts to evaluate the alarm. Usually, metrics
+        /// are published with only one unit, so the alarm works as intended.</para><para>However, if the metric is published with multiple types of units and you don't specify
+        /// a unit, the alarm's behavior is not defined and it behaves predictably.</para><para>We recommend omitting <code>Unit</code> so that you don't inadvertently specify an
         /// incorrect unit that is not published for this metric. Doing so causes the alarm to
         /// be stuck in the <code>INSUFFICIENT DATA</code> state.</para>
         /// </para>

@@ -87,6 +87,16 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
         #endregion
         
+        #region Parameter Bumper_EndUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL for the end bumper asset. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Bumper_EndUrl { get; set; }
+        #endregion
+        
         #region Parameter LivePreRollConfiguration_MaxDurationSecond
         /// <summary>
         /// <para>
@@ -147,6 +157,16 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SlateAdUrl { get; set; }
+        #endregion
+        
+        #region Parameter Bumper_StartUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL for the start bumper asset. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Bumper_StartUrl { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -259,6 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.AdDecisionServerUrl = this.AdDecisionServerUrl;
             context.AvailSuppression_Mode = this.AvailSuppression_Mode;
             context.AvailSuppression_Value = this.AvailSuppression_Value;
+            context.Bumper_EndUrl = this.Bumper_EndUrl;
+            context.Bumper_StartUrl = this.Bumper_StartUrl;
             context.CdnConfiguration = this.CdnConfiguration;
             context.DashConfiguration = this.DashConfiguration;
             context.LivePreRollConfiguration_AdDecisionServerUrl = this.LivePreRollConfiguration_AdDecisionServerUrl;
@@ -324,6 +346,35 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (requestAvailSuppressionIsNull)
             {
                 request.AvailSuppression = null;
+            }
+            
+             // populate Bumper
+            var requestBumperIsNull = true;
+            request.Bumper = new Amazon.MediaTailor.Model.Bumper();
+            System.String requestBumper_bumper_EndUrl = null;
+            if (cmdletContext.Bumper_EndUrl != null)
+            {
+                requestBumper_bumper_EndUrl = cmdletContext.Bumper_EndUrl;
+            }
+            if (requestBumper_bumper_EndUrl != null)
+            {
+                request.Bumper.EndUrl = requestBumper_bumper_EndUrl;
+                requestBumperIsNull = false;
+            }
+            System.String requestBumper_bumper_StartUrl = null;
+            if (cmdletContext.Bumper_StartUrl != null)
+            {
+                requestBumper_bumper_StartUrl = cmdletContext.Bumper_StartUrl;
+            }
+            if (requestBumper_bumper_StartUrl != null)
+            {
+                request.Bumper.StartUrl = requestBumper_bumper_StartUrl;
+                requestBumperIsNull = false;
+            }
+             // determine if request.Bumper should be set to null
+            if (requestBumperIsNull)
+            {
+                request.Bumper = null;
             }
             if (cmdletContext.CdnConfiguration != null)
             {
@@ -450,6 +501,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public System.String AdDecisionServerUrl { get; set; }
             public Amazon.MediaTailor.Mode AvailSuppression_Mode { get; set; }
             public System.String AvailSuppression_Value { get; set; }
+            public System.String Bumper_EndUrl { get; set; }
+            public System.String Bumper_StartUrl { get; set; }
             public Amazon.MediaTailor.Model.CdnConfiguration CdnConfiguration { get; set; }
             public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
             public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }

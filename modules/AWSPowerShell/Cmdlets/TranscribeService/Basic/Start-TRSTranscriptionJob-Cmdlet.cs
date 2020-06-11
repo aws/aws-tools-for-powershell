@@ -100,6 +100,16 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
         #endregion
         
+        #region Parameter ModelSettings_LanguageModelName
+        /// <summary>
+        /// <para>
+        /// <para>The name of your custom language model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelSettings_LanguageModelName { get; set; }
+        #endregion
+        
         #region Parameter Settings_MaxAlternative
         /// <summary>
         /// <para>
@@ -259,10 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job. Note that you can't use the strings "." or ".." by themselves
-        /// as the job name. The name must also be unique within an AWS account. If you try to
-        /// create a transcription job with the same name as a previous transcription job you
-        /// will receive a <code>ConflictException</code> error.</para>
+        /// <para>The name of the job. You can't use the strings "<code>.</code>" or "<code>..</code>"
+        /// by themselves as the job name. The name must also be unique within an AWS account.
+        /// If you try to create a transcription job with the same name as a previous transcription
+        /// job, you get a <code>ConflictException</code> error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -385,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             context.Media_MediaFileUri = this.Media_MediaFileUri;
             context.MediaFormat = this.MediaFormat;
             context.MediaSampleRateHertz = this.MediaSampleRateHertz;
+            context.ModelSettings_LanguageModelName = this.ModelSettings_LanguageModelName;
             context.OutputBucketName = this.OutputBucketName;
             context.OutputEncryptionKMSKeyId = this.OutputEncryptionKMSKeyId;
             context.Settings_ChannelIdentification = this.Settings_ChannelIdentification;
@@ -506,6 +517,25 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.MediaSampleRateHertz != null)
             {
                 request.MediaSampleRateHertz = cmdletContext.MediaSampleRateHertz.Value;
+            }
+            
+             // populate ModelSettings
+            var requestModelSettingsIsNull = true;
+            request.ModelSettings = new Amazon.TranscribeService.Model.ModelSettings();
+            System.String requestModelSettings_modelSettings_LanguageModelName = null;
+            if (cmdletContext.ModelSettings_LanguageModelName != null)
+            {
+                requestModelSettings_modelSettings_LanguageModelName = cmdletContext.ModelSettings_LanguageModelName;
+            }
+            if (requestModelSettings_modelSettings_LanguageModelName != null)
+            {
+                request.ModelSettings.LanguageModelName = requestModelSettings_modelSettings_LanguageModelName;
+                requestModelSettingsIsNull = false;
+            }
+             // determine if request.ModelSettings should be set to null
+            if (requestModelSettingsIsNull)
+            {
+                request.ModelSettings = null;
             }
             if (cmdletContext.OutputBucketName != null)
             {
@@ -677,6 +707,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String Media_MediaFileUri { get; set; }
             public Amazon.TranscribeService.MediaFormat MediaFormat { get; set; }
             public System.Int32? MediaSampleRateHertz { get; set; }
+            public System.String ModelSettings_LanguageModelName { get; set; }
             public System.String OutputBucketName { get; set; }
             public System.String OutputEncryptionKMSKeyId { get; set; }
             public System.Boolean? Settings_ChannelIdentification { get; set; }

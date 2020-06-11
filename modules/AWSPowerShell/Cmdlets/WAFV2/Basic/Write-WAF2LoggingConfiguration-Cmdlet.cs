@@ -45,6 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// Create the data firehose with a PUT source and in the Region that you are operating.
     /// If you are capturing logs for Amazon CloudFront, always create the firehose in US
     /// East (N. Virginia). 
+    /// </para><para>
+    /// Give the data firehose a name that starts with the prefix <code>aws-waf-logs-</code>.
+    /// For example, <code>aws-waf-logs-us-east-2-analytics</code>.
     /// </para><note><para>
     /// Do not create the data firehose using a <code>Kinesis stream</code> as your source.
     /// </para></note></li><li><para>
@@ -86,12 +89,25 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String[] LoggingConfiguration_LogDestinationConfig { get; set; }
         #endregion
         
+        #region Parameter LoggingConfiguration_ManagedByFirewallManager
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the logging configuration was created by AWS Firewall Manager, as
+        /// part of an AWS WAF policy configuration. If true, only Firewall Manager can modify
+        /// or delete the configuration. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LoggingConfiguration_ManagedByFirewallManager { get; set; }
+        #endregion
+        
         #region Parameter LoggingConfiguration_RedactedField
         /// <summary>
         /// <para>
         /// <para>The parts of the request that you want to keep out of the logs. For example, if you
-        /// redact the cookie field, the cookie field in the firehose will be <code>xxx</code>.
-        /// </para>
+        /// redact the <code>HEADER</code> field, the <code>HEADER</code> field in the firehose
+        /// will be <code>xxx</code>. </para><note><para>You must use one of the following values: <code>URI</code>, <code>QUERY_STRING</code>,
+        /// <code>HEADER</code>, or <code>METHOD</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 WriteWarning("You are passing $null as a value for parameter LoggingConfiguration_LogDestinationConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LoggingConfiguration_ManagedByFirewallManager = this.LoggingConfiguration_ManagedByFirewallManager;
             if (this.LoggingConfiguration_RedactedField != null)
             {
                 context.LoggingConfiguration_RedactedField = new List<Amazon.WAFV2.Model.FieldToMatch>(this.LoggingConfiguration_RedactedField);
@@ -226,6 +243,16 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (requestLoggingConfiguration_loggingConfiguration_LogDestinationConfig != null)
             {
                 request.LoggingConfiguration.LogDestinationConfigs = requestLoggingConfiguration_loggingConfiguration_LogDestinationConfig;
+                requestLoggingConfigurationIsNull = false;
+            }
+            System.Boolean? requestLoggingConfiguration_loggingConfiguration_ManagedByFirewallManager = null;
+            if (cmdletContext.LoggingConfiguration_ManagedByFirewallManager != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_ManagedByFirewallManager = cmdletContext.LoggingConfiguration_ManagedByFirewallManager.Value;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_ManagedByFirewallManager != null)
+            {
+                request.LoggingConfiguration.ManagedByFirewallManager = requestLoggingConfiguration_loggingConfiguration_ManagedByFirewallManager.Value;
                 requestLoggingConfigurationIsNull = false;
             }
             List<Amazon.WAFV2.Model.FieldToMatch> requestLoggingConfiguration_loggingConfiguration_RedactedField = null;
@@ -315,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> LoggingConfiguration_LogDestinationConfig { get; set; }
+            public System.Boolean? LoggingConfiguration_ManagedByFirewallManager { get; set; }
             public List<Amazon.WAFV2.Model.FieldToMatch> LoggingConfiguration_RedactedField { get; set; }
             public System.String LoggingConfiguration_ResourceArn { get; set; }
             public System.Func<Amazon.WAFV2.Model.PutLoggingConfigurationResponse, WriteWAF2LoggingConfigurationCmdlet, object> Select { get; set; } =

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// and <code>instance</code> resource types are supported.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
-    /// Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+    /// Fleet requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "EC2SpotFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
         /// that grants the Spot Fleet the permission to request, launch, terminate, and tag instances
         /// on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
-        /// Fleet Prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot
+        /// Fleet prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot
         /// Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request
         /// using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a>
         /// or when the Spot Fleet request expires, if you set <code>TerminateInstancesWithExpiration</code>.</para>

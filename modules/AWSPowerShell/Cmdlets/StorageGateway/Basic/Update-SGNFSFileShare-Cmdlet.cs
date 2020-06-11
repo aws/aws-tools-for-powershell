@@ -60,6 +60,20 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class UpdateSGNFSFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter CacheAttributes_CacheStaleTimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time
+        /// since the last refresh after which access to the directory would cause the file gateway
+        /// to first refresh that directory's contents from the Amazon S3 bucket. The TTL duration
+        /// is in seconds.</para><para>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CacheAttributes_CacheStaleTimeoutInSeconds")]
+        public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
+        #endregion
+        
         #region Parameter ClientList
         /// <summary>
         /// <para>
@@ -75,9 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
-        /// Possible values are <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>.
-        /// If this field is not populated, the default value <code>S3_STANDARD</code> is used.
-        /// Optional.</para>
+        /// The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
+        /// | <code>S3_ONEZONE_IA</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,8 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter NFSFileShareDefaults_DirectoryMode
         /// <summary>
         /// <para>
-        /// <para>The Unix directory mode in the form "nnnn". For example, "0666" represents the default
-        /// access mode for all directories inside the file share. The default value is 0777.</para>
+        /// <para>The Unix directory mode in the form "nnnn". For example, <code>0666</code> represents
+        /// the default access mode for all directories inside the file share. The default value
+        /// is <code>0777</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter NFSFileShareDefaults_FileMode
         /// <summary>
         /// <para>
-        /// <para>The Unix file mode in the form "nnnn". For example, "0666" represents the default
-        /// file mode inside the file share. The default value is 0666. </para>
+        /// <para>The Unix file mode in the form "nnnn". For example, <code>0666</code> represents the
+        /// default file mode inside the file share. The default value is <code>0666</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the file share to be updated. </para>
+        /// <para>The Amazon Resource Name (ARN) of the file share to be updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,11 +137,21 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String FileShareARN { get; set; }
         #endregion
         
+        #region Parameter FileShareName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FileShareName { get; set; }
+        #endregion
+        
         #region Parameter NFSFileShareDefaults_GroupId
         /// <summary>
         /// <para>
         /// <para>The default group ID for the file share (unless the files have another group ID specified).
-        /// The default value is nfsnobody. </para>
+        /// The default value is <code>nfsnobody</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that enables guessing of the MIME type for uploaded objects based on file
-        /// extensions. Set this value to true to enable MIME type guessing, and otherwise to
-        /// false. The default value is true.</para>
+        /// extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise
+        /// set to <code>false</code>. The default value is <code>true</code>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
-        /// use a key managed by Amazon S3. Optional. </para>
+        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS
+        /// KMS key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,8 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server-side encryption.
-        /// This value can only be set when KMSEncrypted is true. Optional. </para>
+        /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+        /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
+        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,8 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ObjectACL
         /// <summary>
         /// <para>
-        /// <para>A value that sets the access control list permission for objects in the S3 bucket
-        /// that a file gateway puts objects into. The default value is "private".</para>
+        /// <para>A value that sets the access control list (ACL) permission for objects in the S3 bucket
+        /// that a file gateway puts objects into. The default value is <code>private</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The default owner ID for files in the file share (unless the files have another owner
-        /// ID specified). The default value is nfsnobody. </para>
+        /// ID specified). The default value is <code>nfsnobody</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,8 +219,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ReadOnly
         /// <summary>
         /// <para>
-        /// <para>A value that sets the write status of a file share. This value is true if the write
-        /// status is read-only, and otherwise false.</para>
+        /// <para>A value that sets the write status of a file share. Set this value to <code>true</code>
+        /// to set the write status to read-only, otherwise set to <code>false</code>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,11 +231,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that sets who pays the cost of the request and the cost associated with data
-        /// download from the S3 bucket. If this value is set to true, the requester pays the
-        /// costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays
-        /// the cost of storing data.</para><note><para><code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
+        /// download from the S3 bucket. If this value is set to <code>true</code>, the requester
+        /// pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner
+        /// always pays the cost of storing data.</para><note><para><code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
         /// share, so make sure that the configuration on the file share is the same as the S3
-        /// bucket configuration.</para></note>
+        /// bucket configuration.</para></note><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Squash
         /// <summary>
         /// <para>
-        /// <para>The user mapped to anonymous user. Valid options are the following:</para><ul><li><para><code>RootSquash</code> - Only root is mapped to anonymous user.</para></li><li><para><code>NoSquash</code> - No one is mapped to anonymous user</para></li><li><para><code>AllSquash</code> - Everyone is mapped to anonymous user.</para></li></ul>
+        /// <para>The user mapped to anonymous user.</para><para>Valid values are the following:</para><ul><li><para><code>RootSquash</code>: Only root is mapped to anonymous user.</para></li><li><para><code>NoSquash</code>: No one is mapped to anonymous user.</para></li><li><para><code>AllSquash</code>: Everyone is mapped to anonymous user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -289,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.Select = (response, cmdlet) => this.FileShareARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CacheAttributes_CacheStaleTimeoutInSecond = this.CacheAttributes_CacheStaleTimeoutInSecond;
             if (this.ClientList != null)
             {
                 context.ClientList = new List<System.String>(this.ClientList);
@@ -301,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 WriteWarning("You are passing $null as a value for parameter FileShareARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FileShareName = this.FileShareName;
             context.GuessMIMETypeEnabled = this.GuessMIMETypeEnabled;
             context.KMSEncrypted = this.KMSEncrypted;
             context.KMSKey = this.KMSKey;
@@ -328,6 +355,25 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.UpdateNFSFileShareRequest();
             
+            
+             // populate CacheAttributes
+            var requestCacheAttributesIsNull = true;
+            request.CacheAttributes = new Amazon.StorageGateway.Model.CacheAttributes();
+            System.Int32? requestCacheAttributes_cacheAttributes_CacheStaleTimeoutInSecond = null;
+            if (cmdletContext.CacheAttributes_CacheStaleTimeoutInSecond != null)
+            {
+                requestCacheAttributes_cacheAttributes_CacheStaleTimeoutInSecond = cmdletContext.CacheAttributes_CacheStaleTimeoutInSecond.Value;
+            }
+            if (requestCacheAttributes_cacheAttributes_CacheStaleTimeoutInSecond != null)
+            {
+                request.CacheAttributes.CacheStaleTimeoutInSeconds = requestCacheAttributes_cacheAttributes_CacheStaleTimeoutInSecond.Value;
+                requestCacheAttributesIsNull = false;
+            }
+             // determine if request.CacheAttributes should be set to null
+            if (requestCacheAttributesIsNull)
+            {
+                request.CacheAttributes = null;
+            }
             if (cmdletContext.ClientList != null)
             {
                 request.ClientList = cmdletContext.ClientList;
@@ -339,6 +385,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.FileShareARN != null)
             {
                 request.FileShareARN = cmdletContext.FileShareARN;
+            }
+            if (cmdletContext.FileShareName != null)
+            {
+                request.FileShareName = cmdletContext.FileShareName;
             }
             if (cmdletContext.GuessMIMETypeEnabled != null)
             {
@@ -478,9 +528,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
             public List<System.String> ClientList { get; set; }
             public System.String DefaultStorageClass { get; set; }
             public System.String FileShareARN { get; set; }
+            public System.String FileShareName { get; set; }
             public System.Boolean? GuessMIMETypeEnabled { get; set; }
             public System.Boolean? KMSEncrypted { get; set; }
             public System.String KMSKey { get; set; }

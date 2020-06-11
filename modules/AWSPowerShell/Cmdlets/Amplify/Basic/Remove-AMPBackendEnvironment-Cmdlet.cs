@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Delete backend environment for an Amplify App.
+    /// Deletes a backend environment for an Amplify app.
     /// </summary>
     [Cmdlet("Remove", "AMPBackendEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Amplify.Model.BackendEnvironment")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id of an Amplify App. </para>
+        /// <para> The unique ID of an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> Name of a backend environment of an Amplify App. </para>
+        /// <para> The name of a backend environment of an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

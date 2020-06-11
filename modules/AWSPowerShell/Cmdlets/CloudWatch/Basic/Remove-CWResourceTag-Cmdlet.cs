@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the CloudWatch resource that you're removing tags from.</para><para>The ARN format of an alarm is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:alarm:<i>alarm-name</i></code></para><para>The ARN format of a Contributor Insights rule is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule:<i>insight-rule-name</i></code></para><para>For more information on ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies">
+        /// <para>The ARN of the CloudWatch resource that you're removing tags from.</para><para>The ARN format of an alarm is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:alarm:<i>alarm-name</i></code></para><para>The ARN format of a Contributor Insights rule is <code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule:<i>insight-rule-name</i></code></para><para>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies">
         /// Resource Types Defined by Amazon CloudWatch</a> in the <i>Amazon Web Services General
         /// Reference</i>.</para>
         /// </para>

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// a state of “pending”. After the parameter modifications are successfully applied to
     /// the instance, the state of the modifications changes from “pending” to “applied” in
     /// subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
-    /// Metadata and User Data</a>.
+    /// metadata and user data</a>.
     /// </summary>
     [Cmdlet("Edit", "EC2InstanceMetadataOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyInstanceMetadataOptionsResponse")]

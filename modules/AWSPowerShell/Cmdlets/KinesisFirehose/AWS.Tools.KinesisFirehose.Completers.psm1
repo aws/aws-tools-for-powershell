@@ -80,6 +80,16 @@ $KINF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.KinesisFirehose.ContentEncoding
+        {
+            ($_ -eq "New-KINFDeliveryStream/HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding") -Or
+            ($_ -eq "Update-KINFDestination/HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding")
+        }
+        {
+            $v = "GZIP","NONE"
+            break
+        }
+
         # Amazon.KinesisFirehose.DeliveryStreamType
         {
             ($_ -eq "Get-KINFDeliveryStreamList/DeliveryStreamType") -Or
@@ -107,6 +117,16 @@ $KINF_Completers = {
             break
         }
 
+        # Amazon.KinesisFirehose.HttpEndpointS3BackupMode
+        {
+            ($_ -eq "New-KINFDeliveryStream/HttpEndpointDestinationConfiguration_S3BackupMode") -Or
+            ($_ -eq "Update-KINFDestination/HttpEndpointDestinationUpdate_S3BackupMode")
+        }
+        {
+            $v = "AllData","FailedDataOnly"
+            break
+        }
+
         # Amazon.KinesisFirehose.KeyType
         {
             ($_ -eq "New-KINFDeliveryStream/DeliveryStreamEncryptionConfigurationInput_KeyType") -Or
@@ -131,6 +151,10 @@ $KINF_map = @{
     "ElasticsearchDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
     "ElasticsearchDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
+    "HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding"=@("New-KINFDeliveryStream")
+    "HttpEndpointDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding"=@("Update-KINFDestination")
+    "HttpEndpointDestinationUpdate_S3BackupMode"=@("Update-KINFDestination")
 }
 
 _awsArgumentCompleterRegistration $KINF_Completers $KINF_map

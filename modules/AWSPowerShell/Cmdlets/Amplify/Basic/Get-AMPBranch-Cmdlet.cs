@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Retrieves a branch for an Amplify App.
+    /// Returns a branch for an Amplify app.
     /// </summary>
     [Cmdlet("Get", "AMPBranch")]
     [OutputType("Amazon.Amplify.Model.Branch")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> Name for the branch. </para>
+        /// <para> The name for the branch. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

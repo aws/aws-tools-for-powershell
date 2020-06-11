@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
     public partial class GetCSTCConnectionListCmdlet : AmazonCodeStarconnectionsClientCmdlet, IExecutor
     {
         
+        #region Parameter HostArnFilter
+        /// <summary>
+        /// <para>
+        /// <para>Filters the list of connections to those associated with a specified host.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HostArnFilter { get; set; }
+        #endregion
+        
         #region Parameter ProviderTypeFilter
         /// <summary>
         /// <para>
@@ -134,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
                 context.Select = (response, cmdlet) => this.ProviderTypeFilter;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.HostArnFilter = this.HostArnFilter;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ProviderTypeFilter = this.ProviderTypeFilter;
@@ -157,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             // create request and set iteration invariants
             var request = new Amazon.CodeStarconnections.Model.ListConnectionsRequest();
             
+            if (cmdletContext.HostArnFilter != null)
+            {
+                request.HostArnFilter = cmdletContext.HostArnFilter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -250,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String HostArnFilter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.CodeStarconnections.ProviderType ProviderTypeFilter { get; set; }

@@ -97,6 +97,13 @@ $KIN_Completers = {
             break
         }
 
+        # Amazon.Kinesis.ShardFilterType
+        "Get-KINShardList/ShardFilter_Type"
+        {
+            $v = "AFTER_SHARD_ID","AT_LATEST","AT_TIMESTAMP","AT_TRIM_HORIZON","FROM_TIMESTAMP","FROM_TRIM_HORIZON"
+            break
+        }
+
         # Amazon.Kinesis.ShardIteratorType
         "Get-KINShardIterator/ShardIteratorType"
         {
@@ -115,6 +122,7 @@ $KIN_Completers = {
 $KIN_map = @{
     "EncryptionType"=@("Start-KINStreamEncryption","Stop-KINStreamEncryption")
     "ScalingType"=@("Update-KINShardCount")
+    "ShardFilter_Type"=@("Get-KINShardList")
     "ShardIteratorType"=@("Get-KINShardIterator")
 }
 

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the file share to be deleted. </para>
+        /// <para>The Amazon Resource Name (ARN) of the file share to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ForceDelete
         /// <summary>
         /// <para>
-        /// <para>If this value is set to true, the operation deletes a file share immediately and aborts
-        /// all data uploads to AWS. Otherwise, the file share is not deleted until all data is
-        /// uploaded to AWS. This process aborts the data upload process, and the file share enters
-        /// the FORCE_DELETING status.</para>
+        /// <para>If this value is set to <code>true</code>, the operation deletes a file share immediately
+        /// and aborts all data uploads to AWS. Otherwise, the file share is not deleted until
+        /// all data is uploaded to AWS. This process aborts the data upload process, and the
+        /// file share enters the <code>FORCE_DELETING</code> status.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

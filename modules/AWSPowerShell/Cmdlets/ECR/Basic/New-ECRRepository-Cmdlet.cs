@@ -41,6 +41,27 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class NewECRRepositoryCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        #region Parameter EncryptionConfiguration_EncryptionType
+        /// <summary>
+        /// <para>
+        /// <para>The encryption type to use.</para><para>If you use the <code>KMS</code> encryption type, the contents of the repository will
+        /// be encrypted using server-side encryption with customer master keys (CMKs) stored
+        /// in AWS KMS. When you use AWS KMS to encrypt your data, you can either use the default
+        /// AWS managed CMK for Amazon ECR, or specify your own CMK, which you already created.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting
+        /// Data Using Server-Side Encryption with CMKs Stored in AWS Key Management Service (SSE-KMS)</a>
+        /// in the <i>Amazon Simple Storage Service Console Developer Guide.</i>.</para><para>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
+        /// with Amazon S3-managed encryption keys which encrypts the images in the repository
+        /// using an AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting
+        /// Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)</a>
+        /// in the <i>Amazon Simple Storage Service Console Developer Guide.</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ECR.EncryptionType")]
+        public Amazon.ECR.EncryptionType EncryptionConfiguration_EncryptionType { get; set; }
+        #endregion
+        
         #region Parameter ImageTagMutability
         /// <summary>
         /// <para>
@@ -53,6 +74,19 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ECR.ImageTagMutability")]
         public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_KmsKey
+        /// <summary>
+        /// <para>
+        /// <para>If you use the <code>KMS</code> encryption type, specify the CMK to use for encryption.
+        /// The alias, key ID, or full ARN of the CMK can be specified. The key must exist in
+        /// the same Region as the repository. If no key is specified, the default AWS managed
+        /// CMK for Amazon ECR will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KmsKey { get; set; }
         #endregion
         
         #region Parameter RepositoryName
@@ -162,6 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 context.Select = (response, cmdlet) => this.RepositoryName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EncryptionConfiguration_EncryptionType = this.EncryptionConfiguration_EncryptionType;
+            context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
             context.ImageScanningConfiguration_ScanOnPush = this.ImageScanningConfiguration_ScanOnPush;
             context.ImageTagMutability = this.ImageTagMutability;
             context.RepositoryName = this.RepositoryName;
@@ -191,6 +227,35 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             // create request
             var request = new Amazon.ECR.Model.CreateRepositoryRequest();
             
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.ECR.Model.EncryptionConfiguration();
+            Amazon.ECR.EncryptionType requestEncryptionConfiguration_encryptionConfiguration_EncryptionType = null;
+            if (cmdletContext.EncryptionConfiguration_EncryptionType != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_EncryptionType = cmdletContext.EncryptionConfiguration_EncryptionType;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_EncryptionType != null)
+            {
+                request.EncryptionConfiguration.EncryptionType = requestEncryptionConfiguration_encryptionConfiguration_EncryptionType;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KmsKey = null;
+            if (cmdletContext.EncryptionConfiguration_KmsKey != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsKey = cmdletContext.EncryptionConfiguration_KmsKey;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsKey != null)
+            {
+                request.EncryptionConfiguration.KmsKey = requestEncryptionConfiguration_encryptionConfiguration_KmsKey;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
+            }
             
              // populate ImageScanningConfiguration
             var requestImageScanningConfigurationIsNull = true;
@@ -283,6 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.ECR.EncryptionType EncryptionConfiguration_EncryptionType { get; set; }
+            public System.String EncryptionConfiguration_KmsKey { get; set; }
             public System.Boolean? ImageScanningConfiguration_ScanOnPush { get; set; }
             public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
             public System.String RepositoryName { get; set; }

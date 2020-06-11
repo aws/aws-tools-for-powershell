@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// 
     ///  
     /// <para>
-    /// There is a limit on the number of on-demand replications runs you can request in a
-    /// 24-hour period.
+    /// There is a limit on the number of on-demand replications runs that you can request
+    /// in a 24-hour period.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "SMSOnDemandReplicationRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ReplicationJobId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the replication job.</para>
+        /// <para>The ID of the replication job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,10 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
     /// Returns detailed information about one or more specified events. Information includes
-    /// standard event data (region, service, and so on, as returned by <a>DescribeEvents</a>),
+    /// standard event data (Region, service, and so on, as returned by <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html">DescribeEvents</a>),
     /// a detailed event description, and possible additional metadata that depends upon the
-    /// nature of the event. Affected entities are not included; to retrieve those, use the
-    /// <a>DescribeAffectedEntities</a> operation.
+    /// nature of the event. Affected entities are not included. To retrieve those, use the
+    /// <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a>
+    /// operation.
     /// 
     ///  
     /// <para>

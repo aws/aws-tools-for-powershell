@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter InputDataConfig_EntityType
         /// <summary>
         /// <para>
-        /// <para>The entity types in the input data for an entity recognizer. A maximum of 12 entity
+        /// <para>The entity types in the input data for an entity recognizer. A maximum of 25 entity
         /// types can be used at one time to train an entity recognizer.</para>
         /// </para>
         /// </summary>
@@ -92,8 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
-        /// <para> The language of the input documents. All documents must be in the same language.
-        /// Only English ("en") is currently supported. </para>
+        /// <para> You can specify any of the following languages supported by Amazon Comprehend: English
+        /// ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese
+        /// ("pt"). All documents must be in the same language.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

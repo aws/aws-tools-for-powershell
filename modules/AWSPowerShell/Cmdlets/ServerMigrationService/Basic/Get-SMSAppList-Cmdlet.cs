@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Returns a list of summaries for all applications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves summaries for all applications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSAppList")]
     [OutputType("Amazon.ServerMigrationService.Model.AppSummary")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique application IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return in a single call. The default value is 50.
+        /// <para>The maximum number of results to return in a single call. The default value is 100.
         /// To retrieve the remaining results, make another call with the returned <code>NextToken</code>
         /// value. </para>
         /// </para>

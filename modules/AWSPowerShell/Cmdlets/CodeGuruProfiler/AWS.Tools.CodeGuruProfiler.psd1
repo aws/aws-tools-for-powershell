@@ -86,16 +86,27 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CGPNotificationChannel', 
+        'Add-CGPResourceTag', 
+        'Get-CGPFindingsReportAccountSummary', 
+        'Get-CGPFindingsReportList', 
+        'Get-CGPGetFrameMetricData', 
+        'Get-CGPNotificationConfiguration', 
         'Get-CGPPolicy', 
         'Get-CGPProfile', 
         'Get-CGPProfileTimeList', 
         'Get-CGPProfilingGroup', 
         'Get-CGPProfilingGroupList', 
+        'Get-CGPRecommendation', 
+        'Get-CGPResourceTag', 
         'New-CGPProfilingGroup', 
+        'Remove-CGPNotificationChannel', 
         'Remove-CGPPermission', 
         'Remove-CGPProfilingGroup', 
+        'Remove-CGPResourceTag', 
         'Send-CGPAgentProfile', 
         'Set-CGPAgentConfiguration', 
+        'Submit-CGPFeedback', 
         'Update-CGPProfilingGroup', 
         'Write-CGPPermission')
 

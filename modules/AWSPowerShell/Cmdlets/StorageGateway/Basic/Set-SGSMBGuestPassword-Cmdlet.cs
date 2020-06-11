@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The password that you want to set for your SMB Server.</para>
+        /// <para>The password that you want to set for your SMB server.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

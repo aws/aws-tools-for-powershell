@@ -87,10 +87,45 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.ContactLanguage
+        "Write-SES2AccountDetail/ContactLanguage"
+        {
+            $v = "EN","JA"
+            break
+        }
+
+        # Amazon.SimpleEmailV2.DataFormat
+        "New-SES2ImportJob/ImportDataSource_DataFormat"
+        {
+            $v = "CSV","JSON"
+            break
+        }
+
         # Amazon.SimpleEmailV2.DkimSigningAttributesOrigin
         "Write-SES2EmailIdentityDkimSigningAttribute/SigningAttributesOrigin"
         {
             $v = "AWS_SES","EXTERNAL"
+            break
+        }
+
+        # Amazon.SimpleEmailV2.ImportDestinationType
+        "Get-SES2ImportJobList/ImportDestinationType"
+        {
+            $v = "SUPPRESSION_LIST"
+            break
+        }
+
+        # Amazon.SimpleEmailV2.MailType
+        "Write-SES2AccountDetail/MailType"
+        {
+            $v = "MARKETING","TRANSACTIONAL"
+            break
+        }
+
+        # Amazon.SimpleEmailV2.SuppressionListImportAction
+        "New-SES2ImportJob/ImportDestination_SuppressionListDestination_SuppressionListImportAction"
+        {
+            $v = "DELETE","PUT"
             break
         }
 
@@ -121,7 +156,12 @@ $SES2_Completers = {
 
 $SES2_map = @{
     "BehaviorOnMxFailure"=@("Write-SES2EmailIdentityMailFromAttribute")
+    "ContactLanguage"=@("Write-SES2AccountDetail")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
+    "ImportDataSource_DataFormat"=@("New-SES2ImportJob")
+    "ImportDestination_SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
+    "ImportDestinationType"=@("Get-SES2ImportJobList")
+    "MailType"=@("Write-SES2AccountDetail")
     "Reason"=@("Write-SES2SuppressedDestination")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
@@ -179,18 +219,26 @@ $SES2_SelectCompleters = {
 $SES2_SelectMap = @{
     "Select"=@("New-SES2ConfigurationSet",
                "New-SES2ConfigurationSetEventDestination",
+               "New-SES2CustomVerificationEmailTemplate",
                "New-SES2DedicatedIpPool",
                "New-SES2DeliverabilityTestReport",
                "New-SES2EmailIdentity",
+               "New-SES2EmailIdentityPolicy",
+               "New-SES2EmailTemplate",
+               "New-SES2ImportJob",
                "Remove-SES2ConfigurationSet",
                "Remove-SES2ConfigurationSetEventDestination",
+               "Remove-SES2CustomVerificationEmailTemplate",
                "Remove-SES2DedicatedIpPool",
                "Remove-SES2EmailIdentity",
+               "Remove-SES2EmailIdentityPolicy",
+               "Remove-SES2EmailTemplate",
                "Remove-SES2SuppressedDestination",
                "Get-SES2Account",
                "Get-SES2BlacklistReport",
                "Get-SES2ConfigurationSet",
                "Get-SES2ConfigurationSetEventDestination",
+               "Get-SES2CustomVerificationEmailTemplate",
                "Get-SES2DedicatedIp",
                "Get-SES2DedicatedIpList",
                "Get-SES2DeliverabilityDashboardOption",
@@ -198,15 +246,22 @@ $SES2_SelectMap = @{
                "Get-SES2DomainDeliverabilityCampaign",
                "Get-SES2DomainStatisticsReport",
                "Get-SES2EmailIdentity",
+               "Get-SES2EmailIdentityPolicy",
+               "Get-SES2EmailTemplate",
+               "Get-SES2ImportJob",
                "Get-SES2SuppressedDestination",
                "Get-SES2ConfigurationSetList",
+               "Get-SES2CustomVerificationEmailTemplateList",
                "Get-SES2DedicatedIpPoolList",
                "Get-SES2DeliverabilityTestReportList",
                "Get-SES2DomainDeliverabilityCampaignList",
                "Get-SES2EmailIdentityList",
+               "Get-SES2EmailTemplateList",
+               "Get-SES2ImportJobList",
                "Get-SES2SuppressedDestinationList",
                "Get-SES2ResourceTag",
                "Write-SES2AccountDedicatedIpWarmupAttribute",
+               "Write-SES2AccountDetail",
                "Write-SES2AccountSendingAttribute",
                "Write-SES2AccountSuppressionAttribute",
                "Write-SES2ConfigurationSetDeliveryOption",
@@ -222,10 +277,16 @@ $SES2_SelectMap = @{
                "Write-SES2EmailIdentityFeedbackAttribute",
                "Write-SES2EmailIdentityMailFromAttribute",
                "Write-SES2SuppressedDestination",
+               "Send-SES2BulkEmail",
+               "Send-SES2CustomVerificationEmail",
                "Send-SES2Email",
                "Add-SES2ResourceTag",
+               "Test-SES2RenderEmailTemplate",
                "Remove-SES2ResourceTag",
-               "Update-SES2ConfigurationSetEventDestination")
+               "Update-SES2ConfigurationSetEventDestination",
+               "Update-SES2CustomVerificationEmailTemplate",
+               "Update-SES2EmailIdentityPolicy",
+               "Update-SES2EmailTemplate")
 }
 
 _awsArgumentCompleterRegistration $SES2_SelectCompleters $SES2_SelectMap

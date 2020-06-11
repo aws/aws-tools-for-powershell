@@ -52,6 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
     /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para><para>
+    /// You can allocate a carrier IP address which is a public IP address from a telecommunication
+    /// carrier, to a network interface which resides in a subnet in a Wavelength Zone (for
+    /// example an EC2 instance). 
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -88,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Set to <code>vpc</code> to allocate the address for use with instances in a VPC.</para><para>Default: The address is for use with instances in EC2-Classic.</para>
+        /// <para>Indicates whether the Elastic IP address is for use with instances in a VPC or instances
+        /// in EC2-Classic.</para><para>Default: If the Region supports EC2-Classic, the default is <code>standard</code>.
+        /// Otherwise, the default is <code>vpc</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkBorderGroup
         /// <summary>
         /// <para>
-        /// <para>The location from which the IP address is advertised. Use this parameter to limit
-        /// the address to this location.</para><para>A network border group is a unique set of Availability Zones or Local Zones from where
-        /// AWS advertises IP addresses and limits the addresses to the group. IP addresses cannot
-        /// move between network border groups.</para><para>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a>
+        /// <para> A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS
+        /// advertises IP addresses. Use this parameter to limit the IP address to this location.
+        /// IP addresses cannot move between network border groups.</para><para>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a>
         /// to view the network border groups.</para><note><para>You cannot use a network border group with EC2 Classic. If you attempt this operation
         /// on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error

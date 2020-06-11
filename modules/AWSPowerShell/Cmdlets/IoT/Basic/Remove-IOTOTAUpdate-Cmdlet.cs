@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ForceDeleteAWSJob
         /// <summary>
         /// <para>
-        /// <para>Specifies if the AWS Job associated with the OTA update should be deleted with the
+        /// <para>Specifies if the AWS Job associated with the OTA update should be deleted when the
         /// OTA update is deleted.</para>
         /// </para>
         /// </summary>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter OtaUpdateId
         /// <summary>
         /// <para>
-        /// <para>The OTA update ID to delete.</para>
+        /// <para>The ID of the OTA update to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

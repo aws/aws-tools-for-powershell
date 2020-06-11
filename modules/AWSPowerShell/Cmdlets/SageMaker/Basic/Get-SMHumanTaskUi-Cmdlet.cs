@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns information about the requested human task user interface.
+    /// Returns information about the requested human task user interface (worker task template).
     /// </summary>
     [Cmdlet("Get", "SMHumanTaskUi")]
     [OutputType("Amazon.SageMaker.Model.DescribeHumanTaskUiResponse")]
@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HumanTaskUiName
         /// <summary>
         /// <para>
-        /// <para>The name of the human task user interface you want information about.</para>
+        /// <para>The name of the human task user interface (worker task template) you want information
+        /// about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

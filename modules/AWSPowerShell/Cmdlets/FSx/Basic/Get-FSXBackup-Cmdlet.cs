@@ -28,10 +28,9 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Returns the description of specific Amazon FSx for Windows File Server backups, if
-    /// a <code>BackupIds</code> value is provided for that backup. Otherwise, it returns
-    /// all backups owned by your AWS account in the AWS Region of the endpoint that you're
-    /// calling.
+    /// Returns the description of specific Amazon FSx backups, if a <code>BackupIds</code>
+    /// value is provided for that backup. Otherwise, it returns all backups owned by your
+    /// AWS account in the AWS Region of the endpoint that you're calling.
     /// 
     ///  
     /// <para>
@@ -69,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter BackupId
         /// <summary>
         /// <para>
-        /// <para>(Optional) IDs of the backups you want to retrieve (String). This overrides any filters.
-        /// If any IDs are not found, BackupNotFound will be thrown.</para>
+        /// <para>IDs of the backups you want to retrieve (String). This overrides any filters. If any
+        /// IDs are not found, BackupNotFound will be thrown.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>(Optional) Filters structure. Supported names are file-system-id and backup-type.</para>
+        /// <para>Filters structure. Supported names are file-system-id and backup-type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Maximum number of backups to return in the response (integer). This parameter
-        /// value must be greater than 0. The number of items that Amazon FSx returns is the minimum
+        /// <para>Maximum number of backups to return in the response (integer). This parameter value
+        /// must be greater than 0. The number of items that Amazon FSx returns is the minimum
         /// of the <code>MaxResults</code> parameter specified in the request and the service's
         /// internal maximum number of items per page.</para>
         /// </para>
@@ -111,9 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Opaque pagination token returned from a previous <code>DescribeBackups</code>
-        /// operation (String). If a token present, the action continues the list from where the
-        /// returning call left off.</para>
+        /// <para>Opaque pagination token returned from a previous <code>DescribeBackups</code> operation
+        /// (String). If a token present, the action continues the list from where the returning
+        /// call left off.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

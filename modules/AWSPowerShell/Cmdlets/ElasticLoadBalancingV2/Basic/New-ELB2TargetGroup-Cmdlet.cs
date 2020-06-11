@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The type of target that you must specify when registering targets with this target
         /// group. You can't specify targets for a target group using more than one target type.</para><ul><li><para><code>instance</code> - Targets are specified by instance ID. This is the default
-        /// value. If the target group protocol is UDP or TCP_UDP, the target type must be <code>instance</code>.</para></li><li><para><code>ip</code> - Targets are specified by IP address. You can specify IP addresses
+        /// value.</para></li><li><para><code>ip</code> - Targets are specified by IP address. You can specify IP addresses
         /// from the subnets of the virtual private cloud (VPC) for the target group, the RFC
         /// 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range
         /// (100.64.0.0/10). You can't specify publicly routable IP addresses.</para></li><li><para><code>lambda</code> - The target groups contains a single Lambda function.</para></li></ul>

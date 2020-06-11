@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The finding attributes used to define a condition to filter the returned findings.</para>
+        /// <para>The finding attributes used to define a condition to filter the returned findings.</para><para>Note that in the available filter fields, <code>WorkflowState</code> is deprecated.
+        /// To search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

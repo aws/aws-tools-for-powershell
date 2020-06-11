@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-DMSReplicationSubnetGroup', 
         'Edit-DMSReplicationTask', 
         'Get-DMSAccountAttribute', 
+        'Get-DMSApplicableIndividualAssessment', 
         'Get-DMSCertificate', 
         'Get-DMSConnection', 
         'Get-DMSEndpoint', 
@@ -108,6 +109,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DMSReplicationSubnetGroup', 
         'Get-DMSReplicationTask', 
         'Get-DMSReplicationTaskAssessmentResult', 
+        'Get-DMSReplicationTaskAssessmentRun', 
+        'Get-DMSReplicationTaskIndividualAssessment', 
         'Get-DMSResourceTag', 
         'Get-DMSSchema', 
         'Get-DMSTableStatistic', 
@@ -125,13 +128,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DMSReplicationInstance', 
         'Remove-DMSReplicationSubnetGroup', 
         'Remove-DMSReplicationTask', 
+        'Remove-DMSReplicationTaskAssessmentRun', 
         'Remove-DMSResourceTag', 
         'Restart-DMSReplicationInstance', 
         'Restore-DMSTable', 
         'Set-DMSResourceTag', 
         'Start-DMSReplicationTask', 
         'Start-DMSReplicationTaskAssessment', 
+        'Start-DMSReplicationTaskAssessmentRun', 
         'Stop-DMSReplicationTask', 
+        'Stop-DMSReplicationTaskAssessmentRun', 
         'Test-DMSConnection')
 
     # Variables to export from this module

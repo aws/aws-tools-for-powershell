@@ -123,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
         /// Glue pricing page</a>.</para><para>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</para><para>The value that can be allocated for <code>MaxCapacity</code> depends on whether you
         /// are running a Python shell job or an Apache Spark ETL job:</para><ul><li><para>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"),
-        /// you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</para></li><li><para>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"),
+        /// you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</para></li><li><para>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl")
+        /// or Apache Spark streaming ETL job (<code>JobCommand.Name</code>="gluestreaming"),
         /// you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
         /// have a fractional DPU allocation.</para></li></ul>
         /// </para>

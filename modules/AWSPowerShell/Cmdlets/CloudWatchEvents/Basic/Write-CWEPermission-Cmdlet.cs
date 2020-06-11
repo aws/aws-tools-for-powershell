@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
     /// Running <code>PutPermission</code> permits the specified AWS account or AWS organization
-    /// to put events to the specified <i>event bus</i>. CloudWatch Events rules in your account
-    /// are triggered by these events arriving to an event bus in your account. 
+    /// to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch Events)
+    /// rules in your account are triggered by these events arriving to an event bus in your
+    /// account. 
     /// 
     ///  
     /// <para>

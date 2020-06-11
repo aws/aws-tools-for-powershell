@@ -28,12 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// <note><para>
-    /// This is prerelease documentation for the RDS Database Proxy feature in preview release.
-    /// It is subject to change.
-    /// </para></note><para>
     /// Modifies the properties of a <code>DBProxyTargetGroup</code>.
-    /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBProxyTargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBProxyTargetGroup")]
@@ -81,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Typically used with <code>SET</code> statements to make sure that each connection
         /// has identical settings such as time zone and character set. For multiple statements,
         /// use semicolons as the separator. You can also include multiple variables in a single
-        /// <code>SET</code> statement, such as <code>SET x=1, y=2</code>. </para><para><code>InitQuery</code> is not currently supported for PostgreSQL.</para><para>Default: no initialization query</para>
+        /// <code>SET</code> statement, such as <code>SET x=1, y=2</code>. </para><para>Default: no initialization query</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

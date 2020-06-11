@@ -88,10 +88,12 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListRobotApplications</code>
-        /// request where <code>maxResults</code> was used and the results exceeded the value
-        /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. </para>
+        /// <para>If the previous paginated request did not return all of the remaining results, the
+        /// response object's <code>nextToken</code> parameter value is set to a token. To retrieve
+        /// the next set of results, call <code>ListRobotApplications</code> again and assign
+        /// that token to the request object's <code>nextToken</code> parameter. If there are
+        /// no remaining results, the previous response object's NextToken parameter is set to
+        /// null. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

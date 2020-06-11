@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// List webhooks with an app.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of webhooks for an Amplify app.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "AMPWebhookList")]
     [OutputType("Amazon.Amplify.Model.Webhook")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Maximum number of records to list in a single response. </para>
+        /// <para> The maximum number of records to list in a single response. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> Pagination token. Set to null to start listing webhooks from start. If non-null pagination
-        /// token is returned in a result, then pass its value in here to list more webhooks.
+        /// <para> A pagination token. Set to null to start listing webhooks from the start. If non-null,the
+        /// pagination token is returned in a result. Pass its value in here to list more webhooks.
         /// </para>
         /// </para>
         /// <para>

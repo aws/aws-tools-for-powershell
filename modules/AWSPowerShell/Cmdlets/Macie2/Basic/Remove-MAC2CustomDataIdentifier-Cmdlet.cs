@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Deletes a custom data identifier.
+    /// Soft deletes a custom data identifier.
     /// </summary>
     [Cmdlet("Remove", "MAC2CustomDataIdentifier", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

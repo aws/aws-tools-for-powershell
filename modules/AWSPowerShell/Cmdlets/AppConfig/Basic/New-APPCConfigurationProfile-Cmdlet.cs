@@ -128,14 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         /// LocationUri.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RetrievalRoleArn { get; set; }
         #endregion
         
@@ -247,12 +240,6 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             #endif
             context.RetrievalRoleArn = this.RetrievalRoleArn;
-            #if MODULAR
-            if (this.RetrievalRoleArn == null && ParameterWasBound(nameof(this.RetrievalRoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RetrievalRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);

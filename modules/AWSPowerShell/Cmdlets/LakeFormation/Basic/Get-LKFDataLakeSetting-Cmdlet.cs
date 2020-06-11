@@ -28,7 +28,8 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// The AWS Lake Formation principal.
+    /// Retrieves the list of the data lake administrators of a Lake Formation-managed data
+    /// lake.
     /// </summary>
     [Cmdlet("Get", "LKFDataLakeSetting")]
     [OutputType("Amazon.LakeFormation.Model.DataLakeSettings")]

@@ -68,10 +68,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A list of <code>MemberDefinition</code> objects that contains objects that identify
-        /// the Amazon Cognito user pool that makes up the work team. For more information, see
-        /// <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon
-        /// Cognito User Pools</a>.</para><para>All of the <code>CognitoMemberDefinition</code> objects that make up the member definition
-        /// must have the same <code>ClientId</code> and <code>UserPool</code> values.</para>
+        /// the workers that make up the work team. </para><para>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider
+        /// (IdP). For private workforces created using Amazon Cognito use <code>CognitoMemberDefinition</code>.
+        /// For workforces created using your own OIDC identity provider (IdP) use <code>OidcMemberDefinition</code>.
+        /// Do not provide input for both of these parameters in a single request.</para><para>For workforces created using Amazon Cognito, private work teams correspond to Amazon
+        /// Cognito <i>user groups</i> within the user pool used to create a workforce. All of
+        /// the <code>CognitoMemberDefinition</code> objects that make up the member definition
+        /// must have the same <code>ClientId</code> and <code>UserPool</code> values. To add
+        /// a Amazon Cognito user group to an existing worker pool, see <a href="">Adding groups
+        /// to a User Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon
+        /// Cognito User Pools</a>.</para><para>For workforces created using your own OIDC IdP, specify the user groups that you want
+        /// to include in your private work team in <code>OidcMemberDefinition</code> by listing
+        /// those groups in <code>Groups</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,6 +115,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter WorkforceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkforceName { get; set; }
         #endregion
         
         #region Parameter WorkteamName
@@ -209,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            context.WorkforceName = this.WorkforceName;
             context.WorkteamName = this.WorkteamName;
             #if MODULAR
             if (this.WorkteamName == null && ParameterWasBound(nameof(this.WorkteamName)))
@@ -262,6 +281,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.WorkforceName != null)
+            {
+                request.WorkforceName = cmdletContext.WorkforceName;
             }
             if (cmdletContext.WorkteamName != null)
             {
@@ -332,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.MemberDefinition> MemberDefinition { get; set; }
             public System.String NotificationConfiguration_NotificationTopicArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public System.String WorkforceName { get; set; }
             public System.String WorkteamName { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateWorkteamResponse, NewSMWorkteamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.WorkteamArn;

@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter
-        /// to limit the CiDR block to this location.</para><para> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use
+        /// to limit the CIDR block to this location.</para><para> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use
         /// this parameter.</para><para> You can have one IPv6 CIDR block association per network border group.</para>
         /// </para>
         /// </summary>

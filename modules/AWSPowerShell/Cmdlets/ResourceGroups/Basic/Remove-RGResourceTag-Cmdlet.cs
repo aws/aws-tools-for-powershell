@@ -28,7 +28,7 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Deletes specified tags from a specified resource.
+    /// Deletes tags from a specified resource group.
     /// </summary>
     [Cmdlet("Remove", "RGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ResourceGroups.Model.UntagResponse")]
@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource from which to remove tags.</para>
+        /// <para>The ARN of the resource group from which to remove tags. The command removed both
+        /// the specified keys and any values associated with those keys.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

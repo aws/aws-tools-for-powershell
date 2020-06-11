@@ -50,6 +50,18 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public System.Boolean? Logs_Audit { get; set; }
         #endregion
         
+        #region Parameter AuthenticationStrategy
+        /// <summary>
+        /// <para>
+        /// The authentication strategy used
+        /// to secure the broker.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MQ.AuthenticationStrategy")]
+        public Amazon.MQ.AuthenticationStrategy AuthenticationStrategy { get; set; }
+        #endregion
+        
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
@@ -65,10 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter BrokerId
         /// <summary>
         /// <para>
-        /// The name of the broker. This value must be unique
-        /// in your AWS account, 1-50 characters long, must contain only letters, numbers, dashes,
-        /// and underscores, and must not contain whitespaces, brackets, wildcard characters,
-        /// or special characters.
+        /// The unique ID that Amazon MQ generates for the
+        /// broker.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,6 +134,61 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public System.String HostInstanceType { get; set; }
         #endregion
         
+        #region Parameter LdapServerMetadata_Host
+        /// <summary>
+        /// <para>
+        /// Fully qualified domain name of the LDAP server.
+        /// Optional failover server.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LdapServerMetadata_Hosts")]
+        public System.String[] LdapServerMetadata_Host { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_RoleBase
+        /// <summary>
+        /// <para>
+        /// Fully qualified name of the directory to search
+        /// for a user’s groups.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LdapServerMetadata_RoleBase { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_RoleName
+        /// <summary>
+        /// <para>
+        /// Specifies the LDAP attribute that identifies
+        /// the group name attribute in the object returned from the group membership query.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LdapServerMetadata_RoleName { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_RoleSearchMatching
+        /// <summary>
+        /// <para>
+        /// The search criteria for groups.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LdapServerMetadata_RoleSearchMatching { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_RoleSearchSubtree
+        /// <summary>
+        /// <para>
+        /// The directory search scope for the role.
+        /// If set to true, scope is to search the entire sub-tree.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LdapServerMetadata_RoleSearchSubtree { get; set; }
+        #endregion
+        
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
@@ -134,6 +199,69 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SecurityGroups")]
         public System.String[] SecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_ServiceAccountPassword
+        /// <summary>
+        /// <para>
+        /// Service account password.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LdapServerMetadata_ServiceAccountPassword { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_ServiceAccountUsername
+        /// <summary>
+        /// <para>
+        /// Service account username.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LdapServerMetadata_ServiceAccountUsername { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_UserBase
+        /// <summary>
+        /// <para>
+        /// Fully qualified name of the directory where you
+        /// want to search for users.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LdapServerMetadata_UserBase { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_UserRoleName
+        /// <summary>
+        /// <para>
+        /// Specifies the name of the LDAP attribute
+        /// for the user group membership.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LdapServerMetadata_UserRoleName { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_UserSearchMatching
+        /// <summary>
+        /// <para>
+        /// The search criteria for users.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LdapServerMetadata_UserSearchMatching { get; set; }
+        #endregion
+        
+        #region Parameter LdapServerMetadata_UserSearchSubtree
+        /// <summary>
+        /// <para>
+        /// The directory search scope for the user.
+        /// If set to true, scope is to search the entire sub-tree.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LdapServerMetadata_UserSearchSubtree { get; set; }
         #endregion
         
         #region Parameter Select
@@ -197,6 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
                 context.Select = (response, cmdlet) => this.BrokerId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AuthenticationStrategy = this.AuthenticationStrategy;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.BrokerId = this.BrokerId;
             #if MODULAR
@@ -208,6 +337,20 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             context.Configuration = this.Configuration;
             context.EngineVersion = this.EngineVersion;
             context.HostInstanceType = this.HostInstanceType;
+            if (this.LdapServerMetadata_Host != null)
+            {
+                context.LdapServerMetadata_Host = new List<System.String>(this.LdapServerMetadata_Host);
+            }
+            context.LdapServerMetadata_RoleBase = this.LdapServerMetadata_RoleBase;
+            context.LdapServerMetadata_RoleName = this.LdapServerMetadata_RoleName;
+            context.LdapServerMetadata_RoleSearchMatching = this.LdapServerMetadata_RoleSearchMatching;
+            context.LdapServerMetadata_RoleSearchSubtree = this.LdapServerMetadata_RoleSearchSubtree;
+            context.LdapServerMetadata_ServiceAccountPassword = this.LdapServerMetadata_ServiceAccountPassword;
+            context.LdapServerMetadata_ServiceAccountUsername = this.LdapServerMetadata_ServiceAccountUsername;
+            context.LdapServerMetadata_UserBase = this.LdapServerMetadata_UserBase;
+            context.LdapServerMetadata_UserRoleName = this.LdapServerMetadata_UserRoleName;
+            context.LdapServerMetadata_UserSearchMatching = this.LdapServerMetadata_UserSearchMatching;
+            context.LdapServerMetadata_UserSearchSubtree = this.LdapServerMetadata_UserSearchSubtree;
             context.Logs_Audit = this.Logs_Audit;
             context.Logs_General = this.Logs_General;
             if (this.SecurityGroup != null)
@@ -230,6 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             // create request
             var request = new Amazon.MQ.Model.UpdateBrokerRequest();
             
+            if (cmdletContext.AuthenticationStrategy != null)
+            {
+                request.AuthenticationStrategy = cmdletContext.AuthenticationStrategy;
+            }
             if (cmdletContext.AutoMinorVersionUpgrade != null)
             {
                 request.AutoMinorVersionUpgrade = cmdletContext.AutoMinorVersionUpgrade.Value;
@@ -249,6 +396,125 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.HostInstanceType != null)
             {
                 request.HostInstanceType = cmdletContext.HostInstanceType;
+            }
+            
+             // populate LdapServerMetadata
+            var requestLdapServerMetadataIsNull = true;
+            request.LdapServerMetadata = new Amazon.MQ.Model.LdapServerMetadataInput();
+            List<System.String> requestLdapServerMetadata_ldapServerMetadata_Host = null;
+            if (cmdletContext.LdapServerMetadata_Host != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_Host = cmdletContext.LdapServerMetadata_Host;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_Host != null)
+            {
+                request.LdapServerMetadata.Hosts = requestLdapServerMetadata_ldapServerMetadata_Host;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.String requestLdapServerMetadata_ldapServerMetadata_RoleBase = null;
+            if (cmdletContext.LdapServerMetadata_RoleBase != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_RoleBase = cmdletContext.LdapServerMetadata_RoleBase;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_RoleBase != null)
+            {
+                request.LdapServerMetadata.RoleBase = requestLdapServerMetadata_ldapServerMetadata_RoleBase;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.String requestLdapServerMetadata_ldapServerMetadata_RoleName = null;
+            if (cmdletContext.LdapServerMetadata_RoleName != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_RoleName = cmdletContext.LdapServerMetadata_RoleName;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_RoleName != null)
+            {
+                request.LdapServerMetadata.RoleName = requestLdapServerMetadata_ldapServerMetadata_RoleName;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.String requestLdapServerMetadata_ldapServerMetadata_RoleSearchMatching = null;
+            if (cmdletContext.LdapServerMetadata_RoleSearchMatching != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_RoleSearchMatching = cmdletContext.LdapServerMetadata_RoleSearchMatching;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_RoleSearchMatching != null)
+            {
+                request.LdapServerMetadata.RoleSearchMatching = requestLdapServerMetadata_ldapServerMetadata_RoleSearchMatching;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.Boolean? requestLdapServerMetadata_ldapServerMetadata_RoleSearchSubtree = null;
+            if (cmdletContext.LdapServerMetadata_RoleSearchSubtree != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_RoleSearchSubtree = cmdletContext.LdapServerMetadata_RoleSearchSubtree.Value;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_RoleSearchSubtree != null)
+            {
+                request.LdapServerMetadata.RoleSearchSubtree = requestLdapServerMetadata_ldapServerMetadata_RoleSearchSubtree.Value;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.String requestLdapServerMetadata_ldapServerMetadata_ServiceAccountPassword = null;
+            if (cmdletContext.LdapServerMetadata_ServiceAccountPassword != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_ServiceAccountPassword = cmdletContext.LdapServerMetadata_ServiceAccountPassword;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_ServiceAccountPassword != null)
+            {
+                request.LdapServerMetadata.ServiceAccountPassword = requestLdapServerMetadata_ldapServerMetadata_ServiceAccountPassword;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.String requestLdapServerMetadata_ldapServerMetadata_ServiceAccountUsername = null;
+            if (cmdletContext.LdapServerMetadata_ServiceAccountUsername != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_ServiceAccountUsername = cmdletContext.LdapServerMetadata_ServiceAccountUsername;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_ServiceAccountUsername != null)
+            {
+                request.LdapServerMetadata.ServiceAccountUsername = requestLdapServerMetadata_ldapServerMetadata_ServiceAccountUsername;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.String requestLdapServerMetadata_ldapServerMetadata_UserBase = null;
+            if (cmdletContext.LdapServerMetadata_UserBase != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_UserBase = cmdletContext.LdapServerMetadata_UserBase;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_UserBase != null)
+            {
+                request.LdapServerMetadata.UserBase = requestLdapServerMetadata_ldapServerMetadata_UserBase;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.String requestLdapServerMetadata_ldapServerMetadata_UserRoleName = null;
+            if (cmdletContext.LdapServerMetadata_UserRoleName != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_UserRoleName = cmdletContext.LdapServerMetadata_UserRoleName;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_UserRoleName != null)
+            {
+                request.LdapServerMetadata.UserRoleName = requestLdapServerMetadata_ldapServerMetadata_UserRoleName;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.String requestLdapServerMetadata_ldapServerMetadata_UserSearchMatching = null;
+            if (cmdletContext.LdapServerMetadata_UserSearchMatching != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_UserSearchMatching = cmdletContext.LdapServerMetadata_UserSearchMatching;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_UserSearchMatching != null)
+            {
+                request.LdapServerMetadata.UserSearchMatching = requestLdapServerMetadata_ldapServerMetadata_UserSearchMatching;
+                requestLdapServerMetadataIsNull = false;
+            }
+            System.Boolean? requestLdapServerMetadata_ldapServerMetadata_UserSearchSubtree = null;
+            if (cmdletContext.LdapServerMetadata_UserSearchSubtree != null)
+            {
+                requestLdapServerMetadata_ldapServerMetadata_UserSearchSubtree = cmdletContext.LdapServerMetadata_UserSearchSubtree.Value;
+            }
+            if (requestLdapServerMetadata_ldapServerMetadata_UserSearchSubtree != null)
+            {
+                request.LdapServerMetadata.UserSearchSubtree = requestLdapServerMetadata_ldapServerMetadata_UserSearchSubtree.Value;
+                requestLdapServerMetadataIsNull = false;
+            }
+             // determine if request.LdapServerMetadata should be set to null
+            if (requestLdapServerMetadataIsNull)
+            {
+                request.LdapServerMetadata = null;
             }
             
              // populate Logs
@@ -344,11 +610,23 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MQ.AuthenticationStrategy AuthenticationStrategy { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String BrokerId { get; set; }
             public Amazon.MQ.Model.ConfigurationId Configuration { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String HostInstanceType { get; set; }
+            public List<System.String> LdapServerMetadata_Host { get; set; }
+            public System.String LdapServerMetadata_RoleBase { get; set; }
+            public System.String LdapServerMetadata_RoleName { get; set; }
+            public System.String LdapServerMetadata_RoleSearchMatching { get; set; }
+            public System.Boolean? LdapServerMetadata_RoleSearchSubtree { get; set; }
+            public System.String LdapServerMetadata_ServiceAccountPassword { get; set; }
+            public System.String LdapServerMetadata_ServiceAccountUsername { get; set; }
+            public System.String LdapServerMetadata_UserBase { get; set; }
+            public System.String LdapServerMetadata_UserRoleName { get; set; }
+            public System.String LdapServerMetadata_UserSearchMatching { get; set; }
+            public System.Boolean? LdapServerMetadata_UserSearchSubtree { get; set; }
             public System.Boolean? Logs_Audit { get; set; }
             public System.Boolean? Logs_General { get; set; }
             public List<System.String> SecurityGroup { get; set; }

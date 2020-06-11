@@ -75,7 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <para>The interval of the content range.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.AlexaForBusiness.BusinessReportInterval")]
         public Amazon.AlexaForBusiness.BusinessReportInterval ContentRange_Interval { get; set; }
         #endregion
@@ -119,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Recurrence_StartDate { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags for the business report schedule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.AlexaForBusiness.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -184,6 +201,12 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
             context.ContentRange_Interval = this.ContentRange_Interval;
+            #if MODULAR
+            if (this.ContentRange_Interval == null && ParameterWasBound(nameof(this.ContentRange_Interval)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ContentRange_Interval which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Format = this.Format;
             #if MODULAR
             if (this.Format == null && ParameterWasBound(nameof(this.Format)))
@@ -195,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             context.S3BucketName = this.S3BucketName;
             context.S3KeyPrefix = this.S3KeyPrefix;
             context.ScheduleName = this.ScheduleName;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.AlexaForBusiness.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -269,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             {
                 request.ScheduleName = cmdletContext.ScheduleName;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -337,6 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             public System.String S3BucketName { get; set; }
             public System.String S3KeyPrefix { get; set; }
             public System.String ScheduleName { get; set; }
+            public List<Amazon.AlexaForBusiness.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.AlexaForBusiness.Model.CreateBusinessReportScheduleResponse, NewALXBBusinessReportScheduleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ScheduleArn;
         }

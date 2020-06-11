@@ -116,8 +116,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container
-        /// agent and the Docker daemon can assume.</para>
+        /// <para>The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS
+        /// container agent permission to make AWS API calls on your behalf. The task execution
+        /// IAM role is required depending on the requirements of your task. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
+        /// ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

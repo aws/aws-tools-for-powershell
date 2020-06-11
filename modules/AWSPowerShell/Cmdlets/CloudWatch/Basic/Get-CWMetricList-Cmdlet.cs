@@ -37,8 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// Up to 500 results are returned for any one call. To retrieve additional results, use
     /// the returned token with subsequent calls.
     /// </para><para>
-    /// After you create a metric, allow up to fifteen minutes before the metric appears.
-    /// Statistics about the metric, however, are available sooner using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
+    /// After you create a metric, allow up to 15 minutes before the metric appears. You can
+    /// see statistics about the metric sooner by using <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
+    /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.
+    /// </para><para><code>ListMetrics</code> doesn't return information about metrics if those metrics
+    /// haven't reported data in the past two weeks. To retrieve those metrics, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a>
     /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -81,6 +84,21 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Namespace { get; set; }
+        #endregion
+        
+        #region Parameter RecentlyActive
+        /// <summary>
+        /// <para>
+        /// <para>To filter the results to show only metrics that have had data points published in
+        /// the past three hours, specify this parameter with a value of <code>PT3H</code>. This
+        /// is the only valid value for this parameter.</para><para>The results that are returned are an approximation of the value you specify. There
+        /// is a low probability that the returned results include metrics with last published
+        /// data as much as 40 minutes more than the specified time interval.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudWatch.RecentlyActive")]
+        public Amazon.CloudWatch.RecentlyActive RecentlyActive { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -159,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             context.MetricName = this.MetricName;
             context.Namespace = this.Namespace;
             context.NextToken = this.NextToken;
+            context.RecentlyActive = this.RecentlyActive;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.Namespace != null)
             {
                 request.Namespace = cmdletContext.Namespace;
+            }
+            if (cmdletContext.RecentlyActive != null)
+            {
+                request.RecentlyActive = cmdletContext.RecentlyActive;
             }
             
             // Initialize loop variant and commence piping
@@ -280,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.String MetricName { get; set; }
             public System.String Namespace { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.CloudWatch.RecentlyActive RecentlyActive { get; set; }
             public System.Func<Amazon.CloudWatch.Model.ListMetricsResponse, GetCWMetricListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Metrics;
         }

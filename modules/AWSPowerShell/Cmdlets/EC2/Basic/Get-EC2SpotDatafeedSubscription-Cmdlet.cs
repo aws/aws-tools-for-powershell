@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
-    /// Instance Data Feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+    /// Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
     /// </summary>
     [Cmdlet("Get", "EC2SpotDatafeedSubscription")]
     [OutputType("Amazon.EC2.Model.SpotDatafeedSubscription")]

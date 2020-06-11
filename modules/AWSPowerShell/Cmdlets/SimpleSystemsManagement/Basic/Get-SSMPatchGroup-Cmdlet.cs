@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// <para>One or more filters. Use a filter to return a more specific list of results.</para><para>For <code>DescribePatchGroups</code>,valid filter keys include the following:</para><ul><li><para><code>NAME_PREFIX</code>: The name of the patch group. Wildcards (*) are accepted.</para></li><li><para><code>OPERATING_SYSTEM</code>: The supported operating system type to return results
+        /// for. For valid operating system values, see <a>GetDefaultPatchBaselineRequest$OperatingSystem</a>
+        /// in <a>CreatePatchBaseline</a>.</para><para>Examples:</para><ul><li><para><code>--filters Key=NAME_PREFIX,Values=MyPatchGroup*</code></para></li><li><para><code>--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2</code></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

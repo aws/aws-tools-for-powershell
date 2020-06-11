@@ -60,11 +60,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2RouteCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter CarrierGatewayId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the carrier gateway.</para><para>You can only use this option when the VPC contains a subnet which is associated with
+        /// a Wavelength Zone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CarrierGatewayId { get; set; }
+        #endregion
+        
         #region Parameter DestinationCidrBlock
         /// <summary>
         /// <para>
         /// <para>The IPv4 CIDR address block used for the destination match. Routing decisions are
-        /// based on the most specific match.</para>
+        /// based on the most specific match. We modify the specified CIDR block to its canonical
+        /// form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -80,6 +92,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DestinationIpv6CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter DestinationPrefixListId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a prefix list used for the destination match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationPrefixListId { get; set; }
         #endregion
         
         #region Parameter EgressOnlyInternetGatewayId
@@ -241,8 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.RouteTableId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CarrierGatewayId = this.CarrierGatewayId;
             context.DestinationCidrBlock = this.DestinationCidrBlock;
             context.DestinationIpv6CidrBlock = this.DestinationIpv6CidrBlock;
+            context.DestinationPrefixListId = this.DestinationPrefixListId;
             context.EgressOnlyInternetGatewayId = this.EgressOnlyInternetGatewayId;
             context.GatewayId = this.GatewayId;
             context.InstanceId = this.InstanceId;
@@ -274,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateRouteRequest();
             
+            if (cmdletContext.CarrierGatewayId != null)
+            {
+                request.CarrierGatewayId = cmdletContext.CarrierGatewayId;
+            }
             if (cmdletContext.DestinationCidrBlock != null)
             {
                 request.DestinationCidrBlock = cmdletContext.DestinationCidrBlock;
@@ -281,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationIpv6CidrBlock != null)
             {
                 request.DestinationIpv6CidrBlock = cmdletContext.DestinationIpv6CidrBlock;
+            }
+            if (cmdletContext.DestinationPrefixListId != null)
+            {
+                request.DestinationPrefixListId = cmdletContext.DestinationPrefixListId;
             }
             if (cmdletContext.EgressOnlyInternetGatewayId != null)
             {
@@ -379,8 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CarrierGatewayId { get; set; }
             public System.String DestinationCidrBlock { get; set; }
             public System.String DestinationIpv6CidrBlock { get; set; }
+            public System.String DestinationPrefixListId { get; set; }
             public System.String EgressOnlyInternetGatewayId { get; set; }
             public System.String GatewayId { get; set; }
             public System.String InstanceId { get; set; }

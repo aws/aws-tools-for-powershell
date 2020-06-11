@@ -109,6 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         public System.String IND_GSTIN { get; set; }
         #endregion
         
+        #region Parameter WirelessConnection_IsWifiEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables the Wi-Fi adapter on an AWS Snowcone device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection_IsWifiEnabled")]
+        public System.Boolean? WirelessConnection_IsWifiEnabled { get; set; }
+        #endregion
+        
         #region Parameter Notification_JobStatesToNotify
         /// <summary>
         /// <para>
@@ -218,7 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter SnowballType
         /// <summary>
         /// <para>
-        /// <para>The type of AWS Snowball device to use for this job. Currently, the only supported
+        /// <para>The type of AWS Snowball device to use for this job. </para><note><para>For cluster jobs, AWS Snowball currently supports only the <code>EDGE</code> device
+        /// type.</para></note><para>The type of AWS Snowball device to use for this job. Currently, the only supported
         /// device type for cluster jobs is <code>EDGE</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
         /// Edge Device Options</a> in the Snowball Edge Developer Guide.</para>
         /// </para>
@@ -306,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             context.AddressId = this.AddressId;
             context.ClusterId = this.ClusterId;
             context.Description = this.Description;
+            context.WirelessConnection_IsWifiEnabled = this.WirelessConnection_IsWifiEnabled;
             context.ForwardingAddressId = this.ForwardingAddressId;
             context.JobType = this.JobType;
             context.KmsKeyARN = this.KmsKeyARN;
@@ -359,6 +372,55 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate DeviceConfiguration
+            var requestDeviceConfigurationIsNull = true;
+            request.DeviceConfiguration = new Amazon.Snowball.Model.DeviceConfiguration();
+            Amazon.Snowball.Model.SnowconeDeviceConfiguration requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration = null;
+            
+             // populate SnowconeDeviceConfiguration
+            var requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfigurationIsNull = true;
+            requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration = new Amazon.Snowball.Model.SnowconeDeviceConfiguration();
+            Amazon.Snowball.Model.WirelessConnection requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection = null;
+            
+             // populate WirelessConnection
+            var requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnectionIsNull = true;
+            requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection = new Amazon.Snowball.Model.WirelessConnection();
+            System.Boolean? requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection_wirelessConnection_IsWifiEnabled = null;
+            if (cmdletContext.WirelessConnection_IsWifiEnabled != null)
+            {
+                requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection_wirelessConnection_IsWifiEnabled = cmdletContext.WirelessConnection_IsWifiEnabled.Value;
+            }
+            if (requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection_wirelessConnection_IsWifiEnabled != null)
+            {
+                requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection.IsWifiEnabled = requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection_wirelessConnection_IsWifiEnabled.Value;
+                requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnectionIsNull = false;
+            }
+             // determine if requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection should be set to null
+            if (requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnectionIsNull)
+            {
+                requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection = null;
+            }
+            if (requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection != null)
+            {
+                requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration.WirelessConnection = requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration_WirelessConnection;
+                requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfigurationIsNull = false;
+            }
+             // determine if requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration should be set to null
+            if (requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfigurationIsNull)
+            {
+                requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration = null;
+            }
+            if (requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration != null)
+            {
+                request.DeviceConfiguration.SnowconeDeviceConfiguration = requestDeviceConfiguration_deviceConfiguration_SnowconeDeviceConfiguration;
+                requestDeviceConfigurationIsNull = false;
+            }
+             // determine if request.DeviceConfiguration should be set to null
+            if (requestDeviceConfigurationIsNull)
+            {
+                request.DeviceConfiguration = null;
             }
             if (cmdletContext.ForwardingAddressId != null)
             {
@@ -564,6 +626,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
             public System.String AddressId { get; set; }
             public System.String ClusterId { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? WirelessConnection_IsWifiEnabled { get; set; }
             public System.String ForwardingAddressId { get; set; }
             public Amazon.Snowball.JobType JobType { get; set; }
             public System.String KmsKeyARN { get; set; }

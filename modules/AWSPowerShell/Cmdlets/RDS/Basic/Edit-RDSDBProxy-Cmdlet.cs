@@ -28,12 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// <note><para>
-    /// This is prerelease documentation for the RDS Database Proxy feature in preview release.
-    /// It is subject to change.
-    /// </para></note><para>
     /// Changes the settings for an existing DB proxy.
-    /// </para>
     /// </summary>
     [Cmdlet("Edit", "RDSDBProxy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBProxy")]

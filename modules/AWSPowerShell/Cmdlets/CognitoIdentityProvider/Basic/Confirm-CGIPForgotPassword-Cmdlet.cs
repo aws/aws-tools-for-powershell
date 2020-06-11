@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The confirmation code sent by a user's request to retrieve a forgotten password. For
-        /// more information, see </para>
+        /// more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

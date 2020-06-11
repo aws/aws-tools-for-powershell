@@ -29,16 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.LICM
 {
     /// <summary>
     /// Modifies the attributes of an existing license configuration.
-    /// 
-    ///  
-    /// <para>
-    /// A license configuration is an abstraction of a customer license agreement that can
-    /// be consumed and enforced by License Manager. Components include specifications for
-    /// the license type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared
-    /// tenancy, Dedicated Instance, Dedicated Host, or all of these), host affinity (how
-    /// long a VM must be associated with a host), and the number of licenses purchased and
-    /// used.
-    /// </para>
     /// </summary>
     [Cmdlet("Update", "LICMLicenseConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -111,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter LicenseRule
         /// <summary>
         /// <para>
-        /// <para>New license rules.</para>
+        /// <para>New license rule. The only rule that you can add after you create a license configuration
+        /// is licenseAffinityToHost.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

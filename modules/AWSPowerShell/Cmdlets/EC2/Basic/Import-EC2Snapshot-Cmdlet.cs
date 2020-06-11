@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DiskContainer_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket where the disk image is located.</para>
+        /// <para>The name of the Amazon S3 bucket where the disk image is located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,6 +145,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DiskContainer_UserBucket_S3Key")]
         public System.String DiskContainer_S3Key { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the snapshot being imported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter ClientData_UtcUploadEnd
@@ -293,6 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Encrypted = this.Encrypted;
             context.KmsKeyId = this.KmsKeyId;
             context.RoleName = this.RoleName;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -484,6 +499,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.RoleName = cmdletContext.RoleName;
             }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             
             CmdletOutput output;
             
@@ -563,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? Encrypted { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String RoleName { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.ImportSnapshotResponse, ImportEC2SnapshotCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

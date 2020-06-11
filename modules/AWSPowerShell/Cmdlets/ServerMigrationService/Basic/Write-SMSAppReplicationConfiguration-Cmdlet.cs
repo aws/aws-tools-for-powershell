@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Creates or updates a replication configuration for an application.
+    /// Creates or updates the replication configuration for the specified application.
     /// </summary>
     [Cmdlet("Write", "SMSAppReplicationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>ID of the application tassociated with the replication configuration.</para>
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ServerGroupReplicationConfiguration
         /// <summary>
         /// <para>
-        /// <para>Replication configurations for server groups in the application.</para>
+        /// <para>Information about the replication configurations for server groups in the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

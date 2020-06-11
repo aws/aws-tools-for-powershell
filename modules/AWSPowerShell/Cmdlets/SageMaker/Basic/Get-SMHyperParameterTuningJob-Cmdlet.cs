@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HyperParameterTuningJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the tuning job to describe.</para>
+        /// <para>The name of the tuning job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

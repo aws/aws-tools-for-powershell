@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RoutingConfig_AdditionalVersionWeight
         /// <summary>
         /// <para>
-        /// <para>The name of the second alias, and the percentage of traffic that's routed to it.</para>
+        /// <para>The second version, and the percentage of traffic that's routed to it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

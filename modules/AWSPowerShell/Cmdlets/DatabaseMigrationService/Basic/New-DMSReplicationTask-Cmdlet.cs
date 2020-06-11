@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationTaskIdentifier
         /// <summary>
         /// <para>
-        /// <para>An identifier for the replication task.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// <para>An identifier for the replication task.</para><para>Constraints:</para><ul><li><para>Must contain 1-255 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -164,7 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The table mappings for the task, in JSON format. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html">Using
-        /// Table Mapping to Specify Task Settings</a> in the <i>AWS Database Migration User Guide.</i></para>
+        /// Table Mapping to Specify Task Settings</a> in the <i>AWS Database Migration Service
+        /// User Guide.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -212,7 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Supplemental information that the task requires to migrate the data for certain source
         /// and target endpoints. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html">Specifying
-        /// Supplemental Data for Task Settings</a> in the <i>AWS Database Migration User Guide.</i></para>
+        /// Supplemental Data for Task Settings</a> in the <i>AWS Database Migration Service User
+        /// Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

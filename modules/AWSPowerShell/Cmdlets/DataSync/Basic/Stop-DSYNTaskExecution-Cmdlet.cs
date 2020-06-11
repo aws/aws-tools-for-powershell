@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// 
     ///  
     /// <para>
-    /// When you cancel a task execution, the transfer of some files are abruptly interrupted.
+    /// When you cancel a task execution, the transfer of some files is abruptly interrupted.
     /// The contents of files that are transferred to the destination might be incomplete
     /// or inconsistent with the source files. However, if you start a new task execution
     /// on the same task and you allow the task execution to complete, file content on the

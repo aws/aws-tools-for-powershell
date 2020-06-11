@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.
     /// </para><para>
     /// The load balancer evenly distributes requests across all its registered Availability
-    /// Zones that contain instances. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
+    /// Zones that contain instances. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add
     /// or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.
     /// </para>
     /// </summary>

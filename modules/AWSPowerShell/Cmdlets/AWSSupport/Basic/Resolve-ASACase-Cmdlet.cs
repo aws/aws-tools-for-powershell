@@ -28,8 +28,17 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Takes a <code>caseId</code> and returns the initial state of the case along with the
-    /// state of the case after the call to <a>ResolveCase</a> completed.
+    /// Resolves a support case. This operation takes a <code>caseId</code> and returns the
+    /// initial and final state of the case.
+    /// 
+    ///  <note><ul><li><para>
+    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// </para></li><li><para>
+    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
+    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// Support</a>.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Resolve", "ASACase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AWSSupport.Model.ResolveCaseResponse")]

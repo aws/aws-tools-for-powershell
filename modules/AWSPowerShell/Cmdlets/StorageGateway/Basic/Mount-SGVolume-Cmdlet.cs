@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
         /// addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of the
-        /// network interfaces available on a gateway.</para><para> Valid Values: A valid IP address.</para>
+        /// network interfaces available on a gateway.</para><para>Valid Values: A valid IP address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

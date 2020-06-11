@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -22,6 +21,10 @@
         <Property>Status</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateLanguageModel" OutputProperty="*" Verb="New" Noun="LanguageModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMedicalVocabulary" OutputProperty="*" Verb="New" Noun="MedicalVocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -31,6 +34,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVocabularyFilter" OutputProperty="*" Verb="New" Noun="VocabularyFilter" ShouldProcessTarget="VocabularyFilterName" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLanguageModel" Verb="Remove" Noun="LanguageModel" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -54,6 +61,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLanguageModel" OutputProperty="LanguageModel" Verb="Get" Noun="LanguageModel" PipelineParameter="ModelName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMedicalTranscriptionJob" OutputProperty="MedicalTranscriptionJob" Verb="Get" Noun="MedicalTranscriptionJob" PipelineParameter="MedicalTranscriptionJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -71,6 +82,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetVocabularyFilter" OutputProperty="*" Verb="Get" Noun="VocabularyFilter" PipelineParameter="VocabularyFilterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLanguageModels" OutputProperty="Models" Verb="Get" Noun="LanguageModelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,7 +130,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

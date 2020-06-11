@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A map of key-value pairs that specifies the tags to associate with the resource.</para><para>A resource can have a maximum of 50 tags. Each tag consists of a required tag key
-        /// and an associated tag value. The maximum length of a tag key is 128 characters. The
-        /// maximum length of a tag value is 256 characters.</para>
+        /// <para>A map of key-value pairs that specifies the tags to associate with the resource.</para><para>A resource can have a maximum of 50 tags. Each tag consists of a tag key and an associated
+        /// tag value. The maximum length of a tag key is 128 characters. The maximum length of
+        /// a tag value is 256 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

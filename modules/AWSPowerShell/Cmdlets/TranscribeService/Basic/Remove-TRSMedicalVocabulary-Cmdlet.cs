@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
-        /// <para>The name of the vocabulary you are choosing to delete.</para>
+        /// <para>The name of the vocabulary that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

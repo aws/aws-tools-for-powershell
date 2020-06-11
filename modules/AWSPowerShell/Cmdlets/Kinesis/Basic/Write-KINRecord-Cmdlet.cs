@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Writes a single data record into an Amazon Kinesis data stream. Call <code>PutRecord</code>
     /// to send data into the stream for real-time ingestion and subsequent processing, one
     /// record at a time. Each shard can support writes up to 1,000 records per second, up
-    /// to a maximum data write total of 1 MB per second.
+    /// to a maximum data write total of 1 MiB per second.
     /// 
     ///  
     /// <para>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// values and to map associated data records to shards using the hash key ranges of the
     /// shards. You can override hashing the partition key to determine the shard by explicitly
     /// specifying a hash value using the <code>ExplicitHashKey</code> parameter. For more
-    /// information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream">Adding
+    /// information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream">Adding
     /// Data to a Stream</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para><code>PutRecord</code> returns the shard ID of where the data record was placed and
     /// the sequence number that was assigned to the data record.
@@ -59,9 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Sequence numbers increase over time and are specific to a shard within a stream, not
     /// across all shards within a stream. To guarantee strictly increasing ordering, write
     /// serially to a shard and use the <code>SequenceNumberForOrdering</code> parameter.
-    /// For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream">Adding
+    /// For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream">Adding
     /// Data to a Stream</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
-    /// </para><para>
+    /// </para><important><para>
+    /// After you write a record to a stream, you cannot modify that record or its order within
+    /// the stream.
+    /// </para></important><para>
     /// If a <code>PutRecord</code> request cannot be processed because of insufficient provisioned
     /// throughput on the shard involved in the request, <code>PutRecord</code> throws <code>ProvisionedThroughputExceededException</code>.
     /// 
@@ -85,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>
         /// <para>The data blob to put into the record, which is base64-encoded when the blob is serialized.
         /// When the data blob (the payload before base64-encoding) is added to the partition
-        /// key size, the total size must not exceed the maximum record size (1 MB).</para>
+        /// key size, the total size must not exceed the maximum record size (1 MiB).</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

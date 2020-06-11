@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
     /// Retrieves the certificate signing request (CSR) for your private certificate authority
-    /// (CA). The CSR is created when you call the <a>CreateCertificateAuthority</a> action.
-    /// Sign the CSR with your ACM Private CA-hosted or on-premises root or subordinate CA.
-    /// Then import the signed certificate back into ACM Private CA by calling the <a>ImportCertificateAuthorityCertificate</a>
+    /// (CA). The CSR is created when you call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>
+    /// action. Sign the CSR with your ACM Private CA-hosted or on-premises root or subordinate
+    /// CA. Then import the signed certificate back into ACM Private CA by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html">ImportCertificateAuthorityCertificate</a>
     /// action. The CSR is returned as a base64 PEM-encoded string.
     /// </summary>
     [Cmdlet("Get", "PCACertificateAuthorityCsr")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter CertificateAuthorityArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that was returned when you called the <a>CreateCertificateAuthority</a>
+        /// <para>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>
         /// action. This must be of the form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>

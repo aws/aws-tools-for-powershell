@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// 
     ///  <note><para>
     /// Cache storage must be allocated to the gateway before you can create virtual tapes.
-    /// Use the <a>AddCache</a> operation to add cache storage to a gateway. 
+    /// Use the <a>AddCache</a> operation to add cache storage to a gateway.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SGTape", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
-        /// use a key managed by Amazon S3. Optional.</para>
+        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS
+        /// KMS key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server-side encryption.
-        /// This value can only be set when KMSEncrypted is true. Optional.</para>
+        /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+        /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
+        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// pool is archived in the S3 storage class that is associated with the pool. When you
         /// use your backup application to eject the tape, the tape is archived directly into
         /// the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the
-        /// pool.</para><para>Valid values: "GLACIER", "DEEP_ARCHIVE"</para>
+        /// pool.</para><para>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

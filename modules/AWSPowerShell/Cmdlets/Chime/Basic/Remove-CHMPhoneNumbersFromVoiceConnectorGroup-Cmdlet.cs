@@ -47,7 +47,14 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// <para>List of phone numbers, in E.164 format.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("E164PhoneNumbers")]
         public System.String[] E164PhoneNumber { get; set; }
         #endregion
@@ -134,6 +141,12 @@ namespace Amazon.PowerShell.Cmdlets.CHM
             {
                 context.E164PhoneNumber = new List<System.String>(this.E164PhoneNumber);
             }
+            #if MODULAR
+            if (this.E164PhoneNumber == null && ParameterWasBound(nameof(this.E164PhoneNumber)))
+            {
+                WriteWarning("You are passing $null as a value for parameter E164PhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.VoiceConnectorGroupId = this.VoiceConnectorGroupId;
             #if MODULAR
             if (this.VoiceConnectorGroupId == null && ParameterWasBound(nameof(this.VoiceConnectorGroupId)))

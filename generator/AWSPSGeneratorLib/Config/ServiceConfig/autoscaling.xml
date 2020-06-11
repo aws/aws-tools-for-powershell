@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>autoscaling</C2jFilename>
     <AssemblyName>AutoScaling</AssemblyName>
@@ -32,7 +33,6 @@
         <Map From="TerminationPolicyTypes" To="TerminationPolicyType" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -55,6 +55,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchPutScheduledUpdateGroupAction" OutputProperty="FailedScheduledUpdateGroupActions" Verb="Set" Noun="ScheduledUpdateGroupActionBatch" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelInstanceRefresh" OutputProperty="InstanceRefreshId" Verb="Stop" Noun="InstanceRefresh" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -121,6 +125,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAutoScalingNotificationTypes" OutputProperty="AutoScalingNotificationTypes" Verb="Get" Noun="AutoScalingNotificationType" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceRefreshes" OutputProperty="InstanceRefreshes" Verb="Get" Noun="InstanceRefresh" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -256,6 +264,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartInstanceRefresh" OutputProperty="InstanceRefreshId" Verb="Start" Noun="InstanceRefresh" ShouldProcessTarget="AutoScalingGroupName" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SuspendProcesses" Verb="Suspend" Noun="Process" ShouldProcessTarget="AutoScalingGroupName" PositionalParameters="ScalingProcesses" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -269,8 +281,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.AutoScaling.Model.MixedInstancesPolicy</Type>
     </TypesNotToFlatten>

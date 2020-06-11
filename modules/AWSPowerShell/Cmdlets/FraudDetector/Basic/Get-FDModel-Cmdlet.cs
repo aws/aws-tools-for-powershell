@@ -28,8 +28,19 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Gets all of the models for the AWS account, or the specified model type, or gets a
-    /// single model for the specified model type, model ID combination.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets one or more models. Gets all models for the AWS account if no model type and
+    /// no model id provided. Gets all models for the AWS account and model type, if the model
+    /// type is specified but model id is not provided. Gets a specific model if (model type,
+    /// model id) tuple is specified. 
+    /// 
+    ///  
+    /// <para>
+    /// This is a paginated API. If you provide a null <code>maxResults</code>, this action
+    /// retrieves a maximum of 10 records per page. If you provide a <code>maxResults</code>,
+    /// the value must be between 1 and 10. To get the next page results, provide the pagination
+    /// token from the response as part of your request. A null pagination token fetches the
+    /// records from the beginning.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FDModel")]
     [OutputType("Amazon.FraudDetector.Model.Model")]
@@ -65,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum results to return for the request.</para>
+        /// <para>The maximum number of objects to return for the request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The next token for the request.</para>
+        /// <para>The next token for the subsequent request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

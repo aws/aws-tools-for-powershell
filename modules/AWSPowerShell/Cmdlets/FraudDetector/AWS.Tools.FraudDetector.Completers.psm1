@@ -144,9 +144,11 @@ $FD_Completers = {
             ($_ -eq "Get-FDModel/ModelType") -Or
             ($_ -eq "Get-FDModelVersion/ModelType") -Or
             ($_ -eq "Get-FDModelVersionList/ModelType") -Or
+            ($_ -eq "New-FDModel/ModelType") -Or
             ($_ -eq "New-FDModelVersion/ModelType") -Or
+            ($_ -eq "Update-FDModel/ModelType") -Or
             ($_ -eq "Update-FDModelVersion/ModelType") -Or
-            ($_ -eq "Write-FDModel/ModelType")
+            ($_ -eq "Update-FDModelVersionStatus/ModelType")
         }
         {
             $v = "ONLINE_FRAUD_INSIGHTS"
@@ -154,9 +156,9 @@ $FD_Completers = {
         }
 
         # Amazon.FraudDetector.ModelVersionStatus
-        "Update-FDModelVersion/Status"
+        "Update-FDModelVersionStatus/Status"
         {
-            $v = "ACTIVATE_IN_PROGRESS","ACTIVATE_REQUESTED","ACTIVE","ERROR","INACTIVATE_IN_PROGRESS","INACTIVE","TRAINING_COMPLETE","TRAINING_IN_PROGRESS"
+            $v = "ACTIVE","INACTIVE"
             break
         }
 
@@ -167,6 +169,13 @@ $FD_Completers = {
         }
         {
             $v = "ALL_MATCHED","FIRST_MATCHED"
+            break
+        }
+
+        # Amazon.FraudDetector.TrainingDataSourceEnum
+        "New-FDModelVersion/TrainingDataSource"
+        {
+            $v = "EXTERNAL_EVENTS"
             break
         }
 
@@ -185,10 +194,11 @@ $FD_map = @{
     "Language"=@("New-FDRule","Update-FDRuleVersion")
     "ModelEndpointStatus"=@("Write-FDExternalModel")
     "ModelSource"=@("Write-FDExternalModel")
-    "ModelType"=@("Get-FDModel","Get-FDModelVersion","Get-FDModelVersionList","New-FDModelVersion","Update-FDModelVersion","Write-FDModel")
+    "ModelType"=@("Get-FDModel","Get-FDModelVersion","Get-FDModelVersionList","New-FDModel","New-FDModelVersion","Update-FDModel","Update-FDModelVersion","Update-FDModelVersionStatus")
     "OutputConfiguration_Format"=@("Write-FDExternalModel")
     "RuleExecutionMode"=@("New-FDDetectorVersion","Update-FDDetectorVersion")
-    "Status"=@("Update-FDDetectorVersionStatus","Update-FDModelVersion")
+    "Status"=@("Update-FDDetectorVersionStatus","Update-FDModelVersionStatus")
+    "TrainingDataSource"=@("New-FDModelVersion")
 }
 
 _awsArgumentCompleterRegistration $FD_Completers $FD_map
@@ -244,32 +254,45 @@ $FD_SelectMap = @{
     "Select"=@("New-FDVariableBatch",
                "Get-FDVariableBatch",
                "New-FDDetectorVersion",
+               "New-FDModel",
                "New-FDModelVersion",
                "New-FDRule",
                "New-FDVariable",
                "Remove-FDDetector",
                "Remove-FDDetectorVersion",
                "Remove-FDEvent",
-               "Remove-FDRuleVersion",
+               "Remove-FDRule",
                "Get-FDDetectorVersionList",
                "Get-FDModelVersionList",
                "Get-FDDetector",
                "Get-FDDetectorVersion",
+               "Get-FDEntityType",
+               "Get-FDEventPrediction",
+               "Get-FDEventType",
                "Get-FDExternalModel",
+               "Get-FDKMSEncryptionKey",
+               "Get-FDLabel",
                "Get-FDModel",
                "Get-FDModelVersion",
                "Get-FDOutcome",
-               "Get-FDPrediction",
                "Get-FDRule",
                "Get-FDVariable",
+               "Get-FDResourceTag",
                "Write-FDDetector",
+               "Write-FDEntityType",
+               "Write-FDEventType",
                "Write-FDExternalModel",
-               "Write-FDModel",
+               "Write-FDKMSEncryptionKey",
+               "Write-FDLabel",
                "Write-FDOutcome",
+               "Add-FDResourceTag",
+               "Remove-FDResourceTag",
                "Update-FDDetectorVersion",
                "Update-FDDetectorVersionMetadata",
                "Update-FDDetectorVersionStatus",
+               "Update-FDModel",
                "Update-FDModelVersion",
+               "Update-FDModelVersionStatus",
                "Update-FDRuleMetadata",
                "Update-FDRuleVersion",
                "Update-FDVariable")

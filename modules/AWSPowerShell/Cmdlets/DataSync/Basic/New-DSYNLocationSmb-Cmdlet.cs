@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Defines a file system on an Server Message Block (SMB) server that can be read from
+    /// Defines a file system on a Server Message Block (SMB) server that can be read from
     /// or written to.
     /// </summary>
     [Cmdlet("New", "DSYNLocationSmb", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>The subdirectory in the SMB file system that is used to read data from the SMB source
         /// location or write data to the SMB destination. The SMB path should be a path that's
         /// exported by the SMB server, or a subdirectory of that path. The path should be such
-        /// that it can be mounted by other SMB clients in your network.</para><note><para><code>Subdirectory</code> must be specified with forward slashes. For example <code>/path/to/folder</code>.</para></note><para>To transfer all the data in the folder you specified, DataSync needs to have permissions
+        /// that it can be mounted by other SMB clients in your network.</para><note><para><code>Subdirectory</code> must be specified with forward slashes. For example, <code>/path/to/folder</code>.</para></note><para>To transfer all the data in the folder you specified, DataSync needs to have permissions
         /// to mount the SMB share, as well as to access all the data in that share. To ensure
         /// this, either ensure that the user/password specified belongs to the user who can mount
         /// the share, and who has the appropriate permissions for all of the files and directories

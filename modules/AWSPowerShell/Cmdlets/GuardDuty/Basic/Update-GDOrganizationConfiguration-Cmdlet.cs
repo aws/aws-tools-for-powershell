@@ -56,6 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.Boolean? AutoEnable { get; set; }
         #endregion
         
+        #region Parameter S3Logs_AutoEnable
+        /// <summary>
+        /// <para>
+        /// <para>A value that contains information on whether S3 data event logs will be enabled automatically
+        /// as a data source for the organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSources_S3Logs_AutoEnable")]
+        public System.Boolean? S3Logs_AutoEnable { get; set; }
+        #endregion
+        
         #region Parameter DetectorId
         /// <summary>
         /// <para>
@@ -140,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 WriteWarning("You are passing $null as a value for parameter AutoEnable which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.S3Logs_AutoEnable = this.S3Logs_AutoEnable;
             context.DetectorId = this.DetectorId;
             #if MODULAR
             if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
@@ -166,6 +179,40 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (cmdletContext.AutoEnable != null)
             {
                 request.AutoEnable = cmdletContext.AutoEnable.Value;
+            }
+            
+             // populate DataSources
+            var requestDataSourcesIsNull = true;
+            request.DataSources = new Amazon.GuardDuty.Model.OrganizationDataSourceConfigurations();
+            Amazon.GuardDuty.Model.OrganizationS3LogsConfiguration requestDataSources_dataSources_S3Logs = null;
+            
+             // populate S3Logs
+            var requestDataSources_dataSources_S3LogsIsNull = true;
+            requestDataSources_dataSources_S3Logs = new Amazon.GuardDuty.Model.OrganizationS3LogsConfiguration();
+            System.Boolean? requestDataSources_dataSources_S3Logs_s3Logs_AutoEnable = null;
+            if (cmdletContext.S3Logs_AutoEnable != null)
+            {
+                requestDataSources_dataSources_S3Logs_s3Logs_AutoEnable = cmdletContext.S3Logs_AutoEnable.Value;
+            }
+            if (requestDataSources_dataSources_S3Logs_s3Logs_AutoEnable != null)
+            {
+                requestDataSources_dataSources_S3Logs.AutoEnable = requestDataSources_dataSources_S3Logs_s3Logs_AutoEnable.Value;
+                requestDataSources_dataSources_S3LogsIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_S3Logs should be set to null
+            if (requestDataSources_dataSources_S3LogsIsNull)
+            {
+                requestDataSources_dataSources_S3Logs = null;
+            }
+            if (requestDataSources_dataSources_S3Logs != null)
+            {
+                request.DataSources.S3Logs = requestDataSources_dataSources_S3Logs;
+                requestDataSourcesIsNull = false;
+            }
+             // determine if request.DataSources should be set to null
+            if (requestDataSourcesIsNull)
+            {
+                request.DataSources = null;
             }
             if (cmdletContext.DetectorId != null)
             {
@@ -233,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AutoEnable { get; set; }
+            public System.Boolean? S3Logs_AutoEnable { get; set; }
             public System.String DetectorId { get; set; }
             public System.Func<Amazon.GuardDuty.Model.UpdateOrganizationConfigurationResponse, UpdateGDOrganizationConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

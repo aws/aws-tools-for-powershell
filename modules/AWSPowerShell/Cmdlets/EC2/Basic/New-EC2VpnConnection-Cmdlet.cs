@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a VPN connection between an existing virtual private gateway and a VPN customer
-    /// gateway. The supported connection type is <code>ipsec.1</code>.
+    /// Creates a VPN connection between an existing virtual private gateway or transit gateway
+    /// and a customer gateway. The supported connection type is <code>ipsec.1</code>.
     /// 
     ///  
     /// <para>
@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// to configure your customer gateway.
     /// </para><important><para>
     /// We strongly recommend that you use HTTPS when calling this operation because the response
-    /// contains sensitive cryptographic information for configuring your customer gateway.
+    /// contains sensitive cryptographic information for configuring your customer gateway
+    /// device.
     /// </para></important><para>
     /// If you decide to shut down your VPN connection for any reason and later create a new
     /// VPN connection, you must reconfigure your customer gateway with the new information
@@ -100,6 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? Options_StaticRoutesOnly { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the VPN connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter TransitGatewayId
         /// <summary>
         /// <para>
@@ -109,6 +121,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TransitGatewayId { get; set; }
+        #endregion
+        
+        #region Parameter Options_TunnelInsideIpVersion
+        /// <summary>
+        /// <para>
+        /// <para>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</para><para>Default: <code>ipv4</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.TunnelInsideIpVersion")]
+        public Amazon.EC2.TunnelInsideIpVersion Options_TunnelInsideIpVersion { get; set; }
         #endregion
         
         #region Parameter Options_TunnelOption
@@ -220,9 +243,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.Options_EnableAcceleration = this.Options_EnableAcceleration;
             context.Options_StaticRoutesOnly = this.Options_StaticRoutesOnly;
+            context.Options_TunnelInsideIpVersion = this.Options_TunnelInsideIpVersion;
             if (this.Options_TunnelOption != null)
             {
                 context.Options_TunnelOption = new List<Amazon.EC2.Model.VpnTunnelOptionsSpecification>(this.Options_TunnelOption);
+            }
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
             context.TransitGatewayId = this.TransitGatewayId;
             context.Type = this.Type;
@@ -277,6 +305,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.Options.StaticRoutesOnly = requestOptions_options_StaticRoutesOnly.Value;
                 requestOptionsIsNull = false;
             }
+            Amazon.EC2.TunnelInsideIpVersion requestOptions_options_TunnelInsideIpVersion = null;
+            if (cmdletContext.Options_TunnelInsideIpVersion != null)
+            {
+                requestOptions_options_TunnelInsideIpVersion = cmdletContext.Options_TunnelInsideIpVersion;
+            }
+            if (requestOptions_options_TunnelInsideIpVersion != null)
+            {
+                request.Options.TunnelInsideIpVersion = requestOptions_options_TunnelInsideIpVersion;
+                requestOptionsIsNull = false;
+            }
             List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> requestOptions_options_TunnelOption = null;
             if (cmdletContext.Options_TunnelOption != null)
             {
@@ -291,6 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptionsIsNull)
             {
                 request.Options = null;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.TransitGatewayId != null)
             {
@@ -368,7 +410,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CustomerGatewayId { get; set; }
             public System.Boolean? Options_EnableAcceleration { get; set; }
             public System.Boolean? Options_StaticRoutesOnly { get; set; }
+            public Amazon.EC2.TunnelInsideIpVersion Options_TunnelInsideIpVersion { get; set; }
             public List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> Options_TunnelOption { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String TransitGatewayId { get; set; }
             public System.String Type { get; set; }
             public System.String VpnGatewayId { get; set; }

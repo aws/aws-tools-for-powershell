@@ -32,22 +32,31 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
+    /// Only a master account and a delegated administrator can call this API. When calling
+    /// this API with a delegated administrator, you must ensure AWS Organizations <code>ListDelegatedAdministrator</code>
+    /// permissions are added.
+    /// </para><para>
     /// This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
     /// through the <code>EnableAWSServiceAccess</code> action and creates a service linked
-    /// role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master account of
-    /// your organization. The service linked role is created only when the role does not
-    /// exist in the master account. AWS Config verifies the existence of role with GetRole
-    /// action.
+    /// role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the master or delegated
+    /// administrator account of your organization. The service linked role is created only
+    /// when the role does not exist in the caller account. To use this API with delegated
+    /// administrator, register a delegated administrator by calling AWS Organization <code>register-delegate-admin</code>
+    /// for <code>config-multiaccountsetup.amazonaws.com</code>.
     /// </para><note><para>
+    /// Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features
+    /// in an organization.
+    /// </para><para>
     /// You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code>
     /// parameter, but not both. If you provide both AWS Config uses the <code>TemplateS3Uri</code>
     /// parameter and ignores the <code>TemplateBody</code> parameter.
     /// </para><para>
     /// AWS Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS
-    /// until the confomance pack is created or updated. You cannot update a conformance pack
-    /// while it is in this state.
+    /// until the conformance pack is created or updated. You cannot update a conformance
+    /// pack while it is in this state.
     /// </para><para>
-    /// You can create 6 conformance packs with 25 AWS Config rules in each pack.
+    /// You can create 6 conformance packs with 25 AWS Config rules in each pack and 3 delegated
+    /// administrator per organization. 
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGOrganizationConformancePack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

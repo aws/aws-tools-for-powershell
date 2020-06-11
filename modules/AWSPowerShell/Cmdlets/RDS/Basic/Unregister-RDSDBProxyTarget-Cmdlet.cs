@@ -28,13 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// <note><para>
-    /// This is prerelease documentation for the RDS Database Proxy feature in preview release.
-    /// It is subject to change.
-    /// </para></note><para>
     /// Remove the association between one or more <code>DBProxyTarget</code> data structures
     /// and a <code>DBProxyTargetGroup</code>.
-    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "RDSDBProxyTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

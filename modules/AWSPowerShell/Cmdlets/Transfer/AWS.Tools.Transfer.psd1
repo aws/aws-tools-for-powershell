@@ -88,6 +88,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-TFRResourceTag', 
         'Get-TFRResourceTagList', 
+        'Get-TFRSecurityPolicy', 
+        'Get-TFRSecurityPolicyList', 
         'Get-TFRServer', 
         'Get-TFRServerList', 
         'Get-TFRUser', 

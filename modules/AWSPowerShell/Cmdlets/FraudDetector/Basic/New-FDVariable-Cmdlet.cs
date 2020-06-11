@@ -118,10 +118,27 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A collection of key and value pairs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.FraudDetector.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VariableType
         /// <summary>
         /// <para>
-        /// <para>The variable type.</para>
+        /// <para>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable
+        /// types</a>. </para><para>Valid Values: <code>AUTH_CODE | AVS | BILLING_ADDRESS_L1 | BILLING_ADDRESS_L2 | BILLING_CITY
+        /// | BILLING_COUNTRY | BILLING_NAME | BILLING_PHONE | BILLING_STATE | BILLING_ZIP | CARD_BIN
+        /// | CATEGORICAL | CURRENCY_CODE | EMAIL_ADDRESS | FINGERPRINT | FRAUD_LABEL | FREE_FORM_TEXT
+        /// | IP_ADDRESS | NUMERIC | ORDER_ID | PAYMENT_TYPE | PHONE_NUMBER | PRICE | PRODUCT_CATEGORY
+        /// | SHIPPING_ADDRESS_L1 | SHIPPING_ADDRESS_L2 | SHIPPING_CITY | SHIPPING_COUNTRY | SHIPPING_NAME
+        /// | SHIPPING_PHONE | SHIPPING_STATE | SHIPPING_ZIP | USERAGENT | SHIPPING_ZIP | USERAGENT</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -217,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.FraudDetector.Model.Tag>(this.Tag);
+            }
             context.VariableType = this.VariableType;
             
             // allow further manipulation of loaded context prior to processing
@@ -253,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.VariableType != null)
             {
@@ -324,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
             public System.String DefaultValue { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.FraudDetector.Model.Tag> Tag { get; set; }
             public System.String VariableType { get; set; }
             public System.Func<Amazon.FraudDetector.Model.CreateVariableResponse, NewFDVariableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Retrieves webhook info that corresponds to a webhookId.
+    /// Returns the webhook information that corresponds to a specified webhook ID.
     /// </summary>
     [Cmdlet("Get", "AMPWebhook")]
     [OutputType("Amazon.Amplify.Model.Webhook")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter WebhookId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for a webhook. </para>
+        /// <para> The unique ID for a webhook. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

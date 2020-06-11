@@ -37,8 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     ///  
     /// <para>
     /// The range of the forecast is determined by the <code>ForecastHorizon</code> value,
-    /// which you specify in the <a>CreatePredictor</a> request, multiplied by the <code>DataFrequency</code>
-    /// value, which you specify in the <a>CreateDataset</a> request. When you query a forecast,
+    /// which you specify in the <a>CreatePredictor</a> request. When you query a forecast,
     /// you can request a specific date range within the forecast.
     /// </para><para>
     /// To get a list of all your forecasts, use the <a>ListForecasts</a> operation.
@@ -83,11 +82,11 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #region Parameter ForecastType
         /// <summary>
         /// <para>
-        /// <para>The quantiles at which probabilistic forecasts are generated. You can specify up to
-        /// 5 quantiles per forecast. Accepted values include <code>0.01 to 0.99</code> (increments
-        /// of .01 only) and <code>mean</code>. The mean forecast is different from the median
-        /// (0.50) when the distribution is not symmetric (e.g. Beta, Negative Binomial). The
-        /// default value is <code>["0.1", "0.5", "0.9"]</code>.</para>
+        /// <para>The quantiles at which probabilistic forecasts are generated. <b>You can currently
+        /// specify up to 5 quantiles per forecast</b>. Accepted values include <code>0.01 to
+        /// 0.99</code> (increments of .01 only) and <code>mean</code>. The mean forecast is different
+        /// from the median (0.50) when the distribution is not symmetric (for example, Beta and
+        /// Negative Binomial). The default value is <code>["0.1", "0.5", "0.9"]</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,6 +109,27 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PredictorArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The optional metadata that you apply to the forecast to help you categorize and organize
+        /// them. Each tag consists of a key and an optional value, both of which you define.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50.</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
+        /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8.</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
+        /// other services may have restrictions on allowed characters. Generally allowed characters
+        /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+        /// of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete
+        /// tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code>
+        /// as its prefix but the key does not, then Forecast considers it to be a user tag and
+        /// will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code>
+        /// do not count against your tags per resource limit.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ForecastService.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -191,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 WriteWarning("You are passing $null as a value for parameter PredictorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -218,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             if (cmdletContext.PredictorArn != null)
             {
                 request.PredictorArn = cmdletContext.PredictorArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -283,6 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public System.String ForecastName { get; set; }
             public List<System.String> ForecastType { get; set; }
             public System.String PredictorArn { get; set; }
+            public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ForecastService.Model.CreateForecastResponse, NewFRCForecastCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ForecastArn;
         }

@@ -110,6 +110,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ResourceTag
+        /// <summary>
+        /// <para>
+        /// <para>The tags attached to the resource created by Image Builder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceTags")]
+        public System.Collections.Hashtable ResourceTag { get; set; }
+        #endregion
+        
         #region Parameter S3Logs_S3BucketName
         /// <summary>
         /// <para>
@@ -281,6 +292,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ResourceTag != null)
+            {
+                context.ResourceTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ResourceTag.Keys)
+                {
+                    context.ResourceTag.Add((String)hashKey, (String)(this.ResourceTag[hashKey]));
+                }
+            }
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -380,6 +399,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.ResourceTag != null)
+            {
+                request.ResourceTags = cmdletContext.ResourceTag;
+            }
             if (cmdletContext.SecurityGroupId != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
@@ -469,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String S3Logs_S3BucketName { get; set; }
             public System.String S3Logs_S3KeyPrefix { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> ResourceTag { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.String SnsTopicArn { get; set; }
             public System.String SubnetId { get; set; }

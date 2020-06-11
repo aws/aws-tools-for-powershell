@@ -86,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You
-        /// must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.</para>
+        /// must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

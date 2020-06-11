@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Deletes a platform application object for one of the supported push notification services,
-    /// such as APNS and FCM. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
+    /// such as APNS and GCM (Firebase Cloud Messaging). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
     /// Amazon SNS Mobile Push Notifications</a>.
     /// </summary>
     [Cmdlet("Remove", "SNSPlatformApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

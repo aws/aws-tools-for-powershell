@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda
     /// with Amazon DynamoDB</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS
     /// Lambda with Amazon Kinesis</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda
-    /// with Amazon SQS</a></para></li></ul><para>
+    /// with Amazon SQS</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda
+    /// with Amazon MSK</a></para></li></ul><para>
     /// The following error handling options are only available for stream sources (DynamoDB
     /// and Kinesis):
     /// </para><ul><li><para><code>BisectBatchOnFunctionError</code> - If the function returns an error, split
@@ -45,9 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para></li><li><para><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or
     /// Amazon SNS topic.
     /// </para></li><li><para><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified
-    /// age.
+    /// age. Default -1 (infinite). Minimum 60. Maximum 604800.
     /// </para></li><li><para><code>MaximumRetryAttempts</code> - Discard records after the specified number of
-    /// retries.
+    /// retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records
+    /// will be retried until the record expires.
     /// </para></li><li><para><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.
     /// </para></li></ul>
     /// </summary>
@@ -63,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter BatchSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</para></li></ul>
+        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>Disables the event source mapping to pause polling and invocation.</para>
+        /// <para>If true, the event source mapping is active. Set to false to pause polling and invocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter EventSourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the event source.</para><ul><li><para><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</para></li><li><para><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</para></li><li><para><b>Amazon Simple Queue Service</b> - The ARN of the queue.</para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the event source.</para><ul><li><para><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</para></li><li><para><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</para></li><li><para><b>Amazon Simple Queue Service</b> - The ARN of the queue.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,7 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumRecordAgeInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams) The maximum age of a record that Lambda sends to a function for processing.</para>
+        /// <para>(Streams) Discard records older than the specified age. The default value is infinite
+        /// (-1).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,7 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumRetryAttempt
         /// <summary>
         /// <para>
-        /// <para>(Streams) The maximum number of times to retry when the function returns an error.</para>
+        /// <para>(Streams) Discard records after the specified number of retries. The default value
+        /// is infinite (-1). When set to infinite (-1), failed records will be retried until
+        /// the record expires.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,9 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter StartingPosition
         /// <summary>
         /// <para>
-        /// <para>The position in a stream from which to start reading. Required for Amazon Kinesis
-        /// and Amazon DynamoDB Streams sources. <code>AT_TIMESTAMP</code> is only supported for
-        /// Amazon Kinesis streams.</para>
+        /// <para>The position in a stream from which to start reading. Required for Amazon Kinesis,
+        /// Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only
+        /// supported for Amazon Kinesis streams.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,6 +217,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? StartingPositionTimestamp { get; set; }
+        #endregion
+        
+        #region Parameter Topic
+        /// <summary>
+        /// <para>
+        /// <para> (MSK) The name of the Kafka topic. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Topics")]
+        public System.String[] Topic { get; set; }
         #endregion
         
         #region Parameter Select
@@ -300,6 +316,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.ParallelizationFactor = this.ParallelizationFactor;
             context.StartingPosition = this.StartingPosition;
             context.StartingPositionTimestamp = this.StartingPositionTimestamp;
+            if (this.Topic != null)
+            {
+                context.Topic = new List<System.String>(this.Topic);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -419,6 +439,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.StartingPositionTimestamp = cmdletContext.StartingPositionTimestamp.Value;
             }
+            if (cmdletContext.Topic != null)
+            {
+                request.Topics = cmdletContext.Topic;
+            }
             
             CmdletOutput output;
             
@@ -493,6 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.Int32? ParallelizationFactor { get; set; }
             public Amazon.Lambda.EventSourcePosition StartingPosition { get; set; }
             public System.DateTime? StartingPositionTimestamp { get; set; }
+            public List<System.String> Topic { get; set; }
             public System.Func<Amazon.Lambda.Model.CreateEventSourceMappingResponse, NewLMEventSourceMappingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

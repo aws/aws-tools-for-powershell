@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
         public System.String DetectorId { get; set; }
         #endregion
         
+        #region Parameter S3Logs_Enable
+        /// <summary>
+        /// <para>
+        /// <para> The status of S3 data event logs as a data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSources_S3Logs_Enable")]
+        public System.Boolean? S3Logs_Enable { get; set; }
+        #endregion
+        
         #region Parameter Enable
         /// <summary>
         /// <para>
@@ -139,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 context.Select = (response, cmdlet) => this.DetectorId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.S3Logs_Enable = this.S3Logs_Enable;
             context.DetectorId = this.DetectorId;
             #if MODULAR
             if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
@@ -164,6 +176,40 @@ namespace Amazon.PowerShell.Cmdlets.GD
             // create request
             var request = new Amazon.GuardDuty.Model.UpdateDetectorRequest();
             
+            
+             // populate DataSources
+            var requestDataSourcesIsNull = true;
+            request.DataSources = new Amazon.GuardDuty.Model.DataSourceConfigurations();
+            Amazon.GuardDuty.Model.S3LogsConfiguration requestDataSources_dataSources_S3Logs = null;
+            
+             // populate S3Logs
+            var requestDataSources_dataSources_S3LogsIsNull = true;
+            requestDataSources_dataSources_S3Logs = new Amazon.GuardDuty.Model.S3LogsConfiguration();
+            System.Boolean? requestDataSources_dataSources_S3Logs_s3Logs_Enable = null;
+            if (cmdletContext.S3Logs_Enable != null)
+            {
+                requestDataSources_dataSources_S3Logs_s3Logs_Enable = cmdletContext.S3Logs_Enable.Value;
+            }
+            if (requestDataSources_dataSources_S3Logs_s3Logs_Enable != null)
+            {
+                requestDataSources_dataSources_S3Logs.Enable = requestDataSources_dataSources_S3Logs_s3Logs_Enable.Value;
+                requestDataSources_dataSources_S3LogsIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_S3Logs should be set to null
+            if (requestDataSources_dataSources_S3LogsIsNull)
+            {
+                requestDataSources_dataSources_S3Logs = null;
+            }
+            if (requestDataSources_dataSources_S3Logs != null)
+            {
+                request.DataSources.S3Logs = requestDataSources_dataSources_S3Logs;
+                requestDataSourcesIsNull = false;
+            }
+             // determine if request.DataSources should be set to null
+            if (requestDataSourcesIsNull)
+            {
+                request.DataSources = null;
+            }
             if (cmdletContext.DetectorId != null)
             {
                 request.DetectorId = cmdletContext.DetectorId;
@@ -237,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? S3Logs_Enable { get; set; }
             public System.String DetectorId { get; set; }
             public System.Boolean? Enable { get; set; }
             public Amazon.GuardDuty.FindingPublishingFrequency FindingPublishingFrequency { get; set; }

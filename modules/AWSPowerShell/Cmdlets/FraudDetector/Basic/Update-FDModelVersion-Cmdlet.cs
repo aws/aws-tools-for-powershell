@@ -28,38 +28,56 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Updates a model version. You can update the description and status attributes using
-    /// this action. You can perform the following status updates: 
-    /// 
-    ///  <ol><li><para>
-    /// Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code></para></li><li><para>
-    /// Change <code>ACTIVE</code> back to <code>TRAINING_COMPLETE</code></para></li></ol>
+    /// Updates a model version. Updating a model version retrains an existing model version
+    /// using updated training data and produces a new minor version of the model. You can
+    /// update the training data set location and data access role attributes using this action.
+    /// This action creates and trains a new minor version of the model, for example version
+    /// 1.01, 1.02, 1.03.
     /// </summary>
     [Cmdlet("Update", "FDModelVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.FraudDetector.Model.UpdateModelVersionResponse")]
     [AWSCmdlet("Calls the Amazon Fraud Detector UpdateModelVersion API operation.", Operation = new[] {"UpdateModelVersion"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.UpdateModelVersionResponse))]
-    [AWSCmdletOutput("None or Amazon.FraudDetector.Model.UpdateModelVersionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FraudDetector.Model.UpdateModelVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.FraudDetector.Model.UpdateModelVersionResponse",
+        "This cmdlet returns an Amazon.FraudDetector.Model.UpdateModelVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class UpdateFDModelVersionCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
-        #region Parameter Description
+        #region Parameter ExternalEventsDetail_DataAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The model description.</para>
+        /// <para>The ARN of the role that provides Amazon Fraud Detector access to the data location.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExternalEventsDetail_DataAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ExternalEventsDetail_DataLocation
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 bucket location for the data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExternalEventsDetail_DataLocation { get; set; }
+        #endregion
+        
+        #region Parameter MajorVersionNumber
+        /// <summary>
+        /// <para>
+        /// <para>The major version number.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Description { get; set; }
+        public System.String MajorVersionNumber { get; set; }
         #endregion
         
         #region Parameter ModelId
@@ -96,44 +114,22 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public Amazon.FraudDetector.ModelTypeEnum ModelType { get; set; }
         #endregion
         
-        #region Parameter ModelVersionNumber
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The model version.</para>
+        /// <para>A collection of key and value pairs.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ModelVersionNumber { get; set; }
-        #endregion
-        
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>The new model status.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.FraudDetector.ModelVersionStatus")]
-        public Amazon.FraudDetector.ModelVersionStatus Status { get; set; }
+        [Alias("Tags")]
+        public Amazon.FraudDetector.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FraudDetector.Model.UpdateModelVersionResponse).
+        /// Specifying the name of a property of type Amazon.FraudDetector.Model.UpdateModelVersionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,10 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ModelVersionNumber parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ModelVersionNumber' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the MajorVersionNumber parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^MajorVersionNumber' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ModelVersionNumber' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MajorVersionNumber' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -187,14 +183,16 @@ namespace Amazon.PowerShell.Cmdlets.FD
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ModelVersionNumber;
+                context.Select = (response, cmdlet) => this.MajorVersionNumber;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
+            context.ExternalEventsDetail_DataAccessRoleArn = this.ExternalEventsDetail_DataAccessRoleArn;
+            context.ExternalEventsDetail_DataLocation = this.ExternalEventsDetail_DataLocation;
+            context.MajorVersionNumber = this.MajorVersionNumber;
             #if MODULAR
-            if (this.Description == null && ParameterWasBound(nameof(this.Description)))
+            if (this.MajorVersionNumber == null && ParameterWasBound(nameof(this.MajorVersionNumber)))
             {
-                WriteWarning("You are passing $null as a value for parameter Description which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MajorVersionNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.ModelId = this.ModelId;
@@ -211,20 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 WriteWarning("You are passing $null as a value for parameter ModelType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ModelVersionNumber = this.ModelVersionNumber;
-            #if MODULAR
-            if (this.ModelVersionNumber == null && ParameterWasBound(nameof(this.ModelVersionNumber)))
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ModelVersionNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new List<Amazon.FraudDetector.Model.Tag>(this.Tag);
             }
-            #endif
-            context.Status = this.Status;
-            #if MODULAR
-            if (this.Status == null && ParameterWasBound(nameof(this.Status)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -241,9 +229,38 @@ namespace Amazon.PowerShell.Cmdlets.FD
             // create request
             var request = new Amazon.FraudDetector.Model.UpdateModelVersionRequest();
             
-            if (cmdletContext.Description != null)
+            
+             // populate ExternalEventsDetail
+            var requestExternalEventsDetailIsNull = true;
+            request.ExternalEventsDetail = new Amazon.FraudDetector.Model.ExternalEventsDetail();
+            System.String requestExternalEventsDetail_externalEventsDetail_DataAccessRoleArn = null;
+            if (cmdletContext.ExternalEventsDetail_DataAccessRoleArn != null)
             {
-                request.Description = cmdletContext.Description;
+                requestExternalEventsDetail_externalEventsDetail_DataAccessRoleArn = cmdletContext.ExternalEventsDetail_DataAccessRoleArn;
+            }
+            if (requestExternalEventsDetail_externalEventsDetail_DataAccessRoleArn != null)
+            {
+                request.ExternalEventsDetail.DataAccessRoleArn = requestExternalEventsDetail_externalEventsDetail_DataAccessRoleArn;
+                requestExternalEventsDetailIsNull = false;
+            }
+            System.String requestExternalEventsDetail_externalEventsDetail_DataLocation = null;
+            if (cmdletContext.ExternalEventsDetail_DataLocation != null)
+            {
+                requestExternalEventsDetail_externalEventsDetail_DataLocation = cmdletContext.ExternalEventsDetail_DataLocation;
+            }
+            if (requestExternalEventsDetail_externalEventsDetail_DataLocation != null)
+            {
+                request.ExternalEventsDetail.DataLocation = requestExternalEventsDetail_externalEventsDetail_DataLocation;
+                requestExternalEventsDetailIsNull = false;
+            }
+             // determine if request.ExternalEventsDetail should be set to null
+            if (requestExternalEventsDetailIsNull)
+            {
+                request.ExternalEventsDetail = null;
+            }
+            if (cmdletContext.MajorVersionNumber != null)
+            {
+                request.MajorVersionNumber = cmdletContext.MajorVersionNumber;
             }
             if (cmdletContext.ModelId != null)
             {
@@ -253,13 +270,9 @@ namespace Amazon.PowerShell.Cmdlets.FD
             {
                 request.ModelType = cmdletContext.ModelType;
             }
-            if (cmdletContext.ModelVersionNumber != null)
+            if (cmdletContext.Tag != null)
             {
-                request.ModelVersionNumber = cmdletContext.ModelVersionNumber;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -322,13 +335,14 @@ namespace Amazon.PowerShell.Cmdlets.FD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
+            public System.String ExternalEventsDetail_DataAccessRoleArn { get; set; }
+            public System.String ExternalEventsDetail_DataLocation { get; set; }
+            public System.String MajorVersionNumber { get; set; }
             public System.String ModelId { get; set; }
             public Amazon.FraudDetector.ModelTypeEnum ModelType { get; set; }
-            public System.String ModelVersionNumber { get; set; }
-            public Amazon.FraudDetector.ModelVersionStatus Status { get; set; }
+            public List<Amazon.FraudDetector.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.FraudDetector.Model.UpdateModelVersionResponse, UpdateFDModelVersionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

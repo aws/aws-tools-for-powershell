@@ -100,6 +100,13 @@ $SMS_Completers = {
             break
         }
 
+        # Amazon.ServerMigrationService.ValidationStatus
+        "Write-SMSAppValidationOutput/NotificationContext_Status"
+        {
+            $v = "FAILED","IN_PROGRESS","PENDING","READY_FOR_VALIDATION","SUCCEEDED"
+            break
+        }
+
 
     }
 
@@ -111,6 +118,7 @@ $SMS_Completers = {
 $SMS_map = @{
     "ChangesetFormat"=@("New-SMSChangeSet")
     "LicenseType"=@("New-SMSReplicationJob","Update-SMSReplicationJob")
+    "NotificationContext_Status"=@("Write-SMSAppValidationOutput")
     "TemplateFormat"=@("New-SMSTemplate")
 }
 
@@ -169,6 +177,7 @@ $SMS_SelectMap = @{
                "Remove-SMSApp",
                "Remove-SMSAppLaunchConfiguration",
                "Remove-SMSAppReplicationConfiguration",
+               "Remove-SMSAppValidationConfiguration",
                "Remove-SMSReplicationJob",
                "Remove-SMSServerCatalog",
                "Unregister-SMSConnector",
@@ -177,16 +186,22 @@ $SMS_SelectMap = @{
                "Get-SMSApp",
                "Get-SMSAppLaunchConfiguration",
                "Get-SMSAppReplicationConfiguration",
+               "Get-SMSAppValidationConfiguration",
+               "Get-SMSAppValidationOutput",
                "Get-SMSConnector",
                "Get-SMSReplicationJob",
                "Get-SMSReplicationRun",
                "Get-SMSServer",
+               "Import-SMSAppCatalog",
                "Import-SMSServerCatalog",
                "Start-SMSApp",
                "Get-SMSAppList",
+               "Write-SMSAppValidationOutput",
                "Write-SMSAppLaunchConfiguration",
                "Write-SMSAppReplicationConfiguration",
+               "Write-SMSAppValidationConfiguration",
                "Start-SMSAppReplication",
+               "Start-SMSOnDemandAppReplication",
                "Start-SMSOnDemandReplicationRun",
                "Stop-SMSAppReplication",
                "Stop-SMSApp",

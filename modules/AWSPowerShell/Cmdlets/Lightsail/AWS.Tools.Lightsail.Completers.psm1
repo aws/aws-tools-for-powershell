@@ -97,6 +97,16 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.BehaviorEnum
+        {
+            ($_ -eq "New-LSDistribution/DefaultCacheBehavior_Behavior") -Or
+            ($_ -eq "Update-LSDistribution/DefaultCacheBehavior_Behavior")
+        }
+        {
+            $v = "cache","dont-cache"
+            break
+        }
+
         # Amazon.Lightsail.ComparisonOperator
         "Add-LSAlarm/ComparisonOperator"
         {
@@ -118,6 +128,25 @@ $LS_Completers = {
         }
         {
             $v = "Email","SMS"
+            break
+        }
+
+        # Amazon.Lightsail.DistributionMetricName
+        "Get-LSDistributionMetricData/MetricName"
+        {
+            $v = "BytesDownloaded","BytesUploaded","Http4xxErrorRate","Http5xxErrorRate","Requests","TotalErrorRate"
+            break
+        }
+
+        # Amazon.Lightsail.ForwardValues
+        {
+            ($_ -eq "New-LSDistribution/CacheBehaviorSettings_ForwardedCookies_Option") -Or
+            ($_ -eq "Update-LSDistribution/CacheBehaviorSettings_ForwardedCookies_Option") -Or
+            ($_ -eq "New-LSDistribution/CacheBehaviorSettings_ForwardedHeaders_Option") -Or
+            ($_ -eq "Update-LSDistribution/CacheBehaviorSettings_ForwardedHeaders_Option")
+        }
+        {
+            $v = "all","allow-list","none"
             break
         }
 
@@ -158,6 +187,7 @@ $LS_Completers = {
 
         # Amazon.Lightsail.MetricUnit
         {
+            ($_ -eq "Get-LSDistributionMetricData/Unit") -Or
             ($_ -eq "Get-LSInstanceMetricData/Unit") -Or
             ($_ -eq "Get-LSLoadBalancerMetricData/Unit") -Or
             ($_ -eq "Get-LSRelationalDatabaseMetricData/Unit")
@@ -177,8 +207,22 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.OriginProtocolPolicyEnum
+        {
+            ($_ -eq "New-LSDistribution/Origin_ProtocolPolicy") -Or
+            ($_ -eq "Update-LSDistribution/Origin_ProtocolPolicy")
+        }
+        {
+            $v = "http-only","https-only"
+            break
+        }
+
         # Amazon.Lightsail.RegionName
-        "Copy-LSSnapshot/SourceRegion"
+        {
+            ($_ -eq "New-LSDistribution/Origin_RegionName") -Or
+            ($_ -eq "Update-LSDistribution/Origin_RegionName") -Or
+            ($_ -eq "Copy-LSSnapshot/SourceRegion")
+        }
         {
             $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","us-east-1","us-east-2","us-west-1","us-west-2"
             break
@@ -217,15 +261,20 @@ $LS_map = @{
     "AddOnRequest_AddOnType"=@("Enable-LSAddOn")
     "AddOnType"=@("Disable-LSAddOn")
     "AttributeName"=@("Update-LSLoadBalancerAttribute")
+    "CacheBehaviorSettings_ForwardedCookies_Option"=@("New-LSDistribution","Update-LSDistribution")
+    "CacheBehaviorSettings_ForwardedHeaders_Option"=@("New-LSDistribution","Update-LSDistribution")
     "ComparisonOperator"=@("Add-LSAlarm")
-    "MetricName"=@("Add-LSAlarm","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "DefaultCacheBehavior_Behavior"=@("New-LSDistribution","Update-LSDistribution")
+    "MetricName"=@("Add-LSAlarm","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")
+    "Origin_RegionName"=@("New-LSDistribution","Update-LSDistribution")
     "PasswordVersion"=@("Get-LSRelationalDatabaseMasterUserPassword")
     "PortInfo_Protocol"=@("Close-LSInstancePublicPort","Open-LSInstancePublicPort")
     "Protocol"=@("Get-LSInstanceAccessDetail","New-LSContactMethod","Remove-LSContactMethod","Send-LSContactMethodVerification")
     "SourceRegion"=@("Copy-LSSnapshot")
     "State"=@("Test-LSAlarm")
     "TreatMissingData"=@("Add-LSAlarm")
-    "Unit"=@("Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "Unit"=@("Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
 }
 
 _awsArgumentCompleterRegistration $LS_Completers $LS_map
@@ -279,17 +328,20 @@ $LS_SelectCompleters = {
 
 $LS_SelectMap = @{
     "Select"=@("New-LSStaticIp",
+               "Mount-LSCertificateToDistribution",
                "Add-LSDisk",
                "Add-LSInstancesToLoadBalancer",
                "Add-LSLoadBalancerTlsCertificate",
                "Mount-LSStaticIp",
                "Close-LSInstancePublicPort",
                "Copy-LSSnapshot",
+               "New-LSCertificate",
                "New-LSCloudFormationStack",
                "New-LSContactMethod",
                "New-LSDisk",
                "New-LSDiskFromSnapshot",
                "New-LSDiskSnapshot",
+               "New-LSDistribution",
                "New-LSDomain",
                "New-LSDomainEntry",
                "New-LSInstance",
@@ -303,9 +355,11 @@ $LS_SelectMap = @{
                "New-LSRelationalDatabaseSnapshot",
                "Remove-LSAlarm",
                "Remove-LSAutoSnapshot",
+               "Remove-LSCertificate",
                "Remove-LSContactMethod",
                "Remove-LSDisk",
                "Remove-LSDiskSnapshot",
+               "Remove-LSDistribution",
                "Remove-LSDomain",
                "Remove-LSDomainEntry",
                "Remove-LSInstance",
@@ -316,6 +370,7 @@ $LS_SelectMap = @{
                "Remove-LSLoadBalancerTlsCertificate",
                "Remove-LSRelationalDatabase",
                "Remove-LSRelationalDatabaseSnapshot",
+               "Dismount-LSCertificateFromDistribution",
                "Dismount-LSDisk",
                "Dismount-LSInstancesFromLoadBalancer",
                "Dismount-LSStaticIp",
@@ -328,12 +383,17 @@ $LS_SelectMap = @{
                "Get-LSAutoSnapshot",
                "Get-LSBlueprintList",
                "Get-LSBundleList",
+               "Get-LSCertificate",
                "Get-LSCloudFormationStackRecord",
                "Get-LSContactMethod",
                "Get-LSDisk",
                "Get-LSDiskList",
                "Get-LSDiskSnapshot",
                "Get-LSDiskSnapshotList",
+               "Get-LSDistributionBundle",
+               "Get-LSDistributionLatestCacheReset",
+               "Get-LSDistributionMetricData",
+               "Get-LSDistribution",
                "Get-LSDomain",
                "Get-LSDomainList",
                "Get-LSExportSnapshotRecord",
@@ -378,6 +438,7 @@ $LS_SelectMap = @{
                "Restart-LSInstance",
                "Restart-LSRelationalDatabase",
                "Remove-LSStaticIp",
+               "Reset-LSDistributionCache",
                "Send-LSContactMethodVerification",
                "Start-LSInstance",
                "Start-LSRelationalDatabase",
@@ -387,6 +448,8 @@ $LS_SelectMap = @{
                "Test-LSAlarm",
                "Remove-LSPeerVpc",
                "Remove-LSResourceTag",
+               "Update-LSDistribution",
+               "Update-LSDistributionBundle",
                "Update-LSDomainEntry",
                "Update-LSLoadBalancerAttribute",
                "Update-LSRelationalDatabase",

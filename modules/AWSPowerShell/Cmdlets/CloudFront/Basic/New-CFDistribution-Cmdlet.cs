@@ -78,6 +78,20 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String Logging_Bucket { get; set; }
         #endregion
         
+        #region Parameter DefaultCacheBehavior_CachePolicyId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the cache policy that is attached to the default cache behavior.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
+        /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
+        /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfig_DefaultCacheBehavior_CachePolicyId")]
+        public System.String DefaultCacheBehavior_CachePolicyId { get; set; }
+        #endregion
+        
         #region Parameter DistributionConfig_CallerReference
         /// <summary>
         /// <para>
@@ -164,23 +178,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String DistributionConfig_DefaultRootObject { get; set; }
         #endregion
         
-        #region Parameter DefaultCacheBehavior_DefaultTTL
-        /// <summary>
-        /// <para>
-        /// <para>The default amount of time that you want objects to stay in CloudFront caches before
-        /// CloudFront forwards another request to your origin to determine whether the object
-        /// has been updated. The value that you specify applies only when your origin does not
-        /// add HTTP headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>,
-        /// and <code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
-        /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DistributionConfig_DefaultCacheBehavior_DefaultTTL")]
-        public System.Int64? DefaultCacheBehavior_DefaultTTL { get; set; }
-        #endregion
-        
         #region Parameter TrustedSigners_Enabled
         /// <summary>
         /// <para>
@@ -248,18 +245,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Cookies_Forward
         /// <summary>
         /// <para>
-        /// <para>Specifies which cookies to forward to the origin for this cache behavior: all, none,
+        /// <para>This field is deprecated. We recommend that you use a cache policy or an origin request
+        /// policy instead of this field.</para><para>If you want to include cookies in the cache key, use a cache policy. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
+        /// cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you want to send cookies to the origin but not include them in the cache key, use
+        /// origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating
+        /// origin request policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>Specifies which cookies to forward to the origin for this cache behavior: all, none,
         /// or the list of cookies specified in the <code>WhitelistedNames</code> complex type.</para><para>Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests
         /// to an Amazon S3 origin, specify none for the <code>Forward</code> element.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward")]
         [AWSConstantClassSource("Amazon.CloudFront.ItemSelection")]
         public Amazon.CloudFront.ItemSelection Cookies_Forward { get; set; }
@@ -402,10 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter WhitelistedNames_Item
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains one <code>Name</code> element for each cookie that you
-        /// want CloudFront to forward to the origin for this cache behavior. It must contain
-        /// the same number of items that is specified in the <code>Quantity</code> field.</para><para>When you set <code>Forward = whitelist</code> (in the <code>CookiePreferences</code>
-        /// object), this field must contain at least one item.</para>
+        /// <para>A list of cookie names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -416,9 +409,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Headers_Item
         /// <summary>
         /// <para>
-        /// <para>A list that contains one <code>Name</code> element for each header that you want CloudFront
-        /// to use for caching in this cache behavior. If <code>Quantity</code> is <code>0</code>,
-        /// omit <code>Items</code>.</para>
+        /// <para>A list of HTTP header names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -512,23 +503,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String[] GeoRestriction_Item { get; set; }
         #endregion
         
-        #region Parameter DefaultCacheBehavior_MaxTTL
-        /// <summary>
-        /// <para>
-        /// <para>The maximum amount of time that you want objects to stay in CloudFront caches before
-        /// CloudFront forwards another request to your origin to determine whether the object
-        /// has been updated. The value that you specify applies only when your origin adds HTTP
-        /// headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>,
-        /// and <code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
-        /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DistributionConfig_DefaultCacheBehavior_MaxTTL")]
-        public System.Int64? DefaultCacheBehavior_MaxTTL { get; set; }
-        #endregion
-        
         #region Parameter ViewerCertificate_MinimumProtocolVersion
         /// <summary>
         /// <para>
@@ -537,8 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// with viewers. The security policy determines two settings:</para><ul><li><para>The minimum SSL/TLS protocol that CloudFront can use to communicate with viewers.</para></li><li><para>The ciphers that CloudFront can use to encrypt the content that it returns to viewers.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValues-security-policy">Security
         /// Policy</a> and <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers">Supported
         /// Protocols and Ciphers Between Viewers and CloudFront</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>We recommend that you specify <code>TLSv1.2_2018</code> unless your viewers are using
-        /// browsers or devices that don’t support TLSv1.2.</para><para>When you’re using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
+        /// Developer Guide</i>.</para><note><para>On the CloudFront console, this setting is called <b>Security Policy</b>.</para></note><para>When you’re using SNI only (you set <code>SSLSupportMethod</code> to <code>sni-only</code>),
         /// you must specify <code>TLSv1</code> or higher. </para><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>
         /// (you set <code>CloudFrontDefaultCertificate</code> to <code>true</code>), CloudFront
         /// automatically sets the security policy to <code>TLSv1</code> regardless of the value
@@ -551,27 +524,18 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public Amazon.CloudFront.MinimumProtocolVersion ViewerCertificate_MinimumProtocolVersion { get; set; }
         #endregion
         
-        #region Parameter DefaultCacheBehavior_MinTTL
+        #region Parameter DefaultCacheBehavior_OriginRequestPolicyId
         /// <summary>
         /// <para>
-        /// <para>The minimum amount of time that you want objects to stay in CloudFront caches before
-        /// CloudFront forwards another request to your origin to determine whether the object
-        /// has been updated. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
-        /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
-        /// Developer Guide</i>.</para><para>You must specify <code>0</code> for <code>MinTTL</code> if you configure CloudFront
-        /// to forward all headers to your origin (under <code>Headers</code>, if you specify
-        /// <code>1</code> for <code>Quantity</code> and <code>*</code> for <code>Name</code>).</para>
+        /// <para>The unique identifier of the origin request policy that is attached to the default
+        /// cache behavior. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating
+        /// origin request policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html">Using
+        /// the managed origin request policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("DistributionConfig_DefaultCacheBehavior_MinTTL")]
-        public System.Int64? DefaultCacheBehavior_MinTTL { get; set; }
+        [Alias("DistributionConfig_DefaultCacheBehavior_OriginRequestPolicyId")]
+        public System.String DefaultCacheBehavior_OriginRequestPolicyId { get; set; }
         #endregion
         
         #region Parameter Logging_Prefix
@@ -675,10 +639,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter WhitelistedNames_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of different cookies that you want CloudFront to forward to the origin
-        /// for this cache behavior. The value must equal the number of items that are in the
-        /// <code>Items</code> field.</para><para>When you set <code>Forward = whitelist</code> (in the <code>CookiePreferences</code>
-        /// object), this value must be <code>1</code> or higher.</para>
+        /// <para>The number of cookie names in the <code>Items</code> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -689,19 +650,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Headers_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of different headers that you want CloudFront to base caching on for this
-        /// cache behavior. You can configure each cache behavior in a web distribution to do
-        /// one of the following:</para><ul><li><para><b>Forward all headers to your origin</b>: Specify <code>1</code> for <code>Quantity</code>
-        /// and <code>*</code> for <code>Name</code>.</para><important><para>CloudFront doesn't cache the objects that are associated with this cache behavior.
-        /// Instead, CloudFront sends every request to the origin. </para></important></li><li><para><b>Forward a whitelist of headers you specify</b>: Specify the number of headers
-        /// that you want CloudFront to base caching on. Then specify the header names in <code>Name</code>
-        /// elements. CloudFront caches your objects based on the values in the specified headers.</para></li><li><para><b>Forward only the default headers</b>: Specify <code>0</code> for <code>Quantity</code>
-        /// and omit <code>Items</code>. In this configuration, CloudFront doesn't cache based
-        /// on the values in the request headers.</para></li></ul><para>Regardless of which option you choose, CloudFront forwards headers to your origin
-        /// based on whether the origin is an S3 bucket or a custom origin. See the following
-        /// documentation:</para><ul><li><para><b>S3 bucket</b>: See <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorS3Origin.html#request-s3-removed-headers">HTTP
-        /// Request Headers That CloudFront Removes or Updates</a></para></li><li><para><b>Custom origin</b>: See <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#request-custom-headers-behavior">HTTP
-        /// Request Headers and CloudFront Behavior</a></para></li></ul>
+        /// <para>The number of header names in the <code>Items</code> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -792,7 +741,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ForwardedValues_QueryString
         /// <summary>
         /// <para>
-        /// <para>Indicates whether you want CloudFront to forward query strings to the origin that
+        /// <para>This field is deprecated. We recommend that you use a cache policy or an origin request
+        /// policy instead of this field.</para><para>If you want to include query strings in the cache key, use a cache policy. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
+        /// cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>If you want to send query strings to the origin but not include them in the cache
+        /// key, use an origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy">Creating
+        /// origin request policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>Indicates whether you want CloudFront to forward query strings to the origin that
         /// is associated with this cache behavior and cache based on the query string parameters.
         /// CloudFront behavior depends on the value of <code>QueryString</code> and on the values
         /// that you specify for <code>QueryStringCacheKeys</code>, if any:</para><para>If you specify true for <code>QueryString</code> and you don't specify any values
@@ -807,13 +761,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// Developer Guide</i>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("DistributionConfig_DefaultCacheBehavior_ForwardedValues_QueryString")]
         public System.Boolean? ForwardedValues_QueryString { get; set; }
         #endregion
@@ -854,8 +802,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>If the distribution uses <code>Aliases</code> (alternate domain names or CNAMEs),
         /// specify which viewers the distribution accepts HTTPS connections from.</para><ul><li><para><code>sni-only</code> – The distribution accepts HTTPS connections from only viewers
         /// that support <a href="https://en.wikipedia.org/wiki/Server_Name_Indication">server
-        /// name indication (SNI)</a>. This is recommended. Most browsers and clients released
-        /// after 2010 support SNI.</para></li><li><para><code>vip</code> – The distribution accepts HTTPS connections from all viewers including
+        /// name indication (SNI)</a>. This is recommended. Most browsers and clients support
+        /// SNI.</para></li><li><para><code>vip</code> – The distribution accepts HTTPS connections from all viewers including
         /// those that don’t support SNI. This is not recommended, and results in additional monthly
         /// charges from CloudFront.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
         /// don’t set a value for this field.</para>
@@ -963,6 +911,72 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public Amazon.CloudFront.CertificateSource ViewerCertificate_CertificateSource { get; set; }
         #endregion
         
+        #region Parameter DefaultCacheBehavior_DefaultTTL
+        /// <summary>
+        /// <para>
+        /// <para>This field is deprecated. We recommend that you use the <code>DefaultTTL</code> field
+        /// in a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
+        /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
+        /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>The default amount of time that you want objects to stay in CloudFront caches before
+        /// CloudFront forwards another request to your origin to determine whether the object
+        /// has been updated. The value that you specify applies only when your origin does not
+        /// add HTTP headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>,
+        /// and <code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
+        /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
+        /// Developer Guide</i>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated. Use CachePolicy instead.")]
+        [Alias("DistributionConfig_DefaultCacheBehavior_DefaultTTL")]
+        public System.Int64? DefaultCacheBehavior_DefaultTTL { get; set; }
+        #endregion
+        
+        #region Parameter DefaultCacheBehavior_MaxTTL
+        /// <summary>
+        /// <para>
+        /// <para>This field is deprecated. We recommend that you use the <code>MaxTTL</code> field
+        /// in a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
+        /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
+        /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>The maximum amount of time that you want objects to stay in CloudFront caches before
+        /// CloudFront forwards another request to your origin to determine whether the object
+        /// has been updated. The value that you specify applies only when your origin adds HTTP
+        /// headers such as <code>Cache-Control max-age</code>, <code>Cache-Control s-maxage</code>,
+        /// and <code>Expires</code> to objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
+        /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
+        /// Developer Guide</i>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated. Use CachePolicy instead.")]
+        [Alias("DistributionConfig_DefaultCacheBehavior_MaxTTL")]
+        public System.Int64? DefaultCacheBehavior_MaxTTL { get; set; }
+        #endregion
+        
+        #region Parameter DefaultCacheBehavior_MinTTL
+        /// <summary>
+        /// <para>
+        /// <para>This field is deprecated. We recommend that you use the <code>MinTTL</code> field
+        /// in a cache policy instead of this field. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy">Creating
+        /// cache policies</a> or <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html">Using
+        /// the managed cache policies</a> in the <i>Amazon CloudFront Developer Guide</i>.</para><para>The minimum amount of time that you want objects to stay in CloudFront caches before
+        /// CloudFront forwards another request to your origin to determine whether the object
+        /// has been updated. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing
+        /// How Long Content Stays in an Edge Cache (Expiration)</a> in the <i>Amazon CloudFront
+        /// Developer Guide</i>.</para><para>You must specify <code>0</code> for <code>MinTTL</code> if you configure CloudFront
+        /// to forward all headers to your origin (under <code>Headers</code>, if you specify
+        /// <code>1</code> for <code>Quantity</code> and <code>*</code> for <code>Name</code>).</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("This field is deprecated. Use CachePolicy instead.")]
+        [Alias("DistributionConfig_DefaultCacheBehavior_MinTTL")]
+        public System.Int64? DefaultCacheBehavior_MinTTL { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -1043,16 +1057,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.AllowedMethods_Item = new List<System.String>(this.AllowedMethods_Item);
             }
             context.AllowedMethods_Quantity = this.AllowedMethods_Quantity;
+            context.DefaultCacheBehavior_CachePolicyId = this.DefaultCacheBehavior_CachePolicyId;
             context.DefaultCacheBehavior_Compress = this.DefaultCacheBehavior_Compress;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_DefaultTTL = this.DefaultCacheBehavior_DefaultTTL;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_FieldLevelEncryptionId = this.DefaultCacheBehavior_FieldLevelEncryptionId;
             context.Cookies_Forward = this.Cookies_Forward;
-            #if MODULAR
-            if (this.Cookies_Forward == null && ParameterWasBound(nameof(this.Cookies_Forward)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Cookies_Forward which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.WhitelistedNames_Item != null)
             {
                 context.WhitelistedNames_Item = new List<System.String>(this.WhitelistedNames_Item);
@@ -1064,12 +1075,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
             }
             context.Headers_Quantity = this.Headers_Quantity;
             context.ForwardedValues_QueryString = this.ForwardedValues_QueryString;
-            #if MODULAR
-            if (this.ForwardedValues_QueryString == null && ParameterWasBound(nameof(this.ForwardedValues_QueryString)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ForwardedValues_QueryString which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.QueryStringCacheKeys_Item != null)
             {
                 context.QueryStringCacheKeys_Item = new List<System.String>(this.QueryStringCacheKeys_Item);
@@ -1080,14 +1085,13 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 context.LambdaFunctionAssociations_Item = new List<Amazon.CloudFront.Model.LambdaFunctionAssociation>(this.LambdaFunctionAssociations_Item);
             }
             context.LambdaFunctionAssociations_Quantity = this.LambdaFunctionAssociations_Quantity;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_MaxTTL = this.DefaultCacheBehavior_MaxTTL;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_MinTTL = this.DefaultCacheBehavior_MinTTL;
-            #if MODULAR
-            if (this.DefaultCacheBehavior_MinTTL == null && ParameterWasBound(nameof(this.DefaultCacheBehavior_MinTTL)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DefaultCacheBehavior_MinTTL which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DefaultCacheBehavior_OriginRequestPolicyId = this.DefaultCacheBehavior_OriginRequestPolicyId;
             context.DefaultCacheBehavior_SmoothStreaming = this.DefaultCacheBehavior_SmoothStreaming;
             context.DefaultCacheBehavior_TargetOriginId = this.DefaultCacheBehavior_TargetOriginId;
             #if MODULAR
@@ -1660,6 +1664,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
              // populate DefaultCacheBehavior
             var requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = true;
             requestDistributionConfig_distributionConfig_DefaultCacheBehavior = new Amazon.CloudFront.Model.DefaultCacheBehavior();
+            System.String requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_CachePolicyId = null;
+            if (cmdletContext.DefaultCacheBehavior_CachePolicyId != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_CachePolicyId = cmdletContext.DefaultCacheBehavior_CachePolicyId;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_CachePolicyId != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior.CachePolicyId = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_CachePolicyId;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             System.Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress = null;
             if (cmdletContext.DefaultCacheBehavior_Compress != null)
             {
@@ -1670,6 +1684,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.Compress = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_Compress.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL = null;
             if (cmdletContext.DefaultCacheBehavior_DefaultTTL != null)
             {
@@ -1680,6 +1695,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.DefaultTTL = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_DefaultTTL.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.String requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_FieldLevelEncryptionId = null;
             if (cmdletContext.DefaultCacheBehavior_FieldLevelEncryptionId != null)
             {
@@ -1690,6 +1706,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.FieldLevelEncryptionId = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_FieldLevelEncryptionId;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL = null;
             if (cmdletContext.DefaultCacheBehavior_MaxTTL != null)
             {
@@ -1700,6 +1717,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.MaxTTL = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MaxTTL.Value;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             System.Int64? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL = null;
             if (cmdletContext.DefaultCacheBehavior_MinTTL != null)
             {
@@ -1708,6 +1727,17 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL != null)
             {
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.MinTTL = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_MinTTL.Value;
+                requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            System.String requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_OriginRequestPolicyId = null;
+            if (cmdletContext.DefaultCacheBehavior_OriginRequestPolicyId != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_OriginRequestPolicyId = cmdletContext.DefaultCacheBehavior_OriginRequestPolicyId;
+            }
+            if (requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_OriginRequestPolicyId != null)
+            {
+                requestDistributionConfig_distributionConfig_DefaultCacheBehavior.OriginRequestPolicyId = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_OriginRequestPolicyId;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
             System.Boolean? requestDistributionConfig_distributionConfig_DefaultCacheBehavior_defaultCacheBehavior_SmoothStreaming = null;
@@ -1890,6 +1920,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.TrustedSigners = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_TrustedSigners;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             Amazon.CloudFront.Model.ForwardedValues requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues = null;
             
              // populate ForwardedValues
@@ -2045,6 +2076,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfig_distributionConfig_DefaultCacheBehavior.ForwardedValues = requestDistributionConfig_distributionConfig_DefaultCacheBehavior_distributionConfig_DefaultCacheBehavior_ForwardedValues;
                 requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if requestDistributionConfig_distributionConfig_DefaultCacheBehavior should be set to null
             if (requestDistributionConfig_distributionConfig_DefaultCacheBehaviorIsNull)
             {
@@ -2133,7 +2165,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? CachedMethods_Quantity { get; set; }
             public List<System.String> AllowedMethods_Item { get; set; }
             public System.Int32? AllowedMethods_Quantity { get; set; }
+            public System.String DefaultCacheBehavior_CachePolicyId { get; set; }
             public System.Boolean? DefaultCacheBehavior_Compress { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int64? DefaultCacheBehavior_DefaultTTL { get; set; }
             public System.String DefaultCacheBehavior_FieldLevelEncryptionId { get; set; }
             public Amazon.CloudFront.ItemSelection Cookies_Forward { get; set; }
@@ -2146,8 +2180,11 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Int32? QueryStringCacheKeys_Quantity { get; set; }
             public List<Amazon.CloudFront.Model.LambdaFunctionAssociation> LambdaFunctionAssociations_Item { get; set; }
             public System.Int32? LambdaFunctionAssociations_Quantity { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int64? DefaultCacheBehavior_MaxTTL { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int64? DefaultCacheBehavior_MinTTL { get; set; }
+            public System.String DefaultCacheBehavior_OriginRequestPolicyId { get; set; }
             public System.Boolean? DefaultCacheBehavior_SmoothStreaming { get; set; }
             public System.String DefaultCacheBehavior_TargetOriginId { get; set; }
             public System.Boolean? TrustedSigners_Enabled { get; set; }

@@ -28,7 +28,7 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Returns a list of ARNs of resources that are members of a specified resource group.<br/><br/>In the AWS.Tools.ResourceGroups module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of ARNs of the resources that are members of a specified resource group.<br/><br/>In the AWS.Tools.ResourceGroups module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RGGroupResourceList")]
     [OutputType("Amazon.ResourceGroups.Model.ListGroupResourcesResponse")]
@@ -42,10 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters, formatted as ResourceFilter objects, that you want to apply to a ListGroupResources
-        /// operation.</para><ul><li><para><code>resource-type</code> - Filter resources by their type. Specify up to five resource
-        /// types in the format AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance,
-        /// or AWS::S3::Bucket.</para></li></ul>
+        /// <para>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply to a <code>ListGroupResources</code>
+        /// operation. Filters the results to include only those of the specified resource types.</para><ul><li><para><code>resource-type</code> - Filter resources by their type. Specify up to five resource
+        /// types in the format <code>AWS::ServiceCode::ResourceType</code>. For example, <code>AWS::EC2::Instance</code>,
+        /// or <code>AWS::S3::Bucket</code>. </para></li></ul><para>When you specify a <code>resource-type</code> filter for <code>ListGroupResources</code>,
+        /// AWS Resource Groups validates your filter resource types against the types that are
+        /// defined in the query associated with the group. For example, if a group contains only
+        /// S3 buckets because its query specifies only that resource type, but your <code>resource-type</code>
+        /// filter includes EC2 instances, AWS Resource Groups does not filter for EC2 instances.
+        /// In this case, a <code>ListGroupResources</code> request returns a <code>BadRequestException</code>
+        /// error with a message similar to the following:</para><para><code>The resource types specified as filters in the request are not valid.</code></para><para>The error includes a list of resource types that failed the validation because they
+        /// are not part of the query associated with the group. This validation doesn't occur
+        /// when the group query specifies <code>AWS::AllSupported</code>, because a group based
+        /// on such a query can contain any of the allowed resource types for the query type (tag-based
+        /// or AWS CloudFormation stack-based queries).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,20 +63,25 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public Amazon.ResourceGroups.Model.ResourceFilter[] Filter { get; set; }
         #endregion
         
+        #region Parameter Group
+        /// <summary>
+        /// <para>
+        /// <para>The name or the ARN of the resource group</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Group { get; set; }
+        #endregion
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the resource group.</para>
+        /// <para>Don't use this parameter. Use <code>Group</code> instead.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [System.ObsoleteAttribute("This field is deprecated, use Group instead.")]
         [Alias("Name")]
         public System.String GroupName { get; set; }
         #endregion
@@ -74,8 +89,14 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of group member ARNs that are returned in a single call by ListGroupResources,
-        /// in paginated output. By default, this number is 50.</para>
+        /// <para>The total number of results that you want included on each page of the response. If
+        /// you do not include this parameter, it defaults to a value that is specific to the
+        /// operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+        /// response element is present and has a value (is not null). Include that value as the
+        /// <code>NextToken</code> request parameter in the next call to the operation to get
+        /// the next part of the results. Note that the service might return fewer results than
+        /// the maximum even when there are more results available. You should check <code>NextToken</code>
+        /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,9 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The NextToken value that is returned in a paginated ListGroupResources request. To
-        /// get the next page of results, run the call again, add the NextToken parameter, and
-        /// specify the NextToken value.</para>
+        /// <para>The parameter for receiving additional results if you receive a <code>NextToken</code>
+        /// response in a previous request. A <code>NextToken</code> response indicates that more
+        /// output is available. Set this parameter to the value provided by a previous call's
+        /// <code>NextToken</code> response to indicate where the output should continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In the AWS.Tools.ResourceGroups module, this parameter is only used if you are manually controlling output pagination of the service API call.
@@ -160,13 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             {
                 context.Filter = new List<Amazon.ResourceGroups.Model.ResourceFilter>(this.Filter);
             }
+            context.Group = this.Group;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupName = this.GroupName;
-            #if MODULAR
-            if (this.GroupName == null && ParameterWasBound(nameof(this.GroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -194,10 +213,16 @@ namespace Amazon.PowerShell.Cmdlets.RG
             {
                 request.Filters = cmdletContext.Filter;
             }
+            if (cmdletContext.Group != null)
+            {
+                request.Group = cmdletContext.Group;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -260,10 +285,16 @@ namespace Amazon.PowerShell.Cmdlets.RG
             {
                 request.Filters = cmdletContext.Filter;
             }
+            if (cmdletContext.Group != null)
+            {
+                request.Group = cmdletContext.Group;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -335,6 +366,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ResourceGroups.Model.ResourceFilter> Filter { get; set; }
+            public System.String Group { get; set; }
+            [System.ObsoleteAttribute]
             public System.String GroupName { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

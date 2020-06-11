@@ -28,14 +28,24 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Returns the refresh status of the Trusted Advisor checks that have the specified check
-    /// IDs. Check IDs can be obtained by calling <a>DescribeTrustedAdvisorChecks</a>.
+    /// Returns the refresh status of the AWS Trusted Advisor checks that have the specified
+    /// check IDs. You can get the check IDs by calling the <a>DescribeTrustedAdvisorChecks</a>
+    /// operation.
     /// 
-    ///  <note><para>
-    /// Some checks are refreshed automatically, and their refresh statuses cannot be retrieved
-    /// by using this operation. Use of the <code>DescribeTrustedAdvisorCheckRefreshStatuses</code>
-    /// operation for these checks causes an <code>InvalidParameterValue</code> error.
-    /// </para></note>
+    ///  
+    /// <para>
+    /// Some checks are refreshed automatically, and you can't return their refresh statuses
+    /// by using the <code>DescribeTrustedAdvisorCheckRefreshStatuses</code> operation. If
+    /// you call this operation for these checks, you might see an <code>InvalidParameterValue</code>
+    /// error.
+    /// </para><note><ul><li><para>
+    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// </para></li><li><para>
+    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
+    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// Support</a>.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "ASATrustedAdvisorCheckRefreshStatus")]
     [OutputType("Amazon.AWSSupport.Model.TrustedAdvisorCheckRefreshStatus")]
@@ -50,9 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter CheckId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Trusted Advisor checks to get the status of. <b>Note:</b> Specifying
-        /// the check ID of a check that is automatically refreshed causes an <code>InvalidParameterValue</code>
-        /// error.</para>
+        /// <para>The IDs of the Trusted Advisor checks to get the status of. </para><note><para>If you specify the check ID of a check that is automatically refreshed, you might
+        /// see an <code>InvalidParameterValue</code> error.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -86,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter FileSystemConfig
+        /// <summary>
+        /// <para>
+        /// <para>Connection settings for an Amazon EFS file system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FileSystemConfigs")]
+        public Amazon.Lambda.Model.FileSystemConfig[] FileSystemConfig { get; set; }
+        #endregion
+        
         #region Parameter FunctionName
         /// <summary>
         /// <para>
@@ -398,6 +409,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 }
             }
             context.Environment_IsVariablesSet = this.Environment_IsVariablesSet;
+            if (this.FileSystemConfig != null)
+            {
+                context.FileSystemConfig = new List<Amazon.Lambda.Model.FileSystemConfig>(this.FileSystemConfig);
+            }
             context.FunctionName = this.FunctionName;
             #if MODULAR
             if (this.FunctionName == null && ParameterWasBound(nameof(this.FunctionName)))
@@ -573,6 +588,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 {
                     request.Environment = null;
                 }
+                if (cmdletContext.FileSystemConfig != null)
+                {
+                    request.FileSystemConfigs = cmdletContext.FileSystemConfig;
+                }
                 if (cmdletContext.FunctionName != null)
                 {
                     request.FunctionName = cmdletContext.FunctionName;
@@ -738,6 +757,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String Description { get; set; }
             public Dictionary<System.String, System.String> Environment_Variable { get; set; }
             public System.Boolean? Environment_IsVariablesSet { get; set; }
+            public List<Amazon.Lambda.Model.FileSystemConfig> FileSystemConfig { get; set; }
             public System.String FunctionName { get; set; }
             public System.String Handler { get; set; }
             public System.String KMSKeyArn { get; set; }

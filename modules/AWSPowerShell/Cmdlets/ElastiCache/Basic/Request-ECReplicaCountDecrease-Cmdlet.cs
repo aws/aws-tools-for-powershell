@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The number of read replica nodes you want at the completion of this operation. For
         /// Redis (cluster mode disabled) replication groups, this is the number of replica nodes
         /// in the replication group. For Redis (cluster mode enabled) replication groups, this
-        /// is the number of replica nodes in each of the replication group's node groups.</para><para>The minimum number of replicas in a shard or replication group is:</para><ul><li><para>Redis (cluster mode disabled)</para><ul><li><para>If Multi-AZ with Automatic Failover is enabled: 1</para></li><li><para>If Multi-AZ with Automatic Failover is not enabled: 0</para></li></ul></li><li><para>Redis (cluster mode enabled): 0 (though you will not be able to failover to a replica
+        /// is the number of replica nodes in each of the replication group's node groups.</para><para>The minimum number of replicas in a shard or replication group is:</para><ul><li><para>Redis (cluster mode disabled)</para><ul><li><para>If Multi-AZ is enabled: 1</para></li><li><para>If Multi-AZ is not enabled: 0</para></li></ul></li><li><para>Redis (cluster mode enabled): 0 (though you will not be able to failover to a replica
         /// if your primary node fails)</para></li></ul>
         /// </para>
         /// </summary>

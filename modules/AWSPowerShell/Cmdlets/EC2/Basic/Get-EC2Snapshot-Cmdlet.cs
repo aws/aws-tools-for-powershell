@@ -65,12 +65,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <code>self</code> for snapshots for which you own or have explicit permissions, or
     /// <code>all</code> for public snapshots.
     /// </para><para>
-    /// If you are describing a long list of snapshots, you can paginate the output to make
-    /// the list more manageable. The <code>MaxResults</code> parameter sets the maximum number
-    /// of results returned in a single page. If the list of results exceeds your <code>MaxResults</code>
-    /// value, then that number of results is returned along with a <code>NextToken</code>
-    /// value that can be passed to a subsequent <code>DescribeSnapshots</code> request to
-    /// retrieve the remaining results.
+    /// If you are describing a long list of snapshots, we recommend that you paginate the
+    /// output to make the list more manageable. The <code>MaxResults</code> parameter sets
+    /// the maximum number of results returned in a single page. If the list of results exceeds
+    /// your <code>MaxResults</code> value, then that number of results is returned along
+    /// with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSnapshots</code>
+    /// request to retrieve the remaining results.
     /// </para><para>
     /// To get the state of fast snapshot restores for a snapshot, use <a>DescribeFastSnapshotRestores</a>.
     /// </para><para>
@@ -92,10 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The filters.</para><ul><li><para><code>description</code> - A description of the snapshot.</para></li><li><para><code>encrypted</code> - Indicates whether the snapshot is encrypted (<code>true</code>
-        /// | <code>false</code>)</para></li><li><para><code>owner-alias</code> - Value from an Amazon-maintained list (<code>amazon</code>
-        /// | <code>self</code> | <code>all</code> | <code>aws-marketplace</code> | <code>microsoft</code>)
-        /// of snapshot owners. Not to be confused with the user-configured AWS account alias,
-        /// which is set from the IAM console.</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the snapshot.</para></li><li><para><code>progress</code> - The progress of the snapshot, as a percentage (for example,
+        /// | <code>false</code>)</para></li><li><para><code>owner-alias</code> - The owner alias, from an Amazon-maintained list (<code>amazon</code>).
+        /// This is not the user-configured AWS account alias set using the IAM console. We recommend
+        /// that you use the related parameter instead of this filter.</para></li><li><para><code>owner-id</code> - The AWS account ID of the owner. We recommend that you use
+        /// the related parameter instead of this filter.</para></li><li><para><code>progress</code> - The progress of the snapshot, as a percentage (for example,
         /// 80%).</para></li><li><para><code>snapshot-id</code> - The snapshot ID.</para></li><li><para><code>start-time</code> - The time stamp when the snapshot was initiated.</para></li><li><para><code>status</code> - The status of the snapshot (<code>pending</code> | <code>completed</code>
         /// | <code>error</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
@@ -113,7 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OwnerId
         /// <summary>
         /// <para>
-        /// <para>Describes the snapshots owned by these owners.</para>
+        /// <para>Scopes the results to snapshots with the specified owners. You can specify a combination
+        /// of AWS account IDs, <code>self</code>, and <code>amazon</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = "ByFilter")]

@@ -41,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Events to send the notification through event targets such as Amazon SNS or AWS Lambda
     /// function. This operation is only supported for file gateways.
     /// </para><para>
-    /// For more information, see Getting File Upload Notification in the Storage Gateway
-    /// User Guide (https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification).
-    /// 
+    /// For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification">Getting
+    /// file upload notification</a> in the <i>AWS Storage Gateway User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Send", "SGUploadedNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

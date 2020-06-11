@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.LICM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><code>licenseCountingType</code> - The dimension on which licenses are counted (vCPU).
+        /// <para>Filters to scope the results. The following filters and logical operators are supported:</para><ul><li><para><code>licenseCountingType</code> - The dimension on which licenses are counted. Possible
+        /// values are <code>vCPU</code> | <code>Instance</code> | <code>Core</code> | <code>Socket</code>.
         /// Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>enforceLicenseCount</code> - A Boolean value that indicates whether hard license
         /// enforcement is used. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li><li><para><code>usagelimitExceeded</code> - A Boolean value that indicates whether the available
         /// licenses have been exceeded. Logical operators are <code>EQUALS</code> | <code>NOT_EQUALS</code>.</para></li></ul>

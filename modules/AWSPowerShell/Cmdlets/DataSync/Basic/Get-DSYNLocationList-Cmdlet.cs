@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns a lists of source and destination locations.
+    /// Returns a list of source and destination locations.
     /// 
     ///  
     /// <para>
@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     )]
     public partial class GetDSYNLocationListCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.DataSync.Model.LocationFilter[] Filter { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -113,6 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 context.Select = CreateSelectDelegate<Amazon.DataSync.Model.ListLocationsResponse, GetDSYNLocationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.DataSync.Model.LocationFilter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
@@ -150,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             // create request and set iteration invariants
             var request = new Amazon.DataSync.Model.ListLocationsRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -209,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             
             // create request and set iteration invariants
             var request = new Amazon.DataSync.Model.ListLocationsRequest();
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -332,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.DataSync.Model.LocationFilter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.DataSync.Model.ListLocationsResponse, GetDSYNLocationListCmdlet, object> Select { get; set; } =

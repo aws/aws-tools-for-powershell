@@ -43,7 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter FilterBy
         /// <summary>
         /// <para>
-        /// <para>The criteria to use to filter the query results.</para>
+        /// <para>An array of objects, one for each condition to use to filter the query results. If
+        /// the array contains more than one object, Amazon Macie uses an AND operator to join
+        /// the conditions specified by the objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service AWS Secrets Manager
 
 
+$SEC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SecretsManager.SortOrderType
+        "Get-SECSecretList/SortOrder"
+        {
+            $v = "asc","desc"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SEC_map = @{
+    "SortOrder"=@("Get-SECSecretList")
+}
+
+_awsArgumentCompleterRegistration $SEC_Completers $SEC_map
+
 $SEC_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -140,7 +166,8 @@ $SEC_SelectMap = @{
                "Add-SECResourceTag",
                "Remove-SECResourceTag",
                "Update-SECSecret",
-               "Update-SECSecretVersionStage")
+               "Update-SECSecretVersionStage",
+               "Test-SECResourcePolicy")
 }
 
 _awsArgumentCompleterRegistration $SEC_SelectCompleters $SEC_SelectMap

@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Deletes an existing application. Optionally deletes the launched stack associated
+    /// Deletes the specified application. Optionally deletes the launched stack associated
     /// with the application and all AWS SMS replication jobs for servers in the application.
     /// </summary>
     [Cmdlet("Remove", "SMSApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>ID of the application to delete.</para>
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ForceStopAppReplication
         /// <summary>
         /// <para>
-        /// <para>While deleting the application, stop all replication jobs corresponding to the servers
-        /// in the application.</para>
+        /// <para>Indicates whether to stop all replication jobs corresponding to the servers in the
+        /// application while deleting the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ForceTerminateApp
         /// <summary>
         /// <para>
-        /// <para>While deleting the application, terminate the stack corresponding to the application.</para>
+        /// <para>Indicates whether to terminate the stack corresponding to the application while deleting
+        /// the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

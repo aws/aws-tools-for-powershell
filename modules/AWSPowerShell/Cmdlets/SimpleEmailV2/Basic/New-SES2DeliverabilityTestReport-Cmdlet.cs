@@ -200,6 +200,19 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String Template_TemplateData { get; set; }
         #endregion
         
+        #region Parameter Template_TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the template. You will refer to this name when you send email using the
+        /// <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Template_TemplateName")]
+        public System.String Template_TemplateName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -270,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             context.Subject_Data = this.Subject_Data;
             context.Template_TemplateArn = this.Template_TemplateArn;
             context.Template_TemplateData = this.Template_TemplateData;
+            context.Template_TemplateName = this.Template_TemplateName;
             context.FromEmailAddress = this.FromEmailAddress;
             #if MODULAR
             if (this.FromEmailAddress == null && ParameterWasBound(nameof(this.FromEmailAddress)))
@@ -492,6 +506,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                     requestContent_content_Template.TemplateData = requestContent_content_Template_template_TemplateData;
                     requestContent_content_TemplateIsNull = false;
                 }
+                System.String requestContent_content_Template_template_TemplateName = null;
+                if (cmdletContext.Template_TemplateName != null)
+                {
+                    requestContent_content_Template_template_TemplateName = cmdletContext.Template_TemplateName;
+                }
+                if (requestContent_content_Template_template_TemplateName != null)
+                {
+                    requestContent_content_Template.TemplateName = requestContent_content_Template_template_TemplateName;
+                    requestContent_content_TemplateIsNull = false;
+                }
                  // determine if requestContent_content_Template should be set to null
                 if (requestContent_content_TemplateIsNull)
                 {
@@ -597,6 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String Subject_Data { get; set; }
             public System.String Template_TemplateArn { get; set; }
             public System.String Template_TemplateData { get; set; }
+            public System.String Template_TemplateName { get; set; }
             public System.String FromEmailAddress { get; set; }
             public System.String ReportName { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }

@@ -30,15 +30,18 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <summary>
     /// Provides organization config rule deployment status for an organization.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Only a master account and a delegated administrator account can call this API. When
+    /// calling this API with a delegated administrator, you must ensure AWS Organizations
+    /// <code>ListDelegatedAdministrator</code> permissions are added.
+    /// </para><note><para>
     /// The status is not considered successful until organization config rule is successfully
     /// deployed in all the member accounts with an exception of excluded accounts.
     /// </para><para>
     /// When you specify the limit and the next token, you receive a paginated response. Limit
     /// and next token are not applicable if you specify organization config rule names. It
     /// is only applicable, when you request all the organization config rules.
-    /// </para><para>
-    /// Only a master account can call this API.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGOrganizationConfigRuleStatus")]

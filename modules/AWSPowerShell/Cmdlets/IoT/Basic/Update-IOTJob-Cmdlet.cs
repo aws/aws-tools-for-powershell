@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AbortConfig_CriteriaList
         /// <summary>
         /// <para>
-        /// <para>The list of abort criteria to define rules to abort the job.</para>
+        /// <para>The list of criteria that determine when and how to abort the job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

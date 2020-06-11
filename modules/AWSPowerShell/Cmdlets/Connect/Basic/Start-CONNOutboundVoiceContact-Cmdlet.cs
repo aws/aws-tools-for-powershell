@@ -28,10 +28,15 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Initiates a contact flow to place an outbound call to a customer.
+    /// This API places an outbound call to a contact, and then initiates the contact flow.
+    /// It performs the actions in the contact flow that's specified (in <code>ContactFlowId</code>).
     /// 
     ///  
     /// <para>
+    /// Agents are not involved in initiating the outbound API (that is, dialing the contact).
+    /// If the contact flow places an outbound call to a contact, and then puts the contact
+    /// in queue, that's when the call is routed to the agent, like any other inbound case.
+    /// </para><para>
     /// There is a 60 second dialing timeout for this operation. If the call is not connected
     /// after 60 seconds, it fails.
     /// </para>

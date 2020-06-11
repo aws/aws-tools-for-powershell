@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>datasync</C2jFilename>
     <AssemblyName>DataSync</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -37,6 +37,13 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLocationNfs" OutputProperty="LocationArn" Verb="New" Noun="LocationNfs" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLocationObjectStorage" OutputProperty="LocationArn" Verb="New" Noun="LocationObjectStorage" ShouldProcessTarget="BucketName" PipelineParameter="" NoPipelineParameter="true">
+            <Params>
+                <Param Name="AccessKey" NewName="BucketAccessKey" AutoApplyAlias="false" />
+                <Param Name="SecretKey" NewName="BucketSecretKey" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLocationS3" OutputProperty="LocationArn" Verb="New" Noun="LocationS3" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
@@ -76,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLocationNfs" OutputProperty="*" Verb="Get" Noun="LocationNfs" PipelineParameter="LocationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLocationObjectStorage" OutputProperty="*" Verb="Get" Noun="LocationObjectStorage" PipelineParameter="LocationArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,8 +147,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.DataSync.Model.Options</Type>
     </TypesNotToFlatten>

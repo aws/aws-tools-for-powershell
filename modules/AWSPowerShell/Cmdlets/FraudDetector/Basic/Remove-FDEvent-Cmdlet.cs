@@ -57,6 +57,23 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String EventId { get; set; }
         #endregion
         
+        #region Parameter EventTypeName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the event type.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EventTypeName { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -124,6 +141,13 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 WriteWarning("You are passing $null as a value for parameter EventId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EventTypeName = this.EventTypeName;
+            #if MODULAR
+            if (this.EventTypeName == null && ParameterWasBound(nameof(this.EventTypeName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventTypeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
             if (cmdletContext.EventId != null)
             {
                 request.EventId = cmdletContext.EventId;
+            }
+            if (cmdletContext.EventTypeName != null)
+            {
+                request.EventTypeName = cmdletContext.EventTypeName;
             }
             
             CmdletOutput output;
@@ -206,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EventId { get; set; }
+            public System.String EventTypeName { get; set; }
             public System.Func<Amazon.FraudDetector.Model.DeleteEventResponse, RemoveFDEventCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

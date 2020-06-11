@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -89,6 +88,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInputDevice" OutputProperty="*" Verb="Get" Noun="InputDevice" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInputDeviceThumbnail" OutputProperty="Body" Verb="Get" Noun="InputDeviceThumbnail" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -205,8 +208,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.MediaLive.Model.EncoderSettings</Type>
         <Type>Amazon.MediaLive.Model.AvailBlanking</Type>

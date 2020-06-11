@@ -80,6 +80,20 @@ $TRS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TranscribeService.BaseModelName
+        "New-TRSLanguageModel/BaseModelName"
+        {
+            $v = "NarrowBand","WideBand"
+            break
+        }
+
+        # Amazon.TranscribeService.CLMLanguageCode
+        "New-TRSLanguageModel/LanguageCode"
+        {
+            $v = "en-US"
+            break
+        }
+
         # Amazon.TranscribeService.LanguageCode
         {
             ($_ -eq "New-TRSMedicalVocabulary/LanguageCode") -Or
@@ -91,7 +105,7 @@ $TRS_Completers = {
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
-            $v = "ar-AE","ar-SA","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-US","en-WL","es-ES","es-US","fa-IR","fr-CA","fr-FR","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","ta-IN","te-IN","tr-TR","zh-CN"
+            $v = "af-ZA","ar-AE","ar-SA","cy-GB","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-US","en-WL","es-ES","es-US","fa-IR","fr-CA","fr-FR","ga-IE","gd-GB","he-IL","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","pt-BR","pt-PT","ru-RU","ta-IN","te-IN","tr-TR","zh-CN"
             break
         }
 
@@ -102,6 +116,13 @@ $TRS_Completers = {
         }
         {
             $v = "flac","mp3","mp4","wav"
+            break
+        }
+
+        # Amazon.TranscribeService.ModelStatus
+        "Get-TRSLanguageModelList/StatusEquals"
+        {
+            $v = "COMPLETED","FAILED","IN_PROGRESS"
             break
         }
 
@@ -169,14 +190,16 @@ $TRS_Completers = {
 }
 
 $TRS_map = @{
+    "BaseModelName"=@("New-TRSLanguageModel")
     "ContentRedaction_RedactionOutput"=@("Start-TRSTranscriptionJob")
     "ContentRedaction_RedactionType"=@("Start-TRSTranscriptionJob")
-    "LanguageCode"=@("New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
+    "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
     "Settings_VocabularyFilterMethod"=@("Start-TRSTranscriptionJob")
     "Specialty"=@("Start-TRSMedicalTranscriptionJob")
     "StateEquals"=@("Get-TRSMedicalVocabularyList","Get-TRSVocabularyList")
     "Status"=@("Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
+    "StatusEquals"=@("Get-TRSLanguageModelList")
     "Type"=@("Start-TRSMedicalTranscriptionJob")
 }
 
@@ -230,19 +253,23 @@ $TRS_SelectCompleters = {
 }
 
 $TRS_SelectMap = @{
-    "Select"=@("New-TRSMedicalVocabulary",
+    "Select"=@("New-TRSLanguageModel",
+               "New-TRSMedicalVocabulary",
                "New-TRSVocabulary",
                "New-TRSVocabularyFilter",
+               "Remove-TRSLanguageModel",
                "Remove-TRSMedicalTranscriptionJob",
                "Remove-TRSMedicalVocabulary",
                "Remove-TRSTranscriptionJob",
                "Remove-TRSVocabulary",
                "Remove-TRSVocabularyFilter",
+               "Get-TRSLanguageModel",
                "Get-TRSMedicalTranscriptionJob",
                "Get-TRSMedicalVocabulary",
                "Get-TRSTranscriptionJob",
                "Get-TRSVocabulary",
                "Get-TRSVocabularyFilter",
+               "Get-TRSLanguageModelList",
                "Get-TRSMedicalTranscriptionJobList",
                "Get-TRSMedicalVocabularyList",
                "Get-TRSTranscriptionJobList",

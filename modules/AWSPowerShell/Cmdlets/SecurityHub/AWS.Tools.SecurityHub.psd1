@@ -127,6 +127,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SHUBFinding', 
         'Update-SHUBFindingsBatch', 
         'Update-SHUBInsight', 
+        'Update-SHUBSecurityHubConfiguration', 
         'Update-SHUBStandardsControl')
 
     # Variables to export from this module

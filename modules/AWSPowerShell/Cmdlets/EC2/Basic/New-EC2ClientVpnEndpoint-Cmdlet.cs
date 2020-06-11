@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ConnectionLogOptions_CloudwatchLogGroup
         /// <summary>
         /// <para>
-        /// <para>The name of the CloudWatch Logs log group.</para>
+        /// <para>The name of the CloudWatch Logs log group. Required if connection logging is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

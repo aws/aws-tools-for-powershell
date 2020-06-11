@@ -54,7 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principal.</para>
+        /// <para>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>),
+        /// thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>)
+        /// and CognitoId (<i>region</i>:<i>id</i>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -60,10 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>The updated <code>cron</code> expression used to specify the schedule. For more information,
-        /// see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+        /// <para>The updated <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
         /// Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15
-        /// UTC, specify <code>cron(15 12 * * ? *)</code>.</para>
+        /// UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

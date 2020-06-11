@@ -42,23 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.FD
     public partial class WriteFDExternalModelCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
-        #region Parameter Role_Arn
-        /// <summary>
-        /// <para>
-        /// <para>The role ARN.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Role_Arn { get; set; }
-        #endregion
-        
         #region Parameter OutputConfiguration_CsvIndexToVariableMap
         /// <summary>
         /// <para>
@@ -80,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.FD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InputConfiguration_CsvInputTemplate { get; set; }
+        #endregion
+        
+        #region Parameter InputConfiguration_EventTypeName
+        /// <summary>
+        /// <para>
+        /// <para>The event type name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InputConfiguration_EventTypeName { get; set; }
         #endregion
         
         #region Parameter InputConfiguration_Format
@@ -111,23 +104,21 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public Amazon.FraudDetector.ModelOutputDataFormat OutputConfiguration_Format { get; set; }
         #endregion
         
-        #region Parameter InputConfiguration_IsOpaque
+        #region Parameter InvokeModelEndpointRoleArn
         /// <summary>
         /// <para>
-        /// <para> For an opaque-model, the input to the model will be a ByteBuffer blob provided in
-        /// the getPrediction request, and will be passed to SageMaker as-is. For non-opaque models,
-        /// the input will be constructed by Amazon Fraud Detector based on the model-configuration.
-        /// </para>
+        /// <para>The IAM role used to invoke the model endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Boolean? InputConfiguration_IsOpaque { get; set; }
+        public System.String InvokeModelEndpointRoleArn { get; set; }
         #endregion
         
         #region Parameter InputConfiguration_JsonInputTemplate
@@ -204,21 +195,32 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public Amazon.FraudDetector.ModelSource ModelSource { get; set; }
         #endregion
         
-        #region Parameter Role_Name
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The role name.</para>
+        /// <para>A collection of key and value pairs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.FraudDetector.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter InputConfiguration_UseEventVariable
+        /// <summary>
+        /// <para>
+        /// <para>The event variables.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Role_Name { get; set; }
+        [Alias("InputConfiguration_UseEventVariables")]
+        public System.Boolean? InputConfiguration_UseEventVariable { get; set; }
         #endregion
         
         #region Parameter Select
@@ -282,15 +284,23 @@ namespace Amazon.PowerShell.Cmdlets.FD
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.InputConfiguration_CsvInputTemplate = this.InputConfiguration_CsvInputTemplate;
+            context.InputConfiguration_EventTypeName = this.InputConfiguration_EventTypeName;
             context.InputConfiguration_Format = this.InputConfiguration_Format;
-            context.InputConfiguration_IsOpaque = this.InputConfiguration_IsOpaque;
+            context.InputConfiguration_JsonInputTemplate = this.InputConfiguration_JsonInputTemplate;
+            context.InputConfiguration_UseEventVariable = this.InputConfiguration_UseEventVariable;
             #if MODULAR
-            if (this.InputConfiguration_IsOpaque == null && ParameterWasBound(nameof(this.InputConfiguration_IsOpaque)))
+            if (this.InputConfiguration_UseEventVariable == null && ParameterWasBound(nameof(this.InputConfiguration_UseEventVariable)))
             {
-                WriteWarning("You are passing $null as a value for parameter InputConfiguration_IsOpaque which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InputConfiguration_UseEventVariable which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.InputConfiguration_JsonInputTemplate = this.InputConfiguration_JsonInputTemplate;
+            context.InvokeModelEndpointRoleArn = this.InvokeModelEndpointRoleArn;
+            #if MODULAR
+            if (this.InvokeModelEndpointRoleArn == null && ParameterWasBound(nameof(this.InvokeModelEndpointRoleArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InvokeModelEndpointRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ModelEndpoint = this.ModelEndpoint;
             #if MODULAR
             if (this.ModelEndpoint == null && ParameterWasBound(nameof(this.ModelEndpoint)))
@@ -335,20 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
                     context.OutputConfiguration_JsonKeyToVariableMap.Add((String)hashKey, (String)(this.OutputConfiguration_JsonKeyToVariableMap[hashKey]));
                 }
             }
-            context.Role_Arn = this.Role_Arn;
-            #if MODULAR
-            if (this.Role_Arn == null && ParameterWasBound(nameof(this.Role_Arn)))
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Role_Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new List<Amazon.FraudDetector.Model.Tag>(this.Tag);
             }
-            #endif
-            context.Role_Name = this.Role_Name;
-            #if MODULAR
-            if (this.Role_Name == null && ParameterWasBound(nameof(this.Role_Name)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Role_Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -379,6 +379,16 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 request.InputConfiguration.CsvInputTemplate = requestInputConfiguration_inputConfiguration_CsvInputTemplate;
                 requestInputConfigurationIsNull = false;
             }
+            System.String requestInputConfiguration_inputConfiguration_EventTypeName = null;
+            if (cmdletContext.InputConfiguration_EventTypeName != null)
+            {
+                requestInputConfiguration_inputConfiguration_EventTypeName = cmdletContext.InputConfiguration_EventTypeName;
+            }
+            if (requestInputConfiguration_inputConfiguration_EventTypeName != null)
+            {
+                request.InputConfiguration.EventTypeName = requestInputConfiguration_inputConfiguration_EventTypeName;
+                requestInputConfigurationIsNull = false;
+            }
             Amazon.FraudDetector.ModelInputDataFormat requestInputConfiguration_inputConfiguration_Format = null;
             if (cmdletContext.InputConfiguration_Format != null)
             {
@@ -387,16 +397,6 @@ namespace Amazon.PowerShell.Cmdlets.FD
             if (requestInputConfiguration_inputConfiguration_Format != null)
             {
                 request.InputConfiguration.Format = requestInputConfiguration_inputConfiguration_Format;
-                requestInputConfigurationIsNull = false;
-            }
-            System.Boolean? requestInputConfiguration_inputConfiguration_IsOpaque = null;
-            if (cmdletContext.InputConfiguration_IsOpaque != null)
-            {
-                requestInputConfiguration_inputConfiguration_IsOpaque = cmdletContext.InputConfiguration_IsOpaque.Value;
-            }
-            if (requestInputConfiguration_inputConfiguration_IsOpaque != null)
-            {
-                request.InputConfiguration.IsOpaque = requestInputConfiguration_inputConfiguration_IsOpaque.Value;
                 requestInputConfigurationIsNull = false;
             }
             System.String requestInputConfiguration_inputConfiguration_JsonInputTemplate = null;
@@ -409,10 +409,24 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 request.InputConfiguration.JsonInputTemplate = requestInputConfiguration_inputConfiguration_JsonInputTemplate;
                 requestInputConfigurationIsNull = false;
             }
+            System.Boolean? requestInputConfiguration_inputConfiguration_UseEventVariable = null;
+            if (cmdletContext.InputConfiguration_UseEventVariable != null)
+            {
+                requestInputConfiguration_inputConfiguration_UseEventVariable = cmdletContext.InputConfiguration_UseEventVariable.Value;
+            }
+            if (requestInputConfiguration_inputConfiguration_UseEventVariable != null)
+            {
+                request.InputConfiguration.UseEventVariables = requestInputConfiguration_inputConfiguration_UseEventVariable.Value;
+                requestInputConfigurationIsNull = false;
+            }
              // determine if request.InputConfiguration should be set to null
             if (requestInputConfigurationIsNull)
             {
                 request.InputConfiguration = null;
+            }
+            if (cmdletContext.InvokeModelEndpointRoleArn != null)
+            {
+                request.InvokeModelEndpointRoleArn = cmdletContext.InvokeModelEndpointRoleArn;
             }
             if (cmdletContext.ModelEndpoint != null)
             {
@@ -465,34 +479,9 @@ namespace Amazon.PowerShell.Cmdlets.FD
             {
                 request.OutputConfiguration = null;
             }
-            
-             // populate Role
-            var requestRoleIsNull = true;
-            request.Role = new Amazon.FraudDetector.Model.Role();
-            System.String requestRole_role_Arn = null;
-            if (cmdletContext.Role_Arn != null)
+            if (cmdletContext.Tag != null)
             {
-                requestRole_role_Arn = cmdletContext.Role_Arn;
-            }
-            if (requestRole_role_Arn != null)
-            {
-                request.Role.Arn = requestRole_role_Arn;
-                requestRoleIsNull = false;
-            }
-            System.String requestRole_role_Name = null;
-            if (cmdletContext.Role_Name != null)
-            {
-                requestRole_role_Name = cmdletContext.Role_Name;
-            }
-            if (requestRole_role_Name != null)
-            {
-                request.Role.Name = requestRole_role_Name;
-                requestRoleIsNull = false;
-            }
-             // determine if request.Role should be set to null
-            if (requestRoleIsNull)
-            {
-                request.Role = null;
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -556,17 +545,18 @@ namespace Amazon.PowerShell.Cmdlets.FD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InputConfiguration_CsvInputTemplate { get; set; }
+            public System.String InputConfiguration_EventTypeName { get; set; }
             public Amazon.FraudDetector.ModelInputDataFormat InputConfiguration_Format { get; set; }
-            public System.Boolean? InputConfiguration_IsOpaque { get; set; }
             public System.String InputConfiguration_JsonInputTemplate { get; set; }
+            public System.Boolean? InputConfiguration_UseEventVariable { get; set; }
+            public System.String InvokeModelEndpointRoleArn { get; set; }
             public System.String ModelEndpoint { get; set; }
             public Amazon.FraudDetector.ModelEndpointStatus ModelEndpointStatus { get; set; }
             public Amazon.FraudDetector.ModelSource ModelSource { get; set; }
             public Dictionary<System.String, System.String> OutputConfiguration_CsvIndexToVariableMap { get; set; }
             public Amazon.FraudDetector.ModelOutputDataFormat OutputConfiguration_Format { get; set; }
             public Dictionary<System.String, System.String> OutputConfiguration_JsonKeyToVariableMap { get; set; }
-            public System.String Role_Arn { get; set; }
-            public System.String Role_Name { get; set; }
+            public List<Amazon.FraudDetector.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.FraudDetector.Model.PutExternalModelResponse, WriteFDExternalModelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

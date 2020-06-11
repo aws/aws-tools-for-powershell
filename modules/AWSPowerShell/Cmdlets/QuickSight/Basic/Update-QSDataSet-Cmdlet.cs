@@ -140,6 +140,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RowLevelPermissionDataSet_Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The namespace associated with the row-level permissions dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RowLevelPermissionDataSet_Namespace { get; set; }
+        #endregion
+        
         #region Parameter RowLevelPermissionDataSet_PermissionPolicy
         /// <summary>
         /// <para>
@@ -284,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.RowLevelPermissionDataSet_Arn = this.RowLevelPermissionDataSet_Arn;
+            context.RowLevelPermissionDataSet_Namespace = this.RowLevelPermissionDataSet_Namespace;
             context.RowLevelPermissionDataSet_PermissionPolicy = this.RowLevelPermissionDataSet_PermissionPolicy;
             
             // allow further manipulation of loaded context prior to processing
@@ -341,6 +352,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Arn != null)
             {
                 request.RowLevelPermissionDataSet.Arn = requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Arn;
+                requestRowLevelPermissionDataSetIsNull = false;
+            }
+            System.String requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Namespace = null;
+            if (cmdletContext.RowLevelPermissionDataSet_Namespace != null)
+            {
+                requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Namespace = cmdletContext.RowLevelPermissionDataSet_Namespace;
+            }
+            if (requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Namespace != null)
+            {
+                request.RowLevelPermissionDataSet.Namespace = requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_Namespace;
                 requestRowLevelPermissionDataSetIsNull = false;
             }
             Amazon.QuickSight.RowLevelPermissionPolicy requestRowLevelPermissionDataSet_rowLevelPermissionDataSet_PermissionPolicy = null;
@@ -427,6 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String Name { get; set; }
             public Dictionary<System.String, Amazon.QuickSight.Model.PhysicalTable> PhysicalTableMap { get; set; }
             public System.String RowLevelPermissionDataSet_Arn { get; set; }
+            public System.String RowLevelPermissionDataSet_Namespace { get; set; }
             public Amazon.QuickSight.RowLevelPermissionPolicy RowLevelPermissionDataSet_PermissionPolicy { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateDataSetResponse, UpdateQSDataSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

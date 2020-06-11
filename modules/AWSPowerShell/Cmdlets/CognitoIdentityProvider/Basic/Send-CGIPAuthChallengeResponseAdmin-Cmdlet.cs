@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ChallengeName
         /// <summary>
         /// <para>
-        /// <para>The challenge name. For more information, see .</para>
+        /// <para>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

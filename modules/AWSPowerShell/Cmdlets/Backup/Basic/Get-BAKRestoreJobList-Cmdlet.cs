@@ -41,6 +41,48 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     public partial class GetBAKRestoreJobListCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
         
+        #region Parameter ByAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID to list the jobs from. Returns only restore jobs associated with the
+        /// specified account ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ByAccountId { get; set; }
+        #endregion
+        
+        #region Parameter ByCreatedAfter
+        /// <summary>
+        /// <para>
+        /// <para>Returns only restore jobs that were created after the specified date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ByCreatedAfter { get; set; }
+        #endregion
+        
+        #region Parameter ByCreatedBefore
+        /// <summary>
+        /// <para>
+        /// <para>Returns only restore jobs that were created before the specified date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ByCreatedBefore { get; set; }
+        #endregion
+        
+        #region Parameter ByStatus
+        /// <summary>
+        /// <para>
+        /// <para>Returns only restore jobs associated with the specified job status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Backup.RestoreJobStatus")]
+        public Amazon.Backup.RestoreJobStatus ByStatus { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -109,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = CreateSelectDelegate<Amazon.Backup.Model.ListRestoreJobsResponse, GetBAKRestoreJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ByAccountId = this.ByAccountId;
+            context.ByCreatedAfter = this.ByCreatedAfter;
+            context.ByCreatedBefore = this.ByCreatedBefore;
+            context.ByStatus = this.ByStatus;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -139,6 +185,22 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             // create request and set iteration invariants
             var request = new Amazon.Backup.Model.ListRestoreJobsRequest();
             
+            if (cmdletContext.ByAccountId != null)
+            {
+                request.ByAccountId = cmdletContext.ByAccountId;
+            }
+            if (cmdletContext.ByCreatedAfter != null)
+            {
+                request.ByCreatedAfter = cmdletContext.ByCreatedAfter.Value;
+            }
+            if (cmdletContext.ByCreatedBefore != null)
+            {
+                request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByStatus != null)
+            {
+                request.ByStatus = cmdletContext.ByStatus;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -198,6 +260,22 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             
             // create request and set iteration invariants
             var request = new Amazon.Backup.Model.ListRestoreJobsRequest();
+            if (cmdletContext.ByAccountId != null)
+            {
+                request.ByAccountId = cmdletContext.ByAccountId;
+            }
+            if (cmdletContext.ByCreatedAfter != null)
+            {
+                request.ByCreatedAfter = cmdletContext.ByCreatedAfter.Value;
+            }
+            if (cmdletContext.ByCreatedBefore != null)
+            {
+                request.ByCreatedBefore = cmdletContext.ByCreatedBefore.Value;
+            }
+            if (cmdletContext.ByStatus != null)
+            {
+                request.ByStatus = cmdletContext.ByStatus;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -317,6 +395,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ByAccountId { get; set; }
+            public System.DateTime? ByCreatedAfter { get; set; }
+            public System.DateTime? ByCreatedBefore { get; set; }
+            public Amazon.Backup.RestoreJobStatus ByStatus { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.Backup.Model.ListRestoreJobsResponse, GetBAKRestoreJobListCmdlet, object> Select { get; set; } =

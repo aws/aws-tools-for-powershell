@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Adds termination settings for the specified Amazon Chime Voice Connector.
+    /// 
+    ///  <note><para>
+    /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
+    /// deleted prior to turning off termination settings.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CHMVoiceConnectorTermination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chime.Model.Termination")]

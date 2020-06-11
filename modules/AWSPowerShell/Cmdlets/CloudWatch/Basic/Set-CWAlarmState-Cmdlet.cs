@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// alarm's <b>History</b> tab in the Amazon CloudWatch console or through <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html">DescribeAlarmHistory</a>.
     /// </para><para>
     /// If you use <code>SetAlarmState</code> on a composite alarm, the composite alarm is
-    /// not guaranteed to return to its actual state. It will return to its actual state only
-    /// once any of its children alarms change state. It is also re-evaluated if you update
+    /// not guaranteed to return to its actual state. It returns to its actual state only
+    /// once any of its children alarms change state. It is also reevaluated if you update
     /// its configuration.
     /// </para><para>
     /// If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling policies,
@@ -63,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The name for the alarm. This name must be unique within the AWS account. The maximum
-        /// length is 255 characters.</para>
+        /// <para>The name of the alarm.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

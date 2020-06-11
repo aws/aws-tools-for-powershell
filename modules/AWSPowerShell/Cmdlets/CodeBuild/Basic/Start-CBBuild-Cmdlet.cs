@@ -91,6 +91,21 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.ComputeType ComputeTypeOverride { get; set; }
         #endregion
         
+        #region Parameter BuildStatusConfigOverride_Context
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the context of the build status CodeBuild sends to the source provider.
+        /// The usage of this parameter depends on the source provider.</para><dl><dt>Bitbucket</dt><dd><para>This parameter is used for the <code>name</code> parameter in the Bitbucket commit
+        /// status. For more information, see <a href="https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build">build</a>
+        /// in the Bitbucket API documentation.</para></dd><dt>GitHub/GitHub Enterprise Server</dt><dd><para>This parameter is used for the <code>context</code> parameter in the GitHub commit
+        /// status. For more information, see <a href="https://developer.github.com/v3/repos/statuses/#create-a-commit-status">Create
+        /// a commit status</a> in the GitHub developer guide.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BuildStatusConfigOverride_Context { get; set; }
+        #endregion
+        
         #region Parameter RegistryCredentialOverride_Credential
         /// <summary>
         /// <para>
@@ -113,6 +128,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CodeBuild.CredentialProviderType")]
         public Amazon.CodeBuild.CredentialProviderType RegistryCredentialOverride_CredentialProvider { get; set; }
+        #endregion
+        
+        #region Parameter DebugSessionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if session debugging is enabled for this build. For more information, see
+        /// <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing
+        /// a running build in Session Manager</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DebugSessionEnabled { get; set; }
         #endregion
         
         #region Parameter ArtifactsOverride_EncryptionDisabled
@@ -145,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides
         /// the one specified in the build project. The CMK key encrypts the build output artifacts.</para><note><para> You can use a cross-account KMS key to encrypt the build output artifacts if your
         /// service role has permission to that key. </para></note><para>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available,
-        /// the CMK's alias (using the format <code>alias/<i>alias-name</i></code>).</para>
+        /// the CMK's alias (using the format <code>alias/&lt;alias-name&gt;</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A unique, case sensitive identifier you provide to ensure the idempotency of the StartBuild
-        /// request. The token is included in the StartBuild request and is valid for 12 hours.
+        /// request. The token is included in the StartBuild request and is valid for 5 minutes.
         /// If you repeat the StartBuild request with the same token, but change a parameter,
         /// AWS CodeBuild returns a parameter mismatch error. </para>
         /// </para>
@@ -235,12 +262,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ImagePullCredentialsTypeOverride
         /// <summary>
         /// <para>
-        /// <para> The type of credentials AWS CodeBuild uses to pull images in your build. There are
-        /// two valid values: </para><ul><li><para><code>CODEBUILD</code> specifies that AWS CodeBuild uses its own credentials. This
-        /// requires that you modify your ECR repository policy to trust AWS CodeBuild's service
-        /// principal.</para></li><li><para><code>SERVICE_ROLE</code> specifies that AWS CodeBuild uses your build project's
-        /// service role. </para></li></ul><para> When using a cross-account or private registry image, you must use SERVICE_ROLE credentials.
-        /// When using an AWS CodeBuild curated image, you must use CODEBUILD credentials. </para>
+        /// <para>The type of credentials AWS CodeBuild uses to pull images in your build. There are
+        /// two valid values: </para><dl><dt>CODEBUILD</dt><dd><para>Specifies that AWS CodeBuild uses its own credentials. This requires that you modify
+        /// your ECR repository policy to trust AWS CodeBuild's service principal.</para></dd><dt>SERVICE_ROLE</dt><dd><para>Specifies that AWS CodeBuild uses your build project's service role. </para></dd></dl><para>When using a cross-account or private registry image, you must use <code>SERVICE_ROLE</code>
+        /// credentials. When using an AWS CodeBuild curated image, you must use <code>CODEBUILD</code>
+        /// credentials. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -336,12 +362,12 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// object. If you set the name to be a forward slash ("/"), the artifact is stored in
         /// the root of the output bucket.</para></li></ul><para>For example:</para><ul><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
-        /// then the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.
+        /// then the output artifact is stored in <code>MyArtifacts/&lt;build-ID&gt;/MyArtifact.zip</code>.
         /// </para></li><li><para> If <code>path</code> is empty, <code>namespaceType</code> is set to <code>NONE</code>,
         /// and <code>name</code> is set to "<code>/</code>", the output artifact is stored in
         /// the root of the output bucket. </para></li><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to "<code>/</code>",
-        /// the output artifact is stored in <code>MyArtifacts/<i>build-ID</i></code>. </para></li></ul>
+        /// the output artifact is stored in <code>MyArtifacts/&lt;build-ID&gt;</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, valid values include:</para><ul><li><para><code>BUILD_ID</code>: Include the build ID in the location of the build output artifact.</para></li><li><para><code>NONE</code>: Do not include the build ID. This is the default if <code>namespaceType</code>
         /// is not specified.</para></li></ul></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
-        /// the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.</para>
+        /// the output artifact is stored in <code>MyArtifacts/&lt;build-ID&gt;/MyArtifact.zip</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -540,16 +566,15 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SourceVersion
         /// <summary>
         /// <para>
-        /// <para>A version of the build input to be built, for this build only. If not specified, the
-        /// latest version is used. If specified, must be one of:</para><ul><li><para>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</para></li><li><para>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds
-        /// to the version of the source code you want to build. If a pull request ID is specified,
-        /// it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>).
-        /// If a branch name is specified, the branch's HEAD commit ID is used. If not specified,
-        /// the default branch's HEAD commit ID is used.</para></li><li><para>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version
-        /// of the source code you want to build. If a branch name is specified, the branch's
-        /// HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</para></li><li><para>For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents
-        /// the build input ZIP file to use.</para></li></ul><para> If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code>
-        /// (at the build level) takes precedence. </para><para> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source
+        /// <para>The version of the build input to be built, for this build only. If not specified,
+        /// the latest version is used. If specified, the contents depends on the source provider:</para><dl><dt>AWS CodeCommit</dt><dd><para>The commit ID, branch, or Git tag to use.</para></dd><dt>GitHub</dt><dd><para>The commit ID, pull request ID, branch name, or tag name that corresponds to the version
+        /// of the source code you want to build. If a pull request ID is specified, it must use
+        /// the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>). If a
+        /// branch name is specified, the branch's HEAD commit ID is used. If not specified, the
+        /// default branch's HEAD commit ID is used.</para></dd><dt>Bitbucket</dt><dd><para>The commit ID, branch name, or tag name that corresponds to the version of the source
+        /// code you want to build. If a branch name is specified, the branch's HEAD commit ID
+        /// is used. If not specified, the default branch's HEAD commit ID is used.</para></dd><dt>Amazon Simple Storage Service (Amazon S3)</dt><dd><para>The version ID of the object that represents the build input ZIP file to use.</para></dd></dl><para>If <code>sourceVersion</code> is specified at the project level, then this <code>sourceVersion</code>
+        /// (at the build level) takes precedence. </para><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source
         /// Version Sample with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -593,6 +618,21 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LogsConfigOverride_CloudWatchLogs_StreamName")]
         public System.String CloudWatchLogs_StreamName { get; set; }
+        #endregion
+        
+        #region Parameter BuildStatusConfigOverride_TargetUrl
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the target url of the build status CodeBuild sends to the source provider.
+        /// The usage of this parameter depends on the source provider.</para><dl><dt>Bitbucket</dt><dd><para>This parameter is used for the <code>url</code> parameter in the Bitbucket commit
+        /// status. For more information, see <a href="https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build">build</a>
+        /// in the Bitbucket API documentation.</para></dd><dt>GitHub/GitHub Enterprise Server</dt><dd><para>This parameter is used for the <code>target_url</code> parameter in the GitHub commit
+        /// status. For more information, see <a href="https://developer.github.com/v3/repos/statuses/#create-a-commit-status">Create
+        /// a commit status</a> in the GitHub developer guide.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BuildStatusConfigOverride_TargetUrl { get; set; }
         #endregion
         
         #region Parameter TimeoutInMinutesOverride
@@ -714,6 +754,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.ArtifactsOverride_Path = this.ArtifactsOverride_Path;
             context.ArtifactsOverride_Type = this.ArtifactsOverride_Type;
             context.BuildspecOverride = this.BuildspecOverride;
+            context.BuildStatusConfigOverride_Context = this.BuildStatusConfigOverride_Context;
+            context.BuildStatusConfigOverride_TargetUrl = this.BuildStatusConfigOverride_TargetUrl;
             context.CacheOverride_Location = this.CacheOverride_Location;
             if (this.CacheOverride_Mode != null)
             {
@@ -722,6 +764,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.CacheOverride_Type = this.CacheOverride_Type;
             context.CertificateOverride = this.CertificateOverride;
             context.ComputeTypeOverride = this.ComputeTypeOverride;
+            context.DebugSessionEnabled = this.DebugSessionEnabled;
             context.EncryptionKeyOverride = this.EncryptionKeyOverride;
             context.EnvironmentTypeOverride = this.EnvironmentTypeOverride;
             if (this.EnvironmentVariablesOverride != null)
@@ -891,6 +934,35 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 request.BuildspecOverride = cmdletContext.BuildspecOverride;
             }
             
+             // populate BuildStatusConfigOverride
+            var requestBuildStatusConfigOverrideIsNull = true;
+            request.BuildStatusConfigOverride = new Amazon.CodeBuild.Model.BuildStatusConfig();
+            System.String requestBuildStatusConfigOverride_buildStatusConfigOverride_Context = null;
+            if (cmdletContext.BuildStatusConfigOverride_Context != null)
+            {
+                requestBuildStatusConfigOverride_buildStatusConfigOverride_Context = cmdletContext.BuildStatusConfigOverride_Context;
+            }
+            if (requestBuildStatusConfigOverride_buildStatusConfigOverride_Context != null)
+            {
+                request.BuildStatusConfigOverride.Context = requestBuildStatusConfigOverride_buildStatusConfigOverride_Context;
+                requestBuildStatusConfigOverrideIsNull = false;
+            }
+            System.String requestBuildStatusConfigOverride_buildStatusConfigOverride_TargetUrl = null;
+            if (cmdletContext.BuildStatusConfigOverride_TargetUrl != null)
+            {
+                requestBuildStatusConfigOverride_buildStatusConfigOverride_TargetUrl = cmdletContext.BuildStatusConfigOverride_TargetUrl;
+            }
+            if (requestBuildStatusConfigOverride_buildStatusConfigOverride_TargetUrl != null)
+            {
+                request.BuildStatusConfigOverride.TargetUrl = requestBuildStatusConfigOverride_buildStatusConfigOverride_TargetUrl;
+                requestBuildStatusConfigOverrideIsNull = false;
+            }
+             // determine if request.BuildStatusConfigOverride should be set to null
+            if (requestBuildStatusConfigOverrideIsNull)
+            {
+                request.BuildStatusConfigOverride = null;
+            }
+            
              // populate CacheOverride
             var requestCacheOverrideIsNull = true;
             request.CacheOverride = new Amazon.CodeBuild.Model.ProjectCache();
@@ -936,6 +1008,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.ComputeTypeOverride != null)
             {
                 request.ComputeTypeOverride = cmdletContext.ComputeTypeOverride;
+            }
+            if (cmdletContext.DebugSessionEnabled != null)
+            {
+                request.DebugSessionEnabled = cmdletContext.DebugSessionEnabled.Value;
             }
             if (cmdletContext.EncryptionKeyOverride != null)
             {
@@ -1264,11 +1340,14 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String ArtifactsOverride_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType ArtifactsOverride_Type { get; set; }
             public System.String BuildspecOverride { get; set; }
+            public System.String BuildStatusConfigOverride_Context { get; set; }
+            public System.String BuildStatusConfigOverride_TargetUrl { get; set; }
             public System.String CacheOverride_Location { get; set; }
             public List<System.String> CacheOverride_Mode { get; set; }
             public Amazon.CodeBuild.CacheType CacheOverride_Type { get; set; }
             public System.String CertificateOverride { get; set; }
             public Amazon.CodeBuild.ComputeType ComputeTypeOverride { get; set; }
+            public System.Boolean? DebugSessionEnabled { get; set; }
             public System.String EncryptionKeyOverride { get; set; }
             public Amazon.CodeBuild.EnvironmentType EnvironmentTypeOverride { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> EnvironmentVariablesOverride { get; set; }

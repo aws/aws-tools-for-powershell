@@ -28,8 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Associates an Elastic IP address with an instance or a network interface. Before you
-    /// can use an Elastic IP address, you must allocate it to your account.
+    /// Associates an Elastic IP address, or carrier IP address (for instances that are in
+    /// subnets in Wavelength Zones) with an instance or a network interface. Before you can
+    /// use an Elastic IP address, you must allocate it to your account.
     /// 
     ///  
     /// <para>
@@ -48,6 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// already associated with a different instance or a network interface, you get an error
     /// unless you allow reassociation. You cannot associate an Elastic IP address with an
     /// instance or network interface that has an existing Elastic IP address.
+    /// </para><para>
+    /// [Subnets in Wavelength Zones] You can associate an IP address from the telecommunication
+    /// carrier to the instance or network interface. 
     /// </para><para>
     /// You cannot associate an Elastic IP address with an interface in a different network
     /// border group.

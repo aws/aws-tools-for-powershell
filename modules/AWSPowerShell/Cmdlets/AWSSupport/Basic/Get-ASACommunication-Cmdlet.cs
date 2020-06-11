@@ -28,10 +28,9 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Returns communications (and attachments) for one or more support cases. You can use
-    /// the <code>afterTime</code> and <code>beforeTime</code> parameters to filter by date.
-    /// You can use the <code>caseId</code> parameter to restrict the results to a particular
-    /// case.
+    /// Returns communications and attachments for one or more support cases. Use the <code>afterTime</code>
+    /// and <code>beforeTime</code> parameters to filter by date. You can use the <code>caseId</code>
+    /// parameter to restrict the results to a specific case.
     /// 
     ///  
     /// <para>
@@ -39,10 +38,17 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// 12 months ago, a request for data might cause an error.
     /// </para><para>
     /// You can use the <code>maxResults</code> and <code>nextToken</code> parameters to control
-    /// the pagination of the result set. Set <code>maxResults</code> to the number of cases
-    /// you want displayed on each page, and use <code>nextToken</code> to specify the resumption
-    /// of pagination.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// the pagination of the results. Set <code>maxResults</code> to the number of cases
+    /// that you want to display on each page, and use <code>nextToken</code> to specify the
+    /// resumption of pagination.
+    /// </para><note><ul><li><para>
+    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// </para></li><li><para>
+    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
+    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// Support</a>.
+    /// </para></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASACommunication")]
     [OutputType("Amazon.AWSSupport.Model.Communication")]

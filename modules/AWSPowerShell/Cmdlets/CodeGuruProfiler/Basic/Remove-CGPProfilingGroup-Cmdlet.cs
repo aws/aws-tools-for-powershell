@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfilingGroupName
         /// <summary>
         /// <para>
-        /// <para>The profiling group name to delete.</para>
+        /// <para>The name of the profiling group to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

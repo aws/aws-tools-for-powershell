@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>appmesh</C2jFilename>
     <AssemblyName>AppMesh</AssemblyName>
@@ -13,12 +14,22 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateGatewayRoute" OutputProperty="GatewayRoute" Verb="New" Noun="GatewayRoute" ShouldProcessTarget="GatewayRouteName" PipelineParameter="GatewayRouteName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Spec_GrpcRoute_Action_Target_VirtualService_VirtualServiceName" NewName="Spec_GrpcRoute_Action_Target_VirtualService" />
+                <Param Name="Spec_GrpcRoute_Match_ServiceName" NewName="Spec_GrpcRoute_Match_ServiceName" />
+                <Param Name="Spec_Http2Route_Action_Target_VirtualService_VirtualServiceName" NewName="Spec_Http2Route_Action_Target_VirtualService" />
+                <Param Name="Spec_Http2Route_Match_Prefix" NewName="Spec_Http2Route_Match_Prefix" />
+                <Param Name="Spec_HttpRoute_Action_Target_VirtualService_VirtualServiceName" NewName="Spec_HttpRoute_Action_Target_VirtualService" />
+                <Param Name="Spec_HttpRoute_Match_Prefix" NewName="Spec_HttpRoute_Match_Prefix" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMesh" OutputProperty="Mesh" Verb="New" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -53,7 +64,25 @@
                 <Param Name="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value" />
                 <Param Name="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value" />
                 <Param Name="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value" Alias="PerRetryTimeout_Value" />
+                <Param Name="Spec_HttpRoute_Timeout_Idle_Unit" NewName="Spec_HttpRoute_Timeout_Idle_Unit" Alias="Timeout_Idle_Unit" />
+                <Param Name="Spec_TcpRoute_Timeout_Idle_Unit" NewName="Spec_TcpRoute_Timeout_Idle_Unit" />
+                <Param Name="Spec_GrpcRoute_Timeout_Idle_Unit" NewName="Spec_GrpcRoute_Timeout_Idle_Unit" />
+                <Param Name="Spec_Http2Route_Timeout_Idle_Unit" NewName="Spec_Http2Route_Timeout_Idle_Unit" />
+                <Param Name="Spec_HttpRoute_Timeout_Idle_Value" NewName="Spec_HttpRoute_Timeout_Idle_Value" Alias="Timeout_Idle_Value" />
+                <Param Name="Spec_TcpRoute_Timeout_Idle_Value" NewName="Spec_TcpRoute_Timeout_Idle_Value" />
+                <Param Name="Spec_GrpcRoute_Timeout_Idle_Value" NewName="Spec_GrpcRoute_Timeout_Idle_Value" />
+                <Param Name="Spec_Http2Route_Timeout_Idle_Value" NewName="Spec_Http2Route_Timeout_Idle_Value" />
+                <Param Name="Spec_HttpRoute_Timeout_PerRequest_Unit" NewName="Spec_HttpRoute_Timeout_PerRequest_Unit" Alias="Timeout_PerRequest_Unit" />
+                <Param Name="Spec_GrpcRoute_Timeout_PerRequest_Unit" NewName="Spec_GrpcRoute_Timeout_PerRequest_Unit" />
+                <Param Name="Spec_Http2Route_Timeout_PerRequest_Unit" NewName="Spec_Http2Route_Timeout_PerRequest_Unit" />
+                <Param Name="Spec_HttpRoute_Timeout_PerRequest_Value" NewName="Spec_HttpRoute_Timeout_PerRequest_Value" Alias="Timeout_PerRequest_Value" />
+                <Param Name="Spec_GrpcRoute_Timeout_PerRequest_Value" NewName="Spec_GrpcRoute_Timeout_PerRequest_Value" />
+                <Param Name="Spec_Http2Route_Timeout_PerRequest_Value" NewName="Spec_Http2Route_Timeout_PerRequest_Value" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVirtualGateway" OutputProperty="VirtualGateway" Verb="New" Noun="VirtualGateway" ShouldProcessTarget="VirtualGatewayName" PipelineParameter="VirtualGatewayName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualNode" OutputProperty="VirtualNode" Verb="New" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
@@ -68,11 +97,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGatewayRoute" OutputProperty="GatewayRoute" Verb="Remove" Noun="GatewayRoute" ShouldProcessTarget="GatewayRouteName" PipelineParameter="GatewayRouteName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMesh" OutputProperty="Mesh" Verb="Remove" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRoute" OutputProperty="Route" Verb="Remove" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVirtualGateway" OutputProperty="VirtualGateway" Verb="Remove" Noun="VirtualGateway" ShouldProcessTarget="VirtualGatewayName" PipelineParameter="VirtualGatewayName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -88,11 +125,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGatewayRoute" OutputProperty="GatewayRoute" Verb="Get" Noun="GatewayRoute" PipelineParameter="GatewayRouteName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeMesh" OutputProperty="Mesh" Verb="Get" Noun="Mesh" PipelineParameter="MeshName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeRoute" OutputProperty="Route" Verb="Get" Noun="Route" PipelineParameter="RouteName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVirtualGateway" OutputProperty="VirtualGateway" Verb="Get" Noun="VirtualGateway" PipelineParameter="VirtualGatewayName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,6 +153,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListGatewayRoutes" OutputProperty="GatewayRoutes" Verb="Get" Noun="GatewayRouteList" PipelineParameter="MeshName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMeshes" OutputProperty="Meshes" Verb="Get" Noun="MeshList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -117,6 +166,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVirtualGateways" OutputProperty="VirtualGateways" Verb="Get" Noun="VirtualGatewayList" PipelineParameter="MeshName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -138,6 +191,17 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewayRoute" OutputProperty="GatewayRoute" Verb="Update" Noun="GatewayRoute" ShouldProcessTarget="GatewayRouteName" PipelineParameter="GatewayRouteName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Spec_GrpcRoute_Action_Target_VirtualService_VirtualServiceName" NewName="Spec_GrpcRoute_Action_Target_VirtualService" />
+                <Param Name="Spec_GrpcRoute_Match_ServiceName" NewName="Spec_GrpcRoute_Match_ServiceName" />
+                <Param Name="Spec_Http2Route_Action_Target_VirtualService_VirtualServiceName" NewName="Spec_Http2Route_Action_Target_VirtualService" />
+                <Param Name="Spec_Http2Route_Match_Prefix" NewName="Spec_Http2Route_Match_Prefix" />
+                <Param Name="Spec_HttpRoute_Action_Target_VirtualService_VirtualServiceName" NewName="Spec_HttpRoute_Action_Target_VirtualService" />
+                <Param Name="Spec_HttpRoute_Match_Prefix" NewName="Spec_HttpRoute_Match_Prefix" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMesh" OutputProperty="Mesh" Verb="Update" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false">
@@ -174,7 +238,25 @@
                 <Param Name="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Value" />
                 <Param Name="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_Http2Route_RetryPolicy_PerRetryTimeout_Value" />
                 <Param Name="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value" NewName="Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Value" Alias="PerRetryTimeout_Value" />
+                <Param Name="Spec_HttpRoute_Timeout_Idle_Unit" NewName="Spec_HttpRoute_Timeout_Idle_Unit" Alias="Timeout_Idle_Unit" />
+                <Param Name="Spec_TcpRoute_Timeout_Idle_Unit" NewName="Spec_TcpRoute_Timeout_Idle_Unit" />
+                <Param Name="Spec_GrpcRoute_Timeout_Idle_Unit" NewName="Spec_GrpcRoute_Timeout_Idle_Unit" />
+                <Param Name="Spec_Http2Route_Timeout_Idle_Unit" NewName="Spec_Http2Route_Timeout_Idle_Unit" />
+                <Param Name="Spec_HttpRoute_Timeout_Idle_Value" NewName="Spec_HttpRoute_Timeout_Idle_Value" Alias="Timeout_Idle_Value" />
+                <Param Name="Spec_TcpRoute_Timeout_Idle_Value" NewName="Spec_TcpRoute_Timeout_Idle_Value" />
+                <Param Name="Spec_GrpcRoute_Timeout_Idle_Value" NewName="Spec_GrpcRoute_Timeout_Idle_Value" />
+                <Param Name="Spec_Http2Route_Timeout_Idle_Value" NewName="Spec_Http2Route_Timeout_Idle_Value" />
+                <Param Name="Spec_HttpRoute_Timeout_PerRequest_Unit" NewName="Spec_HttpRoute_Timeout_PerRequest_Unit" Alias="Timeout_PerRequest_Unit" />
+                <Param Name="Spec_GrpcRoute_Timeout_PerRequest_Unit" NewName="Spec_GrpcRoute_Timeout_PerRequest_Unit" />
+                <Param Name="Spec_Http2Route_Timeout_PerRequest_Unit" NewName="Spec_Http2Route_Timeout_PerRequest_Unit" />
+                <Param Name="Spec_HttpRoute_Timeout_PerRequest_Value" NewName="Spec_HttpRoute_Timeout_PerRequest_Value" Alias="Timeout_PerRequest_Value" />
+                <Param Name="Spec_GrpcRoute_Timeout_PerRequest_Value" NewName="Spec_GrpcRoute_Timeout_PerRequest_Value" />
+                <Param Name="Spec_Http2Route_Timeout_PerRequest_Value" NewName="Spec_Http2Route_Timeout_PerRequest_Value" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVirtualGateway" OutputProperty="VirtualGateway" Verb="Update" Noun="VirtualGateway" ShouldProcessTarget="VirtualGatewayName" PipelineParameter="VirtualGatewayName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVirtualNode" OutputProperty="VirtualNode" Verb="Update" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
@@ -190,7 +272,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ConnectorId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the connector.</para>
+        /// <para>The ID of the connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

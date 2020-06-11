@@ -29,11 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Deletes the specified organization conformance pack and all of the config rules and
-    /// remediation actions from all member accounts in that organization. Only a master account
-    /// can delete an organization conformance pack.
+    /// remediation actions from all member accounts in that organization. 
     /// 
     ///  
     /// <para>
+    ///  Only a master account or a delegated administrator account can delete an organization
+    /// conformance pack. When calling this API with a delegated administrator, you must ensure
+    /// AWS Organizations <code>ListDelegatedAdministrator</code> permissions are added.
+    /// </para><para>
     /// AWS Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion
     /// is complete. You cannot update a conformance pack while it is in this state. 
     /// </para>

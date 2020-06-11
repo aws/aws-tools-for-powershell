@@ -83,6 +83,20 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String EntitlementArn { get; set; }
         #endregion
         
+        #region Parameter EntitlementStatus
+        /// <summary>
+        /// <para>
+        /// An indication of whether you want to
+        /// enable the entitlement to allow access, or disable it to stop streaming content to
+        /// the subscriber’s flow temporarily. If you don’t specify the entitlementStatus field
+        /// in your request, MediaConnect leaves the value unchanged.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.EntitlementStatus")]
+        public Amazon.MediaConnect.EntitlementStatus EntitlementStatus { get; set; }
+        #endregion
+        
         #region Parameter FlowArn
         /// <summary>
         /// <para>
@@ -184,6 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 WriteWarning("You are passing $null as a value for parameter EntitlementArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EntitlementStatus = this.EntitlementStatus;
             context.FlowArn = this.FlowArn;
             #if MODULAR
             if (this.FlowArn == null && ParameterWasBound(nameof(this.FlowArn)))
@@ -222,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.EntitlementArn != null)
             {
                 request.EntitlementArn = cmdletContext.EntitlementArn;
+            }
+            if (cmdletContext.EntitlementStatus != null)
+            {
+                request.EntitlementStatus = cmdletContext.EntitlementStatus;
             }
             if (cmdletContext.FlowArn != null)
             {
@@ -295,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.String Description { get; set; }
             public Amazon.MediaConnect.Model.UpdateEncryption Encryption { get; set; }
             public System.String EntitlementArn { get; set; }
+            public Amazon.MediaConnect.EntitlementStatus EntitlementStatus { get; set; }
             public System.String FlowArn { get; set; }
             public List<System.String> Subscriber { get; set; }
             public System.Func<Amazon.MediaConnect.Model.UpdateFlowEntitlementResponse, UpdateEMCNFlowEntitlementCmdlet, object> Select { get; set; } =

@@ -38,8 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// you to create a file share. Make sure that AWS STS is activated in the AWS Region
     /// you are creating your file gateway in. If AWS STS is not activated in this AWS Region,
     /// activate it. For information about how to activate AWS STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
-    /// and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
-    /// User Guide.</i></para><para>
+    /// and deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
+    /// User Guide</i>.
+    /// </para><para>
     /// File gateways don't support creating hard or symbolic links on a file share.
     /// </para></important>
     /// </summary>
@@ -56,9 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter AdminUserList
         /// <summary>
         /// <para>
-        /// <para>A list of users in the Active Directory that have administrator rights to the file
-        /// share. A group must be prefixed with the @ character. For example <code>@group1</code>.
-        /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
+        /// <para>A list of users or groups in the Active Directory that have administrator rights to
+        /// the file share. A group must be prefixed with the @ character. Acceptable formats
+        /// include: <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and
+        /// <code>@DOMAIN\group1</code>. Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,13 +77,39 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String AuditDestinationARN { get; set; }
         #endregion
         
+        #region Parameter CacheAttributes_CacheStaleTimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>Refreshes a file share's cache by using Time To Live (TTL). TTL is the length of time
+        /// since the last refresh after which access to the directory would cause the file gateway
+        /// to first refresh that directory's contents from the Amazon S3 bucket. The TTL duration
+        /// is in seconds.</para><para>Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CacheAttributes_CacheStaleTimeoutInSeconds")]
+        public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
+        #endregion
+        
+        #region Parameter CaseSensitivity
+        /// <summary>
+        /// <para>
+        /// <para>The case of an object name in an Amazon S3 bucket. For <code>ClientSpecified</code>,
+        /// the client determines the case sensitivity. For <code>CaseSensitive</code>, the gateway
+        /// determines the case sensitivity. The default value is <code>ClientSpecified</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StorageGateway.CaseSensitivity")]
+        public Amazon.StorageGateway.CaseSensitivity CaseSensitivity { get; set; }
+        #endregion
+        
         #region Parameter DefaultStorageClass
         /// <summary>
         /// <para>
         /// <para>The default storage class for objects put into an Amazon S3 bucket by the file gateway.
-        /// Possible values are <code>S3_STANDARD</code>, <code>S3_STANDARD_IA</code>, or <code>S3_ONEZONE_IA</code>.
-        /// If this field is not populated, the default value <code>S3_STANDARD</code> is used.
-        /// Optional.</para>
+        /// The default value is <code>S3_INTELLIGENT_TIERING</code>. Optional.</para><para>Valid Values: <code>S3_STANDARD</code> | <code>S3_INTELLIGENT_TIERING</code> | <code>S3_STANDARD_IA</code>
+        /// | <code>S3_ONEZONE_IA</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,12 +133,22 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String FileShareARN { get; set; }
         #endregion
         
+        #region Parameter FileShareName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the file share. Optional.</para><note><para><code>FileShareName</code> must be set if an S3 prefix name is set in <code>LocationARN</code>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FileShareName { get; set; }
+        #endregion
+        
         #region Parameter GuessMIMETypeEnabled
         /// <summary>
         /// <para>
         /// <para>A value that enables guessing of the MIME type for uploaded objects based on file
-        /// extensions. Set this value to true to enable MIME type guessing, and otherwise to
-        /// false. The default value is true.</para>
+        /// extensions. Set this value to <code>true</code> to enable MIME type guessing, otherwise
+        /// set to <code>false</code>. The default value is <code>true</code>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A list of users or groups in the Active Directory that are not allowed to access the
-        /// file share. A group must be prefixed with the @ character. For example <code>@group1</code>.
+        /// file share. A group must be prefixed with the @ character. Acceptable formats include:
+        /// <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>.
         /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
         /// </para>
         /// </summary>
@@ -132,8 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
-        /// use a key managed by Amazon S3. Optional.</para>
+        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS
+        /// KMS key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,8 +182,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server-side encryption.
-        /// This value can only be set when KMSEncrypted is true. Optional.</para>
+        /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+        /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
+        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ObjectACL
         /// <summary>
         /// <para>
-        /// <para>A value that sets the access control list permission for objects in the S3 bucket
-        /// that a file gateway puts objects into. The default value is "private".</para>
+        /// <para>A value that sets the access control list (ACL) permission for objects in the S3 bucket
+        /// that a file gateway puts objects into. The default value is <code>private</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,8 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ReadOnly
         /// <summary>
         /// <para>
-        /// <para>A value that sets the write status of a file share. This value is true if the write
-        /// status is read-only, and otherwise false.</para>
+        /// <para>A value that sets the write status of a file share. Set this value to <code>true</code>
+        /// to set write status to read-only, otherwise set to <code>false</code>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,11 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that sets who pays the cost of the request and the cost associated with data
-        /// download from the S3 bucket. If this value is set to true, the requester pays the
-        /// costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays
-        /// the cost of storing data.</para><note><para><code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
+        /// download from the S3 bucket. If this value is set to <code>true</code>, the requester
+        /// pays the costs; otherwise, the S3 bucket owner pays. However, the S3 bucket owner
+        /// always pays the cost of storing data.</para><note><para><code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
         /// share, so make sure that the configuration on the file share is the same as the S3
-        /// bucket configuration.</para></note>
+        /// bucket configuration.</para></note><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,9 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter SMBACLEnabled
         /// <summary>
         /// <para>
-        /// <para>Set this value to "true to enable ACL (access control list) on the SMB file share.
-        /// Set it to "false" to map file and directory permissions to the POSIX permissions.</para><para>For more information, see https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.htmlin
-        /// the Storage Gateway User Guide.</para>
+        /// <para>Set this value to <code>true</code> to enable access control list (ACL) on the SMB
+        /// file share. Set it to <code>false</code> to map file and directory permissions to
+        /// the POSIX permissions.</para><para>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/smb-acl.html">Using
+        /// Microsoft Windows ACLs to control access to an SMB file share</a> in the <i>AWS Storage
+        /// Gateway User Guide</i>.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,7 +248,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A list of users or groups in the Active Directory that are allowed to access the file
-        /// share. A group must be prefixed with the @ character. For example <code>@group1</code>.
+        /// share. A group must be prefixed with the @ character. Acceptable formats include:
+        /// <code>DOMAIN\User1</code>, <code>user1</code>, <code>@group1</code>, and <code>@DOMAIN\group1</code>.
         /// Can only be set if Authentication is set to <code>ActiveDirectory</code>.</para>
         /// </para>
         /// </summary>
@@ -280,6 +323,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.AdminUserList = new List<System.String>(this.AdminUserList);
             }
             context.AuditDestinationARN = this.AuditDestinationARN;
+            context.CacheAttributes_CacheStaleTimeoutInSecond = this.CacheAttributes_CacheStaleTimeoutInSecond;
+            context.CaseSensitivity = this.CaseSensitivity;
             context.DefaultStorageClass = this.DefaultStorageClass;
             context.FileShareARN = this.FileShareARN;
             #if MODULAR
@@ -288,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 WriteWarning("You are passing $null as a value for parameter FileShareARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FileShareName = this.FileShareName;
             context.GuessMIMETypeEnabled = this.GuessMIMETypeEnabled;
             if (this.InvalidUserList != null)
             {
@@ -327,6 +373,29 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.AuditDestinationARN = cmdletContext.AuditDestinationARN;
             }
+            
+             // populate CacheAttributes
+            var requestCacheAttributesIsNull = true;
+            request.CacheAttributes = new Amazon.StorageGateway.Model.CacheAttributes();
+            System.Int32? requestCacheAttributes_cacheAttributes_CacheStaleTimeoutInSecond = null;
+            if (cmdletContext.CacheAttributes_CacheStaleTimeoutInSecond != null)
+            {
+                requestCacheAttributes_cacheAttributes_CacheStaleTimeoutInSecond = cmdletContext.CacheAttributes_CacheStaleTimeoutInSecond.Value;
+            }
+            if (requestCacheAttributes_cacheAttributes_CacheStaleTimeoutInSecond != null)
+            {
+                request.CacheAttributes.CacheStaleTimeoutInSeconds = requestCacheAttributes_cacheAttributes_CacheStaleTimeoutInSecond.Value;
+                requestCacheAttributesIsNull = false;
+            }
+             // determine if request.CacheAttributes should be set to null
+            if (requestCacheAttributesIsNull)
+            {
+                request.CacheAttributes = null;
+            }
+            if (cmdletContext.CaseSensitivity != null)
+            {
+                request.CaseSensitivity = cmdletContext.CaseSensitivity;
+            }
             if (cmdletContext.DefaultStorageClass != null)
             {
                 request.DefaultStorageClass = cmdletContext.DefaultStorageClass;
@@ -334,6 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.FileShareARN != null)
             {
                 request.FileShareARN = cmdletContext.FileShareARN;
+            }
+            if (cmdletContext.FileShareName != null)
+            {
+                request.FileShareName = cmdletContext.FileShareName;
             }
             if (cmdletContext.GuessMIMETypeEnabled != null)
             {
@@ -434,8 +507,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             public List<System.String> AdminUserList { get; set; }
             public System.String AuditDestinationARN { get; set; }
+            public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
+            public Amazon.StorageGateway.CaseSensitivity CaseSensitivity { get; set; }
             public System.String DefaultStorageClass { get; set; }
             public System.String FileShareARN { get; set; }
+            public System.String FileShareName { get; set; }
             public System.Boolean? GuessMIMETypeEnabled { get; set; }
             public List<System.String> InvalidUserList { get; set; }
             public System.Boolean? KMSEncrypted { get; set; }

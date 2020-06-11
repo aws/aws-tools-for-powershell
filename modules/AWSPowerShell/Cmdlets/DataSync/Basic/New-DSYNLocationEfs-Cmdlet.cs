@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>A subdirectory in the location’s path. This subdirectory in the EFS file system is
         /// used to read data from the EFS source location or write data to the EFS destination.
-        /// By default, AWS DataSync uses the root directory.</para><note><para><code>Subdirectory</code> must be specified with forward slashes. For example <code>/path/to/folder</code>.</para></note>
+        /// By default, AWS DataSync uses the root directory.</para><note><para><code>Subdirectory</code> must be specified with forward slashes. For example, <code>/path/to/folder</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

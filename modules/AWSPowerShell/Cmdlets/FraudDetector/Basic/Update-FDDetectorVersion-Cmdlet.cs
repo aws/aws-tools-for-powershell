@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
     /// Updates a detector version. The detector version attributes that you can update include
-    /// models, external model endpoints, rules, and description. You can only update a <code>DRAFT</code>
-    /// detector version.
+    /// models, external model endpoints, rules, rule execution mode, and description. You
+    /// can only update a <code>DRAFT</code> detector version.
     /// </summary>
     [Cmdlet("Update", "FDDetectorVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

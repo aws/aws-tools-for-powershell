@@ -148,6 +148,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter WorkingDirectory
+        /// <summary>
+        /// <para>
+        /// <para>The working directory to be used during build and test workflows.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkingDirectory { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -264,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                     context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
                 }
             }
+            context.WorkingDirectory = this.WorkingDirectory;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -311,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.WorkingDirectory != null)
+            {
+                request.WorkingDirectory = cmdletContext.WorkingDirectory;
             }
             
             CmdletOutput output;
@@ -381,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String ParentImage { get; set; }
             public System.String SemanticVersion { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.String WorkingDirectory { get; set; }
             public System.Func<Amazon.Imagebuilder.Model.CreateImageRecipeResponse, NewEC2IBImageRecipeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImageRecipeArn;
         }

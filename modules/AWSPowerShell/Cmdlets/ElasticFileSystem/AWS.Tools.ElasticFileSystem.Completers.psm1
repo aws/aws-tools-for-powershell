@@ -87,6 +87,13 @@ $EFS_Completers = {
             break
         }
 
+        # Amazon.ElasticFileSystem.Status
+        "Write-EFSBackupPolicy/BackupPolicy_Status"
+        {
+            $v = "DISABLED","DISABLING","ENABLED","ENABLING"
+            break
+        }
+
         # Amazon.ElasticFileSystem.ThroughputMode
         {
             ($_ -eq "New-EFSFileSystem/ThroughputMode") -Or
@@ -106,6 +113,7 @@ $EFS_Completers = {
 }
 
 $EFS_map = @{
+    "BackupPolicy_Status"=@("Write-EFSBackupPolicy")
     "PerformanceMode"=@("New-EFSFileSystem")
     "ThroughputMode"=@("New-EFSFileSystem","Update-EFSFileSystem")
 }
@@ -170,6 +178,7 @@ $EFS_SelectMap = @{
                "Remove-EFSMountTarget",
                "Remove-EFSTag",
                "Get-EFSAccessPoint",
+               "Get-EFSBackupPolicy",
                "Get-EFSFileSystemPolicy",
                "Get-EFSFileSystem",
                "Get-EFSLifecycleConfiguration",
@@ -178,6 +187,7 @@ $EFS_SelectMap = @{
                "Get-EFSTag",
                "Get-EFSResourceTag",
                "Edit-EFSMountTargetSecurityGroup",
+               "Write-EFSBackupPolicy",
                "Write-EFSFileSystemPolicy",
                "Write-EFSLifecycleConfiguration",
                "Add-EFSResourceTag",

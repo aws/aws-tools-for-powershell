@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     ///  
     /// <para>
     /// Each <code>PutRecords</code> request can support up to 500 records. Each record in
-    /// the request can be as large as 1 MB, up to a limit of 5 MB for the entire request,
+    /// the request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request,
     /// including partition keys. Each shard can support writes up to 1,000 records per second,
-    /// up to a maximum data write total of 1 MB per second.
+    /// up to a maximum data write total of 1 MiB per second.
     /// </para><para>
     /// You must specify the name of the stream that captures, stores, and transports the
     /// data; and an array of request <code>Records</code>, with each record in the array
@@ -52,13 +52,13 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// is used to map partition keys to 128-bit integer values and to map associated data
     /// records to shards. As a result of this hashing mechanism, all data records with the
     /// same partition key map to the same shard within the stream. For more information,
-    /// see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream">Adding
+    /// see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream">Adding
     /// Data to a Stream</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para>
     /// Each record in the <code>Records</code> array may include an optional parameter, <code>ExplicitHashKey</code>,
     /// which overrides the partition key to shard mapping. This parameter allows a data producer
     /// to determine explicitly the shard where the record is stored. For more information,
-    /// see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-putrecords">Adding
+    /// see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-putrecords">Adding
     /// Multiple Records with PutRecords</a> in the <i>Amazon Kinesis Data Streams Developer
     /// Guide</i>.
     /// </para><para>
@@ -71,6 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// The response <code>Records</code> array includes both successfully and unsuccessfully
     /// processed records. Kinesis Data Streams attempts to process all records in each <code>PutRecords</code>
     /// request. A single record failure does not stop the processing of subsequent records.
+    /// As a result, PutRecords doesn't guarantee the ordering of records. If you need to
+    /// read records in the same order they are written to the stream, use <a>PutRecord</a>
+    /// instead of <code>PutRecords</code>, and write to the same shard.
     /// </para><para>
     /// A successfully processed record includes <code>ShardId</code> and <code>SequenceNumber</code>
     /// values. The <code>ShardId</code> parameter identifies the shard in the stream where
@@ -82,10 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// values: <code>ProvisionedThroughputExceededException</code> or <code>InternalFailure</code>.
     /// <code>ErrorMessage</code> provides more detailed information about the <code>ProvisionedThroughputExceededException</code>
     /// exception including the account ID, stream name, and shard ID of the record that was
-    /// throttled. For more information about partially successful responses, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords">Adding
+    /// throttled. For more information about partially successful responses, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords">Adding
     /// Multiple Records with PutRecords</a> in the <i>Amazon Kinesis Data Streams Developer
     /// Guide</i>.
-    /// </para><para>
+    /// </para><important><para>
+    /// After you write a record to a stream, you cannot modify that record or its order within
+    /// the stream.
+    /// </para></important><para>
     /// By default, data records are accessible for 24 hours from the time that they are added
     /// to a stream. You can use <a>IncreaseStreamRetentionPeriod</a> or <a>DecreaseStreamRetentionPeriod</a>
     /// to modify this retention period.

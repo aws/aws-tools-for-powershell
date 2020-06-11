@@ -40,6 +40,30 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class NewCGIPUserPoolClientCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        #region Parameter TokenValidityUnits_AccessToken
+        /// <summary>
+        /// <para>
+        /// <para> A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity,
+        /// defaults to hours.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.TimeUnitsType")]
+        public Amazon.CognitoIdentityProvider.TimeUnitsType TokenValidityUnits_AccessToken { get; set; }
+        #endregion
+        
+        #region Parameter AccessTokenValidity
+        /// <summary>
+        /// <para>
+        /// <para>The time limit, between 5 minutes and 1 day, after which the access token is no longer
+        /// valid and cannot be used. This value will be overridden if you have entered a value
+        /// in TokenValidityUnits.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? AccessTokenValidity { get; set; }
+        #endregion
+        
         #region Parameter AllowedOAuthFlow
         /// <summary>
         /// <para>
@@ -79,6 +103,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AllowedOAuthScopes")]
         public System.String[] AllowedOAuthScope { get; set; }
+        #endregion
+        
+        #region Parameter AnalyticsConfiguration_ApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon
+        /// Pinpoint project for Pinpoint integration with the chosen User Pool Client. Amazon
+        /// Cognito publishes events to the pinpoint project declared by the app ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AnalyticsConfiguration_ApplicationArn { get; set; }
         #endregion
         
         #region Parameter AnalyticsConfiguration_ApplicationId
@@ -172,6 +208,30 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Boolean? GenerateSecret { get; set; }
         #endregion
         
+        #region Parameter TokenValidityUnits_IdToken
+        /// <summary>
+        /// <para>
+        /// <para>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity,
+        /// defaults to hours.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.TimeUnitsType")]
+        public Amazon.CognitoIdentityProvider.TimeUnitsType TokenValidityUnits_IdToken { get; set; }
+        #endregion
+        
+        #region Parameter IdTokenValidity
+        /// <summary>
+        /// <para>
+        /// <para>The time limit, between 5 minutes and 1 day, after which the ID token is no longer
+        /// valid and cannot be used. This value will be overridden if you have entered a value
+        /// in TokenValidityUnits.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? IdTokenValidity { get; set; }
+        #endregion
+        
         #region Parameter LogoutURLs
         /// <summary>
         /// <para>
@@ -193,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// a code was sent to a simulated destination. When set to <code>LEGACY</code>, those
         /// APIs will return a <code>UserNotFoundException</code> exception if the user does not
         /// exist in the user pool.</para><para>Valid values include:</para><ul><li><para><code>ENABLED</code> - This prevents user existence-related errors.</para></li><li><para><code>LEGACY</code> - This represents the old behavior of Cognito where user existence
-        /// related errors are not prevented.</para></li></ul><para>This setting affects the behavior of following APIs:</para><ul><li><para><a>AdminInitiateAuth</a></para></li><li><para><a>AdminRespondToAuthChallenge</a></para></li><li><para><a>InitiateAuth</a></para></li><li><para><a>RespondToAuthChallenge</a></para></li><li><para><a>ForgotPassword</a></para></li><li><para><a>ConfirmForgotPassword</a></para></li><li><para><a>ConfirmSignUp</a></para></li><li><para><a>ResendConfirmationCode</a></para></li></ul><note><para>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will
+        /// related errors are not prevented.</para></li></ul><note><para>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will
         /// default to <code>ENABLED</code> for newly created user pool clients if no value is
         /// provided.</para></note>
         /// </para>
@@ -213,6 +273,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ReadAttributes")]
         public System.String[] ReadAttribute { get; set; }
+        #endregion
+        
+        #region Parameter TokenValidityUnits_RefreshToken
+        /// <summary>
+        /// <para>
+        /// <para>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity,
+        /// defaults to days.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.TimeUnitsType")]
+        public Amazon.CognitoIdentityProvider.TimeUnitsType TokenValidityUnits_RefreshToken { get; set; }
         #endregion
         
         #region Parameter RefreshTokenValidity
@@ -356,6 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.Select = (response, cmdlet) => this.UserPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AccessTokenValidity = this.AccessTokenValidity;
             if (this.AllowedOAuthFlow != null)
             {
                 context.AllowedOAuthFlow = new List<System.String>(this.AllowedOAuthFlow);
@@ -365,6 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.AllowedOAuthScope = new List<System.String>(this.AllowedOAuthScope);
             }
+            context.AnalyticsConfiguration_ApplicationArn = this.AnalyticsConfiguration_ApplicationArn;
             context.AnalyticsConfiguration_ApplicationId = this.AnalyticsConfiguration_ApplicationId;
             context.AnalyticsConfiguration_ExternalId = this.AnalyticsConfiguration_ExternalId;
             context.AnalyticsConfiguration_RoleArn = this.AnalyticsConfiguration_RoleArn;
@@ -386,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.ExplicitAuthFlow = new List<System.String>(this.ExplicitAuthFlow);
             }
             context.GenerateSecret = this.GenerateSecret;
+            context.IdTokenValidity = this.IdTokenValidity;
             if (this.LogoutURLs != null)
             {
                 context.LogoutURLs = new List<System.String>(this.LogoutURLs);
@@ -400,6 +475,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.SupportedIdentityProvider = new List<System.String>(this.SupportedIdentityProvider);
             }
+            context.TokenValidityUnits_AccessToken = this.TokenValidityUnits_AccessToken;
+            context.TokenValidityUnits_IdToken = this.TokenValidityUnits_IdToken;
+            context.TokenValidityUnits_RefreshToken = this.TokenValidityUnits_RefreshToken;
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
             if (this.UserPoolId == null && ParameterWasBound(nameof(this.UserPoolId)))
@@ -427,6 +505,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.CreateUserPoolClientRequest();
             
+            if (cmdletContext.AccessTokenValidity != null)
+            {
+                request.AccessTokenValidity = cmdletContext.AccessTokenValidity.Value;
+            }
             if (cmdletContext.AllowedOAuthFlow != null)
             {
                 request.AllowedOAuthFlows = cmdletContext.AllowedOAuthFlow;
@@ -443,6 +525,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
              // populate AnalyticsConfiguration
             var requestAnalyticsConfigurationIsNull = true;
             request.AnalyticsConfiguration = new Amazon.CognitoIdentityProvider.Model.AnalyticsConfigurationType();
+            System.String requestAnalyticsConfiguration_analyticsConfiguration_ApplicationArn = null;
+            if (cmdletContext.AnalyticsConfiguration_ApplicationArn != null)
+            {
+                requestAnalyticsConfiguration_analyticsConfiguration_ApplicationArn = cmdletContext.AnalyticsConfiguration_ApplicationArn;
+            }
+            if (requestAnalyticsConfiguration_analyticsConfiguration_ApplicationArn != null)
+            {
+                request.AnalyticsConfiguration.ApplicationArn = requestAnalyticsConfiguration_analyticsConfiguration_ApplicationArn;
+                requestAnalyticsConfigurationIsNull = false;
+            }
             System.String requestAnalyticsConfiguration_analyticsConfiguration_ApplicationId = null;
             if (cmdletContext.AnalyticsConfiguration_ApplicationId != null)
             {
@@ -508,6 +600,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.GenerateSecret = cmdletContext.GenerateSecret.Value;
             }
+            if (cmdletContext.IdTokenValidity != null)
+            {
+                request.IdTokenValidity = cmdletContext.IdTokenValidity.Value;
+            }
             if (cmdletContext.LogoutURLs != null)
             {
                 request.LogoutURLs = cmdletContext.LogoutURLs;
@@ -527,6 +623,45 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.SupportedIdentityProvider != null)
             {
                 request.SupportedIdentityProviders = cmdletContext.SupportedIdentityProvider;
+            }
+            
+             // populate TokenValidityUnits
+            var requestTokenValidityUnitsIsNull = true;
+            request.TokenValidityUnits = new Amazon.CognitoIdentityProvider.Model.TokenValidityUnitsType();
+            Amazon.CognitoIdentityProvider.TimeUnitsType requestTokenValidityUnits_tokenValidityUnits_AccessToken = null;
+            if (cmdletContext.TokenValidityUnits_AccessToken != null)
+            {
+                requestTokenValidityUnits_tokenValidityUnits_AccessToken = cmdletContext.TokenValidityUnits_AccessToken;
+            }
+            if (requestTokenValidityUnits_tokenValidityUnits_AccessToken != null)
+            {
+                request.TokenValidityUnits.AccessToken = requestTokenValidityUnits_tokenValidityUnits_AccessToken;
+                requestTokenValidityUnitsIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.TimeUnitsType requestTokenValidityUnits_tokenValidityUnits_IdToken = null;
+            if (cmdletContext.TokenValidityUnits_IdToken != null)
+            {
+                requestTokenValidityUnits_tokenValidityUnits_IdToken = cmdletContext.TokenValidityUnits_IdToken;
+            }
+            if (requestTokenValidityUnits_tokenValidityUnits_IdToken != null)
+            {
+                request.TokenValidityUnits.IdToken = requestTokenValidityUnits_tokenValidityUnits_IdToken;
+                requestTokenValidityUnitsIsNull = false;
+            }
+            Amazon.CognitoIdentityProvider.TimeUnitsType requestTokenValidityUnits_tokenValidityUnits_RefreshToken = null;
+            if (cmdletContext.TokenValidityUnits_RefreshToken != null)
+            {
+                requestTokenValidityUnits_tokenValidityUnits_RefreshToken = cmdletContext.TokenValidityUnits_RefreshToken;
+            }
+            if (requestTokenValidityUnits_tokenValidityUnits_RefreshToken != null)
+            {
+                request.TokenValidityUnits.RefreshToken = requestTokenValidityUnits_tokenValidityUnits_RefreshToken;
+                requestTokenValidityUnitsIsNull = false;
+            }
+             // determine if request.TokenValidityUnits should be set to null
+            if (requestTokenValidityUnitsIsNull)
+            {
+                request.TokenValidityUnits = null;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -597,9 +732,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? AccessTokenValidity { get; set; }
             public List<System.String> AllowedOAuthFlow { get; set; }
             public System.Boolean? AllowedOAuthFlowsUserPoolClient { get; set; }
             public List<System.String> AllowedOAuthScope { get; set; }
+            public System.String AnalyticsConfiguration_ApplicationArn { get; set; }
             public System.String AnalyticsConfiguration_ApplicationId { get; set; }
             public System.String AnalyticsConfiguration_ExternalId { get; set; }
             public System.String AnalyticsConfiguration_RoleArn { get; set; }
@@ -609,11 +746,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String DefaultRedirectURI { get; set; }
             public List<System.String> ExplicitAuthFlow { get; set; }
             public System.Boolean? GenerateSecret { get; set; }
+            public System.Int32? IdTokenValidity { get; set; }
             public List<System.String> LogoutURLs { get; set; }
             public Amazon.CognitoIdentityProvider.PreventUserExistenceErrorTypes PreventUserExistenceError { get; set; }
             public List<System.String> ReadAttribute { get; set; }
             public System.Int32? RefreshTokenValidity { get; set; }
             public List<System.String> SupportedIdentityProvider { get; set; }
+            public Amazon.CognitoIdentityProvider.TimeUnitsType TokenValidityUnits_AccessToken { get; set; }
+            public Amazon.CognitoIdentityProvider.TimeUnitsType TokenValidityUnits_IdToken { get; set; }
+            public Amazon.CognitoIdentityProvider.TimeUnitsType TokenValidityUnits_RefreshToken { get; set; }
             public System.String UserPoolId { get; set; }
             public List<System.String> WriteAttribute { get; set; }
             public System.Func<Amazon.CognitoIdentityProvider.Model.CreateUserPoolClientResponse, NewCGIPUserPoolClientCmdlet, object> Select { get; set; } =

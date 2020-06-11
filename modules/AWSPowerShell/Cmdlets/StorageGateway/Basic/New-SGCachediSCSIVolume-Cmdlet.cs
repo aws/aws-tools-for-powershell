@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// 
     ///  <note><para>
     /// Cache storage must be allocated to the gateway before you can create a cached volume.
-    /// Use the <a>AddCache</a> operation to add cache storage to a gateway. 
+    /// Use the <a>AddCache</a> operation to add cache storage to a gateway.
     /// </para></note><para>
     /// In the request, you must specify the gateway, size of the volume in bytes, the iSCSI
     /// target name, an IP address on which to expose the target, and a unique client token.
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
-        /// use a key managed by Amazon S3. Optional.</para>
+        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS
+        /// KMS key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,8 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server-side encryption.
-        /// This value can only be set when KMSEncrypted is true. Optional.</para>
+        /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+        /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
+        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The network interface of the gateway on which to expose the iSCSI target. Only IPv4
         /// addresses are accepted. Use <a>DescribeGatewayInformation</a> to get a list of the
-        /// network interfaces available on a gateway.</para><para> Valid Values: A valid IP address.</para>
+        /// network interfaces available on a gateway.</para><para>Valid Values: A valid IP address.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new cached
-        /// volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
-        /// otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a>
+        /// volume. Specify this field if you want to create the iSCSI storage volume from a snapshot;
+        /// otherwise, do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a>
         /// in the <i>Amazon Elastic Compute Cloud API Reference</i>.</para>
         /// </para>
         /// </summary>

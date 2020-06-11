@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The target backtrack window, in seconds. To disable backtracking, set this value to
-        /// 0. </para><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
+        /// 0. </para><note><para>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</para></note><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -218,6 +218,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnableCloudwatchLogsExports")]
         public System.String[] EnableCloudwatchLogsExport { get; set; }
+        #endregion
+        
+        #region Parameter EnableGlobalWriteForwarding
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to enable write operations to be forwarded from this
+        /// cluster to the primary cluster in an Aurora global database. The resulting changes
+        /// are replicated back to this cluster. This parameter only applies to DB clusters that
+        /// are secondary clusters in an Aurora global database. By default, Aurora disallows
+        /// write operations for secondary clusters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableGlobalWriteForwarding { get; set; }
         #endregion
         
         #region Parameter EnableHttpEndpoint
@@ -625,6 +639,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 context.EnableCloudwatchLogsExport = new List<System.String>(this.EnableCloudwatchLogsExport);
             }
+            context.EnableGlobalWriteForwarding = this.EnableGlobalWriteForwarding;
             context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.Engine = this.Engine;
@@ -731,6 +746,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EnableCloudwatchLogsExport != null)
             {
                 request.EnableCloudwatchLogsExports = cmdletContext.EnableCloudwatchLogsExport;
+            }
+            if (cmdletContext.EnableGlobalWriteForwarding != null)
+            {
+                request.EnableGlobalWriteForwarding = cmdletContext.EnableGlobalWriteForwarding.Value;
             }
             if (cmdletContext.EnableHttpEndpoint != null)
             {
@@ -938,6 +957,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
+            public System.Boolean? EnableGlobalWriteForwarding { get; set; }
             public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }

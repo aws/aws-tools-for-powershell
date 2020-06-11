@@ -86,7 +86,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNApiCache/Type")
         }
         {
-            $v = "R4_2XLARGE","R4_4XLARGE","R4_8XLARGE","R4_LARGE","R4_XLARGE","T2_MEDIUM","T2_SMALL"
+            $v = "LARGE","LARGE_12X","LARGE_2X","LARGE_4X","LARGE_8X","MEDIUM","R4_2XLARGE","R4_4XLARGE","R4_8XLARGE","R4_LARGE","R4_XLARGE","SMALL","T2_MEDIUM","T2_SMALL","XLARGE"
             break
         }
 

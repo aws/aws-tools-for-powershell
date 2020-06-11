@@ -35,8 +35,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <para>
     /// To enable Amazon Cognito advanced security features, update the user pool to include
     /// the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.
-    /// </para><para>
-    /// See .
     /// </para>
     /// </summary>
     [Cmdlet("Set", "CGIPRiskConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

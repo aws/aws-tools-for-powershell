@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ChallengeName
         /// <summary>
         /// <para>
-        /// <para>The challenge name. For more information, see .</para><para><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</para>
+        /// <para>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</para><para><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.String[] ImageId { get; set; }
         #endregion
         
+        #region Parameter ImageType
+        /// <summary>
+        /// <para>
+        /// <para>The type (owned or shared) of the image.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpaces.ImageType")]
+        public Amazon.WorkSpaces.ImageType ImageType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -142,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 context.ImageId = new List<System.String>(this.ImageId);
             }
+            context.ImageType = this.ImageType;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -177,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.ImageId != null)
             {
                 request.ImageIds = cmdletContext.ImageId;
+            }
+            if (cmdletContext.ImageType != null)
+            {
+                request.ImageType = cmdletContext.ImageType;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -240,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.ImageId != null)
             {
                 request.ImageIds = cmdletContext.ImageId;
+            }
+            if (cmdletContext.ImageType != null)
+            {
+                request.ImageType = cmdletContext.ImageType;
             }
             
             // Initialize loop variants and commence piping
@@ -361,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ImageId { get; set; }
+            public Amazon.WorkSpaces.ImageType ImageType { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.DescribeWorkspaceImagesResponse, GetWKSWorkspaceImageCmdlet, object> Select { get; set; } =

@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserCode
         /// <summary>
         /// <para>
-        /// <para>The one time password computed using the secret code returned by </para>
+        /// <para>The one time password computed using the secret code returned by <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken"</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

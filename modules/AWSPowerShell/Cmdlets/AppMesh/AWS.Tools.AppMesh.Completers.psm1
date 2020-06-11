@@ -84,10 +84,24 @@ $AMSH_Completers = {
         {
             ($_ -eq "New-AMSHRoute/Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit") -Or
             ($_ -eq "Update-AMSHRoute/Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit") -Or
+            ($_ -eq "New-AMSHRoute/Spec_GrpcRoute_Timeout_Idle_Unit") -Or
+            ($_ -eq "Update-AMSHRoute/Spec_GrpcRoute_Timeout_Idle_Unit") -Or
+            ($_ -eq "New-AMSHRoute/Spec_GrpcRoute_Timeout_PerRequest_Unit") -Or
+            ($_ -eq "Update-AMSHRoute/Spec_GrpcRoute_Timeout_PerRequest_Unit") -Or
             ($_ -eq "New-AMSHRoute/Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit") -Or
             ($_ -eq "Update-AMSHRoute/Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit") -Or
+            ($_ -eq "New-AMSHRoute/Spec_Http2Route_Timeout_Idle_Unit") -Or
+            ($_ -eq "Update-AMSHRoute/Spec_Http2Route_Timeout_Idle_Unit") -Or
+            ($_ -eq "New-AMSHRoute/Spec_Http2Route_Timeout_PerRequest_Unit") -Or
+            ($_ -eq "Update-AMSHRoute/Spec_Http2Route_Timeout_PerRequest_Unit") -Or
             ($_ -eq "New-AMSHRoute/Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit") -Or
-            ($_ -eq "Update-AMSHRoute/Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit")
+            ($_ -eq "Update-AMSHRoute/Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit") -Or
+            ($_ -eq "New-AMSHRoute/Spec_HttpRoute_Timeout_Idle_Unit") -Or
+            ($_ -eq "Update-AMSHRoute/Spec_HttpRoute_Timeout_Idle_Unit") -Or
+            ($_ -eq "New-AMSHRoute/Spec_HttpRoute_Timeout_PerRequest_Unit") -Or
+            ($_ -eq "Update-AMSHRoute/Spec_HttpRoute_Timeout_PerRequest_Unit") -Or
+            ($_ -eq "New-AMSHRoute/Spec_TcpRoute_Timeout_Idle_Unit") -Or
+            ($_ -eq "Update-AMSHRoute/Spec_TcpRoute_Timeout_Idle_Unit")
         }
         {
             $v = "ms","s"
@@ -139,12 +153,19 @@ $AMSH_Completers = {
 $AMSH_map = @{
     "Spec_EgressFilter_Type"=@("New-AMSHMesh","Update-AMSHMesh")
     "Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_GrpcRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_GrpcRoute_Timeout_PerRequest_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_Http2Route_Match_Method"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_Http2Route_Match_Scheme"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_Http2Route_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_Http2Route_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_Http2Route_Timeout_PerRequest_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Match_Method"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Match_Scheme"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_HttpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_HttpRoute_Timeout_PerRequest_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
+    "Spec_TcpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
 }
 
 _awsArgumentCompleterRegistration $AMSH_Completers $AMSH_map
@@ -197,31 +218,41 @@ $AMSH_SelectCompleters = {
 }
 
 $AMSH_SelectMap = @{
-    "Select"=@("New-AMSHMesh",
+    "Select"=@("New-AMSHGatewayRoute",
+               "New-AMSHMesh",
                "New-AMSHRoute",
+               "New-AMSHVirtualGateway",
                "New-AMSHVirtualNode",
                "New-AMSHVirtualRouter",
                "New-AMSHVirtualService",
+               "Remove-AMSHGatewayRoute",
                "Remove-AMSHMesh",
                "Remove-AMSHRoute",
+               "Remove-AMSHVirtualGateway",
                "Remove-AMSHVirtualNode",
                "Remove-AMSHVirtualRouter",
                "Remove-AMSHVirtualService",
+               "Get-AMSHGatewayRoute",
                "Get-AMSHMesh",
                "Get-AMSHRoute",
+               "Get-AMSHVirtualGateway",
                "Get-AMSHVirtualNode",
                "Get-AMSHVirtualRouter",
                "Get-AMSHVirtualService",
+               "Get-AMSHGatewayRouteList",
                "Get-AMSHMeshList",
                "Get-AMSHRouteList",
                "Get-AMSHResourceTag",
+               "Get-AMSHVirtualGatewayList",
                "Get-AMSHVirtualNodeList",
                "Get-AMSHVirtualRouterList",
                "Get-AMSHVirtualServiceList",
                "Add-AMSHResourceTag",
                "Remove-AMSHResourceTag",
+               "Update-AMSHGatewayRoute",
                "Update-AMSHMesh",
                "Update-AMSHRoute",
+               "Update-AMSHVirtualGateway",
                "Update-AMSHVirtualNode",
                "Update-AMSHVirtualRouter",
                "Update-AMSHVirtualService")

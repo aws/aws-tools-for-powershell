@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// If you are describing a long list of volumes, you can paginate the output to make
-    /// the list more manageable. The <code>MaxResults</code> parameter sets the maximum number
-    /// of results returned in a single page. If the list of results exceeds your <code>MaxResults</code>
+    /// If you are describing a long list of volumes, we recommend that you paginate the output
+    /// to make the list more manageable. The <code>MaxResults</code> parameter sets the maximum
+    /// number of results returned in a single page. If the list of results exceeds your <code>MaxResults</code>
     /// value, then that number of results is returned along with a <code>NextToken</code>
     /// value that can be passed to a subsequent <code>DescribeVolumes</code> request to retrieve
     /// the remaining results.

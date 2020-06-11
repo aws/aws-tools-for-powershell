@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type that you want to enable.</para>
+        /// <para>The policy type that you want to enable. You can specify one of the following values:</para><ul><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -47,12 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// (shards).
     /// </para><para>
     /// When a Redis (cluster mode disabled) replication group has been successfully created,
-    /// you can add one or more read replicas to it, up to a total of 5 read replicas. You
-    /// cannot alter a Redis (cluster mode enabled) replication group after it has been created.
-    /// However, if you need to increase or decrease the number of node groups (console: shards),
-    /// you can avail yourself of ElastiCache for Redis' enhanced backup and restore. For
-    /// more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-restoring.html">Restoring
-    /// From a Backup with Cluster Resizing</a> in the <i>ElastiCache User Guide</i>.
+    /// you can add one or more read replicas to it, up to a total of 5 read replicas. If
+    /// you need to increase or decrease the number of node groups (console: shards), you
+    /// can avail yourself of ElastiCache for Redis' scaling. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling
+    /// ElastiCache for Redis Clusters</a> in the <i>ElastiCache User Guide</i>.
     /// </para><note><para>
     /// This operation is valid for Redis only.
     /// </para></note>
@@ -99,9 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies whether a read-only replica is automatically promoted to read/write primary
-        /// if the existing primary fails.</para><para>If <code>true</code>, Multi-AZ is enabled for this replication group. If <code>false</code>,
-        /// Multi-AZ is disabled for this replication group.</para><para><code>AutomaticFailoverEnabled</code> must be enabled for Redis (cluster mode enabled)
-        /// replication groups.</para><para>Default: false</para><para>Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:</para><ul><li><para>Redis versions earlier than 2.8.6.</para></li><li><para>Redis (cluster mode disabled): T1 node types.</para></li><li><para>Redis (cluster mode enabled): T1 node types.</para></li></ul>
+        /// if the existing primary fails.</para><para><code>AutomaticFailoverEnabled</code> must be enabled for Redis (cluster mode enabled)
+        /// replication groups.</para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,7 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter MultiAZEnabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more
+        /// information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing
+        /// Downtime: Multi-AZ</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NumCacheCluster
         /// <summary>
         /// <para>
-        /// <para>The number of nodes in the cluster.</para><para>This parameter is not used if there is more than one node group (shard). You should
+        /// <para>The number of clusters this replication group initially has.</para><para>This parameter is not used if there is more than one node group (shard). You should
         /// use <code>ReplicasPerNodeGroup</code> instead.</para><para>If <code>AutomaticFailoverEnabled</code> is <code>true</code>, the value of this parameter
         /// must be at least 2. If <code>AutomaticFailoverEnabled</code> is <code>false</code>
         /// you can omit this parameter (it will default to 1), or you can explicitly set it to

@@ -185,6 +185,9 @@ $FRC_SelectMap = @{
                "Get-FRCForecastExportJobList",
                "Get-FRCForecastList",
                "Get-FRCPredictorList",
+               "Get-FRCResourceTag",
+               "Add-FRCResourceTag",
+               "Remove-FRCResourceTag",
                "Update-FRCDatasetGroup")
 }
 

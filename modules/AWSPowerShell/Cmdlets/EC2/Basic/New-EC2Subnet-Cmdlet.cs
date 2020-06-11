@@ -28,16 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a subnet in an existing VPC.
+    /// Creates a subnet in a specified VPC.
     /// 
     ///  
     /// <para>
-    /// When you create each subnet, you provide the VPC ID and IPv4 CIDR block for the subnet.
-    /// After you create a subnet, you can't change its CIDR block. The size of the subnet's
-    /// IPv4 CIDR block can be the same as a VPC's IPv4 CIDR block, or a subset of a VPC's
-    /// IPv4 CIDR block. If you create more than one subnet in a VPC, the subnets' CIDR blocks
-    /// must not overlap. The smallest IPv4 subnet (and VPC) you can create uses a /28 netmask
-    /// (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses).
+    /// You must specify an IPv4 CIDR block for the subnet. After you create a subnet, you
+    /// can't change its CIDR block. The allowed block size is between a /16 netmask (65,536
+    /// IP addresses) and /28 netmask (16 IP addresses). The CIDR block must not overlap with
+    /// the CIDR block of an existing subnet in the VPC.
     /// </para><para>
     /// If you've associated an IPv6 CIDR block with your VPC, you can create a subnet with
     /// an IPv6 CIDR block that uses a /64 prefix length. 
@@ -48,11 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If you add more than one subnet to a VPC, they're set up in a star topology with a
     /// logical router in the middle.
     /// </para><para>
-    /// If you launch an instance in a VPC using an Amazon EBS-backed AMI, the IP address
-    /// doesn't change if you stop and restart the instance (unlike a similar instance launched
-    /// outside a VPC, which gets a new IP address when restarted). It's therefore possible
-    /// to have a subnet with no running instances (they're all stopped), but no remaining
-    /// IP addresses available.
+    /// When you stop an instance in a subnet, it retains its private IPv4 address. It's therefore
+    /// possible to have a subnet with no running instances (they're all stopped), but no
+    /// remaining IP addresses available.
     /// </para><para>
     /// For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your
     /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
@@ -96,7 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CidrBlock
         /// <summary>
         /// <para>
-        /// <para>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.</para>
+        /// <para>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.
+        /// We modify the specified CIDR block to its canonical form; for example, if you specify
+        /// <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutpostArn { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter VpcId
@@ -221,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.Ipv6CidrBlock = this.Ipv6CidrBlock;
             context.OutpostArn = this.OutpostArn;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.VpcId = this.VpcId;
             #if MODULAR
             if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
@@ -263,6 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.OutpostArn != null)
             {
                 request.OutpostArn = cmdletContext.OutpostArn;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -334,6 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CidrBlock { get; set; }
             public System.String Ipv6CidrBlock { get; set; }
             public System.String OutpostArn { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateSubnetResponse, NewEC2SubnetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Subnet;

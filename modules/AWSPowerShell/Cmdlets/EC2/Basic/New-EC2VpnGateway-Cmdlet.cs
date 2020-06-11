@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the virtual private gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -150,6 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AmazonSideAsn = this.AmazonSideAsn;
             context.AvailabilityZone = this.AvailabilityZone;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -180,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.Type != null)
             {
@@ -248,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.Int64? AmazonSideAsn { get; set; }
             public System.String AvailabilityZone { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.GatewayType Type { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpnGatewayResponse, NewEC2VpnGatewayCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VpnGateway;

@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter CachingConfig_CachingKey
         /// <summary>
         /// <para>
-        /// <para>The caching keys for a resolver that has caching enabled.</para><para>Valid values are entries from the <code>$context.identity</code> and <code>$context.arguments</code>
-        /// maps.</para>
+        /// <para>The caching keys for a resolver that has caching enabled.</para><para>Valid values are entries from the <code>$context.arguments</code>, <code>$context.source</code>,
+        /// and <code>$context.identity</code> maps.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,17 +166,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <para>
         /// <para>The mapping template to be used for requests.</para><para>A resolver uses a request mapping template to convert a GraphQL expression into a
         /// format that a data source can understand. Mapping templates are written in Apache
-        /// Velocity Template Language (VTL).</para>
+        /// Velocity Template Language (VTL).</para><para>VTL request mapping templates are optional when using a Lambda data source. For all
+        /// other data sources, VTL request and response mapping templates are required.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RequestMappingTemplate { get; set; }
         #endregion
         
@@ -304,12 +298,6 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 context.PipelineConfig_Function = new List<System.String>(this.PipelineConfig_Function);
             }
             context.RequestMappingTemplate = this.RequestMappingTemplate;
-            #if MODULAR
-            if (this.RequestMappingTemplate == null && ParameterWasBound(nameof(this.RequestMappingTemplate)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RequestMappingTemplate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ResponseMappingTemplate = this.ResponseMappingTemplate;
             context.SyncConfig_ConflictDetection = this.SyncConfig_ConflictDetection;
             context.SyncConfig_ConflictHandler = this.SyncConfig_ConflictHandler;

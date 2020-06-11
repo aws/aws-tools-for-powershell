@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// which is assigned when the record is put into the stream.
     /// </para><para>
     /// You can limit the number of shards returned by each call. For more information, see
-    /// <a href="http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-retrieve-shards.html">Retrieving
+    /// <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-retrieve-shards.html">Retrieving
     /// Shards from a Stream</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para>
     /// There are no guarantees about the chronological order shards returned. To process

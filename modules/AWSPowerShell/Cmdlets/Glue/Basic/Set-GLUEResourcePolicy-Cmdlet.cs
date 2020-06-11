@@ -40,6 +40,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class SetGLUEResourcePolicyCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter EnableHybrid
+        /// <summary>
+        /// <para>
+        /// <para>Allows you to specify if you want to use both resource-level and account/catalog-level
+        /// resource policies. A resource-level policy is a policy attached to an individual resource
+        /// such as a database or a table.</para><para>The default value of <code>NO</code> indicates that resource-level policies cannot
+        /// co-exist with an account-level policy. A value of <code>YES</code> means the use of
+        /// both resource-level and account/catalog-level resource policies is allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.EnableHybridValues")]
+        public Amazon.Glue.EnableHybridValues EnableHybrid { get; set; }
+        #endregion
+        
         #region Parameter PolicyExistsCondition
         /// <summary>
         /// <para>
@@ -80,6 +95,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PolicyInJson { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the AWS Glue resource for the resource policy to be set. For more information
+        /// about AWS Glue resource ARNs, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id">AWS
+        /// Glue ARN string pattern</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -143,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = (response, cmdlet) => this.PolicyInJson;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EnableHybrid = this.EnableHybrid;
             context.PolicyExistsCondition = this.PolicyExistsCondition;
             context.PolicyHashCondition = this.PolicyHashCondition;
             context.PolicyInJson = this.PolicyInJson;
@@ -152,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter PolicyInJson which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -168,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.PutResourcePolicyRequest();
             
+            if (cmdletContext.EnableHybrid != null)
+            {
+                request.EnableHybrid = cmdletContext.EnableHybrid;
+            }
             if (cmdletContext.PolicyExistsCondition != null)
             {
                 request.PolicyExistsCondition = cmdletContext.PolicyExistsCondition;
@@ -179,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.PolicyInJson != null)
             {
                 request.PolicyInJson = cmdletContext.PolicyInJson;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -241,9 +278,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Glue.EnableHybridValues EnableHybrid { get; set; }
             public Amazon.Glue.ExistCondition PolicyExistsCondition { get; set; }
             public System.String PolicyHashCondition { get; set; }
             public System.String PolicyInJson { get; set; }
+            public System.String ResourceArn { get; set; }
             public System.Func<Amazon.Glue.Model.PutResourcePolicyResponse, SetGLUEResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PolicyHash;
         }

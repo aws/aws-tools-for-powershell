@@ -166,13 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The Active Directory directory ID to create the DB instance in.</para><para>For Oracle DB instances, Amazon RDS can use Kerberos Authentication to authenticate
-        /// users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
-        /// Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon RDS
-        /// User Guide</i>.</para><para>For Microsoft SQL Server DB instances, Amazon RDS can use Windows Authentication to
-        /// authenticate users that connect to the DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
-        /// Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft SQL
-        /// Server</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// <para>The Active Directory directory ID to create the DB instance in. Currently, only MySQL,
+        /// Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active
+        /// Directory Domain.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
+        /// Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -397,15 +394,32 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is publicly accessible. When the DB
-        /// instance is publicly accessible, it is an Internet-facing instance with a publicly
-        /// resolvable DNS name, which resolves to a public IP address. When the DB instance isn't
-        /// publicly accessible, it is an internal instance with a DNS name that resolves to a
-        /// private IP address. For more information, see <a>CreateDBInstance</a>.</para>
+        /// <para>A value that indicates whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its DNS endpoint resolves to the private
+        /// IP address from within the DB instance's VPC, and to the public IP address from outside
+        /// of the DB instance's VPC. Access to the DB instance is ultimately controlled by the
+        /// security group it uses, and that public access is not permitted if the security group
+        /// assigned to the DB instance doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
+        /// a DNS name that resolves to a private IP address.</para><para>For more information, see <a>CreateDBInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? PubliclyAccessible { get; set; }
+        #endregion
+        
+        #region Parameter ReplicaMode
+        /// <summary>
+        /// <para>
+        /// <para>The open mode of the replica database: mounted or read-only.</para><note><para>This parameter is only supported for Oracle DB instances.</para></note><para>Mounted DB replicas are included in Oracle Enterprise Edition. The main use case for
+        /// mounted replicas is cross-Region disaster recovery. The primary database doesn't use
+        /// Active Data Guard to transmit information to the mounted replica. Because it doesn't
+        /// accept user connections, a mounted replica can't serve a read-only workload.</para><para>You can create a combination of mounted and read-only DB replicas for the same primary
+        /// DB instance. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working
+        /// with Oracle Read Replicas for Amazon RDS</a> in the <i>Amazon RDS User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.ReplicaMode")]
+        public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
         #endregion
         
         #region Parameter SourceDBInstanceIdentifier
@@ -594,6 +608,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.ProcessorFeature = new List<Amazon.RDS.Model.ProcessorFeature>(this.ProcessorFeature);
             }
             context.PubliclyAccessible = this.PubliclyAccessible;
+            context.ReplicaMode = this.ReplicaMode;
             context.SourceDBInstanceIdentifier = this.SourceDBInstanceIdentifier;
             #if MODULAR
             if (this.SourceDBInstanceIdentifier == null && ParameterWasBound(nameof(this.SourceDBInstanceIdentifier)))
@@ -731,6 +746,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
             }
+            if (cmdletContext.ReplicaMode != null)
+            {
+                request.ReplicaMode = cmdletContext.ReplicaMode;
+            }
             if (cmdletContext.SourceDBInstanceIdentifier != null)
             {
                 request.SourceDBInstanceIdentifier = cmdletContext.SourceDBInstanceIdentifier;
@@ -838,6 +857,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String PreSignedUrl { get; set; }
             public List<Amazon.RDS.Model.ProcessorFeature> ProcessorFeature { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
+            public Amazon.RDS.ReplicaMode ReplicaMode { get; set; }
             public System.String SourceDBInstanceIdentifier { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tag { get; set; }

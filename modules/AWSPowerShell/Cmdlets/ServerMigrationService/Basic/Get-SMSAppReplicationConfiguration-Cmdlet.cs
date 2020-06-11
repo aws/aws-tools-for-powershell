@@ -28,7 +28,8 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Retrieves an application replication configuration associatd with an application.
+    /// Retrieves the application replication configuration associated with the specified
+    /// application.
     /// </summary>
     [Cmdlet("Get", "SMSAppReplicationConfiguration")]
     [OutputType("Amazon.ServerMigrationService.Model.ServerGroupReplicationConfiguration")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>ID of the application associated with the replication configuration.</para>
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

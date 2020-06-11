@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// <para><code>MergeShards</code> is called when there is a need to reduce the overall capacity
     /// of a stream because of excess capacity that is not being used. You must specify the
     /// shard to be merged and the adjacent shard for a stream. For more information about
-    /// merging shards, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html">Merge
+    /// merging shards, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html">Merge
     /// Two Shards</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.
     /// </para><para>
     /// If the stream is in the <code>ACTIVE</code> state, you can call <code>MergeShards</code>.

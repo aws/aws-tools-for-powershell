@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-FRCResourceTag', 
         'Get-FRCAccuracyMetric', 
         'Get-FRCDataset', 
         'Get-FRCDatasetGroup', 
@@ -99,6 +100,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FRCForecastList', 
         'Get-FRCPredictor', 
         'Get-FRCPredictorList', 
+        'Get-FRCResourceTag', 
         'New-FRCDataset', 
         'New-FRCDatasetGroup', 
         'New-FRCDatasetImportJob', 
@@ -111,6 +113,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-FRCForecast', 
         'Remove-FRCForecastExportJob', 
         'Remove-FRCPredictor', 
+        'Remove-FRCResourceTag', 
         'Update-FRCDatasetGroup')
 
     # Variables to export from this module

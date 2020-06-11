@@ -29,8 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
     /// Creates an audit report that lists every time that your CA private key is used. The
-    /// report is saved in the Amazon S3 bucket that you specify on input. The <a>IssueCertificate</a>
-    /// and <a>RevokeCertificate</a> actions use the private key.
+    /// report is saved in the Amazon S3 bucket that you specify on input. The <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a>
+    /// and <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a>
+    /// actions use the private key. 
+    /// 
+    ///  <note><para>
+    /// Both PCA and the IAM principal must have permission to write to the S3 bucket that
+    /// you specify. If the IAM principal making the call does not have permission to write
+    /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
+    /// Access to ACM Private CA</a>.
+    /// </para></note><para>
+    /// ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
+    /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting
+    /// Your Audit Reports</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "PCACertificateAuthorityAuditReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ACMPCA.Model.CreateCertificateAuthorityAuditReportResponse")]

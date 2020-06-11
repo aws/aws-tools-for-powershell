@@ -32,10 +32,17 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// 
     ///  
     /// <para>
-    /// You can update to the latest available AMI version of a node group's current Kubernetes
-    /// version by not specifying a Kubernetes version in the request. You can update to the
-    /// latest AMI version of your cluster's current Kubernetes version by specifying your
-    /// cluster's Kubernetes version in the request. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon
+    /// You can update a node group using a launch template only if the node group was originally
+    /// deployed with a launch template. If you need to update a custom AMI in a node group
+    /// that was deployed with a launch template, then update your custom AMI, specify the
+    /// new ID in a new version of the launch template, and then update the node group to
+    /// the new version of the launch template.
+    /// </para><para>
+    /// If you update without a launch template, then you can update to the latest available
+    /// AMI version of a node group's current Kubernetes version by not specifying a Kubernetes
+    /// version in the request. You can update to the latest AMI version of your cluster's
+    /// current Kubernetes version by specifying your cluster's Kubernetes version in the
+    /// request. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon
     /// EKS-Optimized Linux AMI Versions</a> in the <i>Amazon EKS User Guide</i>.
     /// </para><para>
     /// You cannot roll back a node group to an earlier Kubernetes version or AMI version.
@@ -98,6 +105,26 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Boolean? Enforce { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplate_Id
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the launch template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LaunchTemplate_Id { get; set; }
+        #endregion
+        
+        #region Parameter LaunchTemplate_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the launch template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LaunchTemplate_Name { get; set; }
+        #endregion
+        
         #region Parameter NodegroupName
         /// <summary>
         /// <para>
@@ -121,11 +148,26 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The AMI version of the Amazon EKS-optimized AMI to use for the update. By default,
         /// the latest available AMI version for the node group's Kubernetes version is used.
         /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon
-        /// EKS-Optimized Linux AMI Versions </a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// EKS-Optimized Linux AMI Versions </a> in the <i>Amazon EKS User Guide</i>. If you
+        /// specify <code>launchTemplate</code>, and your launch template uses a custom AMI, then
+        /// don't specify <code>releaseVersion</code>, or the node group update will fail. For
+        /// more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ReleaseVersion { get; set; }
+        #endregion
+        
+        #region Parameter LaunchTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The version of the launch template to use. If no version is specified, then the template's
+        /// default version is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LaunchTemplate_Version { get; set; }
         #endregion
         
         #region Parameter Version
@@ -134,7 +176,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The Kubernetes version to update to. If no version is specified, then the Kubernetes
         /// version of the node group does not change. You can specify the Kubernetes version
         /// of the cluster to update the node group to the latest AMI version of the cluster's
-        /// Kubernetes version.</para>
+        /// Kubernetes version. If you specify <code>launchTemplate</code>, and your launch template
+        /// uses a custom AMI, then don't specify <code>version</code>, or the node group update
+        /// will fail. For more information about using launch templates with Amazon EKS, see
+        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,6 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #endif
             context.Enforce = this.Enforce;
+            context.LaunchTemplate_Id = this.LaunchTemplate_Id;
+            context.LaunchTemplate_Name = this.LaunchTemplate_Name;
+            context.LaunchTemplate_Version = this.LaunchTemplate_Version;
             context.NodegroupName = this.NodegroupName;
             #if MODULAR
             if (this.NodegroupName == null && ParameterWasBound(nameof(this.NodegroupName)))
@@ -247,6 +296,45 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.Enforce != null)
             {
                 request.Force = cmdletContext.Enforce.Value;
+            }
+            
+             // populate LaunchTemplate
+            var requestLaunchTemplateIsNull = true;
+            request.LaunchTemplate = new Amazon.EKS.Model.LaunchTemplateSpecification();
+            System.String requestLaunchTemplate_launchTemplate_Id = null;
+            if (cmdletContext.LaunchTemplate_Id != null)
+            {
+                requestLaunchTemplate_launchTemplate_Id = cmdletContext.LaunchTemplate_Id;
+            }
+            if (requestLaunchTemplate_launchTemplate_Id != null)
+            {
+                request.LaunchTemplate.Id = requestLaunchTemplate_launchTemplate_Id;
+                requestLaunchTemplateIsNull = false;
+            }
+            System.String requestLaunchTemplate_launchTemplate_Name = null;
+            if (cmdletContext.LaunchTemplate_Name != null)
+            {
+                requestLaunchTemplate_launchTemplate_Name = cmdletContext.LaunchTemplate_Name;
+            }
+            if (requestLaunchTemplate_launchTemplate_Name != null)
+            {
+                request.LaunchTemplate.Name = requestLaunchTemplate_launchTemplate_Name;
+                requestLaunchTemplateIsNull = false;
+            }
+            System.String requestLaunchTemplate_launchTemplate_Version = null;
+            if (cmdletContext.LaunchTemplate_Version != null)
+            {
+                requestLaunchTemplate_launchTemplate_Version = cmdletContext.LaunchTemplate_Version;
+            }
+            if (requestLaunchTemplate_launchTemplate_Version != null)
+            {
+                request.LaunchTemplate.Version = requestLaunchTemplate_launchTemplate_Version;
+                requestLaunchTemplateIsNull = false;
+            }
+             // determine if request.LaunchTemplate should be set to null
+            if (requestLaunchTemplateIsNull)
+            {
+                request.LaunchTemplate = null;
             }
             if (cmdletContext.NodegroupName != null)
             {
@@ -324,6 +412,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String ClientRequestToken { get; set; }
             public System.String ClusterName { get; set; }
             public System.Boolean? Enforce { get; set; }
+            public System.String LaunchTemplate_Id { get; set; }
+            public System.String LaunchTemplate_Name { get; set; }
+            public System.String LaunchTemplate_Version { get; set; }
             public System.String NodegroupName { get; set; }
             public System.String ReleaseVersion { get; set; }
             public System.String Version { get; set; }

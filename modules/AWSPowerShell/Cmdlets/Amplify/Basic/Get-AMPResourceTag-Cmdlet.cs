@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// List tags for resource.
+    /// Returns a list of tags for a specified Amazon Resource Name (ARN).
     /// </summary>
     [Cmdlet("Get", "AMPResourceTag")]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> Resource arn used to list tags. </para>
+        /// <para> The Amazon Resource Name (ARN) to use to list tags. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

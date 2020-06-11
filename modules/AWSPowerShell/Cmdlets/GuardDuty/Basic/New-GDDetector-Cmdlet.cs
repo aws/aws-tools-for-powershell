@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// Creates a single Amazon GuardDuty detector. A detector is a resource that represents
     /// the GuardDuty service. To start using GuardDuty, you must create a detector in each
     /// Region where you enable the service. You can have only one detector per account per
-    /// Region.
+    /// Region. All data sources are enabled in a new detector by default.
     /// </summary>
     [Cmdlet("New", "GDDetector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
     )]
     public partial class NewGDDetectorCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
     {
+        
+        #region Parameter S3Logs_Enable
+        /// <summary>
+        /// <para>
+        /// <para> The status of S3 data event logs as a data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSources_S3Logs_Enable")]
+        public System.Boolean? S3Logs_Enable { get; set; }
+        #endregion
         
         #region Parameter Enable
         /// <summary>
@@ -153,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.S3Logs_Enable = this.S3Logs_Enable;
             context.Enable = this.Enable;
             #if MODULAR
             if (this.Enable == null && ParameterWasBound(nameof(this.Enable)))
@@ -188,6 +200,40 @@ namespace Amazon.PowerShell.Cmdlets.GD
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate DataSources
+            var requestDataSourcesIsNull = true;
+            request.DataSources = new Amazon.GuardDuty.Model.DataSourceConfigurations();
+            Amazon.GuardDuty.Model.S3LogsConfiguration requestDataSources_dataSources_S3Logs = null;
+            
+             // populate S3Logs
+            var requestDataSources_dataSources_S3LogsIsNull = true;
+            requestDataSources_dataSources_S3Logs = new Amazon.GuardDuty.Model.S3LogsConfiguration();
+            System.Boolean? requestDataSources_dataSources_S3Logs_s3Logs_Enable = null;
+            if (cmdletContext.S3Logs_Enable != null)
+            {
+                requestDataSources_dataSources_S3Logs_s3Logs_Enable = cmdletContext.S3Logs_Enable.Value;
+            }
+            if (requestDataSources_dataSources_S3Logs_s3Logs_Enable != null)
+            {
+                requestDataSources_dataSources_S3Logs.Enable = requestDataSources_dataSources_S3Logs_s3Logs_Enable.Value;
+                requestDataSources_dataSources_S3LogsIsNull = false;
+            }
+             // determine if requestDataSources_dataSources_S3Logs should be set to null
+            if (requestDataSources_dataSources_S3LogsIsNull)
+            {
+                requestDataSources_dataSources_S3Logs = null;
+            }
+            if (requestDataSources_dataSources_S3Logs != null)
+            {
+                request.DataSources.S3Logs = requestDataSources_dataSources_S3Logs;
+                requestDataSourcesIsNull = false;
+            }
+             // determine if request.DataSources should be set to null
+            if (requestDataSourcesIsNull)
+            {
+                request.DataSources = null;
             }
             if (cmdletContext.Enable != null)
             {
@@ -263,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.Boolean? S3Logs_Enable { get; set; }
             public System.Boolean? Enable { get; set; }
             public Amazon.GuardDuty.FindingPublishingFrequency FindingPublishingFrequency { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

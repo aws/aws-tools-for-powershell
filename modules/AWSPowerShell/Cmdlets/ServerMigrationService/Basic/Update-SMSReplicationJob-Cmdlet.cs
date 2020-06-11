@@ -53,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Encrypted
         /// <summary>
         /// <para>
-        /// <para>When true, the replication job produces encrypted AMIs . See also <code>KmsKeyId</code>
-        /// below.</para>
+        /// <para>When true, the replication job produces encrypted AMIs. For more information, <code>KmsKeyId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the following:
-        /// </para><ul><li><para>KMS key ID</para></li><li><para>KMS key alias</para></li><li><para>ARN referring to KMS key ID</para></li><li><para>ARN referring to KMS key alias</para></li></ul><para> If encrypted is <i>true</i> but a KMS key id is not specified, the customer's default
-        /// KMS key for EBS is used. </para>
+        /// <para>The ID of the KMS key for replication jobs that produce encrypted AMIs. This value
+        /// can be any of the following:</para><ul><li><para>KMS key ID</para></li><li><para>KMS key alias</para></li><li><para>ARN referring to the KMS key ID</para></li><li><para>ARN referring to the KMS key alias</para></li></ul><para>If encrypted is enabled but a KMS key ID is not specified, the customer's default
+        /// KMS key for Amazon EBS is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter NumberOfRecentAmisToKeep
         /// <summary>
         /// <para>
-        /// <para>The maximum number of SMS-created AMIs to retain. The oldest will be deleted once
-        /// the maximum number is reached and a new AMI is created.</para>
+        /// <para>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the
+        /// maximum number is reached and a new AMI is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ReplicationJobId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the replication job.</para>
+        /// <para>The ID of the replication job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

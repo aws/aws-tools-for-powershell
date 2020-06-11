@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases>
         <AliasSet Cmdlet="Get-GLUECrawlerMetricList">Get-GLUECrawlerMetricsList</AliasSet>
@@ -136,6 +135,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteColumnStatisticsForPartition" Verb="Remove" Noun="ColumnStatisticsForPartition" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteColumnStatisticsForTable" Verb="Remove" Noun="ColumnStatisticsForTable" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConnection" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionName" PipelineParameter="ConnectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -201,6 +208,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetClassifiers" OutputProperty="Classifiers" Verb="Get" Noun="ClassifierList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetColumnStatisticsForPartition" OutputProperty="*" Verb="Get" Noun="ColumnStatisticsForPartition" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetColumnStatisticsForTable" OutputProperty="*" Verb="Get" Noun="ColumnStatisticsForTable" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -300,7 +315,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetResourcePolicies" OutputProperty="GetResourcePoliciesResponseList" Verb="Get" Noun="GluePolicyList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="*" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -408,6 +427,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResumeWorkflowRun" OutputProperty="*" Verb="Resume" Noun="WorkflowRun" ShouldProcessTarget="RunId" PipelineParameter="RunId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchTables" OutputProperty="TableList" Verb="Find" Noun="Table" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -476,6 +499,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateColumnStatisticsForPartition" OutputProperty="Errors" Verb="Update" Noun="ColumnStatisticsForPartition" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateColumnStatisticsForTable" OutputProperty="Errors" Verb="Update" Noun="ColumnStatisticsForTable" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnection" Verb="Update" Noun="Connection" ShouldProcessTarget="Name" PipelineParameter="ConnectionInput" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -525,8 +556,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.Glue.Model.CatalogEntry</Type>
         <Type>Amazon.Glue.Model.ConnectionInput</Type>

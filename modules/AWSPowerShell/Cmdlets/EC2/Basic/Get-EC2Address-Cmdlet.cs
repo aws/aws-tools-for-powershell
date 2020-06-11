@@ -63,9 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</para></li><li><para><code>association-id</code> - [EC2-VPC] The association ID for the address.</para></li><li><para><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>)
         /// or in a VPC (<code>vpc</code>).</para></li><li><para><code>instance-id</code> - The ID of the instance the address is associated with,
-        /// if any.</para></li><li><para><code>network-border-group</code> - The location from where the IP address is advertised.</para></li><li><para><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that
+        /// if any.</para></li><li><para><code>network-border-group</code> - A unique set of Availability Zones, Local Zones,
+        /// or Wavelength Zones from where AWS advertises IP addresses. </para></li><li><para><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that
         /// the address is associated with, if any.</para></li><li><para><code>network-interface-owner-id</code> - The AWS account ID of the owner.</para></li><li><para><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with
-        /// the Elastic IP address.</para></li><li><para><code>public-ip</code> - The Elastic IP address.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// the Elastic IP address.</para></li><li><para><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name

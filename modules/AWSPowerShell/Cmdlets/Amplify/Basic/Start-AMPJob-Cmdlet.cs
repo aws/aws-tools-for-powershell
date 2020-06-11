@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Starts a new job for a branch, part of an Amplify App.
+    /// Starts a new job for a branch of an Amplify app.
     /// </summary>
     [Cmdlet("Start", "AMPJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Amplify.Model.JobSummary")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> Name for the branch, for the Job. </para>
+        /// <para> The branch name for the job. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter CommitId
         /// <summary>
         /// <para>
-        /// <para> Commit Id from 3rd party repository provider for the Job. </para>
+        /// <para> The commit ID from a third-party repository provider for the job. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter CommitMessage
         /// <summary>
         /// <para>
-        /// <para> Commit message from 3rd party repository provider for the Job. </para>
+        /// <para> The commit message from a third-party repository provider for the job. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter CommitTime
         /// <summary>
         /// <para>
-        /// <para> Commit date / time for the Job. </para>
+        /// <para> The commit date and time for the job. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an existing job. Required for "RETRY" JobType. </para>
+        /// <para> The unique ID for an existing job. This is required if the value of <code>jobType</code>
+        /// is <code>RETRY</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobReason
         /// <summary>
         /// <para>
-        /// <para> Descriptive reason for starting this job. </para>
+        /// <para> A descriptive reason for starting this job. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,10 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter JobType
         /// <summary>
         /// <para>
-        /// <para> Type for the Job. Available JobTypes are: \n "RELEASE": Start a new job with the
-        /// latest change from the specified branch. Only available for apps that have connected
-        /// to a repository. "RETRY": Retry an existing job. JobId is required for this type of
-        /// job. </para>
+        /// <para> Describes the type for the job. The job type <code>RELEASE</code> starts a new job
+        /// with the latest change from the specified branch. This value is available only for
+        /// apps that are connected to a repository. The job type <code>RETRY</code> retries an
+        /// existing job. If the job type value is <code>RETRY</code>, the <code>jobId</code>
+        /// is also required. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

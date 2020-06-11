@@ -28,7 +28,18 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Gets all rules available for the specified detector.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Get all rules for a detector (paginated) if <code>ruleId</code> and <code>ruleVersion</code>
+    /// are not specified. Gets all rules for the detector and the <code>ruleId</code> if
+    /// present (paginated). Gets a specific rule if both the <code>ruleId</code> and the
+    /// <code>ruleVersion</code> are specified.
+    /// 
+    ///  
+    /// <para>
+    /// This is a paginated API. Providing null maxResults results in retrieving maximum of
+    /// 100 records per page. If you provide maxResults the value must be between 50 and 100.
+    /// To get the next page result, a provide a pagination token from GetRulesResult as part
+    /// of your request. Null pagination token fetches the records from the beginning.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "FDRule")]
     [OutputType("Amazon.FraudDetector.Model.RuleDetail")]

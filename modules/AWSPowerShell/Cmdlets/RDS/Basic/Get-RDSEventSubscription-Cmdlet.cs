@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Lists all the subscription descriptions for a customer account. The description for
-    /// a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
-    /// CreationTime, and Status.
+    /// a subscription includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>,
+    /// <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.
     /// 
     ///  
     /// <para>
-    /// If you specify a SubscriptionName, lists the description for that subscription.
+    /// If you specify a <code>SubscriptionName</code>, lists the description for that subscription.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSEventSubscription")]

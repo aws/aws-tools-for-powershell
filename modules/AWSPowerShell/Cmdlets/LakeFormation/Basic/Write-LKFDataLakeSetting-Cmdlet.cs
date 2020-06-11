@@ -28,7 +28,16 @@ using Amazon.LakeFormation.Model;
 namespace Amazon.PowerShell.Cmdlets.LKF
 {
     /// <summary>
-    /// The AWS Lake Formation principal.
+    /// Sets the list of data lake administrators who have admin privileges on all resources
+    /// managed by Lake Formation. For more information on admin privileges, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/lake-formation-permissions.html">Granting
+    /// Lake Formation Permissions</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This API replaces the current list of data lake admins with the new list being passed.
+    /// To add an admin, fetch the current list and add the new admin to that list and pass
+    /// that list in this API.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "LKFDataLakeSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -55,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter DataLakeSettings_CreateDatabaseDefaultPermission
         /// <summary>
         /// <para>
-        /// <para>A list of up to three principal permissions entries for default create database permissions.</para>
+        /// <para>A structure representing a list of up to three principal permissions entries for default
+        /// create database permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter DataLakeSettings_CreateTableDefaultPermission
         /// <summary>
         /// <para>
-        /// <para>A list of up to three principal permissions entries for default create table permissions.</para>
+        /// <para>A structure representing a list of up to three principal permissions entries for default
+        /// create table permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,12 +88,27 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter DataLakeSettings_DataLakeAdmin
         /// <summary>
         /// <para>
-        /// <para>A list of AWS Lake Formation principals.</para>
+        /// <para>A list of AWS Lake Formation principals. Supported principals are IAM users or IAM
+        /// roles.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataLakeSettings_DataLakeAdmins")]
         public Amazon.LakeFormation.Model.DataLakePrincipal[] DataLakeSettings_DataLakeAdmin { get; set; }
+        #endregion
+        
+        #region Parameter DataLakeSettings_TrustedResourceOwner
+        /// <summary>
+        /// <para>
+        /// <para>A list of the resource-owning account IDs that the caller's account can use to share
+        /// their user access details (user ARNs). The user ARNs can be logged in the resource
+        /// owner's AWS CloudTrail log.</para><para>You may want to specify this property when you are in a high-trust boundary, such
+        /// as the same team or company. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataLakeSettings_TrustedResourceOwners")]
+        public System.String[] DataLakeSettings_TrustedResourceOwner { get; set; }
         #endregion
         
         #region Parameter Select
@@ -158,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             {
                 context.DataLakeSettings_DataLakeAdmin = new List<Amazon.LakeFormation.Model.DataLakePrincipal>(this.DataLakeSettings_DataLakeAdmin);
             }
+            if (this.DataLakeSettings_TrustedResourceOwner != null)
+            {
+                context.DataLakeSettings_TrustedResourceOwner = new List<System.String>(this.DataLakeSettings_TrustedResourceOwner);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -210,6 +240,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestDataLakeSettings_dataLakeSettings_DataLakeAdmin != null)
             {
                 request.DataLakeSettings.DataLakeAdmins = requestDataLakeSettings_dataLakeSettings_DataLakeAdmin;
+                requestDataLakeSettingsIsNull = false;
+            }
+            List<System.String> requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner = null;
+            if (cmdletContext.DataLakeSettings_TrustedResourceOwner != null)
+            {
+                requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner = cmdletContext.DataLakeSettings_TrustedResourceOwner;
+            }
+            if (requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner != null)
+            {
+                request.DataLakeSettings.TrustedResourceOwners = requestDataLakeSettings_dataLakeSettings_TrustedResourceOwner;
                 requestDataLakeSettingsIsNull = false;
             }
              // determine if request.DataLakeSettings should be set to null
@@ -282,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public List<Amazon.LakeFormation.Model.PrincipalPermissions> DataLakeSettings_CreateDatabaseDefaultPermission { get; set; }
             public List<Amazon.LakeFormation.Model.PrincipalPermissions> DataLakeSettings_CreateTableDefaultPermission { get; set; }
             public List<Amazon.LakeFormation.Model.DataLakePrincipal> DataLakeSettings_DataLakeAdmin { get; set; }
+            public List<System.String> DataLakeSettings_TrustedResourceOwner { get; set; }
             public System.Func<Amazon.LakeFormation.Model.PutDataLakeSettingsResponse, WriteLKFDataLakeSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

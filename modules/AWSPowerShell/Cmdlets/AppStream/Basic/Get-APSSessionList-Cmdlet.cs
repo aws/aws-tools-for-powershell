@@ -93,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The user identifier.</para>
+        /// <para>The user identifier (ID). If you specify a user ID, you must also specify the authentication
+        /// type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

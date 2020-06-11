@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Sets the attributes for an endpoint for a device on one of the supported push notification
-    /// services, such as FCM and APNS. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
-    /// Amazon SNS Mobile Push Notifications</a>.
+    /// services, such as GCM (Firebase Cloud Messaging) and APNS. For more information, see
+    /// <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+    /// SNS Mobile Push Notifications</a>.
     /// </summary>
     [Cmdlet("Set", "SNSEndpointAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -104,9 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The minimum value that you plan to scale in to. When a scaling policy is in effect,
         /// Application Auto Scaling can scale in (contract) as needed to the minimum capacity
-        /// limit in response to changing demand. </para><para>This parameter is required if you are registering a scalable target. For Lambda provisioned
-        /// concurrency, the minimum value allowed is 0. For all other resources, the minimum
-        /// value allowed is 1.</para>
+        /// limit in response to changing demand. </para><para>This parameter is required if you are registering a scalable target. For certain resources,
+        /// the minimum value allowed is 0. This includes Lambda provisioned concurrency, Spot
+        /// Fleet, ECS services, Aurora DB clusters, EMR clusters, and custom resources. For all
+        /// other resources, the minimum value allowed is 1.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

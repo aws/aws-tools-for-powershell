@@ -68,13 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// in Unix epoch time.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? EndDate { get; set; }
         #endregion
         
@@ -119,13 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// seconds in Unix epoch time.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.DateTime? StartDate { get; set; }
         #endregion
         
@@ -202,12 +190,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             context.AssetId = this.AssetId;
             context.EndDate = this.EndDate;
-            #if MODULAR
-            if (this.EndDate == null && ParameterWasBound(nameof(this.EndDate)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EndDate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.PropertyAlias = this.PropertyAlias;
@@ -217,12 +199,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Quality = new List<System.String>(this.Quality);
             }
             context.StartDate = this.StartDate;
-            #if MODULAR
-            if (this.StartDate == null && ParameterWasBound(nameof(this.StartDate)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StartDate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.TimeOrdering = this.TimeOrdering;
             
             // allow further manipulation of loaded context prior to processing

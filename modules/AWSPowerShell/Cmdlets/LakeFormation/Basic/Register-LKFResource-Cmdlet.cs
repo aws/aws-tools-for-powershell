@@ -38,7 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// role and a new inline policy are created on your behalf. Lake Formation adds the first
     /// path to the inline policy and attaches it to the service-linked role. When you register
     /// subsequent paths, Lake Formation adds the path to the existing policy.
-    /// </para>
+    /// </para><para>
+    /// The following request registers a new location and gives AWS Lake Formation permission
+    /// to use the service-linked role to access that location.
+    /// </para><para><code>ResourceArn = arn:aws:s3:::my-bucket UseServiceLinkedRole = true</code></para><para>
+    /// If <code>UseServiceLinkedRole</code> is not set to true, you must provide or set the
+    /// <code>RoleArn</code>:
+    /// </para><para><code>arn:aws:iam::12345:role/my-data-access-role</code></para>
     /// </summary>
     [Cmdlet("Register", "LKFResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -70,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The identifier for the role.</para>
+        /// <para>The identifier for the role that registers the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         #region Parameter UseServiceLinkedRole
         /// <summary>
         /// <para>
-        /// <para>Designates a trusted caller, an IAM principal, by registering this caller with the
-        /// Data Catalog. </para>
+        /// <para>Designates an AWS Identity and Access Management (IAM) service-linked role by registering
+        /// this role with the Data Catalog. A service-linked role is a unique type of IAM role
+        /// that is linked directly to Lake Formation.</para><para>For more information, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/service-linked-roles.html">Using
+        /// Service-Linked Roles for Lake Formation</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,22 +28,26 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Returns information about events across your organization in AWS Organizations, meeting
-    /// the specified filter criteria. Events are returned in a summary form and do not include
-    /// the accounts impacted, detailed description, any additional metadata that depends
-    /// on the event type, or any affected resources. To retrieve that information, use the
-    /// <a>DescribeAffectedAccountsForOrganization</a>, <a>DescribeEventDetailsForOrganization</a>,
-    /// and <a>DescribeAffectedEntitiesForOrganization</a> operations.
+    /// Returns information about events across your organization in AWS Organizations. You
+    /// can use the<code>filters</code> parameter to specify the events that you want to return.
+    /// Events are returned in a summary form and don't include the affected accounts, detailed
+    /// description, any additional metadata that depends on the event type, or any affected
+    /// resources. To retrieve that information, use the following operations:
     /// 
-    ///  
-    /// <para>
-    /// If no filter criteria are specified, all events across your organization are returned.
-    /// Results are sorted by <code>lastModifiedTime</code>, starting with the most recent.
+    ///  <ul><li><para><a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedAccountsForOrganization.html">DescribeAffectedAccountsForOrganization</a></para></li><li><para><a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html">DescribeEventDetailsForOrganization</a></para></li><li><para><a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntitiesForOrganization.html">DescribeAffectedEntitiesForOrganization</a></para></li></ul><para>
+    /// If you don't specify a <code>filter</code>, the <code>DescribeEventsForOrganizations</code>
+    /// returns all events across your organization. Results are sorted by <code>lastModifiedTime</code>,
+    /// starting with the most recent event. 
     /// </para><para>
-    /// Before you can call this operation, you must first enable Health to work with AWS
-    /// Organizations. To do this, call the <a>EnableHealthServiceAccessForOrganization</a>
-    /// operation from your organization's master account.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// For more information about the different types of AWS Health events, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.
+    /// </para><para>
+    /// Before you can call this operation, you must first enable AWS Health to work with
+    /// AWS Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a>
+    /// operation from your organization's master AWS account.
+    /// </para><note><para>
+    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
+    /// the next request to return more results.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HLTHEventsForOrganization")]
     [OutputType("Amazon.AWSHealth.Model.OrganizationEvent")]
@@ -69,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EntityArn
         /// <summary>
         /// <para>
-        /// <para>REPLACEME</para>
+        /// <para>A list of entity ARNs (unique identifiers).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_EventTypeCategory
         /// <summary>
         /// <para>
-        /// <para>REPLACEME</para>
+        /// <para>A list of event type category codes (issue, scheduledChange, or accountNotification).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

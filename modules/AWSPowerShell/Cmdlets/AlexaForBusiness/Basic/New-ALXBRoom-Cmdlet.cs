@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter ProfileArn
         /// <summary>
         /// <para>
-        /// <para>The profile ARN for the room.</para>
+        /// <para>The profile ARN for the room. This is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

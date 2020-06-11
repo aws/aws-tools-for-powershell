@@ -101,6 +101,13 @@ $PCA_Completers = {
             break
         }
 
+        # Amazon.ACMPCA.ResourceOwner
+        "Get-PCACertificateAuthorityList/ResourceOwner"
+        {
+            $v = "OTHER_ACCOUNTS","SELF"
+            break
+        }
+
         # Amazon.ACMPCA.RevocationReason
         "Revoke-PCACertificate/RevocationReason"
         {
@@ -126,6 +133,7 @@ $PCA_Completers = {
 $PCA_map = @{
     "AuditReportResponseFormat"=@("New-PCACertificateAuthorityAuditReport")
     "CertificateAuthorityType"=@("New-PCACertificateAuthority")
+    "ResourceOwner"=@("Get-PCACertificateAuthorityList")
     "RevocationReason"=@("Revoke-PCACertificate")
     "SigningAlgorithm"=@("New-PCACertificate")
     "Status"=@("Update-PCACertificateAuthority")
@@ -186,16 +194,19 @@ $PCA_SelectMap = @{
                "New-PCAPermission",
                "Remove-PCACertificateAuthority",
                "Remove-PCAPermission",
+               "Remove-PCAPolicy",
                "Get-PCACertificateAuthority",
                "Get-PCACertificateAuthorityAuditReport",
                "Get-PCACertificate",
                "Get-PCACertificateAuthorityCertificate",
                "Get-PCACertificateAuthorityCsr",
+               "Get-PCAPolicy",
                "Import-PCACertificateAuthorityCertificate",
                "New-PCACertificate",
                "Get-PCACertificateAuthorityList",
                "Get-PCAPermissionList",
                "Get-PCACertificateAuthorityTagList",
+               "Set-PCAPolicy",
                "Restore-PCACertificateAuthority",
                "Revoke-PCACertificate",
                "Add-PCACertificateAuthorityTag",

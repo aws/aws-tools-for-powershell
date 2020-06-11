@@ -111,6 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String PublicIp { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the customer gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -199,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CertificateArn = this.CertificateArn;
             context.DeviceName = this.DeviceName;
             context.PublicIp = this.PublicIp;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -237,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PublicIp != null)
             {
                 request.PublicIp = cmdletContext.PublicIp;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.Type != null)
             {
@@ -307,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CertificateArn { get; set; }
             public System.String DeviceName { get; set; }
             public System.String PublicIp { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.GatewayType Type { get; set; }
             public System.Func<Amazon.EC2.Model.CreateCustomerGatewayResponse, NewEC2CustomerGatewayCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CustomerGateway;

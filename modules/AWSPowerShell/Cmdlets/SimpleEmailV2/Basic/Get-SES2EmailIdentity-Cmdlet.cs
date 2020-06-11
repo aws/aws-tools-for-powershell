@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SES2
 {
     /// <summary>
     /// Provides information about a specific identity, including the identity's verification
-    /// status, its DKIM authentication status, and its custom Mail-From settings.
+    /// status, sending authorization policies, its DKIM authentication status, and its custom
+    /// Mail-From settings.
     /// </summary>
     [Cmdlet("Get", "SES2EmailIdentity")]
     [OutputType("Amazon.SimpleEmailV2.Model.GetEmailIdentityResponse")]

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>robomaker</C2jFilename>
     <AssemblyName>RoboMaker</AssemblyName>
@@ -13,12 +14,15 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchDeleteWorlds" OutputProperty="UnprocessedWorlds" Verb="Remove" Noun="DeleteWorld" ShouldProcessTarget="Worlds" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchDescribeSimulationJob" OutputProperty="*" Verb="Get" Noun="SimulationJobList" PipelineParameter="Jobs" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -32,6 +36,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CancelSimulationJobBatch" Verb="Stop" Noun="SimulationJobBatch" ShouldProcessTarget="Batch" PipelineParameter="Batch" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelWorldExportJob" Verb="Stop" Noun="WorldExportJob" ShouldProcessTarget="Job" PipelineParameter="Job" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelWorldGenerationJob" Verb="Stop" Noun="WorldGenerationJob" ShouldProcessTarget="Job" PipelineParameter="Job" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,6 +79,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorldExportJob" OutputProperty="*" Verb="New" Noun="WorldExportJob" ShouldProcessTarget="IamRole" PipelineParameter="IamRole" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorldGenerationJob" OutputProperty="*" Verb="New" Noun="WorldGenerationJob" ShouldProcessTarget="Template" PipelineParameter="Template" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorldTemplate" OutputProperty="*" Verb="New" Noun="WorldTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteFleet" Verb="Remove" Noun="Fleet" ShouldProcessTarget="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -80,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteSimulationApplication" Verb="Remove" Noun="SimulationApplication" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorldTemplate" Verb="Remove" Noun="WorldTemplate" ShouldProcessTarget="Template" PipelineParameter="Template" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,6 +143,26 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorld" OutputProperty="*" Verb="Get" Noun="World" PipelineParameter="World" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorldExportJob" OutputProperty="*" Verb="Get" Noun="WorldExportJob" PipelineParameter="Job" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorldGenerationJob" OutputProperty="*" Verb="Get" Noun="WorldGenerationJob" PipelineParameter="Job" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorldTemplate" OutputProperty="*" Verb="Get" Noun="WorldTemplate" PipelineParameter="Template" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWorldTemplateBody" OutputProperty="TemplateBody" Verb="Get" Noun="WorldTemplateBody" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDeploymentJobs" OutputProperty="DeploymentJobs" Verb="Get" Noun="DeploymentJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -144,6 +192,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorldExportJobs" OutputProperty="WorldExportJobSummaries" Verb="Get" Noun="WorldExportJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorldGenerationJobs" OutputProperty="WorldGenerationJobSummaries" Verb="Get" Noun="WorldGenerationJobList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorlds" OutputProperty="WorldSummaries" Verb="Get" Noun="WorldList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorldTemplates" OutputProperty="TemplateSummaries" Verb="Get" Noun="WorldTemplateList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -179,9 +243,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorldTemplate" OutputProperty="*" Verb="Update" Noun="WorldTemplate" ShouldProcessTarget="Name" PipelineParameter="Template" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.RoboMaker.Model.DeploymentConfig</Type>
         <Type>Amazon.RoboMaker.Model.RobotSoftwareSuite</Type>

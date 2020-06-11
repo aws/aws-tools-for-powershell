@@ -80,6 +80,17 @@ $MQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MQ.AuthenticationStrategy
+        {
+            ($_ -eq "New-MQBroker/AuthenticationStrategy") -Or
+            ($_ -eq "New-MQConfiguration/AuthenticationStrategy") -Or
+            ($_ -eq "Update-MQBroker/AuthenticationStrategy")
+        }
+        {
+            $v = "LDAP","SIMPLE"
+            break
+        }
+
         # Amazon.MQ.BrokerStorageType
         "New-MQBroker/StorageType"
         {
@@ -113,6 +124,7 @@ $MQ_Completers = {
 }
 
 $MQ_map = @{
+    "AuthenticationStrategy"=@("New-MQBroker","New-MQConfiguration","Update-MQBroker")
     "DeploymentMode"=@("New-MQBroker")
     "EngineType"=@("New-MQBroker","New-MQConfiguration")
     "StorageType"=@("New-MQBroker")

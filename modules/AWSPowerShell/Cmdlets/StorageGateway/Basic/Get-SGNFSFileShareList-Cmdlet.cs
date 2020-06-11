@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareARNList
         /// <summary>
         /// <para>
-        /// <para>An array containing the Amazon Resource Name (ARN) of each file share to be described.
-        /// </para>
+        /// <para>An array containing the Amazon Resource Name (ARN) of each file share to be described.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

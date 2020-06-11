@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Update a webhook.
+    /// Updates a webhook.
     /// </summary>
     [Cmdlet("Update", "AMPWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Amplify.Model.Webhook")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> Name for a branch, part of an Amplify App. </para>
+        /// <para> The name for a branch that is part of an Amplify app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> Description for a webhook. </para>
+        /// <para> The description for a webhook. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter WebhookId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for a webhook. </para>
+        /// <para> The unique ID for a webhook. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

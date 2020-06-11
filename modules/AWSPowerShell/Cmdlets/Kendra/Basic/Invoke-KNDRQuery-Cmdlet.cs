@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public Amazon.Kendra.Model.AttributeFilter AttributeFilter { get; set; }
         #endregion
         
+        #region Parameter SortingConfiguration_DocumentAttributeKey
+        /// <summary>
+        /// <para>
+        /// <para>The name of the document attribute used to sort the response. You can use any field
+        /// that has the <code>Sortable</code> flag set to true.</para><para>You can also sort by any of the following built-in attributes:</para><ul><li><para>_category</para></li><li><para>_created_at</para></li><li><para>_last_updated_at</para></li><li><para>_version</para></li><li><para>_view_count</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
+        #endregion
+        
         #region Parameter Facet
         /// <summary>
         /// <para>
@@ -152,6 +163,18 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RequestedDocumentAttributes")]
         public System.String[] RequestedDocumentAttribute { get; set; }
+        #endregion
+        
+        #region Parameter SortingConfiguration_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The order that the results should be returned in. In case of ties, the relevance assigned
+        /// to the result by Amazon Kendra is used as the tie-breaker.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kendra.SortOrder")]
+        public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
         #endregion
         
         #region Parameter PageSize
@@ -253,6 +276,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             {
                 context.RequestedDocumentAttribute = new List<System.String>(this.RequestedDocumentAttribute);
             }
+            context.SortingConfiguration_DocumentAttributeKey = this.SortingConfiguration_DocumentAttributeKey;
+            context.SortingConfiguration_SortOrder = this.SortingConfiguration_SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -300,6 +325,35 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.RequestedDocumentAttribute != null)
             {
                 request.RequestedDocumentAttributes = cmdletContext.RequestedDocumentAttribute;
+            }
+            
+             // populate SortingConfiguration
+            var requestSortingConfigurationIsNull = true;
+            request.SortingConfiguration = new Amazon.Kendra.Model.SortingConfiguration();
+            System.String requestSortingConfiguration_sortingConfiguration_DocumentAttributeKey = null;
+            if (cmdletContext.SortingConfiguration_DocumentAttributeKey != null)
+            {
+                requestSortingConfiguration_sortingConfiguration_DocumentAttributeKey = cmdletContext.SortingConfiguration_DocumentAttributeKey;
+            }
+            if (requestSortingConfiguration_sortingConfiguration_DocumentAttributeKey != null)
+            {
+                request.SortingConfiguration.DocumentAttributeKey = requestSortingConfiguration_sortingConfiguration_DocumentAttributeKey;
+                requestSortingConfigurationIsNull = false;
+            }
+            Amazon.Kendra.SortOrder requestSortingConfiguration_sortingConfiguration_SortOrder = null;
+            if (cmdletContext.SortingConfiguration_SortOrder != null)
+            {
+                requestSortingConfiguration_sortingConfiguration_SortOrder = cmdletContext.SortingConfiguration_SortOrder;
+            }
+            if (requestSortingConfiguration_sortingConfiguration_SortOrder != null)
+            {
+                request.SortingConfiguration.SortOrder = requestSortingConfiguration_sortingConfiguration_SortOrder;
+                requestSortingConfigurationIsNull = false;
+            }
+             // determine if request.SortingConfiguration should be set to null
+            if (requestSortingConfigurationIsNull)
+            {
+                request.SortingConfiguration = null;
             }
             
             CmdletOutput output;
@@ -370,6 +424,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             public Amazon.Kendra.QueryResultType QueryResultTypeFilter { get; set; }
             public System.String QueryText { get; set; }
             public List<System.String> RequestedDocumentAttribute { get; set; }
+            public System.String SortingConfiguration_DocumentAttributeKey { get; set; }
+            public Amazon.Kendra.SortOrder SortingConfiguration_SortOrder { get; set; }
             public System.Func<Amazon.Kendra.Model.QueryResponse, InvokeKNDRQueryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

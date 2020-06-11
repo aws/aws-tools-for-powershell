@@ -80,6 +80,20 @@ $AS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AutoScaling.InstanceMetadataEndpointState
+        "New-ASLaunchConfiguration/MetadataOptions_HttpEndpoint"
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
+        # Amazon.AutoScaling.InstanceMetadataHttpTokensState
+        "New-ASLaunchConfiguration/MetadataOptions_HttpTokens"
+        {
+            $v = "optional","required"
+            break
+        }
+
         # Amazon.AutoScaling.MetricStatistic
         "Write-ASScalingPolicy/TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic"
         {
@@ -94,6 +108,13 @@ $AS_Completers = {
             break
         }
 
+        # Amazon.AutoScaling.RefreshStrategy
+        "Start-ASInstanceRefresh/Strategy"
+        {
+            $v = "Rolling"
+            break
+        }
+
 
     }
 
@@ -103,6 +124,9 @@ $AS_Completers = {
 }
 
 $AS_map = @{
+    "MetadataOptions_HttpEndpoint"=@("New-ASLaunchConfiguration")
+    "MetadataOptions_HttpTokens"=@("New-ASLaunchConfiguration")
+    "Strategy"=@("Start-ASInstanceRefresh")
     "TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
     "TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType"=@("Write-ASScalingPolicy")
 }
@@ -162,6 +186,7 @@ $AS_SelectMap = @{
                "Add-ASLoadBalancerTargetGroup",
                "Remove-ASScheduledActionBatch",
                "Set-ASScheduledUpdateGroupActionBatch",
+               "Stop-ASInstanceRefresh",
                "Complete-ASLifecycleAction",
                "New-ASAutoScalingGroup",
                "New-ASLaunchConfiguration",
@@ -178,6 +203,7 @@ $AS_SelectMap = @{
                "Get-ASAutoScalingGroup",
                "Get-ASAutoScalingInstance",
                "Get-ASAutoScalingNotificationType",
+               "Get-ASInstanceRefresh",
                "Get-ASLaunchConfiguration",
                "Get-ASLifecycleHook",
                "Get-ASLifecycleHookType",
@@ -208,6 +234,7 @@ $AS_SelectMap = @{
                "Set-ASDesiredCapacity",
                "Set-ASInstanceHealth",
                "Set-ASInstanceProtection",
+               "Start-ASInstanceRefresh",
                "Suspend-ASProcess",
                "Stop-ASInstanceInAutoScalingGroup",
                "Update-ASAutoScalingGroup")

@@ -107,6 +107,28 @@ namespace Amazon.PowerShell.Cmdlets.FRC
         public Amazon.ForecastService.Domain Domain { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The optional metadata that you apply to the dataset group to help you categorize and
+        /// organize them. Each tag consists of a key and an optional value, both of which you
+        /// define.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50.</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
+        /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8.</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
+        /// other services may have restrictions on allowed characters. Generally allowed characters
+        /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
+        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use <code>aws:</code>, <code>AWS:</code>, or any upper or lowercase combination
+        /// of such as a prefix for keys as it is reserved for AWS use. You cannot edit or delete
+        /// tag keys with this prefix. Values can have this prefix. If a tag value has <code>aws</code>
+        /// as its prefix but the key does not, then Forecast considers it to be a user tag and
+        /// will count against the limit of 50 tags. Tags with only the key prefix of <code>aws</code>
+        /// do not count against your tags per resource limit.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ForecastService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'DatasetGroupArn'.
@@ -186,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 WriteWarning("You are passing $null as a value for parameter Domain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ForecastService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -213,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -278,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
             public List<System.String> DatasetArn { get; set; }
             public System.String DatasetGroupName { get; set; }
             public Amazon.ForecastService.Domain Domain { get; set; }
+            public List<Amazon.ForecastService.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ForecastService.Model.CreateDatasetGroupResponse, NewFRCDatasetGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DatasetGroupArn;
         }

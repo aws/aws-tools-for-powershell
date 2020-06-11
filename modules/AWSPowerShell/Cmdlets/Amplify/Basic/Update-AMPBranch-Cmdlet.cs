@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Updates a branch for an Amplify App.
+    /// Updates a branch for an Amplify app.
     /// </summary>
     [Cmdlet("Update", "AMPBranch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Amplify.Model.Branch")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BackendEnvironmentArn
         /// <summary>
         /// <para>
-        /// <para> ARN for a Backend Environment, part of an Amplify App. </para>
+        /// <para> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
+        /// app. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BasicAuthCredential
         /// <summary>
         /// <para>
-        /// <para> Basic Authorization credentials for the branch. </para>
+        /// <para> The basic authorization credentials for the branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> Name for the branch. </para>
+        /// <para> The name for the branch. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BuildSpec
         /// <summary>
         /// <para>
-        /// <para> BuildSpec for the branch. </para>
+        /// <para> The build specification (build spec) for the branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> Description for the branch. </para>
+        /// <para> The description for the branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para> Display name for a branch, will use as the default domain prefix. </para>
+        /// <para> The display name for a branch. This is used as the default domain prefix. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnableBasicAuth
         /// <summary>
         /// <para>
-        /// <para> Enables Basic Auth for the branch. </para>
+        /// <para> Enables basic authorization for the branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnablePullRequestPreview
         /// <summary>
         /// <para>
-        /// <para> Enables Pull Request Preview for this branch. </para>
+        /// <para> Enables pull request preview for this branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnvironmentVariable
         /// <summary>
         /// <para>
-        /// <para> Environment Variables for the branch. </para>
+        /// <para> The environment variables for the branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Framework
         /// <summary>
         /// <para>
-        /// <para> Framework for the branch. </para>
+        /// <para> The framework for the branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter PullRequestEnvironmentName
         /// <summary>
         /// <para>
-        /// <para> The Amplify Environment name for the pull request. </para>
+        /// <para> The Amplify environment name for the pull request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Stage
         /// <summary>
         /// <para>
-        /// <para> Stage for the branch. </para>
+        /// <para> Describes the current stage for the branch. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -210,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Ttl
         /// <summary>
         /// <para>
-        /// <para> The content TTL for the website in seconds. </para>
+        /// <para> The content Time to Live (TTL) for the website in seconds. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

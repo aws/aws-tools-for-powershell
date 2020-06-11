@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Retrieves artifact info that corresponds to a artifactId.
+    /// Returns the artifact info that corresponds to an artifact id.
     /// </summary>
     [Cmdlet("Get", "AMPArtifactUrl")]
     [OutputType("Amazon.Amplify.Model.GetArtifactUrlResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter ArtifactId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for a artifact. </para>
+        /// <para> The unique ID for an artifact. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

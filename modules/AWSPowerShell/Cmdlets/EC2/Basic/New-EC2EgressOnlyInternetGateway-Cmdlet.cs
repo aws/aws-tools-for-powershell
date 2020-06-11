@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2EgressOnlyInternetGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the egress-only internet gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter VpcId
         /// <summary>
         /// <para>
@@ -133,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.VpcId = this.VpcId;
             #if MODULAR
             if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
@@ -159,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -226,6 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateEgressOnlyInternetGatewayResponse, NewEC2EgressOnlyInternetGatewayCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

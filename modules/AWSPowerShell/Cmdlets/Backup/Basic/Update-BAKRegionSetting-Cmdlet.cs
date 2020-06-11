@@ -28,11 +28,11 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates the current service opt-in settings for the region. If the service has a value
-    /// set to true, AWS Backup will attempt to protect that service's resources in this region,
-    /// when included in an on-demand backup or scheduled backup plan. If the value is set
-    /// to false for a service, AWS Backup will not attempt to protect that service's resources
-    /// in this region.
+    /// Updates the current service opt-in settings for the Region. If the service has a value
+    /// set to <code>true</code>, AWS Backup attempts to protect that service's resources
+    /// in this Region, when included in an on-demand backup or scheduled backup plan. If
+    /// the value is set to <code>false</code> for a service, AWS Backup does not attempt
+    /// to protect that service's resources in this Region.
     /// </summary>
     [Cmdlet("Update", "BAKRegionSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

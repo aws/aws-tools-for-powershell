@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon
-        /// EKS to make calls to other AWS API operations on your behalf. For more information,
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes
+        /// control plane to make calls to AWS API operations on your behalf. For more information,
         /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon
         /// EKS Service IAM Role</a> in the <i><i>Amazon EKS User Guide</i></i>.</para>
         /// </para>

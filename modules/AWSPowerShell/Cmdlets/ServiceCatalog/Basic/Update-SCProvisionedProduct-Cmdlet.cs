@@ -62,29 +62,50 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PathId
         /// <summary>
         /// <para>
-        /// <para>The new path identifier. This value is optional if the product has a default path,
-        /// and required if the product has more than one path.</para>
+        /// <para>The path identifier. This value is optional if the product has a default path, and
+        /// required if the product has more than one path. You must provide the name or ID, but
+        /// not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PathId { get; set; }
         #endregion
         
+        #region Parameter PathName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the path. You must provide the name or ID, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PathName { get; set; }
+        #endregion
+        
         #region Parameter ProductId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the product.</para>
+        /// <para>The identifier of the product. You must provide the name or ID, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ProductId { get; set; }
         #endregion
         
+        #region Parameter ProductName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the product. You must provide the name or ID, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProductName { get; set; }
+        #endregion
+        
         #region Parameter ProvisionedProductId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioned product. You cannot specify both <code>ProvisionedProductName</code>
-        /// and <code>ProvisionedProductId</code>.</para>
+        /// <para>The identifier of the provisioned product. You must provide the name or ID, but not
+        /// both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -110,6 +131,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ProvisioningArtifactId { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningArtifactName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the provisioning artifact. You must provide the name or ID, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProvisioningArtifactName { get; set; }
         #endregion
         
         #region Parameter ProvisioningParameter
@@ -310,10 +341,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AcceptLanguage = this.AcceptLanguage;
             context.PathId = this.PathId;
+            context.PathName = this.PathName;
             context.ProductId = this.ProductId;
+            context.ProductName = this.ProductName;
             context.ProvisionedProductId = this.ProvisionedProductId;
             context.ProvisionedProductName = this.ProvisionedProductName;
             context.ProvisioningArtifactId = this.ProvisioningArtifactId;
+            context.ProvisioningArtifactName = this.ProvisioningArtifactName;
             if (this.ProvisioningParameter != null)
             {
                 context.ProvisioningParameter = new List<Amazon.ServiceCatalog.Model.UpdateProvisioningParameter>(this.ProvisioningParameter);
@@ -360,9 +394,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 request.PathId = cmdletContext.PathId;
             }
+            if (cmdletContext.PathName != null)
+            {
+                request.PathName = cmdletContext.PathName;
+            }
             if (cmdletContext.ProductId != null)
             {
                 request.ProductId = cmdletContext.ProductId;
+            }
+            if (cmdletContext.ProductName != null)
+            {
+                request.ProductName = cmdletContext.ProductName;
             }
             if (cmdletContext.ProvisionedProductId != null)
             {
@@ -375,6 +417,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.ProvisioningArtifactId != null)
             {
                 request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+            }
+            if (cmdletContext.ProvisioningArtifactName != null)
+            {
+                request.ProvisioningArtifactName = cmdletContext.ProvisioningArtifactName;
             }
             if (cmdletContext.ProvisioningParameter != null)
             {
@@ -530,10 +576,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             public System.String AcceptLanguage { get; set; }
             public System.String PathId { get; set; }
+            public System.String PathName { get; set; }
             public System.String ProductId { get; set; }
+            public System.String ProductName { get; set; }
             public System.String ProvisionedProductId { get; set; }
             public System.String ProvisionedProductName { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
+            public System.String ProvisioningArtifactName { get; set; }
             public List<Amazon.ServiceCatalog.Model.UpdateProvisioningParameter> ProvisioningParameter { get; set; }
             public List<System.String> ProvisioningPreferences_StackSetAccount { get; set; }
             public System.Int32? ProvisioningPreferences_StackSetFailureToleranceCount { get; set; }

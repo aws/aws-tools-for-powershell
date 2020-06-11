@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -184,13 +183,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityHubConfiguration" Verb="Update" Noun="SecurityHubConfiguration" ShouldProcessTarget="AutoEnableControls" PipelineParameter="AutoEnableControls" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateStandardsControl" Verb="Update" Noun="StandardsControl" ShouldProcessTarget="StandardsControlArn" PipelineParameter="StandardsControlArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.SecurityHub.Model.AwsSecurityFindingFilters</Type>
     </TypesNotToFlatten>

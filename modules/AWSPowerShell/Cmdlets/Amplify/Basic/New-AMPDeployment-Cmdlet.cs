@@ -28,7 +28,8 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Create a deployment for manual deploy apps. (Apps are not connected to repository)
+    /// Creates a deployment for a manually deployed Amplify app. Manually deployed apps
+    /// are not connected to a repository.
     /// </summary>
     [Cmdlet("New", "AMPDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Amplify.Model.CreateDeploymentResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BranchName
         /// <summary>
         /// <para>
-        /// <para> Name for the branch, for the Job. </para>
+        /// <para> The name for the branch, for the job. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,10 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter FileMap
         /// <summary>
         /// <para>
-        /// <para> Optional file map that contains file name as the key and file content md5 hash as
-        /// the value. If this argument is provided, the service will generate different upload
-        /// url per file. Otherwise, the service will only generate a single upload url for the
-        /// zipped files. </para>
+        /// <para> An optional file map that contains the file name as the key and the file content
+        /// md5 hash as the value. If this argument is provided, the service will generate a unique
+        /// upload URL per file. Otherwise, the service will only generate a single upload URL
+        /// for the zipped files. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

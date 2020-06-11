@@ -94,6 +94,13 @@ $BAK_Completers = {
             break
         }
 
+        # Amazon.Backup.RestoreJobStatus
+        "Get-BAKRestoreJobList/ByStatus"
+        {
+            $v = "ABORTED","COMPLETED","FAILED","PENDING","RUNNING"
+            break
+        }
+
 
     }
 
@@ -104,6 +111,7 @@ $BAK_Completers = {
 
 $BAK_map = @{
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
+    "ByStatus"=@("Get-BAKRestoreJobList")
 }
 
 _awsArgumentCompleterRegistration $BAK_Completers $BAK_map

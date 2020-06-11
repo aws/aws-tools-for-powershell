@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String BranchFilter { get; set; }
         #endregion
         
+        #region Parameter BuildType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of build this webhook will trigger.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.WebhookBuildType")]
+        public Amazon.CodeBuild.WebhookBuildType BuildType { get; set; }
+        #endregion
+        
         #region Parameter FilterGroup
         /// <summary>
         /// <para>
@@ -160,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BranchFilter = this.BranchFilter;
+            context.BuildType = this.BuildType;
             if (this.FilterGroup != null)
             {
                 context.FilterGroup = new List<List<Amazon.CodeBuild.Model.WebhookFilter>>();
@@ -195,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.BranchFilter != null)
             {
                 request.BranchFilter = cmdletContext.BranchFilter;
+            }
+            if (cmdletContext.BuildType != null)
+            {
+                request.BuildType = cmdletContext.BuildType;
             }
             if (cmdletContext.FilterGroup != null)
             {
@@ -270,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BranchFilter { get; set; }
+            public Amazon.CodeBuild.WebhookBuildType BuildType { get; set; }
             public List<List<Amazon.CodeBuild.Model.WebhookFilter>> FilterGroup { get; set; }
             public System.String ProjectName { get; set; }
             public System.Boolean? RotateSecret { get; set; }

@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Connect Service
 
 
+$CONN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Connect.VoiceRecordingTrack
+        "Start-CONNContactRecording/VoiceRecordingConfiguration_VoiceRecordingTrack"
+        {
+            $v = "ALL","FROM_AGENT","TO_AGENT"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CONN_map = @{
+    "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
+}
+
+_awsArgumentCompleterRegistration $CONN_Completers $CONN_map
+
 $CONN_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -141,9 +167,13 @@ $CONN_SelectMap = @{
                "Get-CONNResourceTag",
                "Get-CONNUserHierarchyGroupList",
                "Get-CONNUserList",
+               "Resume-CONNContactRecording",
                "Start-CONNChatContact",
+               "Start-CONNContactRecording",
                "Start-CONNOutboundVoiceContact",
                "Stop-CONNContact",
+               "Stop-CONNContactRecording",
+               "Suspend-CONNContactRecording",
                "Add-CONNResourceTag",
                "Remove-CONNResourceTag",
                "Update-CONNContactAttribute",

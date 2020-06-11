@@ -80,6 +80,13 @@ $EMCN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaConnect.EntitlementStatus
+        "Update-EMCNFlowEntitlement/EntitlementStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.MediaConnect.Protocol
         {
             ($_ -eq "Update-EMCNFlowOutput/Protocol") -Or
@@ -109,6 +116,7 @@ $EMCN_Completers = {
 }
 
 $EMCN_map = @{
+    "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
     "SourceFailoverConfig_State"=@("New-EMCNFlow","Update-EMCNFlow")
 }

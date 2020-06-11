@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Registers an AMI. When you're creating an AMI, this is the final step you must complete
     /// before you can launch an instance from the AMI. For more information about creating
     /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating
-    /// Your Own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// your own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// 
     ///  <note><para>
     /// For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
@@ -40,10 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can also use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI
     /// from a snapshot of a root device volume. You specify the snapshot using the block
     /// device mapping. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html">Launching
-    /// a Linux Instance from a Backup</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// a Linux instance from a backup</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
-    /// You can't register an image where a secondary (non-root) snapshot has AWS Marketplace
-    /// product codes.
+    /// If any snapshots have AWS Marketplace product codes, they are copied to the new AMI.
     /// </para><para>
     /// Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and
     /// SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with
@@ -63,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// matching billing product code, the Reserved Instance will not be applied to the On-Demand
     /// Instance. For information about how to obtain the platform details and billing information
     /// of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining
-    /// Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// If needed, you can deregister an AMI at any time. Any modifications you make to an
     /// AMI backed by an instance store volume invalidates its registration. If you make changes

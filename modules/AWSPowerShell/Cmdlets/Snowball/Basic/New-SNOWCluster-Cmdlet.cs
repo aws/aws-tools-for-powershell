@@ -198,7 +198,12 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// <para>
         /// <para>The shipping speed for each node in this cluster. This speed doesn't dictate how soon
         /// you'll get each Snowball Edge device, rather it represents how quickly each device
-        /// moves to its destination while in transit. Regional shipping speeds are as follows:</para><ul><li><para>In Australia, you have access to express shipping. Typically, devices shipped express
+        /// moves to its destination while in transit. Regional shipping speeds are as follows:
+        /// </para><ul><li><para>In Australia, you have access to express shipping. Typically, Snowballs shipped express
+        /// are delivered in about a day.</para></li><li><para>In the European Union (EU), you have access to express shipping. Typically, Snowballs
+        /// shipped express are delivered in about a day. In addition, most countries in the EU
+        /// have access to standard shipping, which typically takes less than a week, one way.</para></li><li><para>In India, Snowballs are delivered in one to seven days.</para></li><li><para>In the United States of America (US), you have access to one-day shipping and two-day
+        /// shipping.</para></li></ul><ul><li><para>In Australia, you have access to express shipping. Typically, devices shipped express
         /// are delivered in about a day.</para></li><li><para>In the European Union (EU), you have access to express shipping. Typically, Snowball
         /// Edges shipped express are delivered in about a day. In addition, most countries in
         /// the EU have access to standard shipping, which typically takes less than a week, one
@@ -219,9 +224,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter SnowballType
         /// <summary>
         /// <para>
-        /// <para>The type of AWS Snowball device to use for this cluster. Currently, the only supported
-        /// device type for cluster jobs is <code>EDGE</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
-        /// Edge Device Options</a> in the Snowball Edge Developer Guide.</para>
+        /// <para>The type of AWS Snowball device to use for this cluster. </para><note><para>For cluster jobs, AWS Snowball currently supports only the <code>EDGE</code> device
+        /// type.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

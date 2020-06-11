@@ -80,6 +80,13 @@ $EML_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaLive.AcceptHeader
+        "Get-EMLInputDeviceThumbnail/Accept"
+        {
+            $v = "image/jpeg"
+            break
+        }
+
         # Amazon.MediaLive.ChannelClass
         {
             ($_ -eq "New-EMLChannel/ChannelClass") -Or
@@ -163,6 +170,7 @@ $EML_Completers = {
 }
 
 $EML_map = @{
+    "Accept"=@("Get-EMLInputDeviceThumbnail")
     "ChannelClass"=@("New-EMLChannel","Update-EMLChannelClass")
     "HdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
@@ -241,6 +249,7 @@ $EML_SelectMap = @{
                "Get-EMLChannel",
                "Get-EMLInput",
                "Get-EMLInputDevice",
+               "Get-EMLInputDeviceThumbnail",
                "Get-EMLInputSecurityGroup",
                "Get-EMLMultiplex",
                "Get-EMLMultiplexProgram",

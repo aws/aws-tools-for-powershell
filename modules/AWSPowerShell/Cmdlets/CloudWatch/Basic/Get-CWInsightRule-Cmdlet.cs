@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>This parameter is not currently used. Reserved for future use. If it is used in the
-        /// future, the maximum value may be different.</para>
+        /// future, the maximum value might be different.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

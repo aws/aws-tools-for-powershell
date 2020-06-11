@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Retrieves domain info that corresponds to an appId and domainName.
+    /// Returns the domain information for an Amplify app.
     /// </summary>
     [Cmdlet("Get", "AMPDomainAssociation")]
     [OutputType("Amazon.Amplify.Model.DomainAssociation")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique id for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para> Name of the domain. </para>
+        /// <para> The name of the domain. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <summary>
         /// <para>
         /// <para>The name of the ledger that you want to create. The name must be unique among all
-        /// of your ledgers in the current AWS Region.</para>
+        /// of your ledgers in the current AWS Region.</para><para>Naming constraints for ledger names are defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas
+        /// in Amazon QLDB</a> in the <i>Amazon QLDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

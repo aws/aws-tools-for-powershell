@@ -164,8 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Overrides_ExecutionRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container
-        /// agent and the Docker daemon can assume.</para>
+        /// <para>The Amazon Resource Name (ARN) of the task execution IAM role override for the task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

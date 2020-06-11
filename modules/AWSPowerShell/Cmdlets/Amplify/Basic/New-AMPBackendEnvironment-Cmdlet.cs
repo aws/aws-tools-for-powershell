@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Creates a new backend environment for an Amplify App.
+    /// Creates a new backend environment for an Amplify app.
     /// </summary>
     [Cmdlet("New", "AMPBackendEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Amplify.Model.BackendEnvironment")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para> Unique Id for an Amplify App. </para>
+        /// <para> The unique ID for an Amplify app. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter DeploymentArtifact
         /// <summary>
         /// <para>
-        /// <para> Name of deployment artifacts. </para>
+        /// <para> The name of deployment artifacts. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter EnvironmentName
         /// <summary>
         /// <para>
-        /// <para> Name for the backend environment. </para>
+        /// <para> The name for the backend environment. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para> CloudFormation stack name of backend environment. </para>
+        /// <para> The AWS CloudFormation stack name of a backend environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

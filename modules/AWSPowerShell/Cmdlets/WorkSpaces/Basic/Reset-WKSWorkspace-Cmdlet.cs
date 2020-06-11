@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     ///  
     /// <para>
     /// You cannot rebuild a WorkSpace unless its state is <code>AVAILABLE</code>, <code>ERROR</code>,
-    /// <code>UNHEALTHY</code>, or <code>STOPPED</code>.
+    /// <code>UNHEALTHY</code>, <code>STOPPED</code>, or <code>REBOOTING</code>.
     /// </para><para>
     /// Rebuilding a WorkSpace is a potentially destructive action that can result in the
     /// loss of data. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/reset-workspace.html">Rebuild

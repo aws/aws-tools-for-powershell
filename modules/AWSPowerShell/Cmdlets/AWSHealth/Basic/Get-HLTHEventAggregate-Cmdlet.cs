@@ -30,7 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// <summary>
     /// Returns the number of events of each event type (issue, scheduled change, and account
     /// notification). If no filter is specified, the counts of all events in each category
-    /// are returned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// are returned.
+    /// 
+    ///  <note><para>
+    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
+    /// the next request to return more results.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HLTHEventAggregate")]
     [OutputType("Amazon.AWSHealth.Model.EventAggregate")]
@@ -197,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Tag
         /// <summary>
         /// <para>
-        /// <para>A map of entity tags attached to the affected entity.</para>
+        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <code>tags</code> property isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Retrieves the configuration data of the specified instance. You can use this data
-    /// to create a launch template.
+    /// to create a launch template. 
+    /// 
+    ///  
+    /// <para>
+    /// This action calls on other describe actions to get instance information. Depending
+    /// on your instance configuration, you may need to allow the following actions in your
+    /// IAM policy: DescribeSpotInstanceRequests, DescribeInstanceCreditSpecifications, DescribeVolumes,
+    /// DescribeInstanceAttribute, and DescribeElasticGpus. Or, you can allow <code>describe*</code>
+    /// depending on your instance requirements.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2LaunchTemplateData")]
     [OutputType("Amazon.EC2.Model.ResponseLaunchTemplateData")]

@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. The
-        /// range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</para>
+        /// range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.
+        /// The default is <code>64512</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_AutoAcceptSharedAttachment
         /// <summary>
         /// <para>
-        /// <para>Enable or disable automatic acceptance of attachment requests. The default is <code>disable</code>.</para>
+        /// <para>Enable or disable automatic acceptance of attachment requests. Disabled by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Enable or disable automatic association with the default association route table.
-        /// The default is <code>enable</code>.</para>
+        /// Enabled by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Enable or disable automatic propagation of routes to the default propagation route
-        /// table. The default is <code>enable</code>.</para>
+        /// table. Enabled by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_DnsSupport
         /// <summary>
         /// <para>
-        /// <para>Enable or disable DNS support.</para>
+        /// <para>Enable or disable DNS support. Enabled by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_VpnEcmpSupport
         /// <summary>
         /// <para>
-        /// <para>Enable or disable Equal Cost Multipath Protocol support.</para>
+        /// <para>Enable or disable Equal Cost Multipath Protocol support. Enabled by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

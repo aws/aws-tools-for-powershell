@@ -28,8 +28,8 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Deletes an Amazon FSx for Windows File Server backup, deleting its contents. After
-    /// deletion, the backup no longer exists, and its data is gone.
+    /// Deletes an Amazon FSx backup, deleting its contents. After deletion, the backup no
+    /// longer exists, and its data is gone.
     /// 
     ///  
     /// <para>
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent
-        /// deletion. This is automatically filled on your behalf when using the AWS CLI or SDK.</para>
+        /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent deletion.
+        /// This is automatically filled on your behalf when using the AWS CLI or SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

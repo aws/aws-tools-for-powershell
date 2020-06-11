@@ -76,10 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// (<code>gp2</code> | <code>io1</code> | <code>st1 </code>| <code>sc1</code> | <code>standard</code>).</para></li><li><para><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the
         /// EBS volume is encrypted.</para></li><li><para><code>description</code> - The description of the image (provided during image creation).</para></li><li><para><code>ena-support</code> - A Boolean that indicates whether enhanced networking with
         /// ENA is enabled.</para></li><li><para><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</para></li><li><para><code>image-id</code> - The ID of the image.</para></li><li><para><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code>
-        /// | <code>ramdisk</code>).</para></li><li><para><code>is-public</code> - A Boolean that indicates whether the image is public.</para></li><li><para><code>kernel-id</code> - The kernel ID.</para></li><li><para><code>manifest-location</code> - The location of the image manifest.</para></li><li><para><code>name</code> - The name of the AMI (provided during image creation).</para></li><li><para><code>owner-alias</code> - String value from an Amazon-maintained list (<code>amazon</code>
-        /// | <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to
-        /// be confused with the user-configured AWS account alias, which is set from the IAM
-        /// console.</para></li><li><para><code>owner-id</code> - The AWS account ID of the image owner.</para></li><li><para><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>product-code.type</code> - The type of the product code (<code>devpay</code>
+        /// | <code>ramdisk</code>).</para></li><li><para><code>is-public</code> - A Boolean that indicates whether the image is public.</para></li><li><para><code>kernel-id</code> - The kernel ID.</para></li><li><para><code>manifest-location</code> - The location of the image manifest.</para></li><li><para><code>name</code> - The name of the AMI (provided during image creation).</para></li><li><para><code>owner-alias</code> - The owner alias, from an Amazon-maintained list (<code>amazon</code>
+        /// | <code>aws-marketplace</code>). This is not the user-configured AWS account alias
+        /// set using the IAM console. We recommend that you use the related parameter instead
+        /// of this filter.</para></li><li><para><code>owner-id</code> - The AWS account ID of the owner. We recommend that you use
+        /// the related parameter instead of this filter.</para></li><li><para><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>product-code.type</code> - The type of the product code (<code>devpay</code>
         /// | <code>marketplace</code>).</para></li><li><para><code>ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>root-device-name</code> - The device name of the root device volume (for example,
         /// <code>/dev/sda1</code>).</para></li><li><para><code>root-device-type</code> - The type of the root device volume (<code>ebs</code>
         /// | <code>instance-store</code>).</para></li><li><para><code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
@@ -112,10 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>Filters the images by the owner. Specify an AWS account ID, <code>self</code> (owner
-        /// is the sender of the request), or an AWS owner alias (valid values are <code>amazon</code>
-        /// | <code>aws-marketplace</code> | <code>microsoft</code>). Omitting this option returns
-        /// all images for which you have launch permissions, regardless of ownership.</para>
+        /// <para>Scopes the results to images with the specified owners. You can specify a combination
+        /// of AWS account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
+        /// If you omit this parameter, the results include all images for which you have launch
+        /// permissions, regardless of ownership.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

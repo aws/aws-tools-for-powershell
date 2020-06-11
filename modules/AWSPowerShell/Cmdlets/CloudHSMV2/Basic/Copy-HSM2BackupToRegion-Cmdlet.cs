@@ -77,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter TagList
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Tags to apply to the destination backup during creation. If you specify tags, only
+        /// these tags will be applied to the destination backup. If you do not specify tags,
+        /// the service copies tags from the source backup to the destination backup.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

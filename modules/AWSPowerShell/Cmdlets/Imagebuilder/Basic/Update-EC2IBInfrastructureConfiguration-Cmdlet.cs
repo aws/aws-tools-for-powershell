@@ -111,6 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         public System.String KeyPair { get; set; }
         #endregion
         
+        #region Parameter ResourceTag
+        /// <summary>
+        /// <para>
+        /// <para>The tags attached to the resource created by Image Builder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceTags")]
+        public System.Collections.Hashtable ResourceTag { get; set; }
+        #endregion
+        
         #region Parameter S3Logs_S3BucketName
         /// <summary>
         /// <para>
@@ -271,6 +282,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             context.KeyPair = this.KeyPair;
             context.S3Logs_S3BucketName = this.S3Logs_S3BucketName;
             context.S3Logs_S3KeyPrefix = this.S3Logs_S3KeyPrefix;
+            if (this.ResourceTag != null)
+            {
+                context.ResourceTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ResourceTag.Keys)
+                {
+                    context.ResourceTag.Add((String)hashKey, (String)(this.ResourceTag[hashKey]));
+                }
+            }
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -362,6 +381,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             {
                 request.Logging = null;
             }
+            if (cmdletContext.ResourceTag != null)
+            {
+                request.ResourceTags = cmdletContext.ResourceTag;
+            }
             if (cmdletContext.SecurityGroupId != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupId;
@@ -447,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
             public System.String KeyPair { get; set; }
             public System.String S3Logs_S3BucketName { get; set; }
             public System.String S3Logs_S3KeyPrefix { get; set; }
+            public Dictionary<System.String, System.String> ResourceTag { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.String SnsTopicArn { get; set; }
             public System.String SubnetId { get; set; }

@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String FilterArn { get; set; }
         #endregion
         
+        #region Parameter BatchInferenceJobConfig_ItemExplorationConfig
+        /// <summary>
+        /// <para>
+        /// <para>A string to string map specifying the inference hyperparameters you wish to use for
+        /// hyperparameter optimization. See <a>customizing-solution-config-hpo</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable BatchInferenceJobConfig_ItemExplorationConfig { get; set; }
+        #endregion
+        
         #region Parameter JobName
         /// <summary>
         /// <para>
@@ -239,6 +250,14 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.Select = (response, cmdlet) => this.JobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.BatchInferenceJobConfig_ItemExplorationConfig != null)
+            {
+                context.BatchInferenceJobConfig_ItemExplorationConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.BatchInferenceJobConfig_ItemExplorationConfig.Keys)
+                {
+                    context.BatchInferenceJobConfig_ItemExplorationConfig.Add((String)hashKey, (String)(this.BatchInferenceJobConfig_ItemExplorationConfig[hashKey]));
+                }
+            }
             context.FilterArn = this.FilterArn;
             context.S3DataSource_KmsKeyArn = this.S3DataSource_KmsKeyArn;
             context.S3DataSource_Path = this.S3DataSource_Path;
@@ -294,6 +313,25 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             // create request
             var request = new Amazon.Personalize.Model.CreateBatchInferenceJobRequest();
             
+            
+             // populate BatchInferenceJobConfig
+            var requestBatchInferenceJobConfigIsNull = true;
+            request.BatchInferenceJobConfig = new Amazon.Personalize.Model.BatchInferenceJobConfig();
+            Dictionary<System.String, System.String> requestBatchInferenceJobConfig_batchInferenceJobConfig_ItemExplorationConfig = null;
+            if (cmdletContext.BatchInferenceJobConfig_ItemExplorationConfig != null)
+            {
+                requestBatchInferenceJobConfig_batchInferenceJobConfig_ItemExplorationConfig = cmdletContext.BatchInferenceJobConfig_ItemExplorationConfig;
+            }
+            if (requestBatchInferenceJobConfig_batchInferenceJobConfig_ItemExplorationConfig != null)
+            {
+                request.BatchInferenceJobConfig.ItemExplorationConfig = requestBatchInferenceJobConfig_batchInferenceJobConfig_ItemExplorationConfig;
+                requestBatchInferenceJobConfigIsNull = false;
+            }
+             // determine if request.BatchInferenceJobConfig should be set to null
+            if (requestBatchInferenceJobConfigIsNull)
+            {
+                request.BatchInferenceJobConfig = null;
+            }
             if (cmdletContext.FilterArn != null)
             {
                 request.FilterArn = cmdletContext.FilterArn;
@@ -463,6 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> BatchInferenceJobConfig_ItemExplorationConfig { get; set; }
             public System.String FilterArn { get; set; }
             public System.String S3DataSource_KmsKeyArn { get; set; }
             public System.String S3DataSource_Path { get; set; }

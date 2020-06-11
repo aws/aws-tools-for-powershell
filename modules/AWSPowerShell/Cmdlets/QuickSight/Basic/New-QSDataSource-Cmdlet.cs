@@ -39,6 +39,24 @@ namespace Amazon.PowerShell.Cmdlets.QS
     public partial class NewQSDataSourceCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
+        #region Parameter CredentialPair_AlternateDataSourceParameter
+        /// <summary>
+        /// <para>
+        /// <para>A set of alternate data source parameters that you want to share for these credentials.
+        /// The credentials are applied in tandem with the data source parameters when you copy
+        /// a data source by using a create or update request. The API operation compares the
+        /// <code>DataSourceParameters</code> structure that's in the request with the structures
+        /// in the <code>AlternateDataSourceParameters</code> allowlist. If the structures are
+        /// an exact match, the request is allowed to use the new data source with the existing
+        /// credentials. If the <code>AlternateDataSourceParameters</code> list is null, the <code>DataSourceParameters</code>
+        /// originally used with these <code>Credentials</code> is automatically allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Credentials_CredentialPair_AlternateDataSourceParameters")]
+        public Amazon.QuickSight.Model.DataSourceParameters[] CredentialPair_AlternateDataSourceParameter { get; set; }
+        #endregion
+        
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
@@ -88,6 +106,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DataSourceParameters_RedshiftParameters_ClusterId")]
         public System.String RedshiftParameters_ClusterId { get; set; }
+        #endregion
+        
+        #region Parameter Credentials_CopySourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a data source that has the credential pair that
+        /// you want to use. When <code>CopySourceArn</code> is not null, the credential pair
+        /// from the data source in the ARN is used as the credentials for the <code>DataSourceCredentials</code>
+        /// structure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Credentials_CopySourceArn { get; set; }
         #endregion
         
         #region Parameter AuroraParameters_Database
@@ -729,6 +760,11 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Credentials_CopySourceArn = this.Credentials_CopySourceArn;
+            if (this.CredentialPair_AlternateDataSourceParameter != null)
+            {
+                context.CredentialPair_AlternateDataSourceParameter = new List<Amazon.QuickSight.Model.DataSourceParameters>(this.CredentialPair_AlternateDataSourceParameter);
+            }
             context.CredentialPair_Password = this.CredentialPair_Password;
             context.CredentialPair_Username = this.CredentialPair_Username;
             context.DataSourceId = this.DataSourceId;
@@ -830,11 +866,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate Credentials
             var requestCredentialsIsNull = true;
             request.Credentials = new Amazon.QuickSight.Model.DataSourceCredentials();
+            System.String requestCredentials_credentials_CopySourceArn = null;
+            if (cmdletContext.Credentials_CopySourceArn != null)
+            {
+                requestCredentials_credentials_CopySourceArn = cmdletContext.Credentials_CopySourceArn;
+            }
+            if (requestCredentials_credentials_CopySourceArn != null)
+            {
+                request.Credentials.CopySourceArn = requestCredentials_credentials_CopySourceArn;
+                requestCredentialsIsNull = false;
+            }
             Amazon.QuickSight.Model.CredentialPair requestCredentials_credentials_CredentialPair = null;
             
              // populate CredentialPair
             var requestCredentials_credentials_CredentialPairIsNull = true;
             requestCredentials_credentials_CredentialPair = new Amazon.QuickSight.Model.CredentialPair();
+            List<Amazon.QuickSight.Model.DataSourceParameters> requestCredentials_credentials_CredentialPair_credentialPair_AlternateDataSourceParameter = null;
+            if (cmdletContext.CredentialPair_AlternateDataSourceParameter != null)
+            {
+                requestCredentials_credentials_CredentialPair_credentialPair_AlternateDataSourceParameter = cmdletContext.CredentialPair_AlternateDataSourceParameter;
+            }
+            if (requestCredentials_credentials_CredentialPair_credentialPair_AlternateDataSourceParameter != null)
+            {
+                requestCredentials_credentials_CredentialPair.AlternateDataSourceParameters = requestCredentials_credentials_CredentialPair_credentialPair_AlternateDataSourceParameter;
+                requestCredentials_credentials_CredentialPairIsNull = false;
+            }
             System.String requestCredentials_credentials_CredentialPair_credentialPair_Password = null;
             if (cmdletContext.CredentialPair_Password != null)
             {
@@ -1739,6 +1795,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AwsAccountId { get; set; }
+            public System.String Credentials_CopySourceArn { get; set; }
+            public List<Amazon.QuickSight.Model.DataSourceParameters> CredentialPair_AlternateDataSourceParameter { get; set; }
             public System.String CredentialPair_Password { get; set; }
             public System.String CredentialPair_Username { get; set; }
             public System.String DataSourceId { get; set; }

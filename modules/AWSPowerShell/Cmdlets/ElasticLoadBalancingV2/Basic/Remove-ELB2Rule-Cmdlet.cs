@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
     /// Deletes the specified rule.
+    /// 
+    ///  
+    /// <para>
+    /// You can't delete the default rule.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "ELB2Rule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

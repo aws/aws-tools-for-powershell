@@ -145,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous response was truncated, you will receive this token. Use it in your
-        /// next request to receive the next set of results.</para>
+        /// <para>If the previous response was truncated, you receive this token. Use it in your next
+        /// request to receive the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

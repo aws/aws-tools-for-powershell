@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Creates a new role for your AWS account. For more information about roles, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">IAM
-    /// Roles</a>. For information about limitations on role names and the number of roles
-    /// you can create, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
-    /// on IAM Entities</a> in the <i>IAM User Guide</i>.
+    /// Roles</a>. The number and size of IAM resources in an AWS account are limited. For
+    /// more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM
+    /// and STS Quotas</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IAMRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.Role")]

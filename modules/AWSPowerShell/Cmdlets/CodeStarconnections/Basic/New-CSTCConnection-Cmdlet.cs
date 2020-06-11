@@ -60,20 +60,24 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         public System.String ConnectionName { get; set; }
         #endregion
         
+        #region Parameter HostArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the host associated with the connection to be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HostArn { get; set; }
+        #endregion
+        
         #region Parameter ProviderType
         /// <summary>
         /// <para>
         /// <para>The name of the external provider where your third-party code repository is configured.
-        /// Currently, the valid provider type is Bitbucket.</para>
+        /// The valid provider type is Bitbucket.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CodeStarconnections.ProviderType")]
         public Amazon.CodeStarconnections.ProviderType ProviderType { get; set; }
         #endregion
@@ -157,13 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
                 WriteWarning("You are passing $null as a value for parameter ConnectionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HostArn = this.HostArn;
             context.ProviderType = this.ProviderType;
-            #if MODULAR
-            if (this.ProviderType == null && ParameterWasBound(nameof(this.ProviderType)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProviderType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.CodeStarconnections.Model.Tag>(this.Tag);
@@ -187,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             if (cmdletContext.ConnectionName != null)
             {
                 request.ConnectionName = cmdletContext.ConnectionName;
+            }
+            if (cmdletContext.HostArn != null)
+            {
+                request.HostArn = cmdletContext.HostArn;
             }
             if (cmdletContext.ProviderType != null)
             {
@@ -258,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConnectionName { get; set; }
+            public System.String HostArn { get; set; }
             public Amazon.CodeStarconnections.ProviderType ProviderType { get; set; }
             public List<Amazon.CodeStarconnections.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.CodeStarconnections.Model.CreateConnectionResponse, NewCSTCConnectionCmdlet, object> Select { get; set; } =

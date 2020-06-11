@@ -83,10 +83,11 @@ $CSTC_Completers = {
         # Amazon.CodeStarconnections.ProviderType
         {
             ($_ -eq "New-CSTCConnection/ProviderType") -Or
+            ($_ -eq "New-CSTCHost/ProviderType") -Or
             ($_ -eq "Get-CSTCConnectionList/ProviderTypeFilter")
         }
         {
-            $v = "Bitbucket"
+            $v = "Bitbucket","GitHubEnterpriseServer"
             break
         }
 
@@ -99,7 +100,7 @@ $CSTC_Completers = {
 }
 
 $CSTC_map = @{
-    "ProviderType"=@("New-CSTCConnection")
+    "ProviderType"=@("New-CSTCConnection","New-CSTCHost")
     "ProviderTypeFilter"=@("Get-CSTCConnectionList")
 }
 
@@ -154,9 +155,13 @@ $CSTC_SelectCompleters = {
 
 $CSTC_SelectMap = @{
     "Select"=@("New-CSTCConnection",
+               "New-CSTCHost",
                "Remove-CSTCConnection",
+               "Remove-CSTCHost",
                "Get-CSTCConnection",
+               "Get-CSTCHost",
                "Get-CSTCConnectionList",
+               "Get-CSTCHostList",
                "Get-CSTCResourceTagList",
                "Add-CSTCResourceTag",
                "Remove-CSTCResourceTag")

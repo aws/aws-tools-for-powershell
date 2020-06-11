@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Remove the specified thing from the specified group.
+    /// 
+    ///  
+    /// <para>
+    /// You must specify either a <code>thingGroupArn</code> or a <code>thingGroupName</code>
+    /// to identify the thing group and either a <code>thingArn</code> or a <code>thingName</code>
+    /// to identify the thing to remove from the thing group. 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTThingFromThingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>firehose</C2jFilename>
     <AssemblyName>KinesisFirehose</AssemblyName>
@@ -12,14 +13,30 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateDeliveryStream" OutputProperty="DeliveryStreamARN" Verb="New" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="HttpEndpointDestinationConfiguration_BufferingHints_IntervalInSeconds" NewName="HttpEndpointDestinationConfiguration_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_BufferingHints_SizeInMBs" NewName="HttpEndpointDestinationConfiguration_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_Enabled" NewName="HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" NewName="HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" NewName="HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_ProcessingConfiguration_Enabled" NewName="HttpEndpointDestinationConfiguration_ProcessingConfiguration_Enabled" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_ProcessingConfiguration_Processors" NewName="HttpEndpointDestinationConfiguration_ProcessingConfiguration_Processors" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_RetryOptions_DurationInSeconds" NewName="HttpEndpointDestinationConfiguration_RetryOptions_DurationInSeconds" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_EndpointConfiguration_AccessKey" NewName="HttpEndpointDestinationConfiguration_EndpointConfiguration_AccessKey" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_EndpointConfiguration_Type" NewName="HttpEndpointDestinationConfiguration_EndpointConfiguration_Type" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_EndpointConfiguration_Url" NewName="HttpEndpointDestinationConfiguration_EndpointConfiguration_Url" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_RequestConfiguration_CommonAttributes" NewName="HttpEndpointDestinationConfiguration_RequestConfiguration_CommonAttributes" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding" NewName="HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_RoleARN" NewName="HttpEndpointDestinationConfiguration_RoleARN" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_S3BackupMode" NewName="HttpEndpointDestinationConfiguration_S3BackupMode" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_S3Configuration" NewName="HttpEndpointDestinationConfiguration_S3Configuration" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDeliveryStream" Verb="Remove" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
@@ -66,12 +83,27 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds" NewName="HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs" NewName="HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled" NewName="HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName" NewName="HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogGroupName" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName" NewName="HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_LogStreamName" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled" NewName="HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors" NewName="HttpEndpointDestinationUpdate_ProcessingConfiguration_Processors" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds" NewName="HttpEndpointDestinationUpdate_RetryOptions_DurationInSeconds" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey" NewName="HttpEndpointDestinationUpdate_EndpointConfiguration_AccessKey" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_EndpointConfiguration_Type" NewName="HttpEndpointDestinationUpdate_EndpointConfiguration_Type" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_EndpointConfiguration_Url" NewName="HttpEndpointDestinationUpdate_EndpointConfiguration_Url" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes" NewName="HttpEndpointDestinationUpdate_RequestConfiguration_CommonAttributes" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding" NewName="HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_RoleARN" NewName="HttpEndpointDestinationUpdate_RoleARN" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_S3BackupMode" NewName="HttpEndpointDestinationUpdate_S3BackupMode" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_S3Update" NewName="HttpEndpointDestinationUpdate_S3Update" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration</Type>
         <Type>Amazon.KinesisFirehose.Model.S3DestinationConfiguration</Type>

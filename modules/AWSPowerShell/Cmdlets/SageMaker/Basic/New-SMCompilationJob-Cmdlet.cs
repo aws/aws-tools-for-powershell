@@ -46,8 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// </para></li><li><para>
     /// The output location for the compiled model and the device (target) that the model
     /// runs on 
-    /// </para></li><li><para><code>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes
-    /// to perform the model compilation job</code></para></li></ul><para>
+    /// </para></li><li><para>
+    /// The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to perform
+    /// the model compilation job. 
+    /// </para></li></ul><para>
     /// You can also provide a <code>Tag</code> to track the model compilation job's resource
     /// use and costs. The response body contains the <code>CompilationJobArn</code> for the
     /// compiled job.
@@ -67,6 +69,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMCompilationJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter TargetPlatform_Accelerator
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a target platform accelerator (optional).</para><ul><li><para><code>NVIDIA</code>: Nvidia graphics processing unit. It also requires <code>gpu-code</code>,
+        /// <code>trt-ver</code>, <code>cuda-ver</code> compiler options</para></li><li><para><code>MALI</code>: ARM Mali graphics processor</para></li><li><para><code>INTEL_GRAPHICS</code>: Integrated Intel graphics</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputConfig_TargetPlatform_Accelerator")]
+        [AWSConstantClassSource("Amazon.SageMaker.TargetPlatformAccelerator")]
+        public Amazon.SageMaker.TargetPlatformAccelerator TargetPlatform_Accelerator { get; set; }
+        #endregion
+        
+        #region Parameter TargetPlatform_Arch
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a target platform architecture.</para><ul><li><para><code>X86_64</code>: 64-bit version of the x86 instruction set.</para></li><li><para><code>X86</code>: 32-bit version of the x86 instruction set.</para></li><li><para><code>ARM64</code>: ARMv8 64-bit CPU.</para></li><li><para><code>ARM_EABIHF</code>: ARMv7 32-bit, Hard Float.</para></li><li><para><code>ARM_EABI</code>: ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM platform.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputConfig_TargetPlatform_Arch")]
+        [AWSConstantClassSource("Amazon.SageMaker.TargetPlatformArch")]
+        public Amazon.SageMaker.TargetPlatformArch TargetPlatform_Arch { get; set; }
+        #endregion
+        
         #region Parameter CompilationJobName
         /// <summary>
         /// <para>
@@ -83,6 +110,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String CompilationJobName { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_CompilerOption
+        /// <summary>
+        /// <para>
+        /// <para>Specifies additional parameters for compiler options in JSON format. The compiler
+        /// options are <code>TargetPlatform</code> specific. It is required for NVIDIA accelerators
+        /// and highly recommended for CPU compliations. For any other cases, it is optional to
+        /// specify <code>CompilerOptions.</code></para><ul><li><para><code>CPU</code>: Compilation for CPU supports the following compiler options.</para><ul><li><para><code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu': 'skylake-avx512'}</code></para></li><li><para><code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon', '+vfpv4']}</code></para></li></ul></li><li><para><code>ARM</code>: Details of ARM CPU compilations.</para><ul><li><para><code>NEON</code>: NEON is an implementation of the Advanced SIMD extension used
+        /// in ARMv7 processors.</para><para>For example, add <code>{'mattr': ['+neon']}</code> to the compiler options if compiling
+        /// for ARM 32-bit platform with the NEON support.</para></li></ul></li><li><para><code>NVIDIA</code>: Compilation for NVIDIA GPU supports the following compiler options.</para><ul><li><para><code>gpu_code</code>: Specifies the targeted architecture.</para></li><li><para><code>trt-ver</code>: Specifies the TensorRT versions in x.y.z. format.</para></li><li><para><code>cuda-ver</code>: Specifies the CUDA version in x.y format.</para></li></ul><para>For example, <code>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver': '10.1'}</code></para></li><li><para><code>ANDROID</code>: Compilation for the Android OS supports the following compiler
+        /// options:</para><ul><li><para><code>ANDROID_PLATFORM</code>: Specifies the Android API levels. Available levels
+        /// range from 21 to 29. For example, <code>{'ANDROID_PLATFORM': 28}</code>.</para></li><li><para><code>mattr</code>: Add <code>{'mattr': ['+neon']}</code> to compiler options if
+        /// compiling for ARM 32-bit platform with NEON support.</para></li></ul></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputConfig_CompilerOptions")]
+        public System.String OutputConfig_CompilerOption { get; set; }
         #endregion
         
         #region Parameter InputConfig_DataInputConfig
@@ -160,6 +206,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }
         #endregion
         
+        #region Parameter TargetPlatform_Os
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a target platform OS.</para><ul><li><para><code>LINUX</code>: Linux-based operating systems.</para></li><li><para><code>ANDROID</code>: Android operating systems. Android API level can be specified
+        /// using the <code>ANDROID_PLATFORM</code> compiler option. For example, <code>"CompilerOptions":
+        /// {'ANDROID_PLATFORM': 28}</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputConfig_TargetPlatform_Os")]
+        [AWSConstantClassSource("Amazon.SageMaker.TargetPlatformOs")]
+        public Amazon.SageMaker.TargetPlatformOs TargetPlatform_Os { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -184,8 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_S3OutputLocation
         /// <summary>
         /// <para>
-        /// <para>Identifies the S3 path where you want Amazon SageMaker to store the model artifacts.
-        /// For example, s3://bucket-name/key-name-prefix.</para>
+        /// <para>Identifies the S3 bucket where you want Amazon SageMaker to store the model artifacts.
+        /// For example, <code>s3://bucket-name/key-name-prefix</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -220,17 +280,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputConfig_TargetDevice
         /// <summary>
         /// <para>
-        /// <para>Identifies the device that you want to run your model on after it has been compiled.
-        /// For example: ml_c5.</para>
+        /// <para>Identifies the target device or the machine learning instance that you want to run
+        /// your model on after the compilation has completed. Alternatively, you can specify
+        /// OS, architecture, and accelerator using <a>TargetPlatform</a> fields. It can be used
+        /// instead of <code>TargetPlatform</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.SageMaker.TargetDevice")]
         public Amazon.SageMaker.TargetDevice OutputConfig_TargetDevice { get; set; }
         #endregion
@@ -324,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter InputConfig_S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputConfig_CompilerOption = this.OutputConfig_CompilerOption;
             context.OutputConfig_S3OutputLocation = this.OutputConfig_S3OutputLocation;
             #if MODULAR
             if (this.OutputConfig_S3OutputLocation == null && ParameterWasBound(nameof(this.OutputConfig_S3OutputLocation)))
@@ -332,12 +389,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.OutputConfig_TargetDevice = this.OutputConfig_TargetDevice;
-            #if MODULAR
-            if (this.OutputConfig_TargetDevice == null && ParameterWasBound(nameof(this.OutputConfig_TargetDevice)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OutputConfig_TargetDevice which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TargetPlatform_Accelerator = this.TargetPlatform_Accelerator;
+            context.TargetPlatform_Arch = this.TargetPlatform_Arch;
+            context.TargetPlatform_Os = this.TargetPlatform_Os;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -410,6 +464,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate OutputConfig
             var requestOutputConfigIsNull = true;
             request.OutputConfig = new Amazon.SageMaker.Model.OutputConfig();
+            System.String requestOutputConfig_outputConfig_CompilerOption = null;
+            if (cmdletContext.OutputConfig_CompilerOption != null)
+            {
+                requestOutputConfig_outputConfig_CompilerOption = cmdletContext.OutputConfig_CompilerOption;
+            }
+            if (requestOutputConfig_outputConfig_CompilerOption != null)
+            {
+                request.OutputConfig.CompilerOptions = requestOutputConfig_outputConfig_CompilerOption;
+                requestOutputConfigIsNull = false;
+            }
             System.String requestOutputConfig_outputConfig_S3OutputLocation = null;
             if (cmdletContext.OutputConfig_S3OutputLocation != null)
             {
@@ -428,6 +492,51 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOutputConfig_outputConfig_TargetDevice != null)
             {
                 request.OutputConfig.TargetDevice = requestOutputConfig_outputConfig_TargetDevice;
+                requestOutputConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.TargetPlatform requestOutputConfig_outputConfig_TargetPlatform = null;
+            
+             // populate TargetPlatform
+            var requestOutputConfig_outputConfig_TargetPlatformIsNull = true;
+            requestOutputConfig_outputConfig_TargetPlatform = new Amazon.SageMaker.Model.TargetPlatform();
+            Amazon.SageMaker.TargetPlatformAccelerator requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Accelerator = null;
+            if (cmdletContext.TargetPlatform_Accelerator != null)
+            {
+                requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Accelerator = cmdletContext.TargetPlatform_Accelerator;
+            }
+            if (requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Accelerator != null)
+            {
+                requestOutputConfig_outputConfig_TargetPlatform.Accelerator = requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Accelerator;
+                requestOutputConfig_outputConfig_TargetPlatformIsNull = false;
+            }
+            Amazon.SageMaker.TargetPlatformArch requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Arch = null;
+            if (cmdletContext.TargetPlatform_Arch != null)
+            {
+                requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Arch = cmdletContext.TargetPlatform_Arch;
+            }
+            if (requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Arch != null)
+            {
+                requestOutputConfig_outputConfig_TargetPlatform.Arch = requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Arch;
+                requestOutputConfig_outputConfig_TargetPlatformIsNull = false;
+            }
+            Amazon.SageMaker.TargetPlatformOs requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Os = null;
+            if (cmdletContext.TargetPlatform_Os != null)
+            {
+                requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Os = cmdletContext.TargetPlatform_Os;
+            }
+            if (requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Os != null)
+            {
+                requestOutputConfig_outputConfig_TargetPlatform.Os = requestOutputConfig_outputConfig_TargetPlatform_targetPlatform_Os;
+                requestOutputConfig_outputConfig_TargetPlatformIsNull = false;
+            }
+             // determine if requestOutputConfig_outputConfig_TargetPlatform should be set to null
+            if (requestOutputConfig_outputConfig_TargetPlatformIsNull)
+            {
+                requestOutputConfig_outputConfig_TargetPlatform = null;
+            }
+            if (requestOutputConfig_outputConfig_TargetPlatform != null)
+            {
+                request.OutputConfig.TargetPlatform = requestOutputConfig_outputConfig_TargetPlatform;
                 requestOutputConfigIsNull = false;
             }
              // determine if request.OutputConfig should be set to null
@@ -533,8 +642,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String InputConfig_DataInputConfig { get; set; }
             public Amazon.SageMaker.Framework InputConfig_Framework { get; set; }
             public System.String InputConfig_S3Uri { get; set; }
+            public System.String OutputConfig_CompilerOption { get; set; }
             public System.String OutputConfig_S3OutputLocation { get; set; }
             public Amazon.SageMaker.TargetDevice OutputConfig_TargetDevice { get; set; }
+            public Amazon.SageMaker.TargetPlatformAccelerator TargetPlatform_Accelerator { get; set; }
+            public Amazon.SageMaker.TargetPlatformArch TargetPlatform_Arch { get; set; }
+            public Amazon.SageMaker.TargetPlatformOs TargetPlatform_Os { get; set; }
             public System.String RoleArn { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }

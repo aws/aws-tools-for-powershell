@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
     /// Deletes the queue specified by the <code>QueueUrl</code>, regardless of the queue's
-    /// contents. If the specified queue doesn't exist, Amazon SQS returns a successful response.
+    /// contents.
     /// 
     ///  <important><para>
     /// Be careful with the <code>DeleteQueue</code> action: When you delete a queue, any

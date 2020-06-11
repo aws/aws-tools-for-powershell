@@ -50,14 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// computer objects for the organizational units specified.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServiceAccountCredentials_AccountName { get; set; }
         #endregion
         
@@ -67,14 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>The password for the account.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServiceAccountCredentials_AccountPassword { get; set; }
         #endregion
         
@@ -192,19 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             }
             #endif
             context.ServiceAccountCredentials_AccountName = this.ServiceAccountCredentials_AccountName;
-            #if MODULAR
-            if (this.ServiceAccountCredentials_AccountName == null && ParameterWasBound(nameof(this.ServiceAccountCredentials_AccountName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ServiceAccountCredentials_AccountName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ServiceAccountCredentials_AccountPassword = this.ServiceAccountCredentials_AccountPassword;
-            #if MODULAR
-            if (this.ServiceAccountCredentials_AccountPassword == null && ParameterWasBound(nameof(this.ServiceAccountCredentials_AccountPassword)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ServiceAccountCredentials_AccountPassword which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

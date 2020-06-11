@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter DisabledReason
         /// <summary>
         /// <para>
-        /// <para>A description of the reason why you are disabling a security standard control.</para>
+        /// <para>A description of the reason why you are disabling a security standard control. If
+        /// you are disabling a control, then this is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

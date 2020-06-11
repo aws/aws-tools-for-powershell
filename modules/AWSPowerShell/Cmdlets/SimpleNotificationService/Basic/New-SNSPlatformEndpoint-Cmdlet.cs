@@ -29,14 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Creates an endpoint for a device and mobile app on one of the supported push notification
-    /// services, such as FCM and APNS. <code>CreatePlatformEndpoint</code> requires the PlatformApplicationArn
-    /// that is returned from <code>CreatePlatformApplication</code>. The EndpointArn that
-    /// is returned when using <code>CreatePlatformEndpoint</code> can then be used by the
-    /// <code>Publish</code> action to send a message to a mobile app or by the <code>Subscribe</code>
-    /// action for subscription to a topic. The <code>CreatePlatformEndpoint</code> action
-    /// is idempotent, so if the requester already owns an endpoint with the same device token
-    /// and attributes, that endpoint's ARN is returned without creating a new endpoint. For
-    /// more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
+    /// services, such as GCM (Firebase Cloud Messaging) and APNS. <code>CreatePlatformEndpoint</code>
+    /// requires the <code>PlatformApplicationArn</code> that is returned from <code>CreatePlatformApplication</code>.
+    /// You can use the returned <code>EndpointArn</code> to send a message to a mobile app
+    /// or by the <code>Subscribe</code> action for subscription to a topic. The <code>CreatePlatformEndpoint</code>
+    /// action is idempotent, so if the requester already owns an endpoint with the same device
+    /// token and attributes, that endpoint's ARN is returned without creating a new endpoint.
+    /// For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
     /// Amazon SNS Mobile Push Notifications</a>. 
     /// 
     ///  
@@ -103,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>Unique identifier created by the notification service for an app on a device. The
         /// specific name for Token will vary, depending on which notification service is being
         /// used. For example, when using APNS as the notification service, you need the device
-        /// token. Alternatively, when using FCM or ADM, the device token equivalent is called
-        /// the registration ID.</para>
+        /// token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device
+        /// token equivalent is called the registration ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

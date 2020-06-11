@@ -80,6 +80,16 @@ $SG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.StorageGateway.CaseSensitivity
+        {
+            ($_ -eq "New-SGSMBFileShare/CaseSensitivity") -Or
+            ($_ -eq "Update-SGSMBFileShare/CaseSensitivity")
+        }
+        {
+            $v = "CaseSensitive","ClientSpecified"
+            break
+        }
+
         # Amazon.StorageGateway.ObjectACL
         {
             ($_ -eq "New-SGNFSFileShare/ObjectACL") -Or
@@ -108,6 +118,7 @@ $SG_Completers = {
 }
 
 $SG_map = @{
+    "CaseSensitivity"=@("New-SGSMBFileShare","Update-SGSMBFileShare")
     "ObjectACL"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
     "SMBSecurityStrategy"=@("Update-SGSMBSecurityStrategy")
 }

@@ -28,12 +28,13 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// <para>
-    ///  Creates an Aurora global database spread across multiple regions. The global database
+    /// Creates an Aurora global database spread across multiple regions. The global database
     /// contains a single primary cluster with read-write capability, and a read-only secondary
     /// cluster that receives data from the primary cluster through high-speed replication
     /// performed by the Aurora storage subsystem. 
-    /// </para><para>
+    /// 
+    ///  
+    /// <para>
     ///  You can create a global database that is initially empty, and then add a primary
     /// cluster and a secondary cluster to it. Or you can specify an existing Aurora cluster
     /// during the create operation, and this cluster becomes the primary cluster of the global

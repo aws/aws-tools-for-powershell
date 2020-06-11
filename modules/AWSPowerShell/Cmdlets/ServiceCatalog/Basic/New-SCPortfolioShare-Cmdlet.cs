@@ -39,6 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// shares.
     /// </para><para><code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio
     /// share to an organization node.
+    /// </para><para>
+    /// You can't share a shared resource. This includes portfolios that contain a shared
+    /// product.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

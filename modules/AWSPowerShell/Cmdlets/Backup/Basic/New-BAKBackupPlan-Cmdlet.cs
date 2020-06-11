@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupPlan_BackupPlanName
         /// <summary>
         /// <para>
-        /// <para>The display name of a backup plan.</para>
+        /// <para>The optional display name of a backup plan.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

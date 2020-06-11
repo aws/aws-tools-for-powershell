@@ -60,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String ExclusiveStartShardId { get; set; }
         #endregion
         
+        #region Parameter ShardFilter_ShardId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ShardFilter_ShardId { get; set; }
+        #endregion
+        
         #region Parameter StreamCreationTimestamp
         /// <summary>
         /// <para>
@@ -83,11 +93,32 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         public System.String StreamName { get; set; }
         #endregion
         
+        #region Parameter ShardFilter_Timestamp
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? ShardFilter_Timestamp { get; set; }
+        #endregion
+        
+        #region Parameter ShardFilter_Type
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kinesis.ShardFilterType")]
+        public Amazon.Kinesis.ShardFilterType ShardFilter_Type { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of shards to return in a single call to <code>ListShards</code>.
-        /// The minimum value you can specify for this parameter is 1, and the maximum is 1,000,
+        /// The minimum value you can specify for this parameter is 1, and the maximum is 10,000,
         /// which is also the default.</para><para>When the number of shards to be listed is greater than the value of <code>MaxResults</code>,
         /// the response contains a <code>NextToken</code> value that you can use in a subsequent
         /// call to <code>ListShards</code> to list the next set of shards.</para>
@@ -197,6 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ShardFilter_ShardId = this.ShardFilter_ShardId;
+            context.ShardFilter_Timestamp = this.ShardFilter_Timestamp;
+            context.ShardFilter_Type = this.ShardFilter_Type;
             context.StreamCreationTimestamp = this.StreamCreationTimestamp;
             context.StreamName = this.StreamName;
             
@@ -227,6 +261,45 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            
+             // populate ShardFilter
+            var requestShardFilterIsNull = true;
+            request.ShardFilter = new Amazon.Kinesis.Model.ShardFilter();
+            System.String requestShardFilter_shardFilter_ShardId = null;
+            if (cmdletContext.ShardFilter_ShardId != null)
+            {
+                requestShardFilter_shardFilter_ShardId = cmdletContext.ShardFilter_ShardId;
+            }
+            if (requestShardFilter_shardFilter_ShardId != null)
+            {
+                request.ShardFilter.ShardId = requestShardFilter_shardFilter_ShardId;
+                requestShardFilterIsNull = false;
+            }
+            System.DateTime? requestShardFilter_shardFilter_Timestamp = null;
+            if (cmdletContext.ShardFilter_Timestamp != null)
+            {
+                requestShardFilter_shardFilter_Timestamp = cmdletContext.ShardFilter_Timestamp.Value;
+            }
+            if (requestShardFilter_shardFilter_Timestamp != null)
+            {
+                request.ShardFilter.Timestamp = requestShardFilter_shardFilter_Timestamp.Value;
+                requestShardFilterIsNull = false;
+            }
+            Amazon.Kinesis.ShardFilterType requestShardFilter_shardFilter_Type = null;
+            if (cmdletContext.ShardFilter_Type != null)
+            {
+                requestShardFilter_shardFilter_Type = cmdletContext.ShardFilter_Type;
+            }
+            if (requestShardFilter_shardFilter_Type != null)
+            {
+                request.ShardFilter.Type = requestShardFilter_shardFilter_Type;
+                requestShardFilterIsNull = false;
+            }
+             // determine if request.ShardFilter should be set to null
+            if (requestShardFilterIsNull)
+            {
+                request.ShardFilter = null;
             }
             if (cmdletContext.StreamCreationTimestamp != null)
             {
@@ -294,6 +367,45 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.ExclusiveStartShardId != null)
             {
                 request.ExclusiveStartShardId = cmdletContext.ExclusiveStartShardId;
+            }
+            
+             // populate ShardFilter
+            var requestShardFilterIsNull = true;
+            request.ShardFilter = new Amazon.Kinesis.Model.ShardFilter();
+            System.String requestShardFilter_shardFilter_ShardId = null;
+            if (cmdletContext.ShardFilter_ShardId != null)
+            {
+                requestShardFilter_shardFilter_ShardId = cmdletContext.ShardFilter_ShardId;
+            }
+            if (requestShardFilter_shardFilter_ShardId != null)
+            {
+                request.ShardFilter.ShardId = requestShardFilter_shardFilter_ShardId;
+                requestShardFilterIsNull = false;
+            }
+            System.DateTime? requestShardFilter_shardFilter_Timestamp = null;
+            if (cmdletContext.ShardFilter_Timestamp != null)
+            {
+                requestShardFilter_shardFilter_Timestamp = cmdletContext.ShardFilter_Timestamp.Value;
+            }
+            if (requestShardFilter_shardFilter_Timestamp != null)
+            {
+                request.ShardFilter.Timestamp = requestShardFilter_shardFilter_Timestamp.Value;
+                requestShardFilterIsNull = false;
+            }
+            Amazon.Kinesis.ShardFilterType requestShardFilter_shardFilter_Type = null;
+            if (cmdletContext.ShardFilter_Type != null)
+            {
+                requestShardFilter_shardFilter_Type = cmdletContext.ShardFilter_Type;
+            }
+            if (requestShardFilter_shardFilter_Type != null)
+            {
+                request.ShardFilter.Type = requestShardFilter_shardFilter_Type;
+                requestShardFilterIsNull = false;
+            }
+             // determine if request.ShardFilter should be set to null
+            if (requestShardFilterIsNull)
+            {
+                request.ShardFilter = null;
             }
             if (cmdletContext.StreamCreationTimestamp != null)
             {
@@ -425,6 +537,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             public System.String ExclusiveStartShardId { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ShardFilter_ShardId { get; set; }
+            public System.DateTime? ShardFilter_Timestamp { get; set; }
+            public Amazon.Kinesis.ShardFilterType ShardFilter_Type { get; set; }
             public System.DateTime? StreamCreationTimestamp { get; set; }
             public System.String StreamName { get; set; }
             public System.Func<Amazon.Kinesis.Model.ListShardsResponse, GetKINShardListCmdlet, object> Select { get; set; } =

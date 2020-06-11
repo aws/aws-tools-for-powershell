@@ -28,7 +28,8 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    
+    /// Submits profiling data to an aggregated profile of a profiling group. To get an aggregated
+    /// profile that is created with this profiling data, use <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_GetProfile.html"><code>GetProfile</code></a>.
     /// </summary>
     [Cmdlet("Send", "CGPAgentProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter AgentProfile
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The submitted profiling data. </para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -61,7 +62,12 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The format of the submitted profiling data. The format maps to the <code>Accept</code>
+        /// and <code>Content-Type</code> headers of the HTTP request. You can specify one of
+        /// the following: or the default . </para><pre><code> &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/json&lt;/code&gt;
+        /// — standard JSON format &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;application/x-amzn-ion&lt;/code&gt;
+        /// — the Amazon Ion data format. For more information, see &lt;a href="http://amzn.github.io/ion-docs/"&gt;Amazon
+        /// Ion&lt;/a&gt;. &lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </code></pre>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfileToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> Amazon CodeGuru Profiler uses this universally unique identifier (UUID) to prevent
+        /// the accidental submission of duplicate profiling data if there are failures and retries.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfilingGroupName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para> The name of the profiling group with the aggregated profile that receives the submitted
+        /// profiling data. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

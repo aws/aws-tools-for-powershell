@@ -31,7 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// Creates a managed worker node group for an Amazon EKS cluster. You can only create
     /// a node group for your cluster that is equal to the current Kubernetes version for
     /// the cluster. All node groups are created with the latest AMI release version for the
-    /// respective minor Kubernetes version of the cluster.
+    /// respective minor Kubernetes version of the cluster, unless you deploy a custom AMI
+    /// using a launch template. For more information about using launch templates, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+    /// template support</a>.
     /// 
     ///  
     /// <para>
@@ -58,7 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The AMI type for your node group. GPU instance types should use the <code>AL2_x86_64_GPU</code>
         /// AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support. Non-GPU
         /// instances should use the <code>AL2_x86_64</code> AMI type, which uses the Amazon EKS-optimized
-        /// Linux AMI.</para>
+        /// Linux AMI. If you specify <code>launchTemplate</code>, and your launch template uses
+        /// a custom AMI, then don't specify <code>amiType</code>, or the node group deployment
+        /// will fail. For more information about using launch templates with Amazon EKS, see
+        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,7 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The root device disk size (in GiB) for your node group instances. The default disk
-        /// size is 20 GiB.</para>
+        /// size is 20 GiB. If you specify <code>launchTemplate</code>, then don't specify <code>diskSize</code>,
+        /// or the node group deployment will fail. For more information about using launch templates
+        /// with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,13 +136,26 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String RemoteAccess_Ec2SshKey { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplate_Id
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the launch template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LaunchTemplate_Id { get; set; }
+        #endregion
+        
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type to use for your node group. Currently, you can specify a single
-        /// instance type for a node group. The default value for this parameter is <code>t3.medium</code>.
-        /// If you choose a GPU instance type, be sure to specify the <code>AL2_x86_64_GPU</code>
-        /// with the <code>amiType</code> parameter.</para>
+        /// <para>The instance type to use for your node group. You can specify a single instance type
+        /// for a node group. The default value for <code>instanceTypes</code> is <code>t3.medium</code>.
+        /// If you choose a GPU instance type, be sure to specify <code>AL2_x86_64_GPU</code>
+        /// with the <code>amiType</code> parameter. If you specify <code>launchTemplate</code>,
+        /// then don't specify <code>instanceTypes</code>, or the node group deployment will fail.
+        /// For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,6 +196,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Int32? ScalingConfig_MinSize { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplate_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the launch template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LaunchTemplate_Name { get; set; }
+        #endregion
+        
         #region Parameter NodegroupName
         /// <summary>
         /// <para>
@@ -200,7 +232,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// profile and associated policies. Before you can launch worker nodes and register them
         /// into a cluster, you must create an IAM role for those worker nodes to use when they
         /// are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html">Amazon
-        /// EKS Worker Node IAM Role</a> in the <i><i>Amazon EKS User Guide</i></i>.</para>
+        /// EKS Worker Node IAM Role</a> in the <i><i>Amazon EKS User Guide</i></i>. If you
+        /// specify <code>launchTemplate</code>, then don't specify <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html"><code>IamInstanceProfile</code></a> in your launch template, or the node group deployment
+        /// will fail. For more information about using launch templates with Amazon EKS, see
+        /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -220,7 +256,11 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The AMI version of the Amazon EKS-optimized AMI to use with your node group. By default,
         /// the latest available AMI version for the node group's current Kubernetes version is
         /// used. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-linux-ami-versions.html">Amazon
-        /// EKS-Optimized Linux AMI Versions</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// EKS-Optimized Linux AMI Versions</a> in the <i>Amazon EKS User Guide</i>. If you specify
+        /// <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't
+        /// specify <code>releaseVersion</code>, or the node group deployment will fail. For more
+        /// information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -248,7 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>The subnets to use for the Auto Scaling group that is created for your node group.
         /// These subnets must have the tag key <code>kubernetes.io/cluster/CLUSTER_NAME</code>
         /// with a value of <code>shared</code>, where <code>CLUSTER_NAME</code> is replaced with
-        /// the name of your cluster.</para>
+        /// the name of your cluster. If you specify <code>launchTemplate</code>, then don't specify
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html"><code>SubnetId</code></a> in your launch template, or the node group deployment will
+        /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -277,11 +320,26 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The version of the launch template to use. If no version is specified, then the template's
+        /// default version is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LaunchTemplate_Version { get; set; }
+        #endregion
+        
         #region Parameter Version
         /// <summary>
         /// <para>
         /// <para>The Kubernetes version to use for your managed nodes. By default, the Kubernetes version
-        /// of the cluster is used, and this is the only accepted specified value.</para>
+        /// of the cluster is used, and this is the only accepted specified value. If you specify
+        /// <code>launchTemplate</code>, and your launch template uses a custom AMI, then don't
+        /// specify <code>version</code>, or the node group deployment will fail. For more information
+        /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
+        /// template support</a> in the Amazon EKS User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -371,6 +429,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                     context.Label.Add((String)hashKey, (String)(this.Label[hashKey]));
                 }
             }
+            context.LaunchTemplate_Id = this.LaunchTemplate_Id;
+            context.LaunchTemplate_Name = this.LaunchTemplate_Name;
+            context.LaunchTemplate_Version = this.LaunchTemplate_Version;
             context.NodegroupName = this.NodegroupName;
             #if MODULAR
             if (this.NodegroupName == null && ParameterWasBound(nameof(this.NodegroupName)))
@@ -452,6 +513,45 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.Label != null)
             {
                 request.Labels = cmdletContext.Label;
+            }
+            
+             // populate LaunchTemplate
+            var requestLaunchTemplateIsNull = true;
+            request.LaunchTemplate = new Amazon.EKS.Model.LaunchTemplateSpecification();
+            System.String requestLaunchTemplate_launchTemplate_Id = null;
+            if (cmdletContext.LaunchTemplate_Id != null)
+            {
+                requestLaunchTemplate_launchTemplate_Id = cmdletContext.LaunchTemplate_Id;
+            }
+            if (requestLaunchTemplate_launchTemplate_Id != null)
+            {
+                request.LaunchTemplate.Id = requestLaunchTemplate_launchTemplate_Id;
+                requestLaunchTemplateIsNull = false;
+            }
+            System.String requestLaunchTemplate_launchTemplate_Name = null;
+            if (cmdletContext.LaunchTemplate_Name != null)
+            {
+                requestLaunchTemplate_launchTemplate_Name = cmdletContext.LaunchTemplate_Name;
+            }
+            if (requestLaunchTemplate_launchTemplate_Name != null)
+            {
+                request.LaunchTemplate.Name = requestLaunchTemplate_launchTemplate_Name;
+                requestLaunchTemplateIsNull = false;
+            }
+            System.String requestLaunchTemplate_launchTemplate_Version = null;
+            if (cmdletContext.LaunchTemplate_Version != null)
+            {
+                requestLaunchTemplate_launchTemplate_Version = cmdletContext.LaunchTemplate_Version;
+            }
+            if (requestLaunchTemplate_launchTemplate_Version != null)
+            {
+                request.LaunchTemplate.Version = requestLaunchTemplate_launchTemplate_Version;
+                requestLaunchTemplateIsNull = false;
+            }
+             // determine if request.LaunchTemplate should be set to null
+            if (requestLaunchTemplateIsNull)
+            {
+                request.LaunchTemplate = null;
             }
             if (cmdletContext.NodegroupName != null)
             {
@@ -612,6 +712,9 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.Int32? DiskSize { get; set; }
             public List<System.String> InstanceType { get; set; }
             public Dictionary<System.String, System.String> Label { get; set; }
+            public System.String LaunchTemplate_Id { get; set; }
+            public System.String LaunchTemplate_Name { get; set; }
+            public System.String LaunchTemplate_Version { get; set; }
             public System.String NodegroupName { get; set; }
             public System.String NodeRole { get; set; }
             public System.String ReleaseVersion { get; set; }

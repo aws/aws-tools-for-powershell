@@ -28,8 +28,7 @@ using Amazon.FSx.Model;
 namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Creates a new Amazon FSx file system from an existing Amazon FSx for Windows File
-    /// Server backup.
+    /// Creates a new Amazon FSx file system from an existing Amazon FSx backup.
     /// 
     ///  
     /// <para>
@@ -91,13 +90,23 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent
-        /// creation. This string is automatically filled on your behalf when you use the AWS
-        /// Command Line Interface (AWS CLI) or an AWS SDK.</para>
+        /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation.
+        /// This string is automatically filled on your behalf when you use the AWS Command Line
+        /// Interface (AWS CLI) or an AWS SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter LustreConfiguration
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.FSx.Model.CreateFileSystemLustreConfiguration LustreConfiguration { get; set; }
         #endregion
         
         #region Parameter SecurityGroupId
@@ -246,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             }
             #endif
             context.ClientRequestToken = this.ClientRequestToken;
+            context.LustreConfiguration = this.LustreConfiguration;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupId = new List<System.String>(this.SecurityGroupId);
@@ -289,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.LustreConfiguration != null)
+            {
+                request.LustreConfiguration = cmdletContext.LustreConfiguration;
             }
             if (cmdletContext.SecurityGroupId != null)
             {
@@ -373,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String BackupId { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public Amazon.FSx.Model.CreateFileSystemLustreConfiguration LustreConfiguration { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public Amazon.FSx.StorageType StorageType { get; set; }
             public List<System.String> SubnetId { get; set; }

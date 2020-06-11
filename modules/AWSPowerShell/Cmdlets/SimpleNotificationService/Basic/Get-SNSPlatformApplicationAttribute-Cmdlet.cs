@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Retrieves the attributes of the platform application object for the supported push
-    /// notification services, such as APNS and FCM. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
-    /// Amazon SNS Mobile Push Notifications</a>.
+    /// notification services, such as APNS and GCM (Firebase Cloud Messaging). For more information,
+    /// see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+    /// SNS Mobile Push Notifications</a>.
     /// </summary>
     [Cmdlet("Get", "SNSPlatformApplicationAttribute")]
     [OutputType("System.String")]

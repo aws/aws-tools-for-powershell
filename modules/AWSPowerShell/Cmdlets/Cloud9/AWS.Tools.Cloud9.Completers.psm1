@@ -80,6 +80,13 @@ $C9_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Cloud9.ConnectionType
+        "New-C9EnvironmentEC2/ConnectionType"
+        {
+            $v = "CONNECT_SSH","CONNECT_SSM"
+            break
+        }
+
         # Amazon.Cloud9.MemberPermissions
         {
             ($_ -eq "New-C9EnvironmentMembership/Permissions") -Or
@@ -99,6 +106,7 @@ $C9_Completers = {
 }
 
 $C9_map = @{
+    "ConnectionType"=@("New-C9EnvironmentEC2")
     "Permissions"=@("New-C9EnvironmentMembership","Update-C9EnvironmentMembership")
 }
 

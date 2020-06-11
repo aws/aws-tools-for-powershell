@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Searchs for dashboards that belong to a user.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches for dashboards that belong to a user.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "QSDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.DashboardSummary")]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters to apply to the search. Currently, you can search only by user name. For
+        /// <para>The filters to apply to the search. Currently, you can search only by user name, for
         /// example, <code>"Filters": [ { "Name": "QUICKSIGHT_USER", "Operator": "StringEquals",
         /// "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1" } ]</code></para>
         /// </para>

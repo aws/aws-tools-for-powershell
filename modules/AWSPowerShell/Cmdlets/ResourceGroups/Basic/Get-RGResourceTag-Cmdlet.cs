@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource group for which you want a list of tags. The resource must
-        /// exist within the account you are using.</para>
+        /// <para>The ARN of the resource group whose tags you want to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

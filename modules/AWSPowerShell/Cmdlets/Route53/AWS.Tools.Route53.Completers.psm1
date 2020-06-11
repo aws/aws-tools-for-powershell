@@ -158,7 +158,8 @@ $R53_Completers = {
             ($_ -eq "New-R53VPCAssociationAuthorization/VPC_VPCRegion") -Or
             ($_ -eq "Register-R53VPCWithHostedZone/VPC_VPCRegion") -Or
             ($_ -eq "Remove-R53VPCAssociationAuthorization/VPC_VPCRegion") -Or
-            ($_ -eq "Unregister-R53VPCFromHostedZone/VPC_VPCRegion")
+            ($_ -eq "Unregister-R53VPCFromHostedZone/VPC_VPCRegion") -Or
+            ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
             $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","cn-north-1","eu-central-1","eu-north-1","eu-south-1","eu-west-1","eu-west-2","eu-west-3","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-isob-east-1","us-west-1","us-west-2"
@@ -185,6 +186,7 @@ $R53_map = @{
     "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstanceList","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")
     "Type"=@("Get-R53AccountLimit","Get-R53HostedZoneLimit","Get-R53ReusableDelegationSetLimit")
     "VPC_VPCRegion"=@("New-R53HostedZone","New-R53VPCAssociationAuthorization","Register-R53VPCWithHostedZone","Remove-R53VPCAssociationAuthorization","Unregister-R53VPCFromHostedZone")
+    "VPCRegion"=@("Get-R53HostedZonesByVPC")
 }
 
 _awsArgumentCompleterRegistration $R53_Completers $R53_map
@@ -276,6 +278,7 @@ $R53_SelectMap = @{
                "Get-R53GeoLocationList",
                "Get-R53HealthCheckList",
                "Get-R53HostedZoneList",
+               "Get-R53HostedZonesByVPC",
                "Get-R53QueryLoggingConfigList",
                "Get-R53ResourceRecordSet",
                "Get-R53ReusableDelegationSetList",

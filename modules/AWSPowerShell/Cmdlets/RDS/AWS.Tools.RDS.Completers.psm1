@@ -94,6 +94,16 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.ReplicaMode
+        {
+            ($_ -eq "Edit-RDSDBInstance/ReplicaMode") -Or
+            ($_ -eq "New-RDSDBInstanceReadReplica/ReplicaMode")
+        }
+        {
+            $v = "mounted","open-read-only"
+            break
+        }
+
         # Amazon.RDS.SourceType
         "Get-RDSEvent/SourceType"
         {
@@ -112,6 +122,7 @@ $RDS_Completers = {
 $RDS_map = @{
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
+    "ReplicaMode"=@("Edit-RDSDBInstance","New-RDSDBInstanceReadReplica")
     "SourceType"=@("Get-RDSEvent")
 }
 

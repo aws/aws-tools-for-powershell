@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>sagemaker</C2jFilename>
     <AssemblyName>SageMaker</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -131,6 +131,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkforce" OutputProperty="WorkforceArn" Verb="New" Noun="Workforce" ShouldProcessTarget="WorkforceName" PipelineParameter="WorkforceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkteam" OutputProperty="WorkteamArn" Verb="New" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -167,6 +171,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHumanTaskUi" Verb="Remove" Noun="HumanTaskUi" ShouldProcessTarget="HumanTaskUiName" PipelineParameter="HumanTaskUiName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteModel" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -200,6 +208,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteUserProfile" Verb="Remove" Noun="UserProfile" ShouldProcessTarget="UserProfileName" PipelineParameter="UserProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkforce" Verb="Remove" Noun="Workforce" ShouldProcessTarget="WorkforceName" PipelineParameter="WorkforceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -443,6 +455,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkforces" OutputProperty="Workforces" Verb="Get" Noun="WorkforceList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListWorkteams" OutputProperty="Workteams" Verb="Get" Noun="WorkteamList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -552,8 +568,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.SageMaker.Model.AlgorithmSpecification</Type>
         <Type>Amazon.SageMaker.Model.ContainerDefinition</Type>

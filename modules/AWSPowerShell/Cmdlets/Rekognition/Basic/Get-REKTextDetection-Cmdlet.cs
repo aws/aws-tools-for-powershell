@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>Job identifier for the label detection operation for which you want results returned.
+        /// <para>Job identifier for the text detection operation for which you want results returned.
         /// You get the job identifer from an initial call to <code>StartTextDetection</code>.</para>
         /// </para>
         /// </summary>

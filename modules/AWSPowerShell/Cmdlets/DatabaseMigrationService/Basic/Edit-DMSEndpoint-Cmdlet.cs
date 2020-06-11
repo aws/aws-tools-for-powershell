@@ -65,11 +65,55 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String RedshiftSettings_AfterConnectScript { get; set; }
         #endregion
         
+        #region Parameter OracleSettings_AsmPassword
+        /// <summary>
+        /// <para>
+        /// <para>For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+        /// You can set this value from the <code><i>asm_user_password</i></code> value. You
+        /// set this value as part of the comma-separated value that you set to the <code>Password</code>
+        /// request parameter when you create the endpoint to access transaction logs using Binary
+        /// Reader. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
+        /// for change data capture (CDC) on an Oracle source database</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_AsmPassword { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_AsmServer
+        /// <summary>
+        /// <para>
+        /// <para>For an Oracle source endpoint, your ASM server address. You can set this value from
+        /// the <code>asm_server</code> value. You set <code>asm_server</code> as part of the
+        /// extra connection attribute string to access an Oracle server with Binary Reader that
+        /// uses ASM. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
+        /// for change data capture (CDC) on an Oracle source database</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_AsmServer { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_AsmUser
+        /// <summary>
+        /// <para>
+        /// <para>For an Oracle source endpoint, your ASM user name. You can set this value from the
+        /// <code>asm_user</code> value. You set <code>asm_user</code> as part of the extra connection
+        /// attribute string to access an Oracle server with Binary Reader that uses ASM. For
+        /// more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration
+        /// for change data capture (CDC) on an Oracle source database</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_AsmUser { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_AuthMechanism
         /// <summary>
         /// <para>
-        /// <para> The authentication mechanism you use to access the MongoDB source endpoint.</para><para>Valid values: DEFAULT, MONGODB_CR, SCRAM_SHA_1 </para><para>DEFAULT – For MongoDB version 2.x, use MONGODB_CR. For MongoDB version 3.x, use SCRAM_SHA_1.
-        /// This setting isn't used when authType=No.</para>
+        /// <para> The authentication mechanism you use to access the MongoDB source endpoint.</para><para>For the default value, in MongoDB version 2.x, <code>"default"</code> is <code>"mongodb_cr"</code>.
+        /// For MongoDB version 3.x or later, <code>"default"</code> is <code>"scram_sha_1"</code>.
+        /// This setting isn't used when <code>AuthType</code> is set to <code>"no"</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_AuthSource
         /// <summary>
         /// <para>
-        /// <para> The MongoDB database name. This setting isn't used when <code>authType=NO</code>.
-        /// </para><para>The default is admin.</para>
+        /// <para> The MongoDB database name. This setting isn't used when <code>AuthType</code> is
+        /// set to <code>"no"</code>. </para><para>The default is <code>"admin"</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_AuthType
         /// <summary>
         /// <para>
-        /// <para> The authentication type you use to access the MongoDB source endpoint.</para><para>Valid values: NO, PASSWORD </para><para>When NO is selected, user name and password parameters are not used and can be empty.
-        /// </para>
+        /// <para> The authentication type you use to access the MongoDB source endpoint.</para><para>When when set to <code>"no"</code>, user name and password parameters are not used
+        /// and can be empty. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -287,6 +331,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DatabaseName { get; set; }
         #endregion
         
+        #region Parameter IBMDb2Settings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>Database name for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IBMDb2Settings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>Database name for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MicrosoftSQLServerSettings_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_DatabaseName
         /// <summary>
         /// <para>
@@ -297,6 +361,36 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MongoDbSettings_DatabaseName { get; set; }
         #endregion
         
+        #region Parameter MySQLSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>Database name for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MySQLSettings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>Database name for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>Database name for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_DatabaseName
         /// <summary>
         /// <para>
@@ -305,6 +399,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RedshiftSettings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter SybaseSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>Database name for the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SybaseSettings_DatabaseName { get; set; }
         #endregion
         
         #region Parameter S3Settings_DataFormat
@@ -364,7 +468,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> Indicates the number of documents to preview to determine the document organization.
-        /// Use this setting when <code>NestingLevel</code> is set to ONE. </para><para>Must be a positive value greater than 0. Default value is 1000.</para>
+        /// Use this setting when <code>NestingLevel</code> is set to <code>"one"</code>. </para><para>Must be a positive value greater than <code>0</code>. Default value is <code>1000</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -499,7 +603,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"redshift"</code>,
         /// <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>, <code>"sybase"</code>,
         /// <code>"dynamodb"</code>, <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
-        /// <code>"elasticsearch"</code>, <code>"documentdb"</code>, and <code>"sqlserver"</code>.</para>
+        /// <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
+        /// and <code>"neptune"</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -564,7 +669,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set
-        /// to NONE. </para><para>Default value is false. </para>
+        /// to <code>"none"</code>. </para><para>Default value is <code>"false"</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -597,13 +702,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter NeptuneSettings_IamAuthEnabled
         /// <summary>
         /// <para>
-        /// <para>If you want IAM authorization enabled for this endpoint, set this parameter to <code>true</code>
-        /// and attach the appropriate role policy document to your service role specified by
-        /// <code>ServiceAccessRoleArn</code>. The default is <code>false</code>.</para>
+        /// <para>If you want AWS Identity and Access Management (IAM) authorization enabled for this
+        /// endpoint, set this parameter to <code>true</code>. Then attach the appropriate IAM
+        /// policy document to your service role specified by <code>ServiceAccessRoleArn</code>.
+        /// The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? NeptuneSettings_IamAuthEnabled { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_IncludeControlDetail
+        /// <summary>
+        /// <para>
+        /// <para>Shows detailed control information for table definition, column definition, and table
+        /// and column changes in the Kafka message output. The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KafkaSettings_IncludeControlDetails")]
+        public System.Boolean? KafkaSettings_IncludeControlDetail { get; set; }
         #endregion
         
         #region Parameter KinesisSettings_IncludeControlDetail
@@ -639,6 +757,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? S3Settings_IncludeOpForFullLoad { get; set; }
         #endregion
         
+        #region Parameter KafkaSettings_IncludePartitionValue
+        /// <summary>
+        /// <para>
+        /// <para>Shows the partition value within the Kafka message output, unless the partition type
+        /// is <code>schema-table-type</code>. The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KafkaSettings_IncludePartitionValue { get; set; }
+        #endregion
+        
         #region Parameter KinesisSettings_IncludePartitionValue
         /// <summary>
         /// <para>
@@ -648,6 +777,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? KinesisSettings_IncludePartitionValue { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_IncludeTableAlterOperation
+        /// <summary>
+        /// <para>
+        /// <para>Includes any data definition language (DDL) operations that change the table in the
+        /// control data, such as <code>rename-table</code>, <code>drop-table</code>, <code>add-column</code>,
+        /// <code>drop-column</code>, and <code>rename-column</code>. The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KafkaSettings_IncludeTableAlterOperations")]
+        public System.Boolean? KafkaSettings_IncludeTableAlterOperation { get; set; }
         #endregion
         
         #region Parameter KinesisSettings_IncludeTableAlterOperation
@@ -661,6 +803,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KinesisSettings_IncludeTableAlterOperations")]
         public System.Boolean? KinesisSettings_IncludeTableAlterOperation { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_IncludeTransactionDetail
+        /// <summary>
+        /// <para>
+        /// <para>Provides detailed transaction information from the source database. This information
+        /// includes a commit timestamp, a log position, and values for <code>transaction_id</code>,
+        /// previous <code>transaction_id</code>, and <code>transaction_record_id</code> (the
+        /// record offset within a transaction). The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KafkaSettings_IncludeTransactionDetails")]
+        public System.Boolean? KafkaSettings_IncludeTransactionDetail { get; set; }
         #endregion
         
         #region Parameter KinesisSettings_IncludeTransactionDetail
@@ -705,10 +861,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter NeptuneSettings_MaxFileSize
         /// <summary>
         /// <para>
-        /// <para>The maximum size in KB of migrated graph data stored in a CSV file before AWS DMS
-        /// bulk-loads the data to the Neptune target database. The default is 1048576 KB. If
-        /// successful, AWS DMS clears the bucket, ready to store the next batch of migrated graph
-        /// data.</para>
+        /// <para>The maximum size in kilobytes of migrated graph data stored in a .csv file before
+        /// AWS DMS bulk-loads the data to the Neptune target database. The default is 1,048,576
+        /// KB. If the bulk load is successful, AWS DMS clears the bucket, ready to store the
+        /// next batch of migrated graph data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -729,12 +885,24 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter NeptuneSettings_MaxRetryCount
         /// <summary>
         /// <para>
-        /// <para>The number of times for AWS DMS to retry a bulk-load of migrated graph data to the
+        /// <para>The number of times for AWS DMS to retry a bulk load of migrated graph data to the
         /// Neptune target database before raising an error. The default is 5.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? NeptuneSettings_MaxRetryCount { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_MessageFormat
+        /// <summary>
+        /// <para>
+        /// <para>The output format for the records created on the endpoint. The message format is <code>JSON</code>
+        /// (default) or <code>JSON_UNFORMATTED</code> (a single line with no tab).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.MessageFormatValue")]
+        public Amazon.DatabaseMigrationService.MessageFormatValue KafkaSettings_MessageFormat { get; set; }
         #endregion
         
         #region Parameter KinesisSettings_MessageFormat
@@ -752,8 +920,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_NestingLevel
         /// <summary>
         /// <para>
-        /// <para> Specifies either document or table mode. </para><para>Valid values: NONE, ONE</para><para>Default value is NONE. Specify NONE to use document mode. Specify ONE to use table
-        /// mode.</para>
+        /// <para> Specifies either document or table mode. </para><para>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document
+        /// mode. Specify <code>"one"</code> to use table mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -793,6 +961,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.ParquetVersionValue S3Settings_ParquetVersion { get; set; }
         #endregion
         
+        #region Parameter KafkaSettings_PartitionIncludeSchemaTable
+        /// <summary>
+        /// <para>
+        /// <para>Prefixes schema and table names to partition values, when the partition type is <code>primary-key-type</code>.
+        /// Doing this increases data distribution among Kafka partitions. For example, suppose
+        /// that a SysBench schema has thousands of tables and each table has only limited range
+        /// for a primary key. In this case, the same primary key is sent from thousands of tables
+        /// to the same partition, which causes throttling. The default is <code>False</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KafkaSettings_PartitionIncludeSchemaTable { get; set; }
+        #endregion
+        
         #region Parameter KinesisSettings_PartitionIncludeSchemaTable
         /// <summary>
         /// <para>
@@ -807,6 +989,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? KinesisSettings_PartitionIncludeSchemaTable { get; set; }
         #endregion
         
+        #region Parameter IBMDb2Settings_Password
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IBMDb2Settings_Password { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_Password
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MicrosoftSQLServerSettings_Password { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_Password
         /// <summary>
         /// <para>
@@ -816,6 +1018,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MongoDbSettings_Password { get; set; }
+        #endregion
+        
+        #region Parameter MySQLSettings_Password
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MySQLSettings_Password { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_Password
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_Password { get; set; }
         #endregion
         
         #region Parameter Password
@@ -828,6 +1050,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String Password { get; set; }
         #endregion
         
+        #region Parameter PostgreSQLSettings_Password
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_Password { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_Password
         /// <summary>
         /// <para>
@@ -836,6 +1068,36 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RedshiftSettings_Password { get; set; }
+        #endregion
+        
+        #region Parameter SybaseSettings_Password
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection password.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SybaseSettings_Password { get; set; }
+        #endregion
+        
+        #region Parameter IBMDb2Settings_Port
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint TCP port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? IBMDb2Settings_Port { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint TCP port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MicrosoftSQLServerSettings_Port { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_Port
@@ -848,6 +1110,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? MongoDbSettings_Port { get; set; }
         #endregion
         
+        #region Parameter MySQLSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint TCP port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MySQLSettings_Port { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint TCP port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OracleSettings_Port { get; set; }
+        #endregion
+        
         #region Parameter Port
         /// <summary>
         /// <para>
@@ -858,6 +1140,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? Port { get; set; }
         #endregion
         
+        #region Parameter PostgreSQLSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint TCP port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PostgreSQLSettings_Port { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_Port
         /// <summary>
         /// <para>
@@ -866,6 +1158,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? RedshiftSettings_Port { get; set; }
+        #endregion
+        
+        #region Parameter SybaseSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint TCP port.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? SybaseSettings_Port { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_RemoveQuote
@@ -920,8 +1222,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter NeptuneSettings_S3BucketFolder
         /// <summary>
         /// <para>
-        /// <para>A folder path where you where you want AWS DMS to store migrated graph data in the
-        /// S3 bucket specified by <code>S3BucketName</code></para>
+        /// <para>A folder path where you want AWS DMS to store migrated graph data in the S3 bucket
+        /// specified by <code>S3BucketName</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -931,13 +1233,67 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter NeptuneSettings_S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket for AWS DMS to temporarily store migrated graph data in
-        /// CSV files before bulk-loading it to the Neptune target database. AWS DMS maps the
-        /// SQL source data to graph data before storing it in these CSV files.</para>
+        /// <para>The name of the Amazon S3 bucket where AWS DMS can temporarily store migrated graph
+        /// data in .csv files before bulk-loading it to the Neptune target database. AWS DMS
+        /// maps the SQL source data to graph data before storing it in these .csv files.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NeptuneSettings_S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_SecurityDbEncryption
+        /// <summary>
+        /// <para>
+        /// <para>For an Oracle source endpoint, the transparent data encryption (TDE) password required
+        /// by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader. It is
+        /// also the <code><i>TDE_Password</i></code> part of the comma-separated value you
+        /// set to the <code>Password</code> request parameter when you create the endpoint. The
+        /// <code>SecurityDbEncryptian</code> setting is related to this <code>SecurityDbEncryptionName</code>
+        /// setting. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption">
+        /// Supported encryption methods for using Oracle as a source for AWS DMS</a> in the <i>AWS
+        /// Database Migration Service User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_SecurityDbEncryption { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_SecurityDbEncryptionName
+        /// <summary>
+        /// <para>
+        /// <para>For an Oracle source endpoint, the name of a key used for the transparent data encryption
+        /// (TDE) of the columns and tablespaces in an Oracle source database that is encrypted
+        /// using TDE. The key value is the value of the <code>SecurityDbEncryption</code> setting.
+        /// For more information on setting the key name value of <code>SecurityDbEncryptionName</code>,
+        /// see the information and example for setting the <code>securityDbEncryptionName</code>
+        /// extra connection attribute in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption">
+        /// Supported encryption methods for using Oracle as a source for AWS DMS</a> in the <i>AWS
+        /// Database Migration Service User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_SecurityDbEncryptionName { get; set; }
+        #endregion
+        
+        #region Parameter IBMDb2Settings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IBMDb2Settings_ServerName { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MicrosoftSQLServerSettings_ServerName { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_ServerName
@@ -948,6 +1304,36 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MongoDbSettings_ServerName { get; set; }
+        #endregion
+        
+        #region Parameter MySQLSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MySQLSettings_ServerName { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_ServerName { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_ServerName { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_ServerName
@@ -968,6 +1354,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ServerName { get; set; }
+        #endregion
+        
+        #region Parameter SybaseSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>Fully qualified domain name of the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SybaseSettings_ServerName { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_ServerSideEncryptionKmsKeyId
@@ -1039,9 +1435,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter NeptuneSettings_ServiceAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the service role you have created for the Neptune target endpoint. For
-        /// more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole">https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole</a>
-        /// in the <i>AWS Database Migration Service User Guide.</i></para>
+        /// <para>The Amazon Resource Name (ARN) of the service role that you created for the Neptune
+        /// target endpoint. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.ServiceRole">Creating
+        /// an IAM Service Role for Accessing Amazon Neptune as a Target</a> in the <i>AWS Database
+        /// Migration Service User Guide. </i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1172,6 +1569,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? RedshiftSettings_TruncateColumn { get; set; }
         #endregion
         
+        #region Parameter IBMDb2Settings_Username
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection user name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IBMDb2Settings_Username { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_Username
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection user name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MicrosoftSQLServerSettings_Username { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_Username
         /// <summary>
         /// <para>
@@ -1182,6 +1599,36 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MongoDbSettings_Username { get; set; }
         #endregion
         
+        #region Parameter MySQLSettings_Username
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection user name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MySQLSettings_Username { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_Username
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection user name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_Username { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_Username
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection user name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_Username { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_Username
         /// <summary>
         /// <para>
@@ -1190,6 +1637,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RedshiftSettings_Username { get; set; }
+        #endregion
+        
+        #region Parameter SybaseSettings_Username
+        /// <summary>
+        /// <para>
+        /// <para>Endpoint connection user name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SybaseSettings_Username { get; set; }
         #endregion
         
         #region Parameter Username
@@ -1295,7 +1752,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.EngineName = this.EngineName;
             context.ExternalTableDefinition = this.ExternalTableDefinition;
             context.ExtraConnectionAttribute = this.ExtraConnectionAttribute;
+            context.IBMDb2Settings_DatabaseName = this.IBMDb2Settings_DatabaseName;
+            context.IBMDb2Settings_Password = this.IBMDb2Settings_Password;
+            context.IBMDb2Settings_Port = this.IBMDb2Settings_Port;
+            context.IBMDb2Settings_ServerName = this.IBMDb2Settings_ServerName;
+            context.IBMDb2Settings_Username = this.IBMDb2Settings_Username;
             context.KafkaSettings_Broker = this.KafkaSettings_Broker;
+            context.KafkaSettings_IncludeControlDetail = this.KafkaSettings_IncludeControlDetail;
+            context.KafkaSettings_IncludePartitionValue = this.KafkaSettings_IncludePartitionValue;
+            context.KafkaSettings_IncludeTableAlterOperation = this.KafkaSettings_IncludeTableAlterOperation;
+            context.KafkaSettings_IncludeTransactionDetail = this.KafkaSettings_IncludeTransactionDetail;
+            context.KafkaSettings_MessageFormat = this.KafkaSettings_MessageFormat;
+            context.KafkaSettings_PartitionIncludeSchemaTable = this.KafkaSettings_PartitionIncludeSchemaTable;
             context.KafkaSettings_Topic = this.KafkaSettings_Topic;
             context.KinesisSettings_IncludeControlDetail = this.KinesisSettings_IncludeControlDetail;
             context.KinesisSettings_IncludePartitionValue = this.KinesisSettings_IncludePartitionValue;
@@ -1305,6 +1773,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.KinesisSettings_PartitionIncludeSchemaTable = this.KinesisSettings_PartitionIncludeSchemaTable;
             context.KinesisSettings_ServiceAccessRoleArn = this.KinesisSettings_ServiceAccessRoleArn;
             context.KinesisSettings_StreamArn = this.KinesisSettings_StreamArn;
+            context.MicrosoftSQLServerSettings_DatabaseName = this.MicrosoftSQLServerSettings_DatabaseName;
+            context.MicrosoftSQLServerSettings_Password = this.MicrosoftSQLServerSettings_Password;
+            context.MicrosoftSQLServerSettings_Port = this.MicrosoftSQLServerSettings_Port;
+            context.MicrosoftSQLServerSettings_ServerName = this.MicrosoftSQLServerSettings_ServerName;
+            context.MicrosoftSQLServerSettings_Username = this.MicrosoftSQLServerSettings_Username;
             context.MongoDbSettings_AuthMechanism = this.MongoDbSettings_AuthMechanism;
             context.MongoDbSettings_AuthSource = this.MongoDbSettings_AuthSource;
             context.MongoDbSettings_AuthType = this.MongoDbSettings_AuthType;
@@ -1317,6 +1790,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MongoDbSettings_Port = this.MongoDbSettings_Port;
             context.MongoDbSettings_ServerName = this.MongoDbSettings_ServerName;
             context.MongoDbSettings_Username = this.MongoDbSettings_Username;
+            context.MySQLSettings_DatabaseName = this.MySQLSettings_DatabaseName;
+            context.MySQLSettings_Password = this.MySQLSettings_Password;
+            context.MySQLSettings_Port = this.MySQLSettings_Port;
+            context.MySQLSettings_ServerName = this.MySQLSettings_ServerName;
+            context.MySQLSettings_Username = this.MySQLSettings_Username;
             context.NeptuneSettings_ErrorRetryDuration = this.NeptuneSettings_ErrorRetryDuration;
             context.NeptuneSettings_IamAuthEnabled = this.NeptuneSettings_IamAuthEnabled;
             context.NeptuneSettings_MaxFileSize = this.NeptuneSettings_MaxFileSize;
@@ -1324,8 +1802,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.NeptuneSettings_S3BucketFolder = this.NeptuneSettings_S3BucketFolder;
             context.NeptuneSettings_S3BucketName = this.NeptuneSettings_S3BucketName;
             context.NeptuneSettings_ServiceAccessRoleArn = this.NeptuneSettings_ServiceAccessRoleArn;
+            context.OracleSettings_AsmPassword = this.OracleSettings_AsmPassword;
+            context.OracleSettings_AsmServer = this.OracleSettings_AsmServer;
+            context.OracleSettings_AsmUser = this.OracleSettings_AsmUser;
+            context.OracleSettings_DatabaseName = this.OracleSettings_DatabaseName;
+            context.OracleSettings_Password = this.OracleSettings_Password;
+            context.OracleSettings_Port = this.OracleSettings_Port;
+            context.OracleSettings_SecurityDbEncryption = this.OracleSettings_SecurityDbEncryption;
+            context.OracleSettings_SecurityDbEncryptionName = this.OracleSettings_SecurityDbEncryptionName;
+            context.OracleSettings_ServerName = this.OracleSettings_ServerName;
+            context.OracleSettings_Username = this.OracleSettings_Username;
             context.Password = this.Password;
             context.Port = this.Port;
+            context.PostgreSQLSettings_DatabaseName = this.PostgreSQLSettings_DatabaseName;
+            context.PostgreSQLSettings_Password = this.PostgreSQLSettings_Password;
+            context.PostgreSQLSettings_Port = this.PostgreSQLSettings_Port;
+            context.PostgreSQLSettings_ServerName = this.PostgreSQLSettings_ServerName;
+            context.PostgreSQLSettings_Username = this.PostgreSQLSettings_Username;
             context.RedshiftSettings_AcceptAnyDate = this.RedshiftSettings_AcceptAnyDate;
             context.RedshiftSettings_AfterConnectScript = this.RedshiftSettings_AfterConnectScript;
             context.RedshiftSettings_BucketFolder = this.RedshiftSettings_BucketFolder;
@@ -1375,6 +1868,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.ServerName = this.ServerName;
             context.ServiceAccessRoleArn = this.ServiceAccessRoleArn;
             context.SslMode = this.SslMode;
+            context.SybaseSettings_DatabaseName = this.SybaseSettings_DatabaseName;
+            context.SybaseSettings_Password = this.SybaseSettings_Password;
+            context.SybaseSettings_Port = this.SybaseSettings_Port;
+            context.SybaseSettings_ServerName = this.SybaseSettings_ServerName;
+            context.SybaseSettings_Username = this.SybaseSettings_Username;
             context.Username = this.Username;
             
             // allow further manipulation of loaded context prior to processing
@@ -1522,6 +2020,65 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.ExtraConnectionAttributes = cmdletContext.ExtraConnectionAttribute;
             }
             
+             // populate IBMDb2Settings
+            var requestIBMDb2SettingsIsNull = true;
+            request.IBMDb2Settings = new Amazon.DatabaseMigrationService.Model.IBMDb2Settings();
+            System.String requestIBMDb2Settings_iBMDb2Settings_DatabaseName = null;
+            if (cmdletContext.IBMDb2Settings_DatabaseName != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_DatabaseName = cmdletContext.IBMDb2Settings_DatabaseName;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_DatabaseName != null)
+            {
+                request.IBMDb2Settings.DatabaseName = requestIBMDb2Settings_iBMDb2Settings_DatabaseName;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.String requestIBMDb2Settings_iBMDb2Settings_Password = null;
+            if (cmdletContext.IBMDb2Settings_Password != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_Password = cmdletContext.IBMDb2Settings_Password;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_Password != null)
+            {
+                request.IBMDb2Settings.Password = requestIBMDb2Settings_iBMDb2Settings_Password;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.Int32? requestIBMDb2Settings_iBMDb2Settings_Port = null;
+            if (cmdletContext.IBMDb2Settings_Port != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_Port = cmdletContext.IBMDb2Settings_Port.Value;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_Port != null)
+            {
+                request.IBMDb2Settings.Port = requestIBMDb2Settings_iBMDb2Settings_Port.Value;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.String requestIBMDb2Settings_iBMDb2Settings_ServerName = null;
+            if (cmdletContext.IBMDb2Settings_ServerName != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_ServerName = cmdletContext.IBMDb2Settings_ServerName;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_ServerName != null)
+            {
+                request.IBMDb2Settings.ServerName = requestIBMDb2Settings_iBMDb2Settings_ServerName;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.String requestIBMDb2Settings_iBMDb2Settings_Username = null;
+            if (cmdletContext.IBMDb2Settings_Username != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_Username = cmdletContext.IBMDb2Settings_Username;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_Username != null)
+            {
+                request.IBMDb2Settings.Username = requestIBMDb2Settings_iBMDb2Settings_Username;
+                requestIBMDb2SettingsIsNull = false;
+            }
+             // determine if request.IBMDb2Settings should be set to null
+            if (requestIBMDb2SettingsIsNull)
+            {
+                request.IBMDb2Settings = null;
+            }
+            
              // populate KafkaSettings
             var requestKafkaSettingsIsNull = true;
             request.KafkaSettings = new Amazon.DatabaseMigrationService.Model.KafkaSettings();
@@ -1533,6 +2090,66 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestKafkaSettings_kafkaSettings_Broker != null)
             {
                 request.KafkaSettings.Broker = requestKafkaSettings_kafkaSettings_Broker;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.Boolean? requestKafkaSettings_kafkaSettings_IncludeControlDetail = null;
+            if (cmdletContext.KafkaSettings_IncludeControlDetail != null)
+            {
+                requestKafkaSettings_kafkaSettings_IncludeControlDetail = cmdletContext.KafkaSettings_IncludeControlDetail.Value;
+            }
+            if (requestKafkaSettings_kafkaSettings_IncludeControlDetail != null)
+            {
+                request.KafkaSettings.IncludeControlDetails = requestKafkaSettings_kafkaSettings_IncludeControlDetail.Value;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.Boolean? requestKafkaSettings_kafkaSettings_IncludePartitionValue = null;
+            if (cmdletContext.KafkaSettings_IncludePartitionValue != null)
+            {
+                requestKafkaSettings_kafkaSettings_IncludePartitionValue = cmdletContext.KafkaSettings_IncludePartitionValue.Value;
+            }
+            if (requestKafkaSettings_kafkaSettings_IncludePartitionValue != null)
+            {
+                request.KafkaSettings.IncludePartitionValue = requestKafkaSettings_kafkaSettings_IncludePartitionValue.Value;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.Boolean? requestKafkaSettings_kafkaSettings_IncludeTableAlterOperation = null;
+            if (cmdletContext.KafkaSettings_IncludeTableAlterOperation != null)
+            {
+                requestKafkaSettings_kafkaSettings_IncludeTableAlterOperation = cmdletContext.KafkaSettings_IncludeTableAlterOperation.Value;
+            }
+            if (requestKafkaSettings_kafkaSettings_IncludeTableAlterOperation != null)
+            {
+                request.KafkaSettings.IncludeTableAlterOperations = requestKafkaSettings_kafkaSettings_IncludeTableAlterOperation.Value;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.Boolean? requestKafkaSettings_kafkaSettings_IncludeTransactionDetail = null;
+            if (cmdletContext.KafkaSettings_IncludeTransactionDetail != null)
+            {
+                requestKafkaSettings_kafkaSettings_IncludeTransactionDetail = cmdletContext.KafkaSettings_IncludeTransactionDetail.Value;
+            }
+            if (requestKafkaSettings_kafkaSettings_IncludeTransactionDetail != null)
+            {
+                request.KafkaSettings.IncludeTransactionDetails = requestKafkaSettings_kafkaSettings_IncludeTransactionDetail.Value;
+                requestKafkaSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.MessageFormatValue requestKafkaSettings_kafkaSettings_MessageFormat = null;
+            if (cmdletContext.KafkaSettings_MessageFormat != null)
+            {
+                requestKafkaSettings_kafkaSettings_MessageFormat = cmdletContext.KafkaSettings_MessageFormat;
+            }
+            if (requestKafkaSettings_kafkaSettings_MessageFormat != null)
+            {
+                request.KafkaSettings.MessageFormat = requestKafkaSettings_kafkaSettings_MessageFormat;
+                requestKafkaSettingsIsNull = false;
+            }
+            System.Boolean? requestKafkaSettings_kafkaSettings_PartitionIncludeSchemaTable = null;
+            if (cmdletContext.KafkaSettings_PartitionIncludeSchemaTable != null)
+            {
+                requestKafkaSettings_kafkaSettings_PartitionIncludeSchemaTable = cmdletContext.KafkaSettings_PartitionIncludeSchemaTable.Value;
+            }
+            if (requestKafkaSettings_kafkaSettings_PartitionIncludeSchemaTable != null)
+            {
+                request.KafkaSettings.PartitionIncludeSchemaTable = requestKafkaSettings_kafkaSettings_PartitionIncludeSchemaTable.Value;
                 requestKafkaSettingsIsNull = false;
             }
             System.String requestKafkaSettings_kafkaSettings_Topic = null;
@@ -1638,6 +2255,65 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestKinesisSettingsIsNull)
             {
                 request.KinesisSettings = null;
+            }
+            
+             // populate MicrosoftSQLServerSettings
+            var requestMicrosoftSQLServerSettingsIsNull = true;
+            request.MicrosoftSQLServerSettings = new Amazon.DatabaseMigrationService.Model.MicrosoftSQLServerSettings();
+            System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_DatabaseName = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_DatabaseName != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_DatabaseName = cmdletContext.MicrosoftSQLServerSettings_DatabaseName;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_DatabaseName != null)
+            {
+                request.MicrosoftSQLServerSettings.DatabaseName = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_DatabaseName;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Password = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_Password != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Password = cmdletContext.MicrosoftSQLServerSettings_Password;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Password != null)
+            {
+                request.MicrosoftSQLServerSettings.Password = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Password;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.Int32? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Port = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_Port != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Port = cmdletContext.MicrosoftSQLServerSettings_Port.Value;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Port != null)
+            {
+                request.MicrosoftSQLServerSettings.Port = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Port.Value;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_ServerName != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName = cmdletContext.MicrosoftSQLServerSettings_ServerName;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName != null)
+            {
+                request.MicrosoftSQLServerSettings.ServerName = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_Username != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username = cmdletContext.MicrosoftSQLServerSettings_Username;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username != null)
+            {
+                request.MicrosoftSQLServerSettings.Username = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+             // determine if request.MicrosoftSQLServerSettings should be set to null
+            if (requestMicrosoftSQLServerSettingsIsNull)
+            {
+                request.MicrosoftSQLServerSettings = null;
             }
             
              // populate MongoDbSettings
@@ -1769,6 +2445,65 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.MongoDbSettings = null;
             }
             
+             // populate MySQLSettings
+            var requestMySQLSettingsIsNull = true;
+            request.MySQLSettings = new Amazon.DatabaseMigrationService.Model.MySQLSettings();
+            System.String requestMySQLSettings_mySQLSettings_DatabaseName = null;
+            if (cmdletContext.MySQLSettings_DatabaseName != null)
+            {
+                requestMySQLSettings_mySQLSettings_DatabaseName = cmdletContext.MySQLSettings_DatabaseName;
+            }
+            if (requestMySQLSettings_mySQLSettings_DatabaseName != null)
+            {
+                request.MySQLSettings.DatabaseName = requestMySQLSettings_mySQLSettings_DatabaseName;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.String requestMySQLSettings_mySQLSettings_Password = null;
+            if (cmdletContext.MySQLSettings_Password != null)
+            {
+                requestMySQLSettings_mySQLSettings_Password = cmdletContext.MySQLSettings_Password;
+            }
+            if (requestMySQLSettings_mySQLSettings_Password != null)
+            {
+                request.MySQLSettings.Password = requestMySQLSettings_mySQLSettings_Password;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.Int32? requestMySQLSettings_mySQLSettings_Port = null;
+            if (cmdletContext.MySQLSettings_Port != null)
+            {
+                requestMySQLSettings_mySQLSettings_Port = cmdletContext.MySQLSettings_Port.Value;
+            }
+            if (requestMySQLSettings_mySQLSettings_Port != null)
+            {
+                request.MySQLSettings.Port = requestMySQLSettings_mySQLSettings_Port.Value;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.String requestMySQLSettings_mySQLSettings_ServerName = null;
+            if (cmdletContext.MySQLSettings_ServerName != null)
+            {
+                requestMySQLSettings_mySQLSettings_ServerName = cmdletContext.MySQLSettings_ServerName;
+            }
+            if (requestMySQLSettings_mySQLSettings_ServerName != null)
+            {
+                request.MySQLSettings.ServerName = requestMySQLSettings_mySQLSettings_ServerName;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.String requestMySQLSettings_mySQLSettings_Username = null;
+            if (cmdletContext.MySQLSettings_Username != null)
+            {
+                requestMySQLSettings_mySQLSettings_Username = cmdletContext.MySQLSettings_Username;
+            }
+            if (requestMySQLSettings_mySQLSettings_Username != null)
+            {
+                request.MySQLSettings.Username = requestMySQLSettings_mySQLSettings_Username;
+                requestMySQLSettingsIsNull = false;
+            }
+             // determine if request.MySQLSettings should be set to null
+            if (requestMySQLSettingsIsNull)
+            {
+                request.MySQLSettings = null;
+            }
+            
              // populate NeptuneSettings
             var requestNeptuneSettingsIsNull = true;
             request.NeptuneSettings = new Amazon.DatabaseMigrationService.Model.NeptuneSettings();
@@ -1847,6 +2582,115 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 request.NeptuneSettings = null;
             }
+            
+             // populate OracleSettings
+            var requestOracleSettingsIsNull = true;
+            request.OracleSettings = new Amazon.DatabaseMigrationService.Model.OracleSettings();
+            System.String requestOracleSettings_oracleSettings_AsmPassword = null;
+            if (cmdletContext.OracleSettings_AsmPassword != null)
+            {
+                requestOracleSettings_oracleSettings_AsmPassword = cmdletContext.OracleSettings_AsmPassword;
+            }
+            if (requestOracleSettings_oracleSettings_AsmPassword != null)
+            {
+                request.OracleSettings.AsmPassword = requestOracleSettings_oracleSettings_AsmPassword;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_AsmServer = null;
+            if (cmdletContext.OracleSettings_AsmServer != null)
+            {
+                requestOracleSettings_oracleSettings_AsmServer = cmdletContext.OracleSettings_AsmServer;
+            }
+            if (requestOracleSettings_oracleSettings_AsmServer != null)
+            {
+                request.OracleSettings.AsmServer = requestOracleSettings_oracleSettings_AsmServer;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_AsmUser = null;
+            if (cmdletContext.OracleSettings_AsmUser != null)
+            {
+                requestOracleSettings_oracleSettings_AsmUser = cmdletContext.OracleSettings_AsmUser;
+            }
+            if (requestOracleSettings_oracleSettings_AsmUser != null)
+            {
+                request.OracleSettings.AsmUser = requestOracleSettings_oracleSettings_AsmUser;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_DatabaseName = null;
+            if (cmdletContext.OracleSettings_DatabaseName != null)
+            {
+                requestOracleSettings_oracleSettings_DatabaseName = cmdletContext.OracleSettings_DatabaseName;
+            }
+            if (requestOracleSettings_oracleSettings_DatabaseName != null)
+            {
+                request.OracleSettings.DatabaseName = requestOracleSettings_oracleSettings_DatabaseName;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_Password = null;
+            if (cmdletContext.OracleSettings_Password != null)
+            {
+                requestOracleSettings_oracleSettings_Password = cmdletContext.OracleSettings_Password;
+            }
+            if (requestOracleSettings_oracleSettings_Password != null)
+            {
+                request.OracleSettings.Password = requestOracleSettings_oracleSettings_Password;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Int32? requestOracleSettings_oracleSettings_Port = null;
+            if (cmdletContext.OracleSettings_Port != null)
+            {
+                requestOracleSettings_oracleSettings_Port = cmdletContext.OracleSettings_Port.Value;
+            }
+            if (requestOracleSettings_oracleSettings_Port != null)
+            {
+                request.OracleSettings.Port = requestOracleSettings_oracleSettings_Port.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_SecurityDbEncryption = null;
+            if (cmdletContext.OracleSettings_SecurityDbEncryption != null)
+            {
+                requestOracleSettings_oracleSettings_SecurityDbEncryption = cmdletContext.OracleSettings_SecurityDbEncryption;
+            }
+            if (requestOracleSettings_oracleSettings_SecurityDbEncryption != null)
+            {
+                request.OracleSettings.SecurityDbEncryption = requestOracleSettings_oracleSettings_SecurityDbEncryption;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_SecurityDbEncryptionName = null;
+            if (cmdletContext.OracleSettings_SecurityDbEncryptionName != null)
+            {
+                requestOracleSettings_oracleSettings_SecurityDbEncryptionName = cmdletContext.OracleSettings_SecurityDbEncryptionName;
+            }
+            if (requestOracleSettings_oracleSettings_SecurityDbEncryptionName != null)
+            {
+                request.OracleSettings.SecurityDbEncryptionName = requestOracleSettings_oracleSettings_SecurityDbEncryptionName;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_ServerName = null;
+            if (cmdletContext.OracleSettings_ServerName != null)
+            {
+                requestOracleSettings_oracleSettings_ServerName = cmdletContext.OracleSettings_ServerName;
+            }
+            if (requestOracleSettings_oracleSettings_ServerName != null)
+            {
+                request.OracleSettings.ServerName = requestOracleSettings_oracleSettings_ServerName;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_Username = null;
+            if (cmdletContext.OracleSettings_Username != null)
+            {
+                requestOracleSettings_oracleSettings_Username = cmdletContext.OracleSettings_Username;
+            }
+            if (requestOracleSettings_oracleSettings_Username != null)
+            {
+                request.OracleSettings.Username = requestOracleSettings_oracleSettings_Username;
+                requestOracleSettingsIsNull = false;
+            }
+             // determine if request.OracleSettings should be set to null
+            if (requestOracleSettingsIsNull)
+            {
+                request.OracleSettings = null;
+            }
             if (cmdletContext.Password != null)
             {
                 request.Password = cmdletContext.Password;
@@ -1854,6 +2698,65 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.Port != null)
             {
                 request.Port = cmdletContext.Port.Value;
+            }
+            
+             // populate PostgreSQLSettings
+            var requestPostgreSQLSettingsIsNull = true;
+            request.PostgreSQLSettings = new Amazon.DatabaseMigrationService.Model.PostgreSQLSettings();
+            System.String requestPostgreSQLSettings_postgreSQLSettings_DatabaseName = null;
+            if (cmdletContext.PostgreSQLSettings_DatabaseName != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_DatabaseName = cmdletContext.PostgreSQLSettings_DatabaseName;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_DatabaseName != null)
+            {
+                request.PostgreSQLSettings.DatabaseName = requestPostgreSQLSettings_postgreSQLSettings_DatabaseName;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.String requestPostgreSQLSettings_postgreSQLSettings_Password = null;
+            if (cmdletContext.PostgreSQLSettings_Password != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_Password = cmdletContext.PostgreSQLSettings_Password;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_Password != null)
+            {
+                request.PostgreSQLSettings.Password = requestPostgreSQLSettings_postgreSQLSettings_Password;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.Int32? requestPostgreSQLSettings_postgreSQLSettings_Port = null;
+            if (cmdletContext.PostgreSQLSettings_Port != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_Port = cmdletContext.PostgreSQLSettings_Port.Value;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_Port != null)
+            {
+                request.PostgreSQLSettings.Port = requestPostgreSQLSettings_postgreSQLSettings_Port.Value;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.String requestPostgreSQLSettings_postgreSQLSettings_ServerName = null;
+            if (cmdletContext.PostgreSQLSettings_ServerName != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_ServerName = cmdletContext.PostgreSQLSettings_ServerName;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_ServerName != null)
+            {
+                request.PostgreSQLSettings.ServerName = requestPostgreSQLSettings_postgreSQLSettings_ServerName;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.String requestPostgreSQLSettings_postgreSQLSettings_Username = null;
+            if (cmdletContext.PostgreSQLSettings_Username != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_Username = cmdletContext.PostgreSQLSettings_Username;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_Username != null)
+            {
+                request.PostgreSQLSettings.Username = requestPostgreSQLSettings_postgreSQLSettings_Username;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+             // determine if request.PostgreSQLSettings should be set to null
+            if (requestPostgreSQLSettingsIsNull)
+            {
+                request.PostgreSQLSettings = null;
             }
             
              // populate RedshiftSettings
@@ -2345,6 +3248,65 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 request.SslMode = cmdletContext.SslMode;
             }
+            
+             // populate SybaseSettings
+            var requestSybaseSettingsIsNull = true;
+            request.SybaseSettings = new Amazon.DatabaseMigrationService.Model.SybaseSettings();
+            System.String requestSybaseSettings_sybaseSettings_DatabaseName = null;
+            if (cmdletContext.SybaseSettings_DatabaseName != null)
+            {
+                requestSybaseSettings_sybaseSettings_DatabaseName = cmdletContext.SybaseSettings_DatabaseName;
+            }
+            if (requestSybaseSettings_sybaseSettings_DatabaseName != null)
+            {
+                request.SybaseSettings.DatabaseName = requestSybaseSettings_sybaseSettings_DatabaseName;
+                requestSybaseSettingsIsNull = false;
+            }
+            System.String requestSybaseSettings_sybaseSettings_Password = null;
+            if (cmdletContext.SybaseSettings_Password != null)
+            {
+                requestSybaseSettings_sybaseSettings_Password = cmdletContext.SybaseSettings_Password;
+            }
+            if (requestSybaseSettings_sybaseSettings_Password != null)
+            {
+                request.SybaseSettings.Password = requestSybaseSettings_sybaseSettings_Password;
+                requestSybaseSettingsIsNull = false;
+            }
+            System.Int32? requestSybaseSettings_sybaseSettings_Port = null;
+            if (cmdletContext.SybaseSettings_Port != null)
+            {
+                requestSybaseSettings_sybaseSettings_Port = cmdletContext.SybaseSettings_Port.Value;
+            }
+            if (requestSybaseSettings_sybaseSettings_Port != null)
+            {
+                request.SybaseSettings.Port = requestSybaseSettings_sybaseSettings_Port.Value;
+                requestSybaseSettingsIsNull = false;
+            }
+            System.String requestSybaseSettings_sybaseSettings_ServerName = null;
+            if (cmdletContext.SybaseSettings_ServerName != null)
+            {
+                requestSybaseSettings_sybaseSettings_ServerName = cmdletContext.SybaseSettings_ServerName;
+            }
+            if (requestSybaseSettings_sybaseSettings_ServerName != null)
+            {
+                request.SybaseSettings.ServerName = requestSybaseSettings_sybaseSettings_ServerName;
+                requestSybaseSettingsIsNull = false;
+            }
+            System.String requestSybaseSettings_sybaseSettings_Username = null;
+            if (cmdletContext.SybaseSettings_Username != null)
+            {
+                requestSybaseSettings_sybaseSettings_Username = cmdletContext.SybaseSettings_Username;
+            }
+            if (requestSybaseSettings_sybaseSettings_Username != null)
+            {
+                request.SybaseSettings.Username = requestSybaseSettings_sybaseSettings_Username;
+                requestSybaseSettingsIsNull = false;
+            }
+             // determine if request.SybaseSettings should be set to null
+            if (requestSybaseSettingsIsNull)
+            {
+                request.SybaseSettings = null;
+            }
             if (cmdletContext.Username != null)
             {
                 request.Username = cmdletContext.Username;
@@ -2425,7 +3387,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String EngineName { get; set; }
             public System.String ExternalTableDefinition { get; set; }
             public System.String ExtraConnectionAttribute { get; set; }
+            public System.String IBMDb2Settings_DatabaseName { get; set; }
+            public System.String IBMDb2Settings_Password { get; set; }
+            public System.Int32? IBMDb2Settings_Port { get; set; }
+            public System.String IBMDb2Settings_ServerName { get; set; }
+            public System.String IBMDb2Settings_Username { get; set; }
             public System.String KafkaSettings_Broker { get; set; }
+            public System.Boolean? KafkaSettings_IncludeControlDetail { get; set; }
+            public System.Boolean? KafkaSettings_IncludePartitionValue { get; set; }
+            public System.Boolean? KafkaSettings_IncludeTableAlterOperation { get; set; }
+            public System.Boolean? KafkaSettings_IncludeTransactionDetail { get; set; }
+            public Amazon.DatabaseMigrationService.MessageFormatValue KafkaSettings_MessageFormat { get; set; }
+            public System.Boolean? KafkaSettings_PartitionIncludeSchemaTable { get; set; }
             public System.String KafkaSettings_Topic { get; set; }
             public System.Boolean? KinesisSettings_IncludeControlDetail { get; set; }
             public System.Boolean? KinesisSettings_IncludePartitionValue { get; set; }
@@ -2435,6 +3408,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Boolean? KinesisSettings_PartitionIncludeSchemaTable { get; set; }
             public System.String KinesisSettings_ServiceAccessRoleArn { get; set; }
             public System.String KinesisSettings_StreamArn { get; set; }
+            public System.String MicrosoftSQLServerSettings_DatabaseName { get; set; }
+            public System.String MicrosoftSQLServerSettings_Password { get; set; }
+            public System.Int32? MicrosoftSQLServerSettings_Port { get; set; }
+            public System.String MicrosoftSQLServerSettings_ServerName { get; set; }
+            public System.String MicrosoftSQLServerSettings_Username { get; set; }
             public Amazon.DatabaseMigrationService.AuthMechanismValue MongoDbSettings_AuthMechanism { get; set; }
             public System.String MongoDbSettings_AuthSource { get; set; }
             public Amazon.DatabaseMigrationService.AuthTypeValue MongoDbSettings_AuthType { get; set; }
@@ -2447,6 +3425,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? MongoDbSettings_Port { get; set; }
             public System.String MongoDbSettings_ServerName { get; set; }
             public System.String MongoDbSettings_Username { get; set; }
+            public System.String MySQLSettings_DatabaseName { get; set; }
+            public System.String MySQLSettings_Password { get; set; }
+            public System.Int32? MySQLSettings_Port { get; set; }
+            public System.String MySQLSettings_ServerName { get; set; }
+            public System.String MySQLSettings_Username { get; set; }
             public System.Int32? NeptuneSettings_ErrorRetryDuration { get; set; }
             public System.Boolean? NeptuneSettings_IamAuthEnabled { get; set; }
             public System.Int32? NeptuneSettings_MaxFileSize { get; set; }
@@ -2454,8 +3437,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String NeptuneSettings_S3BucketFolder { get; set; }
             public System.String NeptuneSettings_S3BucketName { get; set; }
             public System.String NeptuneSettings_ServiceAccessRoleArn { get; set; }
+            public System.String OracleSettings_AsmPassword { get; set; }
+            public System.String OracleSettings_AsmServer { get; set; }
+            public System.String OracleSettings_AsmUser { get; set; }
+            public System.String OracleSettings_DatabaseName { get; set; }
+            public System.String OracleSettings_Password { get; set; }
+            public System.Int32? OracleSettings_Port { get; set; }
+            public System.String OracleSettings_SecurityDbEncryption { get; set; }
+            public System.String OracleSettings_SecurityDbEncryptionName { get; set; }
+            public System.String OracleSettings_ServerName { get; set; }
+            public System.String OracleSettings_Username { get; set; }
             public System.String Password { get; set; }
             public System.Int32? Port { get; set; }
+            public System.String PostgreSQLSettings_DatabaseName { get; set; }
+            public System.String PostgreSQLSettings_Password { get; set; }
+            public System.Int32? PostgreSQLSettings_Port { get; set; }
+            public System.String PostgreSQLSettings_ServerName { get; set; }
+            public System.String PostgreSQLSettings_Username { get; set; }
             public System.Boolean? RedshiftSettings_AcceptAnyDate { get; set; }
             public System.String RedshiftSettings_AfterConnectScript { get; set; }
             public System.String RedshiftSettings_BucketFolder { get; set; }
@@ -2505,6 +3503,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String ServerName { get; set; }
             public System.String ServiceAccessRoleArn { get; set; }
             public Amazon.DatabaseMigrationService.DmsSslModeValue SslMode { get; set; }
+            public System.String SybaseSettings_DatabaseName { get; set; }
+            public System.String SybaseSettings_Password { get; set; }
+            public System.Int32? SybaseSettings_Port { get; set; }
+            public System.String SybaseSettings_ServerName { get; set; }
+            public System.String SybaseSettings_Username { get; set; }
             public System.String Username { get; set; }
             public System.Func<Amazon.DatabaseMigrationService.Model.ModifyEndpointResponse, EditDMSEndpointCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Endpoint;

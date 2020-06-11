@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter AutomaticTapeCreationRule
         /// <summary>
         /// <para>
-        /// <para> An automatic tape creation policy consists of a list of automatic tape creation rules.
-        /// The rules determine when and how to automatically create new tapes. </para>
+        /// <para>An automatic tape creation policy consists of a list of automatic tape creation rules.
+        /// The rules determine when and how to automatically create new tapes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

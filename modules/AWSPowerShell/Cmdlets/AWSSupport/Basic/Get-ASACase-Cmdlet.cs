@@ -28,24 +28,31 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Returns a list of cases that you specify by passing one or more case IDs. In addition,
-    /// you can filter the cases by date by setting values for the <code>afterTime</code>
-    /// and <code>beforeTime</code> request parameters. You can set values for the <code>includeResolvedCases</code>
-    /// and <code>includeCommunications</code> request parameters to control how much information
-    /// is returned.
+    /// Returns a list of cases that you specify by passing one or more case IDs. You can
+    /// use the <code>afterTime</code> and <code>beforeTime</code> parameters to filter the
+    /// cases by date. You can set values for the <code>includeResolvedCases</code> and <code>includeCommunications</code>
+    /// parameters to specify how much information to return.
     /// 
     ///  
     /// <para>
-    /// Case data is available for 12 months after creation. If a case was created more than
-    /// 12 months ago, a request for data might cause an error.
-    /// </para><para>
     /// The response returns the following in JSON format:
     /// </para><ul><li><para>
-    /// One or more <a>CaseDetails</a> data types.
+    /// One or more <a href="https://docs.aws.amazon.com/awssupport/latest/APIReference/API_CaseDetails.html">CaseDetails</a>
+    /// data types.
     /// </para></li><li><para>
     /// One or more <code>nextToken</code> values, which specify where to paginate the returned
     /// records represented by the <code>CaseDetails</code> objects.
-    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para></li></ul><para>
+    /// Case data is available for 12 months after creation. If a case was created more than
+    /// 12 months ago, a request might return an error.
+    /// </para><note><ul><li><para>
+    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// </para></li><li><para>
+    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
+    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// Support</a>.
+    /// </para></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ASACase")]
     [OutputType("Amazon.AWSSupport.Model.CaseDetails")]
@@ -103,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter IncludeCommunication
         /// <summary>
         /// <para>
-        /// <para>Specifies whether communications should be included in the <a>DescribeCases</a> results.
-        /// The default is <i>true</i>.</para>
+        /// <para>Specifies whether to include communications in the <code>DescribeCases</code> response.
+        /// By default, communications are incuded.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         #region Parameter IncludeResolvedCase
         /// <summary>
         /// <para>
-        /// <para>Specifies whether resolved support cases should be included in the <a>DescribeCases</a>
-        /// results. The default is <i>false</i>.</para>
+        /// <para>Specifies whether to include resolved support cases in the <code>DescribeCases</code>
+        /// response. By default, resolved cases aren't included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

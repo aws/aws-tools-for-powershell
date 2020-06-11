@@ -31,6 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.FRC
     /// Deletes an Amazon Forecast dataset that was created using the <a>CreateDataset</a>
     /// operation. You can only delete datasets that have a status of <code>ACTIVE</code>
     /// or <code>CREATE_FAILED</code>. To get the status use the <a>DescribeDataset</a> operation.
+    /// 
+    ///  <note><para>
+    /// Forecast does not automatically update any dataset groups that contain the deleted
+    /// dataset. In order to update the dataset group, use the operation, omitting the deleted
+    /// dataset's ARN.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "FRCDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

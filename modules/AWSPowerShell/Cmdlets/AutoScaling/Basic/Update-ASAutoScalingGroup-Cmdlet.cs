@@ -114,10 +114,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
-        /// scaling activity can start. The default value is <code>300</code>. This cooldown period
-        /// is not used when a scaling-specific cooldown is specified.</para><para>Cooldown periods are not supported for target tracking scaling policies, step scaling
-        /// policies, or scheduled scaling. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-        /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// scaling activity can start. The default value is <code>300</code>.</para><para>This setting applies when using simple scaling policies, but not when using other
+        /// scaling policies or scheduled scaling. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking
         /// the health status of an EC2 instance that has come into service. The default value
         /// is <code>0</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
-        /// Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Conditional: This parameter is required if you are adding an <code>ELB</code> health
-        /// check.</para>
+        /// Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Required if you are adding an <code>ELB</code> health check.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,8 +217,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The maximum size of the Auto Scaling group.</para><note><para>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling
         /// may need to go above <code>MaxSize</code> to meet your capacity requirements. In this
         /// event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than
-        /// your maximum instance weight (weights that define how many capacity units each instance
-        /// contributes to the capacity of the group).</para></note>
+        /// your largest instance weight (weights that define how many units each instance contributes
+        /// to the desired capacity of the group).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

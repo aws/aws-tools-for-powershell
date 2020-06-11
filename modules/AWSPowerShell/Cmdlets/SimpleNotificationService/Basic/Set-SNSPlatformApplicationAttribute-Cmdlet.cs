@@ -29,9 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
     /// Sets the attributes of the platform application object for the supported push notification
-    /// services, such as APNS and FCM. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using
-    /// Amazon SNS Mobile Push Notifications</a>. For information on configuring attributes
-    /// for message delivery status, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using
+    /// services, such as APNS and GCM (Firebase Cloud Messaging). For more information, see
+    /// <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
+    /// SNS Mobile Push Notifications</a>. For information on configuring attributes for message
+    /// delivery status, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using
     /// Amazon SNS Application Attributes for Message Delivery Status</a>.
     /// </summary>
     [Cmdlet("Set", "SNSPlatformApplicationAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,15 +49,19 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><code>PlatformCredential</code> – The credential received from the notification service.
-        /// For APNS/APNS_SANDBOX, PlatformCredential is private key. For FCM, PlatformCredential
-        /// is "API key". For ADM, PlatformCredential is "client secret".</para></li><li><para><code>PlatformPrincipal</code> – The principal received from the notification service.
-        /// For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For FCM, PlatformPrincipal
-        /// is not applicable. For ADM, PlatformPrincipal is "client id".</para></li><li><para><code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated event notifications
-        /// should be sent.</para></li><li><para><code>EventEndpointDeleted</code> – Topic ARN to which EndpointDeleted event notifications
-        /// should be sent.</para></li><li><para><code>EventEndpointUpdated</code> – Topic ARN to which EndpointUpdate event notifications
-        /// should be sent.</para></li><li><para><code>EventDeliveryFailure</code> – Topic ARN to which DeliveryFailure event notifications
-        /// should be sent upon Direct Publish delivery failure (permanent) to one of the application's
-        /// endpoints.</para></li><li><para><code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write
+        /// For <code>APNS</code> and <code>APNS_SANDBOX</code>, <code>PlatformCredential</code>
+        /// is <code>private key</code>. For <code>GCM</code> (Firebase Cloud Messaging), <code>PlatformCredential</code>
+        /// is <code>API key</code>. For <code>ADM</code>, <code>PlatformCredential</code> is
+        /// <code>client secret</code>.</para></li><li><para><code>PlatformPrincipal</code> – The principal received from the notification service.
+        /// For <code>APNS</code> and <code>APNS_SANDBOX</code>, <code>PlatformPrincipal</code>
+        /// is <code>SSL certificate</code>. For <code>GCM</code> (Firebase Cloud Messaging),
+        /// there is no <code>PlatformPrincipal</code>. For <code>ADM</code>, <code>PlatformPrincipal</code>
+        /// is <code>client id</code>.</para></li><li><para><code>EventEndpointCreated</code> – Topic ARN to which <code>EndpointCreated</code>
+        /// event notifications are sent.</para></li><li><para><code>EventEndpointDeleted</code> – Topic ARN to which <code>EndpointDeleted</code>
+        /// event notifications are sent.</para></li><li><para><code>EventEndpointUpdated</code> – Topic ARN to which <code>EndpointUpdate</code>
+        /// event notifications are sent.</para></li><li><para><code>EventDeliveryFailure</code> – Topic ARN to which <code>DeliveryFailure</code>
+        /// event notifications are sent upon Direct Publish delivery failure (permanent) to one
+        /// of the application's endpoints.</para></li><li><para><code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write
         /// access to use CloudWatch Logs on your behalf.</para></li><li><para><code>FailureFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write
         /// access to use CloudWatch Logs on your behalf.</para></li><li><para><code>SuccessFeedbackSampleRate</code> – Sample rate percentage (0-100) of successfully
         /// delivered messages.</para></li></ul>

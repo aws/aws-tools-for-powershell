@@ -96,6 +96,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CCBranch', 
         'Get-CCBranchList', 
         'Get-CCComment', 
+        'Get-CCCommentReaction', 
         'Get-CCCommentsForComparedCommit', 
         'Get-CCCommentsForPullRequest', 
         'Get-CCCommit', 
@@ -160,6 +161,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-CCPullRequestTitle', 
         'Update-CCRepositoryDescription', 
         'Update-CCRepositoryName', 
+        'Write-CCCommentReaction', 
         'Write-CCFile')
 
     # Variables to export from this module

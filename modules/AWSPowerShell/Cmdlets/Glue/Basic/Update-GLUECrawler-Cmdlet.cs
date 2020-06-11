@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>The crawler configuration information. This versioned JSON string allows users to
-        /// specify aspects of a crawler's behavior. For more information, see <a href="http://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring
+        /// <para>Crawler configuration information. This versioned JSON string allows users to specify
+        /// aspects of a crawler's behavior. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring
         /// a Crawler</a>.</para>
         /// </para>
         /// </summary>
@@ -127,10 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>A <code>cron</code> expression used to specify the schedule. For more information,
-        /// see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+        /// <para>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
         /// Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15
-        /// UTC, specify <code>cron(15 12 * * ? *)</code>.</para>
+        /// UTC, you would specify: <code>cron(15 12 * * ? *)</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
 {
     /// <summary>
     /// Deletes one or more remediation exceptions mentioned in the resource keys.
+    /// 
+    ///  <note><para>
+    /// AWS Config generates a remediation exception when a problem occurs executing a remediation
+    /// action to a specific resource. Remediation exceptions blocks auto-remediation until
+    /// the exception is cleared.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "CFGRemediationException", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ConfigService.Model.FailedDeleteRemediationExceptionsBatch")]

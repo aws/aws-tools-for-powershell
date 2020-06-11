@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkBorderGroup
         /// <summary>
         /// <para>
-        /// <para>The location that the IP address is released from.</para><para>If you provide an incorrect network border group, you will receive an <code>InvalidAddress.NotFound</code>
+        /// <para>The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises
+        /// IP addresses.</para><para>If you provide an incorrect network border group, you will receive an <code>InvalidAddress.NotFound</code>
         /// error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error
         /// Codes</a>.</para><note><para>You cannot use a network border group with EC2 Classic. If you attempt this operation
         /// on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error.

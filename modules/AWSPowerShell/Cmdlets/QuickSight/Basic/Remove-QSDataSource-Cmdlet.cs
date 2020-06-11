@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Deletes the data source permanently. This action breaks all the datasets that reference
+    /// Deletes the data source permanently. This operation breaks all the datasets that reference
     /// the deleted data source.
     /// </summary>
     [Cmdlet("Remove", "QSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

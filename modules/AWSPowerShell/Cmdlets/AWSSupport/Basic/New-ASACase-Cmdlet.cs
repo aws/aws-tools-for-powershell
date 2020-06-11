@@ -43,14 +43,21 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// Use the Service Quotas <a href="https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_RequestServiceQuotaIncrease.html">RequestServiceQuotaIncrease</a>
     /// operation.
     /// </para></li></ul><para>
-    /// A successful <a>CreateCase</a> request returns an AWS Support case number. You can
-    /// use the <a>DescribeCases</a> operation and specify the case number to get existing
-    /// AWS Support cases. After you create a case, you can use the <a>AddCommunicationToCase</a>
+    /// A successful <code>CreateCase</code> request returns an AWS Support case number. You
+    /// can use the <a>DescribeCases</a> operation and specify the case number to get existing
+    /// AWS Support cases. After you create a case, use the <a>AddCommunicationToCase</a>
     /// operation to add additional communication or attachments to an existing case.
-    /// </para><note><ul><li><para>
+    /// </para><para>
     /// The <code>caseId</code> is separate from the <code>displayId</code> that appears in
-    /// the <a href="https://console.aws.amazon.com/support">Support Center</a>. You can use
-    /// the <a>DescribeCases</a> operation to get the <code>displayId</code>.
+    /// the <a href="https://console.aws.amazon.com/support">AWS Support Center</a>. Use the
+    /// <a>DescribeCases</a> operation to get the <code>displayId</code>.
+    /// </para><note><ul><li><para>
+    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// </para></li><li><para>
+    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
+    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// Support</a>.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "ASACase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

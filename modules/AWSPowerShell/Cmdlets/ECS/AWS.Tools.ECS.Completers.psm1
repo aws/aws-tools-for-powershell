@@ -327,6 +327,7 @@ $ECS_SelectMap = @{
                "New-ECSTaskSet",
                "Remove-ECSAccountSetting",
                "Remove-ECSAttribute",
+               "Remove-ECSCapacityProvider",
                "Remove-ECSCluster",
                "Remove-ECSService",
                "Remove-ECSTaskSet",

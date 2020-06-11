@@ -89,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// an AWS Account in Your Organization</a> in the <i>AWS Organizations User Guide.</i></para><important><ul><li><para>
     /// When you create an account in an organization using the AWS Organizations console,
     /// API, or CLI commands, the information required for the account to operate as a standalone
-    /// account, such as a payment method and signing the end user license agreement (EULA)
-    /// is <i>not</i> automatically collected. If you must remove an account from your organization
-    /// later, you can do so only after you provide the missing information. Follow the steps
-    /// at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
+    /// account is <i>not</i> automatically collected. This includes a payment method and
+    /// signing the end user license agreement (EULA). If you must remove an account from
+    /// your organization later, you can do so only after you provide the missing information.
+    /// Follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
     /// To leave an organization as a member account</a> in the <i>AWS Organizations User
     /// Guide.</i></para></li><li><para>
     /// If you get an exception that indicates that you exceeded your account limits for the

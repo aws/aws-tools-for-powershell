@@ -28,15 +28,17 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Returns the contents of the effective tag policy for the account. The effective tag
-    /// policy is the aggregation of any tag policies the account inherits, plus any policy
-    /// directly that is attached to the account. 
+    /// Returns the contents of the effective policy for specified policy type and account.
+    /// The effective policy is the aggregation of any policies of the specified type that
+    /// the account inherits, plus any policy of that type that is directly attached to the
+    /// account. 
     /// 
     ///  
     /// <para>
-    /// This action returns information on tag policies only.
+    /// This operation applies only to policy types <i>other</i> than service control policies
+    /// (SCPs).
     /// </para><para>
-    /// For more information on policy inheritance, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html">How
+    /// For more information about policy inheritance, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies-inheritance.html">How
     /// Policy Inheritance Works</a> in the <i>AWS Organizations User Guide</i>.
     /// </para><para>
     /// This operation can be called only from the organization's master account or by a member
@@ -56,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The type of policy that you want information about.</para>
+        /// <para>The type of policy that you want information about. You can specify one of the following
+        /// values:</para><ul><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a></para></li><li><para><a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">TAG_POLICY</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>When you're signed in as the master account, specify the ID of the account that you
-        /// want details about. Specifying an organization root or OU as the target is not supported.
-        /// </para>
+        /// want details about. Specifying an organization root or organizational unit (OU) as
+        /// the target is not supported. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

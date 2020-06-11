@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
     /// Gathers a complete list of on-premises servers. Connectors must be installed and monitoring
-    /// all servers that you want to import.
+    /// all servers to import.
     /// 
     ///  
     /// <para>

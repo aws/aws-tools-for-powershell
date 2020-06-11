@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Excludes_And
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>An array of conditions, one for each condition that determines which objects to include
+        /// or exclude from the job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Includes_And
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>An array of conditions, one for each condition that determines which objects to include
+        /// or exclude from the job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter ScheduleFrequency_DailySchedule
         /// <summary>
         /// <para>
-        /// <para>Run the job once a day, every day. If specified, this is an empty object.</para>
+        /// <para>Specifies a daily recurrence pattern for running the job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter MonthlySchedule_DayOfMonth
         /// <summary>
         /// <para>
-        /// <para>Run the job once a month, on a specific day of the month. This value can be an integer
-        /// from 1 through 30.</para>
+        /// <para>The numeric day of the month when Amazon Macie runs the job. This value can be an
+        /// integer from 1 through 30.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -108,8 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter WeeklySchedule_DayOfWeek
         /// <summary>
         /// <para>
-        /// <para>Run the job once a week, on a specific day of the week. Valid values are: MONDAY,
-        /// TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, and SUNDAY.</para>
+        /// <para>The day of the week when Amazon Macie runs the job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A custom description of the job. The description can contain as many as 512 characters.</para>
+        /// <para>A custom description of the job. The description can contain as many as 200 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,8 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A custom name for the job. The name must contain at least 3 characters and can contain
-        /// as many as 64 characters.</para>
+        /// <para>A custom name for the job. The name can contain as many as 500 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -180,9 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>The sampling depth, as a percentage, to apply when processing objects. This value
-        /// determines the percentage of eligible objects that the job analyzes. If the value
-        /// is less than 100, Amazon Macie randomly selects the objects to analyze, up to the
-        /// specified percentage.</para>
+        /// determines the percentage of eligible objects that the job analyzes. If this value
+        /// is less than 100, Amazon Macie selects the objects to analyze at random, up to the
+        /// specified percentage, and analyzes all the data in those objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -192,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A map of key-value pairs that specifies the tags to associate with the job.</para><para>A job can have a maximum of 50 tags. Each tag consists of a required tag key and an
-        /// associated tag value. The maximum length of a tag key is 128 characters. The maximum
-        /// length of a tag value is 256 characters.</para>
+        /// <para>A map of key-value pairs that specifies the tags to associate with the job.</para><para>A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated
+        /// tag value. The maximum length of a tag key is 128 characters. The maximum length of
+        /// a tag value is 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

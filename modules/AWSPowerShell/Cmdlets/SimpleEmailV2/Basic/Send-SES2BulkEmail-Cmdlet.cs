@@ -1,0 +1,432 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.SimpleEmailV2;
+using Amazon.SimpleEmailV2.Model;
+
+namespace Amazon.PowerShell.Cmdlets.SES2
+{
+    /// <summary>
+    /// Composes an email message to multiple destinations.
+    /// </summary>
+    [Cmdlet("Send", "SES2BulkEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SimpleEmailV2.Model.BulkEmailEntryResult")]
+    [AWSCmdlet("Calls the Amazon Simple Email Service V2 (SES V2) SendBulkEmail API operation.", Operation = new[] {"SendBulkEmail"}, SelectReturnType = typeof(Amazon.SimpleEmailV2.Model.SendBulkEmailResponse))]
+    [AWSCmdletOutput("Amazon.SimpleEmailV2.Model.BulkEmailEntryResult or Amazon.SimpleEmailV2.Model.SendBulkEmailResponse",
+        "This cmdlet returns a collection of Amazon.SimpleEmailV2.Model.BulkEmailEntryResult objects.",
+        "The service call response (type Amazon.SimpleEmailV2.Model.SendBulkEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class SendSES2BulkEmailCmdlet : AmazonSimpleEmailServiceV2ClientCmdlet, IExecutor
+    {
+        
+        #region Parameter BulkEmailEntry
+        /// <summary>
+        /// <para>
+        /// <para>The list of bulk email entry objects.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("BulkEmailEntries")]
+        public Amazon.SimpleEmailV2.Model.BulkEmailEntry[] BulkEmailEntry { get; set; }
+        #endregion
+        
+        #region Parameter ConfigurationSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the configuration set that you want to use when sending the email.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ConfigurationSetName { get; set; }
+        #endregion
+        
+        #region Parameter DefaultEmailTag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags, in the form of name/value pairs, to apply to an email that you send
+        /// using the <code>SendEmail</code> operation. Tags correspond to characteristics of
+        /// the email that you define, so that you can publish email sending events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultEmailTags")]
+        public Amazon.SimpleEmailV2.Model.MessageTag[] DefaultEmailTag { get; set; }
+        #endregion
+        
+        #region Parameter FeedbackForwardingEmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The address that you want bounce and complaint notifications to be sent to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FeedbackForwardingEmailAddress { get; set; }
+        #endregion
+        
+        #region Parameter FeedbackForwardingEmailAddressIdentityArn
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
+        /// that is associated with the sending authorization policy that permits you to use the
+        /// email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</para><para>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com)
+        /// attaches a policy to it that authorizes you to use feedback@example.com, then you
+        /// would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com,
+        /// and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+        /// SES Developer Guide</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FeedbackForwardingEmailAddressIdentityArn { get; set; }
+        #endregion
+        
+        #region Parameter FromEmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The email address that you want to use as the "From" address for the email. The address
+        /// that you specify has to be verified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FromEmailAddress { get; set; }
+        #endregion
+        
+        #region Parameter FromEmailAddressIdentityArn
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
+        /// that is associated with the sending authorization policy that permits you to use the
+        /// email address specified in the <code>FromEmailAddress</code> parameter.</para><para>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com)
+        /// attaches a policy to it that authorizes you to use sender@example.com, then you would
+        /// specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com,
+        /// and the <code>FromEmailAddress</code> to be sender@example.com.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+        /// SES Developer Guide</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FromEmailAddressIdentityArn { get; set; }
+        #endregion
+        
+        #region Parameter ReplyToAddress
+        /// <summary>
+        /// <para>
+        /// <para>The "Reply-to" email addresses for the message. When the recipient replies to the
+        /// message, each Reply-to address receives the reply.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ReplyToAddresses")]
+        public System.String[] ReplyToAddress { get; set; }
+        #endregion
+        
+        #region Parameter Template_TemplateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultContent_Template_TemplateArn")]
+        public System.String Template_TemplateArn { get; set; }
+        #endregion
+        
+        #region Parameter Template_TemplateData
+        /// <summary>
+        /// <para>
+        /// <para>An object that defines the values to use for message variables in the template. This
+        /// object is a set of key-value pairs. Each key defines a message variable in the template.
+        /// The corresponding value defines the value to use for that variable.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultContent_Template_TemplateData")]
+        public System.String Template_TemplateData { get; set; }
+        #endregion
+        
+        #region Parameter Template_TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the template. You will refer to this name when you send email using the
+        /// <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultContent_Template_TemplateName")]
+        public System.String Template_TemplateName { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'BulkEmailEntryResults'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleEmailV2.Model.SendBulkEmailResponse).
+        /// Specifying the name of a property of type Amazon.SimpleEmailV2.Model.SendBulkEmailResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "BulkEmailEntryResults";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-SES2BulkEmail (SendBulkEmail)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.SimpleEmailV2.Model.SendBulkEmailResponse, SendSES2BulkEmailCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+            }
+            if (this.BulkEmailEntry != null)
+            {
+                context.BulkEmailEntry = new List<Amazon.SimpleEmailV2.Model.BulkEmailEntry>(this.BulkEmailEntry);
+            }
+            #if MODULAR
+            if (this.BulkEmailEntry == null && ParameterWasBound(nameof(this.BulkEmailEntry)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BulkEmailEntry which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ConfigurationSetName = this.ConfigurationSetName;
+            context.Template_TemplateArn = this.Template_TemplateArn;
+            context.Template_TemplateData = this.Template_TemplateData;
+            context.Template_TemplateName = this.Template_TemplateName;
+            if (this.DefaultEmailTag != null)
+            {
+                context.DefaultEmailTag = new List<Amazon.SimpleEmailV2.Model.MessageTag>(this.DefaultEmailTag);
+            }
+            context.FeedbackForwardingEmailAddress = this.FeedbackForwardingEmailAddress;
+            context.FeedbackForwardingEmailAddressIdentityArn = this.FeedbackForwardingEmailAddressIdentityArn;
+            context.FromEmailAddress = this.FromEmailAddress;
+            context.FromEmailAddressIdentityArn = this.FromEmailAddressIdentityArn;
+            if (this.ReplyToAddress != null)
+            {
+                context.ReplyToAddress = new List<System.String>(this.ReplyToAddress);
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.SimpleEmailV2.Model.SendBulkEmailRequest();
+            
+            if (cmdletContext.BulkEmailEntry != null)
+            {
+                request.BulkEmailEntries = cmdletContext.BulkEmailEntry;
+            }
+            if (cmdletContext.ConfigurationSetName != null)
+            {
+                request.ConfigurationSetName = cmdletContext.ConfigurationSetName;
+            }
+            
+             // populate DefaultContent
+            var requestDefaultContentIsNull = true;
+            request.DefaultContent = new Amazon.SimpleEmailV2.Model.BulkEmailContent();
+            Amazon.SimpleEmailV2.Model.Template requestDefaultContent_defaultContent_Template = null;
+            
+             // populate Template
+            var requestDefaultContent_defaultContent_TemplateIsNull = true;
+            requestDefaultContent_defaultContent_Template = new Amazon.SimpleEmailV2.Model.Template();
+            System.String requestDefaultContent_defaultContent_Template_template_TemplateArn = null;
+            if (cmdletContext.Template_TemplateArn != null)
+            {
+                requestDefaultContent_defaultContent_Template_template_TemplateArn = cmdletContext.Template_TemplateArn;
+            }
+            if (requestDefaultContent_defaultContent_Template_template_TemplateArn != null)
+            {
+                requestDefaultContent_defaultContent_Template.TemplateArn = requestDefaultContent_defaultContent_Template_template_TemplateArn;
+                requestDefaultContent_defaultContent_TemplateIsNull = false;
+            }
+            System.String requestDefaultContent_defaultContent_Template_template_TemplateData = null;
+            if (cmdletContext.Template_TemplateData != null)
+            {
+                requestDefaultContent_defaultContent_Template_template_TemplateData = cmdletContext.Template_TemplateData;
+            }
+            if (requestDefaultContent_defaultContent_Template_template_TemplateData != null)
+            {
+                requestDefaultContent_defaultContent_Template.TemplateData = requestDefaultContent_defaultContent_Template_template_TemplateData;
+                requestDefaultContent_defaultContent_TemplateIsNull = false;
+            }
+            System.String requestDefaultContent_defaultContent_Template_template_TemplateName = null;
+            if (cmdletContext.Template_TemplateName != null)
+            {
+                requestDefaultContent_defaultContent_Template_template_TemplateName = cmdletContext.Template_TemplateName;
+            }
+            if (requestDefaultContent_defaultContent_Template_template_TemplateName != null)
+            {
+                requestDefaultContent_defaultContent_Template.TemplateName = requestDefaultContent_defaultContent_Template_template_TemplateName;
+                requestDefaultContent_defaultContent_TemplateIsNull = false;
+            }
+             // determine if requestDefaultContent_defaultContent_Template should be set to null
+            if (requestDefaultContent_defaultContent_TemplateIsNull)
+            {
+                requestDefaultContent_defaultContent_Template = null;
+            }
+            if (requestDefaultContent_defaultContent_Template != null)
+            {
+                request.DefaultContent.Template = requestDefaultContent_defaultContent_Template;
+                requestDefaultContentIsNull = false;
+            }
+             // determine if request.DefaultContent should be set to null
+            if (requestDefaultContentIsNull)
+            {
+                request.DefaultContent = null;
+            }
+            if (cmdletContext.DefaultEmailTag != null)
+            {
+                request.DefaultEmailTags = cmdletContext.DefaultEmailTag;
+            }
+            if (cmdletContext.FeedbackForwardingEmailAddress != null)
+            {
+                request.FeedbackForwardingEmailAddress = cmdletContext.FeedbackForwardingEmailAddress;
+            }
+            if (cmdletContext.FeedbackForwardingEmailAddressIdentityArn != null)
+            {
+                request.FeedbackForwardingEmailAddressIdentityArn = cmdletContext.FeedbackForwardingEmailAddressIdentityArn;
+            }
+            if (cmdletContext.FromEmailAddress != null)
+            {
+                request.FromEmailAddress = cmdletContext.FromEmailAddress;
+            }
+            if (cmdletContext.FromEmailAddressIdentityArn != null)
+            {
+                request.FromEmailAddressIdentityArn = cmdletContext.FromEmailAddressIdentityArn;
+            }
+            if (cmdletContext.ReplyToAddress != null)
+            {
+                request.ReplyToAddresses = cmdletContext.ReplyToAddress;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.SimpleEmailV2.Model.SendBulkEmailResponse CallAWSServiceOperation(IAmazonSimpleEmailServiceV2 client, Amazon.SimpleEmailV2.Model.SendBulkEmailRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service V2 (SES V2)", "SendBulkEmail");
+            try
+            {
+                #if DESKTOP
+                return client.SendBulkEmail(request);
+                #elif CORECLR
+                return client.SendBulkEmailAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public List<Amazon.SimpleEmailV2.Model.BulkEmailEntry> BulkEmailEntry { get; set; }
+            public System.String ConfigurationSetName { get; set; }
+            public System.String Template_TemplateArn { get; set; }
+            public System.String Template_TemplateData { get; set; }
+            public System.String Template_TemplateName { get; set; }
+            public List<Amazon.SimpleEmailV2.Model.MessageTag> DefaultEmailTag { get; set; }
+            public System.String FeedbackForwardingEmailAddress { get; set; }
+            public System.String FeedbackForwardingEmailAddressIdentityArn { get; set; }
+            public System.String FromEmailAddress { get; set; }
+            public System.String FromEmailAddressIdentityArn { get; set; }
+            public List<System.String> ReplyToAddress { get; set; }
+            public System.Func<Amazon.SimpleEmailV2.Model.SendBulkEmailResponse, SendSES2BulkEmailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.BulkEmailEntryResults;
+        }
+        
+    }
+}

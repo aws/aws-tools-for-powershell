@@ -454,11 +454,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether the DB instance is publicly accessible. When the DB
-        /// instance is publicly accessible, it is an Internet-facing instance with a publicly
-        /// resolvable DNS name, which resolves to a public IP address. When the DB instance isn't
-        /// publicly accessible, it is an internal instance with a DNS name that resolves to a
-        /// private IP address. For more information, see <a>CreateDBInstance</a>.</para>
+        /// <para>A value that indicates whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its DNS endpoint resolves to the private
+        /// IP address from within the DB instance's VPC, and to the public IP address from outside
+        /// of the DB instance's VPC. Access to the DB instance is ultimately controlled by the
+        /// security group it uses, and that public access is not permitted if the security group
+        /// assigned to the DB instance doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
+        /// a DNS name that resolves to a private IP address.</para><para>For more information, see <a>CreateDBInstance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -530,7 +531,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceEngineVersion
         /// <summary>
         /// <para>
-        /// <para>The engine version of your source database. </para><para>Valid Values: <code>5.6</code></para>
+        /// <para>The version of the database that the backup files were created from.</para><para>MySQL versions 5.6 and 5.7 are supported. </para><para>Example: <code>5.6.40</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

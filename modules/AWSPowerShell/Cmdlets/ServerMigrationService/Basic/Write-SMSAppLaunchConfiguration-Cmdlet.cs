@@ -28,7 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// Creates a launch configuration for an application.
+    /// Creates or updates the launch configuration for the specified application.
     /// </summary>
     [Cmdlet("Write", "SMSAppLaunchConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,17 +43,28 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>ID of the application associated with the launch configuration.</para>
+        /// <para>The ID of the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AppId { get; set; }
         #endregion
         
+        #region Parameter AutoLaunch
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the application is configured to launch automatically after replication
+        /// is complete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AutoLaunch { get; set; }
+        #endregion
+        
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>Name of service role in the customer's account that Amazon CloudFormation uses to
+        /// <para>The name of service role in the customer's account that AWS CloudFormation uses to
         /// launch the application.</para>
         /// </para>
         /// </summary>
@@ -64,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ServerGroupLaunchConfiguration
         /// <summary>
         /// <para>
-        /// <para>Launch configurations for server groups in the application.</para>
+        /// <para>Information about the launch configurations for server groups in the application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AppId = this.AppId;
+            context.AutoLaunch = this.AutoLaunch;
             context.RoleName = this.RoleName;
             if (this.ServerGroupLaunchConfiguration != null)
             {
@@ -157,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.SMS
             if (cmdletContext.AppId != null)
             {
                 request.AppId = cmdletContext.AppId;
+            }
+            if (cmdletContext.AutoLaunch != null)
+            {
+                request.AutoLaunch = cmdletContext.AutoLaunch.Value;
             }
             if (cmdletContext.RoleName != null)
             {
@@ -228,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppId { get; set; }
+            public System.Boolean? AutoLaunch { get; set; }
             public System.String RoleName { get; set; }
             public List<Amazon.ServerMigrationService.Model.ServerGroupLaunchConfiguration> ServerGroupLaunchConfiguration { get; set; }
             public System.Func<Amazon.ServerMigrationService.Model.PutAppLaunchConfigurationResponse, WriteSMSAppLaunchConfigurationCmdlet, object> Select { get; set; } =

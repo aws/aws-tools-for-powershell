@@ -69,6 +69,17 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String CampaignArn { get; set; }
         #endregion
         
+        #region Parameter CampaignConfig_ItemExplorationConfig
+        /// <summary>
+        /// <para>
+        /// <para>A string to string map specifying the inference hyperparameters you wish to use for
+        /// hyperparameter optimization. See <a>customizing-solution-config-hpo</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable CampaignConfig_ItemExplorationConfig { get; set; }
+        #endregion
+        
         #region Parameter MinProvisionedTPS
         /// <summary>
         /// <para>
@@ -158,6 +169,14 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter CampaignArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.CampaignConfig_ItemExplorationConfig != null)
+            {
+                context.CampaignConfig_ItemExplorationConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CampaignConfig_ItemExplorationConfig.Keys)
+                {
+                    context.CampaignConfig_ItemExplorationConfig.Add((String)hashKey, (String)(this.CampaignConfig_ItemExplorationConfig[hashKey]));
+                }
+            }
             context.MinProvisionedTPS = this.MinProvisionedTPS;
             context.SolutionVersionArn = this.SolutionVersionArn;
             
@@ -179,6 +198,25 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (cmdletContext.CampaignArn != null)
             {
                 request.CampaignArn = cmdletContext.CampaignArn;
+            }
+            
+             // populate CampaignConfig
+            var requestCampaignConfigIsNull = true;
+            request.CampaignConfig = new Amazon.Personalize.Model.CampaignConfig();
+            Dictionary<System.String, System.String> requestCampaignConfig_campaignConfig_ItemExplorationConfig = null;
+            if (cmdletContext.CampaignConfig_ItemExplorationConfig != null)
+            {
+                requestCampaignConfig_campaignConfig_ItemExplorationConfig = cmdletContext.CampaignConfig_ItemExplorationConfig;
+            }
+            if (requestCampaignConfig_campaignConfig_ItemExplorationConfig != null)
+            {
+                request.CampaignConfig.ItemExplorationConfig = requestCampaignConfig_campaignConfig_ItemExplorationConfig;
+                requestCampaignConfigIsNull = false;
+            }
+             // determine if request.CampaignConfig should be set to null
+            if (requestCampaignConfigIsNull)
+            {
+                request.CampaignConfig = null;
             }
             if (cmdletContext.MinProvisionedTPS != null)
             {
@@ -250,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CampaignArn { get; set; }
+            public Dictionary<System.String, System.String> CampaignConfig_ItemExplorationConfig { get; set; }
             public System.Int32? MinProvisionedTPS { get; set; }
             public System.String SolutionVersionArn { get; set; }
             public System.Func<Amazon.Personalize.Model.UpdateCampaignResponse, UpdatePERSCampaignCmdlet, object> Select { get; set; } =

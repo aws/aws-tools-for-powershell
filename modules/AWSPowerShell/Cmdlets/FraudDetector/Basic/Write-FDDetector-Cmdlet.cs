@@ -67,6 +67,34 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String DetectorId { get; set; }
         #endregion
         
+        #region Parameter EventTypeName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the event type.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EventTypeName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A collection of key and value pairs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.FraudDetector.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -135,6 +163,17 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EventTypeName = this.EventTypeName;
+            #if MODULAR
+            if (this.EventTypeName == null && ParameterWasBound(nameof(this.EventTypeName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventTypeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.FraudDetector.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -158,6 +197,14 @@ namespace Amazon.PowerShell.Cmdlets.FD
             if (cmdletContext.DetectorId != null)
             {
                 request.DetectorId = cmdletContext.DetectorId;
+            }
+            if (cmdletContext.EventTypeName != null)
+            {
+                request.EventTypeName = cmdletContext.EventTypeName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -222,6 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
         {
             public System.String Description { get; set; }
             public System.String DetectorId { get; set; }
+            public System.String EventTypeName { get; set; }
+            public List<Amazon.FraudDetector.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.FraudDetector.Model.PutDetectorResponse, WriteFDDetectorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

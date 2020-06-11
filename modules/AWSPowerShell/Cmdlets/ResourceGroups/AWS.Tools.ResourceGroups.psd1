@@ -86,15 +86,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-RGResource', 
         'Add-RGResourceTag', 
         'Find-RGResource', 
         'Get-RGGroup', 
+        'Get-RGGroupConfiguration', 
         'Get-RGGroupList', 
         'Get-RGGroupQuery', 
         'Get-RGGroupResourceList', 
         'Get-RGResourceTag', 
         'New-RGGroup', 
         'Remove-RGGroup', 
+        'Remove-RGResource', 
         'Remove-RGResourceTag', 
         'Update-RGGroup', 
         'Update-RGGroupQuery')

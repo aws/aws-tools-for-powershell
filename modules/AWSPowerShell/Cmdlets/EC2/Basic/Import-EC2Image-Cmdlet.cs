@@ -174,6 +174,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String RoleName { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the image being imported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter ClientData_UtcUploadEnd
         /// <summary>
         /// <para>
@@ -316,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.LicenseType = this.LicenseType;
             context.Platform = this.Platform;
             context.RoleName = this.RoleName;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -457,6 +472,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.RoleName = cmdletContext.RoleName;
             }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             
             CmdletOutput output;
             
@@ -537,6 +556,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String LicenseType { get; set; }
             public System.String Platform { get; set; }
             public System.String RoleName { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.ImportImageResponse, ImportEC2ImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

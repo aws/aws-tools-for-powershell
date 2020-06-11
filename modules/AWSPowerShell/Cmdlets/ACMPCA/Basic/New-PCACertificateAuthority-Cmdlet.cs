@@ -37,6 +37,18 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// days (the validity period of the CRL), the Amazon S3 bucket that will contain the
     /// CRL, and a CNAME alias for the S3 bucket that is included in certificates issued by
     /// the CA. If successful, this action returns the Amazon Resource Name (ARN) of the CA.
+    /// 
+    ///  
+    /// <para>
+    /// ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
+    /// For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting
+    /// Your CRLs</a>.
+    /// </para><note><para>
+    /// Both PCA and the IAM principal must have permission to write to the S3 bucket that
+    /// you specify. If the IAM principal making the call does not have permission to write
+    /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
+    /// Access to ACM Private CA</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "PCACertificateAuthority", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -86,11 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Alphanumeric string that can be used to distinguish between calls to <b>CreateCertificateAuthority</b>.
-        /// Idempotency tokens time out after five minutes. Therefore, if you call <b>CreateCertificateAuthority</b>
-        /// multiple times with the same idempotency token within a five minute period, ACM Private
-        /// CA recognizes that you are requesting only one certificate. As a result, ACM Private
-        /// CA issues only one. If you change the idempotency token for each call, however, ACM
-        /// Private CA recognizes that you are requesting multiple certificates.</para>
+        /// For a given token, ACM Private CA creates exactly one CA. If you issue a subsequent
+        /// call using the same token, ACM Private CA returns the ARN of the existing CA and takes
+        /// no further action. If you change the idempotency token across multiple calls, ACM
+        /// Private CA creates a unique CA for each unique token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// (CRL) for the CA, the name of the S3 bucket to which ACM Private CA will write the
         /// CRL, and an optional CNAME alias that you can use to hide the name of your bucket
         /// in the <b>CRL Distribution Points</b> extension of your CA certificate. For more information,
-        /// see the <a>CrlConfiguration</a> structure. </para>
+        /// see the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html">CrlConfiguration</a>
+        /// structure. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>Key-value pairs that will be attached to the new private CA. You can associate up
-        /// to 50 tags with a private CA. For information using tags with </para><para>IAM to manage permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
+        /// to 50 tags with a private CA. For information using tags with IAM to manage permissions,
+        /// see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling
         /// Access Using IAM Tags</a>.</para>
         /// </para>
         /// </summary>

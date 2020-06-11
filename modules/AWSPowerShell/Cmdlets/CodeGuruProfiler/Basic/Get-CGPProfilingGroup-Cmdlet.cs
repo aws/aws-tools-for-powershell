@@ -28,7 +28,8 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Describes a profiling group.
+    /// Returns a <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ProfilingGroupDescription.html"><code>ProfilingGroupDescription</code></a> object that contains information about
+    /// the requested profiling group.
     /// </summary>
     [Cmdlet("Get", "CGPProfilingGroup")]
     [OutputType("Amazon.CodeGuruProfiler.Model.ProfilingGroupDescription")]
@@ -43,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ProfilingGroupName
         /// <summary>
         /// <para>
-        /// <para>The profiling group name.</para>
+        /// <para> The name of the profiling group to get information about. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

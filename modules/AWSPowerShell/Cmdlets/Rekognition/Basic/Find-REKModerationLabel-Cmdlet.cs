@@ -93,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter HumanLoopConfig_FlowDefinitionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the flow definition.</para>
+        /// <para>The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition
+        /// by using the Amazon Sagemaker <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html">CreateFlowDefinition</a>
+        /// Operation. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

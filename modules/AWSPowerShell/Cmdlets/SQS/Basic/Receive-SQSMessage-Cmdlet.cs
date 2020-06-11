@@ -88,13 +88,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>A list of attributes that need to be returned along with each message. These attributes
-        /// include:</para><ul><li><para><code>All</code> - Returns all values.</para></li><li><para><code>ApproximateFirstReceiveTimestamp</code> - Returns the time the message was
+        /// include:</para><ul><li><para><code>All</code> – Returns all values.</para></li><li><para><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was
         /// first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch
-        /// time</a> in milliseconds).</para></li><li><para><code>ApproximateReceiveCount</code> - Returns the number of times a message has
-        /// been received from the queue but not deleted.</para></li><li><para><code>AWSTraceHeader</code> - Returns the AWS X-Ray trace header string. </para></li><li><para><code>SenderId</code></para><ul><li><para>For an IAM user, returns the IAM user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</para></li><li><para>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</para></li></ul></li><li><para><code>SentTimestamp</code> - Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</para></li><li><para><code>MessageDeduplicationId</code> - Returns the value provided by the producer
-        /// that calls the <code><a>SendMessage</a></code> action.</para></li><li><para><code>MessageGroupId</code> - Returns the value provided by the producer that calls
+        /// time</a> in milliseconds).</para></li><li><para><code>ApproximateReceiveCount</code> – Returns the number of times a message has
+        /// been received across all queues but not deleted.</para></li><li><para><code>AWSTraceHeader</code> – Returns the AWS X-Ray trace header string. </para></li><li><para><code>SenderId</code></para><ul><li><para>For an IAM user, returns the IAM user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</para></li><li><para>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</para></li></ul></li><li><para><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</para></li><li><para><code>MessageDeduplicationId</code> – Returns the value provided by the producer
+        /// that calls the <code><a>SendMessage</a></code> action.</para></li><li><para><code>MessageGroupId</code> – Returns the value provided by the producer that calls
         /// the <code><a>SendMessage</a></code> action. Messages with the same <code>MessageGroupId</code>
-        /// are returned in sequence.</para></li><li><para><code>SequenceNumber</code> - Returns the value provided by Amazon SQS.</para></li></ul>
+        /// are returned in sequence.</para></li><li><para><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
@@ -154,12 +154,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>
         /// <para>This parameter applies only to FIFO (first-in-first-out) queues.</para><para>The token used for deduplication of <code>ReceiveMessage</code> calls. If a networking
         /// issue occurs after a <code>ReceiveMessage</code> action, and instead of a response
-        /// you receive a generic error, you can retry the same action with an identical <code>ReceiveRequestAttemptId</code>
-        /// to retrieve the same set of messages, even if their visibility timeout has not yet
-        /// expired.</para><ul><li><para>You can use <code>ReceiveRequestAttemptId</code> only for 5 minutes after a <code>ReceiveMessage</code>
+        /// you receive a generic error, it is possible to retry the same action with an identical
+        /// <code>ReceiveRequestAttemptId</code> to retrieve the same set of messages, even if
+        /// their visibility timeout has not yet expired.</para><ul><li><para>You can use <code>ReceiveRequestAttemptId</code> only for 5 minutes after a <code>ReceiveMessage</code>
         /// action.</para></li><li><para>When you set <code>FifoQueue</code>, a caller of the <code>ReceiveMessage</code> action
         /// can provide a <code>ReceiveRequestAttemptId</code> explicitly.</para></li><li><para>If a caller of the <code>ReceiveMessage</code> action doesn't provide a <code>ReceiveRequestAttemptId</code>,
-        /// Amazon SQS generates a <code>ReceiveRequestAttemptId</code>.</para></li><li><para>You can retry the <code>ReceiveMessage</code> action with the same <code>ReceiveRequestAttemptId</code>
+        /// Amazon SQS generates a <code>ReceiveRequestAttemptId</code>.</para></li><li><para>It is possible to retry the <code>ReceiveMessage</code> action with the same <code>ReceiveRequestAttemptId</code>
         /// if none of the messages have been modified (deleted or had their visibility changes).</para></li><li><para>During a visibility timeout, subsequent calls with the same <code>ReceiveRequestAttemptId</code>
         /// return the same messages and receipt handles. If a retry occurs within the deduplication
         /// interval, it resets the visibility timeout. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// visibility timeout expires. You can still receive messages with another <code>MessageGroupId</code>
         /// as long as it is also visible.</para></li><li><para>If a caller of <code>ReceiveMessage</code> can't track the <code>ReceiveRequestAttemptId</code>,
         /// no retries work until the original visibility timeout expires. As a result, delays
-        /// might occur but the messages in the queue remain in a strict order.</para></li></ul><para>The length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code>
+        /// might occur but the messages in the queue remain in a strict order.</para></li></ul><para>The maximum length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code>
         /// can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>)
         /// and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code>).</para><para>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using
         /// the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon Simple Queue Service
@@ -201,7 +201,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>The duration (in seconds) for which the call waits for a message to arrive in the
         /// queue before returning. If a message is available, the call returns sooner than <code>WaitTimeSeconds</code>.
         /// If no messages are available and the wait time expires, the call returns successfully
-        /// with an empty list of messages.</para>
+        /// with an empty list of messages.</para><important><para>To avoid HTTP errors, ensure that the HTTP response timeout for <code>ReceiveMessage</code>
+        /// requests is longer than the <code>WaitTimeSeconds</code> parameter. For example, with
+        /// the Java SDK, you can set HTTP transport settings using the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/nio/netty/NettyNioAsyncHttpClient.html">
+        /// NettyNioAsyncHttpClient</a> for asynchronous clients, or the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/apache/ApacheHttpClient.html">
+        /// ApacheHttpClient</a> for synchronous clients. </para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]

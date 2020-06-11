@@ -28,8 +28,8 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Updates an existing group with a new or changed description. You cannot update the
-    /// name of a resource group.
+    /// Updates the description for an existing group. You cannot update the name of a resource
+    /// group.
     /// </summary>
     [Cmdlet("Update", "RGGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.Group")]
@@ -44,28 +44,33 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the resource group. Descriptions can have a maximum of 511 characters,
-        /// including letters, numbers, hyphens, underscores, punctuation, and spaces.</para>
+        /// <para>The new description that you want to update the resource group with. Descriptions
+        /// can contain letters, numbers, hyphens, underscores, periods, and spaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Group
+        /// <summary>
+        /// <para>
+        /// <para>The name or the ARN of the resource group to modify.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Group { get; set; }
+        #endregion
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the resource group for which you want to update its description.</para>
+        /// <para>Don't use this parameter. Use <code>Group</code> instead.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [System.ObsoleteAttribute("This field is deprecated, use Group instead.")]
         [Alias("Name")]
         public System.String GroupName { get; set; }
         #endregion
@@ -132,13 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.Group = this.Group;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupName = this.GroupName;
-            #if MODULAR
-            if (this.GroupName == null && ParameterWasBound(nameof(this.GroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -159,10 +161,16 @@ namespace Amazon.PowerShell.Cmdlets.RG
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.Group != null)
+            {
+                request.Group = cmdletContext.Group;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -225,6 +233,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.String Group { get; set; }
+            [System.ObsoleteAttribute]
             public System.String GroupName { get; set; }
             public System.Func<Amazon.ResourceGroups.Model.UpdateGroupResponse, UpdateRGGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Group;

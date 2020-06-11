@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>fms</C2jFilename>
     <AssemblyName>FMS</AssemblyName>
@@ -13,13 +14,16 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AssociateAdminAccount" Verb="Add" Noun="AdminAccountAssociation" ShouldProcessTarget="AdminAccount" PipelineParameter="AdminAccount" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAppsList" Verb="Remove" Noun="AppList" ShouldProcessTarget="ListId" PipelineParameter="ListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -31,11 +35,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProtocolsList" Verb="Remove" Noun="ProtocolList" ShouldProcessTarget="ListId" PipelineParameter="ListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateAdminAccount" Verb="Remove" Noun="AdminAccountAssociation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAdminAccount" OutputProperty="*" Verb="Get" Noun="AdminAccount" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAppsList" OutputProperty="*" Verb="Get" Noun="AppList" PipelineParameter="ListId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -55,6 +67,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetProtocolsList" OutputProperty="*" Verb="Get" Noun="ProtocolList" PipelineParameter="ListId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetViolationDetails" OutputProperty="ViolationDetail" Verb="Get" Noun="ViolationDetail" PipelineParameter="PolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAppsLists" OutputProperty="AppsLists" Verb="Get" Noun="AppsListList" PipelineParameter="DefaultLists" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListComplianceStatus" OutputProperty="PolicyComplianceStatusList" Verb="Get" Noun="ComplianceStatusList" PipelineParameter="PolicyId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -67,7 +91,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListProtocolsLists" OutputProperty="ProtocolsLists" Verb="Get" Noun="ProtocolsListList" PipelineParameter="DefaultLists" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="TagList" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAppsList" OutputProperty="*" Verb="Write" Noun="AppList" ShouldProcessTarget="AppsList_ListName" PipelineParameter="AppsList_ListName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutPolicy" OutputProperty="*" Verb="Set" Noun="Policy" ShouldProcessTarget="Policy" PipelineParameter="Policy" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutProtocolsList" OutputProperty="*" Verb="Write" Noun="ProtocolList" ShouldProcessTarget="ProtocolsList_ListName" PipelineParameter="ProtocolsList_ListName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -88,8 +124,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.FMS.Model.Policy</Type>
     </TypesNotToFlatten>

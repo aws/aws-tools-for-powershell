@@ -28,7 +28,7 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Lists the private certificate authorities that you created by using the <a>CreateCertificateAuthority</a>
+    /// Lists the private certificate authorities that you created by using the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>
     /// action.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "PCACertificateAuthorityList")]
@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     )]
     public partial class GetPCACertificateAuthorityListCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {
+        
+        #region Parameter ResourceOwner
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to filter the returned set of certificate authorities based on
+        /// their owner. The default is SELF.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.ACMPCA.ResourceOwner")]
+        public Amazon.ACMPCA.ResourceOwner ResourceOwner { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -87,6 +99,16 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         public string Select { get; set; } = "CertificateAuthorities";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ResourceOwner parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceOwner' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceOwner' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -106,11 +128,21 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.ACMPCA.Model.ListCertificateAuthoritiesResponse, GetPCACertificateAuthorityListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.ResourceOwner;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -122,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ResourceOwner = this.ResourceOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -136,7 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.ACMPCA.Model.ListCertificateAuthoritiesRequest();
@@ -144,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ResourceOwner != null)
+            {
+                request.ResourceOwner = cmdletContext.ResourceOwner;
             }
             
             // Initialize loop variant and commence piping
@@ -196,10 +235,14 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
             
             // create request and set iteration invariants
             var request = new Amazon.ACMPCA.Model.ListCertificateAuthoritiesRequest();
+            if (cmdletContext.ResourceOwner != null)
+            {
+                request.ResourceOwner = cmdletContext.ResourceOwner;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -321,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         {
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.ACMPCA.ResourceOwner ResourceOwner { get; set; }
             public System.Func<Amazon.ACMPCA.Model.ListCertificateAuthoritiesResponse, GetPCACertificateAuthorityListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CertificateAuthorities;
         }

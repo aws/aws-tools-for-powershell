@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]'</code></para><para>In most cases, you can use this value instead of the scope-down policy to lock your
         /// user down to the designated home directory ("chroot"). To do this, you can set <code>Entry</code>
         /// to '/' and set <code>Target</code> to the HomeDirectory parameter value.</para><note><para>If the target of a logical directory entry does not exist in Amazon S3, the entry
-        /// will be ignored. As a workaround, you can use the Amazon S3 api to create 0 byte objects
+        /// will be ignored. As a workaround, you can use the Amazon S3 API to create 0 byte objects
         /// as place holders for your directory. If using the CLI, use the <code>s3api</code>
         /// call instead of <code>s3</code> so you can use the put-object operation. For example,
         /// you use the following: <code>aws s3api put-object --bucket bucketname --key path/to/folder/</code>.
@@ -180,8 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>
         /// <para>A unique string that identifies a user and is associated with a file transfer protocol-enabled
         /// server as specified by the <code>ServerId</code>. This user name must be a minimum
-        /// of 3 and a maximum of 32 characters long. The following are valid characters: a-z,
-        /// A-Z, 0-9, underscore, and hyphen. The user name can't start with a hyphen.</para>
+        /// of 3 and a maximum of 100 characters long. The following are valid characters: a-z,
+        /// A-Z, 0-9, underscore '_', hyphen '-', period '.', and at sign '@'. The user name can't
+        /// start with a hyphen, period, and at sign.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

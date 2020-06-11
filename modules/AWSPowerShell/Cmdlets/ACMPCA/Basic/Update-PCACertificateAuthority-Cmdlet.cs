@@ -32,6 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before
     /// you can update it. You can disable a private CA that is in the <code>ACTIVE</code>
     /// state or make a CA that is in the <code>DISABLED</code> state active again.
+    /// 
+    ///  <note><para>
+    /// Both PCA and the IAM principal must have permission to write to the S3 bucket that
+    /// you specify. If the IAM principal making the call does not have permission to write
+    /// to the bucket, then an exception is thrown. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html">Configure
+    /// Access to ACM Private CA</a>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "PCACertificateAuthority", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

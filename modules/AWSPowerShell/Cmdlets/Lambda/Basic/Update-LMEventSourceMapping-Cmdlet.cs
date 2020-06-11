@@ -40,9 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </para></li><li><para><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or
     /// Amazon SNS topic.
     /// </para></li><li><para><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified
-    /// age.
+    /// age. Default -1 (infinite). Minimum 60. Maximum 604800.
     /// </para></li><li><para><code>MaximumRetryAttempts</code> - Discard records after the specified number of
-    /// retries.
+    /// retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records
+    /// will be retried until the record expires.
     /// </para></li><li><para><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.
     /// </para></li></ul>
     /// </summary>
@@ -58,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter BatchSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</para></li></ul>
+        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>Disables the event source mapping to pause polling and invocation.</para>
+        /// <para>If true, the event source mapping is active. Set to false to pause polling and invocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumRecordAgeInSecond
         /// <summary>
         /// <para>
-        /// <para>(Streams) The maximum age of a record that Lambda sends to a function for processing.</para>
+        /// <para>(Streams) Discard records older than the specified age. The default value is infinite
+        /// (-1).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaximumRetryAttempt
         /// <summary>
         /// <para>
-        /// <para>(Streams) The maximum number of times to retry when the function returns an error.</para>
+        /// <para>(Streams) Discard records after the specified number of retries. The default value
+        /// is infinite (-1). When set to infinite (-1), failed records will be retried until
+        /// the record expires.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

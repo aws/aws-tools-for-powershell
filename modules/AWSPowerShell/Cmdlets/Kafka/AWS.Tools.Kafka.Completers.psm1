@@ -176,6 +176,7 @@ $MSK_SelectMap = @{
                "Get-MSKKafkaVersionList",
                "Get-MSKNodeList",
                "Get-MSKResourceTag",
+               "Restart-MSKBroker",
                "Add-MSKResourceTag",
                "Remove-MSKResourceTag",
                "Update-MSKBrokerCount",

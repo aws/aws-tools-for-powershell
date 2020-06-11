@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <code>FaceModelVersion</code> in the response from <code>IndexFaces</code></para><para>
     /// For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
     /// </para><para>
-    /// If you provide the optional <code>ExternalImageID</code> for the input image you provided,
+    /// If you provide the optional <code>ExternalImageId</code> for the input image you provided,
     /// Amazon Rekognition associates this ID with all faces that it detects. When you call
     /// the <a>ListFaces</a> operation, the response returns the external ID. You can use
     /// this external image ID to create a client-side index to associate the faces with each

@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String DestinationIpv6CidrBlock { get; set; }
         #endregion
         
+        #region Parameter DestinationPrefixListId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the prefix list for the route.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DestinationPrefixListId { get; set; }
+        #endregion
+        
         #region Parameter RouteTableId
         /// <summary>
         /// <para>
@@ -141,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DestinationCidrBlock = this.DestinationCidrBlock;
             context.DestinationIpv6CidrBlock = this.DestinationIpv6CidrBlock;
+            context.DestinationPrefixListId = this.DestinationPrefixListId;
             context.RouteTableId = this.RouteTableId;
             #if MODULAR
             if (this.RouteTableId == null && ParameterWasBound(nameof(this.RouteTableId)))
@@ -171,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.DestinationIpv6CidrBlock != null)
             {
                 request.DestinationIpv6CidrBlock = cmdletContext.DestinationIpv6CidrBlock;
+            }
+            if (cmdletContext.DestinationPrefixListId != null)
+            {
+                request.DestinationPrefixListId = cmdletContext.DestinationPrefixListId;
             }
             if (cmdletContext.RouteTableId != null)
             {
@@ -239,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String DestinationCidrBlock { get; set; }
             public System.String DestinationIpv6CidrBlock { get; set; }
+            public System.String DestinationPrefixListId { get; set; }
             public System.String RouteTableId { get; set; }
             public System.Func<Amazon.EC2.Model.DeleteRouteResponse, RemoveEC2RouteCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

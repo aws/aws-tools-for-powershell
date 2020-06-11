@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The day of the month component of the maintenance start time represented as an ordinal
         /// number from 1 to 28, where 1 represents the first day of the month and 28 represents
-        /// the last day of the month.</para><note><para>This value is only available for tape and volume gateways.</para></note>
+        /// the last day of the month.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

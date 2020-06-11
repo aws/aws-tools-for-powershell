@@ -87,6 +87,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Environment_Certificate { get; set; }
         #endregion
         
+        #region Parameter BuildBatchConfig_CombineArtifact
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if the build artifacts for the batch build should be combined into a single
+        /// artifact location.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BuildBatchConfig_CombineArtifacts")]
+        public System.Boolean? BuildBatchConfig_CombineArtifact { get; set; }
+        #endregion
+        
         #region Parameter Environment_ComputeType
         /// <summary>
         /// <para>
@@ -108,6 +120,36 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.CodeBuild.ComputeType")]
         public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
+        #endregion
+        
+        #region Parameter Restrictions_ComputeTypesAllowed
+        /// <summary>
+        /// <para>
+        /// <para>An array of strings that specify the compute types that are allowed for the batch
+        /// build. See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build
+        /// environment compute types</a> in the <i>AWS CodeBuild User Guide</i> for these values.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BuildBatchConfig_Restrictions_ComputeTypesAllowed")]
+        public System.String[] Restrictions_ComputeTypesAllowed { get; set; }
+        #endregion
+        
+        #region Parameter BuildStatusConfig_Context
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the context of the build status CodeBuild sends to the source provider.
+        /// The usage of this parameter depends on the source provider.</para><dl><dt>Bitbucket</dt><dd><para>This parameter is used for the <code>name</code> parameter in the Bitbucket commit
+        /// status. For more information, see <a href="https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build">build</a>
+        /// in the Bitbucket API documentation.</para></dd><dt>GitHub/GitHub Enterprise Server</dt><dd><para>This parameter is used for the <code>context</code> parameter in the GitHub commit
+        /// status. For more information, see <a href="https://developer.github.com/v3/repos/statuses/#create-a-commit-status">Create
+        /// a commit status</a> in the GitHub developer guide.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Source_BuildStatusConfig_Context")]
+        public System.String BuildStatusConfig_Context { get; set; }
         #endregion
         
         #region Parameter RegistryCredential_Credential
@@ -174,9 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for
-        /// encrypting the build output artifacts.</para><note><para> You can use a cross-account KMS key to encrypt the build output artifacts if your
+        /// encrypting the build output artifacts.</para><note><para>You can use a cross-account KMS key to encrypt the build output artifacts if your
         /// service role has permission to that key. </para></note><para>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available,
-        /// the CMK's alias (using the format <code>alias/<i>alias-name</i></code>).</para>
+        /// the CMK's alias (using the format <code>alias/&lt;alias-name&gt;</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -333,9 +375,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// AWS CodePipeline, <code>location</code> should not be specified. If it is specified,
         /// AWS CodePipeline ignores it. This is because AWS CodePipeline uses the settings in
         /// a pipeline's source action instead of this value.</para></li><li><para>For source code in an AWS CodeCommit repository, the HTTPS clone URL to the repository
-        /// that contains the source code and the buildspec file (for example, <code>https://git-codecommit.<i>region-ID</i>.amazonaws.com/v1/repos/<i>repo-name</i></code>).</para></li><li><para>For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, one
-        /// of the following. </para><ul><li><para> The path to the ZIP file that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>object-name</i>.zip</code>).
-        /// </para></li><li><para> The path to the folder that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>source-code</i>/<i>folder</i>/</code>).
+        /// that contains the source code and the buildspec file (for example, <code>https://git-codecommit.&lt;region-ID&gt;.amazonaws.com/v1/repos/&lt;repo-name&gt;</code>).</para></li><li><para>For source code in an Amazon Simple Storage Service (Amazon S3) input bucket, one
+        /// of the following. </para><ul><li><para>The path to the ZIP file that contains the source code (for example, <code>&lt;bucket-name&gt;/&lt;path&gt;/&lt;object-name&gt;.zip</code>).
+        /// </para></li><li><para>The path to the folder that contains the source code (for example, <code>&lt;bucket-name&gt;/&lt;path-to-source-code&gt;/&lt;folder&gt;/</code>).
         /// </para></li></ul></li><li><para>For source code in a GitHub repository, the HTTPS clone URL to the repository that
         /// contains the source and the buildspec file. You must connect your AWS account to your
         /// GitHub account. Use the AWS CodeBuild console to start creating a build project. When
@@ -358,6 +400,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Source_Location { get; set; }
+        #endregion
+        
+        #region Parameter Restrictions_MaximumBuildsAllowed
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the maximum number of builds allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BuildBatchConfig_Restrictions_MaximumBuildsAllowed")]
+        public System.Int32? Restrictions_MaximumBuildsAllowed { get; set; }
         #endregion
         
         #region Parameter Cache_Mode
@@ -398,12 +451,12 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// object. If you set the name to be a forward slash ("/"), the artifact is stored in
         /// the root of the output bucket.</para></li></ul><para>For example:</para><ul><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
-        /// then the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.
+        /// then the output artifact is stored in <code>MyArtifacts/&lt;build-ID&gt;/MyArtifact.zip</code>.
         /// </para></li><li><para> If <code>path</code> is empty, <code>namespaceType</code> is set to <code>NONE</code>,
         /// and <code>name</code> is set to "<code>/</code>", the output artifact is stored in
         /// the root of the output bucket. </para></li><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to "<code>/</code>",
-        /// the output artifact is stored in <code>MyArtifacts/<i>build-ID</i></code>. </para></li></ul>
+        /// the output artifact is stored in <code>MyArtifacts/&lt;build-ID&gt;</code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -437,7 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, valid values include:</para><ul><li><para><code>BUILD_ID</code>: Include the build ID in the location of the build output artifact.</para></li><li><para><code>NONE</code>: Do not include the build ID. This is the default if <code>namespaceType</code>
         /// is not specified.</para></li></ul></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
-        /// the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.</para>
+        /// the output artifact is stored in <code>MyArtifacts/&lt;build-ID&gt;/MyArtifact.zip</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -510,7 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter QueuedTimeoutInMinute
         /// <summary>
         /// <para>
-        /// <para> The number of minutes a build is allowed to be queued before it times out. </para>
+        /// <para>The number of minutes a build is allowed to be queued before it times out. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -546,7 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SecondaryArtifact
         /// <summary>
         /// <para>
-        /// <para> An array of <code>ProjectArtifacts</code> objects. </para>
+        /// <para>An array of <code>ProjectArtifacts</code> objects. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -557,7 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SecondarySource
         /// <summary>
         /// <para>
-        /// <para> An array of <code>ProjectSource</code> objects. </para>
+        /// <para>An array of <code>ProjectSource</code> objects. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -568,7 +621,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SecondarySourceVersion
         /// <summary>
         /// <para>
-        /// <para> An array of <code>ProjectSourceVersion</code> objects. If <code>secondarySourceVersions</code>
+        /// <para>An array of <code>ProjectSourceVersion</code> objects. If <code>secondarySourceVersions</code>
         /// is specified at the build level, then they take precedence over these <code>secondarySourceVersions</code>
         /// (at the project level). </para>
         /// </para>
@@ -587,6 +640,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VpcConfig_SecurityGroupIds")]
         public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter BuildBatchConfig_ServiceRole
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the service role ARN for the batch build project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BuildBatchConfig_ServiceRole { get; set; }
         #endregion
         
         #region Parameter ServiceRole
@@ -620,16 +683,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SourceVersion
         /// <summary>
         /// <para>
-        /// <para> A version of the build input to be built for this project. If not specified, the
-        /// latest version is used. If specified, it must be one of: </para><ul><li><para>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</para></li><li><para>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds
+        /// <para>A version of the build input to be built for this project. If not specified, the latest
+        /// version is used. If specified, it must be one of: </para><ul><li><para>For AWS CodeCommit: the commit ID, branch, or Git tag to use.</para></li><li><para>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds
         /// to the version of the source code you want to build. If a pull request ID is specified,
         /// it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>).
         /// If a branch name is specified, the branch's HEAD commit ID is used. If not specified,
         /// the default branch's HEAD commit ID is used.</para></li><li><para>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version
         /// of the source code you want to build. If a branch name is specified, the branch's
         /// HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</para></li><li><para>For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents
-        /// the build input ZIP file to use.</para></li></ul><para> If <code>sourceVersion</code> is specified at the build level, then that version
-        /// takes precedence over this <code>sourceVersion</code> (at the project level). </para><para> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source
+        /// the build input ZIP file to use.</para></li></ul><para>If <code>sourceVersion</code> is specified at the build level, then that version takes
+        /// precedence over this <code>sourceVersion</code> (at the project level). </para><para>For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source
         /// Version Sample with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -696,6 +759,34 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.CodeBuild.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter BuildStatusConfig_TargetUrl
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the target url of the build status CodeBuild sends to the source provider.
+        /// The usage of this parameter depends on the source provider.</para><dl><dt>Bitbucket</dt><dd><para>This parameter is used for the <code>url</code> parameter in the Bitbucket commit
+        /// status. For more information, see <a href="https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build">build</a>
+        /// in the Bitbucket API documentation.</para></dd><dt>GitHub/GitHub Enterprise Server</dt><dd><para>This parameter is used for the <code>target_url</code> parameter in the GitHub commit
+        /// status. For more information, see <a href="https://developer.github.com/v3/repos/statuses/#create-a-commit-status">Create
+        /// a commit status</a> in the GitHub developer guide.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Source_BuildStatusConfig_TargetUrl")]
+        public System.String BuildStatusConfig_TargetUrl { get; set; }
+        #endregion
+        
+        #region Parameter BuildBatchConfig_TimeoutInMin
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the maximum amount of time, in minutes, that the batch build must be completed
+        /// in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BuildBatchConfig_TimeoutInMins")]
+        public System.Int32? BuildBatchConfig_TimeoutInMin { get; set; }
         #endregion
         
         #region Parameter TimeoutInMinute
@@ -784,7 +875,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The type of repository that contains the source code to be built. Valid values include:</para><ul><li><para><code>BITBUCKET</code>: The source code is in a Bitbucket repository.</para></li><li><para><code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</para></li><li><para><code>CODEPIPELINE</code>: The source code settings are specified in the source action
-        /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub repository.</para></li><li><para><code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise repository.</para></li><li><para><code>NO_SOURCE</code>: The project does not have input source code.</para></li><li><para><code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3)
+        /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub or GitHub Enterprise Cloud repository.</para></li><li><para><code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise Server
+        /// repository.</para></li><li><para><code>NO_SOURCE</code>: The project does not have input source code.</para></li><li><para><code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3)
         /// input bucket.</para></li></ul>
         /// </para>
         /// </summary>
@@ -886,6 +978,14 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             #endif
             context.BadgeEnabled = this.BadgeEnabled;
+            context.BuildBatchConfig_CombineArtifact = this.BuildBatchConfig_CombineArtifact;
+            if (this.Restrictions_ComputeTypesAllowed != null)
+            {
+                context.Restrictions_ComputeTypesAllowed = new List<System.String>(this.Restrictions_ComputeTypesAllowed);
+            }
+            context.Restrictions_MaximumBuildsAllowed = this.Restrictions_MaximumBuildsAllowed;
+            context.BuildBatchConfig_ServiceRole = this.BuildBatchConfig_ServiceRole;
+            context.BuildBatchConfig_TimeoutInMin = this.BuildBatchConfig_TimeoutInMin;
             context.Cache_Location = this.Cache_Location;
             if (this.Cache_Mode != null)
             {
@@ -964,6 +1064,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.Auth_Resource = this.Auth_Resource;
             context.Auth_Type = this.Auth_Type;
             context.Source_Buildspec = this.Source_Buildspec;
+            context.BuildStatusConfig_Context = this.BuildStatusConfig_Context;
+            context.BuildStatusConfig_TargetUrl = this.BuildStatusConfig_TargetUrl;
             context.Source_GitCloneDepth = this.Source_GitCloneDepth;
             context.GitSubmodulesConfig_FetchSubmodule = this.GitSubmodulesConfig_FetchSubmodule;
             context.Source_InsecureSsl = this.Source_InsecureSsl;
@@ -1110,6 +1212,80 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.BadgeEnabled != null)
             {
                 request.BadgeEnabled = cmdletContext.BadgeEnabled.Value;
+            }
+            
+             // populate BuildBatchConfig
+            var requestBuildBatchConfigIsNull = true;
+            request.BuildBatchConfig = new Amazon.CodeBuild.Model.ProjectBuildBatchConfig();
+            System.Boolean? requestBuildBatchConfig_buildBatchConfig_CombineArtifact = null;
+            if (cmdletContext.BuildBatchConfig_CombineArtifact != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_CombineArtifact = cmdletContext.BuildBatchConfig_CombineArtifact.Value;
+            }
+            if (requestBuildBatchConfig_buildBatchConfig_CombineArtifact != null)
+            {
+                request.BuildBatchConfig.CombineArtifacts = requestBuildBatchConfig_buildBatchConfig_CombineArtifact.Value;
+                requestBuildBatchConfigIsNull = false;
+            }
+            System.String requestBuildBatchConfig_buildBatchConfig_ServiceRole = null;
+            if (cmdletContext.BuildBatchConfig_ServiceRole != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_ServiceRole = cmdletContext.BuildBatchConfig_ServiceRole;
+            }
+            if (requestBuildBatchConfig_buildBatchConfig_ServiceRole != null)
+            {
+                request.BuildBatchConfig.ServiceRole = requestBuildBatchConfig_buildBatchConfig_ServiceRole;
+                requestBuildBatchConfigIsNull = false;
+            }
+            System.Int32? requestBuildBatchConfig_buildBatchConfig_TimeoutInMin = null;
+            if (cmdletContext.BuildBatchConfig_TimeoutInMin != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_TimeoutInMin = cmdletContext.BuildBatchConfig_TimeoutInMin.Value;
+            }
+            if (requestBuildBatchConfig_buildBatchConfig_TimeoutInMin != null)
+            {
+                request.BuildBatchConfig.TimeoutInMins = requestBuildBatchConfig_buildBatchConfig_TimeoutInMin.Value;
+                requestBuildBatchConfigIsNull = false;
+            }
+            Amazon.CodeBuild.Model.BatchRestrictions requestBuildBatchConfig_buildBatchConfig_Restrictions = null;
+            
+             // populate Restrictions
+            var requestBuildBatchConfig_buildBatchConfig_RestrictionsIsNull = true;
+            requestBuildBatchConfig_buildBatchConfig_Restrictions = new Amazon.CodeBuild.Model.BatchRestrictions();
+            List<System.String> requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_ComputeTypesAllowed = null;
+            if (cmdletContext.Restrictions_ComputeTypesAllowed != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_ComputeTypesAllowed = cmdletContext.Restrictions_ComputeTypesAllowed;
+            }
+            if (requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_ComputeTypesAllowed != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_Restrictions.ComputeTypesAllowed = requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_ComputeTypesAllowed;
+                requestBuildBatchConfig_buildBatchConfig_RestrictionsIsNull = false;
+            }
+            System.Int32? requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_MaximumBuildsAllowed = null;
+            if (cmdletContext.Restrictions_MaximumBuildsAllowed != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_MaximumBuildsAllowed = cmdletContext.Restrictions_MaximumBuildsAllowed.Value;
+            }
+            if (requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_MaximumBuildsAllowed != null)
+            {
+                requestBuildBatchConfig_buildBatchConfig_Restrictions.MaximumBuildsAllowed = requestBuildBatchConfig_buildBatchConfig_Restrictions_restrictions_MaximumBuildsAllowed.Value;
+                requestBuildBatchConfig_buildBatchConfig_RestrictionsIsNull = false;
+            }
+             // determine if requestBuildBatchConfig_buildBatchConfig_Restrictions should be set to null
+            if (requestBuildBatchConfig_buildBatchConfig_RestrictionsIsNull)
+            {
+                requestBuildBatchConfig_buildBatchConfig_Restrictions = null;
+            }
+            if (requestBuildBatchConfig_buildBatchConfig_Restrictions != null)
+            {
+                request.BuildBatchConfig.Restrictions = requestBuildBatchConfig_buildBatchConfig_Restrictions;
+                requestBuildBatchConfigIsNull = false;
+            }
+             // determine if request.BuildBatchConfig should be set to null
+            if (requestBuildBatchConfigIsNull)
+            {
+                request.BuildBatchConfig = null;
             }
             
              // populate Cache
@@ -1533,6 +1709,41 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 request.Source.Auth = requestSource_source_Auth;
                 requestSourceIsNull = false;
             }
+            Amazon.CodeBuild.Model.BuildStatusConfig requestSource_source_BuildStatusConfig = null;
+            
+             // populate BuildStatusConfig
+            var requestSource_source_BuildStatusConfigIsNull = true;
+            requestSource_source_BuildStatusConfig = new Amazon.CodeBuild.Model.BuildStatusConfig();
+            System.String requestSource_source_BuildStatusConfig_buildStatusConfig_Context = null;
+            if (cmdletContext.BuildStatusConfig_Context != null)
+            {
+                requestSource_source_BuildStatusConfig_buildStatusConfig_Context = cmdletContext.BuildStatusConfig_Context;
+            }
+            if (requestSource_source_BuildStatusConfig_buildStatusConfig_Context != null)
+            {
+                requestSource_source_BuildStatusConfig.Context = requestSource_source_BuildStatusConfig_buildStatusConfig_Context;
+                requestSource_source_BuildStatusConfigIsNull = false;
+            }
+            System.String requestSource_source_BuildStatusConfig_buildStatusConfig_TargetUrl = null;
+            if (cmdletContext.BuildStatusConfig_TargetUrl != null)
+            {
+                requestSource_source_BuildStatusConfig_buildStatusConfig_TargetUrl = cmdletContext.BuildStatusConfig_TargetUrl;
+            }
+            if (requestSource_source_BuildStatusConfig_buildStatusConfig_TargetUrl != null)
+            {
+                requestSource_source_BuildStatusConfig.TargetUrl = requestSource_source_BuildStatusConfig_buildStatusConfig_TargetUrl;
+                requestSource_source_BuildStatusConfigIsNull = false;
+            }
+             // determine if requestSource_source_BuildStatusConfig should be set to null
+            if (requestSource_source_BuildStatusConfigIsNull)
+            {
+                requestSource_source_BuildStatusConfig = null;
+            }
+            if (requestSource_source_BuildStatusConfig != null)
+            {
+                request.Source.BuildStatusConfig = requestSource_source_BuildStatusConfig;
+                requestSourceIsNull = false;
+            }
              // determine if request.Source should be set to null
             if (requestSourceIsNull)
             {
@@ -1660,6 +1871,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Artifacts_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType Artifacts_Type { get; set; }
             public System.Boolean? BadgeEnabled { get; set; }
+            public System.Boolean? BuildBatchConfig_CombineArtifact { get; set; }
+            public List<System.String> Restrictions_ComputeTypesAllowed { get; set; }
+            public System.Int32? Restrictions_MaximumBuildsAllowed { get; set; }
+            public System.String BuildBatchConfig_ServiceRole { get; set; }
+            public System.Int32? BuildBatchConfig_TimeoutInMin { get; set; }
             public System.String Cache_Location { get; set; }
             public List<System.String> Cache_Mode { get; set; }
             public Amazon.CodeBuild.CacheType Cache_Type { get; set; }
@@ -1690,6 +1906,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String Auth_Resource { get; set; }
             public Amazon.CodeBuild.SourceAuthType Auth_Type { get; set; }
             public System.String Source_Buildspec { get; set; }
+            public System.String BuildStatusConfig_Context { get; set; }
+            public System.String BuildStatusConfig_TargetUrl { get; set; }
             public System.Int32? Source_GitCloneDepth { get; set; }
             public System.Boolean? GitSubmodulesConfig_FetchSubmodule { get; set; }
             public System.Boolean? Source_InsecureSsl { get; set; }

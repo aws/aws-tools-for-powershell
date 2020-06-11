@@ -232,6 +232,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         public System.Boolean? SetupModeDisabled { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags for the profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.AlexaForBusiness.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TemperatureUnit
         /// <summary>
         /// <para>
@@ -381,6 +392,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             #endif
             context.PSTNEnabled = this.PSTNEnabled;
             context.SetupModeDisabled = this.SetupModeDisabled;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.AlexaForBusiness.Model.Tag>(this.Tag);
+            }
             context.TemperatureUnit = this.TemperatureUnit;
             #if MODULAR
             if (this.TemperatureUnit == null && ParameterWasBound(nameof(this.TemperatureUnit)))
@@ -584,6 +599,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             {
                 request.SetupModeDisabled = cmdletContext.SetupModeDisabled.Value;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.TemperatureUnit != null)
             {
                 request.TemperatureUnit = cmdletContext.TemperatureUnit;
@@ -673,6 +692,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             public System.String Name { get; set; }
             public System.Boolean? PSTNEnabled { get; set; }
             public System.Boolean? SetupModeDisabled { get; set; }
+            public List<Amazon.AlexaForBusiness.Model.Tag> Tag { get; set; }
             public Amazon.AlexaForBusiness.TemperatureUnit TemperatureUnit { get; set; }
             public System.String Timezone { get; set; }
             public Amazon.AlexaForBusiness.WakeWord WakeWord { get; set; }

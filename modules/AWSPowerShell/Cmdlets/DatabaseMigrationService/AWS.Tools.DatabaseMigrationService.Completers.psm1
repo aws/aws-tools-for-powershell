@@ -154,6 +154,8 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.MessageFormatValue
         {
+            ($_ -eq "Edit-DMSEndpoint/KafkaSettings_MessageFormat") -Or
+            ($_ -eq "New-DMSEndpoint/KafkaSettings_MessageFormat") -Or
             ($_ -eq "Edit-DMSEndpoint/KinesisSettings_MessageFormat") -Or
             ($_ -eq "New-DMSEndpoint/KinesisSettings_MessageFormat")
         }
@@ -165,6 +167,7 @@ $DMS_Completers = {
         # Amazon.DatabaseMigrationService.MigrationTypeValue
         {
             ($_ -eq "Edit-DMSReplicationTask/MigrationType") -Or
+            ($_ -eq "Get-DMSApplicableIndividualAssessment/MigrationType") -Or
             ($_ -eq "New-DMSReplicationTask/MigrationType")
         }
         {
@@ -233,8 +236,9 @@ $DMS_Completers = {
 
 $DMS_map = @{
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "MigrationType"=@("Edit-DMSReplicationTask","New-DMSReplicationTask")
+    "MigrationType"=@("Edit-DMSReplicationTask","Get-DMSApplicableIndividualAssessment","New-DMSReplicationTask")
     "MongoDbSettings_AuthMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -302,6 +306,7 @@ $DMS_SelectCompleters = {
 $DMS_SelectMap = @{
     "Select"=@("Set-DMSResourceTag",
                "Complete-DMSPendingMaintenanceAction",
+               "Stop-DMSReplicationTaskAssessmentRun",
                "New-DMSEndpoint",
                "New-DMSEventSubscription",
                "New-DMSReplicationInstance",
@@ -314,7 +319,9 @@ $DMS_SelectMap = @{
                "Remove-DMSReplicationInstance",
                "Remove-DMSReplicationSubnetGroup",
                "Remove-DMSReplicationTask",
+               "Remove-DMSReplicationTaskAssessmentRun",
                "Get-DMSAccountAttribute",
+               "Get-DMSApplicableIndividualAssessment",
                "Get-DMSCertificate",
                "Get-DMSConnection",
                "Get-DMSEndpoint",
@@ -329,6 +336,8 @@ $DMS_SelectMap = @{
                "Get-DMSReplicationInstanceTaskLog",
                "Get-DMSReplicationSubnetGroup",
                "Get-DMSReplicationTaskAssessmentResult",
+               "Get-DMSReplicationTaskAssessmentRun",
+               "Get-DMSReplicationTaskIndividualAssessment",
                "Get-DMSReplicationTask",
                "Get-DMSSchema",
                "Get-DMSTableStatistic",
@@ -345,6 +354,7 @@ $DMS_SelectMap = @{
                "Remove-DMSResourceTag",
                "Start-DMSReplicationTask",
                "Start-DMSReplicationTaskAssessment",
+               "Start-DMSReplicationTaskAssessmentRun",
                "Stop-DMSReplicationTask",
                "Test-DMSConnection")
 }

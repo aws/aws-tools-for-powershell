@@ -83,14 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// AVS device.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DeviceSerialNumber { get; set; }
         #endregion
         
@@ -109,6 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProductId { get; set; }
+        #endregion
+        
+        #region Parameter RoomArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the room with which to associate your AVS device.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoomArn { get; set; }
         #endregion
         
         #region Parameter UserCode
@@ -206,12 +209,6 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             }
             #endif
             context.DeviceSerialNumber = this.DeviceSerialNumber;
-            #if MODULAR
-            if (this.DeviceSerialNumber == null && ParameterWasBound(nameof(this.DeviceSerialNumber)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DeviceSerialNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ProductId = this.ProductId;
             #if MODULAR
             if (this.ProductId == null && ParameterWasBound(nameof(this.ProductId)))
@@ -219,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 WriteWarning("You are passing $null as a value for parameter ProductId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RoomArn = this.RoomArn;
             context.UserCode = this.UserCode;
             #if MODULAR
             if (this.UserCode == null && ParameterWasBound(nameof(this.UserCode)))
@@ -257,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             if (cmdletContext.ProductId != null)
             {
                 request.ProductId = cmdletContext.ProductId;
+            }
+            if (cmdletContext.RoomArn != null)
+            {
+                request.RoomArn = cmdletContext.RoomArn;
             }
             if (cmdletContext.UserCode != null)
             {
@@ -327,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             public System.String ClientId { get; set; }
             public System.String DeviceSerialNumber { get; set; }
             public System.String ProductId { get; set; }
+            public System.String RoomArn { get; set; }
             public System.String UserCode { get; set; }
             public System.Func<Amazon.AlexaForBusiness.Model.RegisterAVSDeviceResponse, RegisterALXBAVSDeviceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DeviceArn;

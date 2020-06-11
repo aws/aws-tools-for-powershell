@@ -28,7 +28,8 @@ using Amazon.FraudDetector.Model;
 namespace Amazon.PowerShell.Cmdlets.FD
 {
     /// <summary>
-    /// Updates a rule version resulting in a new rule version.
+    /// Updates a rule version resulting in a new rule version. Updates a rule version resulting
+    /// in a new rule version (version 1, 2, 3 ...).
     /// </summary>
     [Cmdlet("Update", "FDRuleVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FraudDetector.Model.Rule")]
@@ -153,6 +154,17 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String Rule_RuleVersion { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the rule version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.FraudDetector.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Rule'.
@@ -260,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 WriteWarning("You are passing $null as a value for parameter Rule_RuleVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.FraudDetector.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -331,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.FD
             {
                 request.Rule = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -399,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
             public System.String Rule_DetectorId { get; set; }
             public System.String Rule_RuleId { get; set; }
             public System.String Rule_RuleVersion { get; set; }
+            public List<Amazon.FraudDetector.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.FraudDetector.Model.UpdateRuleVersionResponse, UpdateFDRuleVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Rule;
         }

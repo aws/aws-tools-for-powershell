@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTOTAUpdateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter AwsJobAbortConfig_AbortCriteriaList
+        /// <summary>
+        /// <para>
+        /// <para>The list of criteria that determine when and how to abort the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.IoT.Model.AwsJobAbortCriteria[] AwsJobAbortConfig_AbortCriteriaList { get; set; }
+        #endregion
+        
         #region Parameter AdditionalParameter
         /// <summary>
         /// <para>
@@ -48,6 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdditionalParameters")]
         public System.Collections.Hashtable AdditionalParameter { get; set; }
+        #endregion
+        
+        #region Parameter ExponentialRate_BaseRatePerMinute
+        /// <summary>
+        /// <para>
+        /// <para>The minimum number of things that will be notified of a pending job, per minute, at
+        /// the start of the job rollout. This is the initial rate of the rollout.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AwsJobExecutionsRolloutConfig_ExponentialRate_BaseRatePerMinute")]
+        public System.Int32? ExponentialRate_BaseRatePerMinute { get; set; }
         #endregion
         
         #region Parameter Description
@@ -90,6 +112,34 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.Model.OTAUpdateFile[] File { get; set; }
         #endregion
         
+        #region Parameter ExponentialRate_IncrementFactor
+        /// <summary>
+        /// <para>
+        /// <para>The rate of increase for a job rollout. The number of things notified is multiplied
+        /// by this factor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AwsJobExecutionsRolloutConfig_ExponentialRate_IncrementFactor")]
+        public System.Double? ExponentialRate_IncrementFactor { get; set; }
+        #endregion
+        
+        #region Parameter AwsJobTimeoutConfig_InProgressTimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the amount of time, in minutes, this device has to finish execution of this
+        /// job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080
+        /// minutes). The in progress timer can't be updated and will apply to all job executions
+        /// for the job. Whenever a job execution remains in the IN_PROGRESS status for longer
+        /// than this interval, the job execution will fail and switch to the terminal <code>TIMED_OUT</code>
+        /// status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AwsJobTimeoutConfig_InProgressTimeoutInMinutes")]
+        public System.Int64? AwsJobTimeoutConfig_InProgressTimeoutInMinute { get; set; }
+        #endregion
+        
         #region Parameter AwsJobExecutionsRolloutConfig_MaximumPerMinute
         /// <summary>
         /// <para>
@@ -98,6 +148,30 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? AwsJobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
+        #endregion
+        
+        #region Parameter RateIncreaseCriteria_NumberOfNotifiedThing
+        /// <summary>
+        /// <para>
+        /// <para>When this number of things have been notified, it will initiate an increase in the
+        /// rollout rate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AwsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_NumberOfNotifiedThings")]
+        public System.Int32? RateIncreaseCriteria_NumberOfNotifiedThing { get; set; }
+        #endregion
+        
+        #region Parameter RateIncreaseCriteria_NumberOfSucceededThing
+        /// <summary>
+        /// <para>
+        /// <para>When this number of things have succeeded in their job execution, it will initiate
+        /// an increase in the rollout rate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AwsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_NumberOfSucceededThings")]
+        public System.Int32? RateIncreaseCriteria_NumberOfSucceededThing { get; set; }
         #endregion
         
         #region Parameter OtaUpdateId
@@ -133,7 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM role that allows access to the AWS IoT Jobs service.</para>
+        /// <para>The IAM role that grants AWS IoT access to the Amazon S3, AWS IoT jobs and AWS Code
+        /// Signing resources to create an OTA update job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targeted devices to receive OTA updates.</para>
+        /// <para>The devices targeted to receive OTA updates.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -261,8 +336,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                     context.AdditionalParameter.Add((String)hashKey, (String)(this.AdditionalParameter[hashKey]));
                 }
             }
+            if (this.AwsJobAbortConfig_AbortCriteriaList != null)
+            {
+                context.AwsJobAbortConfig_AbortCriteriaList = new List<Amazon.IoT.Model.AwsJobAbortCriteria>(this.AwsJobAbortConfig_AbortCriteriaList);
+            }
+            context.ExponentialRate_BaseRatePerMinute = this.ExponentialRate_BaseRatePerMinute;
+            context.ExponentialRate_IncrementFactor = this.ExponentialRate_IncrementFactor;
+            context.RateIncreaseCriteria_NumberOfNotifiedThing = this.RateIncreaseCriteria_NumberOfNotifiedThing;
+            context.RateIncreaseCriteria_NumberOfSucceededThing = this.RateIncreaseCriteria_NumberOfSucceededThing;
             context.AwsJobExecutionsRolloutConfig_MaximumPerMinute = this.AwsJobExecutionsRolloutConfig_MaximumPerMinute;
             context.AwsJobPresignedUrlConfig_ExpiresInSec = this.AwsJobPresignedUrlConfig_ExpiresInSec;
+            context.AwsJobTimeoutConfig_InProgressTimeoutInMinute = this.AwsJobTimeoutConfig_InProgressTimeoutInMinute;
             context.Description = this.Description;
             if (this.File != null)
             {
@@ -328,6 +412,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 request.AdditionalParameters = cmdletContext.AdditionalParameter;
             }
             
+             // populate AwsJobAbortConfig
+            var requestAwsJobAbortConfigIsNull = true;
+            request.AwsJobAbortConfig = new Amazon.IoT.Model.AwsJobAbortConfig();
+            List<Amazon.IoT.Model.AwsJobAbortCriteria> requestAwsJobAbortConfig_awsJobAbortConfig_AbortCriteriaList = null;
+            if (cmdletContext.AwsJobAbortConfig_AbortCriteriaList != null)
+            {
+                requestAwsJobAbortConfig_awsJobAbortConfig_AbortCriteriaList = cmdletContext.AwsJobAbortConfig_AbortCriteriaList;
+            }
+            if (requestAwsJobAbortConfig_awsJobAbortConfig_AbortCriteriaList != null)
+            {
+                request.AwsJobAbortConfig.AbortCriteriaList = requestAwsJobAbortConfig_awsJobAbortConfig_AbortCriteriaList;
+                requestAwsJobAbortConfigIsNull = false;
+            }
+             // determine if request.AwsJobAbortConfig should be set to null
+            if (requestAwsJobAbortConfigIsNull)
+            {
+                request.AwsJobAbortConfig = null;
+            }
+            
              // populate AwsJobExecutionsRolloutConfig
             var requestAwsJobExecutionsRolloutConfigIsNull = true;
             request.AwsJobExecutionsRolloutConfig = new Amazon.IoT.Model.AwsJobExecutionsRolloutConfig();
@@ -339,6 +442,76 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_MaximumPerMinute != null)
             {
                 request.AwsJobExecutionsRolloutConfig.MaximumPerMinute = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_MaximumPerMinute.Value;
+                requestAwsJobExecutionsRolloutConfigIsNull = false;
+            }
+            Amazon.IoT.Model.AwsJobExponentialRolloutRate requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate = null;
+            
+             // populate ExponentialRate
+            var requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRateIsNull = true;
+            requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate = new Amazon.IoT.Model.AwsJobExponentialRolloutRate();
+            System.Int32? requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_exponentialRate_BaseRatePerMinute = null;
+            if (cmdletContext.ExponentialRate_BaseRatePerMinute != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_exponentialRate_BaseRatePerMinute = cmdletContext.ExponentialRate_BaseRatePerMinute.Value;
+            }
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_exponentialRate_BaseRatePerMinute != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate.BaseRatePerMinute = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_exponentialRate_BaseRatePerMinute.Value;
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRateIsNull = false;
+            }
+            System.Double? requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_exponentialRate_IncrementFactor = null;
+            if (cmdletContext.ExponentialRate_IncrementFactor != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_exponentialRate_IncrementFactor = cmdletContext.ExponentialRate_IncrementFactor.Value;
+            }
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_exponentialRate_IncrementFactor != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate.IncrementFactor = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_exponentialRate_IncrementFactor.Value;
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRateIsNull = false;
+            }
+            Amazon.IoT.Model.AwsJobRateIncreaseCriteria requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria = null;
+            
+             // populate RateIncreaseCriteria
+            var requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull = true;
+            requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria = new Amazon.IoT.Model.AwsJobRateIncreaseCriteria();
+            System.Int32? requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing = null;
+            if (cmdletContext.RateIncreaseCriteria_NumberOfNotifiedThing != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing = cmdletContext.RateIncreaseCriteria_NumberOfNotifiedThing.Value;
+            }
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria.NumberOfNotifiedThings = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfNotifiedThing.Value;
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull = false;
+            }
+            System.Int32? requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing = null;
+            if (cmdletContext.RateIncreaseCriteria_NumberOfSucceededThing != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing = cmdletContext.RateIncreaseCriteria_NumberOfSucceededThing.Value;
+            }
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria.NumberOfSucceededThings = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria_rateIncreaseCriteria_NumberOfSucceededThing.Value;
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull = false;
+            }
+             // determine if requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria should be set to null
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteriaIsNull)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria = null;
+            }
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria != null)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate.RateIncreaseCriteria = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate_awsJobExecutionsRolloutConfig_ExponentialRate_RateIncreaseCriteria;
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRateIsNull = false;
+            }
+             // determine if requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate should be set to null
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRateIsNull)
+            {
+                requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate = null;
+            }
+            if (requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate != null)
+            {
+                request.AwsJobExecutionsRolloutConfig.ExponentialRate = requestAwsJobExecutionsRolloutConfig_awsJobExecutionsRolloutConfig_ExponentialRate;
                 requestAwsJobExecutionsRolloutConfigIsNull = false;
             }
              // determine if request.AwsJobExecutionsRolloutConfig should be set to null
@@ -364,6 +537,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestAwsJobPresignedUrlConfigIsNull)
             {
                 request.AwsJobPresignedUrlConfig = null;
+            }
+            
+             // populate AwsJobTimeoutConfig
+            var requestAwsJobTimeoutConfigIsNull = true;
+            request.AwsJobTimeoutConfig = new Amazon.IoT.Model.AwsJobTimeoutConfig();
+            System.Int64? requestAwsJobTimeoutConfig_awsJobTimeoutConfig_InProgressTimeoutInMinute = null;
+            if (cmdletContext.AwsJobTimeoutConfig_InProgressTimeoutInMinute != null)
+            {
+                requestAwsJobTimeoutConfig_awsJobTimeoutConfig_InProgressTimeoutInMinute = cmdletContext.AwsJobTimeoutConfig_InProgressTimeoutInMinute.Value;
+            }
+            if (requestAwsJobTimeoutConfig_awsJobTimeoutConfig_InProgressTimeoutInMinute != null)
+            {
+                request.AwsJobTimeoutConfig.InProgressTimeoutInMinutes = requestAwsJobTimeoutConfig_awsJobTimeoutConfig_InProgressTimeoutInMinute.Value;
+                requestAwsJobTimeoutConfigIsNull = false;
+            }
+             // determine if request.AwsJobTimeoutConfig should be set to null
+            if (requestAwsJobTimeoutConfigIsNull)
+            {
+                request.AwsJobTimeoutConfig = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -459,8 +651,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> AdditionalParameter { get; set; }
+            public List<Amazon.IoT.Model.AwsJobAbortCriteria> AwsJobAbortConfig_AbortCriteriaList { get; set; }
+            public System.Int32? ExponentialRate_BaseRatePerMinute { get; set; }
+            public System.Double? ExponentialRate_IncrementFactor { get; set; }
+            public System.Int32? RateIncreaseCriteria_NumberOfNotifiedThing { get; set; }
+            public System.Int32? RateIncreaseCriteria_NumberOfSucceededThing { get; set; }
             public System.Int32? AwsJobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
             public System.Int64? AwsJobPresignedUrlConfig_ExpiresInSec { get; set; }
+            public System.Int64? AwsJobTimeoutConfig_InProgressTimeoutInMinute { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.IoT.Model.OTAUpdateFile> File { get; set; }
             public System.String OtaUpdateId { get; set; }

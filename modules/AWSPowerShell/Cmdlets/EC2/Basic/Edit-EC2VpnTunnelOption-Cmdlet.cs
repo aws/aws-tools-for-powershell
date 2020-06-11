@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
         /// phase 1 IKE negotiations.</para><para>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code>
-        /// | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code></para>
+        /// | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code>
+        /// | <code>22</code> | <code>23</code> | <code>24</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more encryption algorithms that are permitted for the VPN tunnel for phase
-        /// 1 IKE negotiations.</para><para>Valid values: <code>AES128</code> | <code>AES256</code></para>
+        /// 1 IKE negotiations.</para><para>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code>
+        /// | <code>AES256-GCM-16</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1
-        /// IKE negotiations.</para><para>Valid values: <code>SHA1</code> | <code>SHA2-256</code></para>
+        /// IKE negotiations.</para><para>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+        /// <code>SHA2-512</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
         /// phase 2 IKE negotiations.</para><para>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code>
-        /// | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code>
-        /// | <code>24</code></para>
+        /// | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code>
+        /// | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more encryption algorithms that are permitted for the VPN tunnel for phase
-        /// 2 IKE negotiations.</para><para>Valid values: <code>AES128</code> | <code>AES256</code></para>
+        /// 2 IKE negotiations.</para><para>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code>
+        /// | <code>AES256-GCM-16</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2
-        /// IKE negotiations.</para><para>Valid values: <code>SHA1</code> | <code>SHA2-256</code></para>
+        /// IKE negotiations.</para><para>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+        /// <code>SHA2-512</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -213,13 +218,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TunnelOptions_TunnelInsideCidr
         /// <summary>
         /// <para>
-        /// <para>The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be
-        /// unique across all VPN connections that use the same virtual private gateway. </para><para>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
+        /// <para>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must
+        /// be unique across all VPN connections that use the same virtual private gateway. </para><para>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
         /// following CIDR blocks are reserved and cannot be used:</para><ul><li><para><code>169.254.0.0/30</code></para></li><li><para><code>169.254.1.0/30</code></para></li><li><para><code>169.254.2.0/30</code></para></li><li><para><code>169.254.3.0/30</code></para></li><li><para><code>169.254.4.0/30</code></para></li><li><para><code>169.254.5.0/30</code></para></li><li><para><code>169.254.169.252/30</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TunnelOptions_TunnelInsideCidr { get; set; }
+        #endregion
+        
+        #region Parameter TunnelOptions_TunnelInsideIpv6Cidr
+        /// <summary>
+        /// <para>
+        /// <para>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must
+        /// be unique across all VPN connections that use the same transit gateway.</para><para>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TunnelOptions_TunnelInsideIpv6Cidr { get; set; }
         #endregion
         
         #region Parameter VpnConnectionId
@@ -353,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.TunnelOptions_RekeyMarginTimeSecond = this.TunnelOptions_RekeyMarginTimeSecond;
             context.TunnelOptions_ReplayWindowSize = this.TunnelOptions_ReplayWindowSize;
             context.TunnelOptions_TunnelInsideCidr = this.TunnelOptions_TunnelInsideCidr;
+            context.TunnelOptions_TunnelInsideIpv6Cidr = this.TunnelOptions_TunnelInsideIpv6Cidr;
             context.VpnConnectionId = this.VpnConnectionId;
             #if MODULAR
             if (this.VpnConnectionId == null && ParameterWasBound(nameof(this.VpnConnectionId)))
@@ -537,6 +554,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.TunnelOptions.TunnelInsideCidr = requestTunnelOptions_tunnelOptions_TunnelInsideCidr;
                 requestTunnelOptionsIsNull = false;
             }
+            System.String requestTunnelOptions_tunnelOptions_TunnelInsideIpv6Cidr = null;
+            if (cmdletContext.TunnelOptions_TunnelInsideIpv6Cidr != null)
+            {
+                requestTunnelOptions_tunnelOptions_TunnelInsideIpv6Cidr = cmdletContext.TunnelOptions_TunnelInsideIpv6Cidr;
+            }
+            if (requestTunnelOptions_tunnelOptions_TunnelInsideIpv6Cidr != null)
+            {
+                request.TunnelOptions.TunnelInsideIpv6Cidr = requestTunnelOptions_tunnelOptions_TunnelInsideIpv6Cidr;
+                requestTunnelOptionsIsNull = false;
+            }
              // determine if request.TunnelOptions should be set to null
             if (requestTunnelOptionsIsNull)
             {
@@ -626,6 +653,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? TunnelOptions_RekeyMarginTimeSecond { get; set; }
             public System.Int32? TunnelOptions_ReplayWindowSize { get; set; }
             public System.String TunnelOptions_TunnelInsideCidr { get; set; }
+            public System.String TunnelOptions_TunnelInsideIpv6Cidr { get; set; }
             public System.String VpnConnectionId { get; set; }
             public System.String VpnTunnelOutsideIpAddress { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyVpnTunnelOptionsResponse, EditEC2VpnTunnelOptionCmdlet, object> Select { get; set; } =

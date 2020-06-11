@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Returns information about the upload buffer of a gateway. This operation is supported
-    /// for the stored volume, cached volume and tape gateway types.
+    /// for the stored volume, cached volume, and tape gateway types.
     /// 
     ///  
     /// <para>

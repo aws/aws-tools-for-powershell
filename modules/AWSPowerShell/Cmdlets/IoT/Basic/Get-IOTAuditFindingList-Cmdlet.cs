@@ -122,6 +122,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String ResourceIdentifier_IamRoleArn { get; set; }
         #endregion
         
+        #region Parameter ListSuppressedFinding
+        /// <summary>
+        /// <para>
+        /// <para> Boolean flag indicating whether only the suppressed findings or the unsuppressed
+        /// findings should be listed. If this parameter isn't provided, the response will list
+        /// both suppressed and unsuppressed findings. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ListSuppressedFindings")]
+        public System.Boolean? ListSuppressedFinding { get; set; }
+        #endregion
+        
         #region Parameter PolicyVersionIdentifier_PolicyName
         /// <summary>
         /// <para>
@@ -243,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             context.CheckName = this.CheckName;
             context.EndTime = this.EndTime;
+            context.ListSuppressedFinding = this.ListSuppressedFinding;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -291,6 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.ListSuppressedFinding != null)
+            {
+                request.ListSuppressedFindings = cmdletContext.ListSuppressedFinding.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -480,6 +498,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.ListSuppressedFinding != null)
+            {
+                request.ListSuppressedFindings = cmdletContext.ListSuppressedFinding.Value;
             }
             
              // populate ResourceIdentifier
@@ -724,6 +746,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.String CheckName { get; set; }
             public System.DateTime? EndTime { get; set; }
+            public System.Boolean? ListSuppressedFinding { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ResourceIdentifier_Account { get; set; }

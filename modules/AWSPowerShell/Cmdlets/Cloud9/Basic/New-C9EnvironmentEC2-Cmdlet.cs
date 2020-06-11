@@ -65,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.C9
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter ConnectionType
+        /// <summary>
+        /// <para>
+        /// <para>The connection type used for connecting to an Amazon EC2 environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Cloud9.ConnectionType")]
+        public Amazon.Cloud9.ConnectionType ConnectionType { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -207,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AutomaticStopTimeMinute = this.AutomaticStopTimeMinute;
             context.ClientRequestToken = this.ClientRequestToken;
+            context.ConnectionType = this.ConnectionType;
             context.Description = this.Description;
             context.InstanceType = this.InstanceType;
             #if MODULAR
@@ -251,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.C9
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.ConnectionType != null)
+            {
+                request.ConnectionType = cmdletContext.ConnectionType;
             }
             if (cmdletContext.Description != null)
             {
@@ -339,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
         {
             public System.Int32? AutomaticStopTimeMinute { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public Amazon.Cloud9.ConnectionType ConnectionType { get; set; }
             public System.String Description { get; set; }
             public System.String InstanceType { get; set; }
             public System.String Name { get; set; }

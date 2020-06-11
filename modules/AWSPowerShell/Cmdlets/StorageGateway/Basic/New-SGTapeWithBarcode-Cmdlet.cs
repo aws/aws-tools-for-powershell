@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Creates a virtual tape by using your own barcode. You write data to the virtual tape
-    /// and then archive the tape. A barcode is unique and cannot be reused if it has already
+    /// and then archive the tape. A barcode is unique and can not be reused if it has already
     /// been used on a tape. This applies to barcodes used on deleted tapes. This operation
     /// is only supported in the tape gateway type.
     /// 
@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
-        /// <para>True to use Amazon S3 server-side encryption with your own AWS KMS key, or false to
-        /// use a key managed by Amazon S3. Optional.</para>
+        /// <para>Set to <code>true</code> to use Amazon S3 server-side encryption with your own AWS
+        /// KMS key, or <code>false</code> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,8 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server-side encryption.
-        /// This value can only be set when KMSEncrypted is true. Optional.</para>
+        /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
+        /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
+        /// value can only be set when <code>KMSEncrypted</code> is <code>true</code>. Optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>The ID of the pool that you want to add your tape to for archiving. The tape in this
         /// pool is archived in the S3 storage class that is associated with the pool. When you
         /// use your backup application to eject the tape, the tape is archived directly into
-        /// the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the
-        /// pool.</para><para>Valid values: "GLACIER", "DEEP_ARCHIVE"</para>
+        /// the storage class (S3 Glacier or S3 Deep Archive) that corresponds to the pool.</para><para>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

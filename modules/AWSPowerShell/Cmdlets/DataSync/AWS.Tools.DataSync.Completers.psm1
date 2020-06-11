@@ -87,6 +87,13 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.ObjectStorageServerProtocol
+        "New-DSYNLocationObjectStorage/ServerProtocol"
+        {
+            $v = "HTTP","HTTPS"
+            break
+        }
+
         # Amazon.DataSync.S3StorageClass
         "New-DSYNLocationS3/S3StorageClass"
         {
@@ -112,6 +119,7 @@ $DSYN_Completers = {
 $DSYN_map = @{
     "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb")
     "S3StorageClass"=@("New-DSYNLocationS3")
+    "ServerProtocol"=@("New-DSYNLocationObjectStorage")
 }
 
 _awsArgumentCompleterRegistration $DSYN_Completers $DSYN_map
@@ -169,6 +177,7 @@ $DSYN_SelectMap = @{
                "New-DSYNLocationEfs",
                "New-DSYNLocationFsxWindow",
                "New-DSYNLocationNfs",
+               "New-DSYNLocationObjectStorage",
                "New-DSYNLocationS3",
                "New-DSYNLocationSmb",
                "New-DSYNTask",
@@ -179,6 +188,7 @@ $DSYN_SelectMap = @{
                "Get-DSYNLocationEfs",
                "Get-DSYNLocationFsxWindow",
                "Get-DSYNLocationNfs",
+               "Get-DSYNLocationObjectStorage",
                "Get-DSYNLocationS3",
                "Get-DSYNLocationSmb",
                "Get-DSYNTask",

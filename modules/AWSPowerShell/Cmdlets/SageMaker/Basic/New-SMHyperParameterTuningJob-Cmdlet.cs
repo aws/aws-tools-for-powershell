@@ -455,7 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TuningJobCompletionCriteria_TargetObjectiveMetricValue
         /// <summary>
         /// <para>
-        /// <para>The objective metric's value.</para>
+        /// <para>The value of the objective metric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

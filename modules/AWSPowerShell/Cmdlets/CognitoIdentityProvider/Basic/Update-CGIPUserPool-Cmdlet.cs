@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
     /// Updates the specified user pool with the specified attributes. You can get a list
-    /// of the current user pool settings with .
+    /// of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>.
     /// 
     ///  <important><para>
     /// If you don't provide a value for an attribute, it will be set to the default value.

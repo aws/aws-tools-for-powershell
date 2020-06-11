@@ -29,15 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
     /// Registers a consumer with a Kinesis data stream. When you use this operation, the
-    /// consumer you register can read data from the stream at a rate of up to 2 MiB per second.
-    /// This rate is unaffected by the total number of consumers that read from the same stream.
+    /// consumer you register can then call <a>SubscribeToShard</a> to receive data from the
+    /// stream using enhanced fan-out, at a rate of up to 2 MiB per second for every shard
+    /// you subscribe to. This rate is unaffected by the total number of consumers that read
+    /// from the same stream.
     /// 
     ///  
     /// <para>
-    /// You can register up to 5 consumers per stream. A given consumer can only be registered
-    /// with one stream.
+    /// You can register up to 20 consumers per stream. A given consumer can only be registered
+    /// with one stream at a time.
     /// </para><para>
-    /// This operation has a limit of five transactions per second per account.
+    /// For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced
+    /// Fan-Out Using the Kinesis Data Streams API</a>.
+    /// </para><para>
+    /// The use of this operation has a limit of five transactions per second per account.
+    /// Also, only 5 consumers can be created simultaneously. In other words, you cannot have
+    /// more than 5 consumers in a <code>CREATING</code> status at the same time. Registering
+    /// a 6th consumer while there are 5 in a <code>CREATING</code> status results in a <code>LimitExceededException</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "KINStreamConsumer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

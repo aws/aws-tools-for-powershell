@@ -75,11 +75,23 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         public System.Collections.Hashtable Context { get; set; }
         #endregion
         
+        #region Parameter FilterArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a filter you created to include or exclude items
+        /// from recommendations for a given user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FilterArn { get; set; }
+        #endregion
+        
         #region Parameter InputList
         /// <summary>
         /// <para>
-        /// <para>A list of items (itemId's) to rank. If an item was not included in the training dataset,
-        /// the item is appended to the end of the reranked list. The maximum is 500.</para>
+        /// <para>A list of items (by <code>itemId</code>) to rank. If an item was not included in the
+        /// training dataset, the item is appended to the end of the reranked list. The maximum
+        /// is 500.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -170,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                     context.Context.Add((String)hashKey, (String)(this.Context[hashKey]));
                 }
             }
+            context.FilterArn = this.FilterArn;
             if (this.InputList != null)
             {
                 context.InputList = new List<System.String>(this.InputList);
@@ -210,6 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
             if (cmdletContext.Context != null)
             {
                 request.Context = cmdletContext.Context;
+            }
+            if (cmdletContext.FilterArn != null)
+            {
+                request.FilterArn = cmdletContext.FilterArn;
             }
             if (cmdletContext.InputList != null)
             {
@@ -282,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
         {
             public System.String CampaignArn { get; set; }
             public Dictionary<System.String, System.String> Context { get; set; }
+            public System.String FilterArn { get; set; }
             public List<System.String> InputList { get; set; }
             public System.String UserId { get; set; }
             public System.Func<Amazon.PersonalizeRuntime.Model.GetPersonalizedRankingResponse, GetPERSRPersonalizedRankingCmdlet, object> Select { get; set; } =

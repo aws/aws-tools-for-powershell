@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>(Optional) IDs of the file systems whose descriptions you want to retrieve (String).</para>
+        /// <para>IDs of the file systems whose descriptions you want to retrieve (String).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,10 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Maximum number of file systems to return in the response (integer). This
-        /// parameter value must be greater than 0. The number of items that Amazon FSx returns
-        /// is the minimum of the <code>MaxResults</code> parameter specified in the request and
-        /// the service's internal maximum number of items per page.</para>
+        /// <para>Maximum number of file systems to return in the response (integer). This parameter
+        /// value must be greater than 0. The number of items that Amazon FSx returns is the minimum
+        /// of the <code>MaxResults</code> parameter specified in the request and the service's
+        /// internal maximum number of items per page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Opaque pagination token returned from a previous <code>DescribeFileSystems</code>
+        /// <para>Opaque pagination token returned from a previous <code>DescribeFileSystems</code>
         /// operation (String). If a token present, the action continues the list from where the
         /// returning call left off.</para>
         /// </para>

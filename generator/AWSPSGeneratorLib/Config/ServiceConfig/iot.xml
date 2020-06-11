@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases>
         <AliasSet Cmdlet="Get-IOTAuthorizerList">Get-IOTAuthorizersList</AliasSet>
@@ -96,6 +95,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ConfirmTopicRuleDestination" Verb="Confirm" Noun="TopicRuleDestination" ShouldProcessTarget="ConfirmationToken" PipelineParameter="ConfirmationToken" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAuditSuppression" Verb="New" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -196,6 +199,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountAuditConfiguration" Verb="Remove" Noun="AccountAuditConfiguration" ShouldProcessTarget="DeleteScheduledAudits" PipelineParameter="DeleteScheduledAudits" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAuditSuppression" Verb="Remove" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -322,6 +329,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAuditMitigationActionsTask" OutputProperty="*" Verb="Get" Noun="AuditMitigationActionsTask" PipelineParameter="TaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAuditSuppression" OutputProperty="*" Verb="Get" Noun="AuditSuppression" PipelineParameter="CheckName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -521,6 +532,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAuditMitigationActionsTasks" OutputProperty="Tasks" Verb="Get" Noun="AuditMitigationActionsTaskList" PipelineParameter="FindingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAuditSuppressions" OutputProperty="Suppressions" Verb="Get" Noun="AuditSuppressionList" PipelineParameter="CheckName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -840,6 +855,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAuditSuppression" Verb="Update" Noun="AuditSuppression" ShouldProcessTarget="CheckName" PipelineParameter="CheckName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateAuthorizer" OutputProperty="*" Verb="Update" Noun="Authorizer" ShouldProcessTarget="AuthorizerName" PipelineParameter="AuthorizerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -925,8 +944,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.IoT.Model.AttributePayload</Type>
         <Type>Amazon.IoT.Model.ExponentialRolloutRate</Type>

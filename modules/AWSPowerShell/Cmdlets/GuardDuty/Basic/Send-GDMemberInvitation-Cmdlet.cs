@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// <summary>
         /// <para>
         /// <para>A Boolean value that specifies whether you want to disable email notification to the
-        /// accounts that you’re inviting to GuardDuty as members.</para>
+        /// accounts that you are inviting to GuardDuty as members.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter Message
         /// <summary>
         /// <para>
-        /// <para>The invitation message that you want to send to the accounts that you’re inviting
+        /// <para>The invitation message that you want to send to the accounts that you're inviting
         /// to GuardDuty as members.</para>
         /// </para>
         /// </summary>

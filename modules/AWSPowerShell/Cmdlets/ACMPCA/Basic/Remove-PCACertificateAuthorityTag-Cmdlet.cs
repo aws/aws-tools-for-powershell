@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// If you do not specify the value portion of the tag when calling this action, the tag
     /// will be removed regardless of value. If you specify a value, the tag is removed only
     /// if it is associated with the specified value. To add tags to a private CA, use the
-    /// <a>TagCertificateAuthority</a>. Call the <a>ListTags</a> action to see what tags are
-    /// associated with your CA.
+    /// <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_TagCertificateAuthority.html">TagCertificateAuthority</a>.
+    /// Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html">ListTags</a>
+    /// action to see what tags are associated with your CA.
     /// </summary>
     [Cmdlet("Remove", "PCACertificateAuthorityTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         #region Parameter CertificateAuthorityArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that was returned when you called <a>CreateCertificateAuthority</a>.
+        /// <para>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>.
         /// This must be of the form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code></para>
         /// </para>
         /// </summary>

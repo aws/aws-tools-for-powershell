@@ -93,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The cache instance type.</para><ul><li><para><b>T2_SMALL</b>: A t2.small instance type.</para></li><li><para><b>T2_MEDIUM</b>: A t2.medium instance type.</para></li><li><para><b>R4_LARGE</b>: A r4.large instance type.</para></li><li><para><b>R4_XLARGE</b>: A r4.xlarge instance type.</para></li><li><para><b>R4_2XLARGE</b>: A r4.2xlarge instance type.</para></li><li><para><b>R4_4XLARGE</b>: A r4.4xlarge instance type.</para></li><li><para><b>R4_8XLARGE</b>: A r4.8xlarge instance type.</para></li></ul>
+        /// <para>The cache instance type. Valid values are </para><ul><li><para><code>SMALL</code></para></li><li><para><code>MEDIUM</code></para></li><li><para><code>LARGE</code></para></li><li><para><code>XLARGE</code></para></li><li><para><code>LARGE_2X</code></para></li><li><para><code>LARGE_4X</code></para></li><li><para><code>LARGE_8X</code> (not available in all regions)</para></li><li><para><code>LARGE_12X</code></para></li></ul><para>Historically, instance types were identified by an EC2-style value. As of July 2020,
+        /// this is deprecated, and the generic identifiers above should be used.</para><para>The following legacy instance types are avaible, but their use is discouraged:</para><ul><li><para><b>T2_SMALL</b>: A t2.small instance type.</para></li><li><para><b>T2_MEDIUM</b>: A t2.medium instance type.</para></li><li><para><b>R4_LARGE</b>: A r4.large instance type.</para></li><li><para><b>R4_XLARGE</b>: A r4.xlarge instance type.</para></li><li><para><b>R4_2XLARGE</b>: A r4.2xlarge instance type.</para></li><li><para><b>R4_4XLARGE</b>: A r4.4xlarge instance type.</para></li><li><para><b>R4_8XLARGE</b>: A r4.8xlarge instance type.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

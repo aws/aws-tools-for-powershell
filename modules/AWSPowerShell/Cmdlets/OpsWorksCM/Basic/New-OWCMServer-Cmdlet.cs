@@ -171,7 +171,14 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// and <code>Puppet</code>. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Engine { get; set; }
         #endregion
         
@@ -201,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para> The major release version of the engine that you want to use. For a Chef server,
-        /// the valid value for EngineVersion is currently <code>12</code>. For a Puppet server,
+        /// the valid value for EngineVersion is currently <code>2</code>. For a Puppet server,
         /// the valid value is <code>2017</code>. </para>
         /// </para>
         /// </summary>
@@ -264,8 +271,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para> The start time for a one-hour period during which AWS OpsWorks CM backs up application-level
         /// data on your server if automated backups are enabled. Valid values must be specified
-        /// in one of the following formats: </para><ul><li><para><code>HH:MM</code> for daily backups</para></li><li><para><code>DDD:HH:MM</code> for weekly backups</para></li></ul><para>The specified time is in coordinated universal time (UTC). The default value is a
-        /// random, daily start time.</para><para><b>Example:</b><code>08:00</code>, which represents a daily start time of 08:00
+        /// in one of the following formats: </para><ul><li><para><code>HH:MM</code> for daily backups</para></li><li><para><code>DDD:HH:MM</code> for weekly backups</para></li></ul><para><code>MM</code> must be specified as <code>00</code>. The specified time is in coordinated
+        /// universal time (UTC). The default value is a random, daily start time.</para><para><b>Example:</b><code>08:00</code>, which represents a daily start time of 08:00
         /// UTC.</para><para><b>Example:</b><code>Mon:08:00</code>, which represents a start time of every Monday
         /// at 08:00 UTC. (8:00 a.m.)</para>
         /// </para>
@@ -279,9 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para> The start time for a one-hour period each week during which AWS OpsWorks CM performs
         /// maintenance on the instance. Valid values must be specified in the following format:
-        /// <code>DDD:HH:MM</code>. The specified time is in coordinated universal time (UTC).
-        /// The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See
-        /// <code>TimeWindowDefinition</code> for more information. </para><para><b>Example:</b><code>Mon:08:00</code>, which represents a start time of every Monday
+        /// <code>DDD:HH:MM</code>. <code>MM</code> must be specified as <code>00</code>. The
+        /// specified time is in coordinated universal time (UTC). The default value is a random
+        /// one-hour period on Tuesday, Wednesday, or Friday. See <code>TimeWindowDefinition</code>
+        /// for more information. </para><para><b>Example:</b><code>Mon:08:00</code>, which represents a start time of every Monday
         /// at 08:00 UTC. (8:00 a.m.) </para>
         /// </para>
         /// </summary>
@@ -442,6 +450,12 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             context.CustomPrivateKey = this.CustomPrivateKey;
             context.DisableAutomatedBackup = this.DisableAutomatedBackup;
             context.Engine = this.Engine;
+            #if MODULAR
+            if (this.Engine == null && ParameterWasBound(nameof(this.Engine)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Engine which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.EngineAttribute != null)
             {
                 context.EngineAttribute = new List<Amazon.OpsWorksCM.Model.EngineAttribute>(this.EngineAttribute);

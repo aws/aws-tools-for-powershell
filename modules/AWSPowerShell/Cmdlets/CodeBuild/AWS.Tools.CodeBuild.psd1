@@ -86,9 +86,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-CBBatch', 
+        'Get-CBBatchIdList', 
+        'Get-CBBatchIdListForProject', 
         'Get-CBBuildBatch', 
         'Get-CBBuildIdList', 
         'Get-CBBuildIdListForProject', 
+        'Get-CBCodeCoverage', 
         'Get-CBCuratedEnvironmentImageList', 
         'Get-CBProjectBatch', 
         'Get-CBProjectList', 
@@ -106,6 +110,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-CBProject', 
         'New-CBReportGroup', 
         'New-CBWebhook', 
+        'Redo-CBBatch', 
+        'Redo-CBBuild', 
+        'Remove-CBBatch', 
         'Remove-CBBuildBatch', 
         'Remove-CBProject', 
         'Remove-CBReport', 
@@ -114,7 +121,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CBSourceCredential', 
         'Remove-CBWebhook', 
         'Reset-CBProjectCache', 
+        'Start-CBBatch', 
         'Start-CBBuild', 
+        'Stop-CBBatch', 
         'Stop-CBBuild', 
         'Update-CBProject', 
         'Update-CBReportGroup', 

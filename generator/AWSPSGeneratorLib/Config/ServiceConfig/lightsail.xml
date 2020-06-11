@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -23,6 +22,10 @@
     </MetadataProperties>
     <ServiceOperations>
         <ServiceOperation MethodName="AllocateStaticIp" OutputProperty="Operations" Verb="New" Noun="StaticIp" ShouldProcessTarget="StaticIpName" PipelineParameter="StaticIpName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachCertificateToDistribution" OutputProperty="Operation" Verb="Mount" Noun="CertificateToDistribution" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -50,6 +53,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCertificate" OutputProperty="*" Verb="New" Noun="Certificate" ShouldProcessTarget="CertificateName" PipelineParameter="CertificateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCloudFormationStack" OutputProperty="Operations" Verb="New" Noun="CloudFormationStack" ShouldProcessTarget="Instances" PipelineParameter="Instances" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -67,6 +74,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDiskSnapshot" OutputProperty="Operations" Verb="New" Noun="DiskSnapshot" ShouldProcessTarget="DiskSnapshotName" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDistribution" OutputProperty="*" Verb="New" Noun="Distribution" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -122,6 +133,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCertificate" OutputProperty="Operations" Verb="Remove" Noun="Certificate" ShouldProcessTarget="CertificateName" PipelineParameter="CertificateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteContactMethod" OutputProperty="Operations" Verb="Remove" Noun="ContactMethod" ShouldProcessTarget="Protocol" PipelineParameter="Protocol" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +146,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDiskSnapshot" OutputProperty="Operations" Verb="Remove" Noun="DiskSnapshot" ShouldProcessTarget="DiskSnapshotName" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDistribution" OutputProperty="Operation" Verb="Remove" Noun="Distribution" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -173,6 +192,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRelationalDatabaseSnapshot" OutputProperty="Operations" Verb="Remove" Noun="RelationalDatabaseSnapshot" ShouldProcessTarget="RelationalDatabaseSnapshotName" PipelineParameter="RelationalDatabaseSnapshotName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachCertificateFromDistribution" OutputProperty="Operation" Verb="Dismount" Noun="CertificateFromDistribution" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -224,6 +247,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCertificates" OutputProperty="Certificates" Verb="Get" Noun="Certificate" PipelineParameter="CertificateName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCloudFormationStackRecords" OutputProperty="CloudFormationStackRecords" Verb="Get" Noun="CloudFormationStackRecord" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -245,6 +272,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDiskSnapshots" OutputProperty="DiskSnapshots" Verb="Get" Noun="DiskSnapshotList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDistributionBundles" OutputProperty="Bundles" Verb="Get" Noun="DistributionBundle" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDistributionLatestCacheReset" OutputProperty="*" Verb="Get" Noun="DistributionLatestCacheReset" PipelineParameter="DistributionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDistributionMetricData" OutputProperty="*" Verb="Get" Noun="DistributionMetricData" PipelineParameter="DistributionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDistributions" OutputProperty="Distributions" Verb="Get" Noun="Distribution" PipelineParameter="DistributionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -424,6 +467,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResetDistributionCache" OutputProperty="*" Verb="Reset" Noun="DistributionCache" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendContactMethodVerification" OutputProperty="Operations" Verb="Send" Noun="ContactMethodVerification" ShouldProcessTarget="Protocol" PipelineParameter="Protocol" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -462,6 +509,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDistribution" OutputProperty="Operation" Verb="Update" Noun="Distribution" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDistributionBundle" OutputProperty="Operation" Verb="Update" Noun="DistributionBundle" ShouldProcessTarget="DistributionName" PipelineParameter="DistributionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomainEntry" OutputProperty="Operations" Verb="Update" Noun="DomainEntry" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -479,7 +534,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

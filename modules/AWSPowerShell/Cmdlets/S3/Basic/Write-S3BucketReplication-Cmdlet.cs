@@ -52,7 +52,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// based on an object key prefix, one or more object tags, or both. When you add the
     /// Filter element in the configuration, you must also add the following elements: <code>DeleteMarkerReplication</code>,
     /// <code>Status</code>, and <code>Priority</code>.
-    /// </para><para>
+    /// </para><note><para>
+    /// The latest version of the replication configuration XML is V2. XML V2 replication
+    /// configurations are those that contain the <code>Filter</code> element for rules, and
+    /// rules that specify S3 Replication Time Control (S3 RTC). In XML V2 replication configurations,
+    /// Amazon S3 doesn't replicate delete markers. Therefore, you must set the <code>DeleteMarkerReplication</code>
+    /// element to <code>Disabled</code>. For backward compatibility, Amazon S3 continues
+    /// to support the XML V1 replication configuration.
+    /// </para></note><para>
     /// For information about enabling versioning on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">Using
     /// Versioning</a>.
     /// </para><para>

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// take multiple calls to get to a portion of the shard that contains records.
     /// </para><para>
     /// You can scale by provisioning multiple shards per stream while considering service
-    /// limits (for more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
+    /// limits (for more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Amazon
     /// Kinesis Data Streams Limits</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>).
     /// Your application should have one thread per shard, each reading continuously from
     /// its stream. To read from a stream continually, call <a>GetRecords</a> in a loop. Use
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para>
     /// To detect whether the application is falling behind in processing, you can use the
     /// <code>MillisBehindLatest</code> response attribute. You can also monitor the stream
-    /// using CloudWatch metrics and other mechanisms (see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/monitoring.html">Monitoring</a>
+    /// using CloudWatch metrics and other mechanisms (see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring.html">Monitoring</a>
     /// in the <i>Amazon Kinesis Data Streams Developer Guide</i>).
     /// </para><para>
     /// Each Amazon Kinesis record includes a value, <code>ApproximateArrivalTimestamp</code>,
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// accuracy, or that the time stamp is always increasing. For example, records in a shard
     /// or across a stream might have time stamps that are out of order.
     /// </para><para>
-    /// This operation has a limit of five transactions per second per account.
+    /// This operation has a limit of five transactions per second per shard.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINRecord")]
@@ -118,7 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of records to return. Specify a value of up to 10,000. If you specify
-        /// a value that is greater than 10,000, <a>GetRecords</a> throws <code>InvalidArgumentException</code>.</para>
+        /// a value that is greater than 10,000, <a>GetRecords</a> throws <code>InvalidArgumentException</code>.
+        /// The default value is 10,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

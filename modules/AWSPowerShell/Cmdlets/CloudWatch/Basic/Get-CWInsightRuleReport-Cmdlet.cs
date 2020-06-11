@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para><ul><li><para><code>UniqueContributors</code> -- the number of unique contributors for each data
     /// point.
     /// </para></li><li><para><code>MaxContributorValue</code> -- the value of the top contributor for each data
-    /// point. The identity of the contributor may change for each data point in the graph.
+    /// point. The identity of the contributor might change for each data point in the graph.
     /// </para><para>
     /// If this rule aggregates by COUNT, the top contributor for each data point is the contributor
     /// with the most occurrences in that period. If the rule aggregates by SUM, the top contributor
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>Specifies which metrics to use for aggregation of contributor values for the report.
         /// You can specify one or more of the following metrics:</para><ul><li><para><code>UniqueContributors</code> -- the number of unique contributors for each data
         /// point.</para></li><li><para><code>MaxContributorValue</code> -- the value of the top contributor for each data
-        /// point. The identity of the contributor may change for each data point in the graph.</para><para>If this rule aggregates by COUNT, the top contributor for each data point is the contributor
+        /// point. The identity of the contributor might change for each data point in the graph.</para><para>If this rule aggregates by COUNT, the top contributor for each data point is the contributor
         /// with the most occurrences in that period. If the rule aggregates by SUM, the top contributor
         /// is the contributor with the highest sum in the log field specified by the rule's <code>Value</code>,
         /// during that period.</para></li><li><para><code>SampleCount</code> -- the number of data points matched by the rule.</para></li><li><para><code>Sum</code> -- the sum of the values from all contributors during the time period

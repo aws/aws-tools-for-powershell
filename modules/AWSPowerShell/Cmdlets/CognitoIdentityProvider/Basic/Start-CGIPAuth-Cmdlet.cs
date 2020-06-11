@@ -83,10 +83,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code>
         /// that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</para><ul><li><para>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code>
         /// (required), <code>SECRET_HASH</code> (required if the app client is configured with
-        /// a client secret), <code>DEVICE_KEY</code></para></li><li><para>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required),
+        /// a client secret), <code>DEVICE_KEY</code>.</para></li><li><para>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required),
         /// <code>SECRET_HASH</code> (required if the app client is configured with a client secret),
-        /// <code>DEVICE_KEY</code></para></li><li><para>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code>
-        /// (if app client is configured with client secret), <code>DEVICE_KEY</code></para></li></ul>
+        /// <code>DEVICE_KEY</code>.</para></li><li><para>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code>
+        /// (if app client is configured with client secret), <code>DEVICE_KEY</code>. To start
+        /// the authentication flow with password verification, include <code>ChallengeName: SRP_A</code>
+        /// and <code>SRP_A: (The SRP_A Value)</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

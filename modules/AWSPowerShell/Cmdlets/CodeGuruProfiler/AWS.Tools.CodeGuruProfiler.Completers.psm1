@@ -91,9 +91,26 @@ $CGP_Completers = {
         }
 
         # Amazon.CodeGuruProfiler.AggregationPeriod
-        "Get-CGPProfileTimeList/Period"
+        {
+            ($_ -eq "Get-CGPProfileTimeList/Period") -Or
+            ($_ -eq "Get-CGPGetFrameMetricData/TargetResolution")
+        }
         {
             $v = "P1D","PT1H","PT5M"
+            break
+        }
+
+        # Amazon.CodeGuruProfiler.ComputePlatform
+        "New-CGPProfilingGroup/ComputePlatform"
+        {
+            $v = "AWSLambda","Default"
+            break
+        }
+
+        # Amazon.CodeGuruProfiler.FeedbackType
+        "Submit-CGPFeedback/Type"
+        {
+            $v = "Negative","Positive"
             break
         }
 
@@ -114,8 +131,11 @@ $CGP_Completers = {
 
 $CGP_map = @{
     "ActionGroup"=@("Remove-CGPPermission","Write-CGPPermission")
+    "ComputePlatform"=@("New-CGPProfilingGroup")
     "OrderBy"=@("Get-CGPProfileTimeList")
     "Period"=@("Get-CGPProfileTimeList")
+    "TargetResolution"=@("Get-CGPGetFrameMetricData")
+    "Type"=@("Submit-CGPFeedback")
 }
 
 _awsArgumentCompleterRegistration $CGP_Completers $CGP_map
@@ -168,17 +188,28 @@ $CGP_SelectCompleters = {
 }
 
 $CGP_SelectMap = @{
-    "Select"=@("Set-CGPAgentConfiguration",
+    "Select"=@("Add-CGPNotificationChannel",
+               "Get-CGPGetFrameMetricData",
+               "Set-CGPAgentConfiguration",
                "New-CGPProfilingGroup",
                "Remove-CGPProfilingGroup",
                "Get-CGPProfilingGroup",
+               "Get-CGPFindingsReportAccountSummary",
+               "Get-CGPNotificationConfiguration",
                "Get-CGPPolicy",
                "Get-CGPProfile",
+               "Get-CGPRecommendation",
+               "Get-CGPFindingsReportList",
                "Get-CGPProfileTimeList",
                "Get-CGPProfilingGroupList",
+               "Get-CGPResourceTag",
                "Send-CGPAgentProfile",
                "Write-CGPPermission",
+               "Remove-CGPNotificationChannel",
                "Remove-CGPPermission",
+               "Submit-CGPFeedback",
+               "Add-CGPResourceTag",
+               "Remove-CGPResourceTag",
                "Update-CGPProfilingGroup")
 }
 

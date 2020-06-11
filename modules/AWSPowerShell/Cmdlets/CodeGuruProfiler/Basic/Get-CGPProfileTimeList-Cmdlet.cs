@@ -28,7 +28,7 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// List the start times of the available aggregated profiles of a profiling group for
+    /// Lists the start times of the available aggregated profiles of a profiling group for
     /// an aggregation period within the specified time range.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CGPProfileTimeList")]
@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The aggregation period.</para>
+        /// <para> The aggregation period. This specifies the period during which an aggregation profile
+        /// collects posted agent profiles for a profiling group. There are 3 valid values. </para><ul><li><para><code>P1D</code> — 1 day </para></li><li><para><code>PT1H</code> — 1 hour </para></li><li><para><code>PT5M</code> — 5 minutes </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

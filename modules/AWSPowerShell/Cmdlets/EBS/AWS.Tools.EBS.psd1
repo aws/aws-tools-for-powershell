@@ -86,9 +86,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Complete-EBSSnapshot', 
         'Get-EBSChangedBlockList', 
         'Get-EBSSnapshotBlock', 
-        'Get-EBSSnapshotBlockList')
+        'Get-EBSSnapshotBlockList', 
+        'Start-EBSSnapshot', 
+        'Write-EBSSnapshotBlock')
 
     # Variables to export from this module
     VariablesToExport = '*'

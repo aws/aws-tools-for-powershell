@@ -4,7 +4,7 @@
 
 @{
     # Script module or binary module file associated with this manifest
-    ModuleToProcess = 'AWSPowerShell.dll'
+    RootModule = 'AWSPowerShell.dll'
 
     # We are not including CompatiblePSEditions because it is not compatible with older PowerShell versions
     # CompatiblePSEditions = @('Desktop')
@@ -30,7 +30,7 @@ This version of AWS Tools for Windows PowerShell is compatible with Windows Powe
 This product provides support for all AWS services in a single module. As an alternative, a modular variant is also available: separate smaller modules (e.g. AWS.Tools.EC2, AWS.Tools.S3...) allow managing each AWS Service.'
 
     # Minimum version of the PowerShell engine required by this module
-    PowerShellVersion = '2.0'
+    PowerShellVersion = '3.0'
 
     # Name of the PowerShell host required by this module
     PowerShellHostName = ''
@@ -39,7 +39,7 @@ This product provides support for all AWS services in a single module. As an alt
     PowerShellHostVersion = ''
 
     # Minimum version of the .NET Framework required by this module
-    DotNetFrameworkVersion = '3.5'
+    DotNetFrameworkVersion = '4.5'
 
     # Minimum version of the common language runtime (CLR) required by this module
     CLRVersion = ''
@@ -78,6 +78,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.AWSSupport.dll',
         'AWSSDK.Backup.dll',
         'AWSSDK.Batch.dll',
+        'AWSSDK.Braket.dll',
         'AWSSDK.Budgets.dll',
         'AWSSDK.CertificateManager.dll',
         'AWSSDK.Chime.dll',
@@ -165,6 +166,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.IoTSecureTunneling.dll',
         'AWSSDK.IoTSiteWise.dll',
         'AWSSDK.IoTThingsGraph.dll',
+        'AWSSDK.IVS.dll',
         'AWSSDK.Kafka.dll',
         'AWSSDK.Kendra.dll',
         'AWSSDK.KeyManagementService.dll',

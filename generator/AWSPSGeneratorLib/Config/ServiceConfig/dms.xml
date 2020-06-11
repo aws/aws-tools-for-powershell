@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>dms</C2jFilename>
     <AssemblyName>DatabaseMigrationService</AssemblyName>
@@ -15,7 +16,6 @@
         <Map From="Certificates" To="Certificate" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -26,6 +26,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ApplyPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceActions" Verb="Complete" Noun="PendingMaintenanceAction" ShouldProcessTarget="ReplicationInstanceArn" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelReplicationTaskAssessmentRun" OutputProperty="ReplicationTaskAssessmentRun" Verb="Stop" Noun="ReplicationTaskAssessmentRun" ShouldProcessTarget="ReplicationTaskAssessmentRunArn" PipelineParameter="ReplicationTaskAssessmentRunArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -77,7 +81,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationTaskAssessmentRun" OutputProperty="ReplicationTaskAssessmentRun" Verb="Remove" Noun="ReplicationTaskAssessmentRun" ShouldProcessTarget="ReplicationTaskAssessmentRunArn" PipelineParameter="ReplicationTaskAssessmentRunArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeAccountAttributes" OutputProperty="*" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicableIndividualAssessments" OutputProperty="IndividualAssessmentNames" Verb="Get" Noun="ApplicableIndividualAssessment" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -134,6 +146,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeReplicationTaskAssessmentResults" OutputProperty="*" Verb="Get" Noun="ReplicationTaskAssessmentResult" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationTaskAssessmentRuns" OutputProperty="ReplicationTaskAssessmentRuns" Verb="Get" Noun="ReplicationTaskAssessmentRun" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationTaskIndividualAssessments" OutputProperty="ReplicationTaskIndividualAssessments" Verb="Get" Noun="ReplicationTaskIndividualAssessment" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -201,6 +221,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartReplicationTaskAssessmentRun" OutputProperty="ReplicationTaskAssessmentRun" Verb="Start" Noun="ReplicationTaskAssessmentRun" ShouldProcessTarget="AssessmentRunName" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopReplicationTask" OutputProperty="ReplicationTask" Verb="Stop" Noun="ReplicationTask" ShouldProcessTarget="ReplicationTaskArn" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -210,7 +234,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

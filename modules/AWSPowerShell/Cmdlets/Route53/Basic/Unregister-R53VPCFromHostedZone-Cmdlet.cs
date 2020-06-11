@@ -28,15 +28,25 @@ using Amazon.Route53.Model;
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Disassociates a VPC from a Amazon Route 53 private hosted zone. Note the following:
+    /// Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an Amazon Route 53
+    /// private hosted zone. Note the following:
     /// 
     ///  <ul><li><para>
-    /// You can't disassociate the last VPC from a private hosted zone.
+    /// You can't disassociate the last Amazon VPC from a private hosted zone.
     /// </para></li><li><para>
     /// You can't convert a private hosted zone into a public hosted zone.
     /// </para></li><li><para>
     /// You can submit a <code>DisassociateVPCFromHostedZone</code> request using either the
-    /// account that created the hosted zone or the account that created the VPC.
+    /// account that created the hosted zone or the account that created the Amazon VPC.
+    /// </para></li><li><para>
+    /// Some services, such as AWS Cloud Map and Amazon Elastic File System (Amazon EFS) automatically
+    /// create hosted zones and associate VPCs with the hosted zones. A service can create
+    /// a hosted zone using your account or using its own account. You can disassociate a
+    /// VPC from a hosted zone only if the service created the hosted zone using your account.
+    /// </para><para>
+    /// When you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html">DisassociateVPCFromHostedZone</a>,
+    /// if the hosted zone has a value for <code>OwningAccount</code>, you can use <code>DisassociateVPCFromHostedZone</code>.
+    /// If the hosted zone has a value for <code>OwningService</code>, you can't use <code>DisassociateVPCFromHostedZone</code>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Unregister", "R53VPCFromHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

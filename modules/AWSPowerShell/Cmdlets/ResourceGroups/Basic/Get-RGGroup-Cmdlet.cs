@@ -40,20 +40,25 @@ namespace Amazon.PowerShell.Cmdlets.RG
     public partial class GetRGGroupCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
+        #region Parameter Group
+        /// <summary>
+        /// <para>
+        /// <para>The name or the ARN of the resource group to retrieve.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Group { get; set; }
+        #endregion
+        
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the resource group.</para>
+        /// <para>Don't use this parameter. Use <code>Group</code> instead.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [System.ObsoleteAttribute("This field is deprecated, use Group instead.")]
         [Alias("Name")]
         public System.String GroupName { get; set; }
         #endregion
@@ -103,13 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 context.Select = (response, cmdlet) => this.GroupName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Group = this.Group;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.GroupName = this.GroupName;
-            #if MODULAR
-            if (this.GroupName == null && ParameterWasBound(nameof(this.GroupName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter GroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,10 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.RG
             // create request
             var request = new Amazon.ResourceGroups.Model.GetGroupRequest();
             
+            if (cmdletContext.Group != null)
+            {
+                request.Group = cmdletContext.Group;
+            }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             CmdletOutput output;
             
@@ -191,6 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Group { get; set; }
+            [System.ObsoleteAttribute]
             public System.String GroupName { get; set; }
             public System.Func<Amazon.ResourceGroups.Model.GetGroupResponse, GetRGGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Group;

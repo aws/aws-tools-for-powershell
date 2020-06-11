@@ -61,6 +61,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter MaxConcurrentRun
+        /// <summary>
+        /// <para>
+        /// <para>You can use this parameter to prevent unwanted multiple updates to data, to control
+        /// costs, or in some cases, to prevent exceeding the maximum number of concurrent runs
+        /// of any of the component jobs. If you leave this parameter blank, there is no limit
+        /// to the number of concurrent workflow runs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxConcurrentRuns")]
+        public System.Int32? MaxConcurrentRun { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -159,6 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 }
             }
             context.Description = this.Description;
+            context.MaxConcurrentRun = this.MaxConcurrentRun;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -197,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.MaxConcurrentRun != null)
+            {
+                request.MaxConcurrentRuns = cmdletContext.MaxConcurrentRun.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -269,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public Dictionary<System.String, System.String> DefaultRunProperty { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? MaxConcurrentRun { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Glue.Model.CreateWorkflowResponse, NewGLUEWorkflowCmdlet, object> Select { get; set; } =

@@ -43,7 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// the resource belongs to as well as permissions for adding tags. For more information,
     /// see <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/Welcome.html">this
     /// list</a>.
-    /// </para></li></ul>
+    /// </para></li></ul><important><para>
+    /// Do not store personally identifiable information (PII) or other confidential or sensitive
+    /// information in tags. We use tags to provide you with billing and administration services.
+    /// Tags are not intended to be used for private or sensitive data.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Add", "RGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

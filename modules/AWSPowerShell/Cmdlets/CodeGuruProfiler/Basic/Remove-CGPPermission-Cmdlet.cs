@@ -28,7 +28,12 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Removes statement for the provided action group from the policy.
+    /// Removes permissions from a profiling group's resource-based policy that are provided
+    /// using an action group. The one supported action group that can be removed is <code>agentPermission</code>
+    /// which grants <code>ConfigureAgent</code> and <code>PostAgent</code> permissions. For
+    /// more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-ug/resource-based-policies.html">Resource-based
+    /// policies in CodeGuru Profiler</a> in the <i>Amazon CodeGuru Profiler User Guide</i>,
+    /// <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_ConfigureAgent.html"><code>ConfigureAgent</code></a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html"><code>PostAgentProfile</code></a>.
     /// </summary>
     [Cmdlet("Remove", "CGPPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CodeGuruProfiler.Model.RemovePermissionResponse")]
@@ -42,7 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter ActionGroup
         /// <summary>
         /// <para>
-        /// <para>The list of actions that the users and roles can perform on the profiling group.</para>
+        /// <para> Specifies an action group that contains the permissions to remove from a profiling
+        /// group's resource-based policy. One action group is supported, <code>agentPermissions</code>,
+        /// which grants <code>ConfigureAgent</code> and <code>PostAgentProfile</code> permissions.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CGP
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the current revision of the policy.</para>
+        /// <para> A universally unique identifier (UUID) for the revision of the resource-based policy
+        /// from which you want to remove permissions. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

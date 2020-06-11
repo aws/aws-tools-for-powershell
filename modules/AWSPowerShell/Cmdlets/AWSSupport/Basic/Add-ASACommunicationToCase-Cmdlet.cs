@@ -28,17 +28,19 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Adds additional customer communication to an AWS Support case. You use the <code>caseId</code>
-    /// value to identify the case to add communication to. You can list a set of email addresses
-    /// to copy on the communication using the <code>ccEmailAddresses</code> value. The <code>communicationBody</code>
-    /// value contains the text of the communication.
+    /// Adds additional customer communication to an AWS Support case. Use the <code>caseId</code>
+    /// parameter to identify the case to which to add communication. You can list a set of
+    /// email addresses to copy on the communication by using the <code>ccEmailAddresses</code>
+    /// parameter. The <code>communicationBody</code> value contains the text of the communication.
     /// 
-    ///  
-    /// <para>
-    /// The response indicates the success or failure of the request.
-    /// </para><para>
-    /// This operation implements a subset of the features of the AWS Support Center.
-    /// </para>
+    ///  <note><ul><li><para>
+    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// </para></li><li><para>
+    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
+    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// Support</a>.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Add", "ASACommunicationToCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

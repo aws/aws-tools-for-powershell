@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>resource-groups</C2jFilename>
     <AssemblyName>ResourceGroups</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -35,6 +35,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupConfiguration" OutputProperty="*" Verb="Get" Noun="GroupConfiguration" PipelineParameter="Group" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetGroupQuery" OutputProperty="GroupQuery" Verb="Get" Noun="GroupQuery" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params>
                 <Param Name="GroupName" Alias="Name" />
@@ -42,6 +46,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetTags" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GroupResources" OutputProperty="*" Verb="Add" Noun="Resource" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -63,6 +71,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UngroupResources" OutputProperty="*" Verb="Remove" Noun="Resource" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="Untag" OutputProperty="*" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Keys" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -80,8 +92,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.ResourceGroups.Model.ResourceQuery</Type>
     </TypesNotToFlatten>

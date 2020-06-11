@@ -28,17 +28,29 @@ using Amazon.AWSHealth.Model;
 namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
-    /// Returns information about events that meet the specified filter criteria. Events are
-    /// returned in a summary form and do not include the detailed description, any additional
+    /// Returns information about events that meet the specified filter criteria. Events
+    /// are returned in a summary form and do not include the detailed description, any additional
     /// metadata that depends on the event type, or any affected resources. To retrieve that
-    /// information, use the <a>DescribeEventDetails</a> and <a>DescribeAffectedEntities</a>
+    /// information, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a>
+    /// and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeAffectedEntities.html">DescribeAffectedEntities</a>
     /// operations.
     /// 
     ///  
     /// <para>
     /// If no filter criteria are specified, all events are returned. Results are sorted by
-    /// <code>lastModifiedTime</code>, starting with the most recent.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// <code>lastModifiedTime</code>, starting with the most recent event.
+    /// </para><note><ul><li><para>
+    /// When you call the <code>DescribeEvents</code> operation and specify an entity for
+    /// the <code>entityValues</code> parameter, AWS Health might return public events that
+    /// aren't specific to that resource. For example, if you call <code>DescribeEvents</code>
+    /// and specify an ID for an Amazon Elastic Compute Cloud (Amazon EC2) instance, AWS Health
+    /// might return events that aren't specific to that resource or service. To get events
+    /// that are specific to a service, use the <code>services</code> parameter in the <code>filter</code>
+    /// object. For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html">Event</a>.
+    /// </para></li><li><para>
+    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
+    /// the next request to return more results.
+    /// </para></li></ul></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HLTHEvent")]
     [OutputType("Amazon.AWSHealth.Model.Event")]
@@ -199,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         #region Parameter Filter_Tag
         /// <summary>
         /// <para>
-        /// <para>A map of entity tags attached to the affected entity.</para>
+        /// <para>A map of entity tags attached to the affected entity.</para><note><para>Currently, the <code>tags</code> property isn't supported.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

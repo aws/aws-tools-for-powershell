@@ -29,7 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
 {
     /// <summary>
     /// Returns the event types that meet the specified filter criteria. If no filter criteria
-    /// are specified, all event types are returned, in no particular order.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// are specified, all event types are returned, in no particular order.
+    /// 
+    ///  <note><para>
+    /// This API operation uses pagination. Specify the <code>nextToken</code> parameter in
+    /// the next request to return more results.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HLTHEventType")]
     [OutputType("Amazon.AWSHealth.Model.EventType")]

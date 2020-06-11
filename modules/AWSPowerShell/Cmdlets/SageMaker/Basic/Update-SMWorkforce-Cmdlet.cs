@@ -28,19 +28,30 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Restricts access to tasks assigned to workers in the specified workforce to those
-    /// within specific ranges of IP addresses. You specify allowed IP addresses by creating
-    /// a list of up to four <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>.
+    /// Use this operation to update your workforce. You can use this operation to require
+    /// that workers use specific IP addresses to work on tasks and to update your OpenID
+    /// Connect (OIDC) Identity Provider (IdP) workforce configuration.
     /// 
     ///  
     /// <para>
+    ///  Use <code>SourceIpConfig</code> to restrict worker access to tasks to a specific
+    /// range of IP addresses. You specify allowed IP addresses by creating a list of up to
+    /// ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>.
     /// By default, a workforce isn't restricted to specific IP addresses. If you specify
     /// a range of IP addresses, workers who attempt to access tasks using any IP address
-    /// outside the specified range are denied access and get a <code>Not Found</code> error
-    /// message on the worker portal. After restricting access with this operation, you can
-    /// see the allowed IP values for a private workforce with the operation.
+    /// outside the specified range are denied and get a <code>Not Found</code> error message
+    /// on the worker portal.
+    /// </para><para>
+    /// Use <code>OidcConfig</code> to update the configuration of a workforce created using
+    /// your own OIDC IdP. 
     /// </para><important><para>
-    /// This operation applies only to private workforces.
+    /// You can only update your OIDC IdP configuration when there are no work teams associated
+    /// with your workforce. You can delete work teams using the operation.
+    /// </para></important><para>
+    /// After restricting access to a range of IP addresses or updating your OIDC IdP configuration
+    /// with this operation, you can view details about your update workforce using the operation.
+    /// </para><important><para>
+    /// This operation only applies to private workforces.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "SMWorkforce", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,11 +64,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMWorkforceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter OidcConfig_AuthorizationEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC IdP authorization endpoint used to configure your private workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcConfig_AuthorizationEndpoint { get; set; }
+        #endregion
+        
         #region Parameter SourceIpConfig_Cidr
         /// <summary>
         /// <para>
-        /// <para>A list of one to four <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless
-        /// Inter-Domain Routing</a> (CIDR) values.</para><para>Maximum: Four CIDR values</para><note><para>The following Length Constraints apply to individual CIDR values in the CIDR value
+        /// <para>A list of one to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless
+        /// Inter-Domain Routing</a> (CIDR) values.</para><para>Maximum: Ten CIDR values</para><note><para>The following Length Constraints apply to individual CIDR values in the CIDR value
         /// list.</para></note>
         /// </para>
         /// </summary>
@@ -66,12 +87,81 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] SourceIpConfig_Cidr { get; set; }
         #endregion
         
+        #region Parameter OidcConfig_ClientId
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC IdP client ID used to configure your private workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcConfig_ClientId { get; set; }
+        #endregion
+        
+        #region Parameter OidcConfig_ClientSecret
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC IdP client secret used to configure your private workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcConfig_ClientSecret { get; set; }
+        #endregion
+        
+        #region Parameter OidcConfig_Issuer
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC IdP issuer used to configure your private workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcConfig_Issuer { get; set; }
+        #endregion
+        
+        #region Parameter OidcConfig_JwksUri
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcConfig_JwksUri { get; set; }
+        #endregion
+        
+        #region Parameter OidcConfig_LogoutEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC IdP logout endpoint used to configure your private workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcConfig_LogoutEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter OidcConfig_TokenEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC IdP token endpoint used to configure your private workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcConfig_TokenEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter OidcConfig_UserInfoEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC IdP user information endpoint used to configure your private workforce.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcConfig_UserInfoEndpoint { get; set; }
+        #endregion
+        
         #region Parameter WorkforceName
         /// <summary>
         /// <para>
-        /// <para>The name of the private workforce whose access you want to restrict. <code>WorkforceName</code>
-        /// is automatically set to <code>default</code> when a workforce is created and cannot
-        /// be modified. </para>
+        /// <para>The name of the private workforce that you want to update. You can find your workforce
+        /// name by using the operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,6 +236,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.WorkforceName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.OidcConfig_AuthorizationEndpoint = this.OidcConfig_AuthorizationEndpoint;
+            context.OidcConfig_ClientId = this.OidcConfig_ClientId;
+            context.OidcConfig_ClientSecret = this.OidcConfig_ClientSecret;
+            context.OidcConfig_Issuer = this.OidcConfig_Issuer;
+            context.OidcConfig_JwksUri = this.OidcConfig_JwksUri;
+            context.OidcConfig_LogoutEndpoint = this.OidcConfig_LogoutEndpoint;
+            context.OidcConfig_TokenEndpoint = this.OidcConfig_TokenEndpoint;
+            context.OidcConfig_UserInfoEndpoint = this.OidcConfig_UserInfoEndpoint;
             if (this.SourceIpConfig_Cidr != null)
             {
                 context.SourceIpConfig_Cidr = new List<System.String>(this.SourceIpConfig_Cidr);
@@ -173,6 +271,95 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.UpdateWorkforceRequest();
             
+            
+             // populate OidcConfig
+            var requestOidcConfigIsNull = true;
+            request.OidcConfig = new Amazon.SageMaker.Model.OidcConfig();
+            System.String requestOidcConfig_oidcConfig_AuthorizationEndpoint = null;
+            if (cmdletContext.OidcConfig_AuthorizationEndpoint != null)
+            {
+                requestOidcConfig_oidcConfig_AuthorizationEndpoint = cmdletContext.OidcConfig_AuthorizationEndpoint;
+            }
+            if (requestOidcConfig_oidcConfig_AuthorizationEndpoint != null)
+            {
+                request.OidcConfig.AuthorizationEndpoint = requestOidcConfig_oidcConfig_AuthorizationEndpoint;
+                requestOidcConfigIsNull = false;
+            }
+            System.String requestOidcConfig_oidcConfig_ClientId = null;
+            if (cmdletContext.OidcConfig_ClientId != null)
+            {
+                requestOidcConfig_oidcConfig_ClientId = cmdletContext.OidcConfig_ClientId;
+            }
+            if (requestOidcConfig_oidcConfig_ClientId != null)
+            {
+                request.OidcConfig.ClientId = requestOidcConfig_oidcConfig_ClientId;
+                requestOidcConfigIsNull = false;
+            }
+            System.String requestOidcConfig_oidcConfig_ClientSecret = null;
+            if (cmdletContext.OidcConfig_ClientSecret != null)
+            {
+                requestOidcConfig_oidcConfig_ClientSecret = cmdletContext.OidcConfig_ClientSecret;
+            }
+            if (requestOidcConfig_oidcConfig_ClientSecret != null)
+            {
+                request.OidcConfig.ClientSecret = requestOidcConfig_oidcConfig_ClientSecret;
+                requestOidcConfigIsNull = false;
+            }
+            System.String requestOidcConfig_oidcConfig_Issuer = null;
+            if (cmdletContext.OidcConfig_Issuer != null)
+            {
+                requestOidcConfig_oidcConfig_Issuer = cmdletContext.OidcConfig_Issuer;
+            }
+            if (requestOidcConfig_oidcConfig_Issuer != null)
+            {
+                request.OidcConfig.Issuer = requestOidcConfig_oidcConfig_Issuer;
+                requestOidcConfigIsNull = false;
+            }
+            System.String requestOidcConfig_oidcConfig_JwksUri = null;
+            if (cmdletContext.OidcConfig_JwksUri != null)
+            {
+                requestOidcConfig_oidcConfig_JwksUri = cmdletContext.OidcConfig_JwksUri;
+            }
+            if (requestOidcConfig_oidcConfig_JwksUri != null)
+            {
+                request.OidcConfig.JwksUri = requestOidcConfig_oidcConfig_JwksUri;
+                requestOidcConfigIsNull = false;
+            }
+            System.String requestOidcConfig_oidcConfig_LogoutEndpoint = null;
+            if (cmdletContext.OidcConfig_LogoutEndpoint != null)
+            {
+                requestOidcConfig_oidcConfig_LogoutEndpoint = cmdletContext.OidcConfig_LogoutEndpoint;
+            }
+            if (requestOidcConfig_oidcConfig_LogoutEndpoint != null)
+            {
+                request.OidcConfig.LogoutEndpoint = requestOidcConfig_oidcConfig_LogoutEndpoint;
+                requestOidcConfigIsNull = false;
+            }
+            System.String requestOidcConfig_oidcConfig_TokenEndpoint = null;
+            if (cmdletContext.OidcConfig_TokenEndpoint != null)
+            {
+                requestOidcConfig_oidcConfig_TokenEndpoint = cmdletContext.OidcConfig_TokenEndpoint;
+            }
+            if (requestOidcConfig_oidcConfig_TokenEndpoint != null)
+            {
+                request.OidcConfig.TokenEndpoint = requestOidcConfig_oidcConfig_TokenEndpoint;
+                requestOidcConfigIsNull = false;
+            }
+            System.String requestOidcConfig_oidcConfig_UserInfoEndpoint = null;
+            if (cmdletContext.OidcConfig_UserInfoEndpoint != null)
+            {
+                requestOidcConfig_oidcConfig_UserInfoEndpoint = cmdletContext.OidcConfig_UserInfoEndpoint;
+            }
+            if (requestOidcConfig_oidcConfig_UserInfoEndpoint != null)
+            {
+                request.OidcConfig.UserInfoEndpoint = requestOidcConfig_oidcConfig_UserInfoEndpoint;
+                requestOidcConfigIsNull = false;
+            }
+             // determine if request.OidcConfig should be set to null
+            if (requestOidcConfigIsNull)
+            {
+                request.OidcConfig = null;
+            }
             
              // populate SourceIpConfig
             var requestSourceIpConfigIsNull = true;
@@ -257,6 +444,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String OidcConfig_AuthorizationEndpoint { get; set; }
+            public System.String OidcConfig_ClientId { get; set; }
+            public System.String OidcConfig_ClientSecret { get; set; }
+            public System.String OidcConfig_Issuer { get; set; }
+            public System.String OidcConfig_JwksUri { get; set; }
+            public System.String OidcConfig_LogoutEndpoint { get; set; }
+            public System.String OidcConfig_TokenEndpoint { get; set; }
+            public System.String OidcConfig_UserInfoEndpoint { get; set; }
             public List<System.String> SourceIpConfig_Cidr { get; set; }
             public System.String WorkforceName { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateWorkforceResponse, UpdateSMWorkforceCmdlet, object> Select { get; set; } =

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>An array that lists specific character sequences (ignore words) to exclude from the
         /// results. If the text matched by the regular expression is the same as any string in
         /// this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words.
-        /// Each ignore word can contain 4 - 90 characters.</para>
+        /// Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>
         /// <para>An array that lists specific character sequences (keywords), one of which must be
         /// within proximity (maximumMatchDistance) of the regular expression to match. The array
-        /// can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters.</para>
+        /// can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters. Keywords
+        /// aren't case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <para>The maximum number of characters that can exist between text that matches the regex
         /// pattern and the character sequences specified by the keywords array. Macie includes
         /// or excludes a result based on the proximity of a keyword to text that matches the
-        /// regex pattern. The distance can be 1 - 300 characters. The default value is 300.</para>
+        /// regex pattern. The distance can be 1 - 300 characters. The default value is 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter Regex
         /// <summary>
         /// <para>
-        /// <para>The regular expression (regex) that defines the pattern to match. The expression can
-        /// contain as many as 500 characters.</para>
+        /// <para>The regular expression (<i>regex</i>) that defines the pattern to match. The expression
+        /// can contain as many as 512 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

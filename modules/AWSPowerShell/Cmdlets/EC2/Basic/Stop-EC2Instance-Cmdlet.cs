@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#enabling-hibernation">enabled
     /// for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
     /// prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-    /// Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// We don't charge usage for a stopped instance, or data transfer fees; however, your
     /// root partition Amazon EBS volume remains and continues to persist your data, and you
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can't stop or hibernate instance store-backed instances. You can't use the Stop
     /// action to hibernate Spot Instances, but you can specify that Amazon EC2 should hibernate
     /// Spot Instances when they are interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-interruptions.html#hibernate-spot-instances">Hibernating
-    /// Interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// interrupted Spot Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// When you stop or hibernate an instance, we shut it down. You can restart your instance
     /// at any time. Before stopping or hibernating an instance, make sure it is in a state
@@ -63,12 +63,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// device and any other devices attached during the instance launch are automatically
     /// deleted. For more information about the differences between rebooting, stopping, hibernating,
     /// and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance
-    /// Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// When you stop an instance, we attempt to shut it down forcibly after a short while.
     /// If your instance appears stuck in the stopping state after a period of time, there
     /// may be an issue with the underlying host computer. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesStopping.html">Troubleshooting
-    /// Stopping Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// stopping your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Hibernates the instance if the instance was enabled for hibernation at launch. If
         /// the instance cannot hibernate successfully, a normal shutdown occurs. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-        /// Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para> Default: <code>false</code></para>
+        /// your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para> Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

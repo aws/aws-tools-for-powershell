@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// about the composite alarm that you name in <code>ChildrenOfAlarmName</code> is not
         /// returned.</para><para>If you specify <code>ChildrenOfAlarmName</code>, you cannot specify any other parameters
         /// in the request except for <code>MaxRecords</code> and <code>NextToken</code>. If you
-        /// do so, you will receive a validation error.</para><note><para>Only the <code>Alarm Name</code>, <code>ARN</code>, <code>StateValue</code> (OK/ALARM/INSUFFICIENT_DATA),
+        /// do so, you receive a validation error.</para><note><para>Only the <code>Alarm Name</code>, <code>ARN</code>, <code>StateValue</code> (OK/ALARM/INSUFFICIENT_DATA),
         /// and <code>StateUpdatedTimestamp</code> information are returned by this operation
         /// when you use this parameter. To get complete information about these alarms, perform
         /// another <code>DescribeAlarms</code> operation and specify the parent alarm names in
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// the alarm named in <code>ParentsOfAlarmName</code>. Information about the alarm that
         /// you specify in <code>ParentsOfAlarmName</code> is not returned.</para><para>If you specify <code>ParentsOfAlarmName</code>, you cannot specify any other parameters
         /// in the request except for <code>MaxRecords</code> and <code>NextToken</code>. If you
-        /// do so, you will receive a validation error.</para><note><para>Only the Alarm Name and ARN are returned by this operation when you use this parameter.
+        /// do so, you receive a validation error.</para><note><para>Only the Alarm Name and ARN are returned by this operation when you use this parameter.
         /// To get complete information about these alarms, perform another <code>DescribeAlarms</code>
         /// operation and specify the parent alarm names in the <code>AlarmNames</code> parameter.</para></note>
         /// </para>

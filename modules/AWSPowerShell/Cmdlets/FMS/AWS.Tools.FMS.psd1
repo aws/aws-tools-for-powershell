@@ -89,6 +89,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-FMSAdminAccountAssociation', 
         'Add-FMSResourceTag', 
         'Get-FMSAdminAccount', 
+        'Get-FMSAppList', 
+        'Get-FMSAppsListList', 
         'Get-FMSComplianceDetail', 
         'Get-FMSComplianceStatusList', 
         'Get-FMSMemberAccountList', 
@@ -96,13 +98,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FMSPolicy', 
         'Get-FMSPolicyList', 
         'Get-FMSProtectionStatus', 
+        'Get-FMSProtocolList', 
+        'Get-FMSProtocolsListList', 
         'Get-FMSResourceTag', 
+        'Get-FMSViolationDetail', 
         'Remove-FMSAdminAccountAssociation', 
+        'Remove-FMSAppList', 
         'Remove-FMSNotificationChannel', 
         'Remove-FMSPolicy', 
+        'Remove-FMSProtocolList', 
         'Remove-FMSResourceTag', 
         'Set-FMSPolicy', 
-        'Write-FMSNotificationChannel')
+        'Write-FMSAppList', 
+        'Write-FMSNotificationChannel', 
+        'Write-FMSProtocolList')
 
     # Variables to export from this module
     VariablesToExport = '*'

@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExperimentConfig_ExperimentName
         /// <summary>
         /// <para>
-        /// <para>The name of the experiment.</para>
+        /// <para>The name of an existing experiment to associate the trial component with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,6 +199,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.SageMaker.TransformInstanceType")]
         public Amazon.SageMaker.TransformInstanceType TransformResources_InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter ModelClientConfig_InvocationsMaxRetry
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of retries when invocation requests are failing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelClientConfig_InvocationsMaxRetries")]
+        public System.Int32? ModelClientConfig_InvocationsMaxRetry { get; set; }
+        #endregion
+        
+        #region Parameter ModelClientConfig_InvocationsTimeoutInSecond
+        /// <summary>
+        /// <para>
+        /// <para>The timeout value in seconds for an invocation request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelClientConfig_InvocationsTimeoutInSeconds")]
+        public System.Int32? ModelClientConfig_InvocationsTimeoutInSecond { get; set; }
         #endregion
         
         #region Parameter DataProcessing_JoinSource
@@ -363,7 +385,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Depending on the value specified for the <code>S3DataType</code>, identifies either
         /// a key name prefix or a manifest. For example:</para><ul><li><para> A key name prefix might look like this: <code>s3://bucketname/exampleprefix</code>.
-        /// </para></li><li><para> A manifest might look like this: <code>s3://bucketname/example.manifest</code></para><para> The manifest is an S3 object which is a JSON file with the following format: </para><para><code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code></para><para><code>"relative/path/to/custdata-1",</code></para><para><code>"relative/path/custdata-2",</code></para><para><code>...</code></para><para><code>"relative/path/custdata-N"</code></para><para><code>]</code></para><para> The preceding JSON matches the following <code>s3Uris</code>: </para><para><code>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</code></para><para><code>s3://customer_bucket/some/prefix/relative/path/custdata-2</code></para><para><code>...</code></para><para><code>s3://customer_bucket/some/prefix/relative/path/custdata-N</code></para><para> The complete set of <code>S3Uris</code> in this manifest constitutes the input data
+        /// </para></li><li><para> A manifest might look like this: <code>s3://bucketname/example.manifest</code></para><para> The manifest is an S3 object which is a JSON file with the following format: </para><para><code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code></para><para><code>"relative/path/to/custdata-1",</code></para><para><code>"relative/path/custdata-2",</code></para><para><code>...</code></para><para><code>"relative/path/custdata-N"</code></para><para><code>]</code></para><para> The preceding JSON matches the following <code>S3Uris</code>: </para><para><code>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</code></para><para><code>s3://customer_bucket/some/prefix/relative/path/custdata-2</code></para><para><code>...</code></para><para><code>s3://customer_bucket/some/prefix/relative/path/custdata-N</code></para><para> The complete set of <code>S3Uris</code> in this manifest constitutes the input data
         /// for the channel for this datasource. The object that each <code>S3Uris</code> points
         /// to must be readable by the IAM role that Amazon SageMaker uses to perform tasks on
         /// your behalf.</para></li></ul>
@@ -391,7 +413,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// indicates that input data files are not split, and request payloads contain the entire
         /// contents of an input object. Set the value of this parameter to <code>Line</code>
         /// to split records on a newline character boundary. <code>SplitType</code> also supports
-        /// a number of record-oriented binary data formats.</para><para>When splitting is enabled, the size of a mini-batch depends on the values of the <code>BatchStrategy</code>
+        /// a number of record-oriented binary data formats. Currently, the supported record formats
+        /// are:</para><ul><li><para>RecordIO</para></li><li><para>TFRecord</para></li></ul><para>When splitting is enabled, the size of a mini-batch depends on the values of the <code>BatchStrategy</code>
         /// and <code>MaxPayloadInMB</code> parameters. When the value of <code>BatchStrategy</code>
         /// is <code>MultiRecord</code>, Amazon SageMaker sends the maximum number of records
         /// in each request, up to the <code>MaxPayloadInMB</code> limit. If the value of <code>BatchStrategy</code>
@@ -442,7 +465,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExperimentConfig_TrialComponentDisplayName
         /// <summary>
         /// <para>
-        /// <para>Display name for the trial component.</para>
+        /// <para>The display name for the trial component. If this key isn't specified, the display
+        /// name is the trial component name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -452,7 +476,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ExperimentConfig_TrialName
         /// <summary>
         /// <para>
-        /// <para>The name of the trial.</para>
+        /// <para>The name of an existing trial to associate the trial component with. If not specified,
+        /// a new trial is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -549,6 +574,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ExperimentConfig_TrialName = this.ExperimentConfig_TrialName;
             context.MaxConcurrentTransform = this.MaxConcurrentTransform;
             context.MaxPayloadInMB = this.MaxPayloadInMB;
+            context.ModelClientConfig_InvocationsMaxRetry = this.ModelClientConfig_InvocationsMaxRetry;
+            context.ModelClientConfig_InvocationsTimeoutInSecond = this.ModelClientConfig_InvocationsTimeoutInSecond;
             context.ModelName = this.ModelName;
             #if MODULAR
             if (this.ModelName == null && ParameterWasBound(nameof(this.ModelName)))
@@ -718,6 +745,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.MaxPayloadInMB != null)
             {
                 request.MaxPayloadInMB = cmdletContext.MaxPayloadInMB.Value;
+            }
+            
+             // populate ModelClientConfig
+            var requestModelClientConfigIsNull = true;
+            request.ModelClientConfig = new Amazon.SageMaker.Model.ModelClientConfig();
+            System.Int32? requestModelClientConfig_modelClientConfig_InvocationsMaxRetry = null;
+            if (cmdletContext.ModelClientConfig_InvocationsMaxRetry != null)
+            {
+                requestModelClientConfig_modelClientConfig_InvocationsMaxRetry = cmdletContext.ModelClientConfig_InvocationsMaxRetry.Value;
+            }
+            if (requestModelClientConfig_modelClientConfig_InvocationsMaxRetry != null)
+            {
+                request.ModelClientConfig.InvocationsMaxRetries = requestModelClientConfig_modelClientConfig_InvocationsMaxRetry.Value;
+                requestModelClientConfigIsNull = false;
+            }
+            System.Int32? requestModelClientConfig_modelClientConfig_InvocationsTimeoutInSecond = null;
+            if (cmdletContext.ModelClientConfig_InvocationsTimeoutInSecond != null)
+            {
+                requestModelClientConfig_modelClientConfig_InvocationsTimeoutInSecond = cmdletContext.ModelClientConfig_InvocationsTimeoutInSecond.Value;
+            }
+            if (requestModelClientConfig_modelClientConfig_InvocationsTimeoutInSecond != null)
+            {
+                request.ModelClientConfig.InvocationsTimeoutInSeconds = requestModelClientConfig_modelClientConfig_InvocationsTimeoutInSecond.Value;
+                requestModelClientConfigIsNull = false;
+            }
+             // determine if request.ModelClientConfig should be set to null
+            if (requestModelClientConfigIsNull)
+            {
+                request.ModelClientConfig = null;
             }
             if (cmdletContext.ModelName != null)
             {
@@ -979,6 +1035,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ExperimentConfig_TrialName { get; set; }
             public System.Int32? MaxConcurrentTransform { get; set; }
             public System.Int32? MaxPayloadInMB { get; set; }
+            public System.Int32? ModelClientConfig_InvocationsMaxRetry { get; set; }
+            public System.Int32? ModelClientConfig_InvocationsTimeoutInSecond { get; set; }
             public System.String ModelName { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public Amazon.SageMaker.CompressionType TransformInput_CompressionType { get; set; }

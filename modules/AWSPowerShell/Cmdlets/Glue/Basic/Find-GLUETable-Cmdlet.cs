@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier, consisting of <code><i>account_id</i>/datalake</code>.</para>
+        /// <para>A unique identifier, consisting of <code><i>account_id</i></code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,12 +65,32 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>A list of key-value pairs, and a comparator used to filter the search results. Returns
-        /// all entities matching the predicate.</para>
+        /// all entities matching the predicate.</para><para>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is
+        /// used only for time fields, and can be omitted for other field types. Also, when comparing
+        /// string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used.
+        /// The <code>Key</code> field (for example, the value of the <code>Name</code> field)
+        /// is split on certain punctuation characters, for example, -, :, #, etc. into tokens.
+        /// Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>.
+        /// For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code>
+        /// and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters")]
         public Amazon.Glue.Model.PropertyPredicate[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter ResourceShareType
+        /// <summary>
+        /// <para>
+        /// <para>Allows you to specify that you want to search the tables shared with your account.
+        /// The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </para><ul><li><para>If set to <code>FOREIGN</code>, will search the tables shared with your account. </para></li><li><para>If set to <code>ALL</code>, will search the tables shared with your account, as well
+        /// as the tables in yor local account. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.ResourceShareType")]
+        public Amazon.Glue.ResourceShareType ResourceShareType { get; set; }
         #endregion
         
         #region Parameter SearchText
@@ -176,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.NextToken = this.NextToken;
+            context.ResourceShareType = this.ResourceShareType;
             context.SearchText = this.SearchText;
             if (this.SortCriterion != null)
             {
@@ -211,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.ResourceShareType != null)
+            {
+                request.ResourceShareType = cmdletContext.ResourceShareType;
             }
             if (cmdletContext.SearchText != null)
             {
@@ -282,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.ResourceShareType != null)
+            {
+                request.ResourceShareType = cmdletContext.ResourceShareType;
             }
             if (cmdletContext.SearchText != null)
             {
@@ -414,6 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public List<Amazon.Glue.Model.PropertyPredicate> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.Glue.ResourceShareType ResourceShareType { get; set; }
             public System.String SearchText { get; set; }
             public List<Amazon.Glue.Model.SortCriterion> SortCriterion { get; set; }
             public System.Func<Amazon.Glue.Model.SearchTablesResponse, FindGLUETableCmdlet, object> Select { get; set; } =

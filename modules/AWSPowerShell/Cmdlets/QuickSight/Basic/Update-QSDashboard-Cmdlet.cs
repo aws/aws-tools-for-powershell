@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter Parameters_DateTimeParameter
         /// <summary>
         /// <para>
-        /// <para>DateTime parameters.</para>
+        /// <para>Date-time parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,6 +178,19 @@ namespace Amazon.PowerShell.Cmdlets.QS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Parameters_StringParameters")]
         public Amazon.QuickSight.Model.StringParameter[] Parameters_StringParameter { get; set; }
+        #endregion
+        
+        #region Parameter ThemeArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard.
+        /// If you add a value for this field, it overrides the value that was originally associated
+        /// with the entity. The theme ARN must exist in the same AWS account where you create
+        /// the dashboard.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ThemeArn { get; set; }
         #endregion
         
         #region Parameter VersionDescription
@@ -308,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.SourceTemplate_DataSetReference = new List<Amazon.QuickSight.Model.DataSetReference>(this.SourceTemplate_DataSetReference);
             }
+            context.ThemeArn = this.ThemeArn;
             context.VersionDescription = this.VersionDescription;
             
             // allow further manipulation of loaded context prior to processing
@@ -514,6 +528,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.SourceEntity = null;
             }
+            if (cmdletContext.ThemeArn != null)
+            {
+                request.ThemeArn = cmdletContext.ThemeArn;
+            }
             if (cmdletContext.VersionDescription != null)
             {
                 request.VersionDescription = cmdletContext.VersionDescription;
@@ -591,6 +609,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.StringParameter> Parameters_StringParameter { get; set; }
             public System.String SourceTemplate_Arn { get; set; }
             public List<Amazon.QuickSight.Model.DataSetReference> SourceTemplate_DataSetReference { get; set; }
+            public System.String ThemeArn { get; set; }
             public System.String VersionDescription { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateDashboardResponse, UpdateQSDashboardCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

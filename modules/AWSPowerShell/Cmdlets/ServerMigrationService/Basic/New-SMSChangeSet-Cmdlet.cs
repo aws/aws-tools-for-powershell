@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter AppId
         /// <summary>
         /// <para>
-        /// <para>ID of the application associated with the change set.</para>
+        /// <para>The ID of the application associated with the change set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ChangesetFormat
         /// <summary>
         /// <para>
-        /// <para>Format for the change set.</para>
+        /// <para>The format for the change set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

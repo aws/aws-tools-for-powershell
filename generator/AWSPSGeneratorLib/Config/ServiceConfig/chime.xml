@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -80,6 +79,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMeetingWithAttendees" OutputProperty="Meeting" Verb="New" Noun="MeetingWithAttendee" ShouldProcessTarget="MeetingHostId" PipelineParameter="MeetingHostId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePhoneNumberOrder" OutputProperty="PhoneNumberOrder" Verb="New" Noun="PhoneNumberOrder" ShouldProcessTarget="E164PhoneNumbers" PipelineParameter="E164PhoneNumbers" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -141,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteVoiceConnector" Verb="Remove" Noun="VoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorEmergencyCallingConfiguration" Verb="Remove" Noun="VoiceConnectorEmergencyCallingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -245,6 +252,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetVoiceConnector" OutputProperty="VoiceConnector" Verb="Get" Noun="VoiceConnector" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorEmergencyCallingConfiguration" OutputProperty="EmergencyCallingConfiguration" Verb="Get" Noun="VoiceConnectorEmergencyCallingConfiguration" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -353,6 +364,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRetentionSettings" OutputProperty="*" Verb="Write" Noun="RetentionSetting" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorEmergencyCallingConfiguration" OutputProperty="EmergencyCallingConfiguration" Verb="Write" Noun="VoiceConnectorEmergencyCallingConfiguration" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -483,7 +498,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

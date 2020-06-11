@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     ///  <note><para>
     /// Always check the <code>NextToken</code> response parameter when calling any of the
     /// <code>List*</code> operations. These operations can occasionally return an empty or
-    /// shorter than expected list of results even when there are more results available.
+    /// shorter than expected list of results even when there more results become available.
     /// When this happens, the <code>NextToken</code> response parameter contains a value
     /// to pass to the next call to the same API to request the next part of the list.
     /// </para></note><para><b>Minimum permissions</b></para><para>
@@ -57,12 +57,34 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     public partial class GetSECSecretListCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>Lists the secret request filters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.SecretsManager.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>Lists secrets in the requested order. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.SecretsManager.SortOrderType")]
+        public Amazon.SecretsManager.SortOrderType SortOrder { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Limits the number of results that you want to include in the response.
-        /// If you don't include this parameter, it defaults to a value that's specific to the
-        /// operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+        /// <para>(Optional) Limits the number of results you want to include in the response. If you
+        /// don't include this parameter, it defaults to a value that's specific to the operation.
+        /// If additional items exist beyond the maximum you specify, the <code>NextToken</code>
         /// response element is present and has a value (isn't null). Include that value as the
         /// <code>NextToken</code> request parameter in the next call to the operation to get
         /// the next part of the results. Note that Secrets Manager might return fewer results
@@ -84,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>(Optional) Use this parameter in a request if you receive a <code>NextToken</code>
-        /// response in a previous request that indicates that there's more output available.
-        /// In a subsequent call, set it to the value of the previous call's <code>NextToken</code>
-        /// response to indicate where the output should continue from.</para>
+        /// response in a previous request indicating there's more output available. In a subsequent
+        /// call, set it to the value of the previous call <code>NextToken</code> response to
+        /// indicate where the output should continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -108,6 +130,16 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public string Select { get; set; } = "SecretList";
         #endregion
         
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the SortOrder parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SortOrder' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SortOrder' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
         #region Parameter NoAutoIteration
         /// <summary>
         /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
@@ -127,10 +159,24 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
                 context.Select = CreateSelectDelegate<Amazon.SecretsManager.Model.ListSecretsResponse, GetSECSecretListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.SortOrder;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.SecretsManager.Model.Filter>(this.Filter);
             }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
@@ -143,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             }
             #endif
             context.NextToken = this.NextToken;
+            context.SortOrder = this.SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,14 +204,24 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
             var request = new Amazon.SecretsManager.Model.ListSecretsRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
             }
             
             // Initialize loop variant and commence piping
@@ -217,10 +274,18 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
             
             // create request and set iteration invariants
             var request = new Amazon.SecretsManager.Model.ListSecretsRequest();
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -340,8 +405,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SecretsManager.Model.Filter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.SecretsManager.SortOrderType SortOrder { get; set; }
             public System.Func<Amazon.SecretsManager.Model.ListSecretsResponse, GetSECSecretListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SecretList;
         }

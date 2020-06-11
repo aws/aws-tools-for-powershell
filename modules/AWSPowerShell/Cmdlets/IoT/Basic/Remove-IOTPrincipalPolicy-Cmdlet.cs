@@ -65,8 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principal.</para><para>If the principal is a certificate, specify the certificate ARN. If the principal is
-        /// an Amazon Cognito identity, specify the identity ID.</para>
+        /// <para>The principal.</para><para>Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>),
+        /// thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>)
+        /// and CognitoId (<i>region</i>:<i>id</i>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

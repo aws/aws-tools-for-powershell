@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// 
     ///  
     /// <para>
-    /// This operation has a limit of 20 transactions per second per account.
+    /// This operation has a limit of 20 transactions per second per stream.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINStreamConsumer")]

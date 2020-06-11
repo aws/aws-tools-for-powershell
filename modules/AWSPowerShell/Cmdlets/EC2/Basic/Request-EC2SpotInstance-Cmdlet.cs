@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
-    /// Instance Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+    /// Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Request", "EC2SpotInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -311,6 +311,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String LaunchSpecification_SubnetId { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The key-value pair for tagging the Spot Instance request on creation. The value for
+        /// <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
+        /// Spot Instance request fails. To tag the Spot Instance request after it has been created,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter Placement_Tenancy
         /// <summary>
         /// <para>
@@ -525,6 +540,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.LaunchSpecification_SubnetId = this.LaunchSpecification_SubnetId;
             context.LaunchSpecification_UserData = this.LaunchSpecification_UserData;
             context.SpotPrice = this.SpotPrice;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.Type = this.Type;
             context.UtcValidFrom = this.UtcValidFrom;
             context.UtcValidUntil = this.UtcValidUntil;
@@ -807,6 +826,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.SpotPrice = cmdletContext.SpotPrice;
             }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -926,6 +949,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String LaunchSpecification_SubnetId { get; set; }
             public System.String LaunchSpecification_UserData { get; set; }
             public System.String SpotPrice { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.SpotInstanceType Type { get; set; }
             public System.DateTime? UtcValidFrom { get; set; }
             public System.DateTime? UtcValidUntil { get; set; }

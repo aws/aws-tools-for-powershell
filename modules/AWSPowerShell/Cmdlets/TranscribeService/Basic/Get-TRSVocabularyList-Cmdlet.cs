@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>When specified, the vocabularies returned in the list are limited to vocabularies
-        /// whose name contains the specified string. The search is case-insensitive, <code>ListVocabularies</code>
+        /// whose name contains the specified string. The search is not case sensitive, <code>ListVocabularies</code>
         /// returns both "vocabularyname" and "VocabularyName" in the response list.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the specified export instance tasks or all your export instance tasks.
+    /// Describes the specified export instance tasks or all of your export instance tasks.
     /// </summary>
     [Cmdlet("Get", "EC2ExportTask")]
     [OutputType("Amazon.EC2.Model.ExportTask")]

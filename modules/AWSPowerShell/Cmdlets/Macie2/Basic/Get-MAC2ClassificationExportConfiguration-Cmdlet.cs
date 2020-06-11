@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves the configuration settings for exporting data classification results.
+    /// Retrieves the configuration settings for storing data classification results.
     /// </summary>
     [Cmdlet("Get", "MAC2ClassificationExportConfiguration")]
     [OutputType("Amazon.Macie2.Model.ClassificationExportConfiguration")]

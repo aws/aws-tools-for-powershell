@@ -41,20 +41,29 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class FindCOMPEntityCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        #region Parameter EndpointArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition
+        /// model. Provide an endpoint if you want to detect entities by using your own custom
+        /// model instead of the default model that is used by Amazon Comprehend.</para><para>If you specify an endpoint, Amazon Comprehend uses the language of your custom model,
+        /// and it ignores any language code that you provide in your request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EndpointArn { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
         /// <para>The language of the input documents. You can specify any of the primary languages
-        /// supported by Amazon Comprehend. All documents must be in the same language.</para>
+        /// supported by Amazon Comprehend. All documents must be in the same language.</para><para>If your request includes the endpoint for a custom entity recognition model, Amazon
+        /// Comprehend uses the language of your custom model, and it ignores any language code
+        /// that you specify here.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.Comprehend.LanguageCode")]
         public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
         #endregion
@@ -122,13 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 context.Select = (response, cmdlet) => this.Text;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EndpointArn = this.EndpointArn;
             context.LanguageCode = this.LanguageCode;
-            #if MODULAR
-            if (this.LanguageCode == null && ParameterWasBound(nameof(this.LanguageCode)))
-            {
-                WriteWarning("You are passing $null as a value for parameter LanguageCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Text = this.Text;
             #if MODULAR
             if (this.Text == null && ParameterWasBound(nameof(this.Text)))
@@ -152,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             // create request
             var request = new Amazon.Comprehend.Model.DetectEntitiesRequest();
             
+            if (cmdletContext.EndpointArn != null)
+            {
+                request.EndpointArn = cmdletContext.EndpointArn;
+            }
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
@@ -221,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EndpointArn { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
             public System.String Text { get; set; }
             public System.Func<Amazon.Comprehend.Model.DetectEntitiesResponse, FindCOMPEntityCmdlet, object> Select { get; set; } =

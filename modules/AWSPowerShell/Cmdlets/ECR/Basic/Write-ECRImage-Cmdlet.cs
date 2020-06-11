@@ -51,6 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     public partial class WriteECRImageCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
+        #region Parameter ImageDigest
+        /// <summary>
+        /// <para>
+        /// <para>The image digest of the image manifest corresponding to the image.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageDigest { get; set; }
+        #endregion
+        
         #region Parameter ImageManifest
         /// <summary>
         /// <para>
@@ -84,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The tag to associate with the image. This parameter is required for images that use
-        /// the Docker Image Manifest V2 Schema 2 or OCI formats.</para>
+        /// the Docker Image Manifest V2 Schema 2 or Open Container Initiative (OCI) formats.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 context.Select = (response, cmdlet) => this.ImageManifest;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ImageDigest = this.ImageDigest;
             context.ImageManifest = this.ImageManifest;
             #if MODULAR
             if (this.ImageManifest == null && ParameterWasBound(nameof(this.ImageManifest)))
@@ -213,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             // create request
             var request = new Amazon.ECR.Model.PutImageRequest();
             
+            if (cmdletContext.ImageDigest != null)
+            {
+                request.ImageDigest = cmdletContext.ImageDigest;
+            }
             if (cmdletContext.ImageManifest != null)
             {
                 request.ImageManifest = cmdletContext.ImageManifest;
@@ -294,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ImageDigest { get; set; }
             public System.String ImageManifest { get; set; }
             public System.String ImageManifestMediaType { get; set; }
             public System.String ImageTag { get; set; }

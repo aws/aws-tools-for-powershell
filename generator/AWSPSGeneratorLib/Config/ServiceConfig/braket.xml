@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>braket</C2jFilename>
+    <AssemblyName>Braket</AssemblyName>
+    <ServiceNounPrefix>BRKT</ServiceNounPrefix>
+    <ServiceName>Amazon Braket</ServiceName>
+    <ServiceClientInterface>IAmazonBraket</ServiceClientInterface>
+    <ServiceClient>AmazonBraketClient</ServiceClient>
+    <ServiceModuleGuid>a1069bc1-13c5-4488-834d-a60624c3da4c</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelQuantumTask" OutputProperty="*" Verb="Stop" Noun="QuantumTask" ShouldProcessTarget="QuantumTaskArn" PipelineParameter="QuantumTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQuantumTask" OutputProperty="QuantumTaskArn" Verb="New" Noun="QuantumTask" ShouldProcessTarget="DeviceArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDevice" OutputProperty="*" Verb="Get" Noun="Device" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQuantumTask" OutputProperty="*" Verb="Get" Noun="QuantumTask" PipelineParameter="QuantumTaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchDevices" OutputProperty="Devices" Verb="Search" Noun="Device" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchQuantumTasks" OutputProperty="QuantumTasks" Verb="Search" Noun="QuantumTask" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

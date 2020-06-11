@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent
-        /// creation. This string is automatically filled on your behalf when you use the AWS
-        /// Command Line Interface (AWS CLI) or an AWS SDK.</para>
+        /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent creation.
+        /// This string is automatically filled on your behalf when you use the AWS Command Line
+        /// Interface (AWS CLI) or an AWS SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

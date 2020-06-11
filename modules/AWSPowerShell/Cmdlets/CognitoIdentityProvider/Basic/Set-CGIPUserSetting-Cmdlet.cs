@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// <summary>
     /// <i>This action is no longer supported.</i> You can use it to configure only SMS MFA.
     /// You can't use it to configure TOTP software token MFA. To configure either type of
-    /// MFA, use the <a>SetUserMFAPreference</a> action instead.
+    /// MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html">SetUserMFAPreference</a>
+    /// instead.
     /// </summary>
     [Cmdlet("Set", "CGIPUserSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

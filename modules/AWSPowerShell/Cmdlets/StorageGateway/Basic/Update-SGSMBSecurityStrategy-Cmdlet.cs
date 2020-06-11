@@ -69,12 +69,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>Specifies the type of security strategy.</para><para>ClientSpecified: if you use this option, requests are established based on what is
         /// negotiated by the client. This option is recommended when you want to maximize compatibility
-        /// across different clients in your environment. </para><para>MandatorySigning: if you use this option, file gateway only allows connections from
+        /// across different clients in your environment.</para><para>MandatorySigning: if you use this option, file gateway only allows connections from
         /// SMBv2 or SMBv3 clients that have signing enabled. This option works with SMB clients
-        /// on Microsoft Windows Vista, Windows Server 2008 or newer. </para><para>MandatoryEncryption: if you use this option, file gateway only allows connections
+        /// on Microsoft Windows Vista, Windows Server 2008 or newer.</para><para>MandatoryEncryption: if you use this option, file gateway only allows connections
         /// from SMBv3 clients that have encryption enabled. This option is highly recommended
         /// for environments that handle sensitive data. This option works with SMB clients on
-        /// Microsoft Windows 8, Windows Server 2012 or newer. </para>
+        /// Microsoft Windows 8, Windows Server 2012 or newer.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter VmServerAddressList
         /// <summary>
         /// <para>
-        /// <para>List of <code>VmServerAddress</code> objects</para>
+        /// <para>The server addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that you want to
-        /// use to monitor and log events in the gateway. </para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">What
-        /// Is Amazon CloudWatch Logs?</a>.</para>
+        /// use to monitor and log events in the gateway.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">What
+        /// is Amazon CloudWatch logs?</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

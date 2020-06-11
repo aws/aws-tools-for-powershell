@@ -143,14 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// version of the request mapping template.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RequestMappingTemplate { get; set; }
         #endregion
         
@@ -262,12 +255,6 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.RequestMappingTemplate = this.RequestMappingTemplate;
-            #if MODULAR
-            if (this.RequestMappingTemplate == null && ParameterWasBound(nameof(this.RequestMappingTemplate)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RequestMappingTemplate which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ResponseMappingTemplate = this.ResponseMappingTemplate;
             
             // allow further manipulation of loaded context prior to processing

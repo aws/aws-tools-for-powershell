@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter VariableType
         /// <summary>
         /// <para>
-        /// <para>The variable type.</para>
+        /// <para>The variable type. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable
+        /// types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

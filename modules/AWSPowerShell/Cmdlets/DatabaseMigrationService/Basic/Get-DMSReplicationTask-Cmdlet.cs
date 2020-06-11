@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the describe action.</para><para>Valid filter names: replication-task-arn | replication-task-id | migration-type |
+        /// <para>Filters applied to replication tasks.</para><para>Valid filter names: replication-task-arn | replication-task-id | migration-type |
         /// endpoint-arn | replication-instance-arn</para>
         /// </para>
         /// </summary>

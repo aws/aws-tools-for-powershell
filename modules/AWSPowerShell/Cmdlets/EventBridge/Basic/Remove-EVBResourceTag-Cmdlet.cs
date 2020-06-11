@@ -28,8 +28,8 @@ using Amazon.EventBridge.Model;
 namespace Amazon.PowerShell.Cmdlets.EVB
 {
     /// <summary>
-    /// Removes one or more tags from the specified EventBridge resource. In CloudWatch Events,
-    /// rules and event buses can be tagged.
+    /// Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge
+    /// (CloudWatch Events, rules and event buses can be tagged.
     /// </summary>
     [Cmdlet("Remove", "EVBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

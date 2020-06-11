@@ -146,8 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <para>Specifies the file transfer protocol or protocols over which your file transfer protocol
         /// client can connect to your server's endpoint. The available protocols are:</para><ul><li><para><code>SFTP</code> (Secure Shell (SSH) File Transfer Protocol): File transfer over
         /// SSH</para></li><li><para><code>FTPS</code> (File Transfer Protocol Secure): File transfer with TLS encryption</para></li><li><para><code>FTP</code> (File Transfer Protocol): Unencrypted file transfer</para></li></ul><note><para>If you select <code>FTPS</code>, you must choose a certificate stored in AWS Certificate
-        /// Manager (ACM) which will be used to identify your server when clients connect to it
-        /// over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
+        /// Manager (ACM) which will be used to identify your file transfer protocol-enabled server
+        /// when clients connect to it over FTPS.</para><para>If <code>Protocol</code> includes either <code>FTP</code> or <code>FTPS</code>, then
         /// the <code>EndpointType</code> must be <code>VPC</code> and the <code>IdentityProviderType</code>
         /// must be <code>API_GATEWAY</code>.</para><para>If <code>Protocol</code> includes <code>FTP</code>, then <code>AddressAllocationIds</code>
         /// cannot be associated.</para><para>If <code>Protocol</code> is set only to <code>SFTP</code>, the <code>EndpointType</code>
@@ -158,6 +158,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Protocols")]
         public System.String[] Protocol { get; set; }
+        #endregion
+        
+        #region Parameter SecurityPolicyName
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name of the security policy that is attached to the server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SecurityPolicyName { get; set; }
         #endregion
         
         #region Parameter EndpointDetails_SubnetId
@@ -277,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 context.Protocol = new List<System.String>(this.Protocol);
             }
+            context.SecurityPolicyName = this.SecurityPolicyName;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.Transfer.Model.Tag>(this.Tag);
@@ -399,6 +410,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.Protocols = cmdletContext.Protocol;
             }
+            if (cmdletContext.SecurityPolicyName != null)
+            {
+                request.SecurityPolicyName = cmdletContext.SecurityPolicyName;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -476,6 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.IdentityProviderType IdentityProviderType { get; set; }
             public System.String LoggingRole { get; set; }
             public List<System.String> Protocol { get; set; }
+            public System.String SecurityPolicyName { get; set; }
             public List<Amazon.Transfer.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Transfer.Model.CreateServerResponse, NewTFRServerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServerId;

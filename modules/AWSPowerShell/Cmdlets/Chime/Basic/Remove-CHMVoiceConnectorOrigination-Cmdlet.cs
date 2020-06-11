@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Deletes the origination settings for the specified Amazon Chime Voice Connector.
+    /// 
+    ///  <note><para>
+    /// If emergency calling is configured for the Amazon Chime Voice Connector, it must be
+    /// deleted prior to deleting the origination settings.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "CHMVoiceConnectorOrigination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

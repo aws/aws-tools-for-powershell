@@ -94,6 +94,13 @@ $CW_Completers = {
             break
         }
 
+        # Amazon.CloudWatch.RecentlyActive
+        "Get-CWMetricList/RecentlyActive"
+        {
+            $v = "PT3H"
+            break
+        }
+
         # Amazon.CloudWatch.ScanBy
         {
             ($_ -eq "Get-CWAlarmHistory/ScanBy") -Or
@@ -146,6 +153,7 @@ $CW_Completers = {
 $CW_map = @{
     "ComparisonOperator"=@("Write-CWMetricAlarm")
     "HistoryItemType"=@("Get-CWAlarmHistory")
+    "RecentlyActive"=@("Get-CWMetricList")
     "ScanBy"=@("Get-CWAlarmHistory","Get-CWMetricData")
     "StateValue"=@("Get-CWAlarm","Set-CWAlarmState")
     "Statistic"=@("Get-CWAlarmForMetric","Write-CWMetricAlarm")

@@ -80,6 +80,43 @@ $CF_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CloudFront.CachePolicyCookieBehavior
+        {
+            ($_ -eq "New-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior") -Or
+            ($_ -eq "Update-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior")
+        }
+        {
+            $v = "all","allExcept","none","whitelist"
+            break
+        }
+
+        # Amazon.CloudFront.CachePolicyHeaderBehavior
+        {
+            ($_ -eq "New-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior") -Or
+            ($_ -eq "Update-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior")
+        }
+        {
+            $v = "none","whitelist"
+            break
+        }
+
+        # Amazon.CloudFront.CachePolicyQueryStringBehavior
+        {
+            ($_ -eq "New-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior") -Or
+            ($_ -eq "Update-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior")
+        }
+        {
+            $v = "all","allExcept","none","whitelist"
+            break
+        }
+
+        # Amazon.CloudFront.CachePolicyType
+        "Get-CFCachePolicyList/Type"
+        {
+            $v = "custom","managed"
+            break
+        }
+
         # Amazon.CloudFront.CertificateSource
         {
             ($_ -eq "New-CFDistribution/DistributionConfig_ViewerCertificate_CertificateSource") -Or
@@ -131,7 +168,44 @@ $CF_Completers = {
             ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion")
         }
         {
-            $v = "SSLv3","TLSv1","TLSv1.1_2016","TLSv1.2_2018","TLSv1_2016"
+            $v = "SSLv3","TLSv1","TLSv1.1_2016","TLSv1.2_2018","TLSv1.2_2019","TLSv1_2016"
+            break
+        }
+
+        # Amazon.CloudFront.OriginRequestPolicyCookieBehavior
+        {
+            ($_ -eq "New-CFOriginRequestPolicy/OriginRequestPolicyConfig_CookiesConfig_CookieBehavior") -Or
+            ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_CookiesConfig_CookieBehavior")
+        }
+        {
+            $v = "all","none","whitelist"
+            break
+        }
+
+        # Amazon.CloudFront.OriginRequestPolicyHeaderBehavior
+        {
+            ($_ -eq "New-CFOriginRequestPolicy/OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior") -Or
+            ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior")
+        }
+        {
+            $v = "allViewer","allViewerAndWhitelistCloudFront","none","whitelist"
+            break
+        }
+
+        # Amazon.CloudFront.OriginRequestPolicyQueryStringBehavior
+        {
+            ($_ -eq "New-CFOriginRequestPolicy/OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior") -Or
+            ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior")
+        }
+        {
+            $v = "all","none","whitelist"
+            break
+        }
+
+        # Amazon.CloudFront.OriginRequestPolicyType
+        "Get-CFOriginRequestPolicyList/Type"
+        {
+            $v = "custom","managed"
             break
         }
 
@@ -180,6 +254,9 @@ $CF_Completers = {
 }
 
 $CF_map = @{
+    "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
+    "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
+    "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
     "DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy"=@("New-CFDistribution","Update-CFDistribution")
     "DistributionConfig_HttpVersion"=@("New-CFDistribution","Update-CFDistribution")
@@ -196,8 +273,12 @@ $CF_map = @{
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_SSLSupportMethod"=@("New-CFDistributionWithTag")
+    "OriginRequestPolicyConfig_CookiesConfig_CookieBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
+    "OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
+    "OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
     "StreamingDistributionConfig_PriceClass"=@("New-CFStreamingDistribution","Update-CFStreamingDistribution")
     "StreamingDistributionConfigWithTags_StreamingDistributionConfig_PriceClass"=@("New-CFStreamingDistributionWithTag")
+    "Type"=@("Get-CFCachePolicyList","Get-CFOriginRequestPolicyList")
 }
 
 _awsArgumentCompleterRegistration $CF_Completers $CF_map
@@ -250,21 +331,27 @@ $CF_SelectCompleters = {
 }
 
 $CF_SelectMap = @{
-    "Select"=@("New-CFCloudFrontOriginAccessIdentity",
+    "Select"=@("New-CFCachePolicy",
+               "New-CFCloudFrontOriginAccessIdentity",
                "New-CFDistribution",
                "New-CFDistributionWithTag",
                "New-CFFieldLevelEncryptionConfig",
                "New-CFFieldLevelEncryptionProfile",
                "New-CFInvalidation",
+               "New-CFOriginRequestPolicy",
                "New-CFPublicKey",
                "New-CFStreamingDistribution",
                "New-CFStreamingDistributionWithTag",
+               "Remove-CFCachePolicy",
                "Remove-CFCloudFrontOriginAccessIdentity",
                "Remove-CFDistribution",
                "Remove-CFFieldLevelEncryptionConfig",
                "Remove-CFFieldLevelEncryptionProfile",
+               "Remove-CFOriginRequestPolicy",
                "Remove-CFPublicKey",
                "Remove-CFStreamingDistribution",
+               "Get-CFCachePolicy",
+               "Get-CFCachePolicyConfig",
                "Get-CFCloudFrontOriginAccessIdentity",
                "Get-CFCloudFrontOriginAccessIdentityConfig",
                "Get-CFDistribution",
@@ -274,25 +361,33 @@ $CF_SelectMap = @{
                "Get-CFFieldLevelEncryptionProfile",
                "Get-CFFieldLevelEncryptionProfileConfig",
                "Get-CFInvalidation",
+               "Get-CFOriginRequestPolicy",
+               "Get-CFOriginRequestPolicyConfig",
                "Get-CFPublicKey",
                "Get-CFPublicKeyConfig",
                "Get-CFStreamingDistribution",
                "Get-CFStreamingDistributionConfig",
+               "Get-CFCachePolicyList",
                "Get-CFCloudFrontOriginAccessIdentityList",
                "Get-CFDistributionList",
+               "Get-CFDistributionsByCachePolicyId",
+               "Get-CFDistributionsByOriginRequestPolicyId",
                "Get-CFDistributionListByWebACLId",
                "Get-CFFieldLevelEncryptionConfigList",
                "Get-CFFieldLevelEncryptionProfileList",
                "Get-CFInvalidationList",
+               "Get-CFOriginRequestPolicyList",
                "Get-CFPublicKeyList",
                "Get-CFStreamingDistributionList",
                "Get-CFResourceTag",
                "Add-CFResourceTag",
                "Remove-CFResourceTag",
+               "Update-CFCachePolicy",
                "Update-CFCloudFrontOriginAccessIdentity",
                "Update-CFDistribution",
                "Update-CFFieldLevelEncryptionConfig",
                "Update-CFFieldLevelEncryptionProfile",
+               "Update-CFOriginRequestPolicy",
                "Update-CFPublicKey",
                "Update-CFStreamingDistribution",
                "New-CFSignedCookie",

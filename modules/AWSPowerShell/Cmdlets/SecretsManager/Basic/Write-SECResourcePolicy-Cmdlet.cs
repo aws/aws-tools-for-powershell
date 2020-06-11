@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// </para><ul><li><para>
     /// secretsmanager:PutResourcePolicy
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
-    /// To retrieve the resource policy that's attached to a secret, use <a>GetResourcePolicy</a>.
+    /// To retrieve the resource policy attached to a secret, use <a>GetResourcePolicy</a>.
     /// </para></li><li><para>
     /// To delete the resource-based policy that's attached to a secret, use <a>DeleteResourcePolicy</a>.
     /// </para></li><li><para>
@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     )]
     public partial class WriteSECResourcePolicyCmdlet : AmazonSecretsManagerClientCmdlet, IExecutor
     {
+        
+        #region Parameter BlockPublicPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad
+        /// access to your secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BlockPublicPolicy { get; set; }
+        #endregion
         
         #region Parameter ResourcePolicy
         /// <summary>
@@ -93,8 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// (before Secrets Manager adds the hyphen and six characters to the ARN) and you try
         /// to use that as a partial ARN, then those characters cause Secrets Manager to assume
         /// that you’re specifying a complete ARN. This confusion can cause unexpected results.
-        /// To avoid this situation, we recommend that you don’t create secret names that end
-        /// with a hyphen followed by six characters.</para></note>
+        /// To avoid this situation, we recommend that you don’t create secret names ending with
+        /// a hyphen followed by six characters.</para><para>If you specify an incomplete ARN without the random suffix, and instead provide the
+        /// 'friendly name', you <i>must</i> not include the random suffix. If you do include
+        /// the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i>
+        /// or an <i>AccessDeniedException</i> error, depending on your permissions.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -169,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 context.Select = (response, cmdlet) => this.ResourcePolicy;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BlockPublicPolicy = this.BlockPublicPolicy;
             context.ResourcePolicy = this.ResourcePolicy;
             #if MODULAR
             if (this.ResourcePolicy == null && ParameterWasBound(nameof(this.ResourcePolicy)))
@@ -199,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             // create request
             var request = new Amazon.SecretsManager.Model.PutResourcePolicyRequest();
             
+            if (cmdletContext.BlockPublicPolicy != null)
+            {
+                request.BlockPublicPolicy = cmdletContext.BlockPublicPolicy.Value;
+            }
             if (cmdletContext.ResourcePolicy != null)
             {
                 request.ResourcePolicy = cmdletContext.ResourcePolicy;
@@ -268,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? BlockPublicPolicy { get; set; }
             public System.String ResourcePolicy { get; set; }
             public System.String SecretId { get; set; }
             public System.Func<Amazon.SecretsManager.Model.PutResourcePolicyResponse, WriteSECResourcePolicyCmdlet, object> Select { get; set; } =

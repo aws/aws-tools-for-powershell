@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-PCACertificateAuthorityList', 
         'Get-PCACertificateAuthorityTagList', 
         'Get-PCAPermissionList', 
+        'Get-PCAPolicy', 
         'Import-PCACertificateAuthorityCertificate', 
         'New-PCACertificate', 
         'New-PCACertificateAuthority', 
@@ -103,8 +104,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-PCACertificateAuthority', 
         'Remove-PCACertificateAuthorityTag', 
         'Remove-PCAPermission', 
+        'Remove-PCAPolicy', 
         'Restore-PCACertificateAuthority', 
         'Revoke-PCACertificate', 
+        'Set-PCAPolicy', 
         'Update-PCACertificateAuthority')
 
     # Variables to export from this module

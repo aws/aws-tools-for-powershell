@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter ModelVersionNumber
         /// <summary>
         /// <para>
-        /// <para>The model version. </para>
+        /// <para>The model version number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

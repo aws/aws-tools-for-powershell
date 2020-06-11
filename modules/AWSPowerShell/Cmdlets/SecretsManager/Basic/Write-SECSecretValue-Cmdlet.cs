@@ -56,21 +56,20 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// the secret data is different, then the operation fails because you cannot modify an
     /// existing version; you can only create new ones.
     /// </para></li></ul><note><ul><li><para>
-    /// If you call an operation that needs to encrypt or decrypt the <code>SecretString</code>
-    /// or <code>SecretBinary</code> for a secret in the same account as the calling user
-    /// and that secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the
-    /// account's default AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>.
-    /// If this key doesn't already exist in your account then Secrets Manager creates it
-    /// for you automatically. All users and roles in the same AWS account automatically have
-    /// access to use the default CMK. Note that if an Secrets Manager API call results in
-    /// AWS having to create the account's AWS-managed CMK, it can result in a one-time significant
-    /// delay in returning the result.
+    /// If you call an operation to encrypt or decrypt the <code>SecretString</code> or <code>SecretBinary</code>
+    /// for a secret in the same account as the calling user and that secret doesn't specify
+    /// a AWS KMS encryption key, Secrets Manager uses the account's default AWS managed customer
+    /// master key (CMK) with the alias <code>aws/secretsmanager</code>. If this key doesn't
+    /// already exist in your account then Secrets Manager creates it for you automatically.
+    /// All users and roles in the same AWS account automatically have access to use the default
+    /// CMK. Note that if an Secrets Manager API call results in AWS creating the account's
+    /// AWS-managed CMK, it can result in a one-time significant delay in returning the result.
     /// </para></li><li><para>
-    /// If the secret is in a different AWS account from the credentials calling an API that
-    /// requires encryption or decryption of the secret value then you must create and use
-    /// a custom AWS KMS CMK because you can't access the default CMK for the account using
-    /// credentials from a different AWS account. Store the ARN of the CMK in the secret when
-    /// you create the secret or when you update it by including it in the <code>KMSKeyId</code>.
+    /// If the secret resides in a different AWS account from the credentials calling an API
+    /// that requires encryption or decryption of the secret value then you must create and
+    /// use a custom AWS KMS CMK because you can't access the default CMK for the account
+    /// using credentials from a different AWS account. Store the ARN of the CMK in the secret
+    /// when you create the secret or when you update it by including it in the <code>KMSKeyId</code>.
     /// If you call an API that must encrypt or decrypt <code>SecretString</code> or <code>SecretBinary</code>
     /// using credentials from a different account then the AWS KMS key policy must grant
     /// cross-account access to that other account's user or role for both the kms:GenerateDataKey
@@ -115,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// value to ensure uniqueness within the specified secret. </para><ul><li><para>If the <code>ClientRequestToken</code> value isn't already associated with a version
         /// of the secret then a new version of the secret is created. </para></li><li><para>If a version with this value already exists and that version's <code>SecretString</code>
         /// or <code>SecretBinary</code> values are the same as those in the request then the
-        /// request is ignored (the operation is idempotent). </para></li><li><para>If a version with this value already exists and that version's <code>SecretString</code>
+        /// request is ignored (the operation is idempotent). </para></li><li><para>If a version with this value already exists and the version of the <code>SecretString</code>
         /// and <code>SecretBinary</code> values are different from those in the request then
         /// the request fails because you cannot modify an existing secret version. You can only
         /// create new versions to store new secret values.</para></li></ul><para>This value becomes the <code>VersionId</code> of the new version.</para>
@@ -155,8 +154,11 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// (before Secrets Manager adds the hyphen and six characters to the ARN) and you try
         /// to use that as a partial ARN, then those characters cause Secrets Manager to assume
         /// that you’re specifying a complete ARN. This confusion can cause unexpected results.
-        /// To avoid this situation, we recommend that you don’t create secret names that end
-        /// with a hyphen followed by six characters.</para></note>
+        /// To avoid this situation, we recommend that you don’t create secret names ending with
+        /// a hyphen followed by six characters.</para><para>If you specify an incomplete ARN without the random suffix, and instead provide the
+        /// 'friendly name', you <i>must</i> not include the random suffix. If you do include
+        /// the random suffix added by Secrets Manager, you receive either a <i>ResourceNotFoundException</i>
+        /// or an <i>AccessDeniedException</i> error, depending on your permissions.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

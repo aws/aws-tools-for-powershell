@@ -28,7 +28,7 @@ using Amazon.CodeGuruProfiler.Model;
 namespace Amazon.PowerShell.Cmdlets.CGP
 {
     /// <summary>
-    /// Gets the profiling group policy.
+    /// Returns the JSON-formatted resource-based policy on a profiling group.
     /// </summary>
     [Cmdlet("Get", "CGPPolicy")]
     [OutputType("Amazon.CodeGuruProfiler.Model.GetPolicyResponse")]

@@ -28,9 +28,7 @@ using Amazon.ACMPCA.Model;
 namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Revokes permissions that a private CA assigned to a designated AWS service. Permissions
-    /// can be created with the <a>CreatePermission</a> action and listed with the <a>ListPermissions</a>
-    /// action.
+    /// Amazon.ACMPCA.IAmazonACMPCA.DeletePermission
     /// </summary>
     [Cmdlet("Remove", "PCAPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -46,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Number (ARN) of the private CA that issued the permissions. You
-        /// can find the CA's ARN by calling the <a>ListCertificateAuthorities</a> action. This
-        /// must have the following form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
+        /// can find the CA's ARN by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>
+        /// action. This must have the following form: </para><para><code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i></code>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

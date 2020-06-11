@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// (this can be useful for troubleshooting delivery issues).</para><para>If a message is sent successfully but the acknowledgement is lost and the message
         /// is resent with the same <code>MessageDeduplicationId</code> after the deduplication
         /// interval, Amazon SQS can't detect duplicate messages.</para><para>Amazon SQS continues to keep track of the message deduplication ID even after the
-        /// message is received and deleted.</para></note><para>The length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code>
+        /// message is received and deleted.</para></note><para>The maximum length of <code>MessageDeduplicationId</code> is 128 characters. <code>MessageDeduplicationId</code>
         /// can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>)
         /// and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code>).</para><para>For best practices of using <code>MessageDeduplicationId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagededuplicationid-property.html">Using
         /// the MessageDeduplicationId Property</a> in the <i>Amazon Simple Queue Service Developer
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>The message system attribute to send. Each message system attribute consists of a
         /// <code>Name</code>, <code>Type</code>, and <code>Value</code>.</para><important><ul><li><para>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>.
         /// Its type must be <code>String</code> and its value must be a correctly formatted AWS
-        /// X-Ray trace string.</para></li><li><para>The size of a message system attribute doesn't count towards the total size of a message.</para></li></ul></important>
+        /// X-Ray trace header string.</para></li><li><para>The size of a message system attribute doesn't count towards the total size of a message.</para></li></ul></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

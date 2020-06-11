@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// <para>The simulation unit limit. Your simulation is allocated CPU and memory proportional
         /// to the supplied simulation unit limit. A simulation unit is 1 vcpu and 2GB of memory.
         /// You are only billed for the SU utilization you consume up to the maximim value provided.
-        /// </para>
+        /// The default is 15. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

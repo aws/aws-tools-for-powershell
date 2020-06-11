@@ -44,17 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Some instance types must be launched into a VPC. If you do not have a default VPC,
     /// or if you do not specify a subnet ID, the request fails. For more information, see
     /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance
-    /// Types Available Only in a VPC</a>.
+    /// types available only in a VPC</a>.
     /// </para></li><li><para>
     /// [EC2-VPC] All instances have a network interface with a primary private IPv4 address.
     /// If you don't specify this address, we choose one from the IPv4 range of your subnet.
     /// </para></li><li><para>
     /// Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-    /// Types</a>.
+    /// types</a>.
     /// </para></li><li><para>
     /// If you don't specify a security group ID, we use the default security group. For more
     /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security
-    /// Groups</a>.
+    /// groups</a>.
     /// </para></li><li><para>
     /// If any of the AMIs have a product code attached for which the user has not subscribed,
     /// the request fails.
@@ -72,16 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// can check the state of your instance using <a>DescribeInstances</a>. You can tag instances
     /// and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a>
     /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
-    /// Your Amazon EC2 Resources</a>.
+    /// your Amazon EC2 resources</a>.
     /// </para><para>
     /// Linux instances have access to the public key of the key pair at boot. You can use
     /// this key to provide secure access to the instance. Amazon EC2 public images use this
     /// feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
-    /// Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What
-    /// To Do If An Instance Immediately Terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting
-    /// Connecting to Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// to do if an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting
+    /// connecting to your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CapacityReservationTarget_CapacityReservationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Capacity Reservation.</para>
+        /// <para>The ID of the Capacity Reservation in which to run the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,6 +175,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
         #endregion
         
+        #region Parameter CapacityReservationTarget_CapacityReservationResourceGroupArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Capacity Reservation resource group in which to run the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CapacityReservationSpecification_CapacityReservationTarget_CapacityReservationResourceGroupArn")]
+        public System.String CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
+        #endregion
+        
         #region Parameter HibernationOptions_Configured
         /// <summary>
         /// <para>
@@ -188,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CreditSpecification_CpuCredit
         /// <summary>
         /// <para>
-        /// <para>The credit option for CPU usage of a T2 or T3 instance. Valid values are <code>standard</code>
+        /// <para>The credit option for CPU usage of a T2, T3, or T3a instance. Valid values are <code>standard</code>
         /// and <code>unlimited</code>.</para>
         /// </para>
         /// </summary>
@@ -201,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing
-        /// CPU Options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -379,7 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-        /// Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Default: <code>m1.small</code></para>
+        /// types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Default: <code>m1.small</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -730,6 +741,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             context.CapacityReservationSpecification_CapacityReservationPreference = this.CapacityReservationSpecification_CapacityReservationPreference;
             context.CapacityReservationTarget_CapacityReservationId = this.CapacityReservationTarget_CapacityReservationId;
+            context.CapacityReservationTarget_CapacityReservationResourceGroupArn = this.CapacityReservationTarget_CapacityReservationResourceGroupArn;
             context.ClientToken = this.ClientToken;
             context.CpuOption = this.CpuOption;
             context.CreditSpecification_CpuCredit = this.CreditSpecification_CpuCredit;
@@ -869,6 +881,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId != null)
             {
                 requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget.CapacityReservationId = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationId;
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = false;
+            }
+            System.String requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn = null;
+            if (cmdletContext.CapacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn = cmdletContext.CapacityReservationTarget_CapacityReservationResourceGroupArn;
+            }
+            if (requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn != null)
+            {
+                requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget.CapacityReservationResourceGroupArn = requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget_capacityReservationTarget_CapacityReservationResourceGroupArn;
                 requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTargetIsNull = false;
             }
              // determine if requestCapacityReservationSpecification_capacityReservationSpecification_CapacityReservationTarget should be set to null
@@ -1254,6 +1276,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.BlockDeviceMapping> BlockDeviceMapping { get; set; }
             public Amazon.EC2.CapacityReservationPreference CapacityReservationSpecification_CapacityReservationPreference { get; set; }
             public System.String CapacityReservationTarget_CapacityReservationId { get; set; }
+            public System.String CapacityReservationTarget_CapacityReservationResourceGroupArn { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.EC2.Model.CpuOptionsRequest CpuOption { get; set; }
             public System.String CreditSpecification_CpuCredit { get; set; }

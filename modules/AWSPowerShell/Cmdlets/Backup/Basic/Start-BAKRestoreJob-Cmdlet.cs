@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Starts a job to restore a recovery point for one of the following resources:</para><ul><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>Storage Gateway</code> for AWS Storage Gateway</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>DDB</code> for Amazon DynamoDB</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li></ul>
+        /// <para>Starts a job to restore a recovery point for one of the following resources:</para><ul><li><para><code>DynamoDB</code> for Amazon DynamoDB</para></li><li><para><code>EBS</code> for Amazon Elastic Block Store</para></li><li><para><code>EC2</code> for Amazon Elastic Compute Cloud</para></li><li><para><code>EFS</code> for Amazon Elastic File System</para></li><li><para><code>RDS</code> for Amazon Relational Database Service</para></li><li><para><code>Storage Gateway</code> for AWS Storage Gateway</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

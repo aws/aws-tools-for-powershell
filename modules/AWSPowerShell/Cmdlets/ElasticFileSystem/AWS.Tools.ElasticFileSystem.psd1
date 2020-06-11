@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-EFSResourceTag', 
         'Edit-EFSMountTargetSecurityGroup', 
         'Get-EFSAccessPoint', 
+        'Get-EFSBackupPolicy', 
         'Get-EFSFileSystem', 
         'Get-EFSFileSystemPolicy', 
         'Get-EFSLifecycleConfiguration', 
@@ -107,6 +108,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-EFSResourceTag', 
         'Remove-EFSTag', 
         'Update-EFSFileSystem', 
+        'Write-EFSBackupPolicy', 
         'Write-EFSFileSystemPolicy', 
         'Write-EFSLifecycleConfiguration')
 

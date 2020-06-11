@@ -28,7 +28,7 @@ using Amazon.PersonalizeEvents.Model;
 namespace Amazon.PowerShell.Cmdlets.PERSE
 {
     /// <summary>
-    /// Records user interaction event data.
+    /// Records user interaction event data. For more information see <a>event-record-api</a>.
     /// </summary>
     [Cmdlet("Write", "PERSEEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -60,7 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.PERSE
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The session ID associated with the user's visit.</para>
+        /// <para>The session ID associated with the user's visit. Your application generates the sessionId
+        /// when a user first visits your website or uses your application. Amazon Personalize
+        /// uses the sessionId to associate events with the user before they log in. For more
+        /// information see <a>event-record-api</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

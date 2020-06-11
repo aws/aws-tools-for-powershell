@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent
-        /// deletion. This is automatically filled on your behalf when using the AWS CLI or SDK.</para>
+        /// <para>A string of up to 64 ASCII characters that Amazon FSx uses to ensure idempotent deletion.
+        /// This is automatically filled on your behalf when using the AWS CLI or SDK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,6 +86,21 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String FileSystemId { get; set; }
         #endregion
         
+        #region Parameter LustreConfiguration_FinalBackupTag
+        /// <summary>
+        /// <para>
+        /// <para>Use if <code>SkipFinalBackup</code> is set to <code>false</code>, and you want to
+        /// apply an array of tags to the final backup. If you have set the file system property
+        /// <code>CopyTagsToBackups</code> to true, and you specify one or more <code>FinalBackupTags</code>
+        /// when deleting a file system, Amazon FSx will not copy any existing file system tags
+        /// to the backup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LustreConfiguration_FinalBackupTags")]
+        public Amazon.FSx.Model.Tag[] LustreConfiguration_FinalBackupTag { get; set; }
+        #endregion
+        
         #region Parameter WindowsConfiguration_FinalBackupTag
         /// <summary>
         /// <para>
@@ -95,6 +110,19 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WindowsConfiguration_FinalBackupTags")]
         public Amazon.FSx.Model.Tag[] WindowsConfiguration_FinalBackupTag { get; set; }
+        #endregion
+        
+        #region Parameter LustreConfiguration_SkipFinalBackup
+        /// <summary>
+        /// <para>
+        /// <para>Set <code>SkipFinalBackup</code> to false if you want to take a final backup of the
+        /// file system you are deleting. By default, Amazon FSx will not take a final backup
+        /// on your behalf when the <code>DeleteFileSystem</code> operation is invoked. (Default
+        /// = true)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? LustreConfiguration_SkipFinalBackup { get; set; }
         #endregion
         
         #region Parameter WindowsConfiguration_SkipFinalBackup
@@ -178,6 +206,11 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 WriteWarning("You are passing $null as a value for parameter FileSystemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.LustreConfiguration_FinalBackupTag != null)
+            {
+                context.LustreConfiguration_FinalBackupTag = new List<Amazon.FSx.Model.Tag>(this.LustreConfiguration_FinalBackupTag);
+            }
+            context.LustreConfiguration_SkipFinalBackup = this.LustreConfiguration_SkipFinalBackup;
             if (this.WindowsConfiguration_FinalBackupTag != null)
             {
                 context.WindowsConfiguration_FinalBackupTag = new List<Amazon.FSx.Model.Tag>(this.WindowsConfiguration_FinalBackupTag);
@@ -206,6 +239,35 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (cmdletContext.FileSystemId != null)
             {
                 request.FileSystemId = cmdletContext.FileSystemId;
+            }
+            
+             // populate LustreConfiguration
+            var requestLustreConfigurationIsNull = true;
+            request.LustreConfiguration = new Amazon.FSx.Model.DeleteFileSystemLustreConfiguration();
+            List<Amazon.FSx.Model.Tag> requestLustreConfiguration_lustreConfiguration_FinalBackupTag = null;
+            if (cmdletContext.LustreConfiguration_FinalBackupTag != null)
+            {
+                requestLustreConfiguration_lustreConfiguration_FinalBackupTag = cmdletContext.LustreConfiguration_FinalBackupTag;
+            }
+            if (requestLustreConfiguration_lustreConfiguration_FinalBackupTag != null)
+            {
+                request.LustreConfiguration.FinalBackupTags = requestLustreConfiguration_lustreConfiguration_FinalBackupTag;
+                requestLustreConfigurationIsNull = false;
+            }
+            System.Boolean? requestLustreConfiguration_lustreConfiguration_SkipFinalBackup = null;
+            if (cmdletContext.LustreConfiguration_SkipFinalBackup != null)
+            {
+                requestLustreConfiguration_lustreConfiguration_SkipFinalBackup = cmdletContext.LustreConfiguration_SkipFinalBackup.Value;
+            }
+            if (requestLustreConfiguration_lustreConfiguration_SkipFinalBackup != null)
+            {
+                request.LustreConfiguration.SkipFinalBackup = requestLustreConfiguration_lustreConfiguration_SkipFinalBackup.Value;
+                requestLustreConfigurationIsNull = false;
+            }
+             // determine if request.LustreConfiguration should be set to null
+            if (requestLustreConfigurationIsNull)
+            {
+                request.LustreConfiguration = null;
             }
             
              // populate WindowsConfiguration
@@ -299,6 +361,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public System.String ClientRequestToken { get; set; }
             public System.String FileSystemId { get; set; }
+            public List<Amazon.FSx.Model.Tag> LustreConfiguration_FinalBackupTag { get; set; }
+            public System.Boolean? LustreConfiguration_SkipFinalBackup { get; set; }
             public List<Amazon.FSx.Model.Tag> WindowsConfiguration_FinalBackupTag { get; set; }
             public System.Boolean? WindowsConfiguration_SkipFinalBackup { get; set; }
             public System.Func<Amazon.FSx.Model.DeleteFileSystemResponse, RemoveFSXFileSystemCmdlet, object> Select { get; set; } =

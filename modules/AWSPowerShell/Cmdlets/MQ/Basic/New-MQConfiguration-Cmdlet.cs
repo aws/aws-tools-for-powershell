@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.MQ
     public partial class NewMQConfigurationCmdlet : AmazonMQClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationStrategy
+        /// <summary>
+        /// <para>
+        /// The authentication strategy associated
+        /// with the configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MQ.AuthenticationStrategy")]
+        public Amazon.MQ.AuthenticationStrategy AuthenticationStrategy { get; set; }
+        #endregion
+        
         #region Parameter EngineType
         /// <summary>
         /// <para>
@@ -147,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AuthenticationStrategy = this.AuthenticationStrategy;
             context.EngineType = this.EngineType;
             context.EngineVersion = this.EngineVersion;
             context.Name = this.Name;
@@ -174,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             // create request
             var request = new Amazon.MQ.Model.CreateConfigurationRequest();
             
+            if (cmdletContext.AuthenticationStrategy != null)
+            {
+                request.AuthenticationStrategy = cmdletContext.AuthenticationStrategy;
+            }
             if (cmdletContext.EngineType != null)
             {
                 request.EngineType = cmdletContext.EngineType;
@@ -251,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MQ.AuthenticationStrategy AuthenticationStrategy { get; set; }
             public Amazon.MQ.EngineType EngineType { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String Name { get; set; }

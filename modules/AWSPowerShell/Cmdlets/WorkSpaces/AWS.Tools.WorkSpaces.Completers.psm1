@@ -109,6 +109,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.ImageType
+        "Get-WKSWorkspaceImage/ImageType"
+        {
+            $v = "OWNED","SHARED"
+            break
+        }
+
         # Amazon.WorkSpaces.ReconnectEnum
         {
             ($_ -eq "Edit-WKSClientProperty/ClientProperties_ReconnectEnabled") -Or
@@ -162,6 +169,7 @@ $WKS_Completers = {
 $WKS_map = @{
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
     "DedicatedTenancySupport"=@("Edit-WKSAccount")
+    "ImageType"=@("Get-WKSWorkspaceImage")
     "IngestionProcess"=@("Import-WKSWorkspaceImage")
     "SelfservicePermissions_ChangeComputeType"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_IncreaseVolumeSize"=@("Edit-WKSSelfservicePermission")
@@ -248,6 +256,7 @@ $WKS_SelectMap = @{
                "Get-WKSTag",
                "Get-WKSWorkspaceBundle",
                "Get-WKSWorkspaceDirectory",
+               "Get-WKSWorkspaceImagePermission",
                "Get-WKSWorkspaceImage",
                "Get-WKSWorkspace",
                "Get-WKSWorkspacesConnectionStatus",
@@ -271,7 +280,8 @@ $WKS_SelectMap = @{
                "Start-WKSWorkspace",
                "Stop-WKSWorkspace",
                "Remove-WKSWorkspace",
-               "Update-WKSRulesOfIpGroup")
+               "Update-WKSRulesOfIpGroup",
+               "Update-WKSWorkspaceImagePermission")
 }
 
 _awsArgumentCompleterRegistration $WKS_SelectCompleters $WKS_SelectMap

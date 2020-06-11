@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>A regular expression used to determine which repository branches are built when a
         /// webhook is triggered. If the name of a branch matches the regular expression, then
-        /// it is built. If <code>branchFilter</code> is empty, then all branches are built.</para><note><para> It is recommended that you use <code>filterGroups</code> instead of <code>branchFilter</code>.
+        /// it is built. If <code>branchFilter</code> is empty, then all branches are built.</para><note><para>It is recommended that you use <code>filterGroups</code> instead of <code>branchFilter</code>.
         /// </para></note>
         /// </para>
         /// </summary>
@@ -66,12 +66,23 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String BranchFilter { get; set; }
         #endregion
         
+        #region Parameter BuildType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the type of build this webhook will trigger.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.WebhookBuildType")]
+        public Amazon.CodeBuild.WebhookBuildType BuildType { get; set; }
+        #endregion
+        
         #region Parameter FilterGroup
         /// <summary>
         /// <para>
-        /// <para> An array of arrays of <code>WebhookFilter</code> objects used to determine which
-        /// webhooks are triggered. At least one <code>WebhookFilter</code> in the array must
-        /// specify <code>EVENT</code> as its <code>type</code>. </para><para> For a build to be triggered, at least one filter group in the <code>filterGroups</code>
+        /// <para>An array of arrays of <code>WebhookFilter</code> objects used to determine which webhooks
+        /// are triggered. At least one <code>WebhookFilter</code> in the array must specify <code>EVENT</code>
+        /// as its <code>type</code>. </para><para>For a build to be triggered, at least one filter group in the <code>filterGroups</code>
         /// array must pass. For a filter group to pass, each of its filters must pass. </para>
         /// </para>
         /// </summary>
@@ -159,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BranchFilter = this.BranchFilter;
+            context.BuildType = this.BuildType;
             if (this.FilterGroup != null)
             {
                 context.FilterGroup = new List<List<Amazon.CodeBuild.Model.WebhookFilter>>();
@@ -193,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.BranchFilter != null)
             {
                 request.BranchFilter = cmdletContext.BranchFilter;
+            }
+            if (cmdletContext.BuildType != null)
+            {
+                request.BuildType = cmdletContext.BuildType;
             }
             if (cmdletContext.FilterGroup != null)
             {
@@ -264,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BranchFilter { get; set; }
+            public Amazon.CodeBuild.WebhookBuildType BuildType { get; set; }
             public List<List<Amazon.CodeBuild.Model.WebhookFilter>> FilterGroup { get; set; }
             public System.String ProjectName { get; set; }
             public System.Func<Amazon.CodeBuild.Model.CreateWebhookResponse, NewCBWebhookCmdlet, object> Select { get; set; } =

@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PartitionInput
         /// <summary>
         /// <para>
-        /// <para>The new partition object to update the partition to.</para>
+        /// <para>The new partition object to update the partition to.</para><para>The <code>Values</code> property can't be changed. If you want to change the partition
+        /// key values for a partition, delete and recreate the partition.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PartitionValueList
         /// <summary>
         /// <para>
-        /// <para>A list of the values defining the partition.</para>
+        /// <para>List of partition key values that define the partition to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

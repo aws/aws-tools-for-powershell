@@ -28,7 +28,7 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Deletes all dashboards that you specify. You may specify up to 100 dashboards to delete.
+    /// Deletes all dashboards that you specify. You can specify up to 100 dashboards to delete.
     /// If there is an error during this call, no dashboards are deleted.
     /// </summary>
     [Cmdlet("Remove", "CWDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

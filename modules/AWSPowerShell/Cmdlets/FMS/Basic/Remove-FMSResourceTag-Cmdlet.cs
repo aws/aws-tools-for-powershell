@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource. The Firewall Manager policy is the
-        /// only AWS resource that supports tagging, so this ARN is a policy ARN.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to return tags for. The AWS Firewall
+        /// Manager resources that support tagging are policies, applications lists, and protocols
+        /// lists. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

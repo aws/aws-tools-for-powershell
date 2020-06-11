@@ -28,8 +28,8 @@ using Amazon.SimpleNotificationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SNS
 {
     /// <summary>
-    /// Sends a message to an Amazon SNS topic or sends a text message (SMS message) directly
-    /// to a phone number. 
+    /// Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a
+    /// phone number, or a message to a mobile platform endpoint (when you specify the <code>TargetArn</code>).
     /// 
     ///  
     /// <para>
@@ -47,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </para><para>
     /// For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send
     /// Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. 
-    /// </para>
+    /// </para><important><para>
+    /// You can publish messages only to topics and endpoints in the same AWS Region.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Publish", "SNSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

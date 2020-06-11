@@ -22,29 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FraudDetector;
-using Amazon.FraudDetector.Model;
+using Amazon.ACMPCA;
+using Amazon.ACMPCA.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FD
+namespace Amazon.PowerShell.Cmdlets.PCA
 {
     /// <summary>
-    /// Deletes the rule version. You cannot delete a rule version if it is used by an <code>ACTIVE</code>
-    /// or <code>INACTIVE</code> detector version.
+    /// Amazon.ACMPCA.IAmazonACMPCA.PutPolicy
     /// </summary>
-    [Cmdlet("Remove", "FDRuleVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Set", "PCAPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Fraud Detector DeleteRuleVersion API operation.", Operation = new[] {"DeleteRuleVersion"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.DeleteRuleVersionResponse))]
-    [AWSCmdletOutput("None or Amazon.FraudDetector.Model.DeleteRuleVersionResponse",
+    [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority PutPolicy API operation.", Operation = new[] {"PutPolicy"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.PutPolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.ACMPCA.Model.PutPolicyResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.FraudDetector.Model.DeleteRuleVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ACMPCA.Model.PutPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFDRuleVersionCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
+    public partial class SetPCAPolicyCmdlet : AmazonACMPCAClientCmdlet, IExecutor
     {
         
-        #region Parameter DetectorId
+        #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector that includes the rule version to delete.</para>
+        /// <para>The path and filename of a JSON-formatted IAM policy to attach to the specified private
+        /// CA resource. If this policy does not contain all required statements or if it includes
+        /// any statement that is not allowed, the <code>PutPolicy</code> action returns an <code>InvalidPolicyException</code>.
+        /// For information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview
+        /// of JSON Policies</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,51 +58,46 @@ namespace Amazon.PowerShell.Cmdlets.FD
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DetectorId { get; set; }
+        public System.String Policy { get; set; }
         #endregion
         
-        #region Parameter RuleId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The rule ID of the rule version to delete.</para>
+        /// <para>The Amazon Resource Number (ARN) of the private CA to associate with the policy. The
+        /// ARN of the CA can be found by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>
+        /// action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RuleId { get; set; }
-        #endregion
-        
-        #region Parameter RuleVersion
-        /// <summary>
-        /// <para>
-        /// <para>The rule version to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RuleVersion { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FraudDetector.Model.DeleteRuleVersionResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ACMPCA.Model.PutPolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -116,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RuleId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FDRuleVersion (DeleteRuleVersion)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-PCAPolicy (PutPolicy)"))
             {
                 return;
             }
@@ -127,30 +125,33 @@ namespace Amazon.PowerShell.Cmdlets.FD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FraudDetector.Model.DeleteRuleVersionResponse, RemoveFDRuleVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ACMPCA.Model.PutPolicyResponse, SetPCAPolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.DetectorId = this.DetectorId;
-            #if MODULAR
-            if (this.DetectorId == null && ParameterWasBound(nameof(this.DetectorId)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter DetectorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.ResourceArn;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Policy = this.Policy;
+            #if MODULAR
+            if (this.Policy == null && ParameterWasBound(nameof(this.Policy)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RuleId = this.RuleId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.RuleId == null && ParameterWasBound(nameof(this.RuleId)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter RuleId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.RuleVersion = this.RuleVersion;
-            #if MODULAR
-            if (this.RuleVersion == null && ParameterWasBound(nameof(this.RuleVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RuleVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -167,19 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.FD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FraudDetector.Model.DeleteRuleVersionRequest();
+            var request = new Amazon.ACMPCA.Model.PutPolicyRequest();
             
-            if (cmdletContext.DetectorId != null)
+            if (cmdletContext.Policy != null)
             {
-                request.DetectorId = cmdletContext.DetectorId;
+                request.Policy = cmdletContext.Policy;
             }
-            if (cmdletContext.RuleId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.RuleId = cmdletContext.RuleId;
-            }
-            if (cmdletContext.RuleVersion != null)
-            {
-                request.RuleVersion = cmdletContext.RuleVersion;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -214,15 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.FD
         
         #region AWS Service Operation Call
         
-        private Amazon.FraudDetector.Model.DeleteRuleVersionResponse CallAWSServiceOperation(IAmazonFraudDetector client, Amazon.FraudDetector.Model.DeleteRuleVersionRequest request)
+        private Amazon.ACMPCA.Model.PutPolicyResponse CallAWSServiceOperation(IAmazonACMPCA client, Amazon.ACMPCA.Model.PutPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Fraud Detector", "DeleteRuleVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager Private Certificate Authority", "PutPolicy");
             try
             {
                 #if DESKTOP
-                return client.DeleteRuleVersion(request);
+                return client.PutPolicy(request);
                 #elif CORECLR
-                return client.DeleteRuleVersionAsync(request).GetAwaiter().GetResult();
+                return client.PutPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,10 +239,9 @@ namespace Amazon.PowerShell.Cmdlets.FD
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DetectorId { get; set; }
-            public System.String RuleId { get; set; }
-            public System.String RuleVersion { get; set; }
-            public System.Func<Amazon.FraudDetector.Model.DeleteRuleVersionResponse, RemoveFDRuleVersionCmdlet, object> Select { get; set; } =
+            public System.String Policy { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.ACMPCA.Model.PutPolicyResponse, SetPCAPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     public partial class GetDSYNTaskListCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.DataSync.Model.TaskFilter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -106,6 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 context.Select = CreateSelectDelegate<Amazon.DataSync.Model.ListTasksResponse, GetDSYNTaskListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.DataSync.Model.TaskFilter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             #if MODULAR
             if (!ParameterWasBound(nameof(this.MaxResult)))
@@ -143,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             // create request and set iteration invariants
             var request = new Amazon.DataSync.Model.ListTasksRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -202,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             
             // create request and set iteration invariants
             var request = new Amazon.DataSync.Model.ListTasksRequest();
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextToken = null;
@@ -325,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.DataSync.Model.TaskFilter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.DataSync.Model.ListTasksResponse, GetDSYNTaskListCmdlet, object> Select { get; set; } =

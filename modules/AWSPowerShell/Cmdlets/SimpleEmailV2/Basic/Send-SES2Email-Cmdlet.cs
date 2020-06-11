@@ -37,6 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// you have to specify all of the message headers, as well as the message body. You can
     /// use this message type to send messages that contain attachments. The message that
     /// you specify has to be a valid MIME message.
+    /// </para></li><li><para><b>Templated</b> – A message that contains personalization tags. When you send this
+    /// type of email, Amazon SES API v2 automatically replaces the tags with values that
+    /// you specify.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Send", "SES2Email", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -197,6 +200,22 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String FeedbackForwardingEmailAddress { get; set; }
         #endregion
         
+        #region Parameter FeedbackForwardingEmailAddressIdentityArn
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
+        /// that is associated with the sending authorization policy that permits you to use the
+        /// email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</para><para>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com)
+        /// attaches a policy to it that authorizes you to use feedback@example.com, then you
+        /// would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com,
+        /// and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+        /// SES Developer Guide</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FeedbackForwardingEmailAddressIdentityArn { get; set; }
+        #endregion
+        
         #region Parameter FromEmailAddress
         /// <summary>
         /// <para>
@@ -206,6 +225,23 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String FromEmailAddress { get; set; }
+        #endregion
+        
+        #region Parameter FromEmailAddressIdentityArn
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is used only for sending authorization. It is the ARN of the identity
+        /// that is associated with the sending authorization policy that permits you to use the
+        /// email address specified in the <code>FromEmailAddress</code> parameter.</para><para>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com)
+        /// attaches a policy to it that authorizes you to use sender@example.com, then you would
+        /// specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com,
+        /// and the <code>FromEmailAddress</code> to be sender@example.com.</para><para>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+        /// SES Developer Guide</a>.</para><para>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the X-SES-SOURCE-ARN
+        /// and X-SES-FROM-ARN headers specified in raw email message content.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FromEmailAddressIdentityArn { get; set; }
         #endregion
         
         #region Parameter ReplyToAddress
@@ -242,6 +278,19 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Content_Template_TemplateData")]
         public System.String Template_TemplateData { get; set; }
+        #endregion
+        
+        #region Parameter Template_TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the template. You will refer to this name when you send email using the
+        /// <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_Template_TemplateName")]
+        public System.String Template_TemplateName { get; set; }
         #endregion
         
         #region Parameter Destination_ToAddress
@@ -306,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             context.Subject_Data = this.Subject_Data;
             context.Template_TemplateArn = this.Template_TemplateArn;
             context.Template_TemplateData = this.Template_TemplateData;
+            context.Template_TemplateName = this.Template_TemplateName;
             if (this.Destination_BccAddress != null)
             {
                 context.Destination_BccAddress = new List<System.String>(this.Destination_BccAddress);
@@ -323,7 +373,9 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.EmailTag = new List<Amazon.SimpleEmailV2.Model.MessageTag>(this.EmailTag);
             }
             context.FeedbackForwardingEmailAddress = this.FeedbackForwardingEmailAddress;
+            context.FeedbackForwardingEmailAddressIdentityArn = this.FeedbackForwardingEmailAddressIdentityArn;
             context.FromEmailAddress = this.FromEmailAddress;
+            context.FromEmailAddressIdentityArn = this.FromEmailAddressIdentityArn;
             if (this.ReplyToAddress != null)
             {
                 context.ReplyToAddress = new List<System.String>(this.ReplyToAddress);
@@ -542,6 +594,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                     requestContent_content_Template.TemplateData = requestContent_content_Template_template_TemplateData;
                     requestContent_content_TemplateIsNull = false;
                 }
+                System.String requestContent_content_Template_template_TemplateName = null;
+                if (cmdletContext.Template_TemplateName != null)
+                {
+                    requestContent_content_Template_template_TemplateName = cmdletContext.Template_TemplateName;
+                }
+                if (requestContent_content_Template_template_TemplateName != null)
+                {
+                    requestContent_content_Template.TemplateName = requestContent_content_Template_template_TemplateName;
+                    requestContent_content_TemplateIsNull = false;
+                }
                  // determine if requestContent_content_Template should be set to null
                 if (requestContent_content_TemplateIsNull)
                 {
@@ -604,9 +666,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 {
                     request.FeedbackForwardingEmailAddress = cmdletContext.FeedbackForwardingEmailAddress;
                 }
+                if (cmdletContext.FeedbackForwardingEmailAddressIdentityArn != null)
+                {
+                    request.FeedbackForwardingEmailAddressIdentityArn = cmdletContext.FeedbackForwardingEmailAddressIdentityArn;
+                }
                 if (cmdletContext.FromEmailAddress != null)
                 {
                     request.FromEmailAddress = cmdletContext.FromEmailAddress;
+                }
+                if (cmdletContext.FromEmailAddressIdentityArn != null)
+                {
+                    request.FromEmailAddressIdentityArn = cmdletContext.FromEmailAddressIdentityArn;
                 }
                 if (cmdletContext.ReplyToAddress != null)
                 {
@@ -691,12 +761,15 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String Subject_Data { get; set; }
             public System.String Template_TemplateArn { get; set; }
             public System.String Template_TemplateData { get; set; }
+            public System.String Template_TemplateName { get; set; }
             public List<System.String> Destination_BccAddress { get; set; }
             public List<System.String> Destination_CcAddress { get; set; }
             public List<System.String> Destination_ToAddress { get; set; }
             public List<Amazon.SimpleEmailV2.Model.MessageTag> EmailTag { get; set; }
             public System.String FeedbackForwardingEmailAddress { get; set; }
+            public System.String FeedbackForwardingEmailAddressIdentityArn { get; set; }
             public System.String FromEmailAddress { get; set; }
+            public System.String FromEmailAddressIdentityArn { get; set; }
             public List<System.String> ReplyToAddress { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.SendEmailResponse, SendSES2EmailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.MessageId;

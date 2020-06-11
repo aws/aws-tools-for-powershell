@@ -31,19 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.FD
     /// Evaluates an event against a detector version. If a version ID is not provided, the
     /// detector’s (<code>ACTIVE</code>) version is used.
     /// </summary>
-    [Cmdlet("Get", "FDPrediction")]
-    [OutputType("Amazon.FraudDetector.Model.GetPredictionResponse")]
-    [AWSCmdlet("Calls the Amazon Fraud Detector GetPrediction API operation.", Operation = new[] {"GetPrediction"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.GetPredictionResponse))]
-    [AWSCmdletOutput("Amazon.FraudDetector.Model.GetPredictionResponse",
-        "This cmdlet returns an Amazon.FraudDetector.Model.GetPredictionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "FDEventPrediction")]
+    [OutputType("Amazon.FraudDetector.Model.GetEventPredictionResponse")]
+    [AWSCmdlet("Calls the Amazon Fraud Detector GetEventPrediction API operation.", Operation = new[] {"GetEventPrediction"}, SelectReturnType = typeof(Amazon.FraudDetector.Model.GetEventPredictionResponse))]
+    [AWSCmdletOutput("Amazon.FraudDetector.Model.GetEventPredictionResponse",
+        "This cmdlet returns an Amazon.FraudDetector.Model.GetEventPredictionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetFDPredictionCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
+    public partial class GetFDEventPredictionCmdlet : AmazonFraudDetectorClientCmdlet, IExecutor
     {
         
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The detector ID. </para>
+        /// <para>The detector ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,16 +67,23 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String DetectorVersionId { get; set; }
         #endregion
         
-        #region Parameter EventAttribute
+        #region Parameter Entity
         /// <summary>
         /// <para>
-        /// <para>Names of variables you defined in Amazon Fraud Detector to represent event data elements
-        /// and their corresponding values for the event you are sending for evaluation.</para>
+        /// <para>The entity type (associated with the detector's event type) and specific entity ID
+        /// representing who performed the event. If an entity id is not available, use "UNKNOWN."</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("EventAttributes")]
-        public System.Collections.Hashtable EventAttribute { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Entities")]
+        public Amazon.FraudDetector.Model.Entity[] Entity { get; set; }
         #endregion
         
         #region Parameter EventId
@@ -96,6 +103,59 @@ namespace Amazon.PowerShell.Cmdlets.FD
         public System.String EventId { get; set; }
         #endregion
         
+        #region Parameter EventTimestamp
+        /// <summary>
+        /// <para>
+        /// <para>Timestamp that defines when the event under evaluation occurred.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EventTimestamp { get; set; }
+        #endregion
+        
+        #region Parameter EventTypeName
+        /// <summary>
+        /// <para>
+        /// <para>The event type associated with the detector specified for the prediction.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String EventTypeName { get; set; }
+        #endregion
+        
+        #region Parameter EventVariable
+        /// <summary>
+        /// <para>
+        /// <para>Names of the event type's variables you defined in Amazon Fraud Detector to represent
+        /// data elements and their corresponding values for the event you are sending for evaluation.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("EventVariables")]
+        public System.Collections.Hashtable EventVariable { get; set; }
+        #endregion
+        
         #region Parameter ExternalModelEndpointDataBlob
         /// <summary>
         /// <para>
@@ -110,8 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.FD
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FraudDetector.Model.GetPredictionResponse).
-        /// Specifying the name of a property of type Amazon.FraudDetector.Model.GetPredictionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FraudDetector.Model.GetEventPredictionResponse).
+        /// Specifying the name of a property of type Amazon.FraudDetector.Model.GetEventPredictionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FraudDetector.Model.GetPredictionResponse, GetFDPredictionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FraudDetector.Model.GetEventPredictionResponse, GetFDEventPredictionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -160,19 +220,49 @@ namespace Amazon.PowerShell.Cmdlets.FD
             }
             #endif
             context.DetectorVersionId = this.DetectorVersionId;
-            if (this.EventAttribute != null)
+            if (this.Entity != null)
             {
-                context.EventAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.EventAttribute.Keys)
-                {
-                    context.EventAttribute.Add((String)hashKey, (String)(this.EventAttribute[hashKey]));
-                }
+                context.Entity = new List<Amazon.FraudDetector.Model.Entity>(this.Entity);
             }
+            #if MODULAR
+            if (this.Entity == null && ParameterWasBound(nameof(this.Entity)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Entity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.EventId = this.EventId;
             #if MODULAR
             if (this.EventId == null && ParameterWasBound(nameof(this.EventId)))
             {
                 WriteWarning("You are passing $null as a value for parameter EventId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.EventTimestamp = this.EventTimestamp;
+            #if MODULAR
+            if (this.EventTimestamp == null && ParameterWasBound(nameof(this.EventTimestamp)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventTimestamp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.EventTypeName = this.EventTypeName;
+            #if MODULAR
+            if (this.EventTypeName == null && ParameterWasBound(nameof(this.EventTypeName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventTypeName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.EventVariable != null)
+            {
+                context.EventVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.EventVariable.Keys)
+                {
+                    context.EventVariable.Add((String)hashKey, (String)(this.EventVariable[hashKey]));
+                }
+            }
+            #if MODULAR
+            if (this.EventVariable == null && ParameterWasBound(nameof(this.EventVariable)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EventVariable which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.ExternalModelEndpointDataBlob != null)
@@ -197,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FraudDetector.Model.GetPredictionRequest();
+            var request = new Amazon.FraudDetector.Model.GetEventPredictionRequest();
             
             if (cmdletContext.DetectorId != null)
             {
@@ -207,13 +297,25 @@ namespace Amazon.PowerShell.Cmdlets.FD
             {
                 request.DetectorVersionId = cmdletContext.DetectorVersionId;
             }
-            if (cmdletContext.EventAttribute != null)
+            if (cmdletContext.Entity != null)
             {
-                request.EventAttributes = cmdletContext.EventAttribute;
+                request.Entities = cmdletContext.Entity;
             }
             if (cmdletContext.EventId != null)
             {
                 request.EventId = cmdletContext.EventId;
+            }
+            if (cmdletContext.EventTimestamp != null)
+            {
+                request.EventTimestamp = cmdletContext.EventTimestamp;
+            }
+            if (cmdletContext.EventTypeName != null)
+            {
+                request.EventTypeName = cmdletContext.EventTypeName;
+            }
+            if (cmdletContext.EventVariable != null)
+            {
+                request.EventVariables = cmdletContext.EventVariable;
             }
             if (cmdletContext.ExternalModelEndpointDataBlob != null)
             {
@@ -252,15 +354,15 @@ namespace Amazon.PowerShell.Cmdlets.FD
         
         #region AWS Service Operation Call
         
-        private Amazon.FraudDetector.Model.GetPredictionResponse CallAWSServiceOperation(IAmazonFraudDetector client, Amazon.FraudDetector.Model.GetPredictionRequest request)
+        private Amazon.FraudDetector.Model.GetEventPredictionResponse CallAWSServiceOperation(IAmazonFraudDetector client, Amazon.FraudDetector.Model.GetEventPredictionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Fraud Detector", "GetPrediction");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Fraud Detector", "GetEventPrediction");
             try
             {
                 #if DESKTOP
-                return client.GetPrediction(request);
+                return client.GetEventPrediction(request);
                 #elif CORECLR
-                return client.GetPredictionAsync(request).GetAwaiter().GetResult();
+                return client.GetEventPredictionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -282,10 +384,13 @@ namespace Amazon.PowerShell.Cmdlets.FD
         {
             public System.String DetectorId { get; set; }
             public System.String DetectorVersionId { get; set; }
-            public Dictionary<System.String, System.String> EventAttribute { get; set; }
+            public List<Amazon.FraudDetector.Model.Entity> Entity { get; set; }
             public System.String EventId { get; set; }
+            public System.String EventTimestamp { get; set; }
+            public System.String EventTypeName { get; set; }
+            public Dictionary<System.String, System.String> EventVariable { get; set; }
             public Dictionary<System.String, Amazon.FraudDetector.Model.ModelEndpointDataBlob> ExternalModelEndpointDataBlob { get; set; }
-            public System.Func<Amazon.FraudDetector.Model.GetPredictionResponse, GetFDPredictionCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.FraudDetector.Model.GetEventPredictionResponse, GetFDEventPredictionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

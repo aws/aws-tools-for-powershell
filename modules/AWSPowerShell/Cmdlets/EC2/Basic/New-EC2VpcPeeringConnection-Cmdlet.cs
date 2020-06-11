@@ -88,6 +88,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String PeerVpcId { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the peering connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter VpcId
         /// <summary>
         /// <para>
@@ -162,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.PeerOwnerId = this.PeerOwnerId;
             context.PeerRegion = this.PeerRegion;
             context.PeerVpcId = this.PeerVpcId;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.VpcId = this.VpcId;
             
             // allow further manipulation of loaded context prior to processing
@@ -190,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PeerVpcId != null)
             {
                 request.PeerVpcId = cmdletContext.PeerVpcId;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -259,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String PeerOwnerId { get; set; }
             public System.String PeerRegion { get; set; }
             public System.String PeerVpcId { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateVpcPeeringConnectionResponse, NewEC2VpcPeeringConnectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VpcPeeringConnection;

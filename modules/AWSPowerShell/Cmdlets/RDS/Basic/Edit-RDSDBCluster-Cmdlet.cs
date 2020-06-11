@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The target backtrack window, in seconds. To disable backtracking, set this value to
-        /// 0.</para><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
+        /// 0.</para><note><para>Currently, Backtrack is only supported for Aurora MySQL DB clusters.</para></note><para>Default: 0</para><para>Constraints:</para><ul><li><para>If specified, this value must be set to a number from 0 to 259,200 (72 hours).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,7 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The Active Directory directory ID to move the DB cluster to. Specify <code>none</code>
         /// to remove the cluster from its current domain. The domain must be created prior to
-        /// this operation. </para>
+        /// this operation. </para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/kerberos-authentication.html">Kerberos
+        /// Authentication</a> in the <i>Amazon Aurora User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -206,6 +207,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainIAMRoleName { get; set; }
+        #endregion
+        
+        #region Parameter EnableGlobalWriteForwarding
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to enable write operations to be forwarded from this
+        /// cluster to the primary cluster in an Aurora global database. The resulting changes
+        /// are replicated back to this cluster. This parameter only applies to DB clusters that
+        /// are secondary clusters in an Aurora global database. By default, Aurora disallows
+        /// write operations for secondary clusters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnableGlobalWriteForwarding { get; set; }
         #endregion
         
         #region Parameter EnableHttpEndpoint
@@ -488,6 +503,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DeletionProtection = this.DeletionProtection;
             context.Domain = this.Domain;
             context.DomainIAMRoleName = this.DomainIAMRoleName;
+            context.EnableGlobalWriteForwarding = this.EnableGlobalWriteForwarding;
             context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EngineVersion = this.EngineVersion;
@@ -594,6 +610,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DomainIAMRoleName != null)
             {
                 request.DomainIAMRoleName = cmdletContext.DomainIAMRoleName;
+            }
+            if (cmdletContext.EnableGlobalWriteForwarding != null)
+            {
+                request.EnableGlobalWriteForwarding = cmdletContext.EnableGlobalWriteForwarding.Value;
             }
             if (cmdletContext.EnableHttpEndpoint != null)
             {
@@ -768,6 +788,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? DeletionProtection { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
+            public System.Boolean? EnableGlobalWriteForwarding { get; set; }
             public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String EngineVersion { get; set; }

@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// an idle connection timeout value for your load balancer.
     /// </para><para>
     /// For more information, see the following in the <i>Classic Load Balancers Guide</i>:
-    /// </para><ul><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone
-    /// Load Balancing</a></para></li><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Connection
-    /// Draining</a></para></li><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html">Access
-    /// Logs</a></para></li><li><para><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Idle
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Cross-Zone
+    /// Load Balancing</a></para></li><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Connection
+    /// Draining</a></para></li><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html">Access
+    /// Logs</a></para></li><li><para><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Idle
     /// Connection Timeout</a></para></li></ul>
     /// </summary>
     [Cmdlet("Edit", "ELBLoadBalancerAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         #region Parameter LoadBalancerAttributes_AdditionalAttribute
         /// <summary>
         /// <para>
-        /// <para>This parameter is reserved.</para>
+        /// <para>Any additional attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

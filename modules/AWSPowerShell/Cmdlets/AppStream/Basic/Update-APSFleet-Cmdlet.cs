@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// role, a fleet instance calls the AWS Security Token Service (STS) <code>AssumeRole</code>
         /// API operation and passes the ARN of the role to use. The operation creates a new session
         /// with temporary credentials. AppStream 2.0 retrieves the temporary credentials and
-        /// creates the <b>AppStream_Machine_Role</b> credential profile on the instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+        /// creates the <b>appstream_machine_role</b> credential profile on the instance.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
         /// an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream
         /// 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</para>
         /// </para>
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The instance type to use when launching fleet instances. The following instance types
-        /// are available:</para><ul><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li></ul>
+        /// are available:</para><ul><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.memory.z1d.large</para></li><li><para>stream.memory.z1d.xlarge</para></li><li><para>stream.memory.z1d.2xlarge</para></li><li><para>stream.memory.z1d.3xlarge</para></li><li><para>stream.memory.z1d.6xlarge</para></li><li><para>stream.memory.z1d.12xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics.g4dn.xlarge</para></li><li><para>stream.graphics.g4dn.2xlarge</para></li><li><para>stream.graphics.g4dn.4xlarge</para></li><li><para>stream.graphics.g4dn.8xlarge</para></li><li><para>stream.graphics.g4dn.12xlarge</para></li><li><para>stream.graphics.g4dn.16xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,6 +242,20 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("VpcConfig_SecurityGroupIds")]
         public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter StreamView
+        /// <summary>
+        /// <para>
+        /// <para>The AppStream 2.0 view that is displayed to your users when they stream from the fleet.
+        /// When <code>APP</code> is specified, only the windows of applications opened by users
+        /// display. When <code>DESKTOP</code> is specified, the standard desktop that is provided
+        /// by the operating system displays.</para><para>The default value is <code>APP</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppStream.StreamView")]
+        public Amazon.AppStream.StreamView StreamView { get; set; }
         #endregion
         
         #region Parameter VpcConfig_SubnetId
@@ -351,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             context.InstanceType = this.InstanceType;
             context.MaxUserDurationInSecond = this.MaxUserDurationInSecond;
             context.Name = this.Name;
+            context.StreamView = this.StreamView;
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -477,6 +492,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.StreamView != null)
+            {
+                request.StreamView = cmdletContext.StreamView;
+            }
             
              // populate VpcConfig
             var requestVpcConfigIsNull = true;
@@ -584,6 +603,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String InstanceType { get; set; }
             public System.Int32? MaxUserDurationInSecond { get; set; }
             public System.String Name { get; set; }
+            public Amazon.AppStream.StreamView StreamView { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_SubnetId { get; set; }
             public System.Func<Amazon.AppStream.Model.UpdateFleetResponse, UpdateAPSFleetCmdlet, object> Select { get; set; } =

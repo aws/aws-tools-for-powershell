@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
     /// <para>
     /// This operation returns only those permissions that have been explicitly granted.
     /// </para><para>
-    /// For information about permissions, see <a href="https://docs-aws.amazon.com/michigan/latest/dg/security-data-access.html">Security
+    /// For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
     /// and Access Control to Metadata and Data</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -72,6 +72,51 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter Database_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Data Catalog. By default, it is the account ID of the caller.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_Database_CatalogId")]
+        public System.String Database_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter DataLocation_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Data Catalog where the location is registered with AWS Lake
+        /// Formation. By default, it is the account ID of the caller.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_DataLocation_CatalogId")]
+        public System.String DataLocation_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter Table_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Data Catalog. By default, it is the account ID of the caller.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_Table_CatalogId")]
+        public System.String Table_CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter TableWithColumns_CatalogId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the Data Catalog. By default, it is the account ID of the caller.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_TableWithColumns_CatalogId")]
+        public System.String TableWithColumns_CatalogId { get; set; }
         #endregion
         
         #region Parameter TableWithColumns_ColumnName
@@ -189,6 +234,18 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public Amazon.LakeFormation.DataLakeResourceType ResourceType { get; set; }
         #endregion
         
+        #region Parameter Table_TableWildcard
+        /// <summary>
+        /// <para>
+        /// <para>A wildcard object representing every table under a database.</para><para>At least one of <code>TableResource$Name</code> or <code>TableResource$TableWildcard</code>
+        /// is required.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Resource_Table_TableWildcard")]
+        public Amazon.LakeFormation.Model.TableWildcard Table_TableWildcard { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -288,10 +345,15 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             context.NextToken = this.NextToken;
             context.Principal_DataLakePrincipalIdentifier = this.Principal_DataLakePrincipalIdentifier;
             context.Resource_Catalog = this.Resource_Catalog;
+            context.Database_CatalogId = this.Database_CatalogId;
             context.Database_Name = this.Database_Name;
+            context.DataLocation_CatalogId = this.DataLocation_CatalogId;
             context.DataLocation_ResourceArn = this.DataLocation_ResourceArn;
+            context.Table_CatalogId = this.Table_CatalogId;
             context.Table_DatabaseName = this.Table_DatabaseName;
             context.Table_Name = this.Table_Name;
+            context.Table_TableWildcard = this.Table_TableWildcard;
+            context.TableWithColumns_CatalogId = this.TableWithColumns_CatalogId;
             if (this.TableWithColumns_ColumnName != null)
             {
                 context.TableWithColumns_ColumnName = new List<System.String>(this.TableWithColumns_ColumnName);
@@ -370,6 +432,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
              // populate Database
             var requestResource_resource_DatabaseIsNull = true;
             requestResource_resource_Database = new Amazon.LakeFormation.Model.DatabaseResource();
+            System.String requestResource_resource_Database_database_CatalogId = null;
+            if (cmdletContext.Database_CatalogId != null)
+            {
+                requestResource_resource_Database_database_CatalogId = cmdletContext.Database_CatalogId;
+            }
+            if (requestResource_resource_Database_database_CatalogId != null)
+            {
+                requestResource_resource_Database.CatalogId = requestResource_resource_Database_database_CatalogId;
+                requestResource_resource_DatabaseIsNull = false;
+            }
             System.String requestResource_resource_Database_database_Name = null;
             if (cmdletContext.Database_Name != null)
             {
@@ -395,6 +467,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
              // populate DataLocation
             var requestResource_resource_DataLocationIsNull = true;
             requestResource_resource_DataLocation = new Amazon.LakeFormation.Model.DataLocationResource();
+            System.String requestResource_resource_DataLocation_dataLocation_CatalogId = null;
+            if (cmdletContext.DataLocation_CatalogId != null)
+            {
+                requestResource_resource_DataLocation_dataLocation_CatalogId = cmdletContext.DataLocation_CatalogId;
+            }
+            if (requestResource_resource_DataLocation_dataLocation_CatalogId != null)
+            {
+                requestResource_resource_DataLocation.CatalogId = requestResource_resource_DataLocation_dataLocation_CatalogId;
+                requestResource_resource_DataLocationIsNull = false;
+            }
             System.String requestResource_resource_DataLocation_dataLocation_ResourceArn = null;
             if (cmdletContext.DataLocation_ResourceArn != null)
             {
@@ -420,6 +502,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
              // populate Table
             var requestResource_resource_TableIsNull = true;
             requestResource_resource_Table = new Amazon.LakeFormation.Model.TableResource();
+            System.String requestResource_resource_Table_table_CatalogId = null;
+            if (cmdletContext.Table_CatalogId != null)
+            {
+                requestResource_resource_Table_table_CatalogId = cmdletContext.Table_CatalogId;
+            }
+            if (requestResource_resource_Table_table_CatalogId != null)
+            {
+                requestResource_resource_Table.CatalogId = requestResource_resource_Table_table_CatalogId;
+                requestResource_resource_TableIsNull = false;
+            }
             System.String requestResource_resource_Table_table_DatabaseName = null;
             if (cmdletContext.Table_DatabaseName != null)
             {
@@ -440,6 +532,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 requestResource_resource_Table.Name = requestResource_resource_Table_table_Name;
                 requestResource_resource_TableIsNull = false;
             }
+            Amazon.LakeFormation.Model.TableWildcard requestResource_resource_Table_table_TableWildcard = null;
+            if (cmdletContext.Table_TableWildcard != null)
+            {
+                requestResource_resource_Table_table_TableWildcard = cmdletContext.Table_TableWildcard;
+            }
+            if (requestResource_resource_Table_table_TableWildcard != null)
+            {
+                requestResource_resource_Table.TableWildcard = requestResource_resource_Table_table_TableWildcard;
+                requestResource_resource_TableIsNull = false;
+            }
              // determine if requestResource_resource_Table should be set to null
             if (requestResource_resource_TableIsNull)
             {
@@ -455,6 +557,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
              // populate TableWithColumns
             var requestResource_resource_TableWithColumnsIsNull = true;
             requestResource_resource_TableWithColumns = new Amazon.LakeFormation.Model.TableWithColumnsResource();
+            System.String requestResource_resource_TableWithColumns_tableWithColumns_CatalogId = null;
+            if (cmdletContext.TableWithColumns_CatalogId != null)
+            {
+                requestResource_resource_TableWithColumns_tableWithColumns_CatalogId = cmdletContext.TableWithColumns_CatalogId;
+            }
+            if (requestResource_resource_TableWithColumns_tableWithColumns_CatalogId != null)
+            {
+                requestResource_resource_TableWithColumns.CatalogId = requestResource_resource_TableWithColumns_tableWithColumns_CatalogId;
+                requestResource_resource_TableWithColumnsIsNull = false;
+            }
             List<System.String> requestResource_resource_TableWithColumns_tableWithColumns_ColumnName = null;
             if (cmdletContext.TableWithColumns_ColumnName != null)
             {
@@ -626,6 +738,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
              // populate Database
             var requestResource_resource_DatabaseIsNull = true;
             requestResource_resource_Database = new Amazon.LakeFormation.Model.DatabaseResource();
+            System.String requestResource_resource_Database_database_CatalogId = null;
+            if (cmdletContext.Database_CatalogId != null)
+            {
+                requestResource_resource_Database_database_CatalogId = cmdletContext.Database_CatalogId;
+            }
+            if (requestResource_resource_Database_database_CatalogId != null)
+            {
+                requestResource_resource_Database.CatalogId = requestResource_resource_Database_database_CatalogId;
+                requestResource_resource_DatabaseIsNull = false;
+            }
             System.String requestResource_resource_Database_database_Name = null;
             if (cmdletContext.Database_Name != null)
             {
@@ -651,6 +773,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
              // populate DataLocation
             var requestResource_resource_DataLocationIsNull = true;
             requestResource_resource_DataLocation = new Amazon.LakeFormation.Model.DataLocationResource();
+            System.String requestResource_resource_DataLocation_dataLocation_CatalogId = null;
+            if (cmdletContext.DataLocation_CatalogId != null)
+            {
+                requestResource_resource_DataLocation_dataLocation_CatalogId = cmdletContext.DataLocation_CatalogId;
+            }
+            if (requestResource_resource_DataLocation_dataLocation_CatalogId != null)
+            {
+                requestResource_resource_DataLocation.CatalogId = requestResource_resource_DataLocation_dataLocation_CatalogId;
+                requestResource_resource_DataLocationIsNull = false;
+            }
             System.String requestResource_resource_DataLocation_dataLocation_ResourceArn = null;
             if (cmdletContext.DataLocation_ResourceArn != null)
             {
@@ -676,6 +808,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
              // populate Table
             var requestResource_resource_TableIsNull = true;
             requestResource_resource_Table = new Amazon.LakeFormation.Model.TableResource();
+            System.String requestResource_resource_Table_table_CatalogId = null;
+            if (cmdletContext.Table_CatalogId != null)
+            {
+                requestResource_resource_Table_table_CatalogId = cmdletContext.Table_CatalogId;
+            }
+            if (requestResource_resource_Table_table_CatalogId != null)
+            {
+                requestResource_resource_Table.CatalogId = requestResource_resource_Table_table_CatalogId;
+                requestResource_resource_TableIsNull = false;
+            }
             System.String requestResource_resource_Table_table_DatabaseName = null;
             if (cmdletContext.Table_DatabaseName != null)
             {
@@ -696,6 +838,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 requestResource_resource_Table.Name = requestResource_resource_Table_table_Name;
                 requestResource_resource_TableIsNull = false;
             }
+            Amazon.LakeFormation.Model.TableWildcard requestResource_resource_Table_table_TableWildcard = null;
+            if (cmdletContext.Table_TableWildcard != null)
+            {
+                requestResource_resource_Table_table_TableWildcard = cmdletContext.Table_TableWildcard;
+            }
+            if (requestResource_resource_Table_table_TableWildcard != null)
+            {
+                requestResource_resource_Table.TableWildcard = requestResource_resource_Table_table_TableWildcard;
+                requestResource_resource_TableIsNull = false;
+            }
              // determine if requestResource_resource_Table should be set to null
             if (requestResource_resource_TableIsNull)
             {
@@ -711,6 +863,16 @@ namespace Amazon.PowerShell.Cmdlets.LKF
              // populate TableWithColumns
             var requestResource_resource_TableWithColumnsIsNull = true;
             requestResource_resource_TableWithColumns = new Amazon.LakeFormation.Model.TableWithColumnsResource();
+            System.String requestResource_resource_TableWithColumns_tableWithColumns_CatalogId = null;
+            if (cmdletContext.TableWithColumns_CatalogId != null)
+            {
+                requestResource_resource_TableWithColumns_tableWithColumns_CatalogId = cmdletContext.TableWithColumns_CatalogId;
+            }
+            if (requestResource_resource_TableWithColumns_tableWithColumns_CatalogId != null)
+            {
+                requestResource_resource_TableWithColumns.CatalogId = requestResource_resource_TableWithColumns_tableWithColumns_CatalogId;
+                requestResource_resource_TableWithColumnsIsNull = false;
+            }
             List<System.String> requestResource_resource_TableWithColumns_tableWithColumns_ColumnName = null;
             if (cmdletContext.TableWithColumns_ColumnName != null)
             {
@@ -909,10 +1071,15 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public System.String NextToken { get; set; }
             public System.String Principal_DataLakePrincipalIdentifier { get; set; }
             public Amazon.LakeFormation.Model.CatalogResource Resource_Catalog { get; set; }
+            public System.String Database_CatalogId { get; set; }
             public System.String Database_Name { get; set; }
+            public System.String DataLocation_CatalogId { get; set; }
             public System.String DataLocation_ResourceArn { get; set; }
+            public System.String Table_CatalogId { get; set; }
             public System.String Table_DatabaseName { get; set; }
             public System.String Table_Name { get; set; }
+            public Amazon.LakeFormation.Model.TableWildcard Table_TableWildcard { get; set; }
+            public System.String TableWithColumns_CatalogId { get; set; }
             public List<System.String> TableWithColumns_ColumnName { get; set; }
             public List<System.String> ColumnWildcard_ExcludedColumnName { get; set; }
             public System.String TableWithColumns_DatabaseName { get; set; }

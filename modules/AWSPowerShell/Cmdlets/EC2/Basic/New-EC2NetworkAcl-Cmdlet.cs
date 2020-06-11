@@ -47,6 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2NetworkAclCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the network ACL.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter VpcId
         /// <summary>
         /// <para>
@@ -125,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.VpcId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.VpcId = this.VpcId;
             #if MODULAR
             if (this.VpcId == null && ParameterWasBound(nameof(this.VpcId)))
@@ -148,6 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateNetworkAclRequest();
             
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             if (cmdletContext.VpcId != null)
             {
                 request.VpcId = cmdletContext.VpcId;
@@ -213,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateNetworkAclResponse, NewEC2NetworkAclCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NetworkAcl;

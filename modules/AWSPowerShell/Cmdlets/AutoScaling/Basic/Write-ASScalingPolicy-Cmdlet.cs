@@ -50,9 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AdjustmentType
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the <code>ScalingAdjustment</code> parameter is an absolute number
-        /// or a percentage of the current capacity. The valid values are <code>ChangeInCapacity</code>,
-        /// <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</para><para>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>.
+        /// <para>Specifies how the scaling adjustment is interpreted (for example, an absolute number
+        /// or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>,
+        /// and <code>PercentChangeInCapacity</code>.</para><para>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>.
         /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling
         /// Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
@@ -81,11 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Cooldown
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, after a scaling activity completes before any further
-        /// dynamic scaling activities can start. If this parameter is not specified, the default
-        /// cooldown period for the group applies.</para><para>Valid only if the policy type is <code>SimpleScaling</code>. For more information,
+        /// <para>The duration of the policy's cooldown period, in seconds. When a cooldown period is
+        /// specified here, it overrides the default cooldown period defined for the Auto Scaling
+        /// group.</para><para>Valid only if the policy type is <code>SimpleScaling</code>. For more information,
         /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-        /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The estimated time, in seconds, until a newly launched instance can contribute to
-        /// the CloudWatch metrics. The default is to use the value specified for the default
-        /// cooldown period for the group.</para><para>Valid only if the policy type is <code>StepScaling</code> or <code>TargetTrackingScaling</code>.</para>
+        /// the CloudWatch metrics. If not provided, the default is to use the value from the
+        /// default cooldown period for the Auto Scaling group.</para><para>Valid only if the policy type is <code>TargetTrackingScaling</code> or <code>StepScaling</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -168,15 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MinAdjustmentMagnitude
         /// <summary>
         /// <para>
-        /// <para>The minimum value to scale by when scaling by percentages. For example, suppose that
-        /// you create a step scaling policy to scale out an Auto Scaling group by 25 percent
-        /// and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the group has 4 instances
-        /// and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified
-        /// a <code>MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out the
-        /// group by 2 instances. </para><para>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>
-        /// and the adjustment type is <code>PercentChangeInCapacity</code>. For more information,
-        /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling
-        /// Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// <para>The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>.
+        /// For example, suppose that you create a step scaling policy to scale out an Auto Scaling
+        /// group by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of 2. If
+        /// the group has 4 instances and the scaling policy is performed, 25 percent of 4 is
+        /// 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Amazon
+        /// EC2 Auto Scaling scales out the group by 2 instances.</para><para>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling
+        /// Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><note><para>Some Auto Scaling groups use instance weights. In this case, set the <code>MinAdjustmentMagnitude</code>
+        /// to a value that is at least as large as your largest instance weight.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,9 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>,
-        /// and <code>TargetTrackingScaling</code>. If the policy type is null, the value is treated
-        /// as <code>SimpleScaling</code>.</para>
+        /// <para>One of the following policy types: </para><ul><li><para><code>TargetTrackingScaling</code></para></li><li><para><code>StepScaling</code></para></li><li><para><code>SimpleScaling</code> (default)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -254,9 +252,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Identifies the resource associated with the metric type. You can't specify a resource
         /// label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is
-        /// a target group attached to the Auto Scaling group.</para><para>The format is <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i>/targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code>, where </para><ul><li><para><code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code> is the final
+        /// a target group attached to the Auto Scaling group.</para><para>Elastic Load Balancing sends data about your load balancers to Amazon CloudWatch.
+        /// CloudWatch collects the data and specifies the format to use to access the data. The
+        /// format is <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i>/targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code>, where </para><ul><li><para><code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code> is the final
         /// portion of the load balancer ARN, and</para></li><li><para><code>targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code> is the
-        /// final portion of the target group ARN.</para></li></ul>
+        /// final portion of the target group ARN.</para></li></ul><para>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
+        /// API operation. To find the ARN for the target group, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a>
+        /// API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,12 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ScalingAdjustment
         /// <summary>
         /// <para>
-        /// <para>The amount by which a simple scaling policy scales the Auto Scaling group in response
-        /// to an alarm breach. The adjustment is based on the value that you specified in the
-        /// <code>AdjustmentType</code> parameter (either an absolute number or a percentage).
-        /// A positive value adds to the current capacity and a negative value subtracts from
-        /// the current capacity. For exact capacity, you must specify a positive value.</para><para>Conditional: If you specify <code>SimpleScaling</code> for the policy type, you must
-        /// specify this parameter. (Not used with any other policy type.) </para>
+        /// <para>The amount by which to scale, based on the specified adjustment type. A positive value
+        /// adds to the current capacity while a negative number removes from the current capacity.
+        /// For exact capacity, you must specify a positive value.</para><para>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other
+        /// policy type.) </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -294,8 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter StepAdjustment
         /// <summary>
         /// <para>
-        /// <para>A set of adjustments that enable you to scale based on the size of the alarm breach.</para><para>Conditional: If you specify <code>StepScaling</code> for the policy type, you must
-        /// specify this parameter. (Not used with any other policy type.) </para>
+        /// <para>A set of adjustments that enable you to scale based on the size of the alarm breach.</para><para>Required if the policy type is <code>StepScaling</code>. (Not used with any other
+        /// policy type.) </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

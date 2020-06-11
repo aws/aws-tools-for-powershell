@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Returns summary information about stack instances that are associated with the specified
     /// stack set. You can filter for stack instances that are associated with a specific
-    /// AWS account name or Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// AWS account name or Region, or that have a specific status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFNStackInstanceList")]
     [OutputType("Amazon.CloudFormation.Model.StackInstanceSummary")]
@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public partial class GetCFNStackInstanceListCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>The status that stack instances are filtered by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.CloudFormation.Model.StackInstanceFilter[] Filter { get; set; }
+        #endregion
         
         #region Parameter StackInstanceAccount
         /// <summary>
@@ -171,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.Select = (response, cmdlet) => this.StackSetName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.CloudFormation.Model.StackInstanceFilter>(this.Filter);
+            }
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -212,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             // create request and set iteration invariants
             var request = new Amazon.CloudFormation.Model.ListStackInstancesRequest();
             
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -283,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             
             // create request and set iteration invariants
             var request = new Amazon.CloudFormation.Model.ListStackInstancesRequest();
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
+            }
             if (cmdletContext.StackInstanceAccount != null)
             {
                 request.StackInstanceAccount = cmdletContext.StackInstanceAccount;
@@ -414,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.CloudFormation.Model.StackInstanceFilter> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String StackInstanceAccount { get; set; }

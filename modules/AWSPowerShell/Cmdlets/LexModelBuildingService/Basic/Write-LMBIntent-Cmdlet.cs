@@ -134,6 +134,19 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter KendraConfiguration_KendraIndex
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent
+        /// intent to search. The index must be in the same account and Region as the Amazon Lex
+        /// bot. If the Amazon Kendra index does not exist, you get an exception when you call
+        /// the <code>PutIntent</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KendraConfiguration_KendraIndex { get; set; }
+        #endregion
+        
         #region Parameter ConfirmationPrompt_MaxAttempt
         /// <summary>
         /// <para>
@@ -235,6 +248,19 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         public System.String ParentIntentSignature { get; set; }
         #endregion
         
+        #region Parameter KendraConfiguration_QueryFilterString
+        /// <summary>
+        /// <para>
+        /// <para>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from
+        /// the query. The filter is in the format defined by Amazon Kendra. For more information,
+        /// see <a href="http://docs.aws.amazon.com/kendra/latest/dg/filtering.html">Filtering
+        /// queries</a>.</para><para>You can override this filter string with a new filter string at runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KendraConfiguration_QueryFilterString { get; set; }
+        #endregion
+        
         #region Parameter FollowUpPrompt_RejectionStatement
         /// <summary>
         /// <para>
@@ -283,6 +309,19 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("FollowUpPrompt_Prompt_ResponseCard")]
         public System.String Prompt_ResponseCard { get; set; }
+        #endregion
+        
+        #region Parameter KendraConfiguration_Role
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that has permission to search the Amazon
+        /// Kendra index. The role must be in the same account and Region as the Amazon Lex bot.
+        /// If the role does not exist, you get an exception when you call the <code>PutIntent</code>
+        /// operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KendraConfiguration_Role { get; set; }
         #endregion
         
         #region Parameter SampleUtterance
@@ -426,6 +465,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             context.CodeHook_MessageVersion = this.CodeHook_MessageVersion;
             context.CodeHook_Uri = this.CodeHook_Uri;
             context.FulfillmentActivity_Type = this.FulfillmentActivity_Type;
+            context.KendraConfiguration_KendraIndex = this.KendraConfiguration_KendraIndex;
+            context.KendraConfiguration_QueryFilterString = this.KendraConfiguration_QueryFilterString;
+            context.KendraConfiguration_Role = this.KendraConfiguration_Role;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -661,6 +703,45 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             {
                 request.FulfillmentActivity = null;
             }
+            
+             // populate KendraConfiguration
+            var requestKendraConfigurationIsNull = true;
+            request.KendraConfiguration = new Amazon.LexModelBuildingService.Model.KendraConfiguration();
+            System.String requestKendraConfiguration_kendraConfiguration_KendraIndex = null;
+            if (cmdletContext.KendraConfiguration_KendraIndex != null)
+            {
+                requestKendraConfiguration_kendraConfiguration_KendraIndex = cmdletContext.KendraConfiguration_KendraIndex;
+            }
+            if (requestKendraConfiguration_kendraConfiguration_KendraIndex != null)
+            {
+                request.KendraConfiguration.KendraIndex = requestKendraConfiguration_kendraConfiguration_KendraIndex;
+                requestKendraConfigurationIsNull = false;
+            }
+            System.String requestKendraConfiguration_kendraConfiguration_QueryFilterString = null;
+            if (cmdletContext.KendraConfiguration_QueryFilterString != null)
+            {
+                requestKendraConfiguration_kendraConfiguration_QueryFilterString = cmdletContext.KendraConfiguration_QueryFilterString;
+            }
+            if (requestKendraConfiguration_kendraConfiguration_QueryFilterString != null)
+            {
+                request.KendraConfiguration.QueryFilterString = requestKendraConfiguration_kendraConfiguration_QueryFilterString;
+                requestKendraConfigurationIsNull = false;
+            }
+            System.String requestKendraConfiguration_kendraConfiguration_Role = null;
+            if (cmdletContext.KendraConfiguration_Role != null)
+            {
+                requestKendraConfiguration_kendraConfiguration_Role = cmdletContext.KendraConfiguration_Role;
+            }
+            if (requestKendraConfiguration_kendraConfiguration_Role != null)
+            {
+                request.KendraConfiguration.Role = requestKendraConfiguration_kendraConfiguration_Role;
+                requestKendraConfigurationIsNull = false;
+            }
+             // determine if request.KendraConfiguration should be set to null
+            if (requestKendraConfigurationIsNull)
+            {
+                request.KendraConfiguration = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -758,6 +839,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public System.String CodeHook_MessageVersion { get; set; }
             public System.String CodeHook_Uri { get; set; }
             public Amazon.LexModelBuildingService.FulfillmentActivityType FulfillmentActivity_Type { get; set; }
+            public System.String KendraConfiguration_KendraIndex { get; set; }
+            public System.String KendraConfiguration_QueryFilterString { get; set; }
+            public System.String KendraConfiguration_Role { get; set; }
             public System.String Name { get; set; }
             public System.String ParentIntentSignature { get; set; }
             public Amazon.LexModelBuildingService.Model.Statement RejectionStatement { get; set; }

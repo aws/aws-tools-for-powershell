@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The name for the composite alarm. This name must be unique within your AWS account.</para>
+        /// <para>The name for the composite alarm. This name must be unique within the Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

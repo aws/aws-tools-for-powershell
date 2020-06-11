@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the image being exported. The maximum length is 255 bytes.</para>
+        /// <para>A description of the image being exported. The maximum length is 255 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the role that grants VM Import/Export permission to export images to your
-        /// S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</para>
+        /// Amazon S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter S3ExportLocation_S3Bucket
         /// <summary>
         /// <para>
-        /// <para>The destination S3 bucket.</para>
+        /// <para>The destination Amazon S3 bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -121,6 +121,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3ExportLocation_S3Prefix { get; set; }
+        #endregion
+        
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the image being exported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -219,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.S3ExportLocation_S3Prefix = this.S3ExportLocation_S3Prefix;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -283,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestS3ExportLocationIsNull)
             {
                 request.S3ExportLocation = null;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -352,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String RoleName { get; set; }
             public System.String S3ExportLocation_S3Bucket { get; set; }
             public System.String S3ExportLocation_S3Prefix { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.ExportImageResponse, ExportEC2ImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

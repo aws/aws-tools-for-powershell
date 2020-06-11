@@ -28,7 +28,7 @@ using Amazon.Amplify.Model;
 namespace Amazon.PowerShell.Cmdlets.AMP
 {
     /// <summary>
-    /// Tag resource with tag key and value.
+    /// Tags the resource with a tag key and value.
     /// </summary>
     [Cmdlet("Add", "AMPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> Resource arn used to tag resource. </para>
+        /// <para> The Amazon Resource Name (ARN) to use to tag a resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> Tags used to tag resource. </para>
+        /// <para> The tags used to tag the resource. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

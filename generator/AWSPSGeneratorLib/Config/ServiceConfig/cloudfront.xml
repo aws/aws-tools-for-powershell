@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>cloudfront</C2jFilename>
     <AssemblyName>CloudFront</AssemblyName>
@@ -15,7 +16,6 @@
     </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -23,6 +23,10 @@
         <Property>ETag</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateCachePolicy" OutputProperty="*" Verb="New" Noun="CachePolicy" ShouldProcessTarget="CachePolicyConfig_Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCloudFrontOriginAccessIdentity" OutputProperty="*" Verb="New" Noun="CloudFrontOriginAccessIdentity" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -47,6 +51,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateOriginRequestPolicy" OutputProperty="*" Verb="New" Noun="OriginRequestPolicy" ShouldProcessTarget="OriginRequestPolicyConfig_Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePublicKey" OutputProperty="*" Verb="New" Noun="PublicKey" ShouldProcessTarget="PublicKeyConfig_Name" PipelineParameter="PublicKeyConfig_Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +64,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateStreamingDistributionWithTags" OutputProperty="*" Verb="New" Noun="StreamingDistributionWithTag" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCachePolicy" Verb="Remove" Noun="CachePolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,11 +87,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOriginRequestPolicy" Verb="Remove" Noun="OriginRequestPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePublicKey" Verb="Remove" Noun="PublicKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteStreamingDistribution" Verb="Remove" Noun="StreamingDistribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCachePolicy" OutputProperty="CachePolicy" Verb="Get" Noun="CachePolicy" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCachePolicyConfig" OutputProperty="CachePolicyConfig" Verb="Get" Noun="CachePolicyConfig" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,6 +143,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetOriginRequestPolicy" OutputProperty="OriginRequestPolicy" Verb="Get" Noun="OriginRequestPolicy" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOriginRequestPolicyConfig" OutputProperty="OriginRequestPolicyConfig" Verb="Get" Noun="OriginRequestPolicyConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetPublicKey" OutputProperty="PublicKey" Verb="Get" Noun="PublicKey" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -135,11 +167,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCachePolicies" OutputProperty="CachePolicyList" Verb="Get" Noun="CachePolicyList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities" OutputProperty="CloudFrontOriginAccessIdentityList.Items" OutputWrapper="CloudFrontOriginAccessIdentityList" Verb="Get" Noun="CloudFrontOriginAccessIdentityList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFCloudFrontOriginAccessIdentities">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDistributions" OutputProperty="DistributionList.Items" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFDistributions">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionsByCachePolicyId" OutputProperty="DistributionIdList" Verb="Get" Noun="DistributionsByCachePolicyId" PipelineParameter="CachePolicyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionsByOriginRequestPolicyId" OutputProperty="DistributionIdList" Verb="Get" Noun="DistributionsByOriginRequestPolicyId" PipelineParameter="OriginRequestPolicyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -156,6 +200,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInvalidations" OutputProperty="InvalidationList.Items" OutputWrapper="InvalidationList" Verb="Get" Noun="InvalidationList" PipelineParameter="DistributionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-CFInvalidations">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOriginRequestPolicies" OutputProperty="OriginRequestPolicyList" Verb="Get" Noun="OriginRequestPolicyList" PipelineParameter="Type" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -183,6 +231,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCachePolicy" OutputProperty="CachePolicy" Verb="Update" Noun="CachePolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateCloudFrontOriginAccessIdentity" OutputProperty="CloudFrontOriginAccessIdentity" Verb="Update" Noun="CloudFrontOriginAccessIdentity" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -199,6 +251,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOriginRequestPolicy" OutputProperty="OriginRequestPolicy" Verb="Update" Noun="OriginRequestPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdatePublicKey" OutputProperty="PublicKey" Verb="Update" Noun="PublicKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -208,8 +264,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.CloudFront.Model.FieldLevelEncryptionConfig</Type>
     </TypesNotToFlatten>

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Filters applied to the describe action.</para><para>Valid filter names: engine-name | endpoint-type</para>
+        /// <para>Filters applied to the endpoint types.</para><para>Valid filter names: engine-name | endpoint-type</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

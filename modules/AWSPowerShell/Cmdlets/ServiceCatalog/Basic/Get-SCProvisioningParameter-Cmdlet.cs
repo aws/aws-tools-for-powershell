@@ -65,45 +65,62 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>
         /// <para>The path identifier of the product. This value is optional if the product has a default
         /// path, and required if the product has more than one path. To list the paths for a
-        /// product, use <a>ListLaunchPaths</a>.</para>
+        /// product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PathId { get; set; }
         #endregion
         
+        #region Parameter PathName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the path. You must provide the name or ID, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PathName { get; set; }
+        #endregion
+        
         #region Parameter ProductId
         /// <summary>
         /// <para>
-        /// <para>The product identifier.</para>
+        /// <para>The product identifier. You must provide the product name or ID, but not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProductId { get; set; }
+        #endregion
+        
+        #region Parameter ProductName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the product. You must provide the name or ID, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProductName { get; set; }
         #endregion
         
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioning artifact.</para>
+        /// <para>The identifier of the provisioning artifact. You must provide the name or ID, but
+        /// not both.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProvisioningArtifactId { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningArtifactName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the provisioning artifact. You must provide the name or ID, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProvisioningArtifactName { get; set; }
         #endregion
         
         #region Parameter Select
@@ -153,20 +170,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AcceptLanguage = this.AcceptLanguage;
             context.PathId = this.PathId;
+            context.PathName = this.PathName;
             context.ProductId = this.ProductId;
-            #if MODULAR
-            if (this.ProductId == null && ParameterWasBound(nameof(this.ProductId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProductId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ProductName = this.ProductName;
             context.ProvisioningArtifactId = this.ProvisioningArtifactId;
-            #if MODULAR
-            if (this.ProvisioningArtifactId == null && ParameterWasBound(nameof(this.ProvisioningArtifactId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProvisioningArtifactId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ProvisioningArtifactName = this.ProvisioningArtifactName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,13 +199,25 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 request.PathId = cmdletContext.PathId;
             }
+            if (cmdletContext.PathName != null)
+            {
+                request.PathName = cmdletContext.PathName;
+            }
             if (cmdletContext.ProductId != null)
             {
                 request.ProductId = cmdletContext.ProductId;
             }
+            if (cmdletContext.ProductName != null)
+            {
+                request.ProductName = cmdletContext.ProductName;
+            }
             if (cmdletContext.ProvisioningArtifactId != null)
             {
                 request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+            }
+            if (cmdletContext.ProvisioningArtifactName != null)
+            {
+                request.ProvisioningArtifactName = cmdletContext.ProvisioningArtifactName;
             }
             
             CmdletOutput output;
@@ -262,8 +282,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             public System.String AcceptLanguage { get; set; }
             public System.String PathId { get; set; }
+            public System.String PathName { get; set; }
             public System.String ProductId { get; set; }
+            public System.String ProductName { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
+            public System.String ProvisioningArtifactName { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse, GetSCProvisioningParameterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

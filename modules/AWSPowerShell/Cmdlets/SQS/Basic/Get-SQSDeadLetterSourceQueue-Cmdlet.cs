@@ -65,6 +65,27 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         public System.String QueueUrl { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of results to include in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>Pagination token to request the next set of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'QueueUrls'.
@@ -110,6 +131,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.Select = (response, cmdlet) => this.QueueUrl;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             context.QueueUrl = this.QueueUrl;
             #if MODULAR
             if (this.QueueUrl == null && ParameterWasBound(nameof(this.QueueUrl)))
@@ -133,6 +156,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             // create request
             var request = new Amazon.SQS.Model.ListDeadLetterSourceQueuesRequest();
             
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
             if (cmdletContext.QueueUrl != null)
             {
                 request.QueueUrl = cmdletContext.QueueUrl;
@@ -198,6 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
             public System.String QueueUrl { get; set; }
             public System.Func<Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse, GetSQSDeadLetterSourceQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.QueueUrls;

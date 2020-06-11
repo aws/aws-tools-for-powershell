@@ -75,14 +75,27 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.Int32? ComputeLimits_MaximumCapacityUnit { get; set; }
         #endregion
         
+        #region Parameter ComputeLimits_MaximumCoreCapacityUnit
+        /// <summary>
+        /// <para>
+        /// <para> The upper boundary of EC2 units for core node type in a cluster. It is measured through
+        /// VCPU cores or instances for instance groups and measured through units for instance
+        /// fleets. The core units are not allowed to scale beyond this boundary. The parameter
+        /// is used to split capacity allocation between core and task nodes. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManagedScalingPolicy_ComputeLimits_MaximumCoreCapacityUnits")]
+        public System.Int32? ComputeLimits_MaximumCoreCapacityUnit { get; set; }
+        #endregion
+        
         #region Parameter ComputeLimits_MaximumOnDemandCapacityUnit
         /// <summary>
         /// <para>
-        /// <para> The upper boundary of on-demand EC2 units. It is measured through VCPU cores or instances
-        /// for instance groups and measured through units for instance fleets. The on-demand
-        /// units are not allowed to scale beyond this boundary. The limit only applies to the
-        /// core and task nodes. The master node cannot be scaled after initial configuration.
-        /// </para>
+        /// <para> The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances
+        /// for instance groups and measured through units for instance fleets. The On-Demand
+        /// units are not allowed to scale beyond this boundary. The parameter is used to split
+        /// capacity allocation between On-Demand and Spot instances. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             }
             #endif
             context.ComputeLimits_MaximumCapacityUnit = this.ComputeLimits_MaximumCapacityUnit;
+            context.ComputeLimits_MaximumCoreCapacityUnit = this.ComputeLimits_MaximumCoreCapacityUnit;
             context.ComputeLimits_MaximumOnDemandCapacityUnit = this.ComputeLimits_MaximumOnDemandCapacityUnit;
             context.ComputeLimits_MinimumCapacityUnit = this.ComputeLimits_MinimumCapacityUnit;
             context.ComputeLimits_UnitType = this.ComputeLimits_UnitType;
@@ -224,6 +238,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCapacityUnit != null)
             {
                 requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits.MaximumCapacityUnits = requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCapacityUnit.Value;
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimitsIsNull = false;
+            }
+            System.Int32? requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCoreCapacityUnit = null;
+            if (cmdletContext.ComputeLimits_MaximumCoreCapacityUnit != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCoreCapacityUnit = cmdletContext.ComputeLimits_MaximumCoreCapacityUnit.Value;
+            }
+            if (requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCoreCapacityUnit != null)
+            {
+                requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits.MaximumCoreCapacityUnits = requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumCoreCapacityUnit.Value;
                 requestManagedScalingPolicy_managedScalingPolicy_ComputeLimitsIsNull = false;
             }
             System.Int32? requestManagedScalingPolicy_managedScalingPolicy_ComputeLimits_computeLimits_MaximumOnDemandCapacityUnit = null;
@@ -334,6 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         {
             public System.String ClusterId { get; set; }
             public System.Int32? ComputeLimits_MaximumCapacityUnit { get; set; }
+            public System.Int32? ComputeLimits_MaximumCoreCapacityUnit { get; set; }
             public System.Int32? ComputeLimits_MaximumOnDemandCapacityUnit { get; set; }
             public System.Int32? ComputeLimits_MinimumCapacityUnit { get; set; }
             public Amazon.ElasticMapReduce.ComputeLimitsUnitType ComputeLimits_UnitType { get; set; }

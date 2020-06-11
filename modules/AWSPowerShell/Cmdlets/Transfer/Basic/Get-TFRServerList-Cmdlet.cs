@@ -62,10 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>When additional results are obtained from the<code>ListServers</code> command, a <code>NextToken</code>
-        /// parameter is returned in the output. You can then pass the <code>NextToken</code>
-        /// parameter in a subsequent command to continue listing additional file transfer protocol-enabled
-        /// servers.</para>
+        /// <para>When additional results are obtained from the <code>ListServers</code> command, a
+        /// <code>NextToken</code> parameter is returned in the output. You can then pass the
+        /// <code>NextToken</code> parameter in a subsequent command to continue listing additional
+        /// file transfer protocol-enabled servers.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -145,6 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String[] Protocol { get; set; }
         #endregion
         
+        #region Parameter SecurityPolicyName
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name of the security policy that is attached to the server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SecurityPolicyName { get; set; }
+        #endregion
+        
         #region Parameter ServerId
         /// <summary>
         /// <para>
@@ -287,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 context.Protocol = new List<System.String>(this.Protocol);
             }
+            context.SecurityPolicyName = this.SecurityPolicyName;
             context.ServerId = this.ServerId;
             #if MODULAR
             if (this.ServerId == null && ParameterWasBound(nameof(this.ServerId)))
@@ -408,6 +419,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.Protocols = cmdletContext.Protocol;
             }
+            if (cmdletContext.SecurityPolicyName != null)
+            {
+                request.SecurityPolicyName = cmdletContext.SecurityPolicyName;
+            }
             if (cmdletContext.ServerId != null)
             {
                 request.ServerId = cmdletContext.ServerId;
@@ -484,6 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public System.String IdentityProviderDetails_Url { get; set; }
             public System.String LoggingRole { get; set; }
             public List<System.String> Protocol { get; set; }
+            public System.String SecurityPolicyName { get; set; }
             public System.String ServerId { get; set; }
             public System.Func<Amazon.Transfer.Model.UpdateServerResponse, UpdateTFRServerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ServerId;

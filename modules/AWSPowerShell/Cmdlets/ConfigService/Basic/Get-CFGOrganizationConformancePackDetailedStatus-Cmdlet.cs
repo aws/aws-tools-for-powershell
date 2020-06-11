@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// Only a master account can call this API.
+    /// Only a master account and a delegated administrator account can call this API. When
+    /// calling this API with a delegated administrator, you must ensure AWS Organizations
+    /// <code>ListDelegatedAdministrator</code> permissions are added.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGOrganizationConformancePackDetailedStatus")]

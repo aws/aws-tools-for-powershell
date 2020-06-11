@@ -105,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GDIPSetList', 
         'Get-GDMasterAccount', 
         'Get-GDMember', 
+        'Get-GDMemberDetector', 
         'Get-GDMemberList', 
         'Get-GDOrganizationAdminAccountList', 
         'Get-GDOrganizationConfiguration', 
@@ -113,6 +114,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GDResourceTag', 
         'Get-GDThreatIntelSet', 
         'Get-GDThreatIntelSetList', 
+        'Get-GDUsageStatistic', 
         'New-GDDetector', 
         'New-GDFilter', 
         'New-GDIPSet', 
@@ -138,6 +140,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-GDFilter', 
         'Update-GDFindingFeedback', 
         'Update-GDIPSet', 
+        'Update-GDMemberDetector', 
         'Update-GDOrganizationConfiguration', 
         'Update-GDPublishingDestination', 
         'Update-GDThreatIntelSet')

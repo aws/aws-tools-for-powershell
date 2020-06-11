@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A marker value, obtained in a previous call to <code>DescribeTapes</code>. This marker
-        /// indicates which page of results to retrieve. </para><para>If not specified, the first page of results is retrieved.</para>
+        /// indicates which page of results to retrieve.</para><para>If not specified, the first page of results is retrieved.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

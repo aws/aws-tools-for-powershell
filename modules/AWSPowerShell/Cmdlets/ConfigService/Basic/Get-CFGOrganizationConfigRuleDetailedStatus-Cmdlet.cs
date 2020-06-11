@@ -31,9 +31,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// Returns detailed status for each member account within an organization for a given
     /// organization config rule.
     /// 
-    ///  <note><para>
-    /// Only a master account can call this API.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    ///  
+    /// <para>
+    /// Only a master account and a delegated administrator account can call this API. When
+    /// calling this API with a delegated administrator, you must ensure AWS Organizations
+    /// <code>ListDelegatedAdministrator</code> permissions are added.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CFGOrganizationConfigRuleDetailedStatus")]
     [OutputType("Amazon.ConfigService.Model.MemberAccountStatus")]

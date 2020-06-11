@@ -28,9 +28,9 @@ using Amazon.QLDB.Model;
 namespace Amazon.PowerShell.Cmdlets.QLDB
 {
     /// <summary>
-    /// Creates a stream for a given Amazon QLDB ledger that delivers the journal data to
-    /// a specified Amazon Kinesis Data Streams resource. The stream captures every document
-    /// revision that is committed to your journal and sends it to the Kinesis data stream.
+    /// Creates a journal stream for a given Amazon QLDB ledger. The stream captures every
+    /// document revision that is committed to the ledger's journal and delivers the data
+    /// to a specified Amazon Kinesis Data Streams resource.
     /// </summary>
     [Cmdlet("Start", "QLDBStreamJournalToKinesi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter KinesisConfiguration_AggregationEnabled
         /// <summary>
         /// <para>
-        /// <para>Enables QLDB to publish multiple stream records in a single Kinesis Data Streams record.
+        /// <para>Enables QLDB to publish multiple data records in a single Kinesis Data Streams record.
         /// To learn more, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL
         /// Key Concepts</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</para>
         /// </para>
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         #region Parameter ExclusiveEndTime
         /// <summary>
         /// <para>
-        /// <para>The exclusive date and time that specifies when the stream ends. If you keep this
-        /// parameter blank, the stream runs indefinitely until you cancel it.</para><para>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
+        /// <para>The exclusive date and time that specifies when the stream ends. If you don't define
+        /// this parameter, the stream runs indefinitely until you cancel it.</para><para>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
         /// and in Universal Coordinated Time (UTC). For example: <code>2019-06-13T21:36:34Z</code></para>
         /// </para>
         /// </summary>
@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.QLDB
         /// <para>
         /// <para>The name that you want to assign to the QLDB journal stream. User-defined names can
         /// help identify and indicate the purpose of a stream.</para><para>Your stream name must be unique among other <i>active</i> streams for a given ledger.
-        /// If you try to create a stream with the same name and configuration of an active, existing
-        /// stream for the same ledger, QLDB simply returns the existing stream. Stream names
-        /// have the same naming constraints as ledger names, as defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas
+        /// Stream names have the same naming constraints as ledger names, as defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas
         /// in Amazon QLDB</a> in the <i>Amazon QLDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>

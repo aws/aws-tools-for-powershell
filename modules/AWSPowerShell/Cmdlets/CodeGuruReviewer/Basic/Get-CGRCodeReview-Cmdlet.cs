@@ -28,7 +28,7 @@ using Amazon.CodeGuruReviewer.Model;
 namespace Amazon.PowerShell.Cmdlets.CGR
 {
     /// <summary>
-    /// Returns the metadaata associated with the code review along with its status.
+    /// Returns the metadata associated with the code review along with its status.
     /// </summary>
     [Cmdlet("Get", "CGRCodeReview")]
     [OutputType("Amazon.CodeGuruReviewer.Model.CodeReview")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter CodeReviewArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) of the code review to describe. </para>
+        /// <para>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html"><code>CodeReview</code></a> object. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

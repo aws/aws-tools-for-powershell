@@ -28,7 +28,7 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Creates an Auto Scaling group with the specified name and attributes.
+    /// Creates an Auto Scaling group with the specified name and attributes. 
     /// 
     ///  
     /// <para>
@@ -42,6 +42,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Set Up a Scaled and Load-Balanced Application</a> in the <i>Amazon EC2 Auto Scaling
     /// User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto
     /// Scaling Groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// </para><para>
+    /// Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>,
+    /// <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based
+    /// on a specific number of instances. However, if you configure a mixed instances policy
+    /// that defines weights for the instance types, you must specify these sizes with the
+    /// same units that you use for weighting instances.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ASAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -88,8 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
-        /// scaling activity can start. The default value is <code>300</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
-        /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// scaling activity can start. The default value is <code>300</code>.</para><para>This setting applies when using simple scaling policies, but not when using other
+        /// scaling policies or scheduled scaling. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,8 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking
         /// the health status of an EC2 instance that has come into service. During this time,
         /// any health check failures for the instance are ignored. The default value is <code>0</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
-        /// Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Conditional: This parameter is required if you are adding an <code>ELB</code> health
-        /// check.</para>
+        /// Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Required if you are adding an <code>ELB</code> health check.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -237,8 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The maximum size of the group.</para><note><para>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling
         /// may need to go above <code>MaxSize</code> to meet your capacity requirements. In this
         /// event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than
-        /// your maximum instance weight (weights that define how many capacity units each instance
-        /// contributes to the capacity of the group).</para></note>
+        /// your largest instance weight (weights that define how many units each instance contributes
+        /// to the desired capacity of the group).</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

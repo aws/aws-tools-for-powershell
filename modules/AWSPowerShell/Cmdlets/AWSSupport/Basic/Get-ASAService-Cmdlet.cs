@@ -28,19 +28,26 @@ using Amazon.AWSSupport.Model;
 namespace Amazon.PowerShell.Cmdlets.ASA
 {
     /// <summary>
-    /// Returns the current list of AWS services and a list of service categories that applies
-    /// to each one. You then use service names and categories in your <a>CreateCase</a> requests.
+    /// Returns the current list of AWS services and a list of service categories for each
+    /// service. You then use service names and categories in your <a>CreateCase</a> requests.
     /// Each AWS service has its own set of categories.
     /// 
     ///  
     /// <para>
-    /// The service codes and category codes correspond to the values that are displayed in
-    /// the <b>Service</b> and <b>Category</b> drop-down lists on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create Case</a> page.
-    /// The values in those fields, however, do not necessarily match the service codes and
-    /// categories returned by the <code>DescribeServices</code> request. Always use the service
-    /// codes and categories obtained programmatically. This practice ensures that you always
-    /// have the most recent set of service and category codes.
-    /// </para>
+    /// The service codes and category codes correspond to the values that appear in the <b>Service</b>
+    /// and <b>Category</b> lists on the AWS Support Center <a href="https://console.aws.amazon.com/support/home#/case/create">Create
+    /// Case</a> page. The values in those fields don't necessarily match the service codes
+    /// and categories returned by the <code>DescribeServices</code> operation. Always use
+    /// the service codes and categories that the <code>DescribeServices</code> operation
+    /// returns, so that you have the most recent set of service and category codes.
+    /// </para><note><ul><li><para>
+    /// You must have a Business or Enterprise support plan to use the AWS Support API. 
+    /// </para></li><li><para>
+    /// If you call the AWS Support API from an account that does not have a Business or Enterprise
+    /// support plan, the <code>SubscriptionRequiredException</code> error message appears.
+    /// For information about changing your support plan, see <a href="http://aws.amazon.com/premiumsupport/">AWS
+    /// Support</a>.
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Get", "ASAService")]
     [OutputType("Amazon.AWSSupport.Model.Service")]

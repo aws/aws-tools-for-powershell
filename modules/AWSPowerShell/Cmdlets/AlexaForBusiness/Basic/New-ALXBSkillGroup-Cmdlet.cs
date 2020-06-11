@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         public System.String SkillGroupName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags for the skill group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.AlexaForBusiness.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'SkillGroupArn'.
@@ -147,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 WriteWarning("You are passing $null as a value for parameter SkillGroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.AlexaForBusiness.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -174,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             if (cmdletContext.SkillGroupName != null)
             {
                 request.SkillGroupName = cmdletContext.SkillGroupName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -239,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             public System.String ClientRequestToken { get; set; }
             public System.String Description { get; set; }
             public System.String SkillGroupName { get; set; }
+            public List<Amazon.AlexaForBusiness.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.AlexaForBusiness.Model.CreateSkillGroupResponse, NewALXBSkillGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SkillGroupArn;
         }

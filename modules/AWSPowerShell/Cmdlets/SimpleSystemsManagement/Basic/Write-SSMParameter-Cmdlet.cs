@@ -209,10 +209,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of parameter that you want to add to the system.</para><para>Items in a <code>StringList</code> must be separated by a comma (,). You can't use
+        /// <para>The type of parameter that you want to add to the system.</para><note><para><code>SecureString</code> is not currently supported for AWS CloudFormation templates
+        /// or in the China Regions.</para></note><para>Items in a <code>StringList</code> must be separated by a comma (,). You can't use
         /// other punctuation or special character to escape items in the list. If you have a
-        /// parameter value that requires a comma, then use the <code>String</code> data type.</para><note><para><code>SecureString</code> is not currently supported for AWS CloudFormation templates
-        /// or in the China Regions.</para></note>
+        /// parameter value that requires a comma, then use the <code>String</code> data type.</para><important><para>Specifying a parameter type is not required when updating a parameter. You must specify
+        /// a parameter type when creating a parameter.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
