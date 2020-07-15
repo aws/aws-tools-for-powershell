@@ -7,9 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Management.Automation;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PSReleaseNotesGenerator
 {
@@ -74,7 +72,7 @@ namespace PSReleaseNotesGenerator
             try
             {
                 Console.WriteLine($"Start analysing new assembly: {NewAssemblyPath}");
-                newModule = PSModuleAnalyzer.Analyze(NewAssemblyPath);
+                newModule = new PSModuleAnalyzer(NewAssemblyPath).Analyze();
             }
             catch (Exception e)
             {
@@ -100,7 +98,7 @@ namespace PSReleaseNotesGenerator
             try
             {
                 Console.WriteLine($"Start analysing old assembly: {OldAssemblyPath}");
-                oldModule = PSModuleAnalyzer.Analyze(OldAssemblyPath);
+                oldModule = new PSModuleAnalyzer(OldAssemblyPath).Analyze();
             }
             catch (Exception e)
             {
