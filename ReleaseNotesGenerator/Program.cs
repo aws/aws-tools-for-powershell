@@ -96,7 +96,7 @@ namespace PSReleaseNotesGenerator
                 }
             }
 
-            IDictionary<string, Cmdlet> oldModule;
+            IDictionary<string, Cmdlet> oldModule = null;
             try
             {
                 Console.WriteLine($"Start analysing old assembly: {OldAssemblyPath}");
@@ -104,7 +104,8 @@ namespace PSReleaseNotesGenerator
             }
             catch (Exception e)
             {
-                throw new Exception($"Error while opening old assembly", e);
+                // TODO: Better handle when new SDK versions have removed types that failed to resolve with old PowerShell Assembly.
+                Console.WriteLine($"Error while opening old assembly: {e}");
             }
 
             string sdkNewVersion;
@@ -117,7 +118,16 @@ namespace PSReleaseNotesGenerator
                 throw new Exception($"Error while reading SDK version", e);
             }
 
-            var report = CreateReleaseNotes(newModule, oldModule, sdkNewVersion);
+            string report;
+            if(oldModule != null)
+            {
+                report = CreateReleaseNotes(newModule, oldModule, sdkNewVersion);
+            }
+            else
+            {
+                // If we failed to load the old powershell metadata then generate a default release notes.                
+                report = CreateErrorReleaseNotes();
+            }
             Console.WriteLine(report);
 
             if (!string.IsNullOrWhiteSpace(OutputFilePath))
@@ -126,6 +136,11 @@ namespace PSReleaseNotesGenerator
                 Console.WriteLine($"Writing report to {fullOutputPath}");
                 File.WriteAllText(fullOutputPath, report);
             }
+        }
+
+        private static string CreateErrorReleaseNotes()
+        {
+            return "Unable to generate release notes. Release notes will need to be created manually.";
         }
 
         private static string CreateReleaseNotes(IDictionary<string, Cmdlet> newModule, IDictionary<string, Cmdlet> oldModule, string sdkNewVersion)
