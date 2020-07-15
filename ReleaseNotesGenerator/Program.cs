@@ -102,7 +102,7 @@ namespace PSReleaseNotesGenerator
             }
             catch (Exception e)
             {
-                throw new Exception($"Error while opening new assembly", e);
+                throw new Exception($"Error while opening old assembly", e);
             }
 
             string sdkNewVersion;
