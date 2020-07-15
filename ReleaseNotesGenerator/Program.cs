@@ -73,6 +73,7 @@ namespace PSReleaseNotesGenerator
             IDictionary<string, Cmdlet> newModule;
             try
             {
+                Console.WriteLine($"Start analysing new assembly: {NewAssemblyPath}");
                 newModule = PSModuleAnalyzer.Analyze(NewAssemblyPath);
             }
             catch (Exception e)
@@ -86,7 +87,7 @@ namespace PSReleaseNotesGenerator
                     throw new Exception($"Either --{OldAssemblyPathOptionName} or --{ModuleNameOptionName}, --{DownloadFolderOptionName} and --{AssemblyFileNameOptionName} must be specified");
 
                 try
-                {
+                {                    
                     OldAssemblyPath = DownloadModule(ModuleName, string.IsNullOrWhiteSpace(ModuleVersion) ? null : ModuleVersion, AssemblyFileName, DownloadFolder);
                 }
                 catch (Exception e)
@@ -98,6 +99,7 @@ namespace PSReleaseNotesGenerator
             IDictionary<string, Cmdlet> oldModule;
             try
             {
+                Console.WriteLine($"Start analysing old assembly: {OldAssemblyPath}");
                 oldModule = PSModuleAnalyzer.Analyze(OldAssemblyPath);
             }
             catch (Exception e)
