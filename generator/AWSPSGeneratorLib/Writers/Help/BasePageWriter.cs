@@ -25,8 +25,6 @@ namespace AWSPowerShellGenerator.Writers.Help
         private const string FeedbackSection =
             "<!-- BEGIN-FEEDBACK-SECTION --><span class=\"feedback\">{0}</span><!-- END-FEEDBACK-SECTION -->";
 
-        public const string GdprScriptBlock = "<script src=\"/SdkStatic/sdk-priv.js\" async=\"true\"></script>";
-
         protected static string SiteCatalystSnippet { get; private set; }
 
         static BasePageWriter()
@@ -79,8 +77,8 @@ namespace AWSPowerShellGenerator.Writers.Help
 
                         // every page needs a title, meta description and canonical url to satisfy indexing
                         writer.WriteLine("<meta name=\"description\" content=\"{0}\">", GetMetaDescription());
-                        writer.WriteLine("<title>{0} | AWS Tools for PowerShell</title>", GetTitle());
-                        writer.WriteLine("<script src=\"https://a0.awsstatic.com/s_code/js/1.0/awshome_s_code.js\"></script>");
+                        writer.WriteLine("<title>{0} | AWS Tools for PowerShell</title>", GetTitle());                        
+                        writer.WriteLine("<script type=\"text/javascript\" src=\"/assets/js/awsdocs-boot.js\" defer></script>");
                         writer.WriteLine("<link rel=\"canonical\" href=\"http://docs.aws.amazon.com/powershell/latest/reference/index.html?page={0}&tocid={1}\"/>",
                                          this.GenerateFilename(),
                                          this.GetTOCID());
@@ -102,9 +100,7 @@ namespace AWSPowerShellGenerator.Writers.Help
                             this.WriteContent(writer);
                         writer.WriteLine("</div>");
 
-                        this.WriteFooter(writer);
-
-                        writer.WriteLine(GdprScriptBlock);
+                        this.WriteFooter(writer);                        
                     writer.WriteLine("</body>");
                 writer.WriteLine("</html>");
 
@@ -177,12 +173,12 @@ namespace AWSPowerShellGenerator.Writers.Help
         protected virtual void WriteFooter(TextWriter writer)
         {
             writer.WriteLine("<div id=\"pageFooter\">");
-                writer.WriteLine("<div id=\"copyright\"></div>");
                 writer.WriteLine("<span class=\"newline linkto\"><a href=\"javascript:void(0)\" onclick=\"AWSHelpObj.displayLink('{0}', '{1}')\">Link to this page</a></span>", 
                                  this.GenerateFilename(), 
                                  this.GetTOCID());
                 writer.WriteLine("<span class=\"divider\">&nbsp;</span>");
                 writer.WriteLine(FeedbackSection, GenerateFeedbackHTML());
+                writer.WriteLine("<div id=\"awsdocs-legal-zone-copyright\"></div>");
             writer.WriteLine("</div>");
                 
             WriteScriptFiles(writer);
@@ -225,18 +221,11 @@ namespace AWSPowerShellGenerator.Writers.Help
             writer.WriteLine("} else {");
             writer.WriteLine("$(\"div#regionDisclaimer\").remove();");
             writer.WriteLine("}");
-            writer.WriteLine("AWSHelpObj.setAssemblyVersion();");
-            writer.WriteLine("AWSHelpObj.setCopyrightText();");
+            writer.WriteLine("AWSHelpObj.setAssemblyVersion();");            
             writer.WriteLine("});");
             writer.WriteLine("</script>");
             writer.WriteLine("<!-- END-SECTION -->");
-
-            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shCore.js\"></script>", RelativePathToRoot);
-            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushCSharp.js\"></script>", RelativePathToRoot);
-            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushPlain.js\"></script>", RelativePathToRoot);
-            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushXml.js\"></script>", RelativePathToRoot);
-            writer.WriteLine("<script type=\"text/javascript\">SyntaxHighlighter.all()</script>");
-
+            
             writer.WriteLine(SiteCatalystSnippet);
         }
 
