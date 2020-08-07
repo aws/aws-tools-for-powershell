@@ -78,7 +78,7 @@ namespace AWSPowerShellGenerator.Writers.Help
                         // every page needs a title, meta description and canonical url to satisfy indexing
                         writer.WriteLine("<meta name=\"description\" content=\"{0}\">", GetMetaDescription());
                         writer.WriteLine("<title>{0} | AWS Tools for PowerShell</title>", GetTitle());                        
-                        writer.WriteLine("<script type=\"text/javascript\" src=\"/assets/js/awsdocs-boot.js\" defer></script>");
+                        writer.WriteLine("<script type=\"text/javascript\" src=\"/assets/js/awsdocs-boot.js\"></script>");
                         writer.WriteLine("<link rel=\"canonical\" href=\"http://docs.aws.amazon.com/powershell/latest/reference/index.html?page={0}&tocid={1}\"/>",
                                          this.GenerateFilename(),
                                          this.GetTOCID());
@@ -226,6 +226,12 @@ namespace AWSPowerShellGenerator.Writers.Help
             writer.WriteLine("</script>");
             writer.WriteLine("<!-- END-SECTION -->");
             
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shCore.js\"></script>", RelativePathToRoot);
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushCSharp.js\"></script>", RelativePathToRoot);
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushPlain.js\"></script>", RelativePathToRoot);
+            writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushXml.js\"></script>", RelativePathToRoot);
+            writer.WriteLine("<script type=\"text/javascript\">SyntaxHighlighter.all()</script>");
+
             writer.WriteLine(SiteCatalystSnippet);
         }
 
