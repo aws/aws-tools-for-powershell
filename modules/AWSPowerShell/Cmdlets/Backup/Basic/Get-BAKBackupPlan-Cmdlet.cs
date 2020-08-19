@@ -28,6 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
+    /// Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>.
     /// Returns the body of a backup plan in JSON format, in addition to plan metadata.
     /// </summary>
     [Cmdlet("Get", "BAKBackupPlan")]

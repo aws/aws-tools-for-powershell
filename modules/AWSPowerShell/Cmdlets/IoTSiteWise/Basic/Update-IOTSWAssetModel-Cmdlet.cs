@@ -31,17 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// Updates an asset model and all of the assets that were created from the model. Each
     /// asset created from the model inherits the updated asset model's property and hierarchy
     /// definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating
-    /// Assets and Models</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// assets and models</a> in the <i>AWS IoT SiteWise User Guide</i>.
     /// 
     ///  <important><para>
     /// This operation overwrites the existing model with the provided model. To avoid deleting
     /// your asset model's properties or hierarchies, you must include their IDs and definitions
     /// in the updated asset model payload. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a>.
     /// </para><para>
-    /// If you remove a property from an asset model or update a property's formula expression,
-    /// AWS IoT SiteWise deletes all previous data for that property. If you remove a hierarchy
-    /// definition from an asset model, AWS IoT SiteWise disassociates every asset associated
-    /// with that hierarchy. You can't change the type or data type of an existing property.
+    /// If you remove a property from an asset model, AWS IoT SiteWise deletes all previous
+    /// data for that property. If you remove a hierarchy definition from an asset model,
+    /// AWS IoT SiteWise disassociates every asset associated with that hierarchy. You can't
+    /// change the type or data type of an existing property.
     /// </para></important>
     /// </summary>
     [Cmdlet("Update", "IOTSWAssetModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>The updated hierarchy definitions of the asset model. Each hierarchy specifies an
         /// asset model whose assets can be children of any other assets created from this asset
         /// model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset
-        /// Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</para><para>You can specify up to 10 hierarchies per asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
+        /// hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</para><para>You can specify up to 10 hierarchies per asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
         /// in the <i>AWS IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The updated property definitions of the asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset
-        /// Properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</para><para>You can specify up to 200 properties per asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
+        /// properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</para><para>You can specify up to 200 properties per asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
         /// in the <i>AWS IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>

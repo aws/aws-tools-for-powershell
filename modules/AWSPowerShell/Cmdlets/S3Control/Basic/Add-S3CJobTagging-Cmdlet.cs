@@ -28,24 +28,26 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Set the supplied tag-set on an Amazon S3 Batch Operations job.
+    /// Sets the supplied tag-set on an S3 Batch Operations job.
     /// 
     ///  
     /// <para>
-    /// A tag is a key-value pair. You can associate Amazon S3 Batch Operations tags with
-    /// any job by sending a PUT request against the tagging subresource that is associated
-    /// with the job. To modify the existing tag set, you can either replace the existing
-    /// tag set entirely, or make changes within the existing tag set by retrieving the existing
-    /// tag set using <a>GetJobTagging</a>, modify that tag set, and use this API action to
-    /// replace the tag set with the one you have modified.. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Using
-    /// Job Tags</a> in the Amazon Simple Storage Service Developer Guide. 
+    /// A tag is a key-value pair. You can associate S3 Batch Operations tags with any job
+    /// by sending a PUT request against the tagging subresource that is associated with the
+    /// job. To modify the existing tag set, you can either replace the existing tag set entirely,
+    /// or make changes within the existing tag set by retrieving the existing tag set using
+    /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>,
+    /// modify that tag set, and use this API action to replace the tag set with the one you
+    /// modified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+    /// access and labeling jobs using tags</a> in the <i>Amazon Simple Storage Service Developer
+    /// Guide</i>. 
     /// </para><note><ul><li><para>
     /// If you send this request with an empty tag set, Amazon S3 deletes the existing tag
-    /// set on the Batch Operations job. If you use this method, you will be charged for a
-    /// Tier 1 Request (PUT). For more information, see <a href="http://aws.amazon.com/s3/pricing/">Amazon
+    /// set on the Batch Operations job. If you use this method, you are charged for a Tier
+    /// 1 Request (PUT). For more information, see <a href="http://aws.amazon.com/s3/pricing/">Amazon
     /// S3 pricing</a>.
     /// </para></li><li><para>
-    /// For deleting existing tags for your batch operations job, <a>DeleteJobTagging</a>
+    /// For deleting existing tags for your Batch Operations job, a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html">DeleteJobTagging</a>
     /// request is preferred because it achieves the same result without incurring charges.
     /// </para></li><li><para>
     /// A few things to consider about using tags:
@@ -60,13 +62,13 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// The key and values are case sensitive.
     /// </para></li><li><para>
     /// For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined
-    /// Tag Restrictions</a>.
+    /// Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
     /// </para></li></ul></li></ul></note><para>
     /// To use this operation, you must have permission to perform the <code>s3:PutJobTagging</code>
     /// action.
     /// </para><para>
     /// Related actions include:
-    /// </para><ul><li><para><a>CreateJob</a></para></li><li><para><a>GetJobTagging</a></para></li><li><para><a>DeleteJobTagging</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreatJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html">DeleteJobTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Add", "S3CJobTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -81,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the Amazon S3 Batch Operations job.</para>
+        /// <para>The AWS account ID associated with the S3 Batch Operations job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon S3 Batch Operations job whose tags you want to replace.</para>
+        /// <para>The ID for the S3 Batch Operations job whose tags you want to replace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The set of tags to associate with the Amazon S3 Batch Operations job.</para>
+        /// <para>The set of tags to associate with the S3 Batch Operations job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

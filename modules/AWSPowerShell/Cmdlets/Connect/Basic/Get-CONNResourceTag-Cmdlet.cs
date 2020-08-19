@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Lists the tags for the specified resource.
+    /// 
+    ///  
+    /// <para>
+    /// For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon
+    /// Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
+    /// Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CONNResourceTag")]
     [OutputType("System.String")]

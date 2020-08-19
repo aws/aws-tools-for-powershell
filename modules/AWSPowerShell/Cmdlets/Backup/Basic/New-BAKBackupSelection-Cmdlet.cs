@@ -35,14 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     ///  
     /// <para>
     /// For example, consider the following patterns:
-    /// </para><ul><li><para><code>Resources: "arn:aws:ec2:region:account-id:volume/volume-id"</code></para></li><li><para><code>ConditionKey:"department"</code></para><para><code>ConditionValue:"finance"</code></para><para><code>ConditionType:"STRINGEQUALS"</code></para></li><li><para><code>ConditionKey:"importance"</code></para><para><code>ConditionValue:"critical"</code></para><para><code>ConditionType:"STRINGEQUALS"</code></para></li></ul><para>
+    /// </para><ul><li><para><code>Resources: "arn:aws:ec2:region:account-id:volume/volume-id"</code></para></li><li><para><code>ConditionKey:"department"</code></para><para><code>ConditionValue:"finance"</code></para><para><code>ConditionType:"StringEquals"</code></para></li><li><para><code>ConditionKey:"importance"</code></para><para><code>ConditionValue:"critical"</code></para><para><code>ConditionType:"StringEquals"</code></para></li></ul><para>
     /// Using these patterns would back up all Amazon Elastic Block Store (Amazon EBS) volumes
     /// that are tagged as <code>"department=finance"</code>, <code>"importance=critical"</code>,
-    /// in addition to an EBS volume with the specified volume Id.
+    /// in addition to an EBS volume with the specified volume ID.
     /// </para><para>
     /// Resources and conditions are additive in that all resources that match the pattern
     /// are selected. This shouldn't be confused with a logical AND, where all conditions
-    /// must match. The matching patterns are logically 'put together using the OR operator.
+    /// must match. The matching patterns are logically put together using the OR operator.
     /// In other words, all patterns that match are selected for backup.
     /// </para>
     /// </summary>
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and allows failed requests to be retried
-        /// without the risk of executing the operation twice.</para>
+        /// without the risk of running the operation twice.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that AWS Backup uses to authenticate when restoring the target
+        /// <para>The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target
         /// resource; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</para>
         /// </para>
         /// </summary>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>An array of conditions used to specify a set of resources to assign to a backup plan;
-        /// for example, <code>"STRINGEQUALS": {"ec2:ResourceTag/Department": "accounting"</code>.</para>
+        /// for example, <code>"StringEquals": {"ec2:ResourceTag/Department": "accounting"</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

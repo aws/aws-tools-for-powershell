@@ -32,13 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// 
     ///  
     /// <para>
-    /// For AWS DataSync to access a destination S3 bucket, it needs an AWS Identity and Access
-    /// Management (IAM) role that has the required permissions. You can set up the required
-    /// permissions by creating an IAM policy that grants the required permissions and attaching
-    /// the policy to the role. An example of such a policy is shown in the examples section.
-    /// </para><para>
-    /// For more information, see https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location
-    /// in the <i>AWS DataSync User Guide.</i></para>
+    /// For more information, see https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
+    /// in the <i>AWS DataSync User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNLocationS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -49,6 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     )]
     public partial class NewDSYNLocationS3Cmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
+        
+        #region Parameter AgentArn
+        /// <summary>
+        /// <para>
+        /// <para>If you are using DataSync on an AWS Outpost, specify the Amazon Resource Names (ARNs)
+        /// of the DataSync agents deployed on your AWS Outpost. For more information about launching
+        /// a DataSync agent on an Amazon Outpost, see <a>outposts-agent</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AgentArns")]
+        public System.String[] AgentArn { get; set; }
+        #endregion
         
         #region Parameter S3Config_BucketAccessRoleArn
         /// <summary>
@@ -71,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter S3BucketArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket. If the bucket is on an AWS
+        /// Outpost, this must be an access point ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 storage class that you want to store your files in when this location
-        /// is used as a task destination. For more information about S3 storage classes, see
-        /// <a href="https://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a>
-        /// in the <i>Amazon Simple Storage Service Developer Guide</i>. Some storage classes
-        /// have behaviors that can affect your S3 storage cost. For detailed information, see
-        /// <a>using-storage-classes</a>.</para>
+        /// is used as a task destination. For buckets in AWS Regions, the storage class defaults
+        /// to Standard. For buckets on AWS Outposts, the storage class defaults to AWS S3 Outposts.</para><para>For more information about S3 storage classes, see <a href="https://aws.amazon.com/s3/storage-classes/">Amazon
+        /// S3 Storage Classes</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+        /// Some storage classes have behaviors that can affect your S3 storage cost. For detailed
+        /// information, see <a>using-storage-classes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 context.Select = CreateSelectDelegate<Amazon.DataSync.Model.CreateLocationS3Response, NewDSYNLocationS3Cmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AgentArn != null)
+            {
+                context.AgentArn = new List<System.String>(this.AgentArn);
+            }
             context.S3BucketArn = this.S3BucketArn;
             #if MODULAR
             if (this.S3BucketArn == null && ParameterWasBound(nameof(this.S3BucketArn)))
@@ -201,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             // create request
             var request = new Amazon.DataSync.Model.CreateLocationS3Request();
             
+            if (cmdletContext.AgentArn != null)
+            {
+                request.AgentArns = cmdletContext.AgentArn;
+            }
             if (cmdletContext.S3BucketArn != null)
             {
                 request.S3BucketArn = cmdletContext.S3BucketArn;
@@ -297,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AgentArn { get; set; }
             public System.String S3BucketArn { get; set; }
             public System.String S3Config_BucketAccessRoleArn { get; set; }
             public Amazon.DataSync.S3StorageClass S3StorageClass { get; set; }

@@ -1,0 +1,3 @@
+﻿# RedshiftDataAPIService
+
+Export-ModuleMember -Alias *

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// automatic backfill enabled. The ticket ID is included in the <code>MatchmakerData</code>
     /// of an updated game session object, which is provided to the game server.
     /// </para><note><para>
-    /// If the action is successful, the service sends back an empty JSON struct with the
+    /// If the operation is successful, the service sends back an empty JSON struct with the
     /// HTTP 200 response (not an empty HTTP body).
     /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html">
     /// Add FlexMatch to a Game Client</a></para><para><b>Related operations</b></para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>route53-resolver</C2jFilename>
     <AssemblyName>Route53Resolver</AssemblyName>
@@ -13,13 +14,16 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AssociateResolverEndpointIpAddress" OutputProperty="ResolverEndpoint" Verb="Add" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfigAssociation" Verb="Add" Noun="ResolverQueryLogConfigAssociation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -31,11 +35,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfig" Verb="New" Noun="ResolverQueryLogConfig" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateResolverRule" OutputProperty="ResolverRule" Verb="New" Noun="ResolverRule" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Remove" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfig" Verb="Remove" Noun="ResolverQueryLogConfig" ShouldProcessTarget="ResolverQueryLogConfigId" PipelineParameter="ResolverQueryLogConfigId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -47,11 +59,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfigAssociation" Verb="Remove" Noun="ResolverQueryLogConfigAssociation" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateResolverRule" OutputProperty="ResolverRuleAssociation" Verb="Remove" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetResolverEndpoint" OutputProperty="ResolverEndpoint" Verb="Get" Noun="ResolverEndpoint" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverQueryLogConfig" OutputProperty="ResolverQueryLogConfig" Verb="Get" Noun="ResolverQueryLogConfig" PipelineParameter="ResolverQueryLogConfigId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverQueryLogConfigAssociation" OutputProperty="ResolverQueryLogConfigAssociation" Verb="Get" Noun="ResolverQueryLogConfigAssociation" PipelineParameter="ResolverQueryLogConfigAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverQueryLogConfigPolicy" OutputProperty="ResolverQueryLogConfigPolicy" Verb="Get" Noun="ResolverQueryLogConfigPolicy" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,6 +103,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverQueryLogConfigAssociations" OutputProperty="*" Verb="Get" Noun="ResolverQueryLogConfigAssociationList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverQueryLogConfigs" OutputProperty="*" Verb="Get" Noun="ResolverQueryLogConfigList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListResolverRuleAssociations" OutputProperty="ResolverRuleAssociations" Verb="Get" Noun="ResolverRuleAssociationList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -84,6 +120,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResolverQueryLogConfigPolicy" OutputProperty="ReturnValue" Verb="Write" Noun="ResolverQueryLogConfigPolicy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -108,8 +148,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.Route53Resolver.Model.IpAddressUpdate</Type>
         <Type>Amazon.Route53Resolver.Model.ResolverRuleConfig</Type>

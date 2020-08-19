@@ -28,7 +28,7 @@ using Amazon.ManagedBlockchain.Model;
 namespace Amazon.PowerShell.Cmdlets.MBC
 {
     /// <summary>
-    /// Returns a listing of all invitations made on the specified network.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a listing of all invitations for the current AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "MBCInvitationList")]
     [OutputType("Amazon.ManagedBlockchain.Model.Invitation")]

@@ -28,8 +28,8 @@ using Amazon.EBS.Model;
 namespace Amazon.PowerShell.Cmdlets.EBS
 {
     /// <summary>
-    /// Returns the block indexes and block tokens for blocks that are different between two
-    /// Amazon Elastic Block Store snapshots of the same volume/snapshot lineage.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about the blocks that are different between two Amazon Elastic
+    /// Block Store snapshots of the same volume/snapshot lineage.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EBSChangedBlockList")]
     [OutputType("Amazon.EBS.Model.ChangedBlock")]

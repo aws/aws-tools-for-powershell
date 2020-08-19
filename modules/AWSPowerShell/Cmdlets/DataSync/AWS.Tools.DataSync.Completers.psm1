@@ -97,7 +97,7 @@ $DSYN_Completers = {
         # Amazon.DataSync.S3StorageClass
         "New-DSYNLocationS3/S3StorageClass"
         {
-            $v = "DEEP_ARCHIVE","GLACIER","INTELLIGENT_TIERING","ONEZONE_IA","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","GLACIER","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","STANDARD","STANDARD_IA"
             break
         }
 

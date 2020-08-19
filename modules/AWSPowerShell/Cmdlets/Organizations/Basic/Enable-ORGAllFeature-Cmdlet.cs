@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// that prevent accounts from leaving the organization. Ensure that your account administrators
     /// are aware of this.
     /// </para><para>
-    /// This operation can be called only from the organization's master account. 
+    /// This operation can be called only from the organization's master account.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "ORGAllFeature", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

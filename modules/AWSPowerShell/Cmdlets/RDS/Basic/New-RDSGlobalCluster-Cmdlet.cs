@@ -28,9 +28,9 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates an Aurora global database spread across multiple regions. The global database
-    /// contains a single primary cluster with read-write capability, and a read-only secondary
-    /// cluster that receives data from the primary cluster through high-speed replication
+    /// Creates an Aurora global database spread across multiple AWS Regions. The global
+    /// database contains a single primary cluster with read-write capability, and a read-only
+    /// secondary cluster that receives data from the primary cluster through high-speed replication
     /// performed by the Aurora storage subsystem. 
     /// 
     ///  
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>Provides the name of the database engine to be used for this DB cluster.</para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Creates a virtual tape by using your own barcode. You write data to the virtual tape
-    /// and then archive the tape. A barcode is unique and can not be reused if it has already
+    /// and then archive the tape. A barcode is unique and cannot be reused if it has already
     /// been used on a tape. This applies to barcodes used on deleted tapes. This operation
     /// is only supported in the tape gateway type.
     /// 
@@ -152,6 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.Int64? TapeSizeInByte { get; set; }
         #endregion
         
+        #region Parameter Worm
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>TRUE</code> if the tape you are creating is to be configured as a write-once-read-many
+        /// (WORM) tape.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Worm { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'TapeARN'.
@@ -241,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 WriteWarning("You are passing $null as a value for parameter TapeSizeInByte which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Worm = this.Worm;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -284,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.TapeSizeInByte != null)
             {
                 request.TapeSizeInBytes = cmdletContext.TapeSizeInByte.Value;
+            }
+            if (cmdletContext.Worm != null)
+            {
+                request.Worm = cmdletContext.Worm.Value;
             }
             
             CmdletOutput output;
@@ -353,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public List<Amazon.StorageGateway.Model.Tag> Tag { get; set; }
             public System.String TapeBarcode { get; set; }
             public System.Int64? TapeSizeInByte { get; set; }
+            public System.Boolean? Worm { get; set; }
             public System.Func<Amazon.StorageGateway.Model.CreateTapeWithBarcodeResponse, NewSGTapeWithBarcodeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TapeARN;
         }

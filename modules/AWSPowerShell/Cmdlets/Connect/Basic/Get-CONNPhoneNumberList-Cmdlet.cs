@@ -28,7 +28,15 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Provides information about the phone numbers for the specified Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Provides information about the phone numbers for the specified Amazon Connect instance.
+    /// 
+    /// 
+    ///  
+    /// <para>
+    /// For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set
+    /// Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator
+    /// Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNPhoneNumberList")]
     [OutputType("Amazon.Connect.Model.PhoneNumberSummary")]

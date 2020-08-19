@@ -43,6 +43,19 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class NewCOMPDocumentClassifierCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        #region Parameter InputDataConfig_AugmentedManifest
+        /// <summary>
+        /// <para>
+        /// <para>A list of augmented manifest files that provide training data for your custom model.
+        /// An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker
+        /// Ground Truth.</para><para>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_AugmentedManifests")]
+        public Amazon.Comprehend.Model.AugmentedManifestsListItem[] InputDataConfig_AugmentedManifest { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -70,6 +83,23 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DataAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter InputDataConfig_DataFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format of your training data:</para><ul><li><para><code>COMPREHEND_CSV</code>: A two-column CSV file, where labels are provided in
+        /// the first column, and documents are provided in the second. If you use this value,
+        /// you must provide the <code>S3Uri</code> parameter in your request.</para></li><li><para><code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker
+        /// Ground Truth. This file is in JSON lines format. Each line is a complete JSON object
+        /// that contains a training document and its associated labels. </para><para>If you use this value, you must provide the <code>AugmentedManifests</code> parameter
+        /// in your request.</para></li></ul><para>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as
+        /// the default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Comprehend.DocumentClassifierDataFormat")]
+        public Amazon.Comprehend.DocumentClassifierDataFormat InputDataConfig_DataFormat { get; set; }
         #endregion
         
         #region Parameter DocumentClassifierName
@@ -157,17 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// the API endpoint that you are calling. The URI can point to a single input file or
         /// it can provide the prefix for a collection of input files.</para><para>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix
         /// is a single file, Amazon Comprehend uses that file as input. If more than one file
-        /// begins with the prefix, Amazon Comprehend uses all of them as input.</para>
+        /// begins with the prefix, Amazon Comprehend uses all of them as input.</para><para>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InputDataConfig_S3Uri { get; set; }
         #endregion
         
@@ -320,14 +343,13 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 WriteWarning("You are passing $null as a value for parameter DocumentClassifierName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.InputDataConfig_AugmentedManifest != null)
+            {
+                context.InputDataConfig_AugmentedManifest = new List<Amazon.Comprehend.Model.AugmentedManifestsListItem>(this.InputDataConfig_AugmentedManifest);
+            }
+            context.InputDataConfig_DataFormat = this.InputDataConfig_DataFormat;
             context.InputDataConfig_LabelDelimiter = this.InputDataConfig_LabelDelimiter;
             context.InputDataConfig_S3Uri = this.InputDataConfig_S3Uri;
-            #if MODULAR
-            if (this.InputDataConfig_S3Uri == null && ParameterWasBound(nameof(this.InputDataConfig_S3Uri)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InputDataConfig_S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.LanguageCode = this.LanguageCode;
             #if MODULAR
             if (this.LanguageCode == null && ParameterWasBound(nameof(this.LanguageCode)))
@@ -383,6 +405,26 @@ namespace Amazon.PowerShell.Cmdlets.COMP
              // populate InputDataConfig
             var requestInputDataConfigIsNull = true;
             request.InputDataConfig = new Amazon.Comprehend.Model.DocumentClassifierInputDataConfig();
+            List<Amazon.Comprehend.Model.AugmentedManifestsListItem> requestInputDataConfig_inputDataConfig_AugmentedManifest = null;
+            if (cmdletContext.InputDataConfig_AugmentedManifest != null)
+            {
+                requestInputDataConfig_inputDataConfig_AugmentedManifest = cmdletContext.InputDataConfig_AugmentedManifest;
+            }
+            if (requestInputDataConfig_inputDataConfig_AugmentedManifest != null)
+            {
+                request.InputDataConfig.AugmentedManifests = requestInputDataConfig_inputDataConfig_AugmentedManifest;
+                requestInputDataConfigIsNull = false;
+            }
+            Amazon.Comprehend.DocumentClassifierDataFormat requestInputDataConfig_inputDataConfig_DataFormat = null;
+            if (cmdletContext.InputDataConfig_DataFormat != null)
+            {
+                requestInputDataConfig_inputDataConfig_DataFormat = cmdletContext.InputDataConfig_DataFormat;
+            }
+            if (requestInputDataConfig_inputDataConfig_DataFormat != null)
+            {
+                request.InputDataConfig.DataFormat = requestInputDataConfig_inputDataConfig_DataFormat;
+                requestInputDataConfigIsNull = false;
+            }
             System.String requestInputDataConfig_inputDataConfig_LabelDelimiter = null;
             if (cmdletContext.InputDataConfig_LabelDelimiter != null)
             {
@@ -546,6 +588,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String ClientRequestToken { get; set; }
             public System.String DataAccessRoleArn { get; set; }
             public System.String DocumentClassifierName { get; set; }
+            public List<Amazon.Comprehend.Model.AugmentedManifestsListItem> InputDataConfig_AugmentedManifest { get; set; }
+            public Amazon.Comprehend.DocumentClassifierDataFormat InputDataConfig_DataFormat { get; set; }
             public System.String InputDataConfig_LabelDelimiter { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }

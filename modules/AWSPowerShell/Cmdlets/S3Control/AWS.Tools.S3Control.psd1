@@ -92,19 +92,32 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-S3CAccessPointList', 
         'Get-S3CAccessPointPolicy', 
         'Get-S3CAccessPointPolicyStatus', 
+        'Get-S3CBucket', 
+        'Get-S3CBucketLifecycleConfiguration', 
+        'Get-S3CBucketPolicy', 
+        'Get-S3CBucketTagging', 
         'Get-S3CJob', 
         'Get-S3CJobList', 
         'Get-S3CJobTagging', 
         'Get-S3CPublicAccessBlock', 
+        'Get-S3CRegionalBucketList', 
         'New-S3CAccessPoint', 
+        'New-S3CBucket', 
         'New-S3CJob', 
         'Remove-S3CAccessPoint', 
         'Remove-S3CAccessPointPolicy', 
+        'Remove-S3CBucket', 
+        'Remove-S3CBucketLifecycleConfiguration', 
+        'Remove-S3CBucketPolicy', 
+        'Remove-S3CBucketTagging', 
         'Remove-S3CJobTagging', 
         'Remove-S3CPublicAccessBlock', 
         'Update-S3CJobPriority', 
         'Update-S3CJobStatus', 
-        'Write-S3CAccessPointPolicy')
+        'Write-S3CAccessPointPolicy', 
+        'Write-S3CBucketLifecycleConfiguration', 
+        'Write-S3CBucketPolicy', 
+        'Write-S3CBucketTagging')
 
     # Variables to export from this module
     VariablesToExport = '*'

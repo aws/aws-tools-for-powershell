@@ -28,12 +28,20 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Lists tags for the specified resource. 
+    /// Lists tags that are attached to the specified resource.
     /// 
     ///  
     /// <para>
-    /// Currently, you can list tags on an account in AWS Organizations.
-    /// </para><para>
+    /// You can attach tags to the following resources in AWS Organizations.
+    /// </para><ul><li><para>
+    /// AWS account
+    /// </para></li><li><para>
+    /// Organization root
+    /// </para></li><li><para>
+    /// Organizational unit (OU)
+    /// </para></li><li><para>
+    /// Policy (any type)
+    /// </para></li></ul><para>
     /// This operation can be called only from the organization's master account or by a member
     /// account that is a delegated administrator for an AWS service.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -51,7 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource that you want to retrieve tags for. </para>
+        /// <para>The ID of the resource with the tags to list.</para><para>You can specify any of the following taggable resources.</para><ul><li><para>AWS account – specify the account ID number.</para></li><li><para>Organizational unit – specify the OU ID that begins with <code>ou-</code> and looks
+        /// similar to: <code>ou-<i>1a2b-34uvwxyz</i></code></para></li><li><para>Root – specify the root ID that begins with <code>r-</code> and looks similar to:
+        /// <code>r-<i>1a2b</i></code></para></li><li><para>Policy – specify the policy ID that begins with <code>p-</code> andlooks similar to:
+        /// <code>p-<i>12abcdefg3</i></code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

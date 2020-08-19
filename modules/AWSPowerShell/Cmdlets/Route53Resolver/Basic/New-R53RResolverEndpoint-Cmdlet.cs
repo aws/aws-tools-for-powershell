@@ -28,15 +28,15 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Creates a resolver endpoint. There are two types of resolver endpoints, inbound and
+    /// Creates a Resolver endpoint. There are two types of Resolver endpoints, inbound and
     /// outbound:
     /// 
     ///  <ul><li><para>
-    /// An <i>inbound resolver endpoint</i> forwards DNS queries to the DNS service for a
-    /// VPC from your network or another VPC.
+    /// An <i>inbound Resolver endpoint</i> forwards DNS queries to the DNS service for a
+    /// VPC from your network.
     /// </para></li><li><para>
-    /// An <i>outbound resolver endpoint</i> forwards DNS queries from the DNS service for
-    /// a VPC to your network or another VPC.
+    /// An <i>outbound Resolver endpoint</i> forwards DNS queries from the DNS service for
+    /// a VPC to your network.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "R53RResolverEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <summary>
         /// <para>
         /// <para>Specify the applicable value:</para><ul><li><para><code>INBOUND</code>: Resolver forwards DNS queries to the DNS service for a VPC
-        /// from your network or another VPC</para></li><li><para><code>OUTBOUND</code>: Resolver forwards DNS queries from the DNS service for a VPC
-        /// to your network or another VPC</para></li></ul>
+        /// from your network</para></li><li><para><code>OUTBOUND</code>: Resolver forwards DNS queries from the DNS service for a VPC
+        /// to your network</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,9 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter IpAddress
         /// <summary>
         /// <para>
-        /// <para>The subnets and IP addresses in your VPC that you want DNS queries to pass through
-        /// on the way from your VPCs to your network (for outbound endpoints) or on the way from
-        /// your network to your VPCs (for inbound resolver endpoints). </para>
+        /// <para>The subnets and IP addresses in your VPC that DNS queries originate from (for outbound
+        /// endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet
+        /// ID uniquely identifies a VPC. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -123,7 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The ID of one or more security groups that you want to use to control access to this
         /// VPC. The security group that you specify must include one or more inbound rules (for
-        /// inbound resolver endpoints) or outbound rules (for outbound resolver endpoints).</para>
+        /// inbound Resolver endpoints) or outbound rules (for outbound Resolver endpoints). Inbound
+        /// and outbound rules must allow TCP and UDP access. For inbound access, open port 53.
+        /// For outbound access, open the port that you're using for DNS queries on your network.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class GetCBTestCaseCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        #region Parameter Filter_Keyword
+        /// <summary>
+        /// <para>
+        /// <para>A keyword that is used to filter on the <code>name</code> or the <code>prefix</code>
+        /// of the test cases. Only test cases where the keyword is a substring of the <code>name</code>
+        /// or the <code>prefix</code> will be returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Filter_Keyword { get; set; }
+        #endregion
+        
         #region Parameter ReportArn
         /// <summary>
         /// <para>
@@ -60,9 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
-        /// <para> The status used to filter test cases. Valid statuses are <code>SUCCEEDED</code>,
-        /// <code>FAILED</code>, <code>ERROR</code>, <code>SKIPPED</code>, and <code>UNKNOWN</code>.
-        /// A <code>TestCaseFilter</code> can have one status. </para>
+        /// <para>The status used to filter test cases. A <code>TestCaseFilter</code> can have one status.
+        /// Valid values are:</para><ul><li><para><code>SUCCEEDED</code></para></li><li><para><code>FAILED</code></para></li><li><para><code>ERROR</code></para></li><li><para><code>SKIPPED</code></para></li><li><para><code>UNKNOWN</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 context.Select = (response, cmdlet) => this.ReportArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Filter_Keyword = this.Filter_Keyword;
             context.Filter_Status = this.Filter_Status;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -190,6 +202,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate Filter
             var requestFilterIsNull = true;
             request.Filter = new Amazon.CodeBuild.Model.TestCaseFilter();
+            System.String requestFilter_filter_Keyword = null;
+            if (cmdletContext.Filter_Keyword != null)
+            {
+                requestFilter_filter_Keyword = cmdletContext.Filter_Keyword;
+            }
+            if (requestFilter_filter_Keyword != null)
+            {
+                request.Filter.Keyword = requestFilter_filter_Keyword;
+                requestFilterIsNull = false;
+            }
             System.String requestFilter_filter_Status = null;
             if (cmdletContext.Filter_Status != null)
             {
@@ -298,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Filter_Keyword { get; set; }
             public System.String Filter_Status { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

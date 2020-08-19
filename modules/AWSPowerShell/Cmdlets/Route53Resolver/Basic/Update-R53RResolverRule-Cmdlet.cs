@@ -28,7 +28,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Updates settings for a specified resolver rule. <code>ResolverRuleId</code> is required,
+    /// Updates settings for a specified Resolver rule. <code>ResolverRuleId</code> is required,
     /// and all other parameters are optional. If you don't specify a parameter, it retains
     /// its current value.
     /// </summary>
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Config
         /// <summary>
         /// <para>
-        /// <para>The new settings for the resolver rule.</para>
+        /// <para>The new settings for the Resolver rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverRuleId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver rule that you want to update.</para>
+        /// <para>The ID of the Resolver rule that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -67,6 +67,21 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter FileFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format of the input file. You can choose between a basic CSV format, a CSV format
+        /// that includes customs attributes in a header, and a JSON format that includes custom
+        /// attributes.</para><para>The format must match the format of the file stored in the S3 bucket identified in
+        /// the <code>S3Path</code> parameter.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html">Adding
+        /// questions and answers</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Kendra.FaqFileFormat")]
+        public Amazon.Kendra.FaqFileFormat FileFormat { get; set; }
+        #endregion
+        
         #region Parameter IndexId
         /// <summary>
         /// <para>
@@ -211,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Description = this.Description;
+            context.FileFormat = this.FileFormat;
             context.IndexId = this.IndexId;
             #if MODULAR
             if (this.IndexId == null && ParameterWasBound(nameof(this.IndexId)))
@@ -269,6 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.FileFormat != null)
+            {
+                request.FileFormat = cmdletContext.FileFormat;
             }
             if (cmdletContext.IndexId != null)
             {
@@ -377,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public Amazon.Kendra.FaqFileFormat FileFormat { get; set; }
             public System.String IndexId { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }

@@ -19,6 +19,18 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchDelete" OutputProperty="*" Verb="Remove" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchStart" OutputProperty="*" Verb="Start" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchStop" OutputProperty="*" Verb="Stop" Noun="ResourceBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchUpdateSchedule" OutputProperty="*" Verb="Update" Noun="ScheduleBatch" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -29,13 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
     /// Updates the status for the specified job. Use this operation to confirm that you want
-    /// to run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">Amazon
-    /// S3 Batch Operations</a> in the Amazon Simple Storage Service Developer Guide.
+    /// to run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
+    /// Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
     /// 
     ///   
     /// <para>
     /// Related actions include:
-    /// </para><ul><li><para><a>CreateJob</a></para></li><li><para><a>ListJobs</a></para></li><li><para><a>DescribeJob</a></para></li><li><para><a>UpdateJobStatus</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "S3CJobStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3Control.Model.UpdateJobStatusResponse")]

@@ -55,8 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Filters specify one or more snapshot exports to describe. The filters are specified
-        /// as name-value pairs that define what to include in the output.</para><para>Supported filters include the following: </para><ul><li><para><code>export-task-identifier</code> - An identifier for the snapshot export task.</para></li><li><para><code>s3-bucket</code> - The Amazon S3 bucket the snapshot is exported to.</para></li><li><para><code>source-arn</code> - The Amazon Resource Name (ARN) of the snapshot exported
-        /// to Amazon S3</para></li><li><para><code>status</code> - The status of the export task.</para></li></ul>
+        /// as name-value pairs that define what to include in the output. Filter names and values
+        /// are case-sensitive.</para><para>Supported filters include the following: </para><ul><li><para><code>export-task-identifier</code> - An identifier for the snapshot export task.</para></li><li><para><code>s3-bucket</code> - The Amazon S3 bucket the snapshot is exported to.</para></li><li><para><code>source-arn</code> - The Amazon Resource Name (ARN) of the snapshot exported
+        /// to Amazon S3</para></li><li><para><code>status</code> - The status of the export task. Must be lowercase, for example,
+        /// <code>complete</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -112,6 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String FleetId { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplateConfig
+        /// <summary>
+        /// <para>
+        /// <para>The launch template and overrides.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LaunchTemplateConfigs")]
+        public Amazon.EC2.Model.FleetLaunchTemplateConfigRequest[] LaunchTemplateConfig { get; set; }
+        #endregion
+        
         #region Parameter TargetCapacitySpecification_OnDemandTargetCapacity
         /// <summary>
         /// <para>
@@ -217,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.LaunchTemplateConfig != null)
+            {
+                context.LaunchTemplateConfig = new List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest>(this.LaunchTemplateConfig);
+            }
             context.TargetCapacitySpecification_DefaultTargetCapacityType = this.TargetCapacitySpecification_DefaultTargetCapacityType;
             context.TargetCapacitySpecification_OnDemandTargetCapacity = this.TargetCapacitySpecification_OnDemandTargetCapacity;
             context.TargetCapacitySpecification_SpotTargetCapacity = this.TargetCapacitySpecification_SpotTargetCapacity;
@@ -250,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.FleetId != null)
             {
                 request.FleetId = cmdletContext.FleetId;
+            }
+            if (cmdletContext.LaunchTemplateConfig != null)
+            {
+                request.LaunchTemplateConfigs = cmdletContext.LaunchTemplateConfig;
             }
             
              // populate TargetCapacitySpecification
@@ -363,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public Amazon.EC2.FleetExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
             public System.String FleetId { get; set; }
+            public List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest> LaunchTemplateConfig { get; set; }
             public Amazon.EC2.DefaultTargetCapacityType TargetCapacitySpecification_DefaultTargetCapacityType { get; set; }
             public System.Int32? TargetCapacitySpecification_OnDemandTargetCapacity { get; set; }
             public System.Int32? TargetCapacitySpecification_SpotTargetCapacity { get; set; }

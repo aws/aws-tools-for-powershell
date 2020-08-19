@@ -29,6 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Deletes a traffic policy.
+    /// 
+    ///  
+    /// <para>
+    /// When you delete a traffic policy, Route 53 sets a flag on the policy to indicate that
+    /// it has been deleted. However, Route 53 never fully deletes the traffic policy. Note
+    /// the following:
+    /// </para><ul><li><para>
+    /// Deleted traffic policies aren't listed if you run <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html">ListTrafficPolicies</a>.
+    /// </para></li><li><para>
+    ///  There's no way to get a list of deleted policies.
+    /// </para></li><li><para>
+    /// If you retain the ID of the policy, you can get information about the policy, including
+    /// the traffic policy document, by running <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html">GetTrafficPolicy</a>.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "R53TrafficPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

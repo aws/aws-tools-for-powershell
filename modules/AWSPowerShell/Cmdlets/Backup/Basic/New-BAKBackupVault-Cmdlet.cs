@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>A unique string that identifies the request and allows failed requests to be retried
-        /// without the risk of executing the operation twice.</para>
+        /// without the risk of running the operation twice.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

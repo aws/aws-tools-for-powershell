@@ -58,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter Authorized
+        /// <summary>
+        /// <para>
+        /// <para>Whether the channel is authorized. Default: <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Authorized { get; set; }
+        #endregion
+        
         #region Parameter LatencyMode
         /// <summary>
         /// <para>
@@ -164,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Authorized = this.Authorized;
             context.LatencyMode = this.LatencyMode;
             context.Name = this.Name;
             context.Type = this.Type;
@@ -186,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.Authorized != null)
+            {
+                request.Authorized = cmdletContext.Authorized.Value;
             }
             if (cmdletContext.LatencyMode != null)
             {
@@ -261,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.Boolean? Authorized { get; set; }
             public Amazon.IVS.ChannelLatencyMode LatencyMode { get; set; }
             public System.String Name { get; set; }
             public Amazon.IVS.ChannelType Type { get; set; }

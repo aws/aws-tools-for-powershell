@@ -52,19 +52,24 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The provisioned product identifier.</para>
+        /// <para>The provisioned product identifier. You must provide the name or ID, but not both.</para><para>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code>
+        /// will occur.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("ProductId")]
         public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the provisioned product. You must provide the name or ID, but not both.</para><para>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code>
+        /// will occur.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
@@ -114,12 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AcceptLanguage = this.AcceptLanguage;
             context.Id = this.Id;
-            #if MODULAR
-            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,6 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -207,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             public System.String AcceptLanguage { get; set; }
             public System.String Id { get; set; }
+            public System.String Name { get; set; }
             public System.Func<Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse, GetSCProvisionedProductDetailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -663,7 +663,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter SMSMessage_MediaUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of an image or video to display in the SMS message.</para>
+        /// <para>This field is reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1362,9 +1362,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter SendUsersMessageRequest_User
         /// <summary>
         /// <para>
-        /// <para>A map that associates user IDs with EndpointSendConfiguration objects. You can use
-        /// an EndpointSendConfiguration object to tailor the message for a user by specifying
-        /// settings such as content overrides and message variables.</para>
+        /// <para>A map that associates user IDs with <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a>
+        /// objects. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a>
+        /// object to tailor the message for a user by specifying settings such as content overrides
+        /// and message variables.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

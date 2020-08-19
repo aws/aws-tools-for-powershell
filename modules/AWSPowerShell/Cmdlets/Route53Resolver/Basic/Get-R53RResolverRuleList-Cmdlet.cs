@@ -28,7 +28,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Lists the resolver rules that were created using the current AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the Resolver rules that were created using the current AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RResolverRuleList")]
     [OutputType("Amazon.Route53Resolver.Model.ResolverRule")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An optional specification to return a subset of resolver rules, such as all resolver
-        /// rules that are associated with the same resolver endpoint.</para><note><para>If you submit a second or subsequent <code>ListResolverRules</code> request and specify
+        /// <para>An optional specification to return a subset of Resolver rules, such as all Resolver
+        /// rules that are associated with the same Resolver endpoint.</para><note><para>If you submit a second or subsequent <code>ListResolverRules</code> request and specify
         /// the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>,
         /// if any, as in the previous request.</para></note>
         /// </para>
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of resolver rules that you want to return in the response to a
+        /// <para>The maximum number of Resolver rules that you want to return in the response to a
         /// <code>ListResolverRules</code> request. If you don't specify a value for <code>MaxResults</code>,
-        /// Resolver returns up to 100 resolver rules.</para>
+        /// Resolver returns up to 100 Resolver rules.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>ListResolverRules</code> request, omit this value.</para><para>If you have more than <code>MaxResults</code> resolver rules, you can submit another
-        /// <code>ListResolverRules</code> request to get the next group of resolver rules. In
+        /// <para>For the first <code>ListResolverRules</code> request, omit this value.</para><para>If you have more than <code>MaxResults</code> Resolver rules, you can submit another
+        /// <code>ListResolverRules</code> request to get the next group of Resolver rules. In
         /// the next request, specify the value of <code>NextToken</code> from the previous response.
         /// </para>
         /// </para>

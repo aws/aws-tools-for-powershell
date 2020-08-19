@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
     /// If you associate a CodeCommit repository, it must be in the same AWS Region and AWS
     /// account where its CodeGuru Reviewer code reviews are configured.
     /// </para><para>
-    ///  Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar Connections
+    /// Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar Connections
     /// to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider">Connect
     /// to a repository source provider</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i></para><note><para>
     ///  You cannot use the CodeGuru Reviewer SDK or the AWS CLI to associate a GitHub repository
@@ -58,16 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para><para>To add a new repository association, this parameter specifies a unique identifier
-        /// for the new repository association that helps ensure idempotency.</para><para>If you use the AWS CLI or one of the AWS SDKs to call this operation, you can leave
-        /// this parameter empty. The CLI or SDK generates a random UUID for you and includes
-        /// that in the request. If you don't use the SDK and instead generate a raw HTTP request
-        /// to the Secrets Manager service endpoint, you must generate a ClientRequestToken yourself
-        /// for new versions and include that value in the request.</para><para>You typically interact with this value if you implement your own retry logic and want
-        /// to ensure that a given repository association is not created twice. We recommend that
-        /// you generate a UUID-type value to ensure uniqueness within the specified repository
-        /// association.</para><para>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate
+        /// <para>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate
         /// repository associations if there are failures and retries. </para>
         /// </para>
         /// </summary>
@@ -80,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format
         /// is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a>
-        /// in the <i>AWS CodeStar Connections API Reference</i>. </para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"><code>Connection</code></a> in the <i>AWS CodeStar Connections API Reference</i>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <para>
         /// <para> The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format
         /// is <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">Connection</a>
-        /// in the <i>AWS CodeStar Connections API Reference</i>. </para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html"><code>Connection</code></a> in the <i>AWS CodeStar Connections API Reference</i>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

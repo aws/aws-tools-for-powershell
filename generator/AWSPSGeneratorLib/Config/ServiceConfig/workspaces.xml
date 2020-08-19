@@ -21,6 +21,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateConnectionAlias" OutputProperty="ConnectionIdentifier" Verb="Register" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateIpGroups" Verb="Register" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -30,6 +34,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CopyWorkspaceImage" OutputProperty="ImageId" Verb="Copy" Noun="WorkspaceImage" ShouldProcessTarget="SourceImageId" PipelineParameter="SourceImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConnectionAlias" OutputProperty="AliasId" Verb="New" Noun="ConnectionAlias" ShouldProcessTarget="ConnectionString" PipelineParameter="ConnectionString" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -44,6 +52,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspaces" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Workspaces" PipelineParameter="Workspaces" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectionAlias" Verb="Remove" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -72,6 +84,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeClientProperties" OutputProperty="ClientPropertiesList" Verb="Get" Noun="ClientProperty" PipelineParameter="ResourceIds" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnectionAliases" OutputProperty="ConnectionAliases" Verb="Get" Noun="ConnectionAlias" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnectionAliasPermissions" OutputProperty="*" Verb="Get" Noun="ConnectionAliasPermission" PipelineParameter="AliasId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -111,6 +131,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkspaceSnapshots" OutputProperty="*" Verb="Get" Noun="WorkspaceSnapshot" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateConnectionAlias" Verb="Unregister" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -198,6 +222,10 @@
             <Params>
                 <Param Name="TerminateWorkspaceRequests" NewName="Request" Alias="TerminateWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectionAliasPermission" Verb="Update" Noun="ConnectionAliasPermission" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRulesOfIpGroup" Verb="Update" Noun="RulesOfIpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">

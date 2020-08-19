@@ -102,10 +102,24 @@ $SG_Completers = {
             break
         }
 
+        # Amazon.StorageGateway.RetentionLockType
+        "New-SGTapePool/RetentionLockType"
+        {
+            $v = "COMPLIANCE","GOVERNANCE","NONE"
+            break
+        }
+
         # Amazon.StorageGateway.SMBSecurityStrategy
         "Update-SGSMBSecurityStrategy/SMBSecurityStrategy"
         {
             $v = "ClientSpecified","MandatoryEncryption","MandatorySigning"
+            break
+        }
+
+        # Amazon.StorageGateway.TapeStorageClass
+        "New-SGTapePool/StorageClass"
+        {
+            $v = "DEEP_ARCHIVE","GLACIER"
             break
         }
 
@@ -120,7 +134,9 @@ $SG_Completers = {
 $SG_map = @{
     "CaseSensitivity"=@("New-SGSMBFileShare","Update-SGSMBFileShare")
     "ObjectACL"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
+    "RetentionLockType"=@("New-SGTapePool")
     "SMBSecurityStrategy"=@("Update-SGSMBSecurityStrategy")
+    "StorageClass"=@("New-SGTapePool")
 }
 
 _awsArgumentCompleterRegistration $SG_Completers $SG_map
@@ -188,6 +204,7 @@ $SG_SelectMap = @{
                "New-SGSnapshot",
                "New-SGSnapshotFromVolumeRecoveryPoint",
                "New-SGStorediSCSIVolume",
+               "New-SGTapePool",
                "New-SGTape",
                "New-SGTapeWithBarcode",
                "Remove-SGAutomaticTapeCreationPolicy",
@@ -198,6 +215,7 @@ $SG_SelectMap = @{
                "Remove-SGSnapshotSchedule",
                "Remove-SGTape",
                "Remove-SGTapeArchive",
+               "Remove-SGTapePool",
                "Remove-SGVolume",
                "Get-SGAvailabilityMonitorTest",
                "Get-SGBandwidthRateLimit",
@@ -225,6 +243,7 @@ $SG_SelectMap = @{
                "Get-SGGateway",
                "Get-SGLocalDisk",
                "Get-SGResourceTag",
+               "Get-SGTapePool",
                "Get-SGTape",
                "Get-SGVolumeInitiatorList",
                "Get-SGVolumeRecoveryPoint",

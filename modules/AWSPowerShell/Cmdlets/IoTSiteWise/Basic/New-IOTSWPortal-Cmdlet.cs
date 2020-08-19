@@ -28,15 +28,13 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Creates a portal, which can contain projects and dashboards. Before you can create
-    /// a portal, you must configure AWS Single Sign-On in the current Region. AWS IoT SiteWise
-    /// Monitor uses AWS SSO to manage user permissions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling
-    /// AWS SSO</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// Creates a portal, which can contain projects and dashboards. AWS IoT SiteWise Monitor
+    /// uses AWS SSO or IAM to authenticate portal users and manage user permissions.
     /// 
     ///  <note><para>
-    /// Before you can sign in to a new portal, you must add at least one AWS SSO user or
-    /// group to that portal. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins">Adding
-    /// or Removing Portal Administrators</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// Before you can sign in to a new portal, you must add at least one identity to that
+    /// portal. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/administer-portals.html#portal-change-admins">Adding
+    /// or removing portal administrators</a> in the <i>AWS IoT SiteWise User Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "IOTSWPortal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,6 +57,24 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] PortalLogoImageFile_Data { get; set; }
+        #endregion
+        
+        #region Parameter PortalAuthMode
+        /// <summary>
+        /// <para>
+        /// <para>The service to use to authenticate users to the portal. Choose from the following
+        /// options:</para><ul><li><para><code>SSO</code> – The portal uses AWS Single Sign-On to authenticate users and manage
+        /// user permissions. Before you can create a portal that uses AWS SSO, you must enable
+        /// AWS SSO. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-get-started.html#mon-gs-sso">Enabling
+        /// AWS SSO</a> in the <i>AWS IoT SiteWise User Guide</i>. This option is only available
+        /// in AWS Regions other than the China Regions.</para></li><li><para><code>IAM</code> – The portal uses AWS Identity and Access Management (IAM) to authenticate
+        /// users and manage user permissions. IAM users must have the <code>iotsitewise:CreatePresignedPortalUrl</code>
+        /// permission to sign in to the portal. This option is only available in the China Regions.</para></li></ul><para>You can't change this value after you create a portal.</para><para>Default: <code>SSO</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.AuthMode")]
+        public Amazon.IoTSiteWise.AuthMode PortalAuthMode { get; set; }
         #endregion
         
         #region Parameter PortalContactEmail
@@ -202,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientToken = this.ClientToken;
+            context.PortalAuthMode = this.PortalAuthMode;
             context.PortalContactEmail = this.PortalContactEmail;
             #if MODULAR
             if (this.PortalContactEmail == null && ParameterWasBound(nameof(this.PortalContactEmail)))
@@ -257,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 if (cmdletContext.ClientToken != null)
                 {
                     request.ClientToken = cmdletContext.ClientToken;
+                }
+                if (cmdletContext.PortalAuthMode != null)
+                {
+                    request.PortalAuthMode = cmdletContext.PortalAuthMode;
                 }
                 if (cmdletContext.PortalContactEmail != null)
                 {
@@ -378,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public Amazon.IoTSiteWise.AuthMode PortalAuthMode { get; set; }
             public System.String PortalContactEmail { get; set; }
             public System.String PortalDescription { get; set; }
             public byte[] PortalLogoImageFile_Data { get; set; }

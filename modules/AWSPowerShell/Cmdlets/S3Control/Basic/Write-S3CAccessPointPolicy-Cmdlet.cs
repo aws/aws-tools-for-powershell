@@ -31,6 +31,18 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Associates an access policy with the specified access point. Each access point can
     /// have only one policy, so a request made to this API replaces any existing policy associated
     /// with the specified access point.
+    /// 
+    ///   
+    /// <para>
+    /// All Amazon S3 on Outposts REST API requests for this action require an additional
+    /// parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint
+    /// hostname prefix instead of s3-control. For an example of the request syntax for Amazon
+    /// S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id
+    /// derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_PutAccessPointPolicy.html#API_control_PutAccessPointPolicy_Examples">
+    /// Example</a> section below.
+    /// </para><para>
+    /// The following actions are related to <code>PutAccessPointPolicy</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html">GetAccessPointPolicy</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html">DeleteAccessPointPolicy</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3CAccessPointPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -62,7 +74,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the access point that you want to associate with the specified policy.</para>
+        /// <para>The name of the access point that you want to associate with the specified policy.</para><para>For Amazon S3 on Outposts specify the ARN of the access point accessed in the format
+        /// <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/accesspoint/&lt;my-accesspoint-name&gt;</code>.
+        /// For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code>
+        /// owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the
+        /// URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>.
+        /// The value must be URL encoded. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

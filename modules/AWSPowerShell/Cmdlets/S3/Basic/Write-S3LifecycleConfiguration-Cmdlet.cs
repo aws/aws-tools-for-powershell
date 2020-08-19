@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// key name prefix, one or more object tags, or a combination of both. Accordingly, this
     /// section describes the latest API. The previous version of the API supported filtering
     /// based only on an object key name prefix, which is supported for backward compatibility.
-    /// For the related API description, see <a>PutBucketLifecycle</a>.
+    /// For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.
     /// </para></note><para><b>Rules</b></para><para>
     /// You specify the lifecycle configuration in your request body. The lifecycle configuration
     /// is specified as XML consisting of one or more rules. Each rule consists of the following:
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para><para>
     /// The following are related to <code>PutBucketLifecycleConfiguration</code>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html">Examples
-    /// of Lifecycle Configuration</a></para></li><li><para><a>GetBucketLifecycleConfiguration</a></para></li><li><para><a>DeleteBucketLifecycle</a></para></li></ul>
+    /// of Lifecycle Configuration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3LifecycleConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter Configuration_Rule
@@ -177,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.Configuration_Rule = new List<Amazon.S3.Model.LifecycleRule>(this.Configuration_Rule);
             }
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -215,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestConfigurationIsNull)
             {
                 request.Configuration = null;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -279,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public List<Amazon.S3.Model.LifecycleRule> Configuration_Rule { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutLifecycleConfigurationResponse, WriteS3LifecycleConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

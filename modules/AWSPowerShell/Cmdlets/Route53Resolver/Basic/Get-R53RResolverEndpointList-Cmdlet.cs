@@ -28,7 +28,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Lists all the resolver endpoints that were created using the current AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists all the Resolver endpoints that were created using the current AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RResolverEndpointList")]
     [OutputType("Amazon.Route53Resolver.Model.ResolverEndpoint")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An optional specification to return a subset of resolver endpoints, such as all inbound
-        /// resolver endpoints.</para><note><para>If you submit a second or subsequent <code>ListResolverEndpoints</code> request and
+        /// <para>An optional specification to return a subset of Resolver endpoints, such as all inbound
+        /// Resolver endpoints.</para><note><para>If you submit a second or subsequent <code>ListResolverEndpoints</code> request and
         /// specify the <code>NextToken</code> parameter, you must use the same values for <code>Filters</code>,
         /// if any, as in the previous request.</para></note>
         /// </para>
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of resolver endpoints that you want to return in the response to
+        /// <para>The maximum number of Resolver endpoints that you want to return in the response to
         /// a <code>ListResolverEndpoints</code> request. If you don't specify a value for <code>MaxResults</code>,
-        /// Resolver returns up to 100 resolver endpoints. </para>
+        /// Resolver returns up to 100 Resolver endpoints. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>ListResolverEndpoints</code> request, omit this value.</para><para>If you have more than <code>MaxResults</code> resolver endpoints, you can submit another
-        /// <code>ListResolverEndpoints</code> request to get the next group of resolver endpoints.
+        /// <para>For the first <code>ListResolverEndpoints</code> request, omit this value.</para><para>If you have more than <code>MaxResults</code> Resolver endpoints, you can submit another
+        /// <code>ListResolverEndpoints</code> request to get the next group of Resolver endpoints.
         /// In the next request, specify the value of <code>NextToken</code> from the previous
         /// response. </para>
         /// </para>

@@ -28,9 +28,8 @@ using Amazon.EBS.Model;
 namespace Amazon.PowerShell.Cmdlets.EBS
 {
     /// <summary>
-    /// Writes a block of data to a block in the snapshot. If the specified block contains
-    /// data, the existing data is overwritten. The target snapshot must be in the <code>pending</code>
-    /// state.
+    /// Writes a block of data to a snapshot. If the specified block contains data, the existing
+    /// data is overwritten. The target snapshot must be in the <code>pending</code> state.
     /// 
     ///  
     /// <para>
@@ -74,10 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.EBS
         #region Parameter BlockIndex
         /// <summary>
         /// <para>
-        /// <para>The block index of the block in which to write the data. A block index is the offset
-        /// position of a block within a snapshot, and it is used to identify the block. To identify
-        /// the logical offset of the data in the logical volume, multiply the block index with
-        /// the block size (Block index * 512 bytes).</para>
+        /// <para>The block index of the block in which to write the data. A block index is a logical
+        /// index in units of <code>512</code> KiB blocks. To identify the block index, divide
+        /// the logical offset of the data in the logical volume by the block size (logical offset
+        /// of data/<code>524288</code>). The logical offset of the data must be <code>512</code>
+        /// KiB aligned.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

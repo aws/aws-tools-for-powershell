@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Output
         /// <summary>
         /// <para>
-        /// <para>The JSON output of the task.</para>
+        /// <para>The JSON output of the task. Length constraints apply to the payload size, and are
+        /// expressed as bytes in UTF-8 encoding.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

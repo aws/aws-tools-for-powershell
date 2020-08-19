@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public System.String ExecutionArn { get; set; }
         #endregion
         
+        #region Parameter IncludeExecutionData
+        /// <summary>
+        /// <para>
+        /// <para>You can select whether execution data (input or output of a history event) is returned.
+        /// The default is <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IncludeExecutionData { get; set; }
+        #endregion
+        
         #region Parameter ReverseOrder
         /// <summary>
         /// <para>
@@ -179,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 WriteWarning("You are passing $null as a value for parameter ExecutionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludeExecutionData = this.IncludeExecutionData;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -215,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.ExecutionArn != null)
             {
                 request.ExecutionArn = cmdletContext.ExecutionArn;
+            }
+            if (cmdletContext.IncludeExecutionData != null)
+            {
+                request.IncludeExecutionData = cmdletContext.IncludeExecutionData.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -282,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.ExecutionArn != null)
             {
                 request.ExecutionArn = cmdletContext.ExecutionArn;
+            }
+            if (cmdletContext.IncludeExecutionData != null)
+            {
+                request.IncludeExecutionData = cmdletContext.IncludeExecutionData.Value;
             }
             if (cmdletContext.ReverseOrder != null)
             {
@@ -407,6 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ExecutionArn { get; set; }
+            public System.Boolean? IncludeExecutionData { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Boolean? ReverseOrder { get; set; }

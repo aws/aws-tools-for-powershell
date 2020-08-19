@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Creates an AWS organization. The account whose user is calling the <code>CreateOrganization</code>
-    /// operation automatically becomes the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/orgs_getting-started_concepts.html#account">master
+    /// operation automatically becomes the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">master
     /// account</a> of the new organization.
     /// 
     ///  

@@ -83,7 +83,7 @@ $CGR_Completers = {
         # Amazon.CodeGuruReviewer.Type
         "Get-CGRCodeReviewList/Type"
         {
-            $v = "PullRequest"
+            $v = "PullRequest","RepositoryAnalysis"
             break
         }
 
@@ -150,6 +150,7 @@ $CGR_SelectCompleters = {
 
 $CGR_SelectMap = @{
     "Select"=@("Register-CGRRepository",
+               "New-CGRCodeReview",
                "Get-CGRCodeReview",
                "Get-CGRRecommendationFeedback",
                "Get-CGRRepositoryAssociation",

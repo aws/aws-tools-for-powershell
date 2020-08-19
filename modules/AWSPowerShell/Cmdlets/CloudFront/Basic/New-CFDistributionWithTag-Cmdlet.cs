@@ -568,8 +568,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// the Price Class for a CloudFront Distribution</a> in the <i>Amazon CloudFront Developer
         /// Guide</i>. For information about CloudFront pricing, including how price classes (such
         /// as Price Class 100) map to CloudFront regions, see <a href="http://aws.amazon.com/cloudfront/pricing/">Amazon
-        /// CloudFront Pricing</a>. For price class information, scroll down to see the table
-        /// at the bottom of the page.</para>
+        /// CloudFront Pricing</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -771,6 +770,19 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.Boolean? ForwardedValues_QueryString { get; set; }
         #endregion
         
+        #region Parameter DefaultCacheBehavior_RealtimeLogConfigArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the real-time log configuration that is attached
+        /// to this cache behavior. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time
+        /// logs</a> in the <i>Amazon CloudFront Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_RealtimeLogConfigArn")]
+        public System.String DefaultCacheBehavior_RealtimeLogConfigArn { get; set; }
+        #endregion
+        
         #region Parameter GeoRestriction_RestrictionType
         /// <summary>
         /// <para>
@@ -810,7 +822,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// name indication (SNI)</a>. This is recommended. Most browsers and clients support
         /// SNI.</para></li><li><para><code>vip</code> – The distribution accepts HTTPS connections from all viewers including
         /// those that don’t support SNI. This is not recommended, and results in additional monthly
-        /// charges from CloudFront.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
+        /// charges from CloudFront.</para></li><li><para><code>static-ip</code> - Do not specify this value unless your distribution has been
+        /// enabled for this feature by the CloudFront team. If you have a use case that requires
+        /// static IP addresses for a distribution, contact CloudFront through the <a href="https://console.aws.amazon.com/support/home">AWS
+        /// Support Center</a>.</para></li></ul><para>If the distribution uses the CloudFront domain name such as <code>d111111abcdef8.cloudfront.net</code>,
         /// don’t set a value for this field.</para>
         /// </para>
         /// </summary>
@@ -1098,6 +1113,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             context.DefaultCacheBehavior_MinTTL = this.DefaultCacheBehavior_MinTTL;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DefaultCacheBehavior_OriginRequestPolicyId = this.DefaultCacheBehavior_OriginRequestPolicyId;
+            context.DefaultCacheBehavior_RealtimeLogConfigArn = this.DefaultCacheBehavior_RealtimeLogConfigArn;
             context.DefaultCacheBehavior_SmoothStreaming = this.DefaultCacheBehavior_SmoothStreaming;
             context.DefaultCacheBehavior_TargetOriginId = this.DefaultCacheBehavior_TargetOriginId;
             #if MODULAR
@@ -1780,6 +1796,16 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.OriginRequestPolicyId = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_OriginRequestPolicyId;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
             }
+            System.String requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_RealtimeLogConfigArn = null;
+            if (cmdletContext.DefaultCacheBehavior_RealtimeLogConfigArn != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_RealtimeLogConfigArn = cmdletContext.DefaultCacheBehavior_RealtimeLogConfigArn;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_RealtimeLogConfigArn != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior.RealtimeLogConfigArn = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_RealtimeLogConfigArn;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehaviorIsNull = false;
+            }
             System.Boolean? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_defaultCacheBehavior_SmoothStreaming = null;
             if (cmdletContext.DefaultCacheBehavior_SmoothStreaming != null)
             {
@@ -2235,6 +2261,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
             [System.ObsoleteAttribute]
             public System.Int64? DefaultCacheBehavior_MinTTL { get; set; }
             public System.String DefaultCacheBehavior_OriginRequestPolicyId { get; set; }
+            public System.String DefaultCacheBehavior_RealtimeLogConfigArn { get; set; }
             public System.Boolean? DefaultCacheBehavior_SmoothStreaming { get; set; }
             public System.String DefaultCacheBehavior_TargetOriginId { get; set; }
             public System.Boolean? TrustedSigners_Enabled { get; set; }

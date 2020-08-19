@@ -28,7 +28,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Gets the IP addresses for a specified resolver endpoint.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets the IP addresses for a specified Resolver endpoint.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RResolverEndpointIpAddressList")]
     [OutputType("Amazon.Route53Resolver.Model.IpAddressResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver endpoint that you want to get IP addresses for.</para>
+        /// <para>The ID of the Resolver endpoint that you want to get IP addresses for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</para><para>If the specified resolver endpoint has more than <code>MaxResults</code> IP addresses,
+        /// <para>For the first <code>ListResolverEndpointIpAddresses</code> request, omit this value.</para><para>If the specified Resolver endpoint has more than <code>MaxResults</code> IP addresses,
         /// you can submit another <code>ListResolverEndpointIpAddresses</code> request to get
         /// the next group of IP addresses. In the next request, specify the value of <code>NextToken</code>
         /// from the previous response. </para>

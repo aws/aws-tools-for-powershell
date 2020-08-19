@@ -47,6 +47,20 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class AddSGTapeToTapePoolCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter BypassGovernanceRetention
+        /// <summary>
+        /// <para>
+        /// <para>Set permissions to bypass governance retention. If the lock type of the archived tape
+        /// is <code>Governance</code>, the tape's archived age is not older than <code>RetentionLockInDays</code>,
+        /// and the user does not already have <code>BypassGovernanceRetention</code>, setting
+        /// this to TRUE enables the user to bypass the retention lock. This parameter is set
+        /// to true by default for calls from the console.</para><para>Valid values: <code>TRUE</code> | <code>FALSE</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BypassGovernanceRetention { get; set; }
+        #endregion
+        
         #region Parameter PoolId
         /// <summary>
         /// <para>
@@ -147,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.Select = (response, cmdlet) => this.TapeARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BypassGovernanceRetention = this.BypassGovernanceRetention;
             context.PoolId = this.PoolId;
             #if MODULAR
             if (this.PoolId == null && ParameterWasBound(nameof(this.PoolId)))
@@ -177,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.AssignTapePoolRequest();
             
+            if (cmdletContext.BypassGovernanceRetention != null)
+            {
+                request.BypassGovernanceRetention = cmdletContext.BypassGovernanceRetention.Value;
+            }
             if (cmdletContext.PoolId != null)
             {
                 request.PoolId = cmdletContext.PoolId;
@@ -246,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? BypassGovernanceRetention { get; set; }
             public System.String PoolId { get; set; }
             public System.String TapeARN { get; set; }
             public System.Func<Amazon.StorageGateway.Model.AssignTapePoolResponse, AddSGTapeToTapePoolCmdlet, object> Select { get; set; } =

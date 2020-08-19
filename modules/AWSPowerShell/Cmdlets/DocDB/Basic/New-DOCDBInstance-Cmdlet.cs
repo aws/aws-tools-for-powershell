@@ -54,9 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para> The Amazon EC2 Availability Zone that the instance is created in.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The <code>AvailabilityZone</code> parameter can't be specified if the
-        /// <code>MultiAZ</code> parameter is set to <code>true</code>. The specified Availability
-        /// Zone must be in the same AWS Region as the current endpoint. </para>
+        /// <para>The Amazon EC2 Availability Zone that the instance is created in. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para>Example: <code>us-east-1d</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

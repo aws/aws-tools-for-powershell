@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the resource that you want to add tags to. To get
         /// the ARN for a resource, use the applicable <code>Get</code> or <code>List</code> command:
-        /// </para><ul><li><para><a>GetResolverEndpoint</a></para></li><li><para><a>GetResolverRule</a></para></li><li><para><a>GetResolverRuleAssociation</a></para></li><li><para><a>ListResolverEndpoints</a></para></li><li><para><a>ListResolverRuleAssociations</a></para></li><li><para><a>ListResolverRules</a></para></li></ul>
+        /// </para><ul><li><para><a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html">GetResolverEndpoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html">GetResolverRule</a></para></li><li><para><a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html">GetResolverRuleAssociation</a></para></li><li><para><a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html">ListResolverEndpoints</a></para></li><li><para><a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html">ListResolverRuleAssociations</a></para></li><li><para><a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

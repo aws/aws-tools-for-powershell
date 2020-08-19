@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Updates the current service opt-in settings for the Region. If the service has a value
-    /// set to <code>true</code>, AWS Backup attempts to protect that service's resources
-    /// in this Region, when included in an on-demand backup or scheduled backup plan. If
-    /// the value is set to <code>false</code> for a service, AWS Backup does not attempt
-    /// to protect that service's resources in this Region.
+    /// set to <code>true</code>, AWS Backup tries to protect that service's resources in
+    /// this Region, when included in an on-demand backup or scheduled backup plan. If the
+    /// value is set to <code>false</code> for a service, AWS Backup does not try to protect
+    /// that service's resources in this Region.
     /// </summary>
     [Cmdlet("Update", "BAKRegionSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ResourceTypeOptInPreference
         /// <summary>
         /// <para>
-        /// <para>Updates the list of services along with the opt-in preferences for the region.</para>
+        /// <para>Updates the list of services along with the opt-in preferences for the Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

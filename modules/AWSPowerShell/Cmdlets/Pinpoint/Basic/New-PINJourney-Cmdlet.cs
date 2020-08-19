@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter Dimensions_Attribute
+        /// <summary>
+        /// <para>
+        /// <para>One or more custom attributes that your application reports to Amazon Pinpoint. You
+        /// can use these attributes as selection criteria when you create an event filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_Attributes")]
+        public System.Collections.Hashtable Dimensions_Attribute { get; set; }
+        #endregion
+        
         #region Parameter WriteJourneyRequest_CreationDate
         /// <summary>
         /// <para>
@@ -103,6 +115,20 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WriteJourneyRequest_StartCondition_Description")]
         public System.String StartCondition_Description { get; set; }
+        #endregion
+        
+        #region Parameter EventType_DimensionType
+        /// <summary>
+        /// <para>
+        /// <para>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that
+        /// match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match
+        /// the criteria are excluded from the segment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType")]
+        [AWSConstantClassSource("Amazon.Pinpoint.DimensionType")]
+        public Amazon.Pinpoint.DimensionType EventType_DimensionType { get; set; }
         #endregion
         
         #region Parameter QuietTime_End
@@ -143,6 +169,22 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.DateTime? Schedule_EndTime { get; set; }
         #endregion
         
+        #region Parameter EventFilter_FilterType
+        /// <summary>
+        /// <para>
+        /// <para>The type of event that causes the campaign to be sent or the journey activity to be
+        /// performed. Valid values are: SYSTEM, sends the campaign or performs the activity when
+        /// a system event occurs; and, ENDPOINT, sends the campaign or performs the activity
+        /// when an endpoint event (<link linkend="apps-application-id-events">Events resource</link>)
+        /// occurs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_FilterType")]
+        [AWSConstantClassSource("Amazon.Pinpoint.FilterType")]
+        public Amazon.Pinpoint.FilterType EventFilter_FilterType { get; set; }
+        #endregion
+        
         #region Parameter WriteJourneyRequest_LastModifiedDate
         /// <summary>
         /// <para>
@@ -176,6 +218,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Int32? Limits_MessagesPerSecond { get; set; }
         #endregion
         
+        #region Parameter Dimensions_Metric
+        /// <summary>
+        /// <para>
+        /// <para>One or more custom metrics that your application reports to Amazon Pinpoint. You can
+        /// use these metrics as selection criteria when you create an event filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_Metrics")]
+        public System.Collections.Hashtable Dimensions_Metric { get; set; }
+        #endregion
+        
         #region Parameter WriteJourneyRequest_Name
         /// <summary>
         /// <para>
@@ -204,6 +258,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String WriteJourneyRequest_RefreshFrequency { get; set; }
+        #endregion
+        
+        #region Parameter EventStartCondition_SegmentId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_StartCondition_EventStartCondition_SegmentId")]
+        public System.String EventStartCondition_SegmentId { get; set; }
         #endregion
         
         #region Parameter SegmentStartCondition_SegmentId
@@ -284,6 +349,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("WriteJourneyRequest_Schedule_Timezone")]
         public System.String Schedule_Timezone { get; set; }
+        #endregion
+        
+        #region Parameter EventType_Value
+        /// <summary>
+        /// <para>
+        /// <para>The criteria values to use for the segment dimension. Depending on the value of the
+        /// DimensionType property, endpoints are included or excluded from the segment if their
+        /// values match the criteria values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_Values")]
+        public System.String[] EventType_Value { get; set; }
         #endregion
         
         #region Parameter Select
@@ -383,6 +461,29 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.Schedule_Timezone = this.Schedule_Timezone;
             context.WriteJourneyRequest_StartActivity = this.WriteJourneyRequest_StartActivity;
             context.StartCondition_Description = this.StartCondition_Description;
+            if (this.Dimensions_Attribute != null)
+            {
+                context.Dimensions_Attribute = new Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Dimensions_Attribute.Keys)
+                {
+                    context.Dimensions_Attribute.Add((String)hashKey, (AttributeDimension)(this.Dimensions_Attribute[hashKey]));
+                }
+            }
+            context.EventType_DimensionType = this.EventType_DimensionType;
+            if (this.EventType_Value != null)
+            {
+                context.EventType_Value = new List<System.String>(this.EventType_Value);
+            }
+            if (this.Dimensions_Metric != null)
+            {
+                context.Dimensions_Metric = new Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Dimensions_Metric.Keys)
+                {
+                    context.Dimensions_Metric.Add((String)hashKey, (MetricDimension)(this.Dimensions_Metric[hashKey]));
+                }
+            }
+            context.EventFilter_FilterType = this.EventFilter_FilterType;
+            context.EventStartCondition_SegmentId = this.EventStartCondition_SegmentId;
             context.SegmentStartCondition_SegmentId = this.SegmentStartCondition_SegmentId;
             context.WriteJourneyRequest_State = this.WriteJourneyRequest_State;
             
@@ -524,56 +625,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.WriteJourneyRequest.QuietTime = requestWriteJourneyRequest_writeJourneyRequest_QuietTime;
                 requestWriteJourneyRequestIsNull = false;
             }
-            Amazon.Pinpoint.Model.StartCondition requestWriteJourneyRequest_writeJourneyRequest_StartCondition = null;
-            
-             // populate StartCondition
-            var requestWriteJourneyRequest_writeJourneyRequest_StartConditionIsNull = true;
-            requestWriteJourneyRequest_writeJourneyRequest_StartCondition = new Amazon.Pinpoint.Model.StartCondition();
-            System.String requestWriteJourneyRequest_writeJourneyRequest_StartCondition_startCondition_Description = null;
-            if (cmdletContext.StartCondition_Description != null)
-            {
-                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_startCondition_Description = cmdletContext.StartCondition_Description;
-            }
-            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_startCondition_Description != null)
-            {
-                requestWriteJourneyRequest_writeJourneyRequest_StartCondition.Description = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_startCondition_Description;
-                requestWriteJourneyRequest_writeJourneyRequest_StartConditionIsNull = false;
-            }
-            Amazon.Pinpoint.Model.SegmentCondition requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition = null;
-            
-             // populate SegmentStartCondition
-            var requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartConditionIsNull = true;
-            requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition = new Amazon.Pinpoint.Model.SegmentCondition();
-            System.String requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition_segmentStartCondition_SegmentId = null;
-            if (cmdletContext.SegmentStartCondition_SegmentId != null)
-            {
-                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition_segmentStartCondition_SegmentId = cmdletContext.SegmentStartCondition_SegmentId;
-            }
-            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition_segmentStartCondition_SegmentId != null)
-            {
-                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition.SegmentId = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition_segmentStartCondition_SegmentId;
-                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartConditionIsNull = false;
-            }
-             // determine if requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition should be set to null
-            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartConditionIsNull)
-            {
-                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition = null;
-            }
-            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition != null)
-            {
-                requestWriteJourneyRequest_writeJourneyRequest_StartCondition.SegmentStartCondition = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition;
-                requestWriteJourneyRequest_writeJourneyRequest_StartConditionIsNull = false;
-            }
-             // determine if requestWriteJourneyRequest_writeJourneyRequest_StartCondition should be set to null
-            if (requestWriteJourneyRequest_writeJourneyRequest_StartConditionIsNull)
-            {
-                requestWriteJourneyRequest_writeJourneyRequest_StartCondition = null;
-            }
-            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition != null)
-            {
-                request.WriteJourneyRequest.StartCondition = requestWriteJourneyRequest_writeJourneyRequest_StartCondition;
-                requestWriteJourneyRequestIsNull = false;
-            }
             Amazon.Pinpoint.Model.JourneyLimits requestWriteJourneyRequest_writeJourneyRequest_Limits = null;
             
              // populate Limits
@@ -664,6 +715,176 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.WriteJourneyRequest.Schedule = requestWriteJourneyRequest_writeJourneyRequest_Schedule;
                 requestWriteJourneyRequestIsNull = false;
             }
+            Amazon.Pinpoint.Model.StartCondition requestWriteJourneyRequest_writeJourneyRequest_StartCondition = null;
+            
+             // populate StartCondition
+            var requestWriteJourneyRequest_writeJourneyRequest_StartConditionIsNull = true;
+            requestWriteJourneyRequest_writeJourneyRequest_StartCondition = new Amazon.Pinpoint.Model.StartCondition();
+            System.String requestWriteJourneyRequest_writeJourneyRequest_StartCondition_startCondition_Description = null;
+            if (cmdletContext.StartCondition_Description != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_startCondition_Description = cmdletContext.StartCondition_Description;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_startCondition_Description != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition.Description = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_startCondition_Description;
+                requestWriteJourneyRequest_writeJourneyRequest_StartConditionIsNull = false;
+            }
+            Amazon.Pinpoint.Model.SegmentCondition requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition = null;
+            
+             // populate SegmentStartCondition
+            var requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartConditionIsNull = true;
+            requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition = new Amazon.Pinpoint.Model.SegmentCondition();
+            System.String requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition_segmentStartCondition_SegmentId = null;
+            if (cmdletContext.SegmentStartCondition_SegmentId != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition_segmentStartCondition_SegmentId = cmdletContext.SegmentStartCondition_SegmentId;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition_segmentStartCondition_SegmentId != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition.SegmentId = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition_segmentStartCondition_SegmentId;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartConditionIsNull = false;
+            }
+             // determine if requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition should be set to null
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartConditionIsNull)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition = null;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition.SegmentStartCondition = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_SegmentStartCondition;
+                requestWriteJourneyRequest_writeJourneyRequest_StartConditionIsNull = false;
+            }
+            Amazon.Pinpoint.Model.EventStartCondition requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition = null;
+            
+             // populate EventStartCondition
+            var requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartConditionIsNull = true;
+            requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition = new Amazon.Pinpoint.Model.EventStartCondition();
+            System.String requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_eventStartCondition_SegmentId = null;
+            if (cmdletContext.EventStartCondition_SegmentId != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_eventStartCondition_SegmentId = cmdletContext.EventStartCondition_SegmentId;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_eventStartCondition_SegmentId != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition.SegmentId = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_eventStartCondition_SegmentId;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartConditionIsNull = false;
+            }
+            Amazon.Pinpoint.Model.EventFilter requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter = null;
+            
+             // populate EventFilter
+            var requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilterIsNull = true;
+            requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter = new Amazon.Pinpoint.Model.EventFilter();
+            Amazon.Pinpoint.FilterType requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_eventFilter_FilterType = null;
+            if (cmdletContext.EventFilter_FilterType != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_eventFilter_FilterType = cmdletContext.EventFilter_FilterType;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_eventFilter_FilterType != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter.FilterType = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_eventFilter_FilterType;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilterIsNull = false;
+            }
+            Amazon.Pinpoint.Model.EventDimensions requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions = null;
+            
+             // populate Dimensions
+            var requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_DimensionsIsNull = true;
+            requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions = new Amazon.Pinpoint.Model.EventDimensions();
+            Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_dimensions_Attribute = null;
+            if (cmdletContext.Dimensions_Attribute != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_dimensions_Attribute = cmdletContext.Dimensions_Attribute;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_dimensions_Attribute != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions.Attributes = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_dimensions_Attribute;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_DimensionsIsNull = false;
+            }
+            Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension> requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_dimensions_Metric = null;
+            if (cmdletContext.Dimensions_Metric != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_dimensions_Metric = cmdletContext.Dimensions_Metric;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_dimensions_Metric != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions.Metrics = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_dimensions_Metric;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_DimensionsIsNull = false;
+            }
+            Amazon.Pinpoint.Model.SetDimension requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType = null;
+            
+             // populate EventType
+            var requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventTypeIsNull = true;
+            requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType = new Amazon.Pinpoint.Model.SetDimension();
+            Amazon.Pinpoint.DimensionType requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_eventType_DimensionType = null;
+            if (cmdletContext.EventType_DimensionType != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_eventType_DimensionType = cmdletContext.EventType_DimensionType;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_eventType_DimensionType != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType.DimensionType = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_eventType_DimensionType;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventTypeIsNull = false;
+            }
+            List<System.String> requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_eventType_Value = null;
+            if (cmdletContext.EventType_Value != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_eventType_Value = cmdletContext.EventType_Value;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_eventType_Value != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType.Values = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_eventType_Value;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventTypeIsNull = false;
+            }
+             // determine if requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType should be set to null
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventTypeIsNull)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType = null;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions.EventType = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_DimensionsIsNull = false;
+            }
+             // determine if requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions should be set to null
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_DimensionsIsNull)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions = null;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter.Dimensions = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilterIsNull = false;
+            }
+             // determine if requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter should be set to null
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilterIsNull)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter = null;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition.EventFilter = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition_writeJourneyRequest_StartCondition_EventStartCondition_EventFilter;
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartConditionIsNull = false;
+            }
+             // determine if requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition should be set to null
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartConditionIsNull)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition = null;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition != null)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition.EventStartCondition = requestWriteJourneyRequest_writeJourneyRequest_StartCondition_writeJourneyRequest_StartCondition_EventStartCondition;
+                requestWriteJourneyRequest_writeJourneyRequest_StartConditionIsNull = false;
+            }
+             // determine if requestWriteJourneyRequest_writeJourneyRequest_StartCondition should be set to null
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartConditionIsNull)
+            {
+                requestWriteJourneyRequest_writeJourneyRequest_StartCondition = null;
+            }
+            if (requestWriteJourneyRequest_writeJourneyRequest_StartCondition != null)
+            {
+                request.WriteJourneyRequest.StartCondition = requestWriteJourneyRequest_writeJourneyRequest_StartCondition;
+                requestWriteJourneyRequestIsNull = false;
+            }
              // determine if request.WriteJourneyRequest should be set to null
             if (requestWriteJourneyRequestIsNull)
             {
@@ -747,6 +968,12 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String Schedule_Timezone { get; set; }
             public System.String WriteJourneyRequest_StartActivity { get; set; }
             public System.String StartCondition_Description { get; set; }
+            public Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension> Dimensions_Attribute { get; set; }
+            public Amazon.Pinpoint.DimensionType EventType_DimensionType { get; set; }
+            public List<System.String> EventType_Value { get; set; }
+            public Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension> Dimensions_Metric { get; set; }
+            public Amazon.Pinpoint.FilterType EventFilter_FilterType { get; set; }
+            public System.String EventStartCondition_SegmentId { get; set; }
             public System.String SegmentStartCondition_SegmentId { get; set; }
             public Amazon.Pinpoint.State WriteJourneyRequest_State { get; set; }
             public System.Func<Amazon.Pinpoint.Model.CreateJourneyResponse, NewPINJourneyCmdlet, object> Select { get; set; } =

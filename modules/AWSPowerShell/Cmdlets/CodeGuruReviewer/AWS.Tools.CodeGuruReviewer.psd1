@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CGRRecommendationList', 
         'Get-CGRRepositoryAssociation', 
         'Get-CGRRepositoryAssociationList', 
+        'New-CGRCodeReview', 
         'Register-CGRRepository', 
         'Unregister-CGRRepository', 
         'Write-CGRRecommendationFeedback')

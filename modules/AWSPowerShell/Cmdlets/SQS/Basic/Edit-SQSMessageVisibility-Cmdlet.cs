@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter VisibilityTimeout
         /// <summary>
         /// <para>
-        /// <para>The new value for the message's visibility timeout (in seconds). Values values: <code>0</code>
+        /// <para>The new value for the message's visibility timeout (in seconds). Values range: <code>0</code>
         /// to <code>43200</code>. Maximum: 12 hours.</para>
         /// </para>
         /// </summary>

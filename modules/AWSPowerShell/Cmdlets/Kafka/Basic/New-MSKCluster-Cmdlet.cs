@@ -142,6 +142,17 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         public System.String Firehose_DeliveryStream { get; set; }
         #endregion
         
+        #region Parameter Scram_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>SASL/SCRAM authentication is enabled or not.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ClientAuthentication_Sasl_Scram_Enabled")]
+        public System.Boolean? Scram_Enabled { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLogs_Enabled
         /// <summary>
         /// <para>
@@ -366,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
                 WriteWarning("You are passing $null as a value for parameter BrokerNodeGroupInfo which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Scram_Enabled = this.Scram_Enabled;
             if (this.Tls_CertificateAuthorityArnList != null)
             {
                 context.Tls_CertificateAuthorityArnList = new List<System.String>(this.Tls_CertificateAuthorityArnList);
@@ -438,6 +450,46 @@ namespace Amazon.PowerShell.Cmdlets.MSK
              // populate ClientAuthentication
             var requestClientAuthenticationIsNull = true;
             request.ClientAuthentication = new Amazon.Kafka.Model.ClientAuthentication();
+            Amazon.Kafka.Model.Sasl requestClientAuthentication_clientAuthentication_Sasl = null;
+            
+             // populate Sasl
+            var requestClientAuthentication_clientAuthentication_SaslIsNull = true;
+            requestClientAuthentication_clientAuthentication_Sasl = new Amazon.Kafka.Model.Sasl();
+            Amazon.Kafka.Model.Scram requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram = null;
+            
+             // populate Scram
+            var requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_ScramIsNull = true;
+            requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram = new Amazon.Kafka.Model.Scram();
+            System.Boolean? requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram_scram_Enabled = null;
+            if (cmdletContext.Scram_Enabled != null)
+            {
+                requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram_scram_Enabled = cmdletContext.Scram_Enabled.Value;
+            }
+            if (requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram_scram_Enabled != null)
+            {
+                requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram.Enabled = requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram_scram_Enabled.Value;
+                requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_ScramIsNull = false;
+            }
+             // determine if requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram should be set to null
+            if (requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_ScramIsNull)
+            {
+                requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram = null;
+            }
+            if (requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram != null)
+            {
+                requestClientAuthentication_clientAuthentication_Sasl.Scram = requestClientAuthentication_clientAuthentication_Sasl_clientAuthentication_Sasl_Scram;
+                requestClientAuthentication_clientAuthentication_SaslIsNull = false;
+            }
+             // determine if requestClientAuthentication_clientAuthentication_Sasl should be set to null
+            if (requestClientAuthentication_clientAuthentication_SaslIsNull)
+            {
+                requestClientAuthentication_clientAuthentication_Sasl = null;
+            }
+            if (requestClientAuthentication_clientAuthentication_Sasl != null)
+            {
+                request.ClientAuthentication.Sasl = requestClientAuthentication_clientAuthentication_Sasl;
+                requestClientAuthenticationIsNull = false;
+            }
             Amazon.Kafka.Model.Tls requestClientAuthentication_clientAuthentication_Tls = null;
             
              // populate Tls
@@ -861,6 +913,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Kafka.Model.BrokerNodeGroupInfo BrokerNodeGroupInfo { get; set; }
+            public System.Boolean? Scram_Enabled { get; set; }
             public List<System.String> Tls_CertificateAuthorityArnList { get; set; }
             public System.String ClusterName { get; set; }
             public System.String ConfigurationInfo_Arn { get; set; }

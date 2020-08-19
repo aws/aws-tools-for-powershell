@@ -28,13 +28,14 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Removes IP addresses from an inbound or an outbound resolver endpoint. If you want
+    /// Removes IP addresses from an inbound or an outbound Resolver endpoint. If you want
     /// to remove more than one IP address, submit one <code>DisassociateResolverEndpointIpAddress</code>
     /// request for each IP address.
     /// 
     ///  
     /// <para>
-    /// To add an IP address to an endpoint, see <a>AssociateResolverEndpointIpAddress</a>.
+    /// To add an IP address to an endpoint, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html">AssociateResolverEndpointIpAddress</a>.
+    /// 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "R53RResolverEndpointIpAddressAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -50,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter IpAddress
         /// <summary>
         /// <para>
-        /// <para>The IPv4 address that you want to remove from a resolver endpoint.</para>
+        /// <para>The IPv4 address that you want to remove from a Resolver endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver endpoint that you want to disassociate an IP address from.</para>
+        /// <para>The ID of the Resolver endpoint that you want to disassociate an IP address from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

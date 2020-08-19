@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// To directly upload your build files to a GameLift S3 location. To use this option,
     /// first call <code>CreateBuild</code> and specify a build name and operating system.
-    /// This action creates a new build resource and also returns an S3 location with temporary
+    /// This operation creates a new build resource and also returns an S3 location with temporary
     /// access credentials. Use the credentials to manually upload your build files to the
     /// specified S3 location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
     /// Objects</a> in the <i>Amazon S3 Developer Guide</i>. Build files can be uploaded to
@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_Bucket
         /// <summary>
         /// <para>
-        /// <para>An S3 bucket identifier. This is the name of the S3 bucket.</para>
+        /// <para>An S3 bucket identifier. This is the name of the S3 bucket.</para><note><para>GameLift currently does not support uploading from S3 buckets with names that contain
+        /// a dot (.).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

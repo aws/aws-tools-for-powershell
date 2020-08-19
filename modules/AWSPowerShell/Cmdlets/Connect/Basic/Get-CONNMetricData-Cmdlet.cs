@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics.html">Historical
-    /// Metrics Reports</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical
+    /// Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNMetricData")]

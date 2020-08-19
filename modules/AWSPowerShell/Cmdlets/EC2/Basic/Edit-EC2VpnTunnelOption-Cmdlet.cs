@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class EditEC2VpnTunnelOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter TunnelOptions_DPDTimeoutAction
+        /// <summary>
+        /// <para>
+        /// <para>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
+        /// the IKE initiation. Specify <code>clear</code> to end the IKE session.</para><para>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code></para><para>Default: <code>clear</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TunnelOptions_DPDTimeoutAction { get; set; }
+        #endregion
+        
         #region Parameter TunnelOptions_DPDTimeoutSecond
         /// <summary>
         /// <para>
@@ -215,6 +226,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? TunnelOptions_ReplayWindowSize { get; set; }
         #endregion
         
+        #region Parameter TunnelOptions_StartupAction
+        /// <summary>
+        /// <para>
+        /// <para>The action to take when the establishing the tunnel for the VPN connection. By default,
+        /// your customer gateway device must initiate the IKE negotiation and bring up the tunnel.
+        /// Specify <code>start</code> for AWS to initiate the IKE negotiation.</para><para>Valid Values: <code>add</code> | <code>start</code></para><para>Default: <code>add</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TunnelOptions_StartupAction { get; set; }
+        #endregion
+        
         #region Parameter TunnelOptions_TunnelInsideCidr
         /// <summary>
         /// <para>
@@ -333,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.VpnConnectionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.TunnelOptions_DPDTimeoutAction = this.TunnelOptions_DPDTimeoutAction;
             context.TunnelOptions_DPDTimeoutSecond = this.TunnelOptions_DPDTimeoutSecond;
             if (this.TunnelOptions_IKEVersion != null)
             {
@@ -368,6 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.TunnelOptions_RekeyFuzzPercentage = this.TunnelOptions_RekeyFuzzPercentage;
             context.TunnelOptions_RekeyMarginTimeSecond = this.TunnelOptions_RekeyMarginTimeSecond;
             context.TunnelOptions_ReplayWindowSize = this.TunnelOptions_ReplayWindowSize;
+            context.TunnelOptions_StartupAction = this.TunnelOptions_StartupAction;
             context.TunnelOptions_TunnelInsideCidr = this.TunnelOptions_TunnelInsideCidr;
             context.TunnelOptions_TunnelInsideIpv6Cidr = this.TunnelOptions_TunnelInsideIpv6Cidr;
             context.VpnConnectionId = this.VpnConnectionId;
@@ -404,6 +429,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
              // populate TunnelOptions
             var requestTunnelOptionsIsNull = true;
             request.TunnelOptions = new Amazon.EC2.Model.ModifyVpnTunnelOptionsSpecification();
+            System.String requestTunnelOptions_tunnelOptions_DPDTimeoutAction = null;
+            if (cmdletContext.TunnelOptions_DPDTimeoutAction != null)
+            {
+                requestTunnelOptions_tunnelOptions_DPDTimeoutAction = cmdletContext.TunnelOptions_DPDTimeoutAction;
+            }
+            if (requestTunnelOptions_tunnelOptions_DPDTimeoutAction != null)
+            {
+                request.TunnelOptions.DPDTimeoutAction = requestTunnelOptions_tunnelOptions_DPDTimeoutAction;
+                requestTunnelOptionsIsNull = false;
+            }
             System.Int32? requestTunnelOptions_tunnelOptions_DPDTimeoutSecond = null;
             if (cmdletContext.TunnelOptions_DPDTimeoutSecond != null)
             {
@@ -544,6 +579,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.TunnelOptions.ReplayWindowSize = requestTunnelOptions_tunnelOptions_ReplayWindowSize.Value;
                 requestTunnelOptionsIsNull = false;
             }
+            System.String requestTunnelOptions_tunnelOptions_StartupAction = null;
+            if (cmdletContext.TunnelOptions_StartupAction != null)
+            {
+                requestTunnelOptions_tunnelOptions_StartupAction = cmdletContext.TunnelOptions_StartupAction;
+            }
+            if (requestTunnelOptions_tunnelOptions_StartupAction != null)
+            {
+                request.TunnelOptions.StartupAction = requestTunnelOptions_tunnelOptions_StartupAction;
+                requestTunnelOptionsIsNull = false;
+            }
             System.String requestTunnelOptions_tunnelOptions_TunnelInsideCidr = null;
             if (cmdletContext.TunnelOptions_TunnelInsideCidr != null)
             {
@@ -638,6 +683,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String TunnelOptions_DPDTimeoutAction { get; set; }
             public System.Int32? TunnelOptions_DPDTimeoutSecond { get; set; }
             public List<Amazon.EC2.Model.IKEVersionsRequestListValue> TunnelOptions_IKEVersion { get; set; }
             public List<Amazon.EC2.Model.Phase1DHGroupNumbersRequestListValue> TunnelOptions_Phase1DHGroupNumber { get; set; }
@@ -652,6 +698,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? TunnelOptions_RekeyFuzzPercentage { get; set; }
             public System.Int32? TunnelOptions_RekeyMarginTimeSecond { get; set; }
             public System.Int32? TunnelOptions_ReplayWindowSize { get; set; }
+            public System.String TunnelOptions_StartupAction { get; set; }
             public System.String TunnelOptions_TunnelInsideCidr { get; set; }
             public System.String TunnelOptions_TunnelInsideIpv6Cidr { get; set; }
             public System.String VpnConnectionId { get; set; }

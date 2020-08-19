@@ -133,6 +133,19 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         public System.String NetworkId { get; set; }
         #endregion
         
+        #region Parameter NodeConfiguration_StateDB
+        /// <summary>
+        /// <para>
+        /// <para>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>.
+        /// When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4
+        /// or later, the default is <code>CouchDB</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ManagedBlockchain.StateDBType")]
+        public Amazon.ManagedBlockchain.StateDBType NodeConfiguration_StateDB { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'NodeId'.
@@ -224,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             }
             #endif
             context.LogPublishingConfiguration_Fabric = this.LogPublishingConfiguration_Fabric;
+            context.NodeConfiguration_StateDB = this.NodeConfiguration_StateDB;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -274,6 +288,16 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             if (requestNodeConfiguration_nodeConfiguration_InstanceType != null)
             {
                 request.NodeConfiguration.InstanceType = requestNodeConfiguration_nodeConfiguration_InstanceType;
+                requestNodeConfigurationIsNull = false;
+            }
+            Amazon.ManagedBlockchain.StateDBType requestNodeConfiguration_nodeConfiguration_StateDB = null;
+            if (cmdletContext.NodeConfiguration_StateDB != null)
+            {
+                requestNodeConfiguration_nodeConfiguration_StateDB = cmdletContext.NodeConfiguration_StateDB;
+            }
+            if (requestNodeConfiguration_nodeConfiguration_StateDB != null)
+            {
+                request.NodeConfiguration.StateDB = requestNodeConfiguration_nodeConfiguration_StateDB;
                 requestNodeConfigurationIsNull = false;
             }
             Amazon.ManagedBlockchain.Model.NodeLogPublishingConfiguration requestNodeConfiguration_nodeConfiguration_LogPublishingConfiguration = null;
@@ -373,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
             public System.String NodeConfiguration_AvailabilityZone { get; set; }
             public System.String NodeConfiguration_InstanceType { get; set; }
             public Amazon.ManagedBlockchain.Model.NodeFabricLogPublishingConfiguration LogPublishingConfiguration_Fabric { get; set; }
+            public Amazon.ManagedBlockchain.StateDBType NodeConfiguration_StateDB { get; set; }
             public System.Func<Amazon.ManagedBlockchain.Model.CreateNodeResponse, NewMBCNodeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NodeId;
         }

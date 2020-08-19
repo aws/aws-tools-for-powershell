@@ -212,6 +212,20 @@ namespace Amazon.PowerShell.Cmdlets.XR
         public System.String SamplingRule_ServiceType { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map that contains one or more tag keys and tag values to attach to an X-Ray sampling
+        /// rule. For more information about ways to use tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS resources</a> in the <i>AWS General Reference</i>.</para><para>The following restrictions apply to tags:</para><ul><li><para>Maximum number of user-applied tags per resource: 50</para></li><li><para>Maximum tag key length: 128 Unicode characters</para></li><li><para>Maximum tag value length: 256 Unicode characters</para></li><li><para>Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters:
+        /// _ . : / = + - and @</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Don't use <code>aws:</code> as a prefix for keys; it's reserved for AWS use.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.XRay.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter SamplingRule_URLPath
         /// <summary>
         /// <para>
@@ -366,6 +380,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 WriteWarning("You are passing $null as a value for parameter SamplingRule_Version which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.XRay.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -521,6 +539,10 @@ namespace Amazon.PowerShell.Cmdlets.XR
             {
                 request.SamplingRule = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -595,6 +617,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             public System.String SamplingRule_ServiceType { get; set; }
             public System.String SamplingRule_URLPath { get; set; }
             public System.Int32? SamplingRule_Version { get; set; }
+            public List<Amazon.XRay.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.XRay.Model.CreateSamplingRuleResponse, NewXRSamplingRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SamplingRuleRecord;
         }

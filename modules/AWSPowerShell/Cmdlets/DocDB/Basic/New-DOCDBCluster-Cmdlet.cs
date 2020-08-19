@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster</code></para>
+        /// <para>The cluster identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens. </para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens. </para></li></ul><para>Example: <code>my-cluster</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterParameterGroupName
         /// <summary>
         /// <para>
-        /// <para> The name of the cluster parameter group to associate with this cluster.</para>
+        /// <para>The name of the cluster parameter group to associate with this cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,7 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EnableCloudwatchLogsExport
         /// <summary>
         /// <para>
-        /// <para>A list of log types that need to be enabled for exporting to Amazon CloudWatch Logs.</para>
+        /// <para>A list of log types that need to be enabled for exporting to Amazon CloudWatch Logs.
+        /// You can enable audit logs or profiler logs. For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html">
+        /// Auditing Amazon DocumentDB Events</a> and <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/profiling.html">
+        /// Profiling Amazon DocumentDB Operations</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the database engine to use.</para>
+        /// <para>The version number of the database engine to use. The --engine-version will default
+        /// to the latest major engine version. For production workloads, we recommend explicitly
+        /// declaring this parameter with the intended major engine version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,10 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>The AWS KMS key identifier for an encrypted cluster.</para><para>The AWS KMS key identifier is the Amazon Resource Name (ARN) for the AWS KMS encryption
         /// key. If you are creating a cluster using the same AWS account that owns the AWS KMS
         /// encryption key that is used to encrypt the new cluster, you can use the AWS KMS key
-        /// alias instead of the ARN for the AWS KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>:</para><ul><li><para>If <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then Amazon
+        /// alias instead of the ARN for the AWS KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>: </para><ul><li><para>If <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then Amazon
         /// DocumentDB uses the encryption key that is used to encrypt the source. Otherwise,
         /// Amazon DocumentDB uses your default encryption key. </para></li><li><para>If the <code>StorageEncrypted</code> parameter is <code>true</code> and <code>ReplicationSourceIdentifier</code>
-        /// is not specified, Amazon DocumentDB uses your default encryption key.</para></li></ul><para>AWS KMS creates the default encryption key for your AWS account. Your AWS account
+        /// is not specified, Amazon DocumentDB uses your default encryption key. </para></li></ul><para>AWS KMS creates the default encryption key for your AWS account. Your AWS account
         /// has a different default encryption key for each AWS Region.</para><para>If you create a replica of an encrypted cluster in another AWS Region, you must set
         /// <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS Region.
         /// This key is used to encrypt the replica in that AWS Region.</para>
@@ -174,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name of the master user for the cluster.</para><para>Constraints:</para><ul><li><para>Must be from 1 to 63 letters or numbers.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
+        /// <para>The name of the master user for the cluster.</para><para>Constraints:</para><ul><li><para>Must be from 1 to 63 letters or numbers.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -221,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
         /// are enabled using the <code>BackupRetentionPeriod</code> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
-        /// for each AWS Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// for each AWS Region. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window. </para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -238,6 +243,16 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PreferredMaintenanceWindow { get; set; }
+        #endregion
+        
+        #region Parameter PreSignedUrl
+        /// <summary>
+        /// <para>
+        /// <para>Not currently supported. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PreSignedUrl { get; set; }
         #endregion
         
         #region Parameter StorageEncrypted
@@ -264,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to associate with this cluster.</para>
+        /// <para>A list of EC2 VPC security groups to associate with this cluster. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -378,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
+            context.PreSignedUrl = this.PreSignedUrl;
             context.StorageEncrypted = this.StorageEncrypted;
             if (this.Tag != null)
             {
@@ -462,6 +478,10 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             if (cmdletContext.PreferredMaintenanceWindow != null)
             {
                 request.PreferredMaintenanceWindow = cmdletContext.PreferredMaintenanceWindow;
+            }
+            if (cmdletContext.PreSignedUrl != null)
+            {
+                request.PreSignedUrl = cmdletContext.PreSignedUrl;
             }
             if (cmdletContext.StorageEncrypted != null)
             {
@@ -551,6 +571,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
+            public System.String PreSignedUrl { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
             public List<Amazon.DocDB.Model.Tag> Tag { get; set; }
             public List<System.String> VpcSecurityGroupId { get; set; }

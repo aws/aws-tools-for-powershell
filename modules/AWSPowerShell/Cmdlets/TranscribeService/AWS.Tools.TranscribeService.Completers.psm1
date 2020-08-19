@@ -115,7 +115,7 @@ $TRS_Completers = {
             ($_ -eq "Start-TRSTranscriptionJob/MediaFormat")
         }
         {
-            $v = "flac","mp3","mp4","wav"
+            $v = "amr","flac","mp3","mp4","ogg","wav","webm"
             break
         }
 

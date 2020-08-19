@@ -38,15 +38,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// data for the log group is encrypted using the CMK. This association is stored as long
     /// as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables
     /// Amazon CloudWatch Logs to decrypt this data whenever it is requested.
-    /// </para><note><para><b>Important:</b> CloudWatch Logs supports only symmetric CMKs. Do not use an associate
-    /// an asymmetric CMK with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+    /// </para><important><para>
+    /// CloudWatch Logs supports only symmetric CMKs. Do not use an associate an asymmetric
+    /// CMK with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
     /// Symmetric and Asymmetric Keys</a>.
-    /// </para></note><para>
-    /// Note that it can take up to 5 minutes for this operation to take effect.
+    /// </para></important><para>
+    /// It can take up to 5 minutes for this operation to take effect.
     /// </para><para>
     /// If you attempt to associate a CMK with a log group but the CMK does not exist or the
-    /// CMK is disabled, you will receive an <code>InvalidParameterException</code> error.
-    /// 
+    /// CMK is disabled, you receive an <code>InvalidParameterException</code> error. 
     /// </para>
     /// </summary>
     [Cmdlet("Register", "CWLKmsKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Assigns a tag to a GameLift resource. AWS resource tags provide an additional management
     /// tool set. You can use tags to organize resources, create IAM permissions policies
     /// to manage access to groups of resources, customize AWS cost breakdowns, etc. This
-    /// action handles the permissions necessary to manage tags for the following GameLift
+    /// operation handles the permissions necessary to manage tags for the following GameLift
     /// resource types:
     /// 
     ///  <ul><li><para>
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para> The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
         /// that is assigned to and uniquely identifies the GameLift resource that you want to
         /// assign tags to. GameLift resource ARNs are included in the data object for the resource,
-        /// which can be retrieved by calling a List or Describe action for the resource type.
+        /// which can be retrieved by calling a List or Describe operation for the resource type.
         /// </para>
         /// </para>
         /// </summary>

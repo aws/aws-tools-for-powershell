@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the report that you want to delete. The name must be unique, is case sensitive,
+        /// and can't include spaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

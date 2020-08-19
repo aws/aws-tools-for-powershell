@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Returns the contents of the effective policy for specified policy type and account.
     /// The effective policy is the aggregation of any policies of the specified type that
     /// the account inherits, plus any policy of that type that is directly attached to the
-    /// account. 
+    /// account.
     /// 
     ///  
     /// <para>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>
         /// <para>When you're signed in as the master account, specify the ID of the account that you
         /// want details about. Specifying an organization root or organizational unit (OU) as
-        /// the target is not supported. </para>
+        /// the target is not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

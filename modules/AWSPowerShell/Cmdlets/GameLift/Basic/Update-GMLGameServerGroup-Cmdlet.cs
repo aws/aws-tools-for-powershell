@@ -28,23 +28,18 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This action is part of Amazon GameLift FleetIQ with game server groups, which
-    /// is in preview release and is subject to change.</b><para>
-    /// Updates GameLift FleetIQ-specific properties for a game server group. These properties
-    /// include instance rebalancing and game server protection. Many Auto Scaling group properties
-    /// are updated directly. These include autoscaling policies, minimum/maximum/desired
-    /// instance counts, and launch template. 
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
+    /// Updates GameLift FleetIQ-specific properties for a game server group. Many Auto Scaling
+    /// group properties are updated on the Auto Scaling group directly, including the launch
+    /// template, Auto Scaling policies, and maximum/minimum/desired instance counts.
     /// </para><para>
     /// To update the game server group, specify the game server group ID and provide the
-    /// updated values.
-    /// </para><para>
-    /// Updated properties are validated to ensure that GameLift FleetIQ can continue to perform
-    /// its core instance rebalancing activity. When you change Auto Scaling group properties
-    /// directly and the changes cause errors with GameLift FleetIQ activities, an alert is
-    /// sent.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-asgroups.html">Updating
-    /// a GameLift FleetIQ-Linked Auto Scaling Group</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li></ul>
+    /// updated values. Before applying the updates, the new values are validated to ensure
+    /// that GameLift FleetIQ can continue to perform instance balancing activity. If successful,
+    /// a <a>GameServerGroup</a> object is returned.
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
+    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li><li><para><a>DescribeGameServerInstances</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -59,15 +54,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter BalancingStrategy
         /// <summary>
         /// <para>
-        /// <para>The fallback balancing method to use for the game server group when Spot instances
-        /// in a Region become unavailable or are not viable for game hosting. Once triggered,
-        /// this method remains active until Spot instances can once again be used. Method options
-        /// include:</para><ul><li><para>SPOT_ONLY -- If Spot instances are unavailable, the game server group provides no
-        /// hosting capacity. No new instances are started, and the existing nonviable Spot instances
-        /// are terminated (once current gameplay ends) and not replaced.</para></li><li><para>SPOT_PREFERRED -- If Spot instances are unavailable, the game server group continues
-        /// to provide hosting capacity by using On-Demand instances. Existing nonviable Spot
-        /// instances are terminated (once current gameplay ends) and replaced with new On-Demand
-        /// instances. </para></li></ul>
+        /// <para>Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances
+        /// in the game server group. Method options include the following:</para><ul><li><para><code>SPOT_ONLY</code> - Only Spot Instances are used in the game server group. If
+        /// Spot Instances are unavailable or not viable for game hosting, the game server group
+        /// provides no hosting capacity until Spot Instances can again be used. Until then, no
+        /// new instances are started, and the existing nonviable Spot Instances are terminated
+        /// (after current gameplay ends) and are not replaced.</para></li><li><para><code>SPOT_PREFERRED</code> - (default value) Spot Instances are used whenever available
+        /// in the game server group. If Spot Instances are unavailable, the game server group
+        /// continues to provide hosting capacity by falling back to On-Demand Instances. Existing
+        /// nonviable Spot Instances are terminated (after current gameplay ends) and are replaced
+        /// with new On-Demand Instances.</para></li><li><para><code>ON_DEMAND_ONLY</code> - Only On-Demand Instances are used in the game server
+        /// group. No Spot Instances are used, even when available, while this balancing strategy
+        /// is in force.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the game server group to update. Use either the <a>GameServerGroup</a>
+        /// <para>A unique identifier for the game server group. Use either the <a>GameServerGroup</a>
         /// name or ARN value.</para>
         /// </para>
         /// </summary>
@@ -97,11 +95,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A flag that indicates whether instances in the game server group are protected from
-        /// early termination. Unprotected instances that have active game servers running may
-        /// by terminated during a scale-down event, causing players to be dropped from the game.
-        /// Protected instances cannot be terminated while there are active game servers running.
-        /// An exception to this is Spot Instances, which may be terminated by AWS regardless
-        /// of protection status. This property is set to NO_PROTECTION by default.</para>
+        /// early termination. Unprotected instances that have active game servers running might
+        /// be terminated during a scale-down event, causing players to be dropped from the game.
+        /// Protected instances cannot be terminated while there are active game servers running
+        /// except in the event of a forced game server group deletion (see ). An exception to
+        /// this is with Spot Instances, which can be terminated by AWS regardless of protection
+        /// status. This property is set to <code>NO_PROTECTION</code> by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,12 +111,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter InstanceDefinition
         /// <summary>
         /// <para>
-        /// <para>An updated list of EC2 instance types to use when creating instances in the group.
-        /// The instance definition must specify instance types that are supported by GameLift
-        /// FleetIQ, and must include at least two instance types. This updated list replaces
-        /// the entire current list of instance definitions for the game server group. For more
-        /// information on instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2
-        /// Instance Types</a> in the <i>Amazon EC2 User Guide</i>..</para>
+        /// <para>An updated list of EC2 instance types to use in the Auto Scaling group. The instance
+        /// definitions must specify at least two different instance types that are supported
+        /// by GameLift FleetIQ. This updated list replaces the entire current list of instance
+        /// definitions for the game server group. For more information on instance types, see
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">EC2
+        /// Instance Types</a> in the <i>Amazon EC2 User Guide</i>. You can optionally specify
+        /// capacity weighting for each instance type. If no weight value is specified for an
+        /// instance type, it is set to the default value "1". For more information about capacity
+        /// weighting, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html">
+        /// Instance Weighting for Amazon EC2 Auto Scaling</a> in the Amazon EC2 Auto Scaling
+        /// User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,9 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
-        /// for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
-        /// The submitted role is validated to ensure that it contains the necessary permissions
-        /// for game server groups.</para>
+        /// for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

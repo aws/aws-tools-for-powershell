@@ -28,8 +28,7 @@ using Amazon.EBS.Model;
 namespace Amazon.PowerShell.Cmdlets.EBS
 {
     /// <summary>
-    /// Returns the block indexes and block tokens for blocks in an Amazon Elastic Block Store
-    /// snapshot.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns information about the blocks in an Amazon Elastic Block Store snapshot.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EBSSnapshotBlockList")]
     [OutputType("Amazon.EBS.Model.Block")]

@@ -28,8 +28,8 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Gets information about an association between a specified resolver rule and a VPC.
-    /// You associate a resolver rule and a VPC using <a>AssociateResolverRule</a>.
+    /// Gets information about an association between a specified Resolver rule and a VPC.
+    /// You associate a Resolver rule and a VPC using <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>.
     /// </summary>
     [Cmdlet("Get", "R53RResolverRuleAssociation")]
     [OutputType("Amazon.Route53Resolver.Model.ResolverRuleAssociation")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverRuleAssociationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver rule association that you want to get information about.</para>
+        /// <para>The ID of the Resolver rule association that you want to get information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

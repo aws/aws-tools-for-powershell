@@ -28,11 +28,11 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Removes the association between a specified resolver rule and a specified VPC.
+    /// Removes the association between a specified Resolver rule and a specified VPC.
     /// 
     ///  <important><para>
-    /// If you disassociate a resolver rule from a VPC, Resolver stops forwarding DNS queries
-    /// for the domain name that you specified in the resolver rule. 
+    /// If you disassociate a Resolver rule from a VPC, Resolver stops forwarding DNS queries
+    /// for the domain name that you specified in the Resolver rule. 
     /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "R53RResolverRuleAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverRuleId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver rule that you want to disassociate from the specified VPC.</para>
+        /// <para>The ID of the Resolver rule that you want to disassociate from the specified VPC.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter VPCId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC that you want to disassociate the resolver rule from.</para>
+        /// <para>The ID of the VPC that you want to disassociate the Resolver rule from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

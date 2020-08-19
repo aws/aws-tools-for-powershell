@@ -60,10 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// with that account's usage of that service. You can nest <code>Expression</code> objects
         /// to define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>.
         /// </para><para>The <code>GetCostAndUsageWithResources</code> operation requires that you either group
-        /// by or filter by a <code>ResourceId</code>.</para>
+        /// by or filter by a <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a><code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.CostExplorer.Model.Expression Filter { get; set; }
         #endregion
         
@@ -204,6 +210,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Filter = this.Filter;
+            #if MODULAR
+            if (this.Filter == null && ParameterWasBound(nameof(this.Filter)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Filter which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Granularity = this.Granularity;
             if (this.GroupBy != null)
             {

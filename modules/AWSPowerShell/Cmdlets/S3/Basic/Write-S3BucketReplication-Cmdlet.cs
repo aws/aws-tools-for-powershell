@@ -76,9 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating
     /// Objects Created with SSE Using CMKs stored in AWS KMS</a>.
     /// </para><para>
-    /// For information on <code>PutBucketReplication</code> errors, see <a>ReplicationErrorCodeList</a></para><para>
+    /// For information on <code>PutBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List
+    /// of replication-related error codes</a></para><para>
     /// The following operations are related to <code>PutBucketReplication</code>:
-    /// </para><ul><li><para><a>GetBucketReplication</a></para></li><li><para><a>DeleteBucketReplication</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html">GetBucketReplication</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html">DeleteBucketReplication</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -98,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter Configuration_Role
@@ -199,6 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Configuration_Rule = new List<Amazon.S3.Model.ReplicationRule>(this.Configuration_Rule);
             }
             context.Token = this.Token;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -251,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.Token != null)
             {
                 request.Token = cmdletContext.Token;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -317,6 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String Configuration_Role { get; set; }
             public List<Amazon.S3.Model.ReplicationRule> Configuration_Rule { get; set; }
             public System.String Token { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketReplicationResponse, WriteS3BucketReplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

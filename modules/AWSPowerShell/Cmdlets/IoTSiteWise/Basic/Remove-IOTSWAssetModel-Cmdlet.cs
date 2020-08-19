@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// from an asset model before you can delete the model. Also, you can't delete an asset
     /// model if a parent asset model exists that contains a property formula expression that
     /// depends on the asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting
-    /// Assets and Models</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// assets and models</a> in the <i>AWS IoT SiteWise User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "IOTSWAssetModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.IoTSiteWise.Model.AssetModelStatus")]

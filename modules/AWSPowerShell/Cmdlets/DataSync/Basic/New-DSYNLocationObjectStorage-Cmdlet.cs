@@ -28,7 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for a self-managed object storage bucket.
+    /// Creates an endpoint for a self-managed object storage bucket. For more information
+    /// about self-managed object storage locations, see <a>create-object-location</a>.
     /// </summary>
     [Cmdlet("New", "DSYNLocationObjectStorage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -44,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Optional. The access key is used if credentials are required to access the self-managed
-        /// object storage server.</para>
+        /// object storage server. If your object storage requires a user name and password to
+        /// authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the
+        /// user name and password, respectively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Optional. The secret key is used if credentials are required to access the self-managed
-        /// object storage server.</para>
+        /// object storage server. If your object storage requires a user name and password to
+        /// authenticate, use <code>AccessKey</code> and <code>SecretKey</code> to provide the
+        /// user name and password, respectively.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -86,9 +86,11 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-XRResourceTag', 
         'Get-XREncryptionConfig', 
         'Get-XRGroup', 
         'Get-XRGroupSummary', 
+        'Get-XRResourceTag', 
         'Get-XRSamplingRule', 
         'Get-XRSamplingStatisticSummary', 
         'Get-XRSamplingTarget', 
@@ -100,6 +102,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-XRGroup', 
         'New-XRSamplingRule', 
         'Remove-XRGroup', 
+        'Remove-XRResourceTag', 
         'Remove-XRSamplingRule', 
         'Update-XRGroup', 
         'Update-XRSamplingRule', 

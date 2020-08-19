@@ -28,9 +28,9 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Deletes a resolver rule. Before you can delete a resolver rule, you must disassociate
-    /// it from all the VPCs that you associated the resolver rule with. For more infomation,
-    /// see <a>DisassociateResolverRule</a>.
+    /// Deletes a Resolver rule. Before you can delete a Resolver rule, you must disassociate
+    /// it from all the VPCs that you associated the Resolver rule with. For more information,
+    /// see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html">DisassociateResolverRule</a>.
     /// </summary>
     [Cmdlet("Remove", "R53RResolverRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Route53Resolver.Model.ResolverRule")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverRuleId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver rule that you want to delete.</para>
+        /// <para>The ID of the Resolver rule that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

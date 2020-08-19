@@ -28,8 +28,16 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves a paginated list of the assets associated to a parent asset (<code>assetId</code>)
-    /// by a given hierarchy (<code>hierarchyId</code>).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a paginated list of associated assets.
+    /// 
+    ///  
+    /// <para>
+    /// You can use this operation to do the following:
+    /// </para><ul><li><para>
+    /// List child assets associated to a parent asset by a hierarchy that you specify.
+    /// </para></li><li><para>
+    /// List an asset's parent asset.
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTSWAssociatedAssetList")]
     [OutputType("Amazon.IoTSiteWise.Model.AssociatedAssetsSummary")]
@@ -44,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the parent asset.</para>
+        /// <para>The ID of the asset to query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,28 +69,33 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter HierarchyId
         /// <summary>
         /// <para>
-        /// <para>The hierarchy ID (of the parent asset model) whose associated assets are returned.
-        /// To find a hierarchy ID, use the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html">DescribeAsset</a>
+        /// <para>The ID of the hierarchy by which child assets are associated to the asset. To find
+        /// a hierarchy ID, use the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAsset.html">DescribeAsset</a>
         /// or <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a>
-        /// actions.</para><para>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset
-        /// Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// operations. This parameter is required if you choose <code>CHILD</code> for <code>traversalDirection</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset
+        /// hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HierarchyId { get; set; }
+        #endregion
+        
+        #region Parameter TraversalDirection
+        /// <summary>
+        /// <para>
+        /// <para>The direction to list associated assets. Choose one of the following options:</para><ul><li><para><code>CHILD</code> – The list includes all child assets associated to the asset.
+        /// The <code>hierarchyId</code> parameter is required if you choose <code>CHILD</code>.</para></li><li><para><code>PARENT</code> – The list includes the asset's parent asset.</para></li></ul><para>Default: <code>CHILD</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.TraversalDirection")]
+        public Amazon.IoTSiteWise.TraversalDirection TraversalDirection { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned per paginated request.</para>
+        /// <para>The maximum number of results to be returned per paginated request.</para><para>Default: 50</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,14 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             #endif
             context.HierarchyId = this.HierarchyId;
-            #if MODULAR
-            if (this.HierarchyId == null && ParameterWasBound(nameof(this.HierarchyId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter HierarchyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.TraversalDirection = this.TraversalDirection;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -206,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.TraversalDirection != null)
+            {
+                request.TraversalDirection = cmdletContext.TraversalDirection;
             }
             
             // Initialize loop variant and commence piping
@@ -296,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.String HierarchyId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.IoTSiteWise.TraversalDirection TraversalDirection { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.ListAssociatedAssetsResponse, GetIOTSWAssociatedAssetListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AssetSummaries;
         }

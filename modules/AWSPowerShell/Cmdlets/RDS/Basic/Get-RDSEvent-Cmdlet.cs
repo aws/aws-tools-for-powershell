@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// groups, DB snapshots, and DB cluster snapshots for the past 14 days. Events specific
     /// to a particular DB instances, DB clusters, DB parameter groups, DB security groups,
     /// DB snapshots, and DB cluster snapshots group can be obtained by providing the name
-    /// as a parameter. By default, the past hour of events are returned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// as a parameter.
+    /// 
+    ///  <note><para>
+    /// By default, the past hour of events are returned.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSEvent")]
     [OutputType("Amazon.RDS.Model.Event")]

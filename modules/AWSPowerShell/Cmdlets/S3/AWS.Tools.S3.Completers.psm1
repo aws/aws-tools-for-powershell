@@ -198,7 +198,7 @@ $S3_Completers = {
         # Amazon.S3.S3StorageClass
         "Restore-S3Object/OutputLocation_S3_StorageClass"
         {
-            $v = "DEEP_ARCHIVE","GLACIER","INTELLIGENT_TIERING","ONEZONE_IA","REDUCED_REDUNDANCY","STANDARD","STANDARD_IA"
+            $v = "DEEP_ARCHIVE","GLACIER","INTELLIGENT_TIERING","ONEZONE_IA","OUTPOSTS","REDUCED_REDUNDANCY","STANDARD","STANDARD_IA"
             break
         }
 

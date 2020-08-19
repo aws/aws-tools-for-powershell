@@ -100,15 +100,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MSKKafkaVersionList', 
         'Get-MSKNodeList', 
         'Get-MSKResourceTag', 
+        'Get-MSKScramSecretList', 
         'New-MSKCluster', 
         'New-MSKConfiguration', 
+        'Register-MSKAssociateScramSecret', 
         'Remove-MSKCluster', 
+        'Remove-MSKConfiguration', 
         'Remove-MSKResourceTag', 
         'Restart-MSKBroker', 
+        'Unregister-MSKDisassociateScramSecret', 
         'Update-MSKBrokerCount', 
         'Update-MSKBrokerStorage', 
         'Update-MSKClusterConfiguration', 
         'Update-MSKClusterKafkaVersion', 
+        'Update-MSKConfiguration', 
         'Update-MSKMonitoring')
 
     # Variables to export from this module

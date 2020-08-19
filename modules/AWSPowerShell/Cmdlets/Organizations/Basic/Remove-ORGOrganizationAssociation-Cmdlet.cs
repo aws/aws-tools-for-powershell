@@ -39,16 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// The master account in an organization with all features enabled can set service control
     /// policies (SCPs) that can restrict what administrators of member accounts can do. This
     /// includes preventing them from successfully calling <code>LeaveOrganization</code>
-    /// and leaving the organization. 
+    /// and leaving the organization.
     /// </para></li><li><para>
     /// You can leave an organization as a member account only if the account is configured
     /// with the information required to operate as a standalone account. When you create
     /// an account in an organization using the AWS Organizations console, API, or CLI commands,
     /// the information required of standalone accounts is <i>not</i> automatically collected.
-    /// For each account that you want to make standalone, you must do the following steps:
+    /// For each account that you want to make standalone, you must perform the following
+    /// steps. If any of the steps are already completed for this account, that step doesn't
+    /// appear.
     /// </para><ul><li><para>
-    /// Accept the end user license agreement (EULA)
-    /// </para></li><li><para>
     /// Choose a support plan
     /// </para></li><li><para>
     /// Provide and verify the required contact information
@@ -63,7 +63,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// You can leave an organization only after you enable IAM user access to billing in
     /// your account. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
     /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost
-    /// Management User Guide.</i></para></li></ul></important>
+    /// Management User Guide.</i></para></li><li><para>
+    /// After the account leaves the organization, all tags that were attached to the account
+    /// object in the organization are deleted. AWS accounts outside of an organization do
+    /// not support tags.
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Remove", "ORGOrganizationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

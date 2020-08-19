@@ -39,7 +39,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para><para>
     /// There is a 60 second dialing timeout for this operation. If the call is not connected
     /// after 60 seconds, it fails.
-    /// </para>
+    /// </para><note><para>
+    /// UK numbers with a 447 prefix are not allowed by default. Before you can dial these
+    /// UK mobile numbers, you must submit a service quota increase request. For more information,
+    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon
+    /// Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "CONNOutboundVoiceContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -68,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow for the outbound call.</para>
+        /// <para>The identifier of the contact flow for the outbound call. To see the ContactFlowId
+        /// in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>,
+        /// <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the
+        /// name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId
+        /// is the last part of the ARN, shown here in bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
         /// </para>
         /// </summary>
         #if !MODULAR

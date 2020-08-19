@@ -239,12 +239,15 @@ $WKS_SelectCompleters = {
 }
 
 $WKS_SelectMap = @{
-    "Select"=@("Register-WKSIpGroup",
+    "Select"=@("Register-WKSConnectionAlias",
+               "Register-WKSIpGroup",
                "Approve-WKSIpRule",
                "Copy-WKSWorkspaceImage",
+               "New-WKSConnectionAlias",
                "New-WKSIpGroup",
                "New-WKSTag",
                "New-WKSWorkspace",
+               "Remove-WKSConnectionAlias",
                "Remove-WKSIpGroup",
                "Remove-WKSTag",
                "Remove-WKSWorkspaceImage",
@@ -252,6 +255,8 @@ $WKS_SelectMap = @{
                "Get-WKSAccount",
                "Get-WKSAccountModification",
                "Get-WKSClientProperty",
+               "Get-WKSConnectionAlias",
+               "Get-WKSConnectionAliasPermission",
                "Get-WKSIpGroup",
                "Get-WKSTag",
                "Get-WKSWorkspaceBundle",
@@ -261,6 +266,7 @@ $WKS_SelectMap = @{
                "Get-WKSWorkspace",
                "Get-WKSWorkspacesConnectionStatus",
                "Get-WKSWorkspaceSnapshot",
+               "Unregister-WKSConnectionAlias",
                "Unregister-WKSIpGroup",
                "Import-WKSWorkspaceImage",
                "Get-WKSAvailableManagementCidrRangeList",
@@ -280,6 +286,7 @@ $WKS_SelectMap = @{
                "Start-WKSWorkspace",
                "Stop-WKSWorkspace",
                "Remove-WKSWorkspace",
+               "Update-WKSConnectionAliasPermission",
                "Update-WKSRulesOfIpGroup",
                "Update-WKSWorkspaceImagePermission")
 }

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </para></li></ul><para>
     /// CloudFront sends a request when it can’t find a valid object in its cache that matches
     /// the request. If you want to send values to the origin and also include them in the
-    /// cache key, use <code>CreateCachePolicy</code>.
+    /// cache key, use <code>CachePolicy</code>.
     /// </para><para>
     /// For more information about origin request policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html">Controlling
     /// origin requests</a> in the <i>Amazon CloudFront Developer Guide</i>.

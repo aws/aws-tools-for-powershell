@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HumanLoopConfig_TaskAvailabilityLifetimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The length of time that a task remains available for labeling by human workers.</para>
+        /// <para>The length of time that a task remains available for review by human workers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,7 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HumanLoopConfig_TaskTimeLimitInSecond
         /// <summary>
         /// <para>
-        /// <para>The amount of time that a worker has to complete a task.</para>
+        /// <para>The amount of time that a worker has to complete a task. The default value is 3,600
+        /// seconds (1 hour)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

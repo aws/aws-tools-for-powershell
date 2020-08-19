@@ -39,19 +39,23 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para><para>
     /// This operation can be called only from the organization's master account. Member accounts
     /// can remove themselves with <a>LeaveOrganization</a> instead.
-    /// </para><important><para>
+    /// </para><important><ul><li><para>
     /// You can remove an account from your organization only if the account is configured
     /// with the information required to operate as a standalone account. When you create
     /// an account in an organization using the AWS Organizations console, API, or CLI commands,
     /// the information required of standalone accounts is <i>not</i> automatically collected.
-    /// For an account that you want to make standalone, you must accept the end user license
-    /// agreement (EULA), choose a support plan, provide and verify the required contact information,
-    /// and provide a current payment method. AWS uses the payment method to charge for any
-    /// billable (not free tier) AWS activity that occurs while the account isn't attached
-    /// to an organization. To remove an account that doesn't yet have this information, you
-    /// must sign in as the member account and follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
+    /// For an account that you want to make standalone, you must choose a support plan, provide
+    /// and verify the required contact information, and provide a current payment method.
+    /// AWS uses the payment method to charge for any billable (not free tier) AWS activity
+    /// that occurs while the account isn't attached to an organization. To remove an account
+    /// that doesn't yet have this information, you must sign in as the member account and
+    /// follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
     /// To leave an organization when all required account information has not yet been provided</a>
-    /// in the <i>AWS Organizations User Guide.</i></para></important>
+    /// in the <i>AWS Organizations User Guide.</i></para></li><li><para>
+    /// After the account leaves the organization, all tags that were attached to the account
+    /// object in the organization are deleted. AWS accounts outside of an organization do
+    /// not support tags.
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Remove", "ORGAccountFromOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

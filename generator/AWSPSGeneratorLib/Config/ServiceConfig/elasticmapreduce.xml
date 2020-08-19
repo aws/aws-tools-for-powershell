@@ -22,7 +22,6 @@
         <Map From="JobFlows" To="JobFlow" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -68,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotebookExecution" OutputProperty="NotebookExecution" Verb="Get" Noun="NotebookExecution" PipelineParameter="NotebookExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSecurityConfiguration" OutputProperty="*" Verb="Get" Noun="SecurityConfiguration" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -101,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListInstances" OutputProperty="Instances" Verb="Get" Noun="InstanceList" PositionalParameters="ClusterId;InstanceGroupTypes" PipelineParameter="InstanceGroupId" NoPipelineParameter="false" LegacyAlias="Get-EMRInstances">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotebookExecutions" OutputProperty="NotebookExecutions" Verb="Get" Noun="NotebookExecutionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -169,12 +176,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartNotebookExecution" OutputProperty="NotebookExecutionId" Verb="Start" Noun="NotebookExecution" ShouldProcessTarget="EditorId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopNotebookExecution" Verb="Stop" Noun="NotebookExecution" ShouldProcessTarget="NotebookExecutionId" PipelineParameter="NotebookExecutionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TerminateJobFlows" Verb="Stop" Noun="JobFlow" ShouldProcessTarget="JobFlowIds" PipelineParameter="JobFlowIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

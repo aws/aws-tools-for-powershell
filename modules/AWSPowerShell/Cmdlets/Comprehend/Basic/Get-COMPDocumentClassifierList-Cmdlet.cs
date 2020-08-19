@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
-        /// <para>Filters the list of classifiers based on status. </para>
+        /// <para>Filters the list of classifiers based on status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

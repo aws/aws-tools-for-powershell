@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>comprehend</C2jFilename>
     <AssemblyName>Comprehend</AssemblyName>
@@ -13,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -95,6 +95,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribePiiEntitiesDetectionJob" OutputProperty="PiiEntitiesDetectionJobProperties" Verb="Get" Noun="PiiEntitiesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeSentimentDetectionJob" OutputProperty="SentimentDetectionJobProperties" Verb="Get" Noun="SentimentDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -112,6 +116,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DetectKeyPhrases" OutputProperty="KeyPhrases" Verb="Find" Noun="KeyPhrase" PipelineParameter="Text" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectPiiEntities" OutputProperty="Entities" Verb="Find" Noun="PiiEntity" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,6 +159,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPiiEntitiesDetectionJobs" OutputProperty="PiiEntitiesDetectionJobPropertiesList" Verb="Get" Noun="PiiEntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSentimentDetectionJobs" OutputProperty="SentimentDetectionJobPropertiesList" Verb="Get" Noun="SentimentDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -179,6 +191,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartPiiEntitiesDetectionJob" OutputProperty="*" Verb="Start" Noun="PiiEntitiesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartSentimentDetectionJob" OutputProperty="*" Verb="Start" Noun="SentimentDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -196,6 +212,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopKeyPhrasesDetectionJob" OutputProperty="*" Verb="Stop" Noun="KeyPhrasesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopPiiEntitiesDetectionJob" OutputProperty="*" Verb="Stop" Noun="PiiEntitiesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -224,8 +244,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.Comprehend.Model.TopicsDetectionJobFilter</Type>
         <Type>Amazon.Comprehend.Model.InputDataConfig</Type>
@@ -235,5 +253,6 @@
         <Type>Amazon.Comprehend.Model.KeyPhrasesDetectionJobFilter</Type>
         <Type>Amazon.Comprehend.Model.SentimentDetectionJobFilter</Type>
         <Type>Amazon.Comprehend.Model.TopicsDetectionJobFilter</Type>
+        <Type>Amazon.Comprehend.Model.PiiEntitiesDetectionJobFilter</Type>
     </TypesNotToFlatten>
 </ConfigModel>

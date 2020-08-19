@@ -737,8 +737,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of messages that a campaign can send each second. For an application,
-        /// this value specifies the default limit for the number of messages that campaigns and
-        /// journeys can send each second. The minimum value is 50. The maximum value is 20,000.</para>
+        /// this value specifies the default limit for the number of messages that campaigns can
+        /// send each second. The minimum value is 50. The maximum value is 20,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

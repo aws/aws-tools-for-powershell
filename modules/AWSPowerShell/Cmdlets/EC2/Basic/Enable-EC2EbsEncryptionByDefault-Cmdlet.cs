@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// After you enable encryption by default, you can no longer launch instances using instance
     /// types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
-    /// Instance Types</a>.
+    /// instance types</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "EC2EbsEncryptionByDefault", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

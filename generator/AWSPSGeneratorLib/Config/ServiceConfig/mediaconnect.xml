@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -49,6 +48,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOffering" OutputProperty="Offering" Verb="Get" Noun="Offering" PipelineParameter="OfferingArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservation" OutputProperty="Reservation" Verb="Get" Noun="Reservation" PipelineParameter="ReservationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GrantFlowEntitlements" OutputProperty="Entitlements" Verb="Grant" Noun="FlowEntitlement" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -61,7 +68,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOfferings" OutputProperty="Offerings" Verb="Get" Noun="OfferingList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReservations" OutputProperty="Reservations" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseOffering" OutputProperty="Reservation" Verb="New" Noun="Offering" ShouldProcessTarget="OfferingArn" PipelineParameter="OfferingArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -114,8 +133,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.MediaConnect.Model.SetSourceRequest</Type>
         <Type>Amazon.MediaConnect.Model.UpdateEncryption</Type>

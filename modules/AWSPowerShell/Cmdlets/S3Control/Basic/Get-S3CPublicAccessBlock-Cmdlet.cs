@@ -28,8 +28,14 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services
-    /// account.
+    /// Retrieves the <code>PublicAccessBlock</code> configuration for an AWS account. For
+    /// more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
+    /// Using Amazon S3 block public access</a>.
+    /// 
+    ///  
+    /// <para>
+    /// Related actions include:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeletePublicAccessBlock.html">DeletePublicAccessBlock</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutPublicAccessBlock.html">PutPublicAccessBlock</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3CPublicAccessBlock")]
     [OutputType("Amazon.S3Control.Model.PublicAccessBlockConfiguration")]
@@ -44,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code>
-        /// configuration you want to retrieve.</para>
+        /// <para>The account ID for the AWS account whose <code>PublicAccessBlock</code> configuration
+        /// you want to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

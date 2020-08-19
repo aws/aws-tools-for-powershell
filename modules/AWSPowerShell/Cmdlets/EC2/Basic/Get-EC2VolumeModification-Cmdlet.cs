@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can also use CloudWatch Events to check the status of a modification to an EBS
     /// volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon
     /// CloudWatch Events User Guide</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring
-    /// Volume Modifications</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// volume modifications</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VolumeModification")]
@@ -57,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The filters.</para><ul><li><para><code>modification-state</code> - The current modification state (modifying | optimizing
         /// | completed | failed).</para></li><li><para><code>original-iops</code> - The original IOPS rate of the volume.</para></li><li><para><code>original-size</code> - The original size of the volume, in GiB.</para></li><li><para><code>original-volume-type</code> - The original volume type of the volume (standard
-        /// | io1 | gp2 | sc1 | st1).</para></li><li><para><code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support
+        /// | io1 | io2 | gp2 | sc1 | st1).</para></li><li><para><code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support
         /// was enabled (true | false).</para></li><li><para><code>start-time</code> - The modification start time.</para></li><li><para><code>target-iops</code> - The target IOPS rate of the volume.</para></li><li><para><code>target-size</code> - The target size of the volume, in GiB.</para></li><li><para><code>target-volume-type</code> - The target volume type of the volume (standard
-        /// | io1 | gp2 | sc1 | st1).</para></li><li><para><code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is
+        /// | io1 | io2 | gp2 | sc1 | st1).</para></li><li><para><code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is
         /// to be enabled (true | false).</para></li><li><para><code>volume-id</code> - The ID of the volume.</para></li></ul>
         /// </para>
         /// </summary>

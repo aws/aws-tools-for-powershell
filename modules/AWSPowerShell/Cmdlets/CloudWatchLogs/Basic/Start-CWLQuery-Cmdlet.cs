@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Schedules a query of a log group using CloudWatch Logs Insights. You specify the log
-    /// group and time range to query, and the query string to use.
+    /// group and time range to query and the query string to use.
     /// 
     ///  
     /// <para>
@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Logs Insights Query Syntax</a>.
     /// </para><para>
     /// Queries time out after 15 minutes of execution. If your queries are timing out, reduce
-    /// the time range being searched, or partition your query into a number of queries.
+    /// the time range being searched or partition your query into a number of queries.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CWLQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

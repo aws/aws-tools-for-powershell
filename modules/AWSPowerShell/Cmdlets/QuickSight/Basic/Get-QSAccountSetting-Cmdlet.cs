@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Describes the settings that were used when your QuickSight subscription was first
-    /// created in this AWS Account.
+    /// created in this AWS account.
     /// </summary>
     [Cmdlet("Get", "QSAccountSetting")]
     [OutputType("Amazon.QuickSight.Model.AccountSettings")]

@@ -508,6 +508,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public Amazon.ElasticMapReduce.Model.SupportedProductConfig[] NewSupportedProduct { get; set; }
         #endregion
         
+        #region Parameter PlacementGroupConfig
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PlacementGroupConfigs")]
+        public Amazon.ElasticMapReduce.Model.PlacementGroupConfig[] PlacementGroupConfig { get; set; }
+        #endregion
+        
         #region Parameter KerberosAttributes_Realm
         /// <summary>
         /// <para>
@@ -833,6 +844,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (this.NewSupportedProduct != null)
             {
                 context.NewSupportedProduct = new List<Amazon.ElasticMapReduce.Model.SupportedProductConfig>(this.NewSupportedProduct);
+            }
+            if (this.PlacementGroupConfig != null)
+            {
+                context.PlacementGroupConfig = new List<Amazon.ElasticMapReduce.Model.PlacementGroupConfig>(this.PlacementGroupConfig);
             }
             context.ReleaseLabel = this.ReleaseLabel;
             context.RepoUpgradeOnBoot = this.RepoUpgradeOnBoot;
@@ -1258,6 +1273,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.NewSupportedProducts = cmdletContext.NewSupportedProduct;
             }
+            if (cmdletContext.PlacementGroupConfig != null)
+            {
+                request.PlacementGroupConfigs = cmdletContext.PlacementGroupConfig;
+            }
             if (cmdletContext.ReleaseLabel != null)
             {
                 request.ReleaseLabel = cmdletContext.ReleaseLabel;
@@ -1400,6 +1419,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public Amazon.ElasticMapReduce.ComputeLimitsUnitType ComputeLimits_UnitType { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ElasticMapReduce.Model.SupportedProductConfig> NewSupportedProduct { get; set; }
+            public List<Amazon.ElasticMapReduce.Model.PlacementGroupConfig> PlacementGroupConfig { get; set; }
             public System.String ReleaseLabel { get; set; }
             public Amazon.ElasticMapReduce.RepoUpgradeOnBoot RepoUpgradeOnBoot { get; set; }
             public Amazon.ElasticMapReduce.ScaleDownBehavior ScaleDownBehavior { get; set; }

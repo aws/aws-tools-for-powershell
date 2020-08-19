@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String BucketName { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter Configuration_Rule
         /// <summary>
         /// <para>
@@ -126,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.Configuration_Rule = new List<Amazon.S3.Model.CORSRule>(this.Configuration_Rule);
             }
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestConfigurationIsNull)
             {
                 request.Configuration = null;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -228,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public List<Amazon.S3.Model.CORSRule> Configuration_Rule { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutCORSConfigurationResponse, WriteS3CORSConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters. The possible values are:</para><ul><li><para><code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</para></li><li><para><code>local-owner-id</code> - The ID of your AWS account.</para></li><li><para><code>remote-owner-id</code> - The ID of the AWS account in the remote Region that
-        /// owns the transit gateway.</para></li><li><para><code>state</code> - The state of the peering attachment (<code>available</code>
-        /// | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>modifying</code>
-        /// | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code>
-        /// | <code>rejected</code> | <code>rejecting</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li></ul>
+        /// owns the transit gateway.</para></li><li><para><code>state</code> - The state of the peering attachment. Valid values are <code>available</code>
+        /// | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>failing</code>
+        /// | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code>
+        /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

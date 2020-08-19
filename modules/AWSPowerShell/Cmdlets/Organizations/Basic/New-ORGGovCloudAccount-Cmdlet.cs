@@ -34,15 +34,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// You're authorized to create accounts in the AWS GovCloud (US) Region. For more information
     /// on the AWS GovCloud (US) Region, see the <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/welcome.html"><i>AWS GovCloud User Guide</i>.</a></para></li><li><para>
     /// You already have an account in the AWS GovCloud (US) Region that is associated with
-    /// your master account in the commercial Region. 
+    /// your master account in the commercial Region.
     /// </para></li><li><para>
     /// You call this action from the master account of your organization in the commercial
     /// Region.
     /// </para></li><li><para>
-    /// You have the <code>organizations:CreateGovCloudAccount</code> permission. AWS Organizations
-    /// creates the required service-linked role named <code>AWSServiceRoleForOrganizations</code>.
+    /// You have the <code>organizations:CreateGovCloudAccount</code> permission. 
+    /// </para></li></ul><para>
+    /// AWS Organizations automatically creates the required service-linked role named <code>AWSServiceRoleForOrganizations</code>.
     /// For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs">AWS
-    /// Organizations and Service-Linked Roles</a> in the <i>AWS Organizations User Guide.</i></para></li></ul><para>
+    /// Organizations and Service-Linked Roles</a> in the <i>AWS Organizations User Guide.</i></para><para>
     /// AWS automatically enables AWS CloudTrail for AWS GovCloud (US) accounts, but you should
     /// also do the following:
     /// </para><ul><li><para>
@@ -53,6 +54,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/verifying-cloudtrail.html">Verifying
     /// AWS CloudTrail Is Enabled</a> in the <i>AWS GovCloud User Guide</i>. 
     /// </para></li></ul><para>
+    /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
+    /// permission. The tags are attached to the commercial account associated with the GovCloud
+    /// account, rather than the GovCloud account itself. To add tags to the GovCloud account,
+    /// call the <a>TagResource</a> operation in the GovCloud Region after the new GovCloud
+    /// account exists.
+    /// </para><para>
     /// You call this action from the master account of your organization in the commercial
     /// Region to create a standalone AWS account in the AWS GovCloud (US) Region. After the
     /// account is created, the master account of an organization in the AWS GovCloud (US)
@@ -80,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// A role is created in the new account in the commercial Region that allows the master
     /// account in the organization in the commercial Region to assume it. An AWS GovCloud
     /// (US) account is then created and associated with the commercial account that you just
-    /// created. A role is created in the new AWS GovCloud (US) account that can be assumed
+    /// created. A role is also created in the new AWS GovCloud (US) account that can be assumed
     /// by the AWS GovCloud (US) account that is associated with the master account of the
     /// commercial organization. For more information and to view a diagram that explains
     /// how account access works, see <a href="http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">AWS
@@ -206,6 +213,25 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         public System.String RoleName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the newly created account. These tags are
+        /// attached to the commercial account associated with the GovCloud account, and not to
+        /// the GovCloud account itself. To add tags to the actual GovCloud account, call the
+        /// <a>TagResource</a> operation in the GovCloud region after the new GovCloud account
+        /// exists.</para><para>For each tag in the list, you must specify both a tag key and a value. You can set
+        /// the value to an empty string, but you can't set it to <code>null</code>. For more
+        /// information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
+        /// AWS Organizations resources</a> in the AWS Organizations User Guide.</para><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags for
+        /// an account, then the entire request fails and the account is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Organizations.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'CreateAccountStatus'.
@@ -283,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             #endif
             context.IamUserAccessToBilling = this.IamUserAccessToBilling;
             context.RoleName = this.RoleName;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Organizations.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -314,6 +344,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             if (cmdletContext.RoleName != null)
             {
                 request.RoleName = cmdletContext.RoleName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -380,6 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             public System.String Email { get; set; }
             public Amazon.Organizations.IAMUserAccessToBilling IamUserAccessToBilling { get; set; }
             public System.String RoleName { get; set; }
+            public List<Amazon.Organizations.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Organizations.Model.CreateGovCloudAccountResponse, NewORGGovCloudAccountCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CreateAccountStatus;
         }

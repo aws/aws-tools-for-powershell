@@ -55,6 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String BucketName { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter Key
         /// <summary>
         /// <para>
@@ -153,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Tagging_TagSet = new List<Amazon.S3.Model.Tag>(this.Tagging_TagSet);
             }
             context.VersionId = this.VersionId;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -199,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.VersionId != null)
             {
                 request.VersionId = cmdletContext.VersionId;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -265,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String Key { get; set; }
             public List<Amazon.S3.Model.Tag> Tagging_TagSet { get; set; }
             public System.String VersionId { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutObjectTaggingResponse, WriteS3ObjectTagSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.VersionId;
         }

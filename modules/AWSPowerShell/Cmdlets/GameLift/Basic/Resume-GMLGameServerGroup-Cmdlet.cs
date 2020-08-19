@@ -28,18 +28,20 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This action is part of Amazon GameLift FleetIQ with game server groups, which
-    /// is in preview release and is subject to change.</b><para>
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
     /// Reinstates activity on a game server group after it has been suspended. A game server
-    /// group may be suspended by calling <a>SuspendGameServerGroup</a>, or it may have been
-    /// involuntarily suspended due to a configuration problem. You can manually resume activity
-    /// on the group once the configuration problem has been resolved. Refer to the game server
-    /// group status and status reason for more information on why group activity is suspended.
+    /// group might be suspended by the<a>SuspendGameServerGroup</a> operation, or it might
+    /// be suspended involuntarily due to a configuration problem. In the second case, you
+    /// can manually resume activity on the group once the configuration problem has been
+    /// resolved. Refer to the game server group status and status reason for more information
+    /// on why group activity is suspended.
     /// </para><para>
     /// To resume activity, specify a game server group ARN and the type of activity to be
-    /// resumed.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li></ul>
+    /// resumed. If successful, a <a>GameServerGroup</a> object is returned showing that the
+    /// resumed activity is no longer listed in <code>SuspendedActions</code>. 
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
+    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li><li><para><a>DescribeGameServerInstances</a></para></li></ul>
     /// </summary>
     [Cmdlet("Resume", "GMLGameServerGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -54,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the game server group to resume activity on. Use either the
-        /// <a>GameServerGroup</a> name or ARN value.</para>
+        /// <para>A unique identifier for the game server group. Use either the <a>GameServerGroup</a>
+        /// name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ResumeAction
         /// <summary>
         /// <para>
-        /// <para>The action to resume for this game server group.</para>
+        /// <para>The activity to resume for this game server group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

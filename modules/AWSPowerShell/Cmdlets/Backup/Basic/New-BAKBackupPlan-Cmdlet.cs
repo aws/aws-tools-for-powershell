@@ -28,8 +28,9 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Backup plans are documents that contain information that AWS Backup uses to schedule
-    /// tasks that create recovery points of resources.
+    /// Creates a backup plan using a backup plan name and backup rules. A backup plan is
+    /// a document that contains information that AWS Backup uses to schedule tasks that create
+    /// recovery points for resources.
     /// 
     ///  
     /// <para>
@@ -45,6 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     )]
     public partial class NewBAKBackupPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
+        
+        #region Parameter BackupPlan_AdvancedBackupSetting
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a list of <code>BackupOptions</code> for each resource type. These settings
+        /// are only available for Windows VSS backup jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupPlan_AdvancedBackupSettings")]
+        public Amazon.Backup.Model.AdvancedBackupSetting[] BackupPlan_AdvancedBackupSetting { get; set; }
+        #endregion
         
         #region Parameter BackupPlan_BackupPlanName
         /// <summary>
@@ -80,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>Identifies the request and allows failed requests to be retried without the risk of
-        /// executing the operation twice. If the request includes a <code>CreatorRequestId</code>
+        /// running the operation twice. If the request includes a <code>CreatorRequestId</code>
         /// that matches an existing backup plan, that plan is returned. This parameter is optional.</para>
         /// </para>
         /// </summary>
@@ -168,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = (response, cmdlet) => this.BackupPlan_BackupPlanName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.BackupPlan_AdvancedBackupSetting != null)
+            {
+                context.BackupPlan_AdvancedBackupSetting = new List<Amazon.Backup.Model.AdvancedBackupSetting>(this.BackupPlan_AdvancedBackupSetting);
+            }
             context.BackupPlan_BackupPlanName = this.BackupPlan_BackupPlanName;
             #if MODULAR
             if (this.BackupPlan_BackupPlanName == null && ParameterWasBound(nameof(this.BackupPlan_BackupPlanName)))
@@ -214,6 +231,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
              // populate BackupPlan
             var requestBackupPlanIsNull = true;
             request.BackupPlan = new Amazon.Backup.Model.BackupPlanInput();
+            List<Amazon.Backup.Model.AdvancedBackupSetting> requestBackupPlan_backupPlan_AdvancedBackupSetting = null;
+            if (cmdletContext.BackupPlan_AdvancedBackupSetting != null)
+            {
+                requestBackupPlan_backupPlan_AdvancedBackupSetting = cmdletContext.BackupPlan_AdvancedBackupSetting;
+            }
+            if (requestBackupPlan_backupPlan_AdvancedBackupSetting != null)
+            {
+                request.BackupPlan.AdvancedBackupSettings = requestBackupPlan_backupPlan_AdvancedBackupSetting;
+                requestBackupPlanIsNull = false;
+            }
             System.String requestBackupPlan_backupPlan_BackupPlanName = null;
             if (cmdletContext.BackupPlan_BackupPlanName != null)
             {
@@ -308,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Backup.Model.AdvancedBackupSetting> BackupPlan_AdvancedBackupSetting { get; set; }
             public System.String BackupPlan_BackupPlanName { get; set; }
             public List<Amazon.Backup.Model.BackupRuleInput> BackupPlan_Rule { get; set; }
             public Dictionary<System.String, System.String> BackupPlanTag { get; set; }

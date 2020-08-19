@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// public. Snapshots encrypted with your default CMK cannot be shared with other accounts.
     /// </para><para>
     /// For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing
-    /// Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2SnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

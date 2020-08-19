@@ -28,8 +28,8 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates capacity settings for a fleet. Use this action to specify the number of EC2
-    /// instances (hosts) that you want this fleet to contain. Before calling this action,
+    /// Updates capacity settings for a fleet. Use this operation to specify the number of
+    /// EC2 instances (hosts) that you want this fleet to contain. Before calling this operation,
     /// you may want to call <a>DescribeEC2InstanceLimits</a> to get the maximum capacity
     /// based on the fleet's EC2 instance type.
     /// 

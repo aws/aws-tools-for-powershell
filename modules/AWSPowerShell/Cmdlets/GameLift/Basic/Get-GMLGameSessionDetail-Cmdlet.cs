@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves properties, including the protection policy in force, for one or more game
-    /// sessions. This action can be used in several ways: (1) provide a <code>GameSessionId</code>
+    /// sessions. This operation can be used in several ways: (1) provide a <code>GameSessionId</code>
     /// or <code>GameSessionArn</code> to request details for a specific game session; (2)
     /// provide either a <code>FleetId</code> or an <code>AliasId</code> to request properties
     /// for all game sessions running on a fleet. 
@@ -119,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Token that indicates the start of the next sequential page of results. Use the token
-        /// that is returned with a previous call to this action. To start at the beginning of
-        /// the result set, do not specify a value.</para>
+        /// that is returned with a previous call to this operation. To start at the beginning
+        /// of the result set, do not specify a value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

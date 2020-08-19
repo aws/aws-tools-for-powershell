@@ -28,14 +28,15 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Lists log events from the specified log stream. You can list all the log events or
-    /// filter using a time range.
+    /// Lists log events from the specified log stream. You can list all of the log events
+    /// or filter using a time range.
     /// 
     ///  
     /// <para>
     /// By default, this operation returns as many log events as can fit in a response size
     /// of 1MB (up to 10,000 log events). You can get additional log events by specifying
-    /// one of the tokens in a subsequent call.
+    /// one of the tokens in a subsequent call. This operation can return empty results while
+    /// there are more log events available through the token.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogEvent")]

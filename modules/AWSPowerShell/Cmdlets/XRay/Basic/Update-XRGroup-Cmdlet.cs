@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.XR
         public System.String GroupName { get; set; }
         #endregion
         
+        #region Parameter InsightsConfiguration_InsightsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set the InsightsEnabled value to true to enable insights or false to disable insights.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InsightsConfiguration_InsightsEnabled { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Group'.
@@ -134,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             context.FilterExpression = this.FilterExpression;
             context.GroupARN = this.GroupARN;
             context.GroupName = this.GroupName;
+            context.InsightsConfiguration_InsightsEnabled = this.InsightsConfiguration_InsightsEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,6 +172,25 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
+            }
+            
+             // populate InsightsConfiguration
+            var requestInsightsConfigurationIsNull = true;
+            request.InsightsConfiguration = new Amazon.XRay.Model.InsightsConfiguration();
+            System.Boolean? requestInsightsConfiguration_insightsConfiguration_InsightsEnabled = null;
+            if (cmdletContext.InsightsConfiguration_InsightsEnabled != null)
+            {
+                requestInsightsConfiguration_insightsConfiguration_InsightsEnabled = cmdletContext.InsightsConfiguration_InsightsEnabled.Value;
+            }
+            if (requestInsightsConfiguration_insightsConfiguration_InsightsEnabled != null)
+            {
+                request.InsightsConfiguration.InsightsEnabled = requestInsightsConfiguration_insightsConfiguration_InsightsEnabled.Value;
+                requestInsightsConfigurationIsNull = false;
+            }
+             // determine if request.InsightsConfiguration should be set to null
+            if (requestInsightsConfigurationIsNull)
+            {
+                request.InsightsConfiguration = null;
             }
             
             CmdletOutput output;
@@ -226,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
             public System.String FilterExpression { get; set; }
             public System.String GroupARN { get; set; }
             public System.String GroupName { get; set; }
+            public System.Boolean? InsightsConfiguration_InsightsEnabled { get; set; }
             public System.Func<Amazon.XRay.Model.UpdateGroupResponse, UpdateXRGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Group;
         }

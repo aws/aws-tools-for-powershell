@@ -105,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter TimePeriod
         /// <summary>
         /// <para>
-        /// <para>The period of time that you want the forecast to cover.</para>
+        /// <para>The period of time that you want the forecast to cover. The start date must be equal
+        /// to or no later than the current date to avoid a validation error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

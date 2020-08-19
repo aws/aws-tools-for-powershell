@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
     /// Gets aggregated values for an asset property. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#aggregates">Querying
-    /// Aggregated Property Values</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// aggregates</a> in the <i>AWS IoT SiteWise User Guide</i>.
     /// 
     ///  
     /// <para>
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>The property alias that identifies the property, such as an OPC-UA server data stream
         /// path (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more
         /// information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping
-        /// Industrial Data Streams to Asset Properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
+        /// industrial data streams to asset properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter TimeOrdering
         /// <summary>
         /// <para>
-        /// <para>The chronological sorting order of the requested information.</para>
+        /// <para>The chronological sorting order of the requested information.</para><para>Default: <code>ASCENDING</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned per paginated request.</para>
+        /// <para>The maximum number of results to be returned per paginated request.</para><para>Default: 100</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

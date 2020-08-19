@@ -80,10 +80,17 @@ $IOTSW_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoTSiteWise.AuthMode
+        "New-IOTSWPortal/PortalAuthMode"
+        {
+            $v = "IAM","SSO"
+            break
+        }
+
         # Amazon.IoTSiteWise.IdentityType
         "Get-IOTSWAccessPolicyList/IdentityType"
         {
-            $v = "GROUP","USER"
+            $v = "GROUP","IAM","USER"
             break
         }
 
@@ -145,6 +152,13 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.TraversalDirection
+        "Get-IOTSWAssociatedAssetList/TraversalDirection"
+        {
+            $v = "CHILD","PARENT"
+            break
+        }
+
 
     }
 
@@ -158,11 +172,13 @@ $IOTSW_map = @{
     "Filter"=@("Get-IOTSWAssetList")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
     "LoggingOptions_Level"=@("Write-IOTSWLoggingOption")
+    "PortalAuthMode"=@("New-IOTSWPortal")
     "PortalLogoImage_File_Type"=@("Update-IOTSWPortal")
     "PortalLogoImageFile_Type"=@("New-IOTSWPortal")
     "PropertyNotificationState"=@("Update-IOTSWAssetProperty")
     "ResourceType"=@("Get-IOTSWAccessPolicyList")
     "TimeOrdering"=@("Get-IOTSWAssetPropertyAggregate","Get-IOTSWAssetPropertyValueHistory")
+    "TraversalDirection"=@("Get-IOTSWAssociatedAssetList")
 }
 
 _awsArgumentCompleterRegistration $IOTSW_Completers $IOTSW_map
@@ -225,6 +241,7 @@ $IOTSW_SelectMap = @{
                "New-IOTSWDashboard",
                "New-IOTSWGateway",
                "New-IOTSWPortal",
+               "New-IOTSWPresignedPortalUrl",
                "New-IOTSWProject",
                "Remove-IOTSWAccessPolicy",
                "Remove-IOTSWAsset",

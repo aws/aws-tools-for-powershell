@@ -32,12 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// for accounts that enables you to organize your accounts to apply policies according
     /// to your business requirements. The number of levels deep that you can nest OUs is
     /// dependent upon the policy types enabled for that root. For service control policies,
-    /// the limit is five. 
+    /// the limit is five.
     /// 
     ///  
     /// <para>
     /// For more information about OUs, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing
     /// Organizational Units</a> in the <i>AWS Organizations User Guide.</i></para><para>
+    /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
+    /// permission.
+    /// </para><para>
     /// This operation can be called only from the organization's master account.
     /// </para>
     /// </summary>
@@ -89,6 +92,22 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ParentId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the newly created OU. For each tag in the
+        /// list, you must specify both a tag key and a value. You can set the value to an empty
+        /// string, but you can't set it to <code>null</code>. For more information about tagging,
+        /// see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
+        /// AWS Organizations resources</a> in the AWS Organizations User Guide.</para><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags for
+        /// an OU, then the entire request fails and the OU is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Organizations.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -166,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                 WriteWarning("You are passing $null as a value for parameter ParentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Organizations.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             if (cmdletContext.ParentId != null)
             {
                 request.ParentId = cmdletContext.ParentId;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -253,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             public System.String Name { get; set; }
             public System.String ParentId { get; set; }
+            public List<Amazon.Organizations.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Organizations.Model.CreateOrganizationalUnitResponse, NewORGOrganizationalUnitCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.OrganizationalUnit;
         }

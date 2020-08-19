@@ -87,7 +87,7 @@ $CSTC_Completers = {
             ($_ -eq "Get-CSTCConnectionList/ProviderTypeFilter")
         }
         {
-            $v = "Bitbucket","GitHubEnterpriseServer"
+            $v = "Bitbucket","GitHub","GitHubEnterpriseServer"
             break
         }
 

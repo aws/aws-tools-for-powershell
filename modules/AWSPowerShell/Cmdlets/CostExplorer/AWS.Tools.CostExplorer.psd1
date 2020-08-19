@@ -86,6 +86,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Get-CEAnomaly', 
+        'Get-CEAnomalyMonitor', 
+        'Get-CEAnomalySubscription', 
         'Get-CECostAndUsage', 
         'Get-CECostAndUsageWithResource', 
         'Get-CECostCategoryDefinition', 
@@ -102,8 +105,15 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CESavingsPlansUtilizationDetail', 
         'Get-CETag', 
         'Get-CEUsageForecast', 
+        'New-CEAnomalyMonitor', 
+        'New-CEAnomalySubscription', 
         'New-CECostCategoryDefinition', 
+        'Remove-CEAnomalyMonitor', 
+        'Remove-CEAnomalySubscription', 
         'Remove-CECostCategoryDefinition', 
+        'Set-CEAnomalyFeedback', 
+        'Update-CEAnomalyMonitor', 
+        'Update-CEAnomalySubscription', 
         'Update-CECostCategoryDefinition')
 
     # Variables to export from this module

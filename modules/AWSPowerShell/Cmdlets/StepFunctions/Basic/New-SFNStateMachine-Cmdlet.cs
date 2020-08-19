@@ -41,10 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </para></note><note><para><code>CreateStateMachine</code> is an idempotent API. Subsequent requests won’t create
     /// a duplicate resource if it was already created. <code>CreateStateMachine</code>'s
     /// idempotency check is based on the state machine <code>name</code>, <code>definition</code>,
-    /// <code>type</code>, and <code>LoggingConfiguration</code>. If a following request has
-    /// a different <code>roleArn</code> or <code>tags</code>, Step Functions will ignore
-    /// these differences and treat it as an idempotent request of the previous. In this case,
-    /// <code>roleArn</code> and <code>tags</code> will not be updated, even if they are different.
+    /// <code>type</code>, <code>LoggingConfiguration</code> and <code>TracingConfiguration</code>.
+    /// If a following request has a different <code>roleArn</code> or <code>tags</code>,
+    /// Step Functions will ignore these differences and treat it as an idempotent request
+    /// of the previous. In this case, <code>roleArn</code> and <code>tags</code> will not
+    /// be updated, even if they are different.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -86,10 +87,20 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public Amazon.StepFunctions.Model.LogDestination[] LoggingConfiguration_Destination { get; set; }
         #endregion
         
+        #region Parameter TracingConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, AWS X-Ray tracing is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TracingConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter LoggingConfiguration_IncludeExecutionData
         /// <summary>
         /// <para>
-        /// <para>Determines whether execution data is included in your log. When set to <code>FALSE</code>,
+        /// <para>Determines whether execution data is included in your log. When set to <code>false</code>,
         /// data is excluded.</para>
         /// </para>
         /// </summary>
@@ -263,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             {
                 context.Tag = new List<Amazon.StepFunctions.Model.Tag>(this.Tag);
             }
+            context.TracingConfiguration_Enabled = this.TracingConfiguration_Enabled;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -334,6 +346,25 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate TracingConfiguration
+            var requestTracingConfigurationIsNull = true;
+            request.TracingConfiguration = new Amazon.StepFunctions.Model.TracingConfiguration();
+            System.Boolean? requestTracingConfiguration_tracingConfiguration_Enabled = null;
+            if (cmdletContext.TracingConfiguration_Enabled != null)
+            {
+                requestTracingConfiguration_tracingConfiguration_Enabled = cmdletContext.TracingConfiguration_Enabled.Value;
+            }
+            if (requestTracingConfiguration_tracingConfiguration_Enabled != null)
+            {
+                request.TracingConfiguration.Enabled = requestTracingConfiguration_tracingConfiguration_Enabled.Value;
+                requestTracingConfigurationIsNull = false;
+            }
+             // determine if request.TracingConfiguration should be set to null
+            if (requestTracingConfigurationIsNull)
+            {
+                request.TracingConfiguration = null;
             }
             if (cmdletContext.Type != null)
             {
@@ -407,6 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.StepFunctions.Model.Tag> Tag { get; set; }
+            public System.Boolean? TracingConfiguration_Enabled { get; set; }
             public Amazon.StepFunctions.StateMachineType Type { get; set; }
             public System.Func<Amazon.StepFunctions.Model.CreateStateMachineResponse, NewSFNStateMachineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

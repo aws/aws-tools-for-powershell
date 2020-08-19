@@ -28,8 +28,8 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Gets information about a specified resolver endpoint, such as whether it's an inbound
-    /// or an outbound resolver endpoint, and the current status of the endpoint.
+    /// Gets information about a specified Resolver endpoint, such as whether it's an inbound
+    /// or an outbound Resolver endpoint, and the current status of the endpoint.
     /// </summary>
     [Cmdlet("Get", "R53RResolverEndpoint")]
     [OutputType("Amazon.Route53Resolver.Model.ResolverEndpoint")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver endpoint that you want to get information about.</para>
+        /// <para>The ID of the Resolver endpoint that you want to get information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

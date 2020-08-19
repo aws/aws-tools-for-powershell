@@ -28,9 +28,10 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns metadata of your saved backup plans, including Amazon Resource Names (ARNs),
-    /// plan IDs, creation and deletion dates, version IDs, plan names, and creator request
-    /// IDs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of existing backup plans for an authenticated account. The list is
+    /// populated only if the advanced option is set for the backup plan. The list contains
+    /// information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion
+    /// dates, version IDs, plan names, and creator request IDs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKBackupPlanList")]
     [OutputType("Amazon.Backup.Model.BackupPlansListMember")]

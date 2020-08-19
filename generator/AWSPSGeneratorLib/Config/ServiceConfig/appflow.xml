@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>appflow</C2jFilename>
+    <AssemblyName>Appflow</AssemblyName>
+    <ServiceNounPrefix>AF</ServiceNounPrefix>
+    <ServiceName>Amazon Appflow</ServiceName>
+    <ServiceClientInterface>IAmazonAppflow</ServiceClientInterface>
+    <ServiceClient>AmazonAppflowClient</ServiceClient>
+    <ServiceModuleGuid>70963A42-A29D-431D-AD9E-89459F6AD45E</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateConnectorProfile" OutputProperty="ConnectorProfileArn" Verb="New" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.Appflow.Model.ConnectorProfileConfig</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFlow" OutputProperty="FlowArn" Verb="New" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConnectorProfile" Verb="Remove" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFlow" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnectorEntity" OutputProperty="ConnectorEntityFields" Verb="Get" Noun="ConnectorEntity" PipelineParameter="ConnectorEntityName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnectorProfiles" OutputProperty="ConnectorProfileDetails" Verb="Get" Noun="ConnectorProfile" PipelineParameter="ConnectorType" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnectors" OutputProperty="ConnectorConfigurations" Verb="Get" Noun="Connector" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlow" OutputProperty="*" Verb="Get" Noun="Flow" PipelineParameter="FlowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlowExecutionRecords" OutputProperty="FlowExecutions" Verb="Get" Noun="FlowExecutionRecord" PipelineParameter="FlowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConnectorEntities" OutputProperty="ConnectorEntityMap" Verb="Get" Noun="ConnectorEntityList" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFlows" OutputProperty="Flows" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartFlow" OutputProperty="*" Verb="Start" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopFlow" OutputProperty="*" Verb="Stop" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectorProfile" OutputProperty="ConnectorProfileArn" Verb="Update" Noun="ConnectorProfile" ShouldProcessTarget="ConnectorProfileName" PipelineParameter="ConnectorProfileName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten>
+                <Type>Amazon.Appflow.Model.ConnectorProfileConfig</Type>
+            </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFlow" OutputProperty="FlowStatus" Verb="Update" Noun="Flow" ShouldProcessTarget="FlowName" PipelineParameter="FlowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         /// <summary>
         /// <para>
         /// <para>The name of the attribute to sort the results by. This value can be the name of any
-        /// property that Amazon Macie defines as bucket metadata, such as bucketName, accountId,
-        /// or lastUpdated.</para>
+        /// property that Amazon Macie defines as bucket metadata, such as bucketName or accountId.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

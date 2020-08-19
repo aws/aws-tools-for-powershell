@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ParameterFilter
         /// <summary>
         /// <para>
-        /// <para>Filters to limit the request results.</para>
+        /// <para>Filters to limit the request results.</para><note><para>For <code>GetParametersByPath</code>, the following filter <code>Key</code> names
+        /// are supported: <code>Type</code>, <code>KeyId</code>, <code>Label</code>, and <code>DataType</code>.</para><para>The following <code>Key</code> values are not supported for <code>GetParametersByPath</code>:
+        /// <code>tag</code>, <code>Name</code>, <code>Path</code>, and <code>Tier</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

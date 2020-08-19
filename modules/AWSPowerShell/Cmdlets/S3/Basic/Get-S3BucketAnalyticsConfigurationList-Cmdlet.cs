@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// S3 Analytics – Storage Class Analysis</a>. 
     /// </para><para>
     /// The following operations are related to <code>ListBucketAnalyticsConfigurations</code>:
-    /// </para><ul><li><para><a>GetBucketAnalyticsConfiguration</a></para></li><li><para><a>DeleteBucketAnalyticsConfiguration</a></para></li><li><para><a>PutBucketAnalyticsConfiguration</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAnalyticsConfiguration.html">GetBucketAnalyticsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketAnalyticsConfiguration.html">DeleteBucketAnalyticsConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAnalyticsConfiguration.html">PutBucketAnalyticsConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketAnalyticsConfigurationList")]
     [OutputType("Amazon.S3.Model.ListBucketAnalyticsConfigurationsResponse")]
@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ContinuationToken { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter Select
@@ -129,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.ContinuationToken = this.ContinuationToken;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ContinuationToken != null)
             {
                 request.ContinuationToken = cmdletContext.ContinuationToken;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -216,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String ContinuationToken { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.ListBucketAnalyticsConfigurationsResponse, GetS3BucketAnalyticsConfigurationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

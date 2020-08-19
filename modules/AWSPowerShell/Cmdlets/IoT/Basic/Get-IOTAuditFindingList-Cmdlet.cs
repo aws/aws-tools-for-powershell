@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Lists the findings (results) of a Device Defender audit or of the audits performed
-    /// during a specified time period. (Findings are retained for 180 days.)<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// during a specified time period. (Findings are retained for 90 days.)<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTAuditFindingList")]
     [OutputType("Amazon.IoT.Model.AuditFinding")]

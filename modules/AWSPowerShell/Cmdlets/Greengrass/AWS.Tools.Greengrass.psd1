@@ -133,6 +133,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GGSubscriptionDefinitionList', 
         'Get-GGSubscriptionDefinitionVersion', 
         'Get-GGSubscriptionDefinitionVersionList', 
+        'Get-GGThingRuntimeConfiguration', 
         'New-GGConnectorDefinition', 
         'New-GGConnectorDefinitionVersion', 
         'New-GGCoreDefinition', 
@@ -175,7 +176,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-GGGroupCertificateConfiguration', 
         'Update-GGLoggerDefinition', 
         'Update-GGResourceDefinition', 
-        'Update-GGSubscriptionDefinition')
+        'Update-GGSubscriptionDefinition', 
+        'Update-GGThingRuntimeConfiguration')
 
     # Variables to export from this module
     VariablesToExport = '*'

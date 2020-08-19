@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <a>ScalingPolicy</a> objects is returned for the fleet.
     /// </para><para>
     /// A fleet may have all of its scaling policies suspended (<a>StopFleetActions</a>).
-    /// This action does not affect the status of the scaling policies, which remains ACTIVE.
+    /// This operation does not affect the status of the scaling policies, which remains ACTIVE.
     /// To see whether a fleet's scaling policies are in force or suspended, call <a>DescribeFleetAttributes</a>
     /// and check the stopped actions.
     /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para>
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Token that indicates the start of the next sequential page of results. Use the token
-        /// that is returned with a previous call to this action. To start at the beginning of
-        /// the result set, do not specify a value.</para>
+        /// that is returned with a previous call to this operation. To start at the beginning
+        /// of the result set, do not specify a value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

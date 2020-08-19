@@ -32,8 +32,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// Currently, you can tag and untag accounts in AWS Organizations.
-    /// </para><para>
+    /// Currently, you can attach tags to the following resources in AWS Organizations.
+    /// </para><ul><li><para>
+    /// AWS account
+    /// </para></li><li><para>
+    /// Organization root
+    /// </para></li><li><para>
+    /// Organizational unit (OU)
+    /// </para></li><li><para>
+    /// Policy (any type)
+    /// </para></li></ul><para>
     /// This operation can be called only from the organization's master account.
     /// </para>
     /// </summary>
@@ -67,8 +75,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tag to add to the specified resource. You must specify both a tag key and value.
-        /// You can set the value of a tag to an empty string, but you can't set it to null.</para>
+        /// <para>A list of tags to add to the specified resource.</para><para>You can specify any of the following taggable resources.</para><ul><li><para>AWS account – specify the account ID number.</para></li><li><para>Organizational unit – specify the OU ID that begins with <code>ou-</code> and looks
+        /// similar to: <code>ou-<i>1a2b-34uvwxyz</i></code></para></li><li><para>Root – specify the root ID that begins with <code>r-</code> and looks similar to:
+        /// <code>r-<i>1a2b</i></code></para></li><li><para>Policy – specify the policy ID that begins with <code>p-</code> andlooks similar to:
+        /// <code>p-<i>12abcdefg3</i></code></para></li></ul><para>For each tag in the list, you must specify both a tag key and a value. You can set
+        /// the value to an empty string, but you can't set it to <code>null</code>.</para><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags for
+        /// an account user, then the entire request fails and the account is not created.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

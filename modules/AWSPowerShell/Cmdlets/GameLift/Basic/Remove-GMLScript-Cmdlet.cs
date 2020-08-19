@@ -28,9 +28,9 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes a Realtime script. This action permanently deletes the script record. If script
-    /// files were uploaded, they are also deleted (files stored in an S3 bucket are not deleted).
-    /// 
+    /// Deletes a Realtime script. This operation permanently deletes the script record. If
+    /// script files were uploaded, they are also deleted (files stored in an S3 bucket are
+    /// not deleted). 
     /// 
     ///  
     /// <para>

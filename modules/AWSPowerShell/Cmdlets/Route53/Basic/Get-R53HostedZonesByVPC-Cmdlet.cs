@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>(Optional) The maximum number of hosted zones that you want Amazon Route 53 to return.
         /// If the specified VPC is associated with more than <code>MaxItems</code> hosted zones,
         /// the response includes a <code>NextToken</code> element. <code>NextToken</code> contains
-        /// the hosted zone ID of the first hosted zone that Route 53 will return if you submit
-        /// another request.</para>
+        /// an encrypted token that identifies the first hosted zone that Route 53 will return
+        /// if you submit another request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

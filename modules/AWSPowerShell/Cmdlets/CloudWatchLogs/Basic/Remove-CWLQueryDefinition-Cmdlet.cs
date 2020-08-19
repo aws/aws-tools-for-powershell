@@ -28,7 +28,16 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    
+    /// Deletes a saved CloudWatch Logs Insights query definition. A query definition contains
+    /// details about a saved CloudWatch Logs Insights query.
+    /// 
+    ///  
+    /// <para>
+    /// Each <code>DeleteQueryDefinition</code> operation can delete one query definition.
+    /// </para><para>
+    /// You must have the <code>logs:DeleteQueryDefinition</code> permission to be able to
+    /// perform this operation.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWLQueryDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
@@ -43,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter QueryDefinitionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the query definition that you want to delete. You can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html">DescribeQueryDefinitions</a>
+        /// to retrieve the IDs of your saved query definitions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

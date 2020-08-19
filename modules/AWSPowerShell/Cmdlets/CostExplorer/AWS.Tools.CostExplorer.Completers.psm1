@@ -90,6 +90,26 @@ $CE_Completers = {
             break
         }
 
+        # Amazon.CostExplorer.AnomalyFeedbackType
+        {
+            ($_ -eq "Get-CEAnomaly/Feedback") -Or
+            ($_ -eq "Set-CEAnomalyFeedback/Feedback")
+        }
+        {
+            $v = "NO","PLANNED_ACTIVITY","YES"
+            break
+        }
+
+        # Amazon.CostExplorer.AnomalySubscriptionFrequency
+        {
+            ($_ -eq "New-CEAnomalySubscription/AnomalySubscription_Frequency") -Or
+            ($_ -eq "Update-CEAnomalySubscription/Frequency")
+        }
+        {
+            $v = "DAILY","IMMEDIATE","WEEKLY"
+            break
+        }
+
         # Amazon.CostExplorer.Context
         "Get-CEDimensionValue/Context"
         {
@@ -150,6 +170,27 @@ $CE_Completers = {
             break
         }
 
+        # Amazon.CostExplorer.MonitorDimension
+        "New-CEAnomalyMonitor/AnomalyMonitor_MonitorDimension"
+        {
+            $v = "SERVICE"
+            break
+        }
+
+        # Amazon.CostExplorer.MonitorType
+        "New-CEAnomalyMonitor/AnomalyMonitor_MonitorType"
+        {
+            $v = "CUSTOM","DIMENSIONAL"
+            break
+        }
+
+        # Amazon.CostExplorer.NumericOperator
+        "Get-CEAnomaly/TotalImpact_NumericOperator"
+        {
+            $v = "BETWEEN","EQUAL","GREATER_THAN","GREATER_THAN_OR_EQUAL","LESS_THAN","LESS_THAN_OR_EQUAL"
+            break
+        }
+
         # Amazon.CostExplorer.OfferingClass
         "Get-CEReservationPurchaseRecommendation/ServiceSpecification_EC2Specification_OfferingClass"
         {
@@ -201,9 +242,14 @@ $CE_Completers = {
 
 $CE_map = @{
     "AccountScope"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
+    "AnomalyMonitor_MonitorDimension"=@("New-CEAnomalyMonitor")
+    "AnomalyMonitor_MonitorType"=@("New-CEAnomalyMonitor")
+    "AnomalySubscription_Frequency"=@("New-CEAnomalySubscription")
     "Configuration_RecommendationTarget"=@("Get-CERightsizingRecommendation")
     "Context"=@("Get-CEDimensionValue")
     "Dimension"=@("Get-CEDimensionValue")
+    "Feedback"=@("Get-CEAnomaly","Set-CEAnomalyFeedback")
+    "Frequency"=@("Update-CEAnomalySubscription")
     "Granularity"=@("Get-CECostAndUsage","Get-CECostAndUsageWithResource","Get-CECostForecast","Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CEUsageForecast")
     "LookbackPeriodInDays"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "Metric"=@("Get-CECostForecast","Get-CEUsageForecast")
@@ -212,6 +258,7 @@ $CE_map = @{
     "SavingsPlansType"=@("Get-CESavingsPlansPurchaseRecommendation")
     "ServiceSpecification_EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
     "TermInYears"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
+    "TotalImpact_NumericOperator"=@("Get-CEAnomaly")
 }
 
 _awsArgumentCompleterRegistration $CE_Completers $CE_map
@@ -264,9 +311,16 @@ $CE_SelectCompleters = {
 }
 
 $CE_SelectMap = @{
-    "Select"=@("New-CECostCategoryDefinition",
+    "Select"=@("New-CEAnomalyMonitor",
+               "New-CEAnomalySubscription",
+               "New-CECostCategoryDefinition",
+               "Remove-CEAnomalyMonitor",
+               "Remove-CEAnomalySubscription",
                "Remove-CECostCategoryDefinition",
                "Get-CECostCategoryDefinition",
+               "Get-CEAnomaly",
+               "Get-CEAnomalyMonitor",
+               "Get-CEAnomalySubscription",
                "Get-CECostAndUsage",
                "Get-CECostAndUsageWithResource",
                "Get-CECostForecast",
@@ -282,6 +336,9 @@ $CE_SelectMap = @{
                "Get-CETag",
                "Get-CEUsageForecast",
                "Get-CECostCategoryDefinitionList",
+               "Set-CEAnomalyFeedback",
+               "Update-CEAnomalyMonitor",
+               "Update-CEAnomalySubscription",
                "Update-CECostCategoryDefinition")
 }
 

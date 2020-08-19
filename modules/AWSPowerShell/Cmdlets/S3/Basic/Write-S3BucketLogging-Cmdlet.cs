@@ -60,11 +60,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For more information about server access logging, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html">Server
     /// Access Logging</a>. 
     /// </para><para>
-    /// For more information about creating a bucket, see <a>CreateBucket</a>. For more information
-    /// about returning the logging status of a bucket, see <a>GetBucketLogging</a>.
+    /// For more information about creating a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a>.
+    /// For more information about returning the logging status of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a>.
     /// </para><para>
     /// The following operations are related to <code>PutBucketLogging</code>:
-    /// </para><ul><li><para><a>PutObject</a></para></li><li><para><a>DeleteBucket</a></para></li><li><para><a>CreateBucket</a></para></li><li><para><a>GetBucketLogging</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLogging.html">GetBucketLogging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -84,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter LoggingConfig_Grant
@@ -186,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.LoggingConfig_Grant = new List<Amazon.S3.Model.S3Grant>(this.LoggingConfig_Grant);
             }
             context.LoggingConfig_TargetPrefix = this.LoggingConfig_TargetPrefix;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -244,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestLoggingConfigIsNull)
             {
                 request.LoggingConfig = null;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -310,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String LoggingConfig_TargetBucketName { get; set; }
             public List<Amazon.S3.Model.S3Grant> LoggingConfig_Grant { get; set; }
             public System.String LoggingConfig_TargetPrefix { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketLoggingResponse, WriteS3BucketLoggingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

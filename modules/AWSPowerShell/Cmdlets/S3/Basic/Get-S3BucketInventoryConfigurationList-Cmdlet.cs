@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For information about the Amazon S3 inventory feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html">Amazon
     /// S3 Inventory</a></para><para>
     /// The following operations are related to <code>ListBucketInventoryConfigurations</code>:
-    /// </para><ul><li><para><a>GetBucketInventoryConfiguration</a></para></li><li><para><a>DeleteBucketInventoryConfiguration</a></para></li><li><para><a>PutBucketInventoryConfiguration</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketInventoryConfiguration.html">GetBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketInventoryConfiguration.html">DeleteBucketInventoryConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketInventoryConfiguration.html">PutBucketInventoryConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3BucketInventoryConfigurationList")]
     [OutputType("Amazon.S3.Model.ListBucketInventoryConfigurationsResponse")]
@@ -81,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ContinuationToken { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter Select
@@ -130,6 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.ContinuationToken = this.ContinuationToken;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ContinuationToken != null)
             {
                 request.ContinuationToken = cmdletContext.ContinuationToken;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -217,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String ContinuationToken { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.ListBucketInventoryConfigurationsResponse, GetS3BucketInventoryConfigurationListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

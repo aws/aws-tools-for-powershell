@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class NewIVSChannelCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        #region Parameter Authorized
+        /// <summary>
+        /// <para>
+        /// <para>Whether the channel is authorized. Default: <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Authorized { get; set; }
+        #endregion
+        
         #region Parameter LatencyMode
         /// <summary>
         /// <para>
@@ -149,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.Authorized = this.Authorized;
             context.LatencyMode = this.LatencyMode;
             context.Name = this.Name;
             if (this.Tag != null)
@@ -176,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.IVS
             // create request
             var request = new Amazon.IVS.Model.CreateChannelRequest();
             
+            if (cmdletContext.Authorized != null)
+            {
+                request.Authorized = cmdletContext.Authorized.Value;
+            }
             if (cmdletContext.LatencyMode != null)
             {
                 request.LatencyMode = cmdletContext.LatencyMode;
@@ -253,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Authorized { get; set; }
             public Amazon.IVS.ChannelLatencyMode LatencyMode { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

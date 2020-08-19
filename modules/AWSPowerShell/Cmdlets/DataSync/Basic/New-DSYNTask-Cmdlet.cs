@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     /// status for more than a few minutes, it means that your agent might be having trouble
     /// mounting the source NFS file system. Check the task's ErrorCode and ErrorDetail. Mount
     /// issues are often caused by either a misconfigured firewall or a mistyped NFS server
-    /// host name.
+    /// hostname.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

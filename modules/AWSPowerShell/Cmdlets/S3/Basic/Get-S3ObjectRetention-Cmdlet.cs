@@ -30,6 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
     /// Objects</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This action is not supported by Amazon S3 on Outposts.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "S3ObjectRetention")]
     [OutputType("Amazon.S3.Model.ObjectLockRetention")]
@@ -54,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter Key
@@ -136,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Key = this.Key;
             context.RequestPayer = this.RequestPayer;
             context.VersionId = this.VersionId;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.VersionId != null)
             {
                 request.VersionId = cmdletContext.VersionId;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -233,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String Key { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String VersionId { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.GetObjectRetentionResponse, GetS3ObjectRetentionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Retention;
         }

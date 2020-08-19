@@ -46,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters. The possible values are:</para><ul><li><para><code>default-association-route-table</code> - Indicates whether this is the default
         /// association route table for the transit gateway (<code>true</code> | <code>false</code>).</para></li><li><para><code>default-propagation-route-table</code> - Indicates whether this is the default
-        /// propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</para></li><li><para><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code>
-        /// | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code>
-        /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>transit-gateway-route-table-id</code> - The ID of the transit gateway route
+        /// propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</para></li><li><para><code>state</code> - The state of the route table (<code>available</code> | <code>deleting</code>
+        /// | <code>deleted</code> | <code>pending</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>transit-gateway-route-table-id</code> - The ID of the transit gateway route
         /// table.</para></li></ul>
         /// </para>
         /// </summary>

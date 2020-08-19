@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
     /// Deletes all Amazon QuickSight customizations in this AWS Region for the specified
-    /// AWS Account and QuickSight namespace.
+    /// AWS account and QuickSight namespace.
     /// </summary>
     [Cmdlet("Remove", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.QuickSight.Model.DeleteAccountCustomizationResponse")]

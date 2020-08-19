@@ -103,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GMLGameServer', 
         'Get-GMLGameServerGroup', 
         'Get-GMLGameServerGroupList', 
+        'Get-GMLGameServerInstance', 
         'Get-GMLGameServerList', 
         'Get-GMLGameSession', 
         'Get-GMLGameSessionDetail', 

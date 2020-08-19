@@ -31,10 +31,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Creates or updates a subscription filter and associates it with the specified log
     /// group. Subscription filters allow you to subscribe to a real-time stream of log events
     /// ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>
-    /// and have them delivered to a specific destination. Currently, the supported destinations
-    /// are:
+    /// and have them delivered to a specific destination. When log events are sent to the
+    /// receiving service, they are Base64 encoded and compressed with the gzip format.
     /// 
-    ///  <ul><li><para>
+    ///  
+    /// <para>
+    /// The following destinations are supported for subscription filters:
+    /// </para><ul><li><para>
     /// An Amazon Kinesis stream belonging to the same account as the subscription filter,
     /// for same-account delivery.
     /// </para></li><li><para>
@@ -50,6 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// updating an existing filter, you must specify the correct name in <code>filterName</code>.
     /// Otherwise, the call fails because you cannot associate a second filter with a log
     /// group.
+    /// </para><para>
+    /// To perform a <code>PutSubscriptionFilter</code> operation, you must also have the
+    /// <code>iam:PassRole</code> permission.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLSubscriptionFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -87,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Distribution
         /// <summary>
         /// <para>
-        /// <para>The method used to distribute log data to the destination. By default log data is
+        /// <para>The method used to distribute log data to the destination. By default, log data is
         /// grouped by log stream, but the grouping can be set to random for a more even distribution.
         /// This property is only applicable when the destination is an Amazon Kinesis stream.
         /// </para>

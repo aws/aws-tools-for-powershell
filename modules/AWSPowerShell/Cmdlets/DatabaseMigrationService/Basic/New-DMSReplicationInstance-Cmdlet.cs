@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <para>
     /// AWS DMS requires that your account have certain roles with appropriate permissions
     /// before you can create a replication instance. For information on the required roles,
-    /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.APIRole.html">Creating
+    /// see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating
     /// the IAM Roles to Use With the AWS CLI and AWS DMS API</a>. For information on the
-    /// required permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.IAMPermissions.html">IAM
+    /// required permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM
     /// Permissions Needed to Use AWS DMS</a>.
     /// </para>
     /// </summary>
@@ -102,7 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The engine version number of the replication instance.</para>
+        /// <para>The engine version number of the replication instance.</para><para>If an engine version number is not specified when a replication instance is created,
+        /// the default is the latest engine version available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

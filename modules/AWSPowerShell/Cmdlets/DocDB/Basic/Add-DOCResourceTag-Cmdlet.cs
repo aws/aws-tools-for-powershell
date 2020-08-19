@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         /// <summary>
         /// <para>
         /// <para>The Amazon DocumentDB resource that the tags are added to. This value is an Amazon
-        /// Resource Name (ARN).</para>
+        /// Resource Name .</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the Amazon DocumentDB resource. </para>
+        /// <para>The tags to be assigned to the Amazon DocumentDB resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

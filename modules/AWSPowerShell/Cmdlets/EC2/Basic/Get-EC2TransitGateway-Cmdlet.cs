@@ -54,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// attachments automatically propagate routes to the default propagation route table
         /// (<code>enable</code> | <code>disable</code>).</para></li><li><para><code>options.dns-support</code> - Indicates whether DNS support is enabled (<code>enable</code>
         /// | <code>disable</code>).</para></li><li><para><code>options.vpn-ecmp-support</code> - Indicates whether Equal Cost Multipath Protocol
-        /// support is enabled (<code>enable</code> | <code>disable</code>).</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the transit gateway.</para></li><li><para><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code>
-        /// | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code>
-        /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li></ul>
+        /// support is enabled (<code>enable</code> | <code>disable</code>).</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the transit gateway.</para></li><li><para><code>state</code> - The state of the transit gateway (<code>available</code> | <code>deleted</code>
+        /// | <code>deleting</code> | <code>modifying</code> | <code>pending</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

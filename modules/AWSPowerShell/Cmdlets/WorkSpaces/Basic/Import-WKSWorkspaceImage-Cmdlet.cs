@@ -28,9 +28,10 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Imports the specified Windows 7 or Windows 10 Bring Your Own License (BYOL) image
-    /// into Amazon WorkSpaces. The image must be an already licensed EC2 image that is in
-    /// your AWS account, and you must own the image.
+    /// Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon WorkSpaces.
+    /// The image must be an already licensed Amazon EC2 image that is in your AWS account,
+    /// and you must own the image. For more information about creating BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
+    /// Bring Your Own Windows Desktop Licenses</a>.
     /// </summary>
     [Cmdlet("Import", "WKSWorkspaceImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -41,6 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     )]
     public partial class ImportWKSWorkspaceImageCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
+        
+        #region Parameter Application
+        /// <summary>
+        /// <para>
+        /// <para>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows
+        /// 10 BYOL images. For more information about subscribing to Office for BYOL images,
+        /// see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
+        /// Bring Your Own Windows Desktop Licenses</a>.</para><note><para>Although this parameter is an array, only one item is allowed at this time.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Applications")]
+        public System.String[] Application { get; set; }
+        #endregion
         
         #region Parameter Ec2ImageId
         /// <summary>
@@ -96,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter IngestionProcess
         /// <summary>
         /// <para>
-        /// <para>The ingestion process to be used when importing the image.</para>
+        /// <para>The ingestion process to be used when importing the image. For non-GPU-enabled bundles
+        /// (bundles other than Graphics or GraphicsPro), specify <code>BYOL_REGULAR</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -182,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.Select = (response, cmdlet) => this.ImageName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Application != null)
+            {
+                context.Application = new List<System.String>(this.Application);
+            }
             context.Ec2ImageId = this.Ec2ImageId;
             #if MODULAR
             if (this.Ec2ImageId == null && ParameterWasBound(nameof(this.Ec2ImageId)))
@@ -230,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // create request
             var request = new Amazon.WorkSpaces.Model.ImportWorkspaceImageRequest();
             
+            if (cmdletContext.Application != null)
+            {
+                request.Applications = cmdletContext.Application;
+            }
             if (cmdletContext.Ec2ImageId != null)
             {
                 request.Ec2ImageId = cmdletContext.Ec2ImageId;
@@ -311,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Application { get; set; }
             public System.String Ec2ImageId { get; set; }
             public System.String ImageDescription { get; set; }
             public System.String ImageName { get; set; }

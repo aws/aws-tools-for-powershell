@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The value that indicates the type of medium changer to use for tape gateway. This
-        /// field is optional.</para><para>Valid Values: <code>STK-L700</code> | <code>AWS-Gateway-VTL</code></para>
+        /// field is optional.</para><para>Valid Values: <code>STK-L700</code> | <code>AWS-Gateway-VTL</code> | <code>IBM-03584L32-0402</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

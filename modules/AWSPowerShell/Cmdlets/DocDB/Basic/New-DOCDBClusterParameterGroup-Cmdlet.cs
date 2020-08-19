@@ -32,23 +32,20 @@ namespace Amazon.PowerShell.Cmdlets.DOC
     /// 
     ///  
     /// <para>
-    /// Parameters in a cluster parameter group apply to all of the instances in a DB cluster.
+    /// Parameters in a cluster parameter group apply to all of the instances in a cluster.
     /// </para><para>
     /// A cluster parameter group is initially created with the default parameters for the
-    /// database engine used by instances in the cluster. To provide custom values for any
-    /// of the parameters, you must modify the group after you create it. After you create
-    /// a DB cluster parameter group, you must associate it with your cluster. For the new
-    /// DB cluster parameter group and associated settings to take effect, you must then reboot
-    /// the instances in the cluster without failover.
-    /// </para><important><para>
-    /// After you create a cluster parameter group, you should wait at least 5 minutes before
-    /// creating your first cluster that uses that cluster parameter group as the default
-    /// parameter group. This allows Amazon DocumentDB to fully complete the create action
-    /// before the cluster parameter group is used as the default for a new cluster. This
-    /// step is especially important for parameters that are critical when creating the default
-    /// database for a cluster, such as the character set for the default database defined
-    /// by the <code>character_set_database</code> parameter.
-    /// </para></important>
+    /// database engine used by instances in the cluster. In Amazon DocumentDB, you cannot
+    /// make modifications directly to the <code>default.docdb3.6</code> cluster parameter
+    /// group. If your Amazon DocumentDB cluster is using the default cluster parameter group
+    /// and you want to modify a value in it, you must first <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-create.html">
+    /// create a new parameter group</a> or <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-copy.html">
+    /// copy an existing parameter group</a>, modify it, and then apply the modified parameter
+    /// group to your cluster. For the new cluster parameter group and associated settings
+    /// to take effect, you must then reboot the instances in the cluster without failover.
+    /// For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/cluster_parameter_group-modify.html">
+    /// Modifying Amazon DocumentDB Cluster Parameter Groups</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DOCDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DocDB.Model.DBClusterParameterGroup")]

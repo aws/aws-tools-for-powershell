@@ -51,11 +51,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMonitoringSubscription" OutputProperty="MonitoringSubscription" Verb="New" Noun="MonitoringSubscription" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateOriginRequestPolicy" OutputProperty="*" Verb="New" Noun="OriginRequestPolicy" ShouldProcessTarget="OriginRequestPolicyConfig_Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePublicKey" OutputProperty="*" Verb="New" Noun="PublicKey" ShouldProcessTarget="PublicKeyConfig_Name" PipelineParameter="PublicKeyConfig_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRealtimeLogConfig" OutputProperty="RealtimeLogConfig" Verb="New" Noun="RealtimeLogConfig" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -87,11 +95,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMonitoringSubscription" Verb="Remove" Noun="MonitoringSubscription" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteOriginRequestPolicy" Verb="Remove" Noun="OriginRequestPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePublicKey" Verb="Remove" Noun="PublicKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRealtimeLogConfig" Verb="Remove" Noun="RealtimeLogConfig" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -143,6 +159,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMonitoringSubscription" OutputProperty="MonitoringSubscription" Verb="Get" Noun="MonitoringSubscription" PipelineParameter="DistributionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetOriginRequestPolicy" OutputProperty="OriginRequestPolicy" Verb="Get" Noun="OriginRequestPolicy" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -156,6 +176,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPublicKeyConfig" OutputProperty="PublicKeyConfig" Verb="Get" Noun="PublicKeyConfig" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRealtimeLogConfig" OutputProperty="RealtimeLogConfig" Verb="Get" Noun="RealtimeLogConfig" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,6 +211,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDistributionsByRealtimeLogConfig" OutputProperty="DistributionList" Verb="Get" Noun="DistributionsByRealtimeLogConfig" PipelineParameter="RealtimeLogConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDistributionsByWebACLId" OutputProperty="DistributionList.Items" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionListByWebACLId" PipelineParameter="WebACLId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -208,6 +236,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPublicKeys" OutputProperty="PublicKeyList.Items" OutputWrapper="PublicKeyList" Verb="Get" Noun="PublicKeyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRealtimeLogConfigs" OutputProperty="RealtimeLogConfigs" Verb="Get" Noun="RealtimeLogConfigList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -256,6 +288,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePublicKey" OutputProperty="PublicKey" Verb="Update" Noun="PublicKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRealtimeLogConfig" OutputProperty="RealtimeLogConfig" Verb="Update" Noun="RealtimeLogConfig" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

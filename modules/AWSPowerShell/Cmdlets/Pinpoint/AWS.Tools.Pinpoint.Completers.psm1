@@ -129,6 +129,8 @@ $PIN_Completers = {
         {
             ($_ -eq "New-PINCampaign/WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType") -Or
             ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType") -Or
+            ($_ -eq "New-PINJourney/WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType") -Or
+            ($_ -eq "Update-PINJourney/WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType") -Or
             ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType") -Or
             ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType") -Or
             ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType") -Or
@@ -162,7 +164,9 @@ $PIN_Completers = {
         # Amazon.Pinpoint.FilterType
         {
             ($_ -eq "New-PINCampaign/WriteCampaignRequest_Schedule_EventFilter_FilterType") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Schedule_EventFilter_FilterType")
+            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Schedule_EventFilter_FilterType") -Or
+            ($_ -eq "New-PINJourney/WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_FilterType") -Or
+            ($_ -eq "Update-PINJourney/WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_FilterType")
         }
         {
             $v = "ENDPOINT","SYSTEM"
@@ -280,6 +284,8 @@ $PIN_map = @{
     "WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_Schedule_EventFilter_FilterType"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_Schedule_Frequency"=@("New-PINCampaign","Update-PINCampaign")
+    "WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType"=@("New-PINJourney","Update-PINJourney")
+    "WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_FilterType"=@("New-PINJourney","Update-PINJourney")
     "WriteJourneyRequest_State"=@("New-PINJourney","Update-PINJourney")
     "WriteSegmentRequest_Dimensions_Behavior_Recency_Duration"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType"=@("New-PINSegment","Update-PINSegment")

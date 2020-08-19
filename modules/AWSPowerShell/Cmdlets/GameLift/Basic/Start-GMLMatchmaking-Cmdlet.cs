@@ -42,23 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To start matchmaking, provide a unique ticket ID, specify a matchmaking configuration,
     /// and include the players to be matched. You must also include a set of player attributes
     /// relevant for the matchmaking configuration. If successful, a matchmaking ticket is
-    /// returned with status set to <code>QUEUED</code>. Track the status of the ticket to
-    /// respond as needed and acquire game session connection information for successfully
-    /// completed matches.
-    /// </para><para><b>Tracking ticket status</b> -- A couple of options are available for tracking the
-    /// status of matchmaking requests: 
-    /// </para><ul><li><para>
-    /// Polling -- Call <code>DescribeMatchmaking</code>. This operation returns the full
-    /// ticket object, including current status and (for completed tickets) game session connection
-    /// info. We recommend polling no more than once every 10 seconds.
-    /// </para></li><li><para>
-    /// Notifications -- Get event notifications for changes in ticket status using Amazon
-    /// Simple Notification Service (SNS). Notifications are easy to set up (see <a>CreateMatchmakingConfiguration</a>)
-    /// and typically deliver match status changes faster and more efficiently than polling.
-    /// We recommend that you use polling to back up to notifications (since delivery is not
-    /// guaranteed) and call <code>DescribeMatchmaking</code> only when notifications are
-    /// not received within 30 seconds.
-    /// </para></li></ul><para><b>Processing a matchmaking request</b> -- FlexMatch handles a matchmaking request
+    /// returned with status set to <code>QUEUED</code>. 
+    /// </para><para>
+    /// Track the status of the ticket to respond as needed and acquire game session connection
+    /// information for successfully completed matches. Ticket status updates are tracked
+    /// using event notification through Amazon Simple Notification Service (SNS), which is
+    /// defined in the matchmaking configuration.
+    /// </para><para><b>Processing a matchmaking request</b> -- FlexMatch handles a matchmaking request
     /// as follows: 
     /// </para><ol><li><para>
     /// Your client code submits a <code>StartMatchmaking</code> request for one or more players

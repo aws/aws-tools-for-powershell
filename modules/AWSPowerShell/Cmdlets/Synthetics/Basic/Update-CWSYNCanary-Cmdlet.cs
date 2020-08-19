@@ -46,6 +46,21 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
     public partial class UpdateCWSYNCanaryCmdlet : AmazonSyntheticsClientCmdlet, IExecutor
     {
         
+        #region Parameter RunConfig_ActiveTracing
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether this canary is to use active AWS X-Ray tracing when it runs. Active
+        /// tracing enables this canary run to be displayed in the ServiceLens and X-Ray service
+        /// maps even if the canary does not hit an endpoint that has X-ray tracing enabled. Using
+        /// X-Ray tracing incurs charges. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_tracing.html">
+        /// Canaries and X-Ray tracing</a>.</para><para>You can enable active tracing only for canaries that use version <code>syn-nodejs-2.0</code>
+        /// or later for their canary runtime.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RunConfig_ActiveTracing { get; set; }
+        #endregion
+        
         #region Parameter Schedule_DurationInSecond
         /// <summary>
         /// <para>
@@ -112,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter RunConfig_MemoryInMB
         /// <summary>
         /// <para>
-        /// <para>The maximum amount of memory available to the canary while it is running, in MB. The
-        /// value you specify must be a multiple of 64.</para>
+        /// <para>The maximum amount of memory available to the canary while it is running, in MB. This
+        /// value must be a multiple of 64.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,8 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter RuntimeVersion
         /// <summary>
         /// <para>
-        /// <para>Specifies the runtime version to use for the canary. Currently, the only valid value
-        /// is <code>syn-1.0</code>. For more information about runtime versions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
+        /// <para>Specifies the runtime version to use for the canary. Currently, the only valid values
+        /// are <code>syn-nodejs-2.0</code>, <code>syn-nodejs-2.0-beta</code>, and <code>syn-1.0</code>.
+        /// For more information about runtime versions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
         /// Canary Runtime Versions</a>.</para>
         /// </para>
         /// </summary>
@@ -219,8 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         #region Parameter RunConfig_TimeoutInSecond
         /// <summary>
         /// <para>
-        /// <para>How long the canary is allowed to run before it must stop. If you omit this field,
-        /// the frequency of the canary is used as this value, up to a maximum of 14 minutes.</para>
+        /// <para>How long the canary is allowed to run before it must stop. You can't set this time
+        /// to be longer than the frequency of the runs of this canary.</para><para>If you omit this field, the frequency of the canary is used as this value, up to a
+        /// maximum of 14 minutes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -316,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RunConfig_ActiveTracing = this.RunConfig_ActiveTracing;
             context.RunConfig_MemoryInMB = this.RunConfig_MemoryInMB;
             context.RunConfig_TimeoutInSecond = this.RunConfig_TimeoutInSecond;
             context.RuntimeVersion = this.RuntimeVersion;
@@ -426,6 +444,16 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                  // populate RunConfig
                 var requestRunConfigIsNull = true;
                 request.RunConfig = new Amazon.Synthetics.Model.CanaryRunConfigInput();
+                System.Boolean? requestRunConfig_runConfig_ActiveTracing = null;
+                if (cmdletContext.RunConfig_ActiveTracing != null)
+                {
+                    requestRunConfig_runConfig_ActiveTracing = cmdletContext.RunConfig_ActiveTracing.Value;
+                }
+                if (requestRunConfig_runConfig_ActiveTracing != null)
+                {
+                    request.RunConfig.ActiveTracing = requestRunConfig_runConfig_ActiveTracing.Value;
+                    requestRunConfigIsNull = false;
+                }
                 System.Int32? requestRunConfig_runConfig_MemoryInMB = null;
                 if (cmdletContext.RunConfig_MemoryInMB != null)
                 {
@@ -594,6 +622,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.String ExecutionRoleArn { get; set; }
             public System.Int32? FailureRetentionPeriodInDay { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? RunConfig_ActiveTracing { get; set; }
             public System.Int32? RunConfig_MemoryInMB { get; set; }
             public System.Int32? RunConfig_TimeoutInSecond { get; set; }
             public System.String RuntimeVersion { get; set; }

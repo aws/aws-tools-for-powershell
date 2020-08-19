@@ -121,6 +121,19 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DisableExecuteApiEndpoint
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether clients can invoke your API by using the default execute-api endpoint.
+        /// By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com
+        /// endpoint. To require that clients use a custom domain name to invoke your API, disable
+        /// the default endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? DisableExecuteApiEndpoint { get; set; }
+        #endregion
+        
         #region Parameter DisableSchemaValidation
         /// <summary>
         /// <para>
@@ -330,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             context.CorsConfiguration_MaxAge = this.CorsConfiguration_MaxAge;
             context.CredentialsArn = this.CredentialsArn;
             context.Description = this.Description;
+            context.DisableExecuteApiEndpoint = this.DisableExecuteApiEndpoint;
             context.DisableSchemaValidation = this.DisableSchemaValidation;
             context.Name = this.Name;
             #if MODULAR
@@ -454,6 +468,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.DisableExecuteApiEndpoint != null)
+            {
+                request.DisableExecuteApiEndpoint = cmdletContext.DisableExecuteApiEndpoint.Value;
+            }
             if (cmdletContext.DisableSchemaValidation != null)
             {
                 request.DisableSchemaValidation = cmdletContext.DisableSchemaValidation.Value;
@@ -556,6 +574,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public System.Int32? CorsConfiguration_MaxAge { get; set; }
             public System.String CredentialsArn { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? DisableExecuteApiEndpoint { get; set; }
             public System.Boolean? DisableSchemaValidation { get; set; }
             public System.String Name { get; set; }
             public Amazon.ApiGatewayV2.ProtocolType ProtocolType { get; set; }

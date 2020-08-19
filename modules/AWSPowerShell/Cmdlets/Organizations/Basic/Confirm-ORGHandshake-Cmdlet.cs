@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
     /// Sends a response to the originator of a handshake agreeing to the action proposed
-    /// by the handshake request. 
+    /// by the handshake request.
     /// 
     ///  
     /// <para>
     /// This operation can be called only by the following principals when they also have
     /// the relevant IAM permissions:
     /// </para><ul><li><para><b>Invitation to join</b> or <b>Approve all features request</b> handshakes: only
-    /// a principal from the member account. 
+    /// a principal from the member account.
     /// </para><para>
     /// The user who calls the API for an invitation to join must have the <code>organizations:AcceptHandshake</code>
     /// permission. If you enabled all features in the organization, the user must also have

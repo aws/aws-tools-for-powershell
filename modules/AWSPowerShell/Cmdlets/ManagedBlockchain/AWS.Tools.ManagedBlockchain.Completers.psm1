@@ -118,6 +118,13 @@ $MBC_Completers = {
             break
         }
 
+        # Amazon.ManagedBlockchain.StateDBType
+        "New-MBCNode/NodeConfiguration_StateDB"
+        {
+            $v = "CouchDB","LevelDB"
+            break
+        }
+
         # Amazon.ManagedBlockchain.ThresholdComparator
         "New-MBCNetwork/VotingPolicy_ApprovalThresholdPolicy_ThresholdComparator"
         {
@@ -143,6 +150,7 @@ $MBC_Completers = {
 $MBC_map = @{
     "Framework"=@("Get-MBCNetworkList","New-MBCNetwork")
     "FrameworkConfiguration_Fabric_Edition"=@("New-MBCNetwork")
+    "NodeConfiguration_StateDB"=@("New-MBCNode")
     "Status"=@("Get-MBCMemberList","Get-MBCNetworkList","Get-MBCNodeList")
     "Vote"=@("Send-MBCProposalVote")
     "VotingPolicy_ApprovalThresholdPolicy_ThresholdComparator"=@("New-MBCNetwork")

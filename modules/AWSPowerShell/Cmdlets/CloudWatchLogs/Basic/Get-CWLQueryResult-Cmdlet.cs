@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     ///  
     /// <para>
     /// Only the fields requested in the query are returned, along with a <code>@ptr</code>
-    /// field which is the identifier for the log record. You can use the value of <code>@ptr</code>
+    /// field, which is the identifier for the log record. You can use the value of <code>@ptr</code>
     /// in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a>
     /// operation to get the full log record.
     /// </para><para><code>GetQueryResults</code> does not start a query execution. To run a query, use

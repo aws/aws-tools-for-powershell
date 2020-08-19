@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ContentMD5 { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter ServerSideEncryptionConfiguration_ServerSideEncryptionRule
         /// <summary>
         /// <para>
@@ -137,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.ServerSideEncryptionConfiguration_ServerSideEncryptionRule = new List<Amazon.S3.Model.ServerSideEncryptionRule>(this.ServerSideEncryptionConfiguration_ServerSideEncryptionRule);
             }
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestServerSideEncryptionConfigurationIsNull)
             {
                 request.ServerSideEncryptionConfiguration = null;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -244,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String BucketName { get; set; }
             public System.String ContentMD5 { get; set; }
             public List<Amazon.S3.Model.ServerSideEncryptionRule> ServerSideEncryptionConfiguration_ServerSideEncryptionRule { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.PutBucketEncryptionResponse, SetS3BucketEncryptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

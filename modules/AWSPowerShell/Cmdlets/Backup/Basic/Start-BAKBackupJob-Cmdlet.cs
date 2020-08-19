@@ -28,7 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Starts a job to create a one-time backup of the specified resource.
+    /// Starts an on-demand backup job for the specified resource.
     /// </summary>
     [Cmdlet("Start", "BAKBackupJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.StartBackupJobResponse")]
@@ -38,6 +38,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     )]
     public partial class StartBAKBackupJobCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
+        
+        #region Parameter BackupOption
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the backup option for a selected resource. This option is only available
+        /// for Windows VSS backup jobs.</para><para>Valid value: <code>"WindowsVSS”:“enabled"</code>. If enabled, creates a VSS Windows
+        /// backup; otherwise, creates a regular backup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupOptions")]
+        public System.Collections.Hashtable BackupOption { get; set; }
+        #endregion
         
         #region Parameter BackupVaultName
         /// <summary>
@@ -225,6 +238,14 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.BackupOption != null)
+            {
+                context.BackupOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.BackupOption.Keys)
+                {
+                    context.BackupOption.Add((String)hashKey, (String)(this.BackupOption[hashKey]));
+                }
+            }
             context.BackupVaultName = this.BackupVaultName;
             #if MODULAR
             if (this.BackupVaultName == null && ParameterWasBound(nameof(this.BackupVaultName)))
@@ -275,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             // create request
             var request = new Amazon.Backup.Model.StartBackupJobRequest();
             
+            if (cmdletContext.BackupOption != null)
+            {
+                request.BackupOptions = cmdletContext.BackupOption;
+            }
             if (cmdletContext.BackupVaultName != null)
             {
                 request.BackupVaultName = cmdletContext.BackupVaultName;
@@ -393,6 +418,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> BackupOption { get; set; }
             public System.String BackupVaultName { get; set; }
             public System.Int64? CompleteWindowMinute { get; set; }
             public System.String IamRoleArn { get; set; }

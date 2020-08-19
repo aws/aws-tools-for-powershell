@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Returns a list of CloudWatch Logs Insights queries that are scheduled, executing,
-    /// or have been executed recently in this account. You can request all queries, or limit
+    /// or have been executed recently in this account. You can request all queries or limit
     /// it to queries of a specific log group or queries with a certain status.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLQuery")]

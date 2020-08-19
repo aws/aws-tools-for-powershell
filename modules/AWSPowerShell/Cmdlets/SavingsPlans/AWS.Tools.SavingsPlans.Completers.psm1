@@ -150,6 +150,7 @@ $SP_SelectCompleters = {
 
 $SP_SelectMap = @{
     "Select"=@("New-SPSavingsPlan",
+               "Remove-SPQueuedSavingsPlan",
                "Get-SPSavingsPlanRate",
                "Get-SPSavingsPlan",
                "Get-SPSavingsPlansOfferingRate",

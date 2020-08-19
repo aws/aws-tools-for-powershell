@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// fails, the overall status is <code>impaired</code>. If the status is <code>insufficient-data</code>,
     /// then the checks may still be taking place on your volume at the time. We recommend
     /// that you retry the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitoring
-    /// the Status of Your Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para><i>Events</i>: Reflect the cause of a volume status and may require you to take action.
     /// For example, if your volume returns an <code>impaired</code> status, then the volume
     /// event might be <code>potential-data-inconsistency</code>. This means that your volume

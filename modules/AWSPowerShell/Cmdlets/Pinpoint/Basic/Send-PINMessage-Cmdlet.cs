@@ -119,10 +119,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter MessageRequest_Address
         /// <summary>
         /// <para>
-        /// <para>A map of key-value pairs, where each key is an address and each value is an AddressConfiguration
+        /// <para>A map of key-value pairs, where each key is an address and each value is an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration">AddressConfiguration</a>
         /// object. An address can be a push notification token, a phone number, or an email address.
-        /// You can use an AddressConfiguration object to tailor the message for an address by
-        /// specifying settings such as content overrides and message variables.</para>
+        /// You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration">AddressConfiguration</a>
+        /// object to tailor the message for an address by specifying settings such as content
+        /// overrides and message variables.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -492,9 +493,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter MessageRequest_Endpoint
         /// <summary>
         /// <para>
-        /// <para>A map of key-value pairs, where each key is an endpoint ID and each value is an EndpointSendConfiguration
-        /// object. You can use an EndpointSendConfiguration object to tailor the message for
-        /// an endpoint by specifying settings such as content overrides and message variables.</para>
+        /// <para>A map of key-value pairs, where each key is an endpoint ID and each value is an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a>
+        /// object. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a>
+        /// object to tailor the message for an endpoint by specifying settings such as content
+        /// overrides and message variables.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -689,7 +691,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter SMSMessage_MediaUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of an image or video to display in the SMS message.</para>
+        /// <para>This field is reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

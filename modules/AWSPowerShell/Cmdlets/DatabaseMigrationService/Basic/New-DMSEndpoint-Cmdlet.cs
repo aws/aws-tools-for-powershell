@@ -215,8 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>A value that enables a change data capture (CDC) load to write INSERT and UPDATE operations
         /// to .csv or .parquet (columnar storage) output files. The default setting is <code>false</code>,
-        /// but when <code>CdcInsertsAndUpdates</code> is set to <code>true</code>or <code>y</code>,
-        /// INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet
+        /// but when <code>CdcInsertsAndUpdates</code> is set to <code>true</code> or <code>y</code>,
+        /// only INSERTs and UPDATEs from the source database are migrated to the .csv or .parquet
         /// file. </para><para>For .csv file format only, how these INSERTs and UPDATEs are recorded depends on the
         /// value of the <code>IncludeOpForFullLoad</code> parameter. If <code>IncludeOpForFullLoad</code>
         /// is set to <code>true</code>, the first field of every CDC record is set to either
@@ -302,8 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_CsvDelimiter
         /// <summary>
         /// <para>
-        /// <para> The delimiter used to separate columns in the source files. The default is a comma.
-        /// </para>
+        /// <para> The delimiter used to separate columns in the .csv file for both source and target.
+        /// The default is a comma. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -313,8 +313,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_CsvRowDelimiter
         /// <summary>
         /// <para>
-        /// <para> The delimiter used to separate rows in the source files. The default is a carriage
-        /// return (<code>\n</code>). </para>
+        /// <para> The delimiter used to separate rows in the .csv file for both source and target.
+        /// The default is a carriage return (<code>\n</code>). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -520,7 +520,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>The type of server-side encryption that you want to use for your data. This encryption
         /// type is part of the endpoint settings or the extra connections attributes for Amazon
         /// S3. You can choose either <code>SSE_S3</code> (the default) or <code>SSE_KMS</code>.
-        /// To use <code>SSE_S3</code>, create an AWS Identity and Access Management (IAM) role
+        /// </para><note><para>For the <code>ModifyEndpoint</code> operation, you can change the existing value of
+        /// the <code>EncryptionMode</code> parameter from <code>SSE_KMS</code> to <code>SSE_S3</code>.
+        /// But you can’t change the existing value from <code>SSE_S3</code> to <code>SSE_KMS</code>.</para></note><para>To use <code>SSE_S3</code>, create an AWS Identity and Access Management (IAM) role
         /// with a policy that allows <code>"arn:aws:s3:::*"</code> to use the following actions:
         /// <code>"s3:PutObject", "s3:ListBucket"</code></para>
         /// </para>
@@ -536,7 +538,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>The type of server-side encryption that you want to use for your data. This encryption
         /// type is part of the endpoint settings or the extra connections attributes for Amazon
         /// S3. You can choose either <code>SSE_S3</code> (the default) or <code>SSE_KMS</code>.
-        /// To use <code>SSE_S3</code>, you need an AWS Identity and Access Management (IAM) role
+        /// </para><note><para>For the <code>ModifyEndpoint</code> operation, you can change the existing value of
+        /// the <code>EncryptionMode</code> parameter from <code>SSE_KMS</code> to <code>SSE_S3</code>.
+        /// But you can’t change the existing value from <code>SSE_S3</code> to <code>SSE_KMS</code>.</para></note><para>To use <code>SSE_S3</code>, you need an AWS Identity and Access Management (IAM) role
         /// with permission to allow <code>"arn:aws:s3:::dms-*"</code> to use the following actions:</para><ul><li><para><code>s3:CreateBucket</code></para></li><li><para><code>s3:ListBucket</code></para></li><li><para><code>s3:DeleteBucket</code></para></li><li><para><code>s3:GetBucketLocation</code></para></li><li><para><code>s3:GetObject</code></para></li><li><para><code>s3:PutObject</code></para></li><li><para><code>s3:DeleteObject</code></para></li><li><para><code>s3:GetObjectVersion</code></para></li><li><para><code>s3:GetBucketPolicy</code></para></li><li><para><code>s3:PutBucketPolicy</code></para></li><li><para><code>s3:DeleteBucketPolicy</code></para></li></ul>
         /// </para>
         /// </summary>
@@ -549,8 +553,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The database endpoint identifier. Identifiers must begin with a letter and must contain
-        /// only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two
-        /// consecutive hyphens.</para>
+        /// only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain
+        /// two consecutive hyphens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -599,8 +603,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>, <code>"redshift"</code>,
         /// <code>"s3"</code>, <code>"db2"</code>, <code>"azuredb"</code>, <code>"sybase"</code>,
         /// <code>"dynamodb"</code>, <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
-        /// <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
-        /// and <code>"neptune"</code>.</para>
+        /// <code>"elasticsearch"</code>, <code>"docdb"</code>, <code>"sqlserver"</code>, and
+        /// <code>"neptune"</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -649,7 +653,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_ExternalTableDefinition
         /// <summary>
         /// <para>
-        /// <para> The external table definition. </para>
+        /// <para> Specifies how tables are defined in the S3 source files only. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -722,7 +726,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Shows detailed control information for table definition, column definition, and table
-        /// and column changes in the Kafka message output. The default is <code>False</code>.</para>
+        /// and column changes in the Kafka message output. The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -734,12 +738,34 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Shows detailed control information for table definition, column definition, and table
-        /// and column changes in the Kinesis message output. The default is <code>False</code>.</para>
+        /// and column changes in the Kinesis message output. The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KinesisSettings_IncludeControlDetails")]
         public System.Boolean? KinesisSettings_IncludeControlDetail { get; set; }
+        #endregion
+        
+        #region Parameter KafkaSettings_IncludeNullAndEmpty
+        /// <summary>
+        /// <para>
+        /// <para>Include NULL and empty columns for records migrated to the endpoint. The default is
+        /// <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KafkaSettings_IncludeNullAndEmpty { get; set; }
+        #endregion
+        
+        #region Parameter KinesisSettings_IncludeNullAndEmpty
+        /// <summary>
+        /// <para>
+        /// <para>Include NULL and empty columns for records migrated to the endpoint. The default is
+        /// <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? KinesisSettings_IncludeNullAndEmpty { get; set; }
         #endregion
         
         #region Parameter S3Settings_IncludeOpForFullLoad
@@ -767,7 +793,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Shows the partition value within the Kafka message output, unless the partition type
-        /// is <code>schema-table-type</code>. The default is <code>False</code>.</para>
+        /// is <code>schema-table-type</code>. The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -778,7 +804,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Shows the partition value within the Kinesis message output, unless the partition
-        /// type is <code>schema-table-type</code>. The default is <code>False</code>.</para>
+        /// type is <code>schema-table-type</code>. The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -790,7 +816,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Includes any data definition language (DDL) operations that change the table in the
         /// control data, such as <code>rename-table</code>, <code>drop-table</code>, <code>add-column</code>,
-        /// <code>drop-column</code>, and <code>rename-column</code>. The default is <code>False</code>.</para>
+        /// <code>drop-column</code>, and <code>rename-column</code>. The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -803,7 +829,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para>Includes any data definition language (DDL) operations that change the table in the
         /// control data, such as <code>rename-table</code>, <code>drop-table</code>, <code>add-column</code>,
-        /// <code>drop-column</code>, and <code>rename-column</code>. The default is <code>False</code>.</para>
+        /// <code>drop-column</code>, and <code>rename-column</code>. The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -817,7 +843,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>Provides detailed transaction information from the source database. This information
         /// includes a commit timestamp, a log position, and values for <code>transaction_id</code>,
         /// previous <code>transaction_id</code>, and <code>transaction_record_id</code> (the
-        /// record offset within a transaction). The default is <code>False</code>.</para>
+        /// record offset within a transaction). The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -831,7 +857,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>Provides detailed transaction information from the source database. This information
         /// includes a commit timestamp, a log position, and values for <code>transaction_id</code>,
         /// previous <code>transaction_id</code>, and <code>transaction_record_id</code> (the
-        /// record offset within a transaction). The default is <code>False</code>.</para>
+        /// record offset within a transaction). The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -936,6 +962,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.MessageFormatValue KinesisSettings_MessageFormat { get; set; }
         #endregion
         
+        #region Parameter KafkaSettings_MessageMaxByte
+        /// <summary>
+        /// <para>
+        /// <para>The maximum size in bytes for records created on the endpoint The default is 1,000,000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("KafkaSettings_MessageMaxBytes")]
+        public System.Int32? KafkaSettings_MessageMaxByte { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_NestingLevel
         /// <summary>
         /// <para>
@@ -987,7 +1024,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// Doing this increases data distribution among Kafka partitions. For example, suppose
         /// that a SysBench schema has thousands of tables and each table has only limited range
         /// for a primary key. In this case, the same primary key is sent from thousands of tables
-        /// to the same partition, which causes throttling. The default is <code>False</code>.</para>
+        /// to the same partition, which causes throttling. The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1001,7 +1038,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// Doing this increases data distribution among Kinesis shards. For example, suppose
         /// that a SysBench schema has thousands of tables and each table has only limited range
         /// for a primary key. In this case, the same primary key is sent from thousands of tables
-        /// to the same shard, which causes throttling. The default is <code>False</code>.</para>
+        /// to the same shard, which causes throttling. The default is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1478,7 +1515,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter S3Settings_ServiceAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) used by the service access IAM role. </para>
+        /// <para> The Amazon Resource Name (ARN) used by the service access IAM role. It is a required
+        /// parameter that enables DMS to write and read objects from an 3S bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1801,13 +1839,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.IBMDb2Settings_Username = this.IBMDb2Settings_Username;
             context.KafkaSettings_Broker = this.KafkaSettings_Broker;
             context.KafkaSettings_IncludeControlDetail = this.KafkaSettings_IncludeControlDetail;
+            context.KafkaSettings_IncludeNullAndEmpty = this.KafkaSettings_IncludeNullAndEmpty;
             context.KafkaSettings_IncludePartitionValue = this.KafkaSettings_IncludePartitionValue;
             context.KafkaSettings_IncludeTableAlterOperation = this.KafkaSettings_IncludeTableAlterOperation;
             context.KafkaSettings_IncludeTransactionDetail = this.KafkaSettings_IncludeTransactionDetail;
             context.KafkaSettings_MessageFormat = this.KafkaSettings_MessageFormat;
+            context.KafkaSettings_MessageMaxByte = this.KafkaSettings_MessageMaxByte;
             context.KafkaSettings_PartitionIncludeSchemaTable = this.KafkaSettings_PartitionIncludeSchemaTable;
             context.KafkaSettings_Topic = this.KafkaSettings_Topic;
             context.KinesisSettings_IncludeControlDetail = this.KinesisSettings_IncludeControlDetail;
+            context.KinesisSettings_IncludeNullAndEmpty = this.KinesisSettings_IncludeNullAndEmpty;
             context.KinesisSettings_IncludePartitionValue = this.KinesisSettings_IncludePartitionValue;
             context.KinesisSettings_IncludeTableAlterOperation = this.KinesisSettings_IncludeTableAlterOperation;
             context.KinesisSettings_IncludeTransactionDetail = this.KinesisSettings_IncludeTransactionDetail;
@@ -2145,6 +2186,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.KafkaSettings.IncludeControlDetails = requestKafkaSettings_kafkaSettings_IncludeControlDetail.Value;
                 requestKafkaSettingsIsNull = false;
             }
+            System.Boolean? requestKafkaSettings_kafkaSettings_IncludeNullAndEmpty = null;
+            if (cmdletContext.KafkaSettings_IncludeNullAndEmpty != null)
+            {
+                requestKafkaSettings_kafkaSettings_IncludeNullAndEmpty = cmdletContext.KafkaSettings_IncludeNullAndEmpty.Value;
+            }
+            if (requestKafkaSettings_kafkaSettings_IncludeNullAndEmpty != null)
+            {
+                request.KafkaSettings.IncludeNullAndEmpty = requestKafkaSettings_kafkaSettings_IncludeNullAndEmpty.Value;
+                requestKafkaSettingsIsNull = false;
+            }
             System.Boolean? requestKafkaSettings_kafkaSettings_IncludePartitionValue = null;
             if (cmdletContext.KafkaSettings_IncludePartitionValue != null)
             {
@@ -2185,6 +2236,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.KafkaSettings.MessageFormat = requestKafkaSettings_kafkaSettings_MessageFormat;
                 requestKafkaSettingsIsNull = false;
             }
+            System.Int32? requestKafkaSettings_kafkaSettings_MessageMaxByte = null;
+            if (cmdletContext.KafkaSettings_MessageMaxByte != null)
+            {
+                requestKafkaSettings_kafkaSettings_MessageMaxByte = cmdletContext.KafkaSettings_MessageMaxByte.Value;
+            }
+            if (requestKafkaSettings_kafkaSettings_MessageMaxByte != null)
+            {
+                request.KafkaSettings.MessageMaxBytes = requestKafkaSettings_kafkaSettings_MessageMaxByte.Value;
+                requestKafkaSettingsIsNull = false;
+            }
             System.Boolean? requestKafkaSettings_kafkaSettings_PartitionIncludeSchemaTable = null;
             if (cmdletContext.KafkaSettings_PartitionIncludeSchemaTable != null)
             {
@@ -2222,6 +2283,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestKinesisSettings_kinesisSettings_IncludeControlDetail != null)
             {
                 request.KinesisSettings.IncludeControlDetails = requestKinesisSettings_kinesisSettings_IncludeControlDetail.Value;
+                requestKinesisSettingsIsNull = false;
+            }
+            System.Boolean? requestKinesisSettings_kinesisSettings_IncludeNullAndEmpty = null;
+            if (cmdletContext.KinesisSettings_IncludeNullAndEmpty != null)
+            {
+                requestKinesisSettings_kinesisSettings_IncludeNullAndEmpty = cmdletContext.KinesisSettings_IncludeNullAndEmpty.Value;
+            }
+            if (requestKinesisSettings_kinesisSettings_IncludeNullAndEmpty != null)
+            {
+                request.KinesisSettings.IncludeNullAndEmpty = requestKinesisSettings_kinesisSettings_IncludeNullAndEmpty.Value;
                 requestKinesisSettingsIsNull = false;
             }
             System.Boolean? requestKinesisSettings_kinesisSettings_IncludePartitionValue = null;
@@ -3444,13 +3515,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String IBMDb2Settings_Username { get; set; }
             public System.String KafkaSettings_Broker { get; set; }
             public System.Boolean? KafkaSettings_IncludeControlDetail { get; set; }
+            public System.Boolean? KafkaSettings_IncludeNullAndEmpty { get; set; }
             public System.Boolean? KafkaSettings_IncludePartitionValue { get; set; }
             public System.Boolean? KafkaSettings_IncludeTableAlterOperation { get; set; }
             public System.Boolean? KafkaSettings_IncludeTransactionDetail { get; set; }
             public Amazon.DatabaseMigrationService.MessageFormatValue KafkaSettings_MessageFormat { get; set; }
+            public System.Int32? KafkaSettings_MessageMaxByte { get; set; }
             public System.Boolean? KafkaSettings_PartitionIncludeSchemaTable { get; set; }
             public System.String KafkaSettings_Topic { get; set; }
             public System.Boolean? KinesisSettings_IncludeControlDetail { get; set; }
+            public System.Boolean? KinesisSettings_IncludeNullAndEmpty { get; set; }
             public System.Boolean? KinesisSettings_IncludePartitionValue { get; set; }
             public System.Boolean? KinesisSettings_IncludeTableAlterOperation { get; set; }
             public System.Boolean? KinesisSettings_IncludeTransactionDetail { get; set; }

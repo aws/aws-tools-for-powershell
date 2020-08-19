@@ -14,13 +14,16 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AssociateRepository" OutputProperty="RepositoryAssociation" Verb="Register" Noun="Repository" ShouldProcessTarget="Repository_CodeCommit_Name" PipelineParameter="Repository_CodeCommit_Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCodeReview" OutputProperty="CodeReview" Verb="New" Noun="CodeReview" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -61,7 +64,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

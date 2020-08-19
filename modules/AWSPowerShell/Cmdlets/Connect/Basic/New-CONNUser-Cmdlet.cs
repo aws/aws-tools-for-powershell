@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Creates a user account for the specified Amazon Connect instance.
+    /// 
+    ///  
+    /// <para>
+    /// For information about how to create user accounts using the Amazon Connect console,
+    /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add
+    /// Users</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CONNUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreateUserResponse")]

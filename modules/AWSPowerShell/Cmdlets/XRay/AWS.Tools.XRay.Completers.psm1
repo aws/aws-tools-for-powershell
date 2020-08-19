@@ -180,9 +180,12 @@ $XR_SelectMap = @{
                "Get-XRTimeSeriesServiceStatistic",
                "Get-XRTraceGraph",
                "Get-XRTraceSummary",
+               "Get-XRResourceTag",
                "Write-XREncryptionConfig",
                "Write-XRTelemetryRecord",
                "Write-XRTraceSegment",
+               "Add-XRResourceTag",
+               "Remove-XRResourceTag",
                "Update-XRGroup",
                "Update-XRSamplingRule")
 }

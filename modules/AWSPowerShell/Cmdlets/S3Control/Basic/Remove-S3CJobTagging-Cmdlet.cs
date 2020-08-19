@@ -28,15 +28,16 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Removes the entire tag set from the specified Amazon S3 Batch Operations job. To use
-    /// this operation, you must have permission to perform the <code>s3:DeleteJobTagging</code>
-    /// action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Using
-    /// Job Tags</a> in the Amazon Simple Storage Service Developer Guide.
+    /// Removes the entire tag set from the specified S3 Batch Operations job. To use this
+    /// operation, you must have permission to perform the <code>s3:DeleteJobTagging</code>
+    /// action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+    /// access and labeling jobs using tags</a> in the <i>Amazon Simple Storage Service Developer
+    /// Guide</i>.
     /// 
     ///   
     /// <para>
     /// Related actions include:
-    /// </para><ul><li><para><a>CreateJob</a></para></li><li><para><a>GetJobTagging</a></para></li><li><para><a>PutJobTagging</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutJobTagging.html">PutJobTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "S3CJobTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -51,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the Amazon S3 Batch Operations job.</para>
+        /// <para>The AWS account ID associated with the S3 Batch Operations job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>The ID for the Amazon S3 Batch Operations job whose tags you want to delete.</para>
+        /// <para>The ID for the S3 Batch Operations job whose tags you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

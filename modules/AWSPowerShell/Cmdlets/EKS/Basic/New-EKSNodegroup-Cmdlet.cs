@@ -58,10 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <summary>
         /// <para>
         /// <para>The AMI type for your node group. GPU instance types should use the <code>AL2_x86_64_GPU</code>
-        /// AMI type, which uses the Amazon EKS-optimized Linux AMI with GPU support. Non-GPU
-        /// instances should use the <code>AL2_x86_64</code> AMI type, which uses the Amazon EKS-optimized
-        /// Linux AMI. If you specify <code>launchTemplate</code>, and your launch template uses
-        /// a custom AMI, then don't specify <code>amiType</code>, or the node group deployment
+        /// AMI type. Non-GPU instances should use the <code>AL2_x86_64</code> AMI type. Arm instances
+        /// should use the <code>AL2_ARM_64</code> AMI type. All types use the Amazon EKS-optimized
+        /// Amazon Linux 2 AMI. If you specify <code>launchTemplate</code>, and your launch template
+        /// uses a custom AMI, then don't specify <code>amiType</code>, or the node group deployment
         /// will fail. For more information about using launch templates with Amazon EKS, see
         /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
         /// template support</a> in the Amazon EKS User Guide.</para>

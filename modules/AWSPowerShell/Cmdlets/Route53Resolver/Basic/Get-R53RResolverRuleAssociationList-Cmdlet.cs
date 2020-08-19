@@ -28,7 +28,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Lists the associations that were created between resolver rules and VPCs using the
+    /// Lists the associations that were created between Resolver rules and VPCs using the
     /// current AWS account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53RResolverRuleAssociationList")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An optional specification to return a subset of resolver rules, such as resolver rules
+        /// <para>An optional specification to return a subset of Resolver rules, such as Resolver rules
         /// that are associated with the same VPC ID.</para><note><para>If you submit a second or subsequent <code>ListResolverRuleAssociations</code> request
         /// and specify the <code>NextToken</code> parameter, you must use the same values for
         /// <code>Filters</code>, if any, as in the previous request.</para></note>

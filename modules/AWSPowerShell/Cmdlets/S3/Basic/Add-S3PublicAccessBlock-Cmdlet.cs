@@ -86,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ContentMD5 { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter PublicAccessBlockConfiguration_IgnorePublicAcl
         /// <summary>
         /// <para>
@@ -181,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.PublicAccessBlockConfiguration_IgnorePublicAcl = this.PublicAccessBlockConfiguration_IgnorePublicAcl;
             context.PublicAccessBlockConfiguration_BlockPublicPolicy = this.PublicAccessBlockConfiguration_BlockPublicPolicy;
             context.PublicAccessBlockConfiguration_RestrictPublicBucket = this.PublicAccessBlockConfiguration_RestrictPublicBucket;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -254,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.PublicAccessBlockConfiguration = null;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
             CmdletOutput output;
             
@@ -321,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.Boolean? PublicAccessBlockConfiguration_IgnorePublicAcl { get; set; }
             public System.Boolean? PublicAccessBlockConfiguration_BlockPublicPolicy { get; set; }
             public System.Boolean? PublicAccessBlockConfiguration_RestrictPublicBucket { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutPublicAccessBlockResponse, AddS3PublicAccessBlockCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

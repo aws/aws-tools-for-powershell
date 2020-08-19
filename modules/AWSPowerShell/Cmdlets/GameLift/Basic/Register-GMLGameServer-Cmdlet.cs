@@ -28,23 +28,25 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This action is part of Amazon GameLift FleetIQ with game server groups, which
-    /// is in preview release and is subject to change.</b><para>
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
     /// Creates a new game server resource and notifies GameLift FleetIQ that the game server
-    /// is ready to host gameplay and players. This action is called by a game server process
+    /// is ready to host gameplay and players. This operation is called by a game server process
     /// that is running on an instance in a game server group. Registering game servers enables
     /// GameLift FleetIQ to track available game servers and enables game clients and services
     /// to claim a game server for a new game session. 
     /// </para><para>
     /// To register a game server, identify the game server group and instance where the game
     /// server is running, and provide a unique identifier for the game server. You can also
-    /// include connection and game server data; when a game client or service requests a
-    /// game server by calling <a>ClaimGameServer</a>, this information is returned in response.
+    /// include connection and game server data. When a game client or service requests a
+    /// game server by calling <a>ClaimGameServer</a>, this information is returned in the
+    /// response.
     /// </para><para>
-    /// Once a game server is successfully registered, it is put in status AVAILABLE. A request
-    /// to register a game server may fail if the instance it is in the process of shutting
-    /// down as part of instance rebalancing or scale-down activity. 
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift
+    /// Once a game server is successfully registered, it is put in status <code>AVAILABLE</code>.
+    /// A request to register a game server may fail if the instance it is running on is in
+    /// the process of shutting down as part of instance balancing or scale-down activity.
+    /// 
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
     /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>RegisterGameServer</a></para></li><li><para><a>ListGameServers</a></para></li><li><para><a>ClaimGameServer</a></para></li><li><para><a>DescribeGameServer</a></para></li><li><para><a>UpdateGameServer</a></para></li><li><para><a>DeregisterGameServer</a></para></li></ul>
     /// </summary>
     [Cmdlet("Register", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,31 +62,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ConnectionInfo
         /// <summary>
         /// <para>
-        /// <para>Information needed to make inbound client connections to the game server. This might
-        /// include IP address and port, DNS name, etc.</para>
+        /// <para>Information that is needed to make inbound client connections to the game server.
+        /// This might include the IP address and port, DNS name, and other information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ConnectionInfo { get; set; }
         #endregion
         
-        #region Parameter CustomSortKey
-        /// <summary>
-        /// <para>
-        /// <para>A game server tag that can be used to request sorted lists of game servers using <a>ListGameServers</a>.
-        /// Custom sort keys are developer-defined based on how you want to organize the retrieved
-        /// game server information.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CustomSortKey { get; set; }
-        #endregion
-        
         #region Parameter GameServerData
         /// <summary>
         /// <para>
         /// <para>A set of custom game server properties, formatted as a single string value. This data
-        /// is passed to a game client or service when it requests information on a game servers
+        /// is passed to a game client or service when it requests information on game servers
         /// using <a>ListGameServers</a> or <a>ClaimGameServer</a>. </para>
         /// </para>
         /// </summary>
@@ -95,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>An identifier for the game server group where the game server is running. You can
-        /// use either the <a>GameServerGroup</a> name or ARN value.</para>
+        /// <para>A unique identifier for the game server group where the game server is running. Use
+        /// either the <a>GameServerGroup</a> name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerId
         /// <summary>
         /// <para>
-        /// <para>A custom string that uniquely identifies the new game server. Game server IDs are
-        /// developer-defined and must be unique across all game server groups in your AWS account.</para>
+        /// <para>A custom string that uniquely identifies the game server to register. Game server
+        /// IDs are developer-defined and must be unique across all game server groups in your
+        /// AWS account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the instance where the game server is running. This ID is
-        /// available in the instance metadata.</para>
+        /// available in the instance metadata. EC2 instance IDs use a 17-character format, for
+        /// example: <code>i-1234567890abcdef0</code>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,23 +136,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InstanceId { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A list of labels to assign to the new game server resource. Tags are developer-defined
-        /// key-value pairs. Tagging AWS resources are useful for resource management, access
-        /// management, and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
-        /// Tagging AWS Resources</a> in the <i>AWS General Reference</i>. Once the resource is
-        /// created, you can use <a>TagResource</a>, <a>UntagResource</a>, and <a>ListTagsForResource</a>
-        /// to add, remove, and view tags. The maximum tag limit may be lower than stated. See
-        /// the AWS General Reference for actual tagging limits.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.GameLift.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -225,7 +200,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ConnectionInfo = this.ConnectionInfo;
-            context.CustomSortKey = this.CustomSortKey;
             context.GameServerData = this.GameServerData;
             context.GameServerGroupName = this.GameServerGroupName;
             #if MODULAR
@@ -248,10 +222,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.GameLift.Model.Tag>(this.Tag);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -272,10 +242,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 request.ConnectionInfo = cmdletContext.ConnectionInfo;
             }
-            if (cmdletContext.CustomSortKey != null)
-            {
-                request.CustomSortKey = cmdletContext.CustomSortKey;
-            }
             if (cmdletContext.GameServerData != null)
             {
                 request.GameServerData = cmdletContext.GameServerData;
@@ -291,10 +257,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -358,12 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConnectionInfo { get; set; }
-            public System.String CustomSortKey { get; set; }
             public System.String GameServerData { get; set; }
             public System.String GameServerGroupName { get; set; }
             public System.String GameServerId { get; set; }
             public System.String InstanceId { get; set; }
-            public List<Amazon.GameLift.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.GameLift.Model.RegisterGameServerResponse, RegisterGMLGameServerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GameServer;
         }

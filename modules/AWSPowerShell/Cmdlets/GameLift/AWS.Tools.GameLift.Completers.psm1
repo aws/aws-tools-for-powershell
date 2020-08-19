@@ -103,7 +103,7 @@ $GML_Completers = {
             ($_ -eq "Update-GMLGameServerGroup/BalancingStrategy")
         }
         {
-            $v = "SPOT_ONLY","SPOT_PREFERRED"
+            $v = "ON_DEMAND_ONLY","SPOT_ONLY","SPOT_PREFERRED"
             break
         }
 
@@ -367,6 +367,7 @@ $GML_SelectMap = @{
                "Get-GMLFleetUtilization",
                "Get-GMLGameServer",
                "Get-GMLGameServerGroup",
+               "Get-GMLGameServerInstance",
                "Get-GMLGameSessionDetail",
                "Get-GMLGameSessionPlacement",
                "Get-GMLGameSessionQueue",

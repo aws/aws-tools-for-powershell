@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <summary>
         /// <para>
         /// <para>You can group AWS costs using up to two different groups, either dimensions, tag keys,
-        /// or both.</para><para>When you group by tag key, you get all tag values, including empty strings.</para><para>Valid values are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>,
+        /// cost categories, or any two group by types.</para><para>When you group by tag key, you get all tag values, including empty strings.</para><para>Valid values are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>,
         /// <code>LINKED_ACCOUNT</code>, <code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>,
         /// <code>SERVICE</code>, <code>TAGS</code>, <code>TENANCY</code>, <code>RECORD_TYPE</code>,
         /// and <code>USAGE_TYPE</code>.</para>
@@ -101,7 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// or <code>UsageTypeGroups</code>. </para></note><para><code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Metrics")]
         public System.String[] Metric { get; set; }
         #endregion
@@ -209,6 +216,12 @@ namespace Amazon.PowerShell.Cmdlets.CE
             {
                 context.Metric = new List<System.String>(this.Metric);
             }
+            #if MODULAR
+            if (this.Metric == null && ParameterWasBound(nameof(this.Metric)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Metric which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.NextPageToken = this.NextPageToken;
             context.TimePeriod = this.TimePeriod;
             #if MODULAR

@@ -160,9 +160,12 @@ $MSK_SelectCompleters = {
 }
 
 $MSK_SelectMap = @{
-    "Select"=@("New-MSKCluster",
+    "Select"=@("Register-MSKAssociateScramSecret",
+               "Unregister-MSKDisassociateScramSecret",
+               "New-MSKCluster",
                "New-MSKConfiguration",
                "Remove-MSKCluster",
+               "Remove-MSKConfiguration",
                "Get-MSKCluster",
                "Get-MSKClusterOperation",
                "Get-MSKConfiguration",
@@ -175,6 +178,7 @@ $MSK_SelectMap = @{
                "Get-MSKConfigurationList",
                "Get-MSKKafkaVersionList",
                "Get-MSKNodeList",
+               "Get-MSKScramSecretList",
                "Get-MSKResourceTag",
                "Restart-MSKBroker",
                "Add-MSKResourceTag",
@@ -183,6 +187,7 @@ $MSK_SelectMap = @{
                "Update-MSKBrokerStorage",
                "Update-MSKClusterConfiguration",
                "Update-MSKClusterKafkaVersion",
+               "Update-MSKConfiguration",
                "Update-MSKMonitoring")
 }
 

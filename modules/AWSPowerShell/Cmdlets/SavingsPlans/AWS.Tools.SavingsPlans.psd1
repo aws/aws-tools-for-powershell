@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SPSavingsPlansOffering', 
         'Get-SPSavingsPlansOfferingRate', 
         'New-SPSavingsPlan', 
+        'Remove-SPQueuedSavingsPlan', 
         'Remove-SPResourceTag')
 
     # Variables to export from this module

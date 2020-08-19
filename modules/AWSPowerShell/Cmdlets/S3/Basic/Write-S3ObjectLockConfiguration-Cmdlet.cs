@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.Int32? DefaultRetention_Day { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter DefaultRetention_Mode
         /// <summary>
         /// <para>
@@ -196,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.DefaultRetention_Year = this.DefaultRetention_Year;
             context.RequestPayer = this.RequestPayer;
             context.Token = this.Token;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -307,6 +319,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.Token = cmdletContext.Token;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
             CmdletOutput output;
             
@@ -376,6 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.Int32? DefaultRetention_Year { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String Token { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutObjectLockConfigurationResponse, WriteS3ObjectLockConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.RequestCharged;
         }

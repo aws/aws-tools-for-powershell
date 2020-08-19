@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Description: The service was unable to apply the provided tag to the bucket.
     /// </para></li></ul></li></ul><para>
     /// The following operations are related to <code>PutBucketTagging</code>:
-    /// </para><ul><li><para><a>GetBucketTagging</a></para></li><li><para><a>DeleteBucketTagging</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html">GetBucketTagging</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -88,6 +88,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter TagSet
@@ -166,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.TagSet = new List<Amazon.S3.Model.Tag>(this.TagSet);
             }
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.TagSet != null)
             {
                 request.TagSet = cmdletContext.TagSet;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -253,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public List<Amazon.S3.Model.Tag> TagSet { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketTaggingResponse, WriteS3BucketTaggingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

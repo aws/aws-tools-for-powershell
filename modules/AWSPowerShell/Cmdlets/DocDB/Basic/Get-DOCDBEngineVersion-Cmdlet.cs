@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The database engine version to return.</para><para>Example: <code>5.1.49</code></para>
+        /// <para>The database engine version to return.</para><para>Example: <code>3.6.0</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

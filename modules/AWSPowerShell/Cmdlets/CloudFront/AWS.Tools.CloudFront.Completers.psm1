@@ -223,6 +223,13 @@ $CF_Completers = {
             break
         }
 
+        # Amazon.CloudFront.RealtimeMetricsSubscriptionStatus
+        "New-CFMonitoringSubscription/MonitoringSubscription_RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.CloudFront.SSLSupportMethod
         {
             ($_ -eq "New-CFDistribution/DistributionConfig_ViewerCertificate_SSLSupportMethod") -Or
@@ -230,7 +237,7 @@ $CF_Completers = {
             ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_ViewerCertificate_SSLSupportMethod")
         }
         {
-            $v = "sni-only","vip"
+            $v = "sni-only","static-ip","vip"
             break
         }
 
@@ -273,6 +280,7 @@ $CF_map = @{
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistributionWithTag")
     "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_SSLSupportMethod"=@("New-CFDistributionWithTag")
+    "MonitoringSubscription_RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus"=@("New-CFMonitoringSubscription")
     "OriginRequestPolicyConfig_CookiesConfig_CookieBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
     "OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
     "OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
@@ -338,8 +346,10 @@ $CF_SelectMap = @{
                "New-CFFieldLevelEncryptionConfig",
                "New-CFFieldLevelEncryptionProfile",
                "New-CFInvalidation",
+               "New-CFMonitoringSubscription",
                "New-CFOriginRequestPolicy",
                "New-CFPublicKey",
+               "New-CFRealtimeLogConfig",
                "New-CFStreamingDistribution",
                "New-CFStreamingDistributionWithTag",
                "Remove-CFCachePolicy",
@@ -347,8 +357,10 @@ $CF_SelectMap = @{
                "Remove-CFDistribution",
                "Remove-CFFieldLevelEncryptionConfig",
                "Remove-CFFieldLevelEncryptionProfile",
+               "Remove-CFMonitoringSubscription",
                "Remove-CFOriginRequestPolicy",
                "Remove-CFPublicKey",
+               "Remove-CFRealtimeLogConfig",
                "Remove-CFStreamingDistribution",
                "Get-CFCachePolicy",
                "Get-CFCachePolicyConfig",
@@ -361,10 +373,12 @@ $CF_SelectMap = @{
                "Get-CFFieldLevelEncryptionProfile",
                "Get-CFFieldLevelEncryptionProfileConfig",
                "Get-CFInvalidation",
+               "Get-CFMonitoringSubscription",
                "Get-CFOriginRequestPolicy",
                "Get-CFOriginRequestPolicyConfig",
                "Get-CFPublicKey",
                "Get-CFPublicKeyConfig",
+               "Get-CFRealtimeLogConfig",
                "Get-CFStreamingDistribution",
                "Get-CFStreamingDistributionConfig",
                "Get-CFCachePolicyList",
@@ -372,12 +386,14 @@ $CF_SelectMap = @{
                "Get-CFDistributionList",
                "Get-CFDistributionsByCachePolicyId",
                "Get-CFDistributionsByOriginRequestPolicyId",
+               "Get-CFDistributionsByRealtimeLogConfig",
                "Get-CFDistributionListByWebACLId",
                "Get-CFFieldLevelEncryptionConfigList",
                "Get-CFFieldLevelEncryptionProfileList",
                "Get-CFInvalidationList",
                "Get-CFOriginRequestPolicyList",
                "Get-CFPublicKeyList",
+               "Get-CFRealtimeLogConfigList",
                "Get-CFStreamingDistributionList",
                "Get-CFResourceTag",
                "Add-CFResourceTag",
@@ -389,6 +405,7 @@ $CF_SelectMap = @{
                "Update-CFFieldLevelEncryptionProfile",
                "Update-CFOriginRequestPolicy",
                "Update-CFPublicKey",
+               "Update-CFRealtimeLogConfig",
                "Update-CFStreamingDistribution",
                "New-CFSignedCookie",
                "New-CFSignedUrl")

@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// to parse the contents of the response and handle it appropriately.
     /// 
     ///  <important><para>
-    /// This API has been revised. We recommend that you use the newer version, <a>ListObjectsV2</a>,
+    /// This API has been revised. We recommend that you use the newer version, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a>,
     /// when developing applications. For backward compatibility, Amazon S3 continues to support
     /// <code>ListObjects</code>.
     /// </para></important><para>
     /// The following operations are related to <code>ListObjects</code>:
-    /// </para><ul><li><para><a>ListObjectsV2</a></para></li><li><para><a>GetObject</a></para></li><li><para><a>PutObject</a></para></li><li><para><a>CreateBucket</a></para></li><li><para><a>ListBuckets</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "S3Object", DefaultParameterSetName="GetMultipleObjects")]
     [OutputType("Amazon.S3.Model.S3Object")]
@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3.EncodingType")]
         public Amazon.S3.EncodingType Encoding { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter RequestPayer
@@ -212,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Prefix = this.Prefix;
             context.Encoding = this.Encoding;
             context.RequestPayer = this.RequestPayer;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -256,6 +268,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.RequestPayer != null)
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             // Initialize loop variant and commence piping
@@ -331,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.RequestPayer != null)
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             // Initialize loop variants and commence piping
@@ -458,6 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String Prefix { get; set; }
             public Amazon.S3.EncodingType Encoding { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.ListObjectsResponse, GetS3ObjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.S3Objects;
         }

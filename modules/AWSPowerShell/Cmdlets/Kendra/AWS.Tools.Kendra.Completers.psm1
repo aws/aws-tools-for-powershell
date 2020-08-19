@@ -94,6 +94,13 @@ $KNDR_Completers = {
             break
         }
 
+        # Amazon.Kendra.FaqFileFormat
+        "New-KNDRFaq/FileFormat"
+        {
+            $v = "CSV","CSV_WITH_HEADER","JSON"
+            break
+        }
+
         # Amazon.Kendra.IndexEdition
         "New-KNDRIndex/Edition"
         {
@@ -125,6 +132,7 @@ $KNDR_Completers = {
 
 $KNDR_map = @{
     "Edition"=@("New-KNDRIndex")
+    "FileFormat"=@("New-KNDRFaq")
     "QueryResultTypeFilter"=@("Invoke-KNDRQuery")
     "SortingConfiguration_SortOrder"=@("Invoke-KNDRQuery")
     "StatusFilter"=@("Get-KNDRDataSourceSyncJobList")

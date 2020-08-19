@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates or updates a resource policy allowing other AWS services to put log events
     /// to this account, such as Amazon Route 53. An account can have up to 10 resource policies
-    /// per region.
+    /// per AWS Region.
     /// </summary>
     [Cmdlet("Write", "CWLResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchLogs.Model.ResourcePolicy")]
@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>Details of the new policy, including the identity of the principal that is enabled
         /// to put logs to this account. This is formatted as a JSON string. This parameter is
         /// required.</para><para>The following example creates a resource policy enabling the Route 53 service to put
-        /// DNS query logs in to the specified log group. Replace "logArn" with the ARN of your
-        /// CloudWatch Logs resource, such as a log group or log stream.</para><para><code>{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs",
+        /// DNS query logs in to the specified log group. Replace <code>"logArn"</code> with the
+        /// ARN of your CloudWatch Logs resource, such as a log group or log stream.</para><para><code>{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs",
         /// "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents",
         /// "Resource": "logArn" } ] } </code></para>
         /// </para>

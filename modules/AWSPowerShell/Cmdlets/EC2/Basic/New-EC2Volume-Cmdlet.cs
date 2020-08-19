@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
-    /// Your Amazon EC2 Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating
-    /// an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// an Amazon EBS volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,9 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// state to <code>true</code> depends on the volume origin (new or from a snapshot),
         /// starting encryption state, ownership, and whether encryption by default is enabled.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">Encryption
-        /// by Default</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS
+        /// by default</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS
         /// encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
-        /// Instance Types</a>.</para>
+        /// instance types</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
@@ -96,12 +96,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para>The number of I/O operations per second (IOPS) to provision for the volume, with a
-        /// maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most Regions.
-        /// Maximum IOPS of 64,000 is guaranteed only on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+        /// <para>The number of I/O operations per second (IOPS) to provision for an <code>io1</code>
+        /// or <code>io2</code> volume, with a maximum ratio of 50 IOPS/GiB for <code>io1</code>,
+        /// and 500 IOPS/GiB for <code>io2</code>. Range is 100 to 64,000 IOPS for volumes in
+        /// most Regions. Maximum IOPS of 64,000 is guaranteed only on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
         /// instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For
         /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
-        /// EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>This parameter is valid only for Provisioned IOPS SSD (io1) volumes.</para>
+        /// EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>This parameter is valid only for Provisioned IOPS SSD (<code>io1</code> and <code>io2</code>)
+        /// volumes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -149,10 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume
-        /// size.</para><para>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384
-        /// for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>.
-        /// If you specify a snapshot, the volume size must be equal to or larger than the snapshot
-        /// size.</para><para>Default: If you're creating the volume from a snapshot and don't specify a volume
+        /// size.</para><para>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for <code>io1</code> and <code>io2</code>,
+        /// 500-16,384 for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for
+        /// <code>standard</code>. If you specify a snapshot, the volume size must be equal to
+        /// or larger than the snapshot size.</para><para>Default: If you're creating the volume from a snapshot and don't specify a volume
         /// size, the default is the snapshot size.</para>
         /// </para>
         /// </summary>
@@ -186,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The volume type. This can be <code>gp2</code> for General Purpose SSD, <code>io1</code>
-        /// for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code>
-        /// for Cold HDD, or <code>standard</code> for Magnetic volumes.</para><para>Default: <code>gp2</code></para>
+        /// or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized
+        /// HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</para><para>Default: <code>gp2</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

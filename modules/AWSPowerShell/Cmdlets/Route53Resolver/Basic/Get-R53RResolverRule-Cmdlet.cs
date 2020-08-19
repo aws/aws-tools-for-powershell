@@ -28,8 +28,8 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Gets information about a specified resolver rule, such as the domain name that the
-    /// rule forwards DNS queries for and the ID of the outbound resolver endpoint that the
+    /// Gets information about a specified Resolver rule, such as the domain name that the
+    /// rule forwards DNS queries for and the ID of the outbound Resolver endpoint that the
     /// rule is associated with.
     /// </summary>
     [Cmdlet("Get", "R53RResolverRule")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverRuleId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver rule that you want to get information about.</para>
+        /// <para>The ID of the Resolver rule that you want to get information about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

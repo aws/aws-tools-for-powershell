@@ -69,6 +69,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DatabaseName { get; set; }
         #endregion
         
+        #region Parameter PartitionIndex
+        /// <summary>
+        /// <para>
+        /// <para>A list of partition indexes, <code>PartitionIndex</code> structures, to create in
+        /// the table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PartitionIndexes")]
+        public Amazon.Glue.Model.PartitionIndex[] PartitionIndex { get; set; }
+        #endregion
+        
         #region Parameter TableInput
         /// <summary>
         /// <para>
@@ -154,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PartitionIndex != null)
+            {
+                context.PartitionIndex = new List<Amazon.Glue.Model.PartitionIndex>(this.PartitionIndex);
+            }
             context.TableInput = this.TableInput;
             #if MODULAR
             if (this.TableInput == null && ParameterWasBound(nameof(this.TableInput)))
@@ -184,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.DatabaseName != null)
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
+            }
+            if (cmdletContext.PartitionIndex != null)
+            {
+                request.PartitionIndexes = cmdletContext.PartitionIndex;
             }
             if (cmdletContext.TableInput != null)
             {
@@ -252,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
+            public List<Amazon.Glue.Model.PartitionIndex> PartitionIndex { get; set; }
             public Amazon.Glue.Model.TableInput TableInput { get; set; }
             public System.Func<Amazon.Glue.Model.CreateTableResponse, NewGLUETableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

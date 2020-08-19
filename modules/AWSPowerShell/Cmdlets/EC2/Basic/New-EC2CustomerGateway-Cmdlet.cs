@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Provides information to AWS about your VPN customer gateway device. The customer gateway
     /// is the appliance at your end of the VPN connection. (The device on the AWS side of
-    /// the VPN connection is the virtual private gateway.) You must provide the Internet-routable
+    /// the VPN connection is the virtual private gateway.) You must provide the internet-routable
     /// IP address of the customer gateway's external interface. The IP address must be static
     /// and can be behind a device performing network address translation (NAT).
     /// 
@@ -41,10 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If you don't have an ASN already, you can use a private ASN (in the 64512 - 65534
     /// range).
     /// </para><note><para>
-    /// Amazon EC2 supports all 2-byte ASN numbers in the range of 1 - 65534, with the exception
-    /// of 7224, which is reserved in the <code>us-east-1</code> Region, and 9059, which is
-    /// reserved in the <code>eu-west-1</code> Region.
-    /// </para></note><para>
+    /// Amazon EC2 supports all 4-byte ASN numbers in the range of 1 - 2147483647, with the
+    /// exception of the following:
+    /// </para><ul><li><para>
+    /// 7224 - reserved in the <code>us-east-1</code> Region
+    /// </para></li><li><para>
+    /// 9059 - reserved in the <code>eu-west-1</code> Region
+    /// </para></li><li><para>
+    /// 17943 - reserved in the <code>ap-southeast-1</code> Region
+    /// </para></li><li><para>
+    /// 10124 - reserved in the <code>ap-northeast-1</code> Region
+    /// </para></li></ul></note><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
     /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
     /// </para><important><para>

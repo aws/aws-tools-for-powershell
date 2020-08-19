@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>savingsplans</C2jFilename>
     <AssemblyName>SavingsPlans</AssemblyName>
@@ -13,13 +14,16 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CreateSavingsPlan" OutputProperty="SavingsPlanId" Verb="New" Noun="SavingsPlan" ShouldProcessTarget="SavingsPlanOfferingId" PipelineParameter="SavingsPlanOfferingId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQueuedSavingsPlan" Verb="Remove" Noun="QueuedSavingsPlan" ShouldProcessTarget="SavingsPlanId" PipelineParameter="SavingsPlanId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -52,7 +56,5 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

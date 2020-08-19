@@ -41,6 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class RemoveSGTapeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter BypassGovernanceRetention
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>TRUE</code> to delete an archived tape that belongs to a custom pool
+        /// with tape retention lock. Only archived tapes with tape retention lock set to <code>governance</code>
+        /// can be deleted. Archived tapes with tape retention lock set to <code>compliance</code>
+        /// can't be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BypassGovernanceRetention { get; set; }
+        #endregion
+        
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
@@ -138,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.Select = (response, cmdlet) => this.GatewayARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BypassGovernanceRetention = this.BypassGovernanceRetention;
             context.GatewayARN = this.GatewayARN;
             #if MODULAR
             if (this.GatewayARN == null && ParameterWasBound(nameof(this.GatewayARN)))
@@ -168,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.DeleteTapeRequest();
             
+            if (cmdletContext.BypassGovernanceRetention != null)
+            {
+                request.BypassGovernanceRetention = cmdletContext.BypassGovernanceRetention.Value;
+            }
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
@@ -237,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? BypassGovernanceRetention { get; set; }
             public System.String GatewayARN { get; set; }
             public System.String TapeARN { get; set; }
             public System.Func<Amazon.StorageGateway.Model.DeleteTapeResponse, RemoveSGTapeCmdlet, object> Select { get; set; } =

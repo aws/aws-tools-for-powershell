@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The beginning of the time period. Audit information is retained for a limited time
-        /// (180 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".</para>
+        /// (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// assignment to either one of the two property is reflected in the value of both. StartTime
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
         /// results in the wrong timestamp being passed to the service.</para><para>The beginning of the time period. Audit information is retained for a limited time
-        /// (180 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".</para>
+        /// (90 days). Requesting a start time prior to what is retained results in an "InvalidRequestException".</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

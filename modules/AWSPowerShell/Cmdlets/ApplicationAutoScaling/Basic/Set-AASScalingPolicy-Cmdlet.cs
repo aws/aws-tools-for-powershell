@@ -75,8 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_AdjustmentType
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the <code>ScalingAdjustment</code> value in a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html">StepAdjustment</a>
-        /// is an absolute number or a percentage of the current capacity. </para><para><code>AdjustmentType</code> is required if you are adding a new step scaling policy
+        /// <para>Specifies how the <code>ScalingAdjustment</code> value in a <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html">StepAdjustment</a>
+        /// is interpreted (for example, an absolute number or a percentage). The valid values
+        /// are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.
+        /// </para><para><code>AdjustmentType</code> is required if you are adding a new step scaling policy
         /// configuration.</para>
         /// </para>
         /// </summary>
@@ -88,21 +90,24 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_Cooldown
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, to wait for a previous scaling activity to take effect.</para><para>With scale-out policies, the intention is to continuously (but not excessively) scale
+        /// <para>The amount of time, in seconds, to wait for a previous scaling activity to take effect.
+        /// </para><para>With scale-out policies, the intention is to continuously (but not excessively) scale
         /// out. After Application Auto Scaling successfully scales out using a step scaling policy,
-        /// it starts to calculate the cooldown time. While the cooldown period is in effect,
-        /// capacity added by the initiating scale-out activity is calculated as part of the desired
-        /// capacity for the next scale-out activity. For example, when an alarm triggers a step
-        /// scaling policy to increase the capacity by 2, the scaling activity completes successfully,
-        /// and a cooldown period starts. If the alarm triggers again during the cooldown period
-        /// but at a more aggressive step adjustment of 3, the previous increase of 2 is considered
-        /// part of the current capacity. Therefore, only 1 is added to the capacity.</para><para>With scale-in policies, the intention is to scale in conservatively to protect your
+        /// it starts to calculate the cooldown time. The scaling policy won't increase the desired
+        /// capacity again unless either a larger scale out is triggered or the cooldown period
+        /// ends. While the cooldown period is in effect, capacity added by the initiating scale-out
+        /// activity is calculated as part of the desired capacity for the next scale-out activity.
+        /// For example, when an alarm triggers a step scaling policy to increase the capacity
+        /// by 2, the scaling activity completes successfully, and a cooldown period starts. If
+        /// the alarm triggers again during the cooldown period but at a more aggressive step
+        /// adjustment of 3, the previous increase of 2 is considered part of the current capacity.
+        /// Therefore, only 1 is added to the capacity.</para><para>With scale-in policies, the intention is to scale in conservatively to protect your
         /// application’s availability, so scale-in activities are blocked until the cooldown
         /// period has expired. However, if another alarm triggers a scale-out activity during
         /// the cooldown period after a scale-in activity, Application Auto Scaling scales out
         /// the target immediately. In this case, the cooldown period for the scale-in activity
         /// stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
-        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li></ul>
+        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK cluster storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,12 +167,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter StepScalingPolicyConfiguration_MinAdjustmentMagnitude
         /// <summary>
         /// <para>
-        /// <para>The minimum value to scale by when scaling by percentages. For example, suppose that
-        /// you create a step scaling policy to scale out an Amazon ECS service by 25 percent
-        /// and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the service has 4 tasks
-        /// and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified
-        /// a <code>MinAdjustmentMagnitude</code> of 2, Application Auto Scaling scales out the
-        /// service by 2 tasks.</para><para>Valid only if the adjustment type is <code>PercentChangeInCapacity</code>. </para>
+        /// <para>The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>.
+        /// For example, suppose that you create a step scaling policy to scale out an Amazon
+        /// ECS service by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of
+        /// 2. If the service has 4 tasks and the scaling policy is performed, 25 percent of 4
+        /// is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Application
+        /// Auto Scaling scales out the service by 2 tasks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -205,8 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type. This parameter is required if you are creating a scaling policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, or
-        /// Amazon Keyspaces (for Apache Cassandra).</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
+        /// <para>The policy type. This parameter is required if you are creating a scaling policy.</para><para>The following policy types are supported: </para><para><code>TargetTrackingScaling</code>—Not supported for Amazon EMR</para><para><code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon
+        /// Keyspaces (for Apache Cassandra), or Amazon MSK.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
         /// Tracking Scaling Policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
         /// Scaling Policies</a> in the <i>Application Auto Scaling User Guide</i>.</para>
         /// </para>
@@ -246,11 +251,13 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// the resources. The unique identifier is defined by the service provider. More information
         /// is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
         /// repository</a>.</para></li><li><para>Amazon Comprehend document classification endpoint - The resource type and unique
-        /// identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <code>function</code> and the
+        /// identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</para></li><li><para>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier
+        /// are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <code>function</code> and the
         /// unique identifier is the function name with a function version or alias name suffix
         /// that is not <code>$LATEST</code>. Example: <code>function:my-function:prod</code>
         /// or <code>function:my-function:1</code>.</para></li><li><para>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier
-        /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li></ul>
+        /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li><li><para>Amazon MSK cluster - The resource type and unique identifier are specified using the
+        /// cluster ARN. Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -269,12 +276,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>Identifies the resource associated with the metric type. You can't specify a resource
         /// label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is
-        /// a target group attached to the Spot Fleet request or ECS service.</para><para>Elastic Load Balancing sends data about your load balancers to Amazon CloudWatch.
-        /// CloudWatch collects the data and specifies the format to use to access the data. The
-        /// format is app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt;/targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt;,
+        /// a target group attached to the Spot Fleet request or ECS service.</para><para>You create the resource label by appending the final portion of the load balancer
+        /// ARN and the final portion of the target group ARN into a single value, separated by
+        /// a forward slash (/). The format is app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt;/targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt;,
         /// where:</para><ul><li><para>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the
         /// load balancer ARN</para></li><li><para>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion
-        /// of the target group ARN.</para></li></ul><para>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
+        /// of the target group ARN.</para></li></ul><para>This is an example: app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d.</para><para>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
         /// API operation. To find the ARN for the target group, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a>
         /// API operation.</para>
         /// </para>
@@ -300,10 +307,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
         /// for an Amazon SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
-        /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
+        /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number
+        /// of inference units for an Amazon Comprehend entity recognizer endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
         /// for a Lambda function.</para></li><li><para><code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for
         /// an Amazon Keyspaces table.</para></li><li><para><code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity
-        /// for an Amazon Keyspaces table.</para></li></ul>
+        /// for an Amazon Keyspaces table.</para></li><li><para><code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB)
+        /// for brokers in an Amazon MSK cluster.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -326,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// the cooldown period has expired. However, if another alarm triggers a scale-out activity
         /// during the scale-in cooldown period, Application Auto Scaling scales out the target
         /// immediately. In this case, the scale-in cooldown period stops and doesn't complete.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
-        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li></ul>
+        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK cluster storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -339,10 +348,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>The amount of time, in seconds, to wait for a previous scale-out activity to take
         /// effect.</para><para>With the <i>scale-out cooldown period</i>, the intention is to continuously (but not
         /// excessively) scale out. After Application Auto Scaling successfully scales out using
-        /// a target tracking scaling policy, it starts to calculate the cooldown time. While
-        /// the scale-out cooldown period is in effect, the capacity added by the initiating scale-out
-        /// activity is calculated as part of the desired capacity for the next scale-out activity.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
-        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li></ul>
+        /// a target tracking scaling policy, it starts to calculate the cooldown time. The scaling
+        /// policy won't increase the desired capacity again unless either a larger scale out
+        /// is triggered or the cooldown period ends. While the cooldown period is in effect,
+        /// the capacity added by the initiating scale-out activity is calculated as part of the
+        /// desired capacity for the next scale-out activity.</para><para>Application Auto Scaling provides a default value of 300 for the following scalable
+        /// targets:</para><ul><li><para>ECS services</para></li><li><para>Spot Fleet requests</para></li><li><para>EMR clusters</para></li><li><para>AppStream 2.0 fleets</para></li><li><para>Aurora DB clusters</para></li><li><para>Amazon SageMaker endpoint variants</para></li><li><para>Custom resources</para></li></ul><para>For all other scalable targets, the default value is 0:</para><ul><li><para>DynamoDB tables</para></li><li><para>DynamoDB global secondary indexes</para></li><li><para>Amazon Comprehend document classification and entity recognizer endpoints</para></li><li><para>Lambda provisioned concurrency</para></li><li><para>Amazon Keyspaces tables</para></li><li><para>Amazon MSK cluster storage</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

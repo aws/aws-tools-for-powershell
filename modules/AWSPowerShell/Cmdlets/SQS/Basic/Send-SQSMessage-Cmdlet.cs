@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon
         /// SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter MessageBody
         /// <summary>
         /// <para>
-        /// <para>The message to send. The maximum string size is 256 KB.</para><important><para>A message can include only XML, JSON, and unformatted text. The following Unicode
+        /// <para>The message to send. The minimum size is one character. The maximum size is 256 KB.</para><important><para>A message can include only XML, JSON, and unformatted text. The following Unicode
         /// characters are allowed:</para><para><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code>
         /// | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></para><para>Any characters not included in this list will be rejected. For more information, see
         /// the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</para></important>

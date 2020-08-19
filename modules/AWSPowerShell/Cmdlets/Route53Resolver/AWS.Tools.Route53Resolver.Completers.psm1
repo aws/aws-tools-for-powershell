@@ -94,6 +94,16 @@ $R53R_Completers = {
             break
         }
 
+        # Amazon.Route53Resolver.SortOrder
+        {
+            ($_ -eq "Get-R53RResolverQueryLogConfigAssociationList/SortOrder") -Or
+            ($_ -eq "Get-R53RResolverQueryLogConfigList/SortOrder")
+        }
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+
 
     }
 
@@ -105,6 +115,7 @@ $R53R_Completers = {
 $R53R_map = @{
     "Direction"=@("New-R53RResolverEndpoint")
     "RuleType"=@("New-R53RResolverRule")
+    "SortOrder"=@("Get-R53RResolverQueryLogConfigAssociationList","Get-R53RResolverQueryLogConfigList")
 }
 
 _awsArgumentCompleterRegistration $R53R_Completers $R53R_map
@@ -158,22 +169,32 @@ $R53R_SelectCompleters = {
 
 $R53R_SelectMap = @{
     "Select"=@("Add-R53RResolverEndpointIpAddressAssociation",
+               "Add-R53RResolverQueryLogConfigAssociation",
                "Add-R53RResolverRuleAssociation",
                "New-R53RResolverEndpoint",
+               "New-R53RResolverQueryLogConfig",
                "New-R53RResolverRule",
                "Remove-R53RResolverEndpoint",
+               "Remove-R53RResolverQueryLogConfig",
                "Remove-R53RResolverRule",
                "Remove-R53RResolverEndpointIpAddressAssociation",
+               "Remove-R53RResolverQueryLogConfigAssociation",
                "Remove-R53RResolverRuleAssociation",
                "Get-R53RResolverEndpoint",
+               "Get-R53RResolverQueryLogConfig",
+               "Get-R53RResolverQueryLogConfigAssociation",
+               "Get-R53RResolverQueryLogConfigPolicy",
                "Get-R53RResolverRule",
                "Get-R53RResolverRuleAssociation",
                "Get-R53RResolverRulePolicy",
                "Get-R53RResolverEndpointIpAddressList",
                "Get-R53RResolverEndpointList",
+               "Get-R53RResolverQueryLogConfigAssociationList",
+               "Get-R53RResolverQueryLogConfigList",
                "Get-R53RResolverRuleAssociationList",
                "Get-R53RResolverRuleList",
                "Get-R53RResourceTagList",
+               "Write-R53RResolverQueryLogConfigPolicy",
                "Set-R53RResolverRulePolicy",
                "Add-R53RResourceTag",
                "Remove-R53RResourceTag",

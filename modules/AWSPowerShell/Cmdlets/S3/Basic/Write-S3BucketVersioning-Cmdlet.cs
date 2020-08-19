@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.Boolean? VersioningConfig_EnableMfaDelete { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter MfaCodes_SerialNumber
         /// <summary>
         /// <para>
@@ -157,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.MfaCodes_AuthenticationValue = this.MfaCodes_AuthenticationValue;
             context.VersioningConfig_Status = this.VersioningConfig_Status;
             context.VersioningConfig_EnableMfaDelete = this.VersioningConfig_EnableMfaDelete;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -235,6 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.VersioningConfig = null;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
             CmdletOutput output;
             
@@ -301,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String MfaCodes_AuthenticationValue { get; set; }
             public Amazon.S3.VersionStatus VersioningConfig_Status { get; set; }
             public System.Boolean? VersioningConfig_EnableMfaDelete { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketVersioningResponse, WriteS3BucketVersioningCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

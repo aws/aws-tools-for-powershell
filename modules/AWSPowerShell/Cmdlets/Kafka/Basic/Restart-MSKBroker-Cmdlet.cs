@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         #region Parameter BrokerId
         /// <summary>
         /// <para>
-        /// <para>The list of broker IDs to be rebooted.</para>
+        /// <para>The list of broker IDs to be rebooted. The reboot-broker operation supports rebooting
+        /// one broker at a time.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

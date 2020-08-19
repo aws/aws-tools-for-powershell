@@ -96,6 +96,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String QuietTime_End { get; set; }
         #endregion
         
+        #region Parameter WriteApplicationSettingsRequest_EventTaggingEnabled
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? WriteApplicationSettingsRequest_EventTaggingEnabled { get; set; }
+        #endregion
+        
         #region Parameter CampaignHook_LambdaFunctionName
         /// <summary>
         /// <para>
@@ -124,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// <para>The maximum number of messages that a campaign can send each second. For an application,
-        /// this value specifies the default limit for the number of messages that campaigns and
-        /// journeys can send each second. The minimum value is 50. The maximum value is 20,000.</para>
+        /// this value specifies the default limit for the number of messages that campaigns can
+        /// send each second. The minimum value is 50. The maximum value is 20,000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -259,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.CampaignHook_Mode = this.CampaignHook_Mode;
             context.CampaignHook_WebUrl = this.CampaignHook_WebUrl;
             context.WriteApplicationSettingsRequest_CloudWatchMetricsEnabled = this.WriteApplicationSettingsRequest_CloudWatchMetricsEnabled;
+            context.WriteApplicationSettingsRequest_EventTaggingEnabled = this.WriteApplicationSettingsRequest_EventTaggingEnabled;
             context.Limits_Daily = this.Limits_Daily;
             context.Limits_MaximumDuration = this.Limits_MaximumDuration;
             context.Limits_MessagesPerSecond = this.Limits_MessagesPerSecond;
@@ -297,6 +308,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CloudWatchMetricsEnabled != null)
             {
                 request.WriteApplicationSettingsRequest.CloudWatchMetricsEnabled = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_CloudWatchMetricsEnabled.Value;
+                requestWriteApplicationSettingsRequestIsNull = false;
+            }
+            System.Boolean? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_EventTaggingEnabled = null;
+            if (cmdletContext.WriteApplicationSettingsRequest_EventTaggingEnabled != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_EventTaggingEnabled = cmdletContext.WriteApplicationSettingsRequest_EventTaggingEnabled.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_EventTaggingEnabled != null)
+            {
+                request.WriteApplicationSettingsRequest.EventTaggingEnabled = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_EventTaggingEnabled.Value;
                 requestWriteApplicationSettingsRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.QuietTime requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime = null;
@@ -505,6 +526,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public Amazon.Pinpoint.Mode CampaignHook_Mode { get; set; }
             public System.String CampaignHook_WebUrl { get; set; }
             public System.Boolean? WriteApplicationSettingsRequest_CloudWatchMetricsEnabled { get; set; }
+            public System.Boolean? WriteApplicationSettingsRequest_EventTaggingEnabled { get; set; }
             public System.Int32? Limits_Daily { get; set; }
             public System.Int32? Limits_MaximumDuration { get; set; }
             public System.Int32? Limits_MessagesPerSecond { get; set; }

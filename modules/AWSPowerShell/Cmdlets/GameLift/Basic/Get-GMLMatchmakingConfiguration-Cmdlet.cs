@@ -28,16 +28,18 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the details of FlexMatch matchmaking configurations. With this operation,
-    /// you have the following options: (1) retrieve all existing configurations, (2) provide
-    /// the names of one or more configurations to retrieve, or (3) retrieve all configurations
-    /// that use a specified rule set name. When requesting multiple items, use the pagination
-    /// parameters to retrieve results as a set of sequential pages. If successful, a configuration
-    /// is returned for each requested name. When specifying a list of names, only configurations
-    /// that currently exist are returned. 
+    /// Retrieves the details of FlexMatch matchmaking configurations. 
     /// 
     ///  
-    /// <para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/matchmaker-build.html">
+    /// <para>
+    /// This operation offers the following options: (1) retrieve all matchmaking configurations,
+    /// (2) retrieve configurations for a specified list, or (3) retrieve all configurations
+    /// that use a specified rule set name. When requesting multiple items, use the pagination
+    /// parameters to retrieve results as a set of sequential pages. 
+    /// </para><para>
+    /// If successful, a configuration is returned for each requested name. When specifying
+    /// a list of names, only configurations that currently exist are returned. 
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/matchmaker-build.html">
     /// Setting Up FlexMatch Matchmakers</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li><li><para><a>DeleteMatchmakingRuleSet</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLMatchmakingConfiguration")]
@@ -96,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A token that indicates the start of the next sequential page of results. Use the token
-        /// that is returned with a previous call to this action. To start at the beginning of
-        /// the result set, do not specify a value.</para>
+        /// that is returned with a previous call to this operation. To start at the beginning
+        /// of the result set, do not specify a value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

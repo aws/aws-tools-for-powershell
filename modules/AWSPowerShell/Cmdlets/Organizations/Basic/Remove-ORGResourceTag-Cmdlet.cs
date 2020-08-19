@@ -28,12 +28,20 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Removes a tag from the specified resource. 
+    /// Removes any tags with the specified keys from the specified resource.
     /// 
     ///  
     /// <para>
-    /// Currently, you can tag and untag accounts in AWS Organizations.
-    /// </para><para>
+    /// You can attach tags to the following resources in AWS Organizations.
+    /// </para><ul><li><para>
+    /// AWS account
+    /// </para></li><li><para>
+    /// Organization root
+    /// </para></li><li><para>
+    /// Organizational unit (OU)
+    /// </para></li><li><para>
+    /// Policy (any type)
+    /// </para></li></ul><para>
     /// This operation can be called only from the organization's master account.
     /// </para>
     /// </summary>
@@ -50,7 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource to remove the tag from.</para>
+        /// <para>The ID of the resource to remove a tag from.</para><para>You can specify any of the following taggable resources.</para><ul><li><para>AWS account – specify the account ID number.</para></li><li><para>Organizational unit – specify the OU ID that begins with <code>ou-</code> and looks
+        /// similar to: <code>ou-<i>1a2b-34uvwxyz</i></code></para></li><li><para>Root – specify the root ID that begins with <code>r-</code> and looks similar to:
+        /// <code>r-<i>1a2b</i></code></para></li><li><para>Policy – specify the policy ID that begins with <code>p-</code> andlooks similar to:
+        /// <code>p-<i>12abcdefg3</i></code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag to remove from the specified resource.</para>
+        /// <para>The list of keys for tags to remove from the specified resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

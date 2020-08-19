@@ -146,15 +146,26 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.String IntegrationMethod { get; set; }
         #endregion
         
+        #region Parameter IntegrationSubtype
+        /// <summary>
+        /// <para>
+        /// <para>Supported only for HTTP API AWS_PROXY integrations. Specifies the AWS service action
+        /// to invoke. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html">Integration
+        /// subtype reference</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IntegrationSubtype { get; set; }
+        #endregion
+        
         #region Parameter IntegrationType
         /// <summary>
         /// <para>
         /// <para>The integration type of an integration. One of the following:</para><para>AWS: for integrating the route or method request with an AWS service action, including
         /// the Lambda function-invoking action. With the Lambda function-invoking action, this
         /// is referred to as the Lambda custom integration. With any other AWS service action,
-        /// this is known as AWS integration. Supported only for WebSocket APIs.</para><para>AWS_PROXY: for integrating the route or method request with the Lambda function-invoking
-        /// action with the client request passed through as-is. This integration is also referred
-        /// to as Lambda proxy integration.</para><para>HTTP: for integrating the route or method request with an HTTP endpoint. This integration
+        /// this is known as AWS integration. Supported only for WebSocket APIs.</para><para>AWS_PROXY: for integrating the route or method request with a Lambda function or other
+        /// AWS service action. This integration is also referred to as a Lambda proxy integration.</para><para>HTTP: for integrating the route or method request with an HTTP endpoint. This integration
         /// is also referred to as the HTTP custom integration. Supported only for WebSocket APIs.</para><para>HTTP_PROXY: for integrating the route or method request with an HTTP endpoint, with
         /// the client request passed through as-is. This is also referred to as HTTP proxy integration.
         /// For HTTP API private integrations, use an HTTP_PROXY integration.</para><para>MOCK: for integrating the route or method request with API Gateway as a "loopback"
@@ -211,15 +222,18 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter RequestParameter
         /// <summary>
         /// <para>
-        /// <para>A key-value map specifying request parameters that are passed from the method request
-        /// to the backend. The key is an integration request parameter name and the associated
-        /// value is a method request parameter value or static value that must be enclosed within
-        /// single quotes and pre-encoded as required by the backend. The method request parameter
-        /// value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
-        ///               , where                   <replaceable>{location}</replaceable>    
-        ///            is querystring, path, or header; and                   <replaceable>{name}</replaceable>
-        ///                must be a valid and unique method request parameter name. Supported
-        /// only for WebSocket APIs.</para>
+        /// <para>For WebSocket APIs, a key-value map specifying request parameters that are passed
+        /// from the method request to the backend. The key is an integration request parameter
+        /// name and the associated value is a method request parameter value or static value
+        /// that must be enclosed within single quotes and pre-encoded as required by the backend.
+        /// The method request parameter value must match the pattern of method.request.<replaceable>{location}</replaceable>.<replaceable>{name}</replaceable>
+        ///              , where  <replaceable>{location}</replaceable>  is querystring, path,
+        /// or header; and <replaceable>{name}</replaceable> must be a valid and unique method
+        /// request parameter name.</para><para>For HTTP APIs, request parameters are a key-value map specifying parameters that are
+        /// passed to AWS_PROXY integrations with a specified integrationSubtype. You can provide
+        /// static values, or map request data, stage variables, or context variables that are
+        /// evaluated at runtime. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services.html">Working
+        /// with AWS service integrations for HTTP APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -357,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             }
             #endif
             context.IntegrationMethod = this.IntegrationMethod;
+            context.IntegrationSubtype = this.IntegrationSubtype;
             context.IntegrationType = this.IntegrationType;
             context.IntegrationUri = this.IntegrationUri;
             context.PassthroughBehavior = this.PassthroughBehavior;
@@ -427,6 +442,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             if (cmdletContext.IntegrationMethod != null)
             {
                 request.IntegrationMethod = cmdletContext.IntegrationMethod;
+            }
+            if (cmdletContext.IntegrationSubtype != null)
+            {
+                request.IntegrationSubtype = cmdletContext.IntegrationSubtype;
             }
             if (cmdletContext.IntegrationType != null)
             {
@@ -548,6 +567,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public System.String Description { get; set; }
             public System.String IntegrationId { get; set; }
             public System.String IntegrationMethod { get; set; }
+            public System.String IntegrationSubtype { get; set; }
             public Amazon.ApiGatewayV2.IntegrationType IntegrationType { get; set; }
             public System.String IntegrationUri { get; set; }
             public Amazon.ApiGatewayV2.PassthroughBehavior PassthroughBehavior { get; set; }

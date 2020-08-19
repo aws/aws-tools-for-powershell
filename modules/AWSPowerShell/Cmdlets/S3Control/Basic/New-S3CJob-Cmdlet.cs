@@ -28,15 +28,17 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// You can use Amazon S3 Batch Operations to perform large-scale Batch Operations on
-    /// Amazon S3 objects. Amazon S3 Batch Operations can execute a single operation or action
-    /// on lists of Amazon S3 objects that you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">Amazon
-    /// S3 Batch Operations</a> in the Amazon Simple Storage Service Developer Guide.
+    /// S3 Batch Operations performs large-scale Batch Operations on Amazon S3 objects. Batch
+    /// Operations can run a single operation or action on lists of Amazon S3 objects that
+    /// you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
+    /// Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
     /// 
     ///  
     /// <para>
+    /// This operation creates a S3 Batch Operations job.
+    /// </para><para>
     /// Related actions include:
-    /// </para><ul><li><para><a>DescribeJob</a></para></li><li><para><a>ListJobs</a></para></li><li><para><a>UpdateJobPriority</a></para></li><li><para><a>UpdateJobStatus</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListJobs.html">ListJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "S3CJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -62,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The AWS account ID that creates the job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectRetention_BypassGovernanceRetention
         /// <summary>
         /// <para>
-        /// <para>Indicates if the operation should be applied to objects in the Batch Operations job
-        /// even if they have Governance-type Object Lock in place.</para>
+        /// <para>Indicates if the action should be applied to objects in the Batch Operations job even
+        /// if they have Object Lock <code> GOVERNANCE</code> type in place.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -402,7 +404,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Retention_Mode
         /// <summary>
         /// <para>
-        /// <para>The Retention mode to be applied to all objects in the Batch Operations job.</para>
+        /// <para>The Object Lock retention mode to be applied to all objects in the Batch Operations
+        /// job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -454,7 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_ObjectLockLegalHoldStatus
         /// <summary>
         /// <para>
-        /// <para>The Legal Hold status to be applied to all objects in the Batch Operations job.</para>
+        /// <para>The legal hold status to be applied to all objects in the Batch Operations job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -466,7 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_ObjectLockMode
         /// <summary>
         /// <para>
-        /// <para>The Retention mode to be applied to all objects in the Batch Operations job.</para>
+        /// <para>The retention mode to be applied to all objects in the Batch Operations job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -478,8 +481,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3PutObjectCopy_ObjectLockRetainUntilDate
         /// <summary>
         /// <para>
-        /// <para>The date when the applied Object Retention configuration will expire on all objects
-        /// in the Batch Operations job.</para>
+        /// <para>The date when the applied object retention configuration expires on all objects in
+        /// the Batch Operations job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -502,7 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>An optional prefix to describe where in the specified bucket the job-completion report
-        /// will be stored. Amazon S3 will store the job-completion report at &lt;prefix&gt;/job-&lt;job-id&gt;/report.json.</para>
+        /// will be stored. Amazon S3 stores the job-completion report at <code>&lt;prefix&gt;/job-&lt;job-id&gt;/report.json</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -573,8 +576,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Retention_RetainUntilDate
         /// <summary>
         /// <para>
-        /// <para>The date when the applied Object Retention will expire on all objects in the Batch
-        /// Operations job.</para>
+        /// <para>The date when the applied Object Lock retention will expire on all objects set by
+        /// the Batch Operations job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -586,8 +589,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the AWS Identity and Access Management (IAM) role
-        /// that Batch Operations will use to execute this job's operation on each object in the
-        /// manifest.</para>
+        /// that Batch Operations will use to run this job's operation on each object in the manifest.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -627,7 +629,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter LegalHold_Status
         /// <summary>
         /// <para>
-        /// <para>The Legal Hold status to be applied to all objects in the Batch Operations job.</para>
+        /// <para>The Object Lock legal hold status to be applied to all objects in the Batch Operations
+        /// job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -651,8 +654,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A set of tags to associate with the Amazon S3 Batch Operations job. This is an optional
-        /// parameter. </para>
+        /// <para>A set of tags to associate with the S3 Batch Operations job. This is an optional parameter.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

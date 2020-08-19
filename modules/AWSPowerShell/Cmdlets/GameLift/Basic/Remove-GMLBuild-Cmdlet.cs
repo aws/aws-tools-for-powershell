@@ -28,7 +28,7 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes a build. This action permanently deletes the build resource and any uploaded
+    /// Deletes a build. This operation permanently deletes the build resource and any uploaded
     /// build files. Deleting a build does not affect the status of any active fleets using
     /// the build, but you can no longer create new fleets with the deleted build.
     /// 

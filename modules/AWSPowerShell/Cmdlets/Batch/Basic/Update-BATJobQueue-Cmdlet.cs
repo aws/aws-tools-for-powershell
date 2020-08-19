@@ -85,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>Describes the queue's ability to accept new jobs.</para>
+        /// <para>Describes the queue's ability to accept new jobs. If the job queue state is <code>ENABLED</code>,
+        /// it is able to accept jobs. If the job queue state is <code>DISABLED</code>, new jobs
+        /// cannot be added to the queue, but jobs already in the queue can finish.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

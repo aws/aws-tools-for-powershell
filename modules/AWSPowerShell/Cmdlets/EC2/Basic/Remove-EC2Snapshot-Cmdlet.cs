@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// AMI. You must first de-register the AMI before you can delete the snapshot.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Deleting
-    /// an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// an Amazon EBS snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

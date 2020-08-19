@@ -28,8 +28,8 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes a game session queue. This action means that any <a>StartGameSessionPlacement</a>
-    /// requests that reference this queue will fail. To delete a queue, specify the queue
+    /// Deletes a game session queue. Once a queue is successfully deleted, unfulfilled <a>StartGameSessionPlacement</a>
+    /// requests that reference the queue will fail. To delete a queue, specify the queue
     /// name.
     /// 
     ///  

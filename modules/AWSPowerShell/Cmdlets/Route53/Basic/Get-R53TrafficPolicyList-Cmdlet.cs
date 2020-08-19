@@ -30,7 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Gets information about the latest version for every traffic policy that is associated
     /// with the current AWS account. Policies are listed in the order that they were created
-    /// in.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// in. 
+    /// 
+    ///  
+    /// <para>
+    /// For information about how of deleting a traffic policy affects the response from <code>ListTrafficPolicies</code>,
+    /// see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>.
+    /// 
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyList")]
     [OutputType("Amazon.Route53.Model.TrafficPolicySummary")]

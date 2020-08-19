@@ -29,26 +29,26 @@ namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
     /// Creates a link aggregation group (LAG) with the specified number of bundled physical
-    /// connections between the customer network and a specific AWS Direct Connect location.
-    /// A LAG is a logical interface that uses the Link Aggregation Control Protocol (LACP)
-    /// to aggregate multiple interfaces, enabling you to treat them as a single interface.
+    /// dedicated connections between the customer network and a specific AWS Direct Connect
+    /// location. A LAG is a logical interface that uses the Link Aggregation Control Protocol
+    /// (LACP) to aggregate multiple interfaces, enabling you to treat them as a single interface.
     /// 
     ///  
     /// <para>
-    /// All connections in a LAG must use the same bandwidth and must terminate at the same
-    /// AWS Direct Connect endpoint.
+    /// All connections in a LAG must use the same bandwidth (either 1Gbps or 10Gbps) and
+    /// must terminate at the same AWS Direct Connect endpoint.
     /// </para><para>
-    /// You can have up to 10 connections per LAG. Regardless of this limit, if you request
-    /// more connections for the LAG than AWS Direct Connect can allocate on a single endpoint,
-    /// no LAG is created.
+    /// You can have up to 10 dedicated connections per LAG. Regardless of this limit, if
+    /// you request more connections for the LAG than AWS Direct Connect can allocate on a
+    /// single endpoint, no LAG is created.
     /// </para><para>
-    /// You can specify an existing physical connection or interconnect to include in the
-    /// LAG (which counts towards the total number of connections). Doing so interrupts the
-    /// current physical connection or hosted connections, and re-establishes them as a member
-    /// of the LAG. The LAG will be created on the same AWS Direct Connect endpoint to which
-    /// the connection terminates. Any virtual interfaces associated with the connection are
-    /// automatically disassociated and re-associated with the LAG. The connection ID does
-    /// not change.
+    /// You can specify an existing physical dedicated connection or interconnect to include
+    /// in the LAG (which counts towards the total number of connections). Doing so interrupts
+    /// the current physical dedicated connection, and re-establishes them as a member of
+    /// the LAG. The LAG will be created on the same AWS Direct Connect endpoint to which
+    /// the dedicated connection terminates. Any virtual interfaces associated with the dedicated
+    /// connection are automatically disassociated and re-associated with the LAG. The connection
+    /// ID does not change.
     /// </para><para>
     /// If the AWS account used to create a LAG is a registered AWS Direct Connect Partner,
     /// the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner,
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of an existing connection to migrate to the LAG.</para>
+        /// <para>The ID of an existing dedicated connection to migrate to the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -88,9 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionsBandwidth
         /// <summary>
         /// <para>
-        /// <para>The bandwidth of the individual physical connections bundled by the LAG. The possible
-        /// values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps,
-        /// and 10Gbps. </para>
+        /// <para>The bandwidth of the individual physical dedicated connections bundled by the LAG.
+        /// The possible values are 1Gbps and 10Gbps. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter NumberOfConnection
         /// <summary>
         /// <para>
-        /// <para>The number of physical connections initially provisioned and bundled by the LAG.</para>
+        /// <para>The number of physical dedicated connections initially provisioned and bundled by
+        /// the LAG.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -332,9 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_TimeUnit
         /// <summary>
         /// <para>
-        /// <para>The length of time until a budget resets the actual and forecasted spend. <code>DAILY</code>
-        /// is available only for <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>Savings_Plans_Utilization</code>,
-        /// and <code>Savings_Plans_Coverage</code> budgets.</para>
+        /// <para>The length of time until a budget resets the actual and forecasted spend.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

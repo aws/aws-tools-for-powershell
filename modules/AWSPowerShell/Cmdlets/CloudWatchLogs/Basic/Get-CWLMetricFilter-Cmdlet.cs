@@ -28,7 +28,7 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Lists the specified metric filters. You can list all the metric filters or filter
+    /// Lists the specified metric filters. You can list all of the metric filters or filter
     /// the results by log name, prefix, metric name, or metric namespace. The results are
     /// ASCII-sorted by filter name.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The prefix to match.</para>
+        /// <para>The prefix to match. CloudWatch Logs uses the value you set here only if you also
+        /// include the <code>logGroupName</code> parameter in your request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

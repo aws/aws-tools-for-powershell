@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// message ID of the test notification sent to the topic.
     /// </para><para>
     /// The following operation is related to <code>PutBucketNotificationConfiguration</code>:
-    /// </para><ul><li><para><a>GetBucketNotificationConfiguration</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html">GetBucketNotificationConfiguration</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter LambdaFunctionConfiguration
@@ -202,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 context.LambdaFunctionConfiguration = new List<Amazon.S3.Model.LambdaFunctionConfiguration>(this.LambdaFunctionConfiguration);
             }
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -233,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.LambdaFunctionConfiguration != null)
             {
                 request.LambdaFunctionConfigurations = cmdletContext.LambdaFunctionConfiguration;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -299,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public List<Amazon.S3.Model.TopicConfiguration> TopicConfiguration { get; set; }
             public List<Amazon.S3.Model.QueueConfiguration> QueueConfiguration { get; set; }
             public List<Amazon.S3.Model.LambdaFunctionConfiguration> LambdaFunctionConfiguration { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketNotificationResponse, WriteS3BucketNotificationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

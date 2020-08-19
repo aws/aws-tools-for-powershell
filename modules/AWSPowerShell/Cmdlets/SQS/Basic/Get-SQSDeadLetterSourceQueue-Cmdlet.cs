@@ -33,6 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// 
     ///  
     /// <para>
+    ///  The <code>ListDeadLetterSourceQueues</code> methods supports pagination. Set parameter
+    /// <code>MaxResults</code> in the request to specify the maximum number of results to
+    /// be returned in the response. If you do not set <code>MaxResults</code>, the response
+    /// includes a maximum of 1,000 results. If you set <code>MaxResults</code> and there
+    /// are additional results to display, the response includes a value for <code>NextToken</code>.
+    /// Use <code>NextToken</code> as a parameter in your next request to <code>ListDeadLetterSourceQueues</code>
+    /// to receive the next page of results. 
+    /// </para><para>
     /// For more information about using dead-letter queues, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using
     /// Amazon SQS Dead-Letter Queues</a> in the <i>Amazon Simple Queue Service Developer
     /// Guide</i>.
@@ -68,7 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to include in the response.</para>
+        /// <para>Maximum number of results to include in the response. Value range is 1 to 1000. You
+        /// must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in
+        /// the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

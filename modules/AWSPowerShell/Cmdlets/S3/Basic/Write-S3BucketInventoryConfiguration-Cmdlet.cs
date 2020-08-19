@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String S3BucketDestination_BucketName { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter Schedule_Frequency
         /// <summary>
         /// <para>
@@ -271,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.InventoryConfiguration_InventoryOptionalField = new List<Amazon.S3.InventoryOptionalField>(this.InventoryConfiguration_InventoryOptionalField);
             }
             context.Schedule_Frequency = this.Schedule_Frequency;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -514,6 +526,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.InventoryConfiguration = null;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
             CmdletOutput output;
             
@@ -589,6 +605,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Amazon.S3.InventoryIncludedObjectVersions InventoryConfiguration_IncludedObjectVersion { get; set; }
             public List<Amazon.S3.InventoryOptionalField> InventoryConfiguration_InventoryOptionalField { get; set; }
             public Amazon.S3.InventoryFrequency Schedule_Frequency { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketInventoryConfigurationResponse, WriteS3BucketInventoryConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

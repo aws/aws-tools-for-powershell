@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
     ///  
     /// <para>
     /// You can activate the agent in a VPC (virtual private cloud) or provide the agent access
-    /// to a VPC endpoint so you can run tasks without going over the public Internet.
+    /// to a VPC endpoint so you can run tasks without going over the public internet.
     /// </para><para>
     /// You can use an agent for more than one location. If a task uses multiple agents, all
     /// of them need to have status AVAILABLE for the task to run. If you use multiple agents

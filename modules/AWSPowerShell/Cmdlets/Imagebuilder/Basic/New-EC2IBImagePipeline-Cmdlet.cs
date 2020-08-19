@@ -142,9 +142,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <para>
         /// <para>The condition configures when the pipeline should trigger a new image build. When
         /// the <code>pipelineExecutionStartCondition</code> is set to <code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>,
-        /// EC2 Image Builder will build a new image only when there are known changes pending.
+        /// and you use semantic version filters on the source image or components in your image
+        /// recipe, EC2 Image Builder will build a new image only when there are new versions
+        /// of the image or components in your recipe that match the semantic version filter.
         /// When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every
-        /// time the CRON expression matches the current time.</para>
+        /// time the CRON expression matches the current time. For semantic version syntax, see
+        /// <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a>
+        /// in the <i> EC2 Image Builder API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter Schedule_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>The expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</para>
+        /// <para>The cron expression determines how often EC2 Image Builder evaluates your <code>pipelineExecutionStartCondition</code>.</para><para>For information on how to format a cron expression in Image Builder, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-builder-cron.html">Use
+        /// cron expressions in EC2 Image Builder</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

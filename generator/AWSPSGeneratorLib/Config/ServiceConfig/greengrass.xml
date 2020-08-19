@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>greengrass</C2jFilename>
     <AssemblyName>Greengrass</AssemblyName>
@@ -15,7 +16,6 @@
     </VerbMappings>
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -237,6 +237,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetThingRuntimeConfiguration" OutputProperty="RuntimeConfiguration" Verb="Get" Noun="ThingRuntimeConfiguration" PipelineParameter="ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListBulkDeploymentDetailedReports" OutputProperty="Deployments" Verb="Get" Noun="BulkDeploymentDetailedReportList" PipelineParameter="BulkDeploymentId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -383,8 +387,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateThingRuntimeConfiguration" Verb="Update" Noun="ThingRuntimeConfiguration" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten />
 </ConfigModel>

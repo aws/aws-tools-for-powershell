@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>The Amazon Kendra edition to use for the index. Choose <code>DEVELOPER_EDITION</code>
         /// for indexes intended for development, testing, or proof of concept. Use <code>ENTERPRISE_EDITION</code>
         /// for your production databases. Once you set the edition for an index, it can't be
-        /// changed. </para>
+        /// changed. </para><para>The <code>Edition</code> parameter is optional. If you don't supply a value, the default
+        /// is <code>ENTERPRISE_EDITION</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -97,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.KeyValuePair[] ContainerProperties_Environment { get; set; }
         #endregion
         
+        #region Parameter ContainerProperties_ExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For
+        /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
+        /// ECS task execution IAM role</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContainerProperties_ExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter ContainerProperties_Image
         /// <summary>
         /// <para>
@@ -117,6 +129,22 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ContainerProperties_Image { get; set; }
+        #endregion
+        
+        #region Parameter LinuxParameters_InitProcessEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Run an <code>init</code> process inside the container that forwards signals and reaps
+        /// processes. This parameter maps to the <code>--init</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a>. This parameter requires version 1.25 of the Docker Remote API or greater
+        /// on your container instance. To check the Docker Remote API version on your container
+        /// instance, log into your container instance and run the following command: <code>sudo
+        /// docker version | grep "Server API version"</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_LinuxParameters_InitProcessEnabled")]
+        public System.Boolean? LinuxParameters_InitProcessEnabled { get; set; }
         #endregion
         
         #region Parameter ContainerProperties_InstanceType
@@ -160,6 +188,30 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ContainerProperties_JobRoleArn { get; set; }
         #endregion
         
+        #region Parameter LogConfiguration_LogDriver
+        /// <summary>
+        /// <para>
+        /// <para>The log driver to use for the container. The valid values listed for this parameter
+        /// are log drivers that the Amazon ECS container agent can communicate with by default.</para><para>The supported log drivers are <code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
+        /// <code>json-file</code>, <code>journald</code>, <code>logentries</code>, <code>syslog</code>,
+        /// and <code>splunk</code>.</para><para>For more information about using the <code>awslogs</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html">Using
+        /// the awslogs Log Driver</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><note><para>If you have a custom driver that is not listed earlier that you would like to work
+        /// with the Amazon ECS container agent, you can fork the Amazon ECS container agent project
+        /// that is <a href="https://github.com/aws/amazon-ecs-agent">available on GitHub</a>
+        /// and customize it to work with that driver. We encourage you to submit pull requests
+        /// for changes that you would like to have included. However, Amazon Web Services does
+        /// not currently support running modified copies of this software.</para></note><para>This parameter requires version 1.18 of the Docker Remote API or greater on your container
+        /// instance. To check the Docker Remote API version on your container instance, log into
+        /// your container instance and run the following command: <code>sudo docker version |
+        /// grep "Server API version"</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_LogConfiguration_LogDriver")]
+        [AWSConstantClassSource("Amazon.Batch.LogDriver")]
+        public Amazon.Batch.LogDriver LogConfiguration_LogDriver { get; set; }
+        #endregion
+        
         #region Parameter NodeProperties_MainNode
         /// <summary>
         /// <para>
@@ -171,6 +223,24 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? NodeProperties_MainNode { get; set; }
         #endregion
         
+        #region Parameter LinuxParameters_MaxSwap
+        /// <summary>
+        /// <para>
+        /// <para>The total amount of swap memory (in MiB) a container can use. This parameter will
+        /// be translated to the <code>--memory-swap</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a> where the value would be the sum of the container memory plus the <code>maxSwap</code>
+        /// value.</para><para>If a <code>maxSwap</code> value of <code>0</code> is specified, the container will
+        /// not use swap. Accepted values are <code>0</code> or any positive integer. If the <code>maxSwap</code>
+        /// parameter is omitted, the container will use the swap configuration for the container
+        /// instance it is running on. A <code>maxSwap</code> value must be set for the <code>swappiness</code>
+        /// parameter to be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_LinuxParameters_MaxSwap")]
+        public System.Int32? LinuxParameters_MaxSwap { get; set; }
+        #endregion
+        
         #region Parameter ContainerProperties_Memory
         /// <summary>
         /// <para>
@@ -179,7 +249,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// to <code>Memory</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. You must specify at least 4 MiB of memory for a job.</para><note><para>If you are trying to maximize your resource utilization by providing your jobs as
+        /// run</a>. You must specify at least 4 MiB of memory for a job. This is required but
+        /// can be specified in several places for multi-node parallel (MNP) jobs; it must be
+        /// specified for each node at least once.</para><note><para>If you are trying to maximize your resource utilization by providing your jobs as
         /// much memory as possible for a particular instance type, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html">Memory
         /// Management</a> in the <i>AWS Batch User Guide</i>.</para></note>
         /// </para>
@@ -223,6 +295,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NodeProperties_NumNodes")]
         public System.Int32? NodeProperties_NumNode { get; set; }
+        #endregion
+        
+        #region Parameter LogConfiguration_Option
+        /// <summary>
+        /// <para>
+        /// <para>The configuration options to send to the log driver. This parameter requires version
+        /// 1.19 of the Docker Remote API or greater on your container instance. To check the
+        /// Docker Remote API version on your container instance, log into your container instance
+        /// and run the following command: <code>sudo docker version | grep "Server API version"</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_LogConfiguration_Options")]
+        public System.Collections.Hashtable LogConfiguration_Option { get; set; }
         #endregion
         
         #region Parameter Parameter
@@ -278,6 +364,61 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.ResourceRequirement[] ContainerProperties_ResourceRequirement { get; set; }
         #endregion
         
+        #region Parameter LogConfiguration_SecretOption
+        /// <summary>
+        /// <para>
+        /// <para>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
+        /// Sensitive Data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_LogConfiguration_SecretOptions")]
+        public Amazon.Batch.Model.Secret[] LogConfiguration_SecretOption { get; set; }
+        #endregion
+        
+        #region Parameter ContainerProperties_Secret
+        /// <summary>
+        /// <para>
+        /// <para>The secrets for the container. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
+        /// Sensitive Data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_Secrets")]
+        public Amazon.Batch.Model.Secret[] ContainerProperties_Secret { get; set; }
+        #endregion
+        
+        #region Parameter LinuxParameters_SharedMemorySize
+        /// <summary>
+        /// <para>
+        /// <para>The value for the size (in MiB) of the <code>/dev/shm</code> volume. This parameter
+        /// maps to the <code>--shm-size</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_LinuxParameters_SharedMemorySize")]
+        public System.Int32? LinuxParameters_SharedMemorySize { get; set; }
+        #endregion
+        
+        #region Parameter LinuxParameters_Swappiness
+        /// <summary>
+        /// <para>
+        /// <para>This allows you to tune a container's memory swappiness behavior. A <code>swappiness</code>
+        /// value of <code>0</code> will cause swapping to not happen unless absolutely necessary.
+        /// A <code>swappiness</code> value of <code>100</code> will cause pages to be swapped
+        /// very aggressively. Accepted values are whole numbers between <code>0</code> and <code>100</code>.
+        /// If the <code>swappiness</code> parameter is not specified, a default value of <code>60</code>
+        /// is used. If a value is not specified for <code>maxSwap</code> then this parameter
+        /// is ignored. This parameter maps to the <code>--memory-swappiness</code> option to
+        /// <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_LinuxParameters_Swappiness")]
+        public System.Int32? LinuxParameters_Swappiness { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
@@ -291,6 +432,19 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
+        #endregion
+        
+        #region Parameter LinuxParameters_Tmpf
+        /// <summary>
+        /// <para>
+        /// <para>The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter
+        /// maps to the <code>--tmpfs</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// run</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_LinuxParameters_Tmpfs")]
+        public Amazon.Batch.Model.Tmpfs[] LinuxParameters_Tmpf { get; set; }
         #endregion
         
         #region Parameter Type
@@ -347,7 +501,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
-        /// vCPU.</para>
+        /// vCPU. This is required but can be specified in several places for multi-node parallel
+        /// (MNP) jobs; it must be specified for each node at least once.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -434,12 +589,34 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.ContainerProperties_Environment = new List<Amazon.Batch.Model.KeyValuePair>(this.ContainerProperties_Environment);
             }
+            context.ContainerProperties_ExecutionRoleArn = this.ContainerProperties_ExecutionRoleArn;
             context.ContainerProperties_Image = this.ContainerProperties_Image;
             context.ContainerProperties_InstanceType = this.ContainerProperties_InstanceType;
             context.ContainerProperties_JobRoleArn = this.ContainerProperties_JobRoleArn;
             if (this.LinuxParameters_Device != null)
             {
                 context.LinuxParameters_Device = new List<Amazon.Batch.Model.Device>(this.LinuxParameters_Device);
+            }
+            context.LinuxParameters_InitProcessEnabled = this.LinuxParameters_InitProcessEnabled;
+            context.LinuxParameters_MaxSwap = this.LinuxParameters_MaxSwap;
+            context.LinuxParameters_SharedMemorySize = this.LinuxParameters_SharedMemorySize;
+            context.LinuxParameters_Swappiness = this.LinuxParameters_Swappiness;
+            if (this.LinuxParameters_Tmpf != null)
+            {
+                context.LinuxParameters_Tmpf = new List<Amazon.Batch.Model.Tmpfs>(this.LinuxParameters_Tmpf);
+            }
+            context.LogConfiguration_LogDriver = this.LogConfiguration_LogDriver;
+            if (this.LogConfiguration_Option != null)
+            {
+                context.LogConfiguration_Option = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.LogConfiguration_Option.Keys)
+                {
+                    context.LogConfiguration_Option.Add((String)hashKey, (String)(this.LogConfiguration_Option[hashKey]));
+                }
+            }
+            if (this.LogConfiguration_SecretOption != null)
+            {
+                context.LogConfiguration_SecretOption = new List<Amazon.Batch.Model.Secret>(this.LogConfiguration_SecretOption);
             }
             context.ContainerProperties_Memory = this.ContainerProperties_Memory;
             if (this.ContainerProperties_MountPoint != null)
@@ -451,6 +628,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (this.ContainerProperties_ResourceRequirement != null)
             {
                 context.ContainerProperties_ResourceRequirement = new List<Amazon.Batch.Model.ResourceRequirement>(this.ContainerProperties_ResourceRequirement);
+            }
+            if (this.ContainerProperties_Secret != null)
+            {
+                context.ContainerProperties_Secret = new List<Amazon.Batch.Model.Secret>(this.ContainerProperties_Secret);
             }
             if (this.ContainerProperties_Ulimit != null)
             {
@@ -530,6 +711,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestContainerProperties_containerProperties_Environment != null)
             {
                 request.ContainerProperties.Environment = requestContainerProperties_containerProperties_Environment;
+                requestContainerPropertiesIsNull = false;
+            }
+            System.String requestContainerProperties_containerProperties_ExecutionRoleArn = null;
+            if (cmdletContext.ContainerProperties_ExecutionRoleArn != null)
+            {
+                requestContainerProperties_containerProperties_ExecutionRoleArn = cmdletContext.ContainerProperties_ExecutionRoleArn;
+            }
+            if (requestContainerProperties_containerProperties_ExecutionRoleArn != null)
+            {
+                request.ContainerProperties.ExecutionRoleArn = requestContainerProperties_containerProperties_ExecutionRoleArn;
                 requestContainerPropertiesIsNull = false;
             }
             System.String requestContainerProperties_containerProperties_Image = null;
@@ -612,6 +803,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.ResourceRequirements = requestContainerProperties_containerProperties_ResourceRequirement;
                 requestContainerPropertiesIsNull = false;
             }
+            List<Amazon.Batch.Model.Secret> requestContainerProperties_containerProperties_Secret = null;
+            if (cmdletContext.ContainerProperties_Secret != null)
+            {
+                requestContainerProperties_containerProperties_Secret = cmdletContext.ContainerProperties_Secret;
+            }
+            if (requestContainerProperties_containerProperties_Secret != null)
+            {
+                request.ContainerProperties.Secrets = requestContainerProperties_containerProperties_Secret;
+                requestContainerPropertiesIsNull = false;
+            }
             List<Amazon.Batch.Model.Ulimit> requestContainerProperties_containerProperties_Ulimit = null;
             if (cmdletContext.ContainerProperties_Ulimit != null)
             {
@@ -652,6 +853,51 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties.Volumes = requestContainerProperties_containerProperties_Volume;
                 requestContainerPropertiesIsNull = false;
             }
+            Amazon.Batch.Model.LogConfiguration requestContainerProperties_containerProperties_LogConfiguration = null;
+            
+             // populate LogConfiguration
+            var requestContainerProperties_containerProperties_LogConfigurationIsNull = true;
+            requestContainerProperties_containerProperties_LogConfiguration = new Amazon.Batch.Model.LogConfiguration();
+            Amazon.Batch.LogDriver requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_LogDriver = null;
+            if (cmdletContext.LogConfiguration_LogDriver != null)
+            {
+                requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_LogDriver = cmdletContext.LogConfiguration_LogDriver;
+            }
+            if (requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_LogDriver != null)
+            {
+                requestContainerProperties_containerProperties_LogConfiguration.LogDriver = requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_LogDriver;
+                requestContainerProperties_containerProperties_LogConfigurationIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_Option = null;
+            if (cmdletContext.LogConfiguration_Option != null)
+            {
+                requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_Option = cmdletContext.LogConfiguration_Option;
+            }
+            if (requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_Option != null)
+            {
+                requestContainerProperties_containerProperties_LogConfiguration.Options = requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_Option;
+                requestContainerProperties_containerProperties_LogConfigurationIsNull = false;
+            }
+            List<Amazon.Batch.Model.Secret> requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_SecretOption = null;
+            if (cmdletContext.LogConfiguration_SecretOption != null)
+            {
+                requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_SecretOption = cmdletContext.LogConfiguration_SecretOption;
+            }
+            if (requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_SecretOption != null)
+            {
+                requestContainerProperties_containerProperties_LogConfiguration.SecretOptions = requestContainerProperties_containerProperties_LogConfiguration_logConfiguration_SecretOption;
+                requestContainerProperties_containerProperties_LogConfigurationIsNull = false;
+            }
+             // determine if requestContainerProperties_containerProperties_LogConfiguration should be set to null
+            if (requestContainerProperties_containerProperties_LogConfigurationIsNull)
+            {
+                requestContainerProperties_containerProperties_LogConfiguration = null;
+            }
+            if (requestContainerProperties_containerProperties_LogConfiguration != null)
+            {
+                request.ContainerProperties.LogConfiguration = requestContainerProperties_containerProperties_LogConfiguration;
+                requestContainerPropertiesIsNull = false;
+            }
             Amazon.Batch.Model.LinuxParameters requestContainerProperties_containerProperties_LinuxParameters = null;
             
              // populate LinuxParameters
@@ -665,6 +911,56 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Device != null)
             {
                 requestContainerProperties_containerProperties_LinuxParameters.Devices = requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Device;
+                requestContainerProperties_containerProperties_LinuxParametersIsNull = false;
+            }
+            System.Boolean? requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_InitProcessEnabled = null;
+            if (cmdletContext.LinuxParameters_InitProcessEnabled != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_InitProcessEnabled = cmdletContext.LinuxParameters_InitProcessEnabled.Value;
+            }
+            if (requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_InitProcessEnabled != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters.InitProcessEnabled = requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_InitProcessEnabled.Value;
+                requestContainerProperties_containerProperties_LinuxParametersIsNull = false;
+            }
+            System.Int32? requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_MaxSwap = null;
+            if (cmdletContext.LinuxParameters_MaxSwap != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_MaxSwap = cmdletContext.LinuxParameters_MaxSwap.Value;
+            }
+            if (requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_MaxSwap != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters.MaxSwap = requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_MaxSwap.Value;
+                requestContainerProperties_containerProperties_LinuxParametersIsNull = false;
+            }
+            System.Int32? requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_SharedMemorySize = null;
+            if (cmdletContext.LinuxParameters_SharedMemorySize != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_SharedMemorySize = cmdletContext.LinuxParameters_SharedMemorySize.Value;
+            }
+            if (requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_SharedMemorySize != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters.SharedMemorySize = requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_SharedMemorySize.Value;
+                requestContainerProperties_containerProperties_LinuxParametersIsNull = false;
+            }
+            System.Int32? requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Swappiness = null;
+            if (cmdletContext.LinuxParameters_Swappiness != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Swappiness = cmdletContext.LinuxParameters_Swappiness.Value;
+            }
+            if (requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Swappiness != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters.Swappiness = requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Swappiness.Value;
+                requestContainerProperties_containerProperties_LinuxParametersIsNull = false;
+            }
+            List<Amazon.Batch.Model.Tmpfs> requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Tmpf = null;
+            if (cmdletContext.LinuxParameters_Tmpf != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Tmpf = cmdletContext.LinuxParameters_Tmpf;
+            }
+            if (requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Tmpf != null)
+            {
+                requestContainerProperties_containerProperties_LinuxParameters.Tmpfs = requestContainerProperties_containerProperties_LinuxParameters_linuxParameters_Tmpf;
                 requestContainerProperties_containerProperties_LinuxParametersIsNull = false;
             }
              // determine if requestContainerProperties_containerProperties_LinuxParameters should be set to null
@@ -819,15 +1115,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             public List<System.String> ContainerProperties_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerProperties_Environment { get; set; }
+            public System.String ContainerProperties_ExecutionRoleArn { get; set; }
             public System.String ContainerProperties_Image { get; set; }
             public System.String ContainerProperties_InstanceType { get; set; }
             public System.String ContainerProperties_JobRoleArn { get; set; }
             public List<Amazon.Batch.Model.Device> LinuxParameters_Device { get; set; }
+            public System.Boolean? LinuxParameters_InitProcessEnabled { get; set; }
+            public System.Int32? LinuxParameters_MaxSwap { get; set; }
+            public System.Int32? LinuxParameters_SharedMemorySize { get; set; }
+            public System.Int32? LinuxParameters_Swappiness { get; set; }
+            public List<Amazon.Batch.Model.Tmpfs> LinuxParameters_Tmpf { get; set; }
+            public Amazon.Batch.LogDriver LogConfiguration_LogDriver { get; set; }
+            public Dictionary<System.String, System.String> LogConfiguration_Option { get; set; }
+            public List<Amazon.Batch.Model.Secret> LogConfiguration_SecretOption { get; set; }
             public System.Int32? ContainerProperties_Memory { get; set; }
             public List<Amazon.Batch.Model.MountPoint> ContainerProperties_MountPoint { get; set; }
             public System.Boolean? ContainerProperties_Privileged { get; set; }
             public System.Boolean? ContainerProperties_ReadonlyRootFilesystem { get; set; }
             public List<Amazon.Batch.Model.ResourceRequirement> ContainerProperties_ResourceRequirement { get; set; }
+            public List<Amazon.Batch.Model.Secret> ContainerProperties_Secret { get; set; }
             public List<Amazon.Batch.Model.Ulimit> ContainerProperties_Ulimit { get; set; }
             public System.String ContainerProperties_User { get; set; }
             public System.Int32? ContainerProperties_Vcpus { get; set; }

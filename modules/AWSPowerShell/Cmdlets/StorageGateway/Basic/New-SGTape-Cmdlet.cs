@@ -168,6 +168,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.Int64? TapeSizeInBytes { get; set; }
         #endregion
         
+        #region Parameter Worm
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>TRUE</code> if the tape you are creating is to be configured as a write-once-read-many
+        /// (WORM) tape.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Worm { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -289,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 WriteWarning("You are passing $null as a value for parameter TapeSizeInBytes which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Worm = this.Worm;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -340,6 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.TapeSizeInBytes != null)
             {
                 request.TapeSizeInBytes = cmdletContext.TapeSizeInBytes.Value;
+            }
+            if (cmdletContext.Worm != null)
+            {
+                request.Worm = cmdletContext.Worm.Value;
             }
             
             CmdletOutput output;
@@ -411,6 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public List<Amazon.StorageGateway.Model.Tag> Tag { get; set; }
             public System.String TapeBarcodePrefix { get; set; }
             public System.Int64? TapeSizeInBytes { get; set; }
+            public System.Boolean? Worm { get; set; }
             public System.Func<Amazon.StorageGateway.Model.CreateTapesResponse, NewSGTapeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.TapeARNs;
         }

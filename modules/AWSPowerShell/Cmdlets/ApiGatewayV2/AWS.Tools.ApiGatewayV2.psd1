@@ -144,6 +144,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AG2RouteSetting', 
         'Remove-AG2Stage', 
         'Remove-AG2VpcLink', 
+        'Reset-AG2AuthorizersCache', 
         'Update-AG2Api', 
         'Update-AG2ApiImport', 
         'Update-AG2ApiMapping', 

@@ -38,6 +38,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// participant’s connection for the created chat within 5 minutes. This is achieved by
     /// invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>
     /// with WEBSOCKET and CONNECTION_CREDENTIALS. 
+    /// </para><para>
+    /// A 429 error occurs in two situations:
+    /// </para><ul><li><para>
+    /// API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
+    /// exception from the API Gateway.
+    /// </para></li><li><para>
+    /// The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">quota
+    /// for concurrent active chats</a> is exceeded. Active chat throttling returns a <code>LimitExceededException</code>.
+    /// </para></li></ul><para>
+    /// For more information about how chat works, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a>
+    /// in the <i>Amazon Connect Administrator Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "CONNChatContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ContactFlowId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the contact flow for the chat.</para>
+        /// <para>The identifier of the contact flow for initiating the chat. To see the ContactFlowId
+        /// in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>,
+        /// <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the
+        /// name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId
+        /// is the last part of the ARN, shown here in bold: </para><para>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></para>
         /// </para>
         /// </summary>
         #if !MODULAR

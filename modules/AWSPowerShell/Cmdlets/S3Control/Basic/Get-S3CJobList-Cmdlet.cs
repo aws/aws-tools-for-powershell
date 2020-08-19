@@ -28,14 +28,14 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Lists current Amazon S3 Batch Operations jobs and jobs that have ended within the
-    /// last 30 days for the AWS account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">Amazon
-    /// S3 Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
+    /// Lists current S3 Batch Operations jobs and jobs that have ended within the last 30
+    /// days for the AWS account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3
+    /// Batch Operations</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.
     /// 
     ///  
     /// <para>
     /// Related actions include:
-    /// </para><ul><li><para><a>CreateJob</a></para></li><li><para><a>DescribeJob</a></para></li><li><para><a>UpdateJobPriority</a></para></li><li><para><a>UpdateJobStatus</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html">CreateJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeJob.html">DescribeJob</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html">UpdateJobPriority</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobStatus.html">UpdateJobStatus</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3CJobList")]
     [OutputType("Amazon.S3Control.Model.JobListDescriptor")]

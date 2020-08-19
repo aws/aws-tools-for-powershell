@@ -28,7 +28,8 @@ using Amazon.DatabaseMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Lists all tags for an AWS DMS resource.
+    /// Lists all metadata tags attached to an AWS DMS resource, including replication instance,
+    /// endpoint, security group, and migration task. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html"><code>Tag</code></a> data type description.
     /// </summary>
     [Cmdlet("Get", "DMSResourceTag")]
     [OutputType("Amazon.DatabaseMigrationService.Model.Tag")]

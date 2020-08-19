@@ -69,6 +69,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdatePartition" OutputProperty="Errors" Verb="Update" Noun="PartitionBatch" ShouldProcessTarget="TableName" PipelineParameter="Entries" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelMLTaskRun" OutputProperty="*" Verb="Stop" Noun="MLTaskRun" ShouldProcessTarget="TaskRunId" PipelineParameter="TaskRunId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -304,6 +308,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPartition" OutputProperty="Partition" Verb="Get" Noun="Partition" PipelineParameter="TableName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPartitionIndexes" OutputProperty="PartitionIndexDescriptorList" Verb="Get" Noun="PartitionIndex" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

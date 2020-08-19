@@ -82,6 +82,9 @@
     <Reference Include="AWSSDK.AppConfig">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppConfig.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Appflow">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Appflow.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationAutoScaling.dll</HintPath>
     </Reference>
@@ -565,6 +568,9 @@
     <Reference Include="AWSSDK.Redshift">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Redshift.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.RedshiftDataAPIService">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.RedshiftDataAPIService.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Rekognition.dll</HintPath>
     </Reference>
@@ -591,6 +597,9 @@
     </Reference>
     <Reference Include="AWSSDK.S3Control">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3Control.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3Outposts">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.S3Outposts.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMaker">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SageMaker.dll</HintPath>
@@ -731,6 +740,9 @@
     </Reference>
     <Reference Include="AWSSDK.AppConfig">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Appflow">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Appflow.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ApplicationAutoScaling.dll</HintPath>
@@ -1215,6 +1227,9 @@
     <Reference Include="AWSSDK.Redshift">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Redshift.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.RedshiftDataAPIService">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.RedshiftDataAPIService.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Rekognition.dll</HintPath>
     </Reference>
@@ -1241,6 +1256,9 @@
     </Reference>
     <Reference Include="AWSSDK.S3Control">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3Control.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3Outposts">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.S3Outposts.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SageMaker">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SageMaker.dll</HintPath>

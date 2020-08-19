@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter OnPremConfig_AgentArn
         /// <summary>
         /// <para>
-        /// <para>ARNs)of the agents to use for an NFS location.</para>
+        /// <para>ARNs of the agents to use for an NFS location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

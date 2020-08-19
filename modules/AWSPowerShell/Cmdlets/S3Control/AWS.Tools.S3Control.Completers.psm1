@@ -80,6 +80,20 @@ $S3C_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.S3Control.BucketCannedACL
+        "New-S3CBucket/ACL"
+        {
+            $v = "authenticated-read","private","public-read","public-read-write"
+            break
+        }
+
+        # Amazon.S3Control.BucketLocationConstraint
+        "New-S3CBucket/CreateBucketConfiguration_LocationConstraint"
+        {
+            $v = "ap-northeast-1","ap-south-1","ap-southeast-1","ap-southeast-2","cn-north-1","EU","eu-central-1","eu-west-1","sa-east-1","us-west-1","us-west-2"
+            break
+        }
+
         # Amazon.S3Control.JobManifestFormat
         "New-S3CJob/Manifest_Spec_Format"
         {
@@ -179,6 +193,8 @@ $S3C_Completers = {
 }
 
 $S3C_map = @{
+    "ACL"=@("New-S3CBucket")
+    "CreateBucketConfiguration_LocationConstraint"=@("New-S3CBucket")
     "Manifest_Spec_Format"=@("New-S3CJob")
     "Operation_S3InitiateRestoreObject_GlacierJobTier"=@("New-S3CJob")
     "Operation_S3PutObjectAcl_AccessControlPolicy_CannedAccessControlList"=@("New-S3CJob")
@@ -246,20 +262,33 @@ $S3C_SelectCompleters = {
 
 $S3C_SelectMap = @{
     "Select"=@("New-S3CAccessPoint",
+               "New-S3CBucket",
                "New-S3CJob",
                "Remove-S3CAccessPoint",
                "Remove-S3CAccessPointPolicy",
+               "Remove-S3CBucket",
+               "Remove-S3CBucketLifecycleConfiguration",
+               "Remove-S3CBucketPolicy",
+               "Remove-S3CBucketTagging",
                "Remove-S3CJobTagging",
                "Remove-S3CPublicAccessBlock",
                "Get-S3CJob",
                "Get-S3CAccessPoint",
                "Get-S3CAccessPointPolicy",
                "Get-S3CAccessPointPolicyStatus",
+               "Get-S3CBucket",
+               "Get-S3CBucketLifecycleConfiguration",
+               "Get-S3CBucketPolicy",
+               "Get-S3CBucketTagging",
                "Get-S3CJobTagging",
                "Get-S3CPublicAccessBlock",
                "Get-S3CAccessPointList",
                "Get-S3CJobList",
+               "Get-S3CRegionalBucketList",
                "Write-S3CAccessPointPolicy",
+               "Write-S3CBucketLifecycleConfiguration",
+               "Write-S3CBucketPolicy",
+               "Write-S3CBucketTagging",
                "Add-S3CJobTagging",
                "Add-S3CPublicAccessBlock",
                "Update-S3CJobPriority",

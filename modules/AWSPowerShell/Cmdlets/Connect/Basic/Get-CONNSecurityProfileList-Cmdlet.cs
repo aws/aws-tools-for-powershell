@@ -29,7 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Provides summary information about the security profiles for the specified Amazon
-    /// Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Connect instance.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security
+    /// Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNSecurityProfileList")]
     [OutputType("Amazon.Connect.Model.SecurityProfileSummary")]

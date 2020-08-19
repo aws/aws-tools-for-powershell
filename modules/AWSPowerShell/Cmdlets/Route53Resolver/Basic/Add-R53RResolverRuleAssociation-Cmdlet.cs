@@ -28,10 +28,10 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Associates a resolver rule with a VPC. When you associate a rule with a VPC, Resolver
+    /// Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver
     /// forwards all DNS queries for the domain name that is specified in the rule and that
     /// originate in the VPC. The queries are forwarded to the IP addresses for the DNS resolvers
-    /// that are specified in the rule. For more information about rules, see <a>CreateResolverRule</a>.
+    /// that are specified in the rule. For more information about rules, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html">CreateResolverRule</a>.
     /// </summary>
     [Cmdlet("Add", "R53RResolverRuleAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.ResolverRuleAssociation")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A name for the association that you're creating between a resolver rule and a VPC.</para>
+        /// <para>A name for the association that you're creating between a Resolver rule and a VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverRuleId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver rule that you want to associate with the VPC. To list the existing
-        /// resolver rules, use <a>ListResolverRules</a>.</para>
+        /// <para>The ID of the Resolver rule that you want to associate with the VPC. To list the existing
+        /// Resolver rules, use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html">ListResolverRules</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter VPCId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC that you want to associate the resolver rule with.</para>
+        /// <para>The ID of the VPC that you want to associate the Resolver rule with.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

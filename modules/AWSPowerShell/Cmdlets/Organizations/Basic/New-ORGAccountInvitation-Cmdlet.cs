@@ -45,6 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// the organization or that the operation failed because your organization is still initializing,
     /// wait one hour and then try again. If the error persists after an hour, contact <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a>.
     /// </para></li></ul></important><para>
+    /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
+    /// permission.
+    /// </para><para>
     /// This operation can be called only from the organization's master account.
     /// </para>
     /// </summary>
@@ -86,6 +89,26 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Notes")]
         public System.String Note { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the account when it becomes a member of
+        /// the organization. For each tag in the list, you must specify both a tag key and a
+        /// value. You can set the value to an empty string, but you can't set it to <code>null</code>.
+        /// For more information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
+        /// AWS Organizations resources</a> in the AWS Organizations User Guide.</para><important><para>Any tags in the request are checked for compliance with any applicable tag policies
+        /// when the request is made. The request is rejected if the tags in the request don't
+        /// match the requirements of the policy at that time. Tag policy compliance is <i><b>not</b></i> checked again when the invitation is accepted and the tags are actually attached
+        /// to the account. That means that if the tag policy changes between the invitation and
+        /// the acceptance, then that tags could potentially be non-compliant.</para></important><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags for
+        /// an account, then the entire request fails and invitations are not sent.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Organizations.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Target_Type
@@ -167,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Note = this.Note;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Organizations.Model.Tag>(this.Tag);
+            }
             context.Target_Id = this.Target_Id;
             #if MODULAR
             if (this.Target_Id == null && ParameterWasBound(nameof(this.Target_Id)))
@@ -200,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             if (cmdletContext.Note != null)
             {
                 request.Notes = cmdletContext.Note;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
              // populate Target
@@ -292,6 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Note { get; set; }
+            public List<Amazon.Organizations.Model.Tag> Tag { get; set; }
             public System.String Target_Id { get; set; }
             public Amazon.Organizations.HandshakePartyType Target_Type { get; set; }
             public System.Func<Amazon.Organizations.Model.InviteAccountToOrganizationResponse, NewORGAccountInvitationCmdlet, object> Select { get; set; } =

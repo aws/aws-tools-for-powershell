@@ -144,6 +144,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Http_ConfirmationUrl { get; set; }
         #endregion
         
+        #region Parameter Timestream_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of an Amazon Timestream database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Timestream_DatabaseName")]
+        public System.String Timestream_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter Firehose_DeliveryStreamName
         /// <summary>
         /// <para>
@@ -163,6 +174,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TopicRulePayload_Description { get; set; }
+        #endregion
+        
+        #region Parameter Timestream_Dimension
+        /// <summary>
+        /// <para>
+        /// <para>Metadata attributes of the time series that are written in each measure record.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Timestream_Dimensions")]
+        public Amazon.IoT.Model.TimestreamDimension[] Timestream_Dimension { get; set; }
         #endregion
         
         #region Parameter Elasticsearch_Endpoint
@@ -680,6 +702,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String StepFunctions_RoleArn { get; set; }
         #endregion
         
+        #region Parameter Timestream_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role that grants permission to write to the Amazon Timestream database
+        /// table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Timestream_RoleArn")]
+        public System.String Timestream_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter TopicRulePayload_RuleDisabled
         /// <summary>
         /// <para>
@@ -826,6 +860,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String PutItem_TableName { get; set; }
         #endregion
         
+        #region Parameter Timestream_TableName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the database table into which to write the measure records.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Timestream_TableName")]
+        public System.String Timestream_TableName { get; set; }
+        #endregion
+        
         #region Parameter Sns_TargetArn
         /// <summary>
         /// <para>
@@ -872,6 +917,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Elasticsearch_Type { get; set; }
         #endregion
         
+        #region Parameter Timestamp_Unit
+        /// <summary>
+        /// <para>
+        /// <para>The precision of the timestamp value that results from the expression described in
+        /// <code>value</code>.</para><para>Valid values: <code>SECONDS</code> | <code>MILLISECONDS</code> | <code>MICROSECONDS</code>
+        /// | <code>NANOSECONDS</code>. The default is <code>MILLISECONDS</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Timestream_Timestamp_Unit")]
+        public System.String Timestamp_Unit { get; set; }
+        #endregion
+        
         #region Parameter Http_Url
         /// <summary>
         /// <para>
@@ -906,6 +964,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TopicRulePayload_ErrorAction_Sqs_UseBase64")]
         public System.Boolean? Sqs_UseBase64 { get; set; }
+        #endregion
+        
+        #region Parameter Timestamp_Value
+        /// <summary>
+        /// <para>
+        /// <para>An expression that returns a long epoch time value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TopicRulePayload_ErrorAction_Timestream_Timestamp_Value")]
+        public System.String Timestamp_Value { get; set; }
         #endregion
         
         #region Parameter Select
@@ -1061,6 +1130,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.StepFunctions_ExecutionNamePrefix = this.StepFunctions_ExecutionNamePrefix;
             context.StepFunctions_RoleArn = this.StepFunctions_RoleArn;
             context.StepFunctions_StateMachineName = this.StepFunctions_StateMachineName;
+            context.Timestream_DatabaseName = this.Timestream_DatabaseName;
+            if (this.Timestream_Dimension != null)
+            {
+                context.Timestream_Dimension = new List<Amazon.IoT.Model.TimestreamDimension>(this.Timestream_Dimension);
+            }
+            context.Timestream_RoleArn = this.Timestream_RoleArn;
+            context.Timestream_TableName = this.Timestream_TableName;
+            context.Timestamp_Unit = this.Timestamp_Unit;
+            context.Timestamp_Value = this.Timestamp_Value;
             context.TopicRulePayload_RuleDisabled = this.TopicRulePayload_RuleDisabled;
             context.TopicRulePayload_Sql = this.TopicRulePayload_Sql;
             #if MODULAR
@@ -1968,6 +2046,96 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 requestTopicRulePayload_topicRulePayload_ErrorAction.Elasticsearch = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Elasticsearch;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
+            Amazon.IoT.Model.TimestreamAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream = null;
+            
+             // populate Timestream
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_TimestreamIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream = new Amazon.IoT.Model.TimestreamAction();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_DatabaseName = null;
+            if (cmdletContext.Timestream_DatabaseName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_DatabaseName = cmdletContext.Timestream_DatabaseName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_DatabaseName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream.DatabaseName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_DatabaseName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_TimestreamIsNull = false;
+            }
+            List<Amazon.IoT.Model.TimestreamDimension> requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_Dimension = null;
+            if (cmdletContext.Timestream_Dimension != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_Dimension = cmdletContext.Timestream_Dimension;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_Dimension != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream.Dimensions = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_Dimension;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_TimestreamIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_RoleArn = null;
+            if (cmdletContext.Timestream_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_RoleArn = cmdletContext.Timestream_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_TimestreamIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_TableName = null;
+            if (cmdletContext.Timestream_TableName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_TableName = cmdletContext.Timestream_TableName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_TableName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream.TableName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_timestream_TableName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_TimestreamIsNull = false;
+            }
+            Amazon.IoT.Model.TimestreamTimestamp requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp = null;
+            
+             // populate Timestamp
+            var requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_TimestampIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp = new Amazon.IoT.Model.TimestreamTimestamp();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp_timestamp_Unit = null;
+            if (cmdletContext.Timestamp_Unit != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp_timestamp_Unit = cmdletContext.Timestamp_Unit;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp_timestamp_Unit != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp.Unit = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp_timestamp_Unit;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_TimestampIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp_timestamp_Value = null;
+            if (cmdletContext.Timestamp_Value != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp_timestamp_Value = cmdletContext.Timestamp_Value;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp_timestamp_Value != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp.Value = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp_timestamp_Value;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_TimestampIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_TimestampIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream.Timestamp = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream_topicRulePayload_ErrorAction_Timestream_Timestamp;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_TimestreamIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_TimestreamIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.Timestream = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Timestream;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
             Amazon.IoT.Model.CloudwatchMetricAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_CloudwatchMetric = null;
             
              // populate CloudwatchMetric
@@ -2306,6 +2474,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String StepFunctions_ExecutionNamePrefix { get; set; }
             public System.String StepFunctions_RoleArn { get; set; }
             public System.String StepFunctions_StateMachineName { get; set; }
+            public System.String Timestream_DatabaseName { get; set; }
+            public List<Amazon.IoT.Model.TimestreamDimension> Timestream_Dimension { get; set; }
+            public System.String Timestream_RoleArn { get; set; }
+            public System.String Timestream_TableName { get; set; }
+            public System.String Timestamp_Unit { get; set; }
+            public System.String Timestamp_Value { get; set; }
             public System.Boolean? TopicRulePayload_RuleDisabled { get; set; }
             public System.String TopicRulePayload_Sql { get; set; }
             public System.Func<Amazon.IoT.Model.ReplaceTopicRuleResponse, SetIOTTopicRuleCmdlet, object> Select { get; set; } =

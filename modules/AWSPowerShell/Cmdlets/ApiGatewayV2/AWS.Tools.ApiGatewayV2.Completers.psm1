@@ -285,6 +285,7 @@ $AG2_SelectMap = @{
                "Get-AG2VpcLinkList",
                "Import-AG2Api",
                "Update-AG2ApiImport",
+               "Reset-AG2AuthorizersCache",
                "Add-AG2ResourceTag",
                "Remove-AG2ResourceTag",
                "Update-AG2Api",

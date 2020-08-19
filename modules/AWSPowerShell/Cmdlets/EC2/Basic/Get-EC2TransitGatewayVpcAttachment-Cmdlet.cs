@@ -44,9 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code>
-        /// | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code>
-        /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the attachment.</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>vpc-id</code> - The ID of the VPC.</para></li></ul>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>state</code> - The state of the attachment. Valid values are <code>available</code>
+        /// | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>failing</code>
+        /// | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code>
+        /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the attachment.</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>vpc-id</code> - The ID of the VPC.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

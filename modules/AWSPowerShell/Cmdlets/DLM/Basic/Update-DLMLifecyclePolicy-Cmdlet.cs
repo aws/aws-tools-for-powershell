@@ -117,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         #region Parameter PolicyDetails_Schedule
         /// <summary>
         /// <para>
-        /// <para>The schedule of policy-defined actions.</para>
+        /// <para>The schedules of policy-defined actions. A policy can have up to four schedules -
+        /// one mandatory schedule and up to three optional schedules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

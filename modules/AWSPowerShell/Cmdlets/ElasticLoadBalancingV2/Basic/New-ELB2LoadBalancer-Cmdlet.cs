@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class NewELB2LoadBalancerCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter CustomerOwnedIpv4Pool
+        /// <summary>
+        /// <para>
+        /// <para>[Application Load Balancers on Outposts] The ID of the customer-owned address pool
+        /// (CoIP pool).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomerOwnedIpv4Pool { get; set; }
+        #endregion
+        
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
@@ -129,7 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The IDs of the public subnets. You can specify only one subnet per Availability Zone.
         /// You must specify either subnets or subnet mappings.</para><para>[Application Load Balancers] You must specify subnets from at least two Availability
-        /// Zones. You cannot specify Elastic IP addresses for your subnets.</para><para>[Network Load Balancers] You can specify subnets from one or more Availability Zones.
+        /// Zones. You cannot specify Elastic IP addresses for your subnets.</para><para>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</para><para>[Application Load Balancers on Local Zones] You can specify subnets from one or more
+        /// Local Zones.</para><para>[Network Load Balancers] You can specify subnets from one or more Availability Zones.
         /// You can specify one Elastic IP address per subnet if you need static IP addresses
         /// for your internet-facing load balancer. For internal load balancers, you can specify
         /// one private IP address per subnet from the IPv4 range of the subnet.</para>
@@ -145,7 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The IDs of the public subnets. You can specify only one subnet per Availability Zone.
         /// You must specify either subnets or subnet mappings.</para><para>[Application Load Balancers] You must specify subnets from at least two Availability
-        /// Zones.</para><para>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</para>
+        /// Zones.</para><para>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</para><para>[Application Load Balancers on Local Zones] You can specify subnets from one or more
+        /// Local Zones.</para><para>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 context.Select = CreateSelectDelegate<Amazon.ElasticLoadBalancingV2.Model.CreateLoadBalancerResponse, NewELB2LoadBalancerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.CustomerOwnedIpv4Pool = this.CustomerOwnedIpv4Pool;
             context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             #if MODULAR
@@ -258,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // create request
             var request = new Amazon.ElasticLoadBalancingV2.Model.CreateLoadBalancerRequest();
             
+            if (cmdletContext.CustomerOwnedIpv4Pool != null)
+            {
+                request.CustomerOwnedIpv4Pool = cmdletContext.CustomerOwnedIpv4Pool;
+            }
             if (cmdletContext.IpAddressType != null)
             {
                 request.IpAddressType = cmdletContext.IpAddressType;
@@ -351,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CustomerOwnedIpv4Pool { get; set; }
             public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public Amazon.ElasticLoadBalancingV2.LoadBalancerSchemeEnum Scheme { get; set; }

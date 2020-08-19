@@ -29,10 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
     /// Returns the current service opt-in settings for the Region. If the service has a value
-    /// set to <code>true</code>, AWS Backup attempts to protect that service's resources
-    /// in this Region, when included in an on-demand backup or scheduled backup plan. If
-    /// the value is set to <code>false</code> for a service, AWS Backup does not attempt
-    /// to protect that service's resources in this Region.
+    /// set to <code>true</code>, AWS Backup tries to protect that service's resources in
+    /// this Region, when included in an on-demand backup or scheduled backup plan. If the
+    /// value is set to <code>false</code> for a service, AWS Backup does not try to protect
+    /// that service's resources in this Region.
     /// </summary>
     [Cmdlet("Get", "BAKRegionSetting")]
     [OutputType("System.String")]

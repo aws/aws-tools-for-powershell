@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>ce</C2jFilename>
     <AssemblyName>CostExplorer</AssemblyName>
@@ -13,13 +14,28 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateAnomalyMonitor" OutputProperty="MonitorArn" Verb="New" Noun="AnomalyMonitor" ShouldProcessTarget="AnomalyMonitor_MonitorName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAnomalySubscription" OutputProperty="SubscriptionArn" Verb="New" Noun="AnomalySubscription" ShouldProcessTarget="AnomalySubscription_SubscriptionName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCostCategoryDefinition" OutputProperty="*" Verb="New" Noun="CostCategoryDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAnomalyMonitor" Verb="Remove" Noun="AnomalyMonitor" ShouldProcessTarget="MonitorArn" PipelineParameter="MonitorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAnomalySubscription" Verb="Remove" Noun="AnomalySubscription" ShouldProcessTarget="SubscriptionArn" PipelineParameter="SubscriptionArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -28,6 +44,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCostCategoryDefinition" OutputProperty="CostCategory" Verb="Get" Noun="CostCategoryDefinition" PipelineParameter="CostCategoryArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAnomalies" OutputProperty="Anomalies" Verb="Get" Noun="Anomaly" PipelineParameter="DateInterval_StartDate" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAnomalyMonitors" OutputProperty="AnomalyMonitors" Verb="Get" Noun="AnomalyMonitor" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAnomalySubscriptions" OutputProperty="AnomalySubscriptions" Verb="Get" Noun="AnomalySubscription" PipelineParameter="MonitorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -94,13 +122,23 @@
             <AutoIterate Start="NextToken" Next="NextToken" />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ProvideAnomalyFeedback" OutputProperty="AnomalyId" Verb="Set" Noun="AnomalyFeedback" ShouldProcessTarget="AnomalyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAnomalyMonitor" OutputProperty="MonitorArn" Verb="Update" Noun="AnomalyMonitor" ShouldProcessTarget="MonitorArn" PipelineParameter="MonitorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAnomalySubscription" OutputProperty="SubscriptionArn" Verb="Update" Noun="AnomalySubscription" ShouldProcessTarget="SubscriptionArn" PipelineParameter="SubscriptionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateCostCategoryDefinition" OutputProperty="*" Verb="Update" Noun="CostCategoryDefinition" ShouldProcessTarget="CostCategoryArn" PipelineParameter="CostCategoryArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.CostExplorer.Model.Expression</Type>
         <Type>Amazon.CostExplorer.Model.DimensionValues</Type>

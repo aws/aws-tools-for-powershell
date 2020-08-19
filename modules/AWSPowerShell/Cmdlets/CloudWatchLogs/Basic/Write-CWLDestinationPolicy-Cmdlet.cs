@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>An IAM policy document that authorizes cross-account users to deliver their log events
-        /// to the associated destination.</para>
+        /// to the associated destination. This can be up to 5120 bytes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

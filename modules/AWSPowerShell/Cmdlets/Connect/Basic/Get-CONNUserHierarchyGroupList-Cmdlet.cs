@@ -29,7 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Provides summary information about the hierarchy groups for the specified Amazon Connect
-    /// instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// instance.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set
+    /// Up Agent Hierarchies</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNUserHierarchyGroupList")]
     [OutputType("Amazon.Connect.Model.HierarchyGroupSummary")]

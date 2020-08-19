@@ -28,8 +28,9 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Creates an access policy that grants the specified AWS Single Sign-On user or group
-    /// access to the specified AWS IoT SiteWise Monitor portal or project resource.
+    /// Creates an access policy that grants the specified identity (AWS SSO user, AWS SSO
+    /// group, or IAM user) access to the specified AWS IoT SiteWise Monitor portal or project
+    /// resource.
     /// </summary>
     [Cmdlet("New", "IOTSWAccessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.CreateAccessPolicyResponse")]
@@ -56,6 +57,21 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.IoTSiteWise.Permission")]
         public Amazon.IoTSiteWise.Permission AccessPolicyPermission { get; set; }
+        #endregion
+        
+        #region Parameter IamUser_Arn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM user. IAM users must have the <code>iotsitewise:CreatePresignedPortalUrl</code>
+        /// permission to sign in to the portal. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
+        /// ARNs</a> in the <i>IAM User Guide</i>.</para><note><para>If you delete the IAM user, access policies that contain this identity include an
+        /// empty <code>arn</code>. You can delete the access policy for the IAM user that no
+        /// longer exists.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AccessPolicyIdentity_IamUser_Arn")]
+        public System.String IamUser_Arn { get; set; }
         #endregion
         
         #region Parameter Group_Id
@@ -188,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Group_Id = this.Group_Id;
+            context.IamUser_Arn = this.IamUser_Arn;
             context.User_Id = this.User_Id;
             context.AccessPolicyPermission = this.AccessPolicyPermission;
             #if MODULAR
@@ -250,6 +267,31 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (requestAccessPolicyIdentity_accessPolicyIdentity_Group != null)
             {
                 request.AccessPolicyIdentity.Group = requestAccessPolicyIdentity_accessPolicyIdentity_Group;
+                requestAccessPolicyIdentityIsNull = false;
+            }
+            Amazon.IoTSiteWise.Model.IAMUserIdentity requestAccessPolicyIdentity_accessPolicyIdentity_IamUser = null;
+            
+             // populate IamUser
+            var requestAccessPolicyIdentity_accessPolicyIdentity_IamUserIsNull = true;
+            requestAccessPolicyIdentity_accessPolicyIdentity_IamUser = new Amazon.IoTSiteWise.Model.IAMUserIdentity();
+            System.String requestAccessPolicyIdentity_accessPolicyIdentity_IamUser_iamUser_Arn = null;
+            if (cmdletContext.IamUser_Arn != null)
+            {
+                requestAccessPolicyIdentity_accessPolicyIdentity_IamUser_iamUser_Arn = cmdletContext.IamUser_Arn;
+            }
+            if (requestAccessPolicyIdentity_accessPolicyIdentity_IamUser_iamUser_Arn != null)
+            {
+                requestAccessPolicyIdentity_accessPolicyIdentity_IamUser.Arn = requestAccessPolicyIdentity_accessPolicyIdentity_IamUser_iamUser_Arn;
+                requestAccessPolicyIdentity_accessPolicyIdentity_IamUserIsNull = false;
+            }
+             // determine if requestAccessPolicyIdentity_accessPolicyIdentity_IamUser should be set to null
+            if (requestAccessPolicyIdentity_accessPolicyIdentity_IamUserIsNull)
+            {
+                requestAccessPolicyIdentity_accessPolicyIdentity_IamUser = null;
+            }
+            if (requestAccessPolicyIdentity_accessPolicyIdentity_IamUser != null)
+            {
+                request.AccessPolicyIdentity.IamUser = requestAccessPolicyIdentity_accessPolicyIdentity_IamUser;
                 requestAccessPolicyIdentityIsNull = false;
             }
             Amazon.IoTSiteWise.Model.UserIdentity requestAccessPolicyIdentity_accessPolicyIdentity_User = null;
@@ -415,6 +457,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Group_Id { get; set; }
+            public System.String IamUser_Arn { get; set; }
             public System.String User_Id { get; set; }
             public Amazon.IoTSiteWise.Permission AccessPolicyPermission { get; set; }
             public System.String Portal_Id { get; set; }

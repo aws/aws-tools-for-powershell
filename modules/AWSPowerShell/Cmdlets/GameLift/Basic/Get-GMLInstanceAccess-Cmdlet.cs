@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// SSH client. The private key must be saved in the proper format to a <code>.pem</code>
     /// file before using. If you're making this request using the AWS CLI, saving the secret
     /// can be handled as part of the GetInstanceAccess request, as shown in one of the examples
-    /// for this action. 
+    /// for this operation. 
     /// </para><para>
     /// To request access to a specific instance, specify the IDs of both the instance and
     /// the fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a>DescribeInstances</a>.

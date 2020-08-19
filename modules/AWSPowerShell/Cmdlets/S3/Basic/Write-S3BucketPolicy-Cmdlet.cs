@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Bucket Policies and User Policies</a>.
     /// </para><para>
     /// The following operations are related to <code>PutBucketPolicy</code>:
-    /// </para><ul><li><para><a>CreateBucket</a></para></li><li><para><a>DeleteBucket</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -89,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ContentMD5 { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter Policy
@@ -165,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ContentMD5 = this.ContentMD5;
             context.Policy = this.Policy;
             context.ConfirmRemoveSelfBucketAccess = this.ConfirmRemoveSelfBucketAccess;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -196,6 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ConfirmRemoveSelfBucketAccess != null)
             {
                 request.ConfirmRemoveSelfBucketAccess = cmdletContext.ConfirmRemoveSelfBucketAccess.Value;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -262,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ContentMD5 { get; set; }
             public System.String Policy { get; set; }
             public System.Boolean? ConfirmRemoveSelfBucketAccess { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketPolicyResponse, WriteS3BucketPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

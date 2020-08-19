@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// visualize the relationship of the entities involved. 
     /// </para><ul><li><para><code>AWS Account</code> - The AWS account exists at the top of the hierarchy. It
     /// has the potential to use all of the AWS Regions and AWS Services. When you subscribe
-    /// to QuickSight, you choose one AWS Region to use as your home region. That's where
+    /// to QuickSight, you choose one AWS Region to use as your home Region. That's where
     /// your free SPICE capacity is located. You can use QuickSight in any supported AWS Region.
     /// 
     /// </para></li><li><para><code>AWS Region</code> - In each AWS Region where you sign in to QuickSight at least
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// speaking, these users have access to QuickSight in any AWS Region, unless they are
     /// constrained to a namespace. 
     /// </para><para>
-    /// To run the command in a different AWS Region, you change your region settings. If
+    /// To run the command in a different AWS Region, you change your Region settings. If
     /// you're using the AWS CLI, you can use one of the following options:
     /// </para><ul><li><para>
     /// Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html">command
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// namespaces, even if they are in the same AWS account and AWS Region.
     /// </para></li><li><para><code>Applied customizations</code> - Within an AWS Region, a set of QuickSight customizations
     /// can apply to an AWS account or to a namespace. Settings that you apply to a namespace
-    /// override settings that you apply to an AWS Account. All settings are isolated to a
+    /// override settings that you apply to an AWS account. All settings are isolated to a
     /// single AWS Region. To apply them in other AWS Regions, run the <code>CreateAccountCustomization</code>
     /// command in each AWS Region where you want to apply the same customizations. 
     /// </para></li></ul>

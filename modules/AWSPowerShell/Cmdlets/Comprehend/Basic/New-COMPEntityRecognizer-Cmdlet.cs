@@ -41,6 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     public partial class NewCOMPEntityRecognizerCmdlet : AmazonComprehendClientCmdlet, IExecutor
     {
         
+        #region Parameter InputDataConfig_AugmentedManifest
+        /// <summary>
+        /// <para>
+        /// <para>A list of augmented manifest files that provide training data for your custom model.
+        /// An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker
+        /// Ground Truth.</para><para>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_AugmentedManifests")]
+        public Amazon.Comprehend.Model.AugmentedManifestsListItem[] InputDataConfig_AugmentedManifest { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -70,11 +83,35 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String DataAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter InputDataConfig_DataFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format of your training data:</para><ul><li><para><code>COMPREHEND_CSV</code>: A CSV file that supplements your training documents.
+        /// The CSV file contains information about the custom entities that your trained model
+        /// will detect. The required format of the file depends on whether you are providing
+        /// annotations or an entity list.</para><para>If you use this value, you must provide your CSV file by using either the <code>Annotations</code>
+        /// or <code>EntityList</code> parameters. You must provide your training documents by
+        /// using the <code>Documents</code> parameter.</para></li><li><para><code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker
+        /// Ground Truth. This file is in JSON lines format. Each line is a complete JSON object
+        /// that contains a training document and its labels. Each label annotates a named entity
+        /// in the training document. </para><para>If you use this value, you must provide the <code>AugmentedManifests</code> parameter
+        /// in your request.</para></li></ul><para>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as
+        /// the default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Comprehend.EntityRecognizerDataFormat")]
+        public Amazon.Comprehend.EntityRecognizerDataFormat InputDataConfig_DataFormat { get; set; }
+        #endregion
+        
         #region Parameter InputDataConfig_EntityType
         /// <summary>
         /// <para>
-        /// <para>The entity types in the input data for an entity recognizer. A maximum of 25 entity
-        /// types can be used at one time to train an entity recognizer.</para>
+        /// <para>The entity types in the labeled training data that Amazon Comprehend uses to train
+        /// the custom entity recognizer. Any entity types that you don't specify are ignored.</para><para>A maximum of 25 entity types can be used at one time to train an entity recognizer.
+        /// Entity types must not contain the following invalid characters: \n (line break), \\n
+        /// (escaped line break), \r (carriage return), \\r (escaped carriage return), \t (tab),
+        /// \\t (escaped tab), space, and , (comma). </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -146,14 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// are located. The URI must be in the same region as the API endpoint that you are calling.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("InputDataConfig_Documents_S3Uri")]
         public System.String Documents_S3Uri { get; set; }
         #endregion
@@ -297,13 +327,12 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             #endif
             context.Annotations_S3Uri = this.Annotations_S3Uri;
-            context.Documents_S3Uri = this.Documents_S3Uri;
-            #if MODULAR
-            if (this.Documents_S3Uri == null && ParameterWasBound(nameof(this.Documents_S3Uri)))
+            if (this.InputDataConfig_AugmentedManifest != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Documents_S3Uri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.InputDataConfig_AugmentedManifest = new List<Amazon.Comprehend.Model.AugmentedManifestsListItem>(this.InputDataConfig_AugmentedManifest);
             }
-            #endif
+            context.InputDataConfig_DataFormat = this.InputDataConfig_DataFormat;
+            context.Documents_S3Uri = this.Documents_S3Uri;
             context.EntityList_S3Uri = this.EntityList_S3Uri;
             if (this.InputDataConfig_EntityType != null)
             {
@@ -370,6 +399,26 @@ namespace Amazon.PowerShell.Cmdlets.COMP
              // populate InputDataConfig
             var requestInputDataConfigIsNull = true;
             request.InputDataConfig = new Amazon.Comprehend.Model.EntityRecognizerInputDataConfig();
+            List<Amazon.Comprehend.Model.AugmentedManifestsListItem> requestInputDataConfig_inputDataConfig_AugmentedManifest = null;
+            if (cmdletContext.InputDataConfig_AugmentedManifest != null)
+            {
+                requestInputDataConfig_inputDataConfig_AugmentedManifest = cmdletContext.InputDataConfig_AugmentedManifest;
+            }
+            if (requestInputDataConfig_inputDataConfig_AugmentedManifest != null)
+            {
+                request.InputDataConfig.AugmentedManifests = requestInputDataConfig_inputDataConfig_AugmentedManifest;
+                requestInputDataConfigIsNull = false;
+            }
+            Amazon.Comprehend.EntityRecognizerDataFormat requestInputDataConfig_inputDataConfig_DataFormat = null;
+            if (cmdletContext.InputDataConfig_DataFormat != null)
+            {
+                requestInputDataConfig_inputDataConfig_DataFormat = cmdletContext.InputDataConfig_DataFormat;
+            }
+            if (requestInputDataConfig_inputDataConfig_DataFormat != null)
+            {
+                request.InputDataConfig.DataFormat = requestInputDataConfig_inputDataConfig_DataFormat;
+                requestInputDataConfigIsNull = false;
+            }
             List<Amazon.Comprehend.Model.EntityTypesListItem> requestInputDataConfig_inputDataConfig_EntityType = null;
             if (cmdletContext.InputDataConfig_EntityType != null)
             {
@@ -569,6 +618,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String ClientRequestToken { get; set; }
             public System.String DataAccessRoleArn { get; set; }
             public System.String Annotations_S3Uri { get; set; }
+            public List<Amazon.Comprehend.Model.AugmentedManifestsListItem> InputDataConfig_AugmentedManifest { get; set; }
+            public Amazon.Comprehend.EntityRecognizerDataFormat InputDataConfig_DataFormat { get; set; }
             public System.String Documents_S3Uri { get; set; }
             public System.String EntityList_S3Uri { get; set; }
             public List<Amazon.Comprehend.Model.EntityTypesListItem> InputDataConfig_EntityType { get; set; }

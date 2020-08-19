@@ -28,7 +28,7 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Creates a multiplayer game session for players. This action creates a game session
+    /// Creates a multiplayer game session for players. This operation creates a game session
     /// record and assigns an available server process in the specified fleet to host the
     /// game session. A fleet must have an <code>ACTIVE</code> status before a game session
     /// can be created in it.

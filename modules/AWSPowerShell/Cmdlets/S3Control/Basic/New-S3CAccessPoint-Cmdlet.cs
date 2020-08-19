@@ -28,14 +28,43 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Creates an access point and associates it with the specified bucket.
+    /// Creates an access point and associates it with the specified bucket. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-points.html">Managing
+    /// Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service
+    /// Developer Guide</i>.
+    /// 
+    ///   
+    /// <para><b>Using this action with Amazon S3 on Outposts</b></para><para>
+    /// This action: 
+    /// </para><ul><li><para>
+    /// Requires a virtual private cloud (VPC) configuration as S3 on Outposts only supports
+    /// VPC style access points.
+    /// </para></li><li><para>
+    /// Does not support ACL on S3 on Outposts buckets.
+    /// </para></li><li><para>
+    /// Does not support Public Access on S3 on Outposts buckets.
+    /// </para></li><li><para>
+    /// Does not support object lock for S3 on Outposts buckets.
+    /// </para></li></ul><para>
+    /// For more information, see <a href="AmazonS3/latest/dev/S3onOutposts.html">Using Amazon
+    /// S3 on Outposts</a> in the <i>Amazon Simple Storage Service Developer Guide </i>.
+    /// </para><para>
+    /// All Amazon S3 on Outposts REST API requests for this action require an additional
+    /// parameter of outpost-id to be passed with the request and an S3 on Outposts endpoint
+    /// hostname prefix instead of s3-control. For an example of the request syntax for Amazon
+    /// S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the outpost-id
+    /// derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples">
+    /// Example</a> section below.
+    /// </para><para>
+    /// The following actions are related to <code>CreateAccessPoint</code>:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html">GetAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_DeleteAccessPoint.html">DeleteAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API__control_ListAccessPoints.html">ListAccessPoints</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "S3CAccessPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("System.String")]
     [AWSCmdlet("Calls the Amazon S3 Control CreateAccessPoint API operation.", Operation = new[] {"CreateAccessPoint"}, SelectReturnType = typeof(Amazon.S3Control.Model.CreateAccessPointResponse))]
-    [AWSCmdletOutput("None or Amazon.S3Control.Model.CreateAccessPointResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.CreateAccessPointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("System.String or Amazon.S3Control.Model.CreateAccessPointResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.S3Control.Model.CreateAccessPointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class NewS3CAccessPointCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {
@@ -62,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets
-        /// in this account. Setting this element to <code>TRUE</code> causes the following behavior:</para><ul><li><para>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.</para></li><li><para>PUT Object calls fail if the request includes a public ACL.</para></li><li><para>PUT Bucket calls fail if the request includes a public ACL.</para></li></ul><para>Enabling this setting doesn't affect existing policies or ACLs.</para>
+        /// in this account. Setting this element to <code>TRUE</code> causes the following behavior:</para><ul><li><para>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.</para></li><li><para>PUT Object calls fail if the request includes a public ACL.</para></li><li><para>PUT Bucket calls fail if the request includes a public ACL.</para></li></ul><para>Enabling this setting doesn't affect existing policies or ACLs.</para><para>This is not supported for Amazon S3 on Outposts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>Specifies whether Amazon S3 should block public bucket policies for buckets in this
         /// account. Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls
-        /// to PUT Bucket policy if the specified bucket policy allows public access. </para><para>Enabling this setting doesn't affect existing bucket policies.</para>
+        /// to PUT Bucket policy if the specified bucket policy allows public access. </para><para>Enabling this setting doesn't affect existing bucket policies.</para><para>This is not supported for Amazon S3 on Outposts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,7 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter Bucket
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket that you want to associate this access point with.</para>
+        /// <para>The name of the bucket that you want to associate this access point with.</para><para>For Amazon S3 on Outposts specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:&lt;Region&gt;:&lt;account-id&gt;:outpost/&lt;outpost-id&gt;/bucket/&lt;my-bucket-name&gt;</code>.
+        /// For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code>
+        /// owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the
+        /// URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>.
+        /// The value must be URL encoded. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account.
         /// Setting this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs
         /// on buckets in this account and any objects that they contain. </para><para>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't
-        /// prevent new public ACLs from being set.</para>
+        /// prevent new public ACLs from being set.</para><para>This is not supported for Amazon S3 on Outposts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// this account. Setting this element to <code>TRUE</code> restricts access to buckets
         /// with public policies to only AWS services and authorized users within this account.</para><para>Enabling this setting doesn't affect previously stored bucket policies, except that
         /// public and cross-account access within any public bucket policy, including non-public
-        /// delegation to specific accounts, is blocked.</para>
+        /// delegation to specific accounts, is blocked.</para><para>This is not supported for Amazon S3 on Outposts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,12 +191,13 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccessPointArn'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Control.Model.CreateAccessPointResponse).
+        /// Specifying the name of a property of type Amazon.S3Control.Model.CreateAccessPointResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AccessPointArn";
         #endregion
         
         #region Parameter PassThru
@@ -408,7 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             public System.Boolean? PublicAccessBlockConfiguration_RestrictPublicBucket { get; set; }
             public System.String VpcConfiguration_VpcId { get; set; }
             public System.Func<Amazon.S3Control.Model.CreateAccessPointResponse, NewS3CAccessPointCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response.AccessPointArn;
         }
         
     }

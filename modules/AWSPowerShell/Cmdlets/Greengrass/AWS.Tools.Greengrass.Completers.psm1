@@ -104,6 +104,13 @@ $GG_Completers = {
             break
         }
 
+        # Amazon.Greengrass.Telemetry
+        "Update-GGThingRuntimeConfiguration/TelemetryConfiguration_Telemetry"
+        {
+            $v = "Off","On"
+            break
+        }
+
         # Amazon.Greengrass.UpdateAgentLogLevel
         "New-GGSoftwareUpdateJob/UpdateAgentLogLevel"
         {
@@ -138,6 +145,7 @@ $GG_map = @{
     "DeploymentType"=@("New-GGDeployment")
     "InitialVersion_DefaultConfig_Execution_IsolationMode"=@("New-GGFunctionDefinition")
     "SoftwareToUpdate"=@("New-GGSoftwareUpdateJob")
+    "TelemetryConfiguration_Telemetry"=@("Update-GGThingRuntimeConfiguration")
     "UpdateAgentLogLevel"=@("New-GGSoftwareUpdateJob")
     "UpdateTargetsArchitecture"=@("New-GGSoftwareUpdateJob")
     "UpdateTargetsOperatingSystem"=@("New-GGSoftwareUpdateJob")
@@ -247,6 +255,7 @@ $GG_SelectMap = @{
                "Get-GGServiceRoleForAccount",
                "Get-GGSubscriptionDefinition",
                "Get-GGSubscriptionDefinitionVersion",
+               "Get-GGThingRuntimeConfiguration",
                "Get-GGBulkDeploymentDetailedReportList",
                "Get-GGBulkDeploymentList",
                "Get-GGConnectorDefinitionList",
@@ -282,7 +291,8 @@ $GG_SelectMap = @{
                "Update-GGGroupCertificateConfiguration",
                "Update-GGLoggerDefinition",
                "Update-GGResourceDefinition",
-               "Update-GGSubscriptionDefinition")
+               "Update-GGSubscriptionDefinition",
+               "Update-GGThingRuntimeConfiguration")
 }
 
 _awsArgumentCompleterRegistration $GG_SelectCompleters $GG_SelectMap

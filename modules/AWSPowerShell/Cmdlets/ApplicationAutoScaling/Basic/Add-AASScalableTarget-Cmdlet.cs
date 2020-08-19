@@ -37,7 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// dimension, and namespace. 
     /// </para><para>
     /// When you register a new scalable target, you must specify values for minimum and maximum
-    /// capacity. Application Auto Scaling scaling policies will not scale capacity to values
+    /// capacity. Current capacity will be adjusted within the specified range when scaling
+    /// starts. Application Auto Scaling scaling policies will not scale capacity to values
     /// that are outside of this range.
     /// </para><para>
     /// After you register a scalable target, you do not need to register it again to use
@@ -92,7 +93,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <para>
         /// <para>The maximum value that you plan to scale out to. When a scaling policy is in effect,
         /// Application Auto Scaling can scale out (expand) as needed to the maximum capacity
-        /// limit in response to changing demand. </para><para>This parameter is required if you are registering a scalable target.</para>
+        /// limit in response to changing demand. </para><para>This parameter is required if you are registering a scalable target.</para><para>Although you can specify a large maximum capacity, note that service quotas may impose
+        /// lower limits. Each service has its own default quotas for the maximum capacity of
+        /// the resource. If you want to specify a higher limit, you can request an increase.
+        /// For more information, consult the documentation for that service. For information
+        /// about the default quotas for each service, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html">Service
+        /// Endpoints and Quotas</a> in the <i>Amazon Web Services General Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,11 +137,13 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// the resources. The unique identifier is defined by the service provider. More information
         /// is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
         /// repository</a>.</para></li><li><para>Amazon Comprehend document classification endpoint - The resource type and unique
-        /// identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <code>function</code> and the
+        /// identifier are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint/EXAMPLE</code>.</para></li><li><para>Amazon Comprehend entity recognizer endpoint - The resource type and unique identifier
+        /// are specified using the endpoint ARN. Example: <code>arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint/EXAMPLE</code>.</para></li><li><para>Lambda provisioned concurrency - The resource type is <code>function</code> and the
         /// unique identifier is the function name with a function version or alias name suffix
         /// that is not <code>$LATEST</code>. Example: <code>function:my-function:prod</code>
         /// or <code>function:my-function:1</code>.</para></li><li><para>Amazon Keyspaces table - The resource type is <code>table</code> and the unique identifier
-        /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li></ul>
+        /// is the table name. Example: <code>keyspace/mykeyspace/table/mytable</code>.</para></li><li><para>Amazon MSK cluster - The resource type and unique identifier are specified using the
+        /// cluster ARN. Example: <code>arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5</code>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -179,10 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
         /// for an Amazon SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li><li><para><code>comprehend:document-classifier-endpoint:DesiredInferenceUnits</code> - The
-        /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
+        /// number of inference units for an Amazon Comprehend document classification endpoint.</para></li><li><para><code>comprehend:entity-recognizer-endpoint:DesiredInferenceUnits</code> - The number
+        /// of inference units for an Amazon Comprehend entity recognizer endpoint.</para></li><li><para><code>lambda:function:ProvisionedConcurrency</code> - The provisioned concurrency
         /// for a Lambda function.</para></li><li><para><code>cassandra:table:ReadCapacityUnits</code> - The provisioned read capacity for
         /// an Amazon Keyspaces table.</para></li><li><para><code>cassandra:table:WriteCapacityUnits</code> - The provisioned write capacity
-        /// for an Amazon Keyspaces table.</para></li></ul>
+        /// for an Amazon Keyspaces table.</para></li><li><para><code>kafka:broker-storage:VolumeSize</code> - The provisioned volume size (in GiB)
+        /// for brokers in an Amazon MSK cluster.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>The string that contains the JSON input data for the execution, for example:</para><para><code>"input": "{\"first_name\" : \"test\"}"</code></para><note><para>If you don't include any JSON input data, you still must include the two braces, for
-        /// example: <code>"input": "{}"</code></para></note>
+        /// example: <code>"input": "{}"</code></para></note><para>Length constraints apply to the payload size, and are expressed as bytes in UTF-8
+        /// encoding.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,6 +87,17 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StateMachineArn { get; set; }
+        #endregion
+        
+        #region Parameter TraceHeader
+        /// <summary>
+        /// <para>
+        /// <para>Passes the AWS X-Ray trace header. The trace header can also be passed in the request
+        /// payload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TraceHeader { get; set; }
         #endregion
         
         #region Parameter Select
@@ -158,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 WriteWarning("You are passing $null as a value for parameter StateMachineArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TraceHeader = this.TraceHeader;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.StateMachineArn != null)
             {
                 request.StateMachineArn = cmdletContext.StateMachineArn;
+            }
+            if (cmdletContext.TraceHeader != null)
+            {
+                request.TraceHeader = cmdletContext.TraceHeader;
             }
             
             CmdletOutput output;
@@ -250,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             public System.String Input { get; set; }
             public System.String Name { get; set; }
             public System.String StateMachineArn { get; set; }
+            public System.String TraceHeader { get; set; }
             public System.Func<Amazon.StepFunctions.Model.StartExecutionResponse, StartSFNExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

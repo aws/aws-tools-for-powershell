@@ -379,7 +379,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LaunchTemplate_Version
         /// <summary>
         /// <para>
-        /// <para>The version number of the launch template.</para><para>Default: The default version of the launch template.</para>
+        /// <para>The version number of the launch template, <code>$Latest</code>, or <code>$Default</code>.</para><para>If the value is <code>$Latest</code>, the latest version of the launch template is
+        /// used. If the value is <code>$Default</code>, the default version of the launch template
+        /// is used.</para><para>Default: <code>$Default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

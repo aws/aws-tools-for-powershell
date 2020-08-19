@@ -78,6 +78,32 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter MutualTlsAuthentication_TruststoreUri
+        /// <summary>
+        /// <para>
+        /// <para>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for
+        /// example, s3://<replaceable>bucket-name</replaceable>/<replaceable>key-name</replaceable>.
+        /// The truststore can contain certificates from public or private certificate authorities.
+        /// To update the truststore, upload a new version to S3, and then update your custom
+        /// domain name to use the new version. To update the truststore, you must have permissions
+        /// to access the S3 object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MutualTlsAuthentication_TruststoreUri { get; set; }
+        #endregion
+        
+        #region Parameter MutualTlsAuthentication_TruststoreVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the S3 object that contains your truststore. To specify a version,
+        /// you must have versioning enabled for the S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MutualTlsAuthentication_TruststoreVersion { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -150,6 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             {
                 context.DomainNameConfiguration = new List<Amazon.ApiGatewayV2.Model.DomainNameConfiguration>(this.DomainNameConfiguration);
             }
+            context.MutualTlsAuthentication_TruststoreUri = this.MutualTlsAuthentication_TruststoreUri;
+            context.MutualTlsAuthentication_TruststoreVersion = this.MutualTlsAuthentication_TruststoreVersion;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -181,6 +209,35 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             if (cmdletContext.DomainNameConfiguration != null)
             {
                 request.DomainNameConfigurations = cmdletContext.DomainNameConfiguration;
+            }
+            
+             // populate MutualTlsAuthentication
+            var requestMutualTlsAuthenticationIsNull = true;
+            request.MutualTlsAuthentication = new Amazon.ApiGatewayV2.Model.MutualTlsAuthenticationInput();
+            System.String requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreUri = null;
+            if (cmdletContext.MutualTlsAuthentication_TruststoreUri != null)
+            {
+                requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreUri = cmdletContext.MutualTlsAuthentication_TruststoreUri;
+            }
+            if (requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreUri != null)
+            {
+                request.MutualTlsAuthentication.TruststoreUri = requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreUri;
+                requestMutualTlsAuthenticationIsNull = false;
+            }
+            System.String requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreVersion = null;
+            if (cmdletContext.MutualTlsAuthentication_TruststoreVersion != null)
+            {
+                requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreVersion = cmdletContext.MutualTlsAuthentication_TruststoreVersion;
+            }
+            if (requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreVersion != null)
+            {
+                request.MutualTlsAuthentication.TruststoreVersion = requestMutualTlsAuthentication_mutualTlsAuthentication_TruststoreVersion;
+                requestMutualTlsAuthenticationIsNull = false;
+            }
+             // determine if request.MutualTlsAuthentication should be set to null
+            if (requestMutualTlsAuthenticationIsNull)
+            {
+                request.MutualTlsAuthentication = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -249,6 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         {
             public System.String DomainName { get; set; }
             public List<Amazon.ApiGatewayV2.Model.DomainNameConfiguration> DomainNameConfiguration { get; set; }
+            public System.String MutualTlsAuthentication_TruststoreUri { get; set; }
+            public System.String MutualTlsAuthentication_TruststoreVersion { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.ApiGatewayV2.Model.CreateDomainNameResponse, NewAG2DomainNameCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

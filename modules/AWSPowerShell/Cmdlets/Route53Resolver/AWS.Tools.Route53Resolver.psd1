@@ -87,11 +87,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-R53RResolverEndpointIpAddressAssociation', 
+        'Add-R53RResolverQueryLogConfigAssociation', 
         'Add-R53RResolverRuleAssociation', 
         'Add-R53RResourceTag', 
         'Get-R53RResolverEndpoint', 
         'Get-R53RResolverEndpointIpAddressList', 
         'Get-R53RResolverEndpointList', 
+        'Get-R53RResolverQueryLogConfig', 
+        'Get-R53RResolverQueryLogConfigAssociation', 
+        'Get-R53RResolverQueryLogConfigAssociationList', 
+        'Get-R53RResolverQueryLogConfigList', 
+        'Get-R53RResolverQueryLogConfigPolicy', 
         'Get-R53RResolverRule', 
         'Get-R53RResolverRuleAssociation', 
         'Get-R53RResolverRuleAssociationList', 
@@ -99,15 +105,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-R53RResolverRulePolicy', 
         'Get-R53RResourceTagList', 
         'New-R53RResolverEndpoint', 
+        'New-R53RResolverQueryLogConfig', 
         'New-R53RResolverRule', 
         'Remove-R53RResolverEndpoint', 
         'Remove-R53RResolverEndpointIpAddressAssociation', 
+        'Remove-R53RResolverQueryLogConfig', 
+        'Remove-R53RResolverQueryLogConfigAssociation', 
         'Remove-R53RResolverRule', 
         'Remove-R53RResolverRuleAssociation', 
         'Remove-R53RResourceTag', 
         'Set-R53RResolverRulePolicy', 
         'Update-R53RResolverEndpoint', 
-        'Update-R53RResolverRule')
+        'Update-R53RResolverRule', 
+        'Write-R53RResolverQueryLogConfigPolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

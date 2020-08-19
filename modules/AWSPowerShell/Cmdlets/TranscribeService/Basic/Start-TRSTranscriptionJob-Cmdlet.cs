@@ -83,19 +83,25 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String JobExecutionSettings_DataAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter IdentifyLanguage
+        /// <summary>
+        /// <para>
+        /// <para>Set this field to <code>true</code> to enable automatic language identification. Automatic
+        /// language identification is disabled by default. You receive a <code>BadRequestException</code>
+        /// error if you enter a value for a <code>LanguageCode</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IdentifyLanguage { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
         /// <para>The language code for the language used in the input media file.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.TranscribeService.LanguageCode")]
         public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
         #endregion
@@ -108,6 +114,19 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ModelSettings_LanguageModelName { get; set; }
+        #endregion
+        
+        #region Parameter LanguageOption
+        /// <summary>
+        /// <para>
+        /// <para>An object containing a list of languages that might be present in your collection
+        /// of audio files. Automatic language identification chooses a language that best matches
+        /// the source audio from that list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LanguageOptions")]
+        public System.String[] LanguageOption { get; set; }
         #endregion
         
         #region Parameter Settings_MaxAlternative
@@ -210,6 +229,24 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OutputEncryptionKMSKeyId { get; set; }
+        #endregion
+        
+        #region Parameter OutputKey
+        /// <summary>
+        /// <para>
+        /// <para>You can specify a location in an Amazon S3 bucket to store the output of your transcription
+        /// job.</para><para>If you don't specify an output key, Amazon Transcribe stores the output of your transcription
+        /// job in the Amazon S3 bucket you specified. By default, the object key is "your-transcription-job-name.json".</para><para>You can use output keys to specify the Amazon S3 prefix and file name of the transcription
+        /// output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output
+        /// key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json".
+        /// If you specify "my-other-job-name.json" as the output key, the object key is changed
+        /// to "my-other-job-name.json". You can use an output key to change both the prefix and
+        /// the file name, for example "folder/my-other-job-name.json".</para><para>If you specify an output key, you must also specify an S3 bucket in the <code>OutputBucketName</code>
+        /// parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputKey { get; set; }
         #endregion
         
         #region Parameter ContentRedaction_RedactionOutput
@@ -383,21 +420,21 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ContentRedaction_RedactionOutput = this.ContentRedaction_RedactionOutput;
             context.ContentRedaction_RedactionType = this.ContentRedaction_RedactionType;
+            context.IdentifyLanguage = this.IdentifyLanguage;
             context.JobExecutionSettings_AllowDeferredExecution = this.JobExecutionSettings_AllowDeferredExecution;
             context.JobExecutionSettings_DataAccessRoleArn = this.JobExecutionSettings_DataAccessRoleArn;
             context.LanguageCode = this.LanguageCode;
-            #if MODULAR
-            if (this.LanguageCode == null && ParameterWasBound(nameof(this.LanguageCode)))
+            if (this.LanguageOption != null)
             {
-                WriteWarning("You are passing $null as a value for parameter LanguageCode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.LanguageOption = new List<System.String>(this.LanguageOption);
             }
-            #endif
             context.Media_MediaFileUri = this.Media_MediaFileUri;
             context.MediaFormat = this.MediaFormat;
             context.MediaSampleRateHertz = this.MediaSampleRateHertz;
             context.ModelSettings_LanguageModelName = this.ModelSettings_LanguageModelName;
             context.OutputBucketName = this.OutputBucketName;
             context.OutputEncryptionKMSKeyId = this.OutputEncryptionKMSKeyId;
+            context.OutputKey = this.OutputKey;
             context.Settings_ChannelIdentification = this.Settings_ChannelIdentification;
             context.Settings_MaxAlternative = this.Settings_MaxAlternative;
             context.Settings_MaxSpeakerLabel = this.Settings_MaxSpeakerLabel;
@@ -458,6 +495,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 request.ContentRedaction = null;
             }
+            if (cmdletContext.IdentifyLanguage != null)
+            {
+                request.IdentifyLanguage = cmdletContext.IdentifyLanguage.Value;
+            }
             
              // populate JobExecutionSettings
             var requestJobExecutionSettingsIsNull = true;
@@ -490,6 +531,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
+            }
+            if (cmdletContext.LanguageOption != null)
+            {
+                request.LanguageOptions = cmdletContext.LanguageOption;
             }
             
              // populate Media
@@ -544,6 +589,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.OutputEncryptionKMSKeyId != null)
             {
                 request.OutputEncryptionKMSKeyId = cmdletContext.OutputEncryptionKMSKeyId;
+            }
+            if (cmdletContext.OutputKey != null)
+            {
+                request.OutputKey = cmdletContext.OutputKey;
             }
             
              // populate Settings
@@ -701,15 +750,18 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         {
             public Amazon.TranscribeService.RedactionOutput ContentRedaction_RedactionOutput { get; set; }
             public Amazon.TranscribeService.RedactionType ContentRedaction_RedactionType { get; set; }
+            public System.Boolean? IdentifyLanguage { get; set; }
             public System.Boolean? JobExecutionSettings_AllowDeferredExecution { get; set; }
             public System.String JobExecutionSettings_DataAccessRoleArn { get; set; }
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
+            public List<System.String> LanguageOption { get; set; }
             public System.String Media_MediaFileUri { get; set; }
             public Amazon.TranscribeService.MediaFormat MediaFormat { get; set; }
             public System.Int32? MediaSampleRateHertz { get; set; }
             public System.String ModelSettings_LanguageModelName { get; set; }
             public System.String OutputBucketName { get; set; }
             public System.String OutputEncryptionKMSKeyId { get; set; }
+            public System.String OutputKey { get; set; }
             public System.Boolean? Settings_ChannelIdentification { get; set; }
             public System.Int32? Settings_MaxAlternative { get; set; }
             public System.Int32? Settings_MaxSpeakerLabel { get; set; }

@@ -30,22 +30,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Associates an Amazon VPC with a private hosted zone. 
     /// 
-    ///  <note><para>
+    ///  <important><para>
     /// To perform the association, the VPC and the private hosted zone must already exist.
-    /// Also, you can't convert a public hosted zone into a private hosted zone.
-    /// </para></note><para>
-    /// If you want to associate a VPC that was created by one AWS account with a private
-    /// hosted zone that was created by a different account, do one of the following:
-    /// </para><ul><li><para>
-    /// Use the AWS account that created the private hosted zone to submit a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateVPCAssociationAuthorization.html">CreateVPCAssociationAuthorization</a>
-    /// request. Then use the account that created the VPC to submit an <code>AssociateVPCWithHostedZone</code>
+    /// You can't convert a public hosted zone into a private hosted zone.
+    /// </para></important><note><para>
+    /// If you want to associate a VPC that was created by using one AWS account with a private
+    /// hosted zone that was created by using a different account, the AWS account that created
+    /// the private hosted zone must first submit a <code>CreateVPCAssociationAuthorization</code>
+    /// request. Then the account that created the VPC must submit an <code>AssociateVPCWithHostedZone</code>
     /// request.
-    /// </para></li><li><para>
-    /// If a subnet in the VPC was shared with another account, you can use the account that
-    /// the subnet was shared with to submit an <code>AssociateVPCWithHostedZone</code> request.
-    /// For more information about sharing subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">Working
-    /// with Shared VPCs</a>.
-    /// </para></li></ul>
+    /// </para></note>
     /// </summary>
     [Cmdlet("Register", "R53VPCWithHostedZone", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]

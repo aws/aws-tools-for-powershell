@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// an empty volume. If you choose to create an empty gateway volume, then any existing
     /// data on the disk is erased.
     /// </para><para>
-    /// In the request you must specify the gateway and the disk information on which you
+    /// In the request, you must specify the gateway and the disk information on which you
     /// are creating the volume. In response, the gateway creates the volume and returns volume
     /// information such as the volume Amazon Resource Name (ARN), its size, and the iSCSI
     /// target ARN that initiators can use to connect to the volume target.

@@ -28,14 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This action is part of Amazon GameLift FleetIQ with game server groups, which
-    /// is in preview release and is subject to change.</b><para>
-    /// Retrieves information for a game server resource. Information includes the game server
-    /// statuses, health check info, and the instance the game server is running on. 
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
+    /// Retrieves information for a registered game server. Information includes game server
+    /// status, health check info, and the instance that the game server is running on. 
     /// </para><para>
     /// To retrieve game server information, specify the game server ID. If successful, the
     /// requested game server object is returned. 
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
     /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>RegisterGameServer</a></para></li><li><para><a>ListGameServers</a></para></li><li><para><a>ClaimGameServer</a></para></li><li><para><a>DescribeGameServer</a></para></li><li><para><a>UpdateGameServer</a></para></li><li><para><a>DeregisterGameServer</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLGameServer")]
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>An identifier for the game server group where the game server is running. Use either
-        /// the <a>GameServerGroup</a> name or ARN value.</para>
+        /// <para>A unique identifier for the game server group where the game server is running. Use
+        /// either the <a>GameServerGroup</a> name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the game server to be retrieved.</para>
+        /// <para>A custom string that uniquely identifies the game server information to be retrieved.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

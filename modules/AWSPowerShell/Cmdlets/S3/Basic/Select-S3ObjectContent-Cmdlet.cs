@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.Int64? ScanRange_End { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter Expression
         /// <summary>
         /// <para>
@@ -219,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.OutputSerialization = this.OutputSerialization;
             context.ScanRange_Start = this.ScanRange_Start;
             context.ScanRange_End = this.ScanRange_End;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -304,6 +316,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.ScanRange = null;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
             CmdletOutput output;
             
@@ -377,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Amazon.S3.Model.OutputSerialization OutputSerialization { get; set; }
             public System.Int64? ScanRange_Start { get; set; }
             public System.Int64? ScanRange_End { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.SelectObjectContentResponse, SelectS3ObjectContentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Payload;
         }

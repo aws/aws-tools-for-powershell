@@ -144,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ResizeCluster_NumberOfNode
         /// <summary>
         /// <para>
-        /// <para>The new number of nodes for the cluster.</para>
+        /// <para>The new number of nodes for the cluster. If not specified, the cluster's current number
+        /// of nodes is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

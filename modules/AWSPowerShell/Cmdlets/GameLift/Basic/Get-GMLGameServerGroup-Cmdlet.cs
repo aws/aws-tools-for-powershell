@@ -28,14 +28,17 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This action is part of Amazon GameLift FleetIQ with game server groups, which
-    /// is in preview release and is subject to change.</b><para>
-    /// Retrieves information on a game server group. 
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
+    /// Retrieves information on a game server group. This operation returns only properties
+    /// related to GameLift FleetIQ. To view or update properties for the corresponding Auto
+    /// Scaling group, such as launch template, auto scaling policies, and maximum/minimum
+    /// group size, access the Auto Scaling group directly.
     /// </para><para>
     /// To get attributes for a game server group, provide a group name or ARN value. If successful,
     /// a <a>GameServerGroup</a> object is returned.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift
-    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li></ul>
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
+    /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateGameServerGroup</a></para></li><li><para><a>ListGameServerGroups</a></para></li><li><para><a>DescribeGameServerGroup</a></para></li><li><para><a>UpdateGameServerGroup</a></para></li><li><para><a>DeleteGameServerGroup</a></para></li><li><para><a>ResumeGameServerGroup</a></para></li><li><para><a>SuspendGameServerGroup</a></para></li><li><para><a>DescribeGameServerInstances</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLGameServerGroup")]
     [OutputType("Amazon.GameLift.Model.GameServerGroup")]
@@ -50,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the game server group being requested. Use either the <a>GameServerGroup</a>
+        /// <para>A unique identifier for the game server group. Use either the <a>GameServerGroup</a>
         /// name or ARN value.</para>
         /// </para>
         /// </summary>

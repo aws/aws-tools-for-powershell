@@ -32,19 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// add a custom default theme by using the <code>CreateAccountCustomization</code> or
     /// <code>UpdateAccountCustomization</code> API operation. To further customize QuickSight
     /// by removing QuickSight sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing
-    /// QuickSight</a> in the Amazon QuickSight User Guide.
-    /// 
-    ///  
-    /// <para>
+    /// QuickSight</a> in the <i>Amazon QuickSight User Guide.</i><para>
     /// You can create customizations for your AWS account or, if you specify a namespace,
     /// for a QuickSight namespace instead. Customizations that apply to a namespace always
     /// override customizations that apply to an AWS account. To find out which customizations
     /// apply, use the <code>DescribeAccountCustomization</code> API operation.
     /// </para><para>
-    /// Before you add a theme as the namespace default, make sure that you first share the
-    /// theme with the namespace. If you don't share it with the namespace, the theme won't
-    /// be visible to your users even if you use this API operation to make it the default
-    /// theme. 
+    /// Before you use the <code>CreateAccountCustomization</code> API operation to add a
+    /// theme as the namespace default, make sure that you first share the theme with the
+    /// namespace. If you don't share it with the namespace, the theme isn't visible to your
+    /// users even if you make it the default theme. To check if the theme is shared, view
+    /// the current permissions by using the <code><a>DescribeThemePermissions</a></code>
+    /// API operation. To share the theme, grant permissions by using the <code><a>UpdateThemePermissions</a></code> API operation. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "QSAccountCustomization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -91,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Namespace { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of the tags that you want to attach to this resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.QuickSight.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -163,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.Namespace = this.Namespace;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -205,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.Namespace != null)
             {
                 request.Namespace = cmdletContext.Namespace;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -270,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AccountCustomization_DefaultTheme { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.String Namespace { get; set; }
+            public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateAccountCustomizationResponse, NewQSAccountCustomizationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

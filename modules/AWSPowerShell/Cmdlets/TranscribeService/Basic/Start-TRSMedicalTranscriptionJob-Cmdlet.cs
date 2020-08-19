@@ -200,6 +200,25 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String OutputEncryptionKMSKeyId { get; set; }
         #endregion
         
+        #region Parameter OutputKey
+        /// <summary>
+        /// <para>
+        /// <para>You can specify a location in an Amazon S3 bucket to store the output of your medical
+        /// transcription job.</para><para>If you don't specify an output key, Amazon Transcribe Medical stores the output of
+        /// your transcription job in the Amazon S3 bucket you specified. By default, the object
+        /// key is "your-transcription-job-name.json".</para><para>You can use output keys to specify the Amazon S3 prefix and file name of the transcription
+        /// output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output
+        /// key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json".
+        /// If you specify "my-other-job-name.json" as the output key, the object key is changed
+        /// to "my-other-job-name.json". You can use an output key to change both the prefix and
+        /// the file name, for example "folder/my-other-job-name.json".</para><para>If you specify an output key, you must also specify an S3 bucket in the <code>OutputBucketName</code>
+        /// parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputKey { get; set; }
+        #endregion
+        
         #region Parameter Settings_ShowAlternative
         /// <summary>
         /// <para>
@@ -363,6 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             }
             #endif
             context.OutputEncryptionKMSKeyId = this.OutputEncryptionKMSKeyId;
+            context.OutputKey = this.OutputKey;
             context.Settings_ChannelIdentification = this.Settings_ChannelIdentification;
             context.Settings_MaxAlternative = this.Settings_MaxAlternative;
             context.Settings_MaxSpeakerLabel = this.Settings_MaxSpeakerLabel;
@@ -441,6 +461,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.OutputEncryptionKMSKeyId != null)
             {
                 request.OutputEncryptionKMSKeyId = cmdletContext.OutputEncryptionKMSKeyId;
+            }
+            if (cmdletContext.OutputKey != null)
+            {
+                request.OutputKey = cmdletContext.OutputKey;
             }
             
              // populate Settings
@@ -587,6 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             public System.String MedicalTranscriptionJobName { get; set; }
             public System.String OutputBucketName { get; set; }
             public System.String OutputEncryptionKMSKeyId { get; set; }
+            public System.String OutputKey { get; set; }
             public System.Boolean? Settings_ChannelIdentification { get; set; }
             public System.Int32? Settings_MaxAlternative { get; set; }
             public System.Int32? Settings_MaxSpeakerLabel { get; set; }

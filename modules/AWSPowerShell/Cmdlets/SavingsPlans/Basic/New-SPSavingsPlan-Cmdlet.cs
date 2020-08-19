@@ -58,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.SP
         public System.String Commitment { get; set; }
         #endregion
         
+        #region Parameter PurchaseTime
+        /// <summary>
+        /// <para>
+        /// <para>The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? PurchaseTime { get; set; }
+        #endregion
+        
         #region Parameter SavingsPlanOfferingId
         /// <summary>
         /// <para>
@@ -178,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
                 WriteWarning("You are passing $null as a value for parameter Commitment which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PurchaseTime = this.PurchaseTime;
             context.SavingsPlanOfferingId = this.SavingsPlanOfferingId;
             #if MODULAR
             if (this.SavingsPlanOfferingId == null && ParameterWasBound(nameof(this.SavingsPlanOfferingId)))
@@ -217,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.SP
             if (cmdletContext.Commitment != null)
             {
                 request.Commitment = cmdletContext.Commitment;
+            }
+            if (cmdletContext.PurchaseTime != null)
+            {
+                request.PurchaseTime = cmdletContext.PurchaseTime.Value;
             }
             if (cmdletContext.SavingsPlanOfferingId != null)
             {
@@ -293,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
         {
             public System.String ClientToken { get; set; }
             public System.String Commitment { get; set; }
+            public System.DateTime? PurchaseTime { get; set; }
             public System.String SavingsPlanOfferingId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String UpfrontPaymentAmount { get; set; }

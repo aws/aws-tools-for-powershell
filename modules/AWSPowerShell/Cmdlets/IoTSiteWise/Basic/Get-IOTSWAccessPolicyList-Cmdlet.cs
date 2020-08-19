@@ -28,8 +28,9 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Retrieves a paginated list of access policies for an AWS SSO identity (a user or group)
-    /// or an AWS IoT SiteWise Monitor resource (a portal or project).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a paginated list of access policies for an identity (an AWS SSO user, an
+    /// AWS SSO group, or an IAM user) or an AWS IoT SiteWise Monitor resource (a portal or
+    /// project).<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IOTSWAccessPolicyList")]
     [OutputType("Amazon.IoTSiteWise.Model.AccessPolicySummary")]
@@ -41,10 +42,23 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     public partial class GetIOTSWAccessPolicyListCmdlet : AmazonIoTSiteWiseClientCmdlet, IExecutor
     {
         
+        #region Parameter IamArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM
+        /// ARNs</a> in the <i>IAM User Guide</i>. This parameter is required if you specify <code>IAM</code>
+        /// for <code>identityType</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IamArn { get; set; }
+        #endregion
+        
         #region Parameter IdentityId
         /// <summary>
         /// <para>
-        /// <para>The ID of the identity. This parameter is required if you specify <code>identityType</code>.</para>
+        /// <para>The ID of the identity. This parameter is required if you specify <code>USER</code>
+        /// or <code>GROUP</code> for <code>identityType</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter IdentityType
         /// <summary>
         /// <para>
-        /// <para>The type of identity (user or group). This parameter is required if you specify <code>identityId</code>.</para>
+        /// <para>The type of identity (AWS SSO user, AWS SSO group, or IAM user). This parameter is
+        /// required if you specify <code>identityId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned per paginated request.</para>
+        /// <para>The maximum number of results to be returned per paginated request.</para><para>Default: 50</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 context.Select = CreateSelectDelegate<Amazon.IoTSiteWise.Model.ListAccessPoliciesResponse, GetIOTSWAccessPolicyListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.IamArn = this.IamArn;
             context.IdentityId = this.IdentityId;
             context.IdentityType = this.IdentityType;
             context.MaxResult = this.MaxResult;
@@ -168,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             // create request and set iteration invariants
             var request = new Amazon.IoTSiteWise.Model.ListAccessPoliciesRequest();
             
+            if (cmdletContext.IamArn != null)
+            {
+                request.IamArn = cmdletContext.IamArn;
+            }
             if (cmdletContext.IdentityId != null)
             {
                 request.IdentityId = cmdletContext.IdentityId;
@@ -273,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String IamArn { get; set; }
             public System.String IdentityId { get; set; }
             public Amazon.IoTSiteWise.IdentityType IdentityType { get; set; }
             public System.Int32? MaxResult { get; set; }

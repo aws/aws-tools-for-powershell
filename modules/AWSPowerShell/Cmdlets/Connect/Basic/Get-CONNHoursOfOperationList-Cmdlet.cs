@@ -29,7 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Provides information about the hours of operation for the specified Amazon Connect
-    /// instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// instance.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html">Set
+    /// the Hours of Operation for a Queue</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNHoursOfOperationList")]
     [OutputType("Amazon.Connect.Model.HoursOfOperationSummary")]

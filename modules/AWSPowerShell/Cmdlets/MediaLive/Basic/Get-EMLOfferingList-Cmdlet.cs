@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
         #region Parameter Codec
         /// <summary>
         /// <para>
-        /// Filter by codec, 'AVC', 'HEVC', 'MPEG2', or 'AUDIO'
+        /// Filter by codec, 'AVC', 'HEVC', 'MPEG2', 'AUDIO',
+        /// or 'LINK'
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

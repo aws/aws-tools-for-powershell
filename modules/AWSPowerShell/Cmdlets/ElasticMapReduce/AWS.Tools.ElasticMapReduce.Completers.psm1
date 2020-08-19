@@ -90,6 +90,13 @@ $EMR_Completers = {
             break
         }
 
+        # Amazon.ElasticMapReduce.ExecutionEngineType
+        "Start-EMRNotebookExecution/ExecutionEngine_Type"
+        {
+            $v = "EMR"
+            break
+        }
+
         # Amazon.ElasticMapReduce.InstanceFleetType
         {
             ($_ -eq "Add-EMRInstanceFleet/InstanceFleet_InstanceFleetType") -Or
@@ -97,6 +104,13 @@ $EMR_Completers = {
         }
         {
             $v = "CORE","MASTER","TASK"
+            break
+        }
+
+        # Amazon.ElasticMapReduce.NotebookExecutionStatus
+        "Get-EMRNotebookExecutionList/Status"
+        {
+            $v = "FAILED","FAILING","FINISHED","FINISHING","RUNNING","STARTING","START_PENDING","STOPPED","STOPPING","STOP_PENDING"
             break
         }
 
@@ -151,6 +165,7 @@ $EMR_Completers = {
 }
 
 $EMR_map = @{
+    "ExecutionEngine_Type"=@("Start-EMRNotebookExecution")
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_SpotSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
@@ -159,6 +174,7 @@ $EMR_map = @{
     "ManagedScalingPolicy_ComputeLimits_UnitType"=@("Start-EMRJobFlow","Write-EMRManagedScalingPolicy")
     "RepoUpgradeOnBoot"=@("Start-EMRJobFlow")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
+    "Status"=@("Get-EMRNotebookExecutionList")
     "StepCancellationOption"=@("Stop-EMRStep")
 }
 
@@ -221,6 +237,7 @@ $EMR_SelectMap = @{
                "Remove-EMRSecurityConfiguration",
                "Get-EMRCluster",
                "Get-EMRJobFlow",
+               "Get-EMRNotebookExecution",
                "Get-EMRSecurityConfiguration",
                "Get-EMRStep",
                "Get-EMRBlockPublicAccessConfiguration",
@@ -230,6 +247,7 @@ $EMR_SelectMap = @{
                "Get-EMRInstanceFleetList",
                "Get-EMRInstanceGroupList",
                "Get-EMRInstanceList",
+               "Get-EMRNotebookExecutionList",
                "Get-EMRSecurityConfigurationList",
                "Get-EMRStepList",
                "Edit-EMRCluster",
@@ -244,6 +262,8 @@ $EMR_SelectMap = @{
                "Start-EMRJobFlow",
                "Set-EMRTerminationProtection",
                "Set-EMRVisibleToAllUser",
+               "Start-EMRNotebookExecution",
+               "Stop-EMRNotebookExecution",
                "Stop-EMRJobFlow")
 }
 

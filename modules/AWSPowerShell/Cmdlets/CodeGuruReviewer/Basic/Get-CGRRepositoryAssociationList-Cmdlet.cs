@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <para>
         /// <para>List of owners to use as a filter. For AWS CodeCommit, it is the name of the CodeCommit
         /// account that was used to associate the repository. For other repository source providers,
-        /// such as Bitbucket, this is name of the account that was used to associate the repository.
-        /// </para>
+        /// such as Bitbucket and GitHub Enterprise Server, this is name of the account that was
+        /// used to associate the repository. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,10 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.CGR
         /// <summary>
         /// <para>
         /// <para>List of repository association states to use as a filter.</para><para>The valid repository association states are:</para><ul><li><para><b>Associated</b>: The repository association is complete. </para></li><li><para><b>Associating</b>: CodeGuru Reviewer is: </para><ul><li><para> Setting up pull request notifications. This is required for pull requests to trigger
-        /// a CodeGuru Reviewer review. </para><note><para> If your repository <code>ProviderType</code> is <code>GitHub</code> or <code>Bitbucket</code>,
-        /// CodeGuru Reviewer creates webhooks in your repository to trigger CodeGuru Reviewer
-        /// reviews. If you delete these webhooks, reviews of code in your repository cannot be
-        /// triggered. </para></note></li><li><para> Setting up source code access. This is required for CodeGuru Reviewer to securely
+        /// a CodeGuru Reviewer review. </para><note><para> If your repository <code>ProviderType</code> is <code>GitHub</code>, <code>GitHub
+        /// Enterprise Server</code>, or <code>Bitbucket</code>, CodeGuru Reviewer creates webhooks
+        /// in your repository to trigger CodeGuru Reviewer reviews. If you delete these webhooks,
+        /// reviews of code in your repository cannot be triggered. </para></note></li><li><para> Setting up source code access. This is required for CodeGuru Reviewer to securely
         /// clone code in your repository. </para></li></ul></li><li><para><b>Failed</b>: The repository failed to associate or disassociate. </para></li><li><para><b>Disassociating</b>: CodeGuru Reviewer is removing the repository's pull request
         /// notifications and source code access. </para></li></ul>
         /// </para>

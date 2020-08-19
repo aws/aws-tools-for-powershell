@@ -28,7 +28,7 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates the Amazon QuickSight settings in your AWS Account.
+    /// Updates the Amazon QuickSight settings in your AWS account.
     /// </summary>
     [Cmdlet("Update", "QSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.UpdateAccountSettingsResponse")]
@@ -60,9 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter DefaultNamespace
         /// <summary>
         /// <para>
-        /// <para>The default namespace for this AWS Account. Currently, the default is <code>default</code>.
-        /// IAM users who register for the first time with QuickSight provide an email that becomes
-        /// associated with the default namespace.</para>
+        /// <para>The default namespace for this AWS account. Currently, the default is <code>default</code>.
+        /// AWS Identity and Access Management (IAM) users that register for the first time with
+        /// QuickSight provide an email that becomes associated with the default namespace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

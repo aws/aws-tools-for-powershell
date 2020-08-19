@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
     /// assets from asset models. With asset models, you can easily create assets of the same
     /// type that have standardized definitions. Each asset created from a model inherits
     /// the asset model's property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining
-    /// Asset Models</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// asset models</a> in the <i>AWS IoT SiteWise User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IOTSWAssetModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.CreateAssetModelResponse")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>The hierarchy definitions of the asset model. Each hierarchy specifies an asset model
         /// whose assets can be children of any other assets created from this asset model. For
         /// more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset
-        /// Hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</para><para>You can specify up to 10 hierarchies per asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
+        /// hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</para><para>You can specify up to 10 hierarchies per asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
         /// in the <i>AWS IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <summary>
         /// <para>
         /// <para>The property definitions of the asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset
-        /// Properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</para><para>You can specify up to 200 properties per asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
+        /// properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</para><para>You can specify up to 200 properties per asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
         /// in the <i>AWS IoT SiteWise User Guide</i>.</para>
         /// </para>
         /// </summary>

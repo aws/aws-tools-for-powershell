@@ -135,6 +135,13 @@ $BAT_Completers = {
             break
         }
 
+        # Amazon.Batch.LogDriver
+        "Register-BATJobDefinition/ContainerProperties_LogConfiguration_LogDriver"
+        {
+            $v = "awslogs","fluentd","gelf","journald","json-file","splunk","syslog"
+            break
+        }
+
 
     }
 
@@ -146,6 +153,7 @@ $BAT_Completers = {
 $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment")
+    "ContainerProperties_LogConfiguration_LogDriver"=@("Register-BATJobDefinition")
     "JobStatus"=@("Get-BATJobList")
     "State"=@("New-BATComputeEnvironment","New-BATJobQueue","Update-BATComputeEnvironment","Update-BATJobQueue")
     "Type"=@("New-BATComputeEnvironment","Register-BATJobDefinition")

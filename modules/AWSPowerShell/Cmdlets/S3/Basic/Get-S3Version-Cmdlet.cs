@@ -28,9 +28,9 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns metadata about all of the versions of objects in a bucket. You can also use
-    /// request parameters as selection criteria to return metadata about a subset of all
-    /// the object versions. 
+    /// Returns metadata about all versions of the objects in a bucket. You can also use request
+    /// parameters as selection criteria to return metadata about a subset of all the object
+    /// versions. 
     /// 
     ///  <note><para>
     ///  A 200 OK response can contain valid or invalid XML. Make sure to design your application
@@ -38,8 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></note><para>
     /// To use this operation, you must have READ access to the bucket.
     /// </para><para>
+    /// This action is not supported by Amazon S3 on Outposts.
+    /// </para><para>
     /// The following operations are related to <code>ListObjectVersions</code>:
-    /// </para><ul><li><para><a>ListObjectsV2</a></para></li><li><para><a>GetObject</a></para></li><li><para><a>PutObject</a></para></li><li><para><a>DeleteObject</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html">ListObjectsV2</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html">PutObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html">DeleteObject</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3Version")]
     [OutputType("Amazon.S3.Model.ListVersionsResponse")]
@@ -79,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.S3.EncodingType")]
         public Amazon.S3.EncodingType Encoding { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter KeyMarker
@@ -184,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.Prefix = this.Prefix;
             context.VersionIdMarker = this.VersionIdMarker;
             context.Encoding = this.Encoding;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -227,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.Encoding != null)
             {
                 request.Encoding = cmdletContext.Encoding;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -296,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String Prefix { get; set; }
             public System.String VersionIdMarker { get; set; }
             public Amazon.S3.EncodingType Encoding { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.ListVersionsResponse, GetS3VersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

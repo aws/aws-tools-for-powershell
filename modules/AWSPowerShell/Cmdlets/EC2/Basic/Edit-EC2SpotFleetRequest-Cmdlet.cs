@@ -84,6 +84,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplateConfig
+        /// <summary>
+        /// <para>
+        /// <para>The launch template and overrides. You can only use this parameter if you specified
+        /// a launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request.
+        /// If you specified <code>LaunchSpecifications</code> in your Spot Fleet request, then
+        /// omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LaunchTemplateConfigs")]
+        public Amazon.EC2.Model.LaunchTemplateConfig[] LaunchTemplateConfig { get; set; }
+        #endregion
+        
         #region Parameter OnDemandTargetCapacity
         /// <summary>
         /// <para>
@@ -183,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ExcessCapacityTerminationPolicy = this.ExcessCapacityTerminationPolicy;
+            if (this.LaunchTemplateConfig != null)
+            {
+                context.LaunchTemplateConfig = new List<Amazon.EC2.Model.LaunchTemplateConfig>(this.LaunchTemplateConfig);
+            }
             context.OnDemandTargetCapacity = this.OnDemandTargetCapacity;
             context.SpotFleetRequestId = this.SpotFleetRequestId;
             #if MODULAR
@@ -211,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.ExcessCapacityTerminationPolicy != null)
             {
                 request.ExcessCapacityTerminationPolicy = cmdletContext.ExcessCapacityTerminationPolicy;
+            }
+            if (cmdletContext.LaunchTemplateConfig != null)
+            {
+                request.LaunchTemplateConfigs = cmdletContext.LaunchTemplateConfig;
             }
             if (cmdletContext.OnDemandTargetCapacity != null)
             {
@@ -286,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.EC2.ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
+            public List<Amazon.EC2.Model.LaunchTemplateConfig> LaunchTemplateConfig { get; set; }
             public System.Int32? OnDemandTargetCapacity { get; set; }
             public System.String SpotFleetRequestId { get; set; }
             public System.Int32? TargetCapacity { get; set; }

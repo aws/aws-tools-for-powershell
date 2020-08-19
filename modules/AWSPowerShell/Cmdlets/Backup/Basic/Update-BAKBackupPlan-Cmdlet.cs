@@ -28,9 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Replaces the body of a saved backup plan identified by its <code>backupPlanId</code>
-    /// with the input document in JSON format. The new version is uniquely identified by
-    /// a <code>VersionId</code>.
+    /// Updates an existing backup plan identified by its <code>backupPlanId</code> with the
+    /// input document in JSON format. The new version is uniquely identified by a <code>VersionId</code>.
     /// </summary>
     [Cmdlet("Update", "BAKBackupPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.UpdateBackupPlanResponse")]
@@ -40,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     )]
     public partial class UpdateBAKBackupPlanCmdlet : AmazonBackupClientCmdlet, IExecutor
     {
+        
+        #region Parameter BackupPlan_AdvancedBackupSetting
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a list of <code>BackupOptions</code> for each resource type. These settings
+        /// are only available for Windows VSS backup jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BackupPlan_AdvancedBackupSettings")]
+        public Amazon.Backup.Model.AdvancedBackupSetting[] BackupPlan_AdvancedBackupSetting { get; set; }
+        #endregion
         
         #region Parameter BackupPlanId
         /// <summary>
@@ -155,6 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = (response, cmdlet) => this.BackupPlan_BackupPlanName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.BackupPlan_AdvancedBackupSetting != null)
+            {
+                context.BackupPlan_AdvancedBackupSetting = new List<Amazon.Backup.Model.AdvancedBackupSetting>(this.BackupPlan_AdvancedBackupSetting);
+            }
             context.BackupPlan_BackupPlanName = this.BackupPlan_BackupPlanName;
             #if MODULAR
             if (this.BackupPlan_BackupPlanName == null && ParameterWasBound(nameof(this.BackupPlan_BackupPlanName)))
@@ -199,6 +214,16 @@ namespace Amazon.PowerShell.Cmdlets.BAK
              // populate BackupPlan
             var requestBackupPlanIsNull = true;
             request.BackupPlan = new Amazon.Backup.Model.BackupPlanInput();
+            List<Amazon.Backup.Model.AdvancedBackupSetting> requestBackupPlan_backupPlan_AdvancedBackupSetting = null;
+            if (cmdletContext.BackupPlan_AdvancedBackupSetting != null)
+            {
+                requestBackupPlan_backupPlan_AdvancedBackupSetting = cmdletContext.BackupPlan_AdvancedBackupSetting;
+            }
+            if (requestBackupPlan_backupPlan_AdvancedBackupSetting != null)
+            {
+                request.BackupPlan.AdvancedBackupSettings = requestBackupPlan_backupPlan_AdvancedBackupSetting;
+                requestBackupPlanIsNull = false;
+            }
             System.String requestBackupPlan_backupPlan_BackupPlanName = null;
             if (cmdletContext.BackupPlan_BackupPlanName != null)
             {
@@ -289,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.Backup.Model.AdvancedBackupSetting> BackupPlan_AdvancedBackupSetting { get; set; }
             public System.String BackupPlan_BackupPlanName { get; set; }
             public List<Amazon.Backup.Model.BackupRuleInput> BackupPlan_Rule { get; set; }
             public System.String BackupPlanId { get; set; }

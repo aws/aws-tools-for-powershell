@@ -197,10 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LabelingJobAlgorithmsConfig_InitialActiveLearningModelArn
         /// <summary>
         /// <para>
-        /// <para>At the end of an auto-label job Amazon SageMaker Ground Truth sends the Amazon Resource
-        /// Nam (ARN) of the final model used for auto-labeling. You can use this model as the
-        /// starting point for subsequent similar jobs by providing the ARN of the model here.
-        /// </para>
+        /// <para>At the end of an auto-label job Ground Truth sends the Amazon Resource Name (ARN)
+        /// of the final model used for auto-labeling. You can use this model as the starting
+        /// point for subsequent similar jobs by providing the ARN of the model here. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -450,6 +449,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String OutputConfig_S3OutputPath { get; set; }
+        #endregion
+        
+        #region Parameter SnsDataSource_SnsTopicArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input
+        /// topic you will use to send new data objects to a streaming labeling job.</para><para>If you specify an input topic for <code>SnsTopicArn</code> in <code>InputConfig</code>,
+        /// you must specify a value for <code>SnsTopicArn</code> in <code>OutputConfig</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputConfig_DataSource_SnsDataSource_SnsTopicArn")]
+        public System.String SnsDataSource_SnsTopicArn { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_SnsTopicArn
+        /// <summary>
+        /// <para>
+        /// <para>An Amazon Simple Notification Service (Amazon SNS) output topic ARN.</para><para>When workers complete labeling tasks, Ground Truth will send labeling task output
+        /// data to the SNS output topic you specify here.</para><para>You must provide a value for this parameter if you provide an Amazon SNS input topic
+        /// in <code>SnsDataSource</code> in <code>InputConfig</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_SnsTopicArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -722,6 +746,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.DataAttributes_ContentClassifier = new List<System.String>(this.DataAttributes_ContentClassifier);
             }
             context.S3DataSource_ManifestS3Uri = this.S3DataSource_ManifestS3Uri;
+            context.SnsDataSource_SnsTopicArn = this.SnsDataSource_SnsTopicArn;
             context.LabelAttributeName = this.LabelAttributeName;
             #if MODULAR
             if (this.LabelAttributeName == null && ParameterWasBound(nameof(this.LabelAttributeName)))
@@ -748,6 +773,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter OutputConfig_S3OutputPath which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputConfig_SnsTopicArn = this.OutputConfig_SnsTopicArn;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -1055,6 +1081,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestInputConfig_inputConfig_DataSource.S3DataSource = requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_S3DataSource;
                 requestInputConfig_inputConfig_DataSourceIsNull = false;
             }
+            Amazon.SageMaker.Model.LabelingJobSnsDataSource requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource = null;
+            
+             // populate SnsDataSource
+            var requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSourceIsNull = true;
+            requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource = new Amazon.SageMaker.Model.LabelingJobSnsDataSource();
+            System.String requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource_snsDataSource_SnsTopicArn = null;
+            if (cmdletContext.SnsDataSource_SnsTopicArn != null)
+            {
+                requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource_snsDataSource_SnsTopicArn = cmdletContext.SnsDataSource_SnsTopicArn;
+            }
+            if (requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource_snsDataSource_SnsTopicArn != null)
+            {
+                requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource.SnsTopicArn = requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource_snsDataSource_SnsTopicArn;
+                requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSourceIsNull = false;
+            }
+             // determine if requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource should be set to null
+            if (requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSourceIsNull)
+            {
+                requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource = null;
+            }
+            if (requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource != null)
+            {
+                requestInputConfig_inputConfig_DataSource.SnsDataSource = requestInputConfig_inputConfig_DataSource_inputConfig_DataSource_SnsDataSource;
+                requestInputConfig_inputConfig_DataSourceIsNull = false;
+            }
              // determine if requestInputConfig_inputConfig_DataSource should be set to null
             if (requestInputConfig_inputConfig_DataSourceIsNull)
             {
@@ -1158,6 +1209,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOutputConfig_outputConfig_S3OutputPath != null)
             {
                 request.OutputConfig.S3OutputPath = requestOutputConfig_outputConfig_S3OutputPath;
+                requestOutputConfigIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_SnsTopicArn = null;
+            if (cmdletContext.OutputConfig_SnsTopicArn != null)
+            {
+                requestOutputConfig_outputConfig_SnsTopicArn = cmdletContext.OutputConfig_SnsTopicArn;
+            }
+            if (requestOutputConfig_outputConfig_SnsTopicArn != null)
+            {
+                request.OutputConfig.SnsTopicArn = requestOutputConfig_outputConfig_SnsTopicArn;
                 requestOutputConfigIsNull = false;
             }
              // determine if request.OutputConfig should be set to null
@@ -1280,6 +1341,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String HumanTaskConfig_WorkteamArn { get; set; }
             public List<System.String> DataAttributes_ContentClassifier { get; set; }
             public System.String S3DataSource_ManifestS3Uri { get; set; }
+            public System.String SnsDataSource_SnsTopicArn { get; set; }
             public System.String LabelAttributeName { get; set; }
             public System.String LabelCategoryConfigS3Uri { get; set; }
             public System.String LabelingJobAlgorithmsConfig_InitialActiveLearningModelArn { get; set; }
@@ -1288,6 +1350,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String LabelingJobName { get; set; }
             public System.String OutputConfig_KmsKeyId { get; set; }
             public System.String OutputConfig_S3OutputPath { get; set; }
+            public System.String OutputConfig_SnsTopicArn { get; set; }
             public System.String RoleArn { get; set; }
             public System.Int32? StoppingConditions_MaxHumanLabeledObjectCount { get; set; }
             public System.Int32? StoppingConditions_MaxPercentageOfInputDatasetLabeled { get; set; }

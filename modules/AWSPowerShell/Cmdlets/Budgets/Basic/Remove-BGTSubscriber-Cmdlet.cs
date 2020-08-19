@@ -164,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Notification_Threshold
         /// <summary>
         /// <para>
-        /// <para>The threshold that is associated with a notification. Thresholds are always a percentage.</para>
+        /// <para>The threshold that is associated with a notification. Thresholds are always a percentage,
+        /// and many customers find value being alerted between 50% - 200% of the budgeted amount.
+        /// The maximum limit for your threshold is 1,000,000% above the budgeted amount.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

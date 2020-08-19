@@ -28,11 +28,7 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// <code>DeleteReportGroup</code>: Deletes a report group. Before you delete a report
-    /// group, you must delete its reports. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html">ListReportsForReportGroup</a>
-    /// to get the reports in a report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html">DeleteReport</a>
-    /// to delete the reports. If you call <code>DeleteReportGroup</code> for a report group
-    /// that contains one or more reports, an exception is thrown.
+    /// Deletes a report group. Before you delete a report group, you must delete its reports.
     /// </summary>
     [Cmdlet("Remove", "CBReportGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -47,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para> The ARN of the report group to delete. </para>
+        /// <para>The ARN of the report group to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,6 +55,21 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Arn { get; set; }
+        #endregion
+        
+        #region Parameter DeleteReport
+        /// <summary>
+        /// <para>
+        /// <para>If <code>true</code>, deletes any reports that belong to a report group before deleting
+        /// the report group. </para><para>If <code>false</code>, you must delete any reports in the report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListReportsForReportGroup.html">ListReportsForReportGroup</a>
+        /// to get the reports in a report group. Use <a href="https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteReport.html">DeleteReport</a>
+        /// to delete the reports. If you call <code>DeleteReportGroup</code> for a report group
+        /// that contains one or more reports, an exception is thrown. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeleteReports")]
+        public System.Boolean? DeleteReport { get; set; }
         #endregion
         
         #region Parameter Select
@@ -128,6 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DeleteReport = this.DeleteReport;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.DeleteReport != null)
+            {
+                request.DeleteReports = cmdletContext.DeleteReport.Value;
             }
             
             CmdletOutput output;
@@ -210,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.Boolean? DeleteReport { get; set; }
             public System.Func<Amazon.CodeBuild.Model.DeleteReportGroupResponse, RemoveCBReportGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

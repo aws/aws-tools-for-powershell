@@ -122,6 +122,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.ServerSideEncryptionMethod Encryption_EncryptionType { get; set; }
         #endregion
         
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
+        #endregion
+        
         #region Parameter AccessControlList_Grant
         /// <summary>
         /// <para>
@@ -380,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             context.S3_UserMetadata = this.S3_UserMetadata;
             context.S3_StorageClass = this.S3_StorageClass;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -640,6 +652,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.OutputLocation = null;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
             CmdletOutput output;
             
@@ -723,6 +739,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public List<Amazon.S3.Model.Tag> Tagging_TagSet { get; set; }
             public Amazon.S3.Model.MetadataCollection S3_UserMetadata { get; set; }
             public Amazon.S3.S3StorageClass S3_StorageClass { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.RestoreObjectResponse, RestoreS3ObjectCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

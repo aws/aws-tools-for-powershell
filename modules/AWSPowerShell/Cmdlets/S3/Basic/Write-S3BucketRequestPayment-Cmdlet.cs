@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     ///  
     /// <para>
     /// The following operations are related to <code>PutBucketRequestPayment</code>:
-    /// </para><ul><li><para><a>CreateBucket</a></para></li><li><para><a>GetBucketRequestPayment</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketRequestPayment.html">GetBucketRequestPayment</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketRequestPayment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter RequestPaymentConfiguration_Payer
@@ -131,6 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.RequestPaymentConfiguration_Payer = this.RequestPaymentConfiguration_Payer;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -169,6 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestRequestPaymentConfigurationIsNull)
             {
                 request.RequestPaymentConfiguration = null;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -233,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String RequestPaymentConfiguration_Payer { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketRequestPaymentResponse, WriteS3BucketRequestPaymentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

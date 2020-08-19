@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters. The possible values are:</para><ul><li><para><code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway
-        /// attachment.</para></li><li><para><code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</para></li><li><para><code>attachment.resource-type</code> - The attachment resource type (<code>vpc</code>
-        /// | <code>vpn</code>).</para></li><li><para><code>route-search.exact-match</code> - The exact match of the specified filter.</para></li><li><para><code>route-search.longest-prefix-match</code> - The longest prefix that matches
+        /// attachment.</para></li><li><para><code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</para></li><li><para><code>attachment.resource-type</code> - The attachment resource type. Valid values
+        /// are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</para></li><li><para><code>prefix-list-id</code> - The ID of the prefix list.</para></li><li><para><code>route-search.exact-match</code> - The exact match of the specified filter.</para></li><li><para><code>route-search.longest-prefix-match</code> - The longest prefix that matches
         /// the route.</para></li><li><para><code>route-search.subnet-of-match</code> - The routes with a subnet that match the
         /// specified CIDR filter.</para></li><li><para><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass
         /// the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your

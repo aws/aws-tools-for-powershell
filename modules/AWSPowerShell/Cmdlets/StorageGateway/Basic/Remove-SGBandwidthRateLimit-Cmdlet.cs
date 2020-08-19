@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>One of the BandwidthType values that indicates the gateway bandwidth rate limit to
-        /// delete.</para><para>Valid Values: <code>Upload</code> | <code>Download</code> | <code>All</code></para>
+        /// delete.</para><para>Valid Values: <code>UPLOAD</code> | <code>DOWNLOAD</code> | <code>ALL</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

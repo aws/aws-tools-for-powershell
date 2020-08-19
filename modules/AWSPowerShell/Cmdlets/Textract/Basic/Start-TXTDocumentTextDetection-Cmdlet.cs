@@ -118,6 +118,27 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         public System.String NotificationChannel_RoleArn { get; set; }
         #endregion
         
+        #region Parameter OutputConfig_S3Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The name of the bucket your output will go to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_S3Bucket { get; set; }
+        #endregion
+        
+        #region Parameter OutputConfig_S3Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The prefix of the object key that the output will be saved to. When not enabled, the
+        /// prefix will be “textract_output".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutputConfig_S3Prefix { get; set; }
+        #endregion
+        
         #region Parameter NotificationChannel_SNSTopicArn
         /// <summary>
         /// <para>
@@ -187,6 +208,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             context.JobTag = this.JobTag;
             context.NotificationChannel_RoleArn = this.NotificationChannel_RoleArn;
             context.NotificationChannel_SNSTopicArn = this.NotificationChannel_SNSTopicArn;
+            context.OutputConfig_S3Bucket = this.OutputConfig_S3Bucket;
+            context.OutputConfig_S3Prefix = this.OutputConfig_S3Prefix;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -295,6 +318,35 @@ namespace Amazon.PowerShell.Cmdlets.TXT
                 request.NotificationChannel = null;
             }
             
+             // populate OutputConfig
+            var requestOutputConfigIsNull = true;
+            request.OutputConfig = new Amazon.Textract.Model.OutputConfig();
+            System.String requestOutputConfig_outputConfig_S3Bucket = null;
+            if (cmdletContext.OutputConfig_S3Bucket != null)
+            {
+                requestOutputConfig_outputConfig_S3Bucket = cmdletContext.OutputConfig_S3Bucket;
+            }
+            if (requestOutputConfig_outputConfig_S3Bucket != null)
+            {
+                request.OutputConfig.S3Bucket = requestOutputConfig_outputConfig_S3Bucket;
+                requestOutputConfigIsNull = false;
+            }
+            System.String requestOutputConfig_outputConfig_S3Prefix = null;
+            if (cmdletContext.OutputConfig_S3Prefix != null)
+            {
+                requestOutputConfig_outputConfig_S3Prefix = cmdletContext.OutputConfig_S3Prefix;
+            }
+            if (requestOutputConfig_outputConfig_S3Prefix != null)
+            {
+                request.OutputConfig.S3Prefix = requestOutputConfig_outputConfig_S3Prefix;
+                requestOutputConfigIsNull = false;
+            }
+             // determine if request.OutputConfig should be set to null
+            if (requestOutputConfigIsNull)
+            {
+                request.OutputConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -362,6 +414,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
             public System.String JobTag { get; set; }
             public System.String NotificationChannel_RoleArn { get; set; }
             public System.String NotificationChannel_SNSTopicArn { get; set; }
+            public System.String OutputConfig_S3Bucket { get; set; }
+            public System.String OutputConfig_S3Prefix { get; set; }
             public System.Func<Amazon.Textract.Model.StartDocumentTextDetectionResponse, StartTXTDocumentTextDetectionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobId;
         }

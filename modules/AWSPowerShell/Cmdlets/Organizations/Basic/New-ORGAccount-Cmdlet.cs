@@ -48,6 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs">AWS
     /// Organizations and Service-Linked Roles</a> in the <i>AWS Organizations User Guide</i>.
     /// </para><para>
+    /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
+    /// permission.
+    /// </para><para>
     /// AWS Organizations preconfigures the new member account with a role (named <code>OrganizationAccountAccessRole</code>
     /// by default) that grants users in the master account administrator permissions in the
     /// new member account. Principals in the master account can assume the role. AWS Organizations
@@ -174,6 +177,22 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         public System.String RoleName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the newly created account. For each tag
+        /// in the list, you must specify both a tag key and a value. You can set the value to
+        /// an empty string, but you can't set it to <code>null</code>. For more information about
+        /// tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
+        /// AWS Organizations resources</a> in the AWS Organizations User Guide.</para><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags for
+        /// an account, then the entire request fails and the account is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Organizations.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'CreateAccountStatus'.
@@ -251,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             #endif
             context.IamUserAccessToBilling = this.IamUserAccessToBilling;
             context.RoleName = this.RoleName;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Organizations.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -282,6 +305,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             if (cmdletContext.RoleName != null)
             {
                 request.RoleName = cmdletContext.RoleName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -348,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             public System.String Email { get; set; }
             public Amazon.Organizations.IAMUserAccessToBilling IamUserAccessToBilling { get; set; }
             public System.String RoleName { get; set; }
+            public List<Amazon.Organizations.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.Organizations.Model.CreateAccountResponse, NewORGAccountCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.CreateAccountStatus;
         }

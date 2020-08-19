@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// Examples include On-Demand Instances and Standard Reserved Instances.</para></li><li><para>SERVICE - The AWS service such as Amazon DynamoDB.</para></li><li><para>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response
         /// for the <code>GetDimensionValues</code> operation includes a unit attribute. Examples
         /// include GB and Hrs.</para></li><li><para>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch
-        /// – Alarms. The response for this operation includes a unit attribute.</para></li><li><para>RECORD_TYPE - The different types of charges such as RI fees, usage costs, tax refunds,
+        /// – Alarms. The response for this operation includes a unit attribute.</para></li><li><para>REGION - The AWS Region.</para></li><li><para>RECORD_TYPE - The different types of charges such as RI fees, usage costs, tax refunds,
         /// and credits.</para></li><li><para>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in feature
         /// only available for last 14 days for EC2-Compute Service.</para></li></ul><para>If you set the context to <code>RESERVATIONS</code>, you can use the following dimensions
         /// for searching:</para><ul><li><para>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</para></li><li><para>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</para></li><li><para>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid

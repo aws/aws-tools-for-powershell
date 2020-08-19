@@ -28,9 +28,9 @@ using Amazon.IoTSiteWise.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
-    /// Deletes an access policy that grants the specified AWS Single Sign-On identity access
-    /// to the specified AWS IoT SiteWise Monitor resource. You can use this operation to
-    /// revoke access to an AWS IoT SiteWise Monitor resource.
+    /// Deletes an access policy that grants the specified identity access to the specified
+    /// AWS IoT SiteWise Monitor resource. You can use this operation to revoke access to
+    /// an AWS IoT SiteWise Monitor resource.
     /// </summary>
     [Cmdlet("Remove", "IOTSWAccessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -101,12 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         /// <summary>
         /// <para>
         /// <para>The parent image of the image recipe. The value of the string can be the ARN of the
-        /// parent image or an AMI ID. The format for the ARN follows this example: <code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/2019.x.x</code>.
-        /// The ARN ends with <code>/20xx.x.x</code>, which communicates to EC2 Image Builder
-        /// that you want to use the latest AMI created in 20xx (year). You can provide the specific
-        /// version that you want to use, or you can use a wildcard in all of the fields. If you
-        /// enter an AMI ID for the string value, you must have access to the AMI, and the AMI
-        /// must be in the same Region in which you are using Image Builder. </para>
+        /// parent image or an AMI ID. The format for the ARN follows this example: <code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/xxxx.x.x</code>.
+        /// You can provide the specific version that you want to use, or you can use a wildcard
+        /// in all of the fields. If you enter an AMI ID for the string value, you must have access
+        /// to the AMI, and the AMI must be in the same Region in which you are using Image Builder.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

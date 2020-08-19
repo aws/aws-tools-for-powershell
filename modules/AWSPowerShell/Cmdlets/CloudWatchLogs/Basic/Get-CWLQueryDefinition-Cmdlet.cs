@@ -28,7 +28,14 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// <br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// This operation returns a paginated list of your saved CloudWatch Logs Insights query
+    /// definitions.
+    /// 
+    ///  
+    /// <para>
+    /// You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results
+    /// to only the query definitions that have names that start with a certain string.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CWLQueryDefinition")]
     [OutputType("Amazon.CloudWatchLogs.Model.QueryDefinition")]
@@ -43,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter QueryDefinitionNamePrefix
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Use this parameter to filter your results to only the query definitions that have
+        /// names that start with the prefix you specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -53,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Limits the number of returned query definitions to the specified number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -42,16 +42,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// matches; a game session queue to use when placing a new game session for the match;
     /// and the maximum time allowed for a matchmaking attempt.
     /// </para><para>
-    /// There are two ways to track the progress of matchmaking tickets: (1) polling ticket
-    /// status with <a>DescribeMatchmaking</a>; or (2) receiving notifications with Amazon
-    /// Simple Notification Service (SNS). To use notifications, you first need to set up
-    /// an SNS topic to receive the notifications, and provide the topic ARN in the matchmaking
-    /// configuration. Since notifications promise only "best effort" delivery, we recommend
-    /// calling <code>DescribeMatchmaking</code> if no notifications are received within 30
-    /// seconds.
+    /// To track the progress of matchmaking tickets, set up an Amazon Simple Notification
+    /// Service (SNS) to receive notifications, and provide the topic ARN in the matchmaking
+    /// configuration. An alternative method, continuously poling ticket status with <a>DescribeMatchmaking</a>,
+    /// should only be used for games in development with low matchmaking usage.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">
     /// Design a FlexMatch Matchmaker</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
-    /// Setting up Notifications for Matchmaking</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li><li><para><a>DeleteMatchmakingRuleSet</a></para></li></ul>
+    /// Set Up FlexMatch Event Notification</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li><li><para><a>DeleteMatchmakingRuleSet</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLMatchmakingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingConfiguration")]

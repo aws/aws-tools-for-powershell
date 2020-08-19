@@ -29,18 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket information,
-    /// including status and--once a successful match is made--acquire connection information
-    /// for the resulting new game session. 
+    /// including--after a successful match is made--connection information for the resulting
+    /// new game session. 
     /// 
     ///  
     /// <para>
-    /// You can use this operation to track the progress of matchmaking requests (through
-    /// polling) as an alternative to using event notifications. See more details on tracking
-    /// matchmaking requests through polling or notifications in <a>StartMatchmaking</a>.
-    /// 
-    /// </para><para>
     /// To request matchmaking tickets, provide a list of up to 10 ticket IDs. If the request
     /// is successful, a ticket object is returned for each requested ID that currently exists.
+    /// </para><para>
+    /// This operation is not designed to be continually called to track matchmaking ticket
+    /// status. This practice can cause you to exceed your API limit, which results in errors.
+    /// Instead, as a best practice, set up an Amazon Simple Notification Service (SNS) to
+    /// receive notifications, and provide the topic ARN in the matchmaking configuration.
+    /// Continuously poling ticket status with <a>DescribeMatchmaking</a> should only be used
+    /// for games in development with low matchmaking usage.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-client.html">
     /// Add FlexMatch to a Game Client</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
     /// Set Up FlexMatch Event Notification</a></para><para><b>Related operations</b></para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>

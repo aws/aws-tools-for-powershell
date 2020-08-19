@@ -28,7 +28,7 @@ using Amazon.Route53Resolver.Model;
 namespace Amazon.PowerShell.Cmdlets.R53R
 {
     /// <summary>
-    /// Updates the name of an inbound or an outbound resolver endpoint.
+    /// Updates the name of an inbound or an outbound Resolver endpoint.
     /// </summary>
     [Cmdlet("Update", "R53RResolverEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53Resolver.Model.ResolverEndpoint")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the resolver endpoint that you want to update.</para>
+        /// <para>The name of the Resolver endpoint that you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter ResolverEndpointId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resolver endpoint that you want to update.</para>
+        /// <para>The ID of the Resolver endpoint that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

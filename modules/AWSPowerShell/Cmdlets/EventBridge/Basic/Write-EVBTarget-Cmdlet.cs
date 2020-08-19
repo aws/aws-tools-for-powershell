@@ -68,6 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// The default event bus of another AWS account
     /// </para></li><li><para>
     /// Amazon API Gateway REST APIs
+    /// </para></li><li><para>
+    /// Redshift Clusters to invoke Data API ExecuteStatement on
     /// </para></li></ul><para>
     /// Creating rules with built-in targets is supported only in the AWS Management Console.
     /// The built-in targets are <code>EC2 CreateSnapshot API call</code>, <code>EC2 RebootInstances

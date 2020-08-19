@@ -225,7 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The parameter value that you want to add to the system. Standard parameters have a
-        /// value limit of 4 KB. Advanced parameters have a value limit of 8 KB.</para>
+        /// value limit of 4 KB. Advanced parameters have a value limit of 8 KB.</para><note><para>Parameters can't be referenced or nested in the values of other parameters. You can't
+        /// include <code>{{}}</code> or <code>{{ssm:<i>parameter-name</i>}}</code> in a parameter
+        /// value.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

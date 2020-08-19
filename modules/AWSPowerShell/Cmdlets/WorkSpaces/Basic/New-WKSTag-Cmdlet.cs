@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <summary>
         /// <para>
         /// <para>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,
-        /// registered directories, images, custom bundles, and IP access control groups.</para>
+        /// registered directories, images, custom bundles, IP access control groups, and connection
+        /// aliases.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

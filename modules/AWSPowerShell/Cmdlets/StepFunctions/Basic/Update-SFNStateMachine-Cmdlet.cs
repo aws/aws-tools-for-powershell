@@ -74,10 +74,20 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public Amazon.StepFunctions.Model.LogDestination[] LoggingConfiguration_Destination { get; set; }
         #endregion
         
+        #region Parameter TracingConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, AWS X-Ray tracing is enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? TracingConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter LoggingConfiguration_IncludeExecutionData
         /// <summary>
         /// <para>
-        /// <para>Determines whether execution data is included in your log. When set to <code>FALSE</code>,
+        /// <para>Determines whether execution data is included in your log. When set to <code>false</code>,
         /// data is excluded.</para>
         /// </para>
         /// </summary>
@@ -199,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 WriteWarning("You are passing $null as a value for parameter StateMachineArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TracingConfiguration_Enabled = this.TracingConfiguration_Enabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -267,6 +278,25 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 request.StateMachineArn = cmdletContext.StateMachineArn;
             }
             
+             // populate TracingConfiguration
+            var requestTracingConfigurationIsNull = true;
+            request.TracingConfiguration = new Amazon.StepFunctions.Model.TracingConfiguration();
+            System.Boolean? requestTracingConfiguration_tracingConfiguration_Enabled = null;
+            if (cmdletContext.TracingConfiguration_Enabled != null)
+            {
+                requestTracingConfiguration_tracingConfiguration_Enabled = cmdletContext.TracingConfiguration_Enabled.Value;
+            }
+            if (requestTracingConfiguration_tracingConfiguration_Enabled != null)
+            {
+                request.TracingConfiguration.Enabled = requestTracingConfiguration_tracingConfiguration_Enabled.Value;
+                requestTracingConfigurationIsNull = false;
+            }
+             // determine if request.TracingConfiguration should be set to null
+            if (requestTracingConfigurationIsNull)
+            {
+                request.TracingConfiguration = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -333,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             public Amazon.StepFunctions.LogLevel LoggingConfiguration_Level { get; set; }
             public System.String RoleArn { get; set; }
             public System.String StateMachineArn { get; set; }
+            public System.Boolean? TracingConfiguration_Enabled { get; set; }
             public System.Func<Amazon.StepFunctions.Model.UpdateStateMachineResponse, UpdateSFNStateMachineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.UpdateDate;
         }

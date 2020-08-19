@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
     /// </para></li></ul><para>
     /// You can specify that the query return only one type of result using the <code>QueryResultTypeConfig</code>
     /// parameter.
+    /// </para><para>
+    /// Each query returns the 100 most relevant results. 
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KNDRQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

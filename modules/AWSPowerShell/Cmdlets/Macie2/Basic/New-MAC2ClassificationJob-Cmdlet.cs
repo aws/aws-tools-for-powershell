@@ -132,7 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter InitialRun
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to run the job immediately, after it's created.</para>
+        /// <para>Specifies whether to analyze all existing, eligible objects immediately after the
+        /// job is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

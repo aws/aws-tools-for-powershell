@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para></li><li><para>
     ///  Suspended – Disables accelerated data transfers to the bucket.
     /// </para></li></ul><para>
-    /// The <a>GetBucketAccelerateConfiguration</a> operation returns the transfer acceleration
-    /// state of a bucket.
+    /// The <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html">GetBucketAccelerateConfiguration</a>
+    /// operation returns the transfer acceleration state of a bucket.
     /// </para><para>
     /// After setting the Transfer Acceleration state of a bucket to Enabled, it might take
     /// up to thirty minutes before the data transfer rates to the bucket increase.
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// Acceleration</a>.
     /// </para><para>
     /// The following operations are related to <code>PutBucketAccelerateConfiguration</code>:
-    /// </para><ul><li><para><a>GetBucketAccelerateConfiguration</a></para></li><li><para><a>CreateBucket</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html">GetBucketAccelerateConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">CreateBucket</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3BucketAccelerateConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter AccelerateConfiguration_Status
@@ -155,6 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BucketName = this.BucketName;
             context.AccelerateConfiguration_Status = this.AccelerateConfiguration_Status;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -193,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestAccelerateConfigurationIsNull)
             {
                 request.AccelerateConfiguration = null;
+            }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
             
             CmdletOutput output;
@@ -257,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public Amazon.S3.BucketAccelerateStatus AccelerateConfiguration_Status { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.PutBucketAccelerateConfigurationResponse, WriteS3BucketAccelerateConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

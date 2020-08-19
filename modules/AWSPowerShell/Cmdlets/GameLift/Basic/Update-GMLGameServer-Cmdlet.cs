@@ -28,34 +28,30 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This action is part of Amazon GameLift FleetIQ with game server groups, which
-    /// is in preview release and is subject to change.</b><para>
-    /// Updates information about a registered game server. This action is called by a game
-    /// server process that is running on an instance in a game server group. There are three
-    /// reasons to update game server information: (1) to change the utilization status of
-    /// the game server, (2) to report game server health status, and (3) to change game server
-    /// metadata. A registered game server should regularly report health and should update
-    /// utilization status when it is supporting gameplay so that GameLift FleetIQ can accurately
-    /// track game server availability. You can make all three types of updates in the same
-    /// request.
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
+    /// Updates information about a registered game server to help GameLift FleetIQ to track
+    /// game server availability. This operation is called by a game server process that is
+    /// running on an instance in a game server group. 
+    /// </para><para>
+    /// Use this operation to update the following types of game server information. You can
+    /// make all three types of updates in the same request:
     /// </para><ul><li><para>
     /// To update the game server's utilization status, identify the game server and game
     /// server group and specify the current utilization status. Use this status to identify
     /// when game servers are currently hosting games and when they are available to be claimed.
-    /// 
     /// </para></li><li><para>
     /// To report health status, identify the game server and game server group and set health
-    /// check to HEALTHY. If a game server does not report health status for a certain length
-    /// of time, the game server is no longer considered healthy and will be eventually de-registered
-    /// from the game server group to avoid affecting utilization metrics. The best practice
-    /// is to report health every 60 seconds.
+    /// check to <code>HEALTHY</code>. If a game server does not report health status for
+    /// a certain length of time, the game server is no longer considered healthy. As a result,
+    /// it will be eventually deregistered from the game server group to avoid affecting utilization
+    /// metrics. The best practice is to report health every 60 seconds.
     /// </para></li><li><para>
-    /// To change game server metadata, provide updated game server data and custom sort key
-    /// values.
+    /// To change game server metadata, provide updated game server data.
     /// </para></li></ul><para>
     /// Once a game server is successfully updated, the relevant statuses and timestamps are
     /// updated.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
     /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>RegisterGameServer</a></para></li><li><para><a>ListGameServers</a></para></li><li><para><a>ClaimGameServer</a></para></li><li><para><a>DescribeGameServer</a></para></li><li><para><a>UpdateGameServer</a></para></li><li><para><a>DeregisterGameServer</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "GMLGameServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,24 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
     public partial class UpdateGMLGameServerCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter CustomSortKey
-        /// <summary>
-        /// <para>
-        /// <para>A game server tag that can be used to request sorted lists of game servers using <a>ListGameServers</a>.
-        /// Custom sort keys are developer-defined based on how you want to organize the retrieved
-        /// game server information.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CustomSortKey { get; set; }
-        #endregion
-        
         #region Parameter GameServerData
         /// <summary>
         /// <para>
         /// <para>A set of custom game server properties, formatted as a single string value. This data
-        /// is passed to a game client or service when it requests information on a game servers
-        /// using <a>DescribeGameServer</a> or <a>ClaimGameServer</a>. </para>
+        /// is passed to a game client or service when it requests information on game servers
+        /// using <a>ListGameServers</a> or <a>ClaimGameServer</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>An identifier for the game server group where the game server is running. Use either
-        /// the <a>GameServerGroup</a> name or ARN value.</para>
+        /// <para>A unique identifier for the game server group where the game server is running. Use
+        /// either the <a>GameServerGroup</a> name or ARN value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the game server to be updated.</para>
+        /// <para>A custom string that uniquely identifies the game server to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter HealthCheck
         /// <summary>
         /// <para>
-        /// <para>Indicates health status of the game server. An update that explicitly includes this
-        /// parameter updates the game server's <i>LastHealthCheckTime</i> time stamp. </para>
+        /// <para>Indicates health status of the game server. A request that includes this parameter
+        /// updates the game server's <i>LastHealthCheckTime</i> timestamp. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +195,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.Select = (response, cmdlet) => this.GameServerId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CustomSortKey = this.CustomSortKey;
             context.GameServerData = this.GameServerData;
             context.GameServerGroupName = this.GameServerGroupName;
             #if MODULAR
@@ -245,10 +228,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // create request
             var request = new Amazon.GameLift.Model.UpdateGameServerRequest();
             
-            if (cmdletContext.CustomSortKey != null)
-            {
-                request.CustomSortKey = cmdletContext.CustomSortKey;
-            }
             if (cmdletContext.GameServerData != null)
             {
                 request.GameServerData = cmdletContext.GameServerData;
@@ -330,7 +309,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CustomSortKey { get; set; }
             public System.String GameServerData { get; set; }
             public System.String GameServerGroupName { get; set; }
             public System.String GameServerId { get; set; }

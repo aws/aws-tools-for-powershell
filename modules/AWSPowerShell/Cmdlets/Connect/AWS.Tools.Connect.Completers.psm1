@@ -80,6 +80,13 @@ $CONN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Connect.ContactFlowType
+        "New-CONNContactFlow/Type"
+        {
+            $v = "AGENT_HOLD","AGENT_TRANSFER","AGENT_WHISPER","CONTACT_FLOW","CUSTOMER_HOLD","CUSTOMER_QUEUE","CUSTOMER_WHISPER","OUTBOUND_WHISPER","QUEUE_TRANSFER"
+            break
+        }
+
         # Amazon.Connect.VoiceRecordingTrack
         "Start-CONNContactRecording/VoiceRecordingConfiguration_VoiceRecordingTrack"
         {
@@ -96,6 +103,7 @@ $CONN_Completers = {
 }
 
 $CONN_map = @{
+    "Type"=@("New-CONNContactFlow")
     "VoiceRecordingConfiguration_VoiceRecordingTrack"=@("Start-CONNContactRecording")
 }
 
@@ -149,11 +157,17 @@ $CONN_SelectCompleters = {
 }
 
 $CONN_SelectMap = @{
-    "Select"=@("New-CONNUser",
+    "Select"=@("Join-CONNRoutingProfileQueue",
+               "New-CONNContactFlow",
+               "New-CONNRoutingProfile",
+               "New-CONNUser",
                "Remove-CONNUser",
+               "Get-CONNContactFlow",
+               "Get-CONNRoutingProfile",
                "Get-CONNUser",
                "Get-CONNUserHierarchyGroup",
                "Get-CONNUserHierarchyStructure",
+               "Disconnect-CONNRoutingProfileQueue",
                "Get-CONNContactAttribute",
                "Get-CONNCurrentMetricData",
                "Get-CONNFederationToken",
@@ -161,7 +175,9 @@ $CONN_SelectMap = @{
                "Get-CONNContactFlowList",
                "Get-CONNHoursOfOperationList",
                "Get-CONNPhoneNumberList",
+               "Get-CONNPromptList",
                "Get-CONNQueueList",
+               "Get-CONNRoutingProfileQueueList",
                "Get-CONNRoutingProfileList",
                "Get-CONNSecurityProfileList",
                "Get-CONNResourceTag",
@@ -177,6 +193,12 @@ $CONN_SelectMap = @{
                "Add-CONNResourceTag",
                "Remove-CONNResourceTag",
                "Update-CONNContactAttribute",
+               "Update-CONNContactFlowContent",
+               "Update-CONNContactFlowName",
+               "Update-CONNRoutingProfileConcurrency",
+               "Update-CONNRoutingProfileDefaultOutboundQueue",
+               "Update-CONNRoutingProfileName",
+               "Update-CONNRoutingProfileQueue",
                "Update-CONNUserHierarchy",
                "Update-CONNUserIdentityInfo",
                "Update-CONNUserPhoneConfig",

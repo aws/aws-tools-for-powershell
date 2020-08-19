@@ -68,10 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter for the requested list of assets. Choose one of the following options.
-        /// Defaults to <code>ALL</code>.</para><ul><li><para><code>ALL</code> – The list includes all assets for a given asset model ID. The <code>assetModelId</code>
+        /// <para>The filter for the requested list of assets. Choose one of the following options:</para><ul><li><para><code>ALL</code> – The list includes all assets for a given asset model ID. The <code>assetModelId</code>
         /// parameter is required if you filter by <code>ALL</code>.</para></li><li><para><code>TOP_LEVEL</code> – The list includes only top-level assets in the asset hierarchy
-        /// tree.</para></li></ul>
+        /// tree.</para></li></ul><para>Default: <code>ALL</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned per paginated request.</para>
+        /// <para>The maximum number of results to be returned per paginated request.</para><para>Default: 50</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

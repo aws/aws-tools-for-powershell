@@ -425,6 +425,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTransitGatewayPrefixListReference" OutputProperty="TransitGatewayPrefixListReference" Verb="New" Noun="TransitGatewayPrefixListReference" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTransitGatewayRoute" OutputProperty="Route" Verb="New" Noun="TransitGatewayRoute" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -628,6 +632,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTransitGatewayPeeringAttachment" OutputProperty="TransitGatewayPeeringAttachment" Verb="Remove" Noun="TransitGatewayPeeringAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTransitGatewayPrefixListReference" OutputProperty="TransitGatewayPrefixListReference" Verb="Remove" Noun="TransitGatewayPrefixListReference" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1392,6 +1400,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTransitGatewayPrefixListReferences" OutputProperty="TransitGatewayPrefixListReferences" Verb="Get" Noun="TransitGatewayPrefixListReference" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTransitGatewayRouteTableAssociations" OutputProperty="Associations" Verb="Get" Noun="TransitGatewayRouteTableAssociation" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -1552,6 +1564,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTransitGateway" OutputProperty="TransitGateway" Verb="Edit" Noun="TransitGateway" ShouldProcessTarget="TransitGatewayId" PipelineParameter="TransitGatewayId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTransitGatewayPrefixListReference" OutputProperty="TransitGatewayPrefixListReference" Verb="Edit" Noun="TransitGatewayPrefixListReference" ShouldProcessTarget="TransitGatewayRouteTableId" PipelineParameter="TransitGatewayRouteTableId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyTransitGatewayVpcAttachment" OutputProperty="TransitGatewayVpcAttachment" Verb="Edit" Noun="TransitGatewayVpcAttachment" ShouldProcessTarget="TransitGatewayAttachmentId" PipelineParameter="TransitGatewayAttachmentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1597,6 +1617,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyVpnConnection" OutputProperty="VpnConnection" Verb="Edit" Noun="VpnConnection" ShouldProcessTarget="VpnConnectionId" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpnConnectionOptions" OutputProperty="VpnConnection" Verb="Edit" Noun="VpnConnectionOption" ShouldProcessTarget="VpnConnectionId" PipelineParameter="VpnConnectionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

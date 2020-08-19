@@ -28,13 +28,12 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// <b>This action is part of Amazon GameLift FleetIQ with game server groups, which
-    /// is in preview release and is subject to change.</b><para>
-    /// Retrieves information on all game servers that are currently running in a specified
-    /// game server group. If there are custom key sort values for your game servers, you
-    /// can opt to have the returned list sorted based on these values. Use the pagination
-    /// parameters to retrieve results in a set of sequential pages. 
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gsg-intro.html">GameLift
+    /// <b>This operation is used with the Amazon GameLift FleetIQ solution and game server
+    /// groups.</b><para>
+    /// Retrieves information on all game servers that are currently active in a specified
+    /// game server group. You can opt to sort the list by game server age. Use the pagination
+    /// parameters to retrieve results in a set of sequential segments. 
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift
     /// FleetIQ Guide</a></para><para><b>Related operations</b></para><ul><li><para><a>RegisterGameServer</a></para></li><li><para><a>ListGameServers</a></para></li><li><para><a>ClaimGameServer</a></para></li><li><para><a>DescribeGameServer</a></para></li><li><para><a>UpdateGameServer</a></para></li><li><para><a>DeregisterGameServer</a></para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLGameServerList")]
@@ -50,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameServerGroupName
         /// <summary>
         /// <para>
-        /// <para>An identifier for the game server group for the game server you want to list. Use
+        /// <para>An identifier for the game server group to retrieve a list of game servers from. Use
         /// either the <a>GameServerGroup</a> name or ARN value.</para>
         /// </para>
         /// </summary>
@@ -68,9 +67,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>Indicates how to sort the returned data based on the game servers' custom key sort
-        /// value. If this parameter is left empty, the list of game servers is returned in no
-        /// particular order.</para>
+        /// <para>Indicates how to sort the returned data based on game server registration timestamp.
+        /// Use ASCENDING to retrieve oldest game servers first, or use DESCENDING to retrieve
+        /// newest game servers first. If this parameter is left empty, game servers are returned
+        /// in no particular order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return. Use this parameter with <code>NextToken</code>
-        /// to get results as a set of sequential pages.</para>
+        /// to get results as a set of sequential segments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token that indicates the start of the next sequential page of results. Use the token
-        /// that is returned with a previous call to this action. To start at the beginning of
-        /// the result set, do not specify a value.</para>
+        /// <para>A token that indicates the start of the next sequential segment of results. Use the
+        /// token returned with the previous call to this operation. To start at the beginning
+        /// of the result set, do not specify a value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

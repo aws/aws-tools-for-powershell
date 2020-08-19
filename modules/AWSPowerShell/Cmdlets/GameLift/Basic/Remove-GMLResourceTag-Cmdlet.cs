@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Removes a tag that is assigned to a GameLift resource. Resource tags are used to organize
-    /// AWS resources for a range of purposes. This action handles the permissions necessary
+    /// AWS resources for a range of purposes. This operation handles the permissions necessary
     /// to manage tags for the following GameLift resource types:
     /// 
     ///  <ul><li><para>
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// MatchmakingRuleSet
     /// </para></li></ul><para>
     /// To remove a tag from a resource, specify the unique ARN value for the resource and
-    /// provide a string list containing one or more tags to be removed. This action succeeds
+    /// provide a string list containing one or more tags to be removed. This operation succeeds
     /// even if the list includes tags that are not currently assigned to the specified resource.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
     /// AWS Resources</a> in the <i>AWS General Reference</i></para><para><a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
         /// that is assigned to and uniquely identifies the GameLift resource that you want to
         /// remove tags from. GameLift resource ARNs are included in the data object for the resource,
-        /// which can be retrieved by calling a List or Describe action for the resource type.
+        /// which can be retrieved by calling a List or Describe operation for the resource type.
         /// </para>
         /// </para>
         /// </summary>

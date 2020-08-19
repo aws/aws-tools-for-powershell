@@ -28,12 +28,11 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates a log group with the specified name.
+    /// Creates a log group with the specified name. You can create up to 20,000 log groups
+    /// per account.
     /// 
     ///  
     /// <para>
-    /// You can create up to 20,000 log groups per account.
-    /// </para><para>
     /// You must use the following guidelines when naming a log group:
     /// </para><ul><li><para>
     /// Log group names must be unique within a region for an AWS account.
@@ -43,18 +42,23 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore),
     /// '-' (hyphen), '/' (forward slash), '.' (period), and '#' (number sign)
     /// </para></li></ul><para>
+    /// When you create a log group, by default the log events in the log group never expire.
+    /// To set a retention policy so that events expire and are deleted after a specified
+    /// time, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutRetentionPolicy.html">PutRetentionPolicy</a>.
+    /// </para><para>
     /// If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK)
     /// with the log group, ingested data is encrypted using the CMK. This association is
     /// stored as long as the data encrypted with the CMK is still within Amazon CloudWatch
     /// Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.
     /// </para><para>
     /// If you attempt to associate a CMK with the log group but the CMK does not exist or
-    /// the CMK is disabled, you will receive an <code>InvalidParameterException</code> error.
+    /// the CMK is disabled, you receive an <code>InvalidParameterException</code> error.
     /// 
-    /// </para><note><para><b>Important:</b> CloudWatch Logs supports only symmetric CMKs. Do not associate
-    /// an asymmetric CMK with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+    /// </para><important><para>
+    ///  CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK
+    /// with your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
     /// Symmetric and Asymmetric Keys</a>.
-    /// </para></note>
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "CWLLogGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

@@ -86,14 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>AWS Config stores intermediate files while processing conformance pack template.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DeliveryS3Bucket { get; set; }
         #endregion
         
@@ -204,12 +197,6 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             }
             #endif
             context.DeliveryS3Bucket = this.DeliveryS3Bucket;
-            #if MODULAR
-            if (this.DeliveryS3Bucket == null && ParameterWasBound(nameof(this.DeliveryS3Bucket)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DeliveryS3Bucket which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.DeliveryS3KeyPrefix = this.DeliveryS3KeyPrefix;
             context.TemplateBody = this.TemplateBody;
             context.TemplateS3Uri = this.TemplateS3Uri;

@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <para>
         /// <para>The authorization type for the route. For WebSocket APIs, valid values are NONE for
         /// open access, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda
-        /// authorizer For HTTP APIs, valid values are NONE for open access, or JWT for using
-        /// JSON Web Tokens.</para>
+        /// authorizer For HTTP APIs, valid values are NONE for open access, JWT for using JSON
+        /// Web Tokens, AWS_IAM for using AWS IAM permissions, and CUSTOM for using a Lambda authorizer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

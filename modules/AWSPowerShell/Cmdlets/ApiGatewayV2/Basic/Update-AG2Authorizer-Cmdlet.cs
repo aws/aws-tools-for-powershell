@@ -73,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <para>
         /// <para>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer.
         /// To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name
-        /// (ARN). To use resource-based permissions on the Lambda function, specify null.</para>
+        /// (ARN). To use resource-based permissions on the Lambda function, don't specify this
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,10 +98,26 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.String AuthorizerId { get; set; }
         #endregion
         
+        #region Parameter AuthorizerPayloadFormatVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required
+        /// for HTTP API Lambda authorizers. Supported values are 1.0 and 2.0. To learn more,
+        /// see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working
+        /// with AWS Lambda authorizers for HTTP APIs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AuthorizerPayloadFormatVersion { get; set; }
+        #endregion
+        
         #region Parameter AuthorizerResultTtlInSecond
         /// <summary>
         /// <para>
-        /// <para>Authorizer caching is not currently supported. Don't specify this value for authorizers.</para>
+        /// <para>The time to live (TTL) for cached authorizer results, in seconds. If it equals 0,
+        /// authorization caching is disabled. If it is greater than 0, API Gateway caches authorizer
+        /// responses. The maximum value is 3600, or 1 hour. Supported only for HTTP API Lambda
+        /// authorizers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter AuthorizerType
         /// <summary>
         /// <para>
-        /// <para>The authorizer type. For WebSocket APIs, specify REQUEST for a Lambda function using
-        /// incoming request parameters. For HTTP APIs, specify JWT to use JSON Web Tokens.</para>
+        /// <para>The authorizer type. Specify REQUEST for a Lambda function using incoming request
+        /// parameters. Specify JWT to use JSON Web Tokens (supported only for HTTP APIs).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,21 +154,39 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         public System.String AuthorizerUri { get; set; }
         #endregion
         
+        #region Parameter EnableSimpleResponse
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether a Lambda authorizer returns a response in a simple format. By default,
+        /// a Lambda authorizer must return an IAM policy. If enabled, the Lambda authorizer can
+        /// return a boolean value instead of an IAM policy. Supported only for HTTP APIs. To
+        /// learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working
+        /// with AWS Lambda authorizers for HTTP APIs</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EnableSimpleResponses")]
+        public System.Boolean? EnableSimpleResponse { get; set; }
+        #endregion
+        
         #region Parameter IdentitySource
         /// <summary>
         /// <para>
         /// <para>The identity source for which authorization is requested.</para><para>For a REQUEST authorizer, this is optional. The value is a set of one or more mapping
-        /// expressions of the specified request parameters. Currently, the identity source can
-        /// be headers, query string parameters, stage variables, and context parameters. For
-        /// example, if an Auth header and a Name query string parameter are defined as identity
-        /// sources, this value is route.request.header.Auth, route.request.querystring.Name.
-        /// These parameters will be used to perform runtime validation for Lambda-based authorizers
-        /// by verifying all of the identity-related request parameters are present in the request,
-        /// not null, and non-empty. Only when this is true does the authorizer invoke the authorizer
-        /// Lambda function. Otherwise, it returns a 401 Unauthorized response without calling
-        /// the Lambda function.</para><para>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from
+        /// expressions of the specified request parameters. The identity source can be headers,
+        /// query string parameters, stage variables, and context parameters. For example, if
+        /// an Auth header and a Name query string parameter are defined as identity sources,
+        /// this value is route.request.header.Auth, route.request.querystring.Name for WebSocket
+        /// APIs. For HTTP APIs, use selection expressions prefixed with $, for example, $request.header.Auth,
+        /// $request.querystring.Name. These parameters are used to perform runtime validation
+        /// for Lambda-based authorizers by verifying all of the identity-related request parameters
+        /// are present in the request, not null, and non-empty. Only when this is true does the
+        /// authorizer invoke the authorizer Lambda function. Otherwise, it returns a 401 Unauthorized
+        /// response without calling the Lambda function. For HTTP APIs, identity sources are
+        /// also used as the cache key when caching is enabled. To learn more, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html">Working
+        /// with AWS Lambda authorizers for HTTP APIs</a>.</para><para>For JWT, a single entry that specifies where to extract the JSON Web Token (JWT) from
         /// inbound requests. Currently only header-based and query parameter-based selections
-        /// are supported, for example "$request.header.Authorization".</para>
+        /// are supported, for example $request.header.Authorization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,9 +301,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 WriteWarning("You are passing $null as a value for parameter AuthorizerId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AuthorizerPayloadFormatVersion = this.AuthorizerPayloadFormatVersion;
             context.AuthorizerResultTtlInSecond = this.AuthorizerResultTtlInSecond;
             context.AuthorizerType = this.AuthorizerType;
             context.AuthorizerUri = this.AuthorizerUri;
+            context.EnableSimpleResponse = this.EnableSimpleResponse;
             if (this.IdentitySource != null)
             {
                 context.IdentitySource = new List<System.String>(this.IdentitySource);
@@ -308,6 +345,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             {
                 request.AuthorizerId = cmdletContext.AuthorizerId;
             }
+            if (cmdletContext.AuthorizerPayloadFormatVersion != null)
+            {
+                request.AuthorizerPayloadFormatVersion = cmdletContext.AuthorizerPayloadFormatVersion;
+            }
             if (cmdletContext.AuthorizerResultTtlInSecond != null)
             {
                 request.AuthorizerResultTtlInSeconds = cmdletContext.AuthorizerResultTtlInSecond.Value;
@@ -319,6 +360,10 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             if (cmdletContext.AuthorizerUri != null)
             {
                 request.AuthorizerUri = cmdletContext.AuthorizerUri;
+            }
+            if (cmdletContext.EnableSimpleResponse != null)
+            {
+                request.EnableSimpleResponses = cmdletContext.EnableSimpleResponse.Value;
             }
             if (cmdletContext.IdentitySource != null)
             {
@@ -425,9 +470,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             public System.String ApiId { get; set; }
             public System.String AuthorizerCredentialsArn { get; set; }
             public System.String AuthorizerId { get; set; }
+            public System.String AuthorizerPayloadFormatVersion { get; set; }
             public System.Int32? AuthorizerResultTtlInSecond { get; set; }
             public Amazon.ApiGatewayV2.AuthorizerType AuthorizerType { get; set; }
             public System.String AuthorizerUri { get; set; }
+            public System.Boolean? EnableSimpleResponse { get; set; }
             public List<System.String> IdentitySource { get; set; }
             public System.String IdentityValidationExpression { get; set; }
             public List<System.String> JwtConfiguration_Audience { get; set; }

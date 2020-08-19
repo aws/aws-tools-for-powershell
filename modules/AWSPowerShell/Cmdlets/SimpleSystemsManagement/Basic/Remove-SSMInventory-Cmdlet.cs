@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Delete a custom inventory type, or the data associated with a custom Inventory type.
+    /// Delete a custom inventory type or the data associated with a custom Inventory type.
     /// Deleting a custom inventory type is also referred to as deleting a custom inventory
     /// schema.
     /// </summary>
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The name of the custom inventory type for which you want to delete either all previously
-        /// collected data, or the inventory type itself. </para>
+        /// collected data or the inventory type itself. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

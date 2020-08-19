@@ -96,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The engine version number of the replication instance.</para>
+        /// <para>The engine version number of the replication instance.</para><para>When modifying a major engine version of an instance, also set <code>AllowMajorVersionUpgrade</code>
+        /// to <code>true</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,6 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
     /// Organization Policies</a>.
     /// </para><para>
+    /// If the request includes tags, then the requester must have the <code>organizations:TagResource</code>
+    /// permission.
+    /// </para><para>
     /// This operation can be called only from the organization's master account.
     /// </para>
     /// </summary>
@@ -100,6 +103,22 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the newly created policy. For each tag in
+        /// the list, you must specify both a tag key and a value. You can set the value to an
+        /// empty string, but you can't set it to <code>null</code>. For more information about
+        /// tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging
+        /// AWS Organizations resources</a> in the AWS Organizations User Guide.</para><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags for
+        /// a policy, then the entire request fails and the policy is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Organizations.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Type
@@ -201,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Organizations.Model.Tag>(this.Tag);
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -235,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.Type != null)
             {
@@ -304,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             public System.String Content { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.Organizations.Model.Tag> Tag { get; set; }
             public Amazon.Organizations.PolicyType Type { get; set; }
             public System.Func<Amazon.Organizations.Model.CreatePolicyResponse, NewORGPolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Policy;

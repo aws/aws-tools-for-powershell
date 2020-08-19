@@ -28,7 +28,7 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Returns a list of AWS resource identifiers that matches tne specified query. The query
+    /// Returns a list of AWS resource identifiers that matches the specified query. The query
     /// uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.<br/><br/>In the AWS.Tools.ResourceGroups module, this cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Find", "RGResource")]

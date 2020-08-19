@@ -281,10 +281,12 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The image tag or image digest that identifies the Docker image to use for this build
-        /// project. Use the following formats:</para><ul><li><para>For an image tag: <code>registry/repository:tag</code>. For example, to specify an
-        /// image with the tag "latest," use <code>registry/repository:latest</code>.</para></li><li><para>For an image digest: <code>registry/repository@digest</code>. For example, to specify
-        /// an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf,"
-        /// use <code>registry/repository@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf</code>.</para></li></ul>
+        /// project. Use the following formats:</para><ul><li><para>For an image tag: <code>&lt;registry&gt;/&lt;repository&gt;:&lt;tag&gt;</code>. For
+        /// example, in the Docker repository that CodeBuild uses to manage its Docker images,
+        /// this would be <code>aws/codebuild/standard:4.0</code>. To specify the latest version
+        /// of this image, this would be <code>aws/codebuild/standard:latest</code>.</para></li><li><para>For an image digest: <code>&lt;registry&gt;/&lt;repository&gt;@&lt;digest&gt;</code>.
+        /// For example, to specify an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf,"
+        /// use <code>&lt;registry&gt;/&lt;repository&gt;@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

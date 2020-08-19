@@ -14,7 +14,6 @@
     <VerbMappings />
     <NounMappings />
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases />
     <LegacyAliases />
     <ParamEmitters />
@@ -25,6 +24,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateMemberToGroup" Verb="Add" Noun="MemberToGroup" ShouldProcessTarget="MemberId" PipelineParameter="MemberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelMailboxExportJob" Verb="Stop" Noun="MailboxExportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -80,6 +83,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMailboxExportJob" OutputProperty="*" Verb="Get" Noun="MailboxExportJob" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeOrganization" OutputProperty="*" Verb="Get" Noun="Organization" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -128,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMailboxExportJobs" OutputProperty="Jobs" Verb="Get" Noun="MailboxExportJobList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMailboxPermissions" OutputProperty="Permissions" Verb="Get" Noun="MailboxPermissionList" PipelineParameter="EntityId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -172,6 +183,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartMailboxExportJob" OutputProperty="JobId" Verb="Start" Noun="MailboxExportJob" ShouldProcessTarget="EntityId" PipelineParameter="EntityId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -193,8 +208,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.WorkMail.Model.BookingOptions</Type>
     </TypesNotToFlatten>

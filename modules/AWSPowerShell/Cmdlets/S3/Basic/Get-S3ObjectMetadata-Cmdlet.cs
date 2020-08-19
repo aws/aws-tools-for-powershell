@@ -42,11 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the metadata
     /// from the object, you must use the following headers:
     /// </para><ul><li><para>
-    /// x-amz-server-side​-encryption​-customer-algorithm
+    /// x-amz-server-side-encryption-customer-algorithm
     /// </para></li><li><para>
-    /// x-amz-server-side​-encryption​-customer-key
+    /// x-amz-server-side-encryption-customer-key
     /// </para></li><li><para>
-    /// x-amz-server-side​-encryption​-customer-key-MD5
+    /// x-amz-server-side-encryption-customer-key-MD5
     /// </para></li></ul><para>
     /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
     /// Encryption (Using Customer-Provided Encryption Keys)</a>.
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// HTTP status code 403 ("access denied") error.
     /// </para></li></ul><para>
     /// The following operation is related to <code>HeadObject</code>:
-    /// </para><ul><li><para><a>GetObject</a></para></li></ul>
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "S3ObjectMetadata")]
     [OutputType("Amazon.S3.Model.GetObjectMetadataResponse")]
@@ -132,6 +132,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EtagToNotMatch { get; set; }
+        #endregion
+        
+        #region Parameter ExpectedBucketOwner
+        /// <summary>
+        /// <para>
+        /// The account id of the expected bucket owner. 
+        /// If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ExpectedBucketOwner { get; set; }
         #endregion
         
         #region Parameter Key
@@ -337,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ServerSideEncryptionCustomerProvidedKeyMD5 = this.ServerSideEncryptionCustomerProvidedKeyMD5;
             context.PartNumber = this.PartNumber;
             context.RequestPayer = this.RequestPayer;
+            context.ExpectedBucketOwner = this.ExpectedBucketOwner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -421,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.RequestPayer = cmdletContext.RequestPayer;
             }
+            if (cmdletContext.ExpectedBucketOwner != null)
+            {
+                request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
             
             CmdletOutput output;
             
@@ -498,6 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
             public System.Int32? PartNumber { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
+            public System.String ExpectedBucketOwner { get; set; }
             public System.Func<Amazon.S3.Model.GetObjectMetadataResponse, GetS3ObjectMetadataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -42,6 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// means a cross-account user cannot call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html">PutSubscriptionFilter</a>
     /// against this destination. To enable this, the destination owner must call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a>
     /// after <code>PutDestination</code>.
+    /// </para><para>
+    /// To perform a <code>PutDestination</code> operation, you must also have the <code>iam:PassRole</code>
+    /// permission.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -75,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon
-        /// Kinesis PutRecord operation on the destination stream.</para>
+        /// Kinesis <code>PutRecord</code> operation on the destination stream.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

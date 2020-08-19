@@ -88,6 +88,46 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean? Options_EnableAcceleration { get; set; }
         #endregion
         
+        #region Parameter Options_LocalIpv4NetworkCidr
+        /// <summary>
+        /// <para>
+        /// <para>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Options_LocalIpv4NetworkCidr { get; set; }
+        #endregion
+        
+        #region Parameter Options_LocalIpv6NetworkCidr
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</para><para>Default: <code>::/0</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Options_LocalIpv6NetworkCidr { get; set; }
+        #endregion
+        
+        #region Parameter Options_RemoteIpv4NetworkCidr
+        /// <summary>
+        /// <para>
+        /// <para>The IPv4 CIDR on the AWS side of the VPN connection.</para><para>Default: <code>0.0.0.0/0</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Options_RemoteIpv4NetworkCidr { get; set; }
+        #endregion
+        
+        #region Parameter Options_RemoteIpv6NetworkCidr
+        /// <summary>
+        /// <para>
+        /// <para>The IPv6 CIDR on the AWS side of the VPN connection.</para><para>Default: <code>::/0</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Options_RemoteIpv6NetworkCidr { get; set; }
+        #endregion
+        
         #region Parameter Options_StaticRoutesOnly
         /// <summary>
         /// <para>
@@ -242,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.Options_EnableAcceleration = this.Options_EnableAcceleration;
+            context.Options_LocalIpv4NetworkCidr = this.Options_LocalIpv4NetworkCidr;
+            context.Options_LocalIpv6NetworkCidr = this.Options_LocalIpv6NetworkCidr;
+            context.Options_RemoteIpv4NetworkCidr = this.Options_RemoteIpv4NetworkCidr;
+            context.Options_RemoteIpv6NetworkCidr = this.Options_RemoteIpv6NetworkCidr;
             context.Options_StaticRoutesOnly = this.Options_StaticRoutesOnly;
             context.Options_TunnelInsideIpVersion = this.Options_TunnelInsideIpVersion;
             if (this.Options_TunnelOption != null)
@@ -293,6 +337,46 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_EnableAcceleration != null)
             {
                 request.Options.EnableAcceleration = requestOptions_options_EnableAcceleration.Value;
+                requestOptionsIsNull = false;
+            }
+            System.String requestOptions_options_LocalIpv4NetworkCidr = null;
+            if (cmdletContext.Options_LocalIpv4NetworkCidr != null)
+            {
+                requestOptions_options_LocalIpv4NetworkCidr = cmdletContext.Options_LocalIpv4NetworkCidr;
+            }
+            if (requestOptions_options_LocalIpv4NetworkCidr != null)
+            {
+                request.Options.LocalIpv4NetworkCidr = requestOptions_options_LocalIpv4NetworkCidr;
+                requestOptionsIsNull = false;
+            }
+            System.String requestOptions_options_LocalIpv6NetworkCidr = null;
+            if (cmdletContext.Options_LocalIpv6NetworkCidr != null)
+            {
+                requestOptions_options_LocalIpv6NetworkCidr = cmdletContext.Options_LocalIpv6NetworkCidr;
+            }
+            if (requestOptions_options_LocalIpv6NetworkCidr != null)
+            {
+                request.Options.LocalIpv6NetworkCidr = requestOptions_options_LocalIpv6NetworkCidr;
+                requestOptionsIsNull = false;
+            }
+            System.String requestOptions_options_RemoteIpv4NetworkCidr = null;
+            if (cmdletContext.Options_RemoteIpv4NetworkCidr != null)
+            {
+                requestOptions_options_RemoteIpv4NetworkCidr = cmdletContext.Options_RemoteIpv4NetworkCidr;
+            }
+            if (requestOptions_options_RemoteIpv4NetworkCidr != null)
+            {
+                request.Options.RemoteIpv4NetworkCidr = requestOptions_options_RemoteIpv4NetworkCidr;
+                requestOptionsIsNull = false;
+            }
+            System.String requestOptions_options_RemoteIpv6NetworkCidr = null;
+            if (cmdletContext.Options_RemoteIpv6NetworkCidr != null)
+            {
+                requestOptions_options_RemoteIpv6NetworkCidr = cmdletContext.Options_RemoteIpv6NetworkCidr;
+            }
+            if (requestOptions_options_RemoteIpv6NetworkCidr != null)
+            {
+                request.Options.RemoteIpv6NetworkCidr = requestOptions_options_RemoteIpv6NetworkCidr;
                 requestOptionsIsNull = false;
             }
             System.Boolean? requestOptions_options_StaticRoutesOnly = null;
@@ -409,6 +493,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String CustomerGatewayId { get; set; }
             public System.Boolean? Options_EnableAcceleration { get; set; }
+            public System.String Options_LocalIpv4NetworkCidr { get; set; }
+            public System.String Options_LocalIpv6NetworkCidr { get; set; }
+            public System.String Options_RemoteIpv4NetworkCidr { get; set; }
+            public System.String Options_RemoteIpv6NetworkCidr { get; set; }
             public System.Boolean? Options_StaticRoutesOnly { get; set; }
             public Amazon.EC2.TunnelInsideIpVersion Options_TunnelInsideIpVersion { get; set; }
             public List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> Options_TunnelOption { get; set; }

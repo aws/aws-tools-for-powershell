@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cluster snapshot. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
+        /// <para>The identifier of the cluster snapshot. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens. </para></li></ul><para>Example: <code>my-cluster-snapshot1</code></para>
         /// </para>
         /// </summary>
         #if !MODULAR

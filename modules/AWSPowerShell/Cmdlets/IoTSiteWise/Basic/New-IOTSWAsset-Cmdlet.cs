@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
     /// Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating
-    /// Assets</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// assets</a> in the <i>AWS IoT SiteWise User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IOTSWAsset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTSiteWise.Model.CreateAssetResponse")]

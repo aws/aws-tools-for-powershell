@@ -29,8 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
 {
     /// <summary>
     /// Deletes a gateway from AWS IoT SiteWise. When you delete a gateway, some of the gateway's
-    /// files remain in your gateway's file system. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-retention.html">Data
-    /// retention</a> in the <i>AWS IoT SiteWise User Guide</i>.
+    /// files remain in your gateway's file system.
     /// </summary>
     [Cmdlet("Remove", "IOTSWGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

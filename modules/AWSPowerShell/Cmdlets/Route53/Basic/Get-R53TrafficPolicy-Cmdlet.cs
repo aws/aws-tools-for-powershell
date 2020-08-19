@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
     /// Gets information about a specific traffic policy version.
+    /// 
+    ///  
+    /// <para>
+    /// For information about how of deleting a traffic policy affects the response from <code>GetTrafficPolicy</code>,
+    /// see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>.
+    /// 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicy")]
     [OutputType("Amazon.Route53.Model.TrafficPolicy")]

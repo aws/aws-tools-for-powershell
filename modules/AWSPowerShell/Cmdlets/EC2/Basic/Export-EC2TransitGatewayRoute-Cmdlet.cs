@@ -58,9 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// specified CIDR filter.</para></li><li><para><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass
         /// the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your
         /// route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns
-        /// 10.0.1.0/29.</para></li><li><para><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code>
-        /// | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code>
-        /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</para></li><li><para><code>transit-gateway-route-destination-cidr-block</code> - The CIDR range.</para></li><li><para><code>type</code> - The type of route (<code>active</code> | <code>blackhole</code>).</para></li></ul>
+        /// 10.0.1.0/29.</para></li><li><para><code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</para></li><li><para><code>transit-gateway-route-destination-cidr-block</code> - The CIDR range.</para></li><li><para><code>type</code> - The type of route (<code>propagated</code> | <code>static</code>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
