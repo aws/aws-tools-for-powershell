@@ -10,7 +10,7 @@
     CompatiblePSEditions = @('Core', 'Desktop')
 
     # Version number of this module.
-    ModuleVersion = '1.0.1.0'
+    ModuleVersion = '1.0.2.0'
 
     # ID used to uniquely identify this module
     GUID = '450031c1-9177-4fc1-9518-93166b1a926b'
@@ -22,7 +22,7 @@
     CompanyName = 'Amazon.com, Inc'
 
     # Copyright statement for this module
-    Copyright = 'Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
+    Copyright = 'Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
     Description = 'The AWS.Tools.Installer module makes it easier to install, update and uninstall other AWS.Tools modules (see https://www.powershellgallery.com/packages/AWS.Tools.Common/).

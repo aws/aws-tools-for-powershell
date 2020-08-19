@@ -9,7 +9,8 @@ using namespace System.Threading.Tasks
 
 Microsoft.PowerShell.Core\Set-StrictMode -Version 3
 
-$script:AWSToolsSignatureSubject = 'CN="Amazon.com, Inc.", O="Amazon.com, Inc.", L=Seattle, S=Washington, C=US'
+$script:AWSToolsSignatureAmazonSubject = 'CN="Amazon.com, Inc.", O="Amazon.com, Inc.", L=Seattle, S=Washington, C=US'
+$script:AWSToolsSignatureAwsSubject = 'CN="Amazon Web Services, Inc.", OU=AWS, O="Amazon Web Services, Inc.", L=Seattle, S=Washington, C=US'
 $script:AWSToolsTempRepoName = 'AWSToolsTemp'
 $script:CurrentMinAWSToolsInstallerVersion = '0.0.0.0'
 $script:ExpectedModuleCompanyName = 'aws-dotnet-sdk-team'
@@ -98,7 +99,7 @@ function Get-AWSToolsModule {
         if ($installedAwsToolsModules -and ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows)) {
             $installedAwsToolsModules = $installedAwsToolsModules | Where-Object {
                 [Signature]$signature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $_.Path
-                ($signature.Status -eq 'Valid' -or $SkipIfInvalidSignature) -and $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject
+                ($signature.Status -eq 'Valid' -or $SkipIfInvalidSignature) -and ($signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAmazonSubject -or $signature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAwsSubject)
             }
         }
         $installedAwsToolsModules | Where-Object { $_.Name -ne 'AWS.Tools.Installer' }
@@ -334,7 +335,7 @@ function Get-AWSToolsModuleDependenciesAndValidate {
 
             if ($PSVersionTable.PSVersion.Major -lt 6 -or $IsWindows) {
                 [Signature]$manifestSignature = Microsoft.PowerShell.Security\Get-AuthenticodeSignature -FilePath $temporaryManifestFilePath
-                if ($manifestSignature.Status -eq 'Valid' -and $manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureSubject) {
+                if ($manifestSignature.Status -eq 'Valid' -and ($manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAmazonSubject -or $manifestSignature.SignerCertificate.Subject -eq $script:AWSToolsSignatureAwsSubject)) {
                     Write-Verbose "[$($MyInvocation.MyCommand)] Manifest signature correctly validated"
                 }
                 else {
@@ -431,6 +432,11 @@ function Install-AWSToolsModule {
         [Parameter(ValueFromPipelineByPropertyName)]
         [Switch]
         $SkipUpdate,
+		
+        ## Allows skipping the publisher validation check.
+        [Parameter(ValueFromPipelineByPropertyName)]
+        [Switch]
+        $SkipPublisherCheck,		
 
         ## Specifies the installation scope of the module. The acceptable values for this parameter are AllUsers and CurrentUser.
         ## The AllUsers scope installs modules in a location that is accessible to all users of the computer:
@@ -623,6 +629,7 @@ function Install-AWSToolsModule {
                         AllowClobber    = $AllowClobber
                         Confirm         = $false
                         ErrorAction     = 'Stop'
+						SkipPublisherCheck = $SkipPublisherCheck
                     }
                     $modulesToInstall | ForEach-Object {
                         if (-not $WhatIfPreference) {
@@ -693,6 +700,11 @@ function Update-AWSToolsModule {
         [Parameter(ValueFromPipelineByPropertyName)]
         [Switch]
         $CleanUp,
+		
+        ## Allows skipping the publisher validation check.
+        [Parameter(ValueFromPipelineByPropertyName)]
+        [Switch]
+        $SkipPublisherCheck,			
 
         #Specifies the installation scope of the module. The acceptable values for this parameter are AllUsers and CurrentUser.
         #The AllUsers scope installs modules in a location that is accessible to all users of the computer:
@@ -754,6 +766,7 @@ function Update-AWSToolsModule {
                 SkipUpdate      = $true
                 Proxy           = $Proxy
                 ProxyCredential = $ProxyCredential
+				SkipPublisherCheck = $SkipPublisherCheck
             }
             Install-AWSToolsModule @installAWSToolsModuleParams
         }
