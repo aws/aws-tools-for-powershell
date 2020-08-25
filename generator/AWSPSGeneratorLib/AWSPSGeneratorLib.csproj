@@ -176,6 +176,7 @@
       <Version>12.0.1</Version>
     </PackageReference>
     <PackageReference Include="Pluralize.NET.Core" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="1.1.0" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
