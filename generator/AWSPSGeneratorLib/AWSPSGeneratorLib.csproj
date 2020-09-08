@@ -150,7 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\TOC.html" />
-    <EmbeddedResource Include="HelpMaterials\WebHelp\Templates\SiteCatalyst.snippet" />
     <EmbeddedResource Include="Writers\SourceCode\CommonProjectFileTemplate.razor" />
     <EmbeddedResource Include="Writers\SourceCode\CmdletListTemplate.razor" />
     <EmbeddedResource Include="Writers\SourceCode\ManifestFileTemplate.razor" />

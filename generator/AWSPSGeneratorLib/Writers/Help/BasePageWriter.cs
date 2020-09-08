@@ -25,16 +25,8 @@ namespace AWSPowerShellGenerator.Writers.Help
         private const string FeedbackSection =
             "<!-- BEGIN-FEEDBACK-SECTION --><span class=\"feedback\">{0}</span><!-- END-FEEDBACK-SECTION -->";
 
-        protected static string SiteCatalystSnippet { get; private set; }
 
-        static BasePageWriter()
-        {
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AWSPowerShellGenerator.HelpMaterials.WebHelp.Templates.SiteCatalyst.snippet"))
-            using (var reader = new StreamReader(stream))
-            {
-                SiteCatalystSnippet = reader.ReadToEnd();
-            }
-        }
+        
 
         protected BasePageWriter(GeneratorOptions options, string outputFolder)
         {
@@ -70,6 +62,10 @@ namespace AWSPowerShellGenerator.Writers.Help
                 writer.WriteLine("<html>");
                     writer.WriteLine("<head>");
                         writer.WriteLine("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>");
+
+                        writer.WriteLine("<meta name=\"guide-name\" content=\"Cmdlet Reference\"/>");
+                        writer.WriteLine("<meta name=\"service-name\" content=\"AWS Tools for PowerShell\"/>");
+
                         writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}/resources/style.css\"/>", RelativePathToRoot);
                         writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}/resources/syntaxhighlighter/shCore.css\">", RelativePathToRoot);
                         writer.WriteLine("<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}/resources/syntaxhighlighter/shThemeDefault.css\">", RelativePathToRoot);
@@ -232,7 +228,6 @@ namespace AWSPowerShellGenerator.Writers.Help
             writer.WriteLine("<script type=\"text/javascript\" src=\"{0}/resources/syntaxhighlighter/shBrushXml.js\"></script>", RelativePathToRoot);
             writer.WriteLine("<script type=\"text/javascript\">SyntaxHighlighter.all()</script>");
 
-            writer.WriteLine(SiteCatalystSnippet);
         }
 
         protected void AddMemberTableSectionHeader(TextWriter writer, string name, bool showIconColumn = true)
