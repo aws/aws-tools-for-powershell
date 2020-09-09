@@ -295,17 +295,17 @@ namespace AWSPowerShellGenerator.Writers.Help
             var text = new StringBuilder("Available in ");
             if (inModular)
             {
-                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWS.Tools.{moduleName}/\" target=\"_blank\">AWS.Tools.{moduleName}</a>");
+                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWS.Tools.{moduleName}/\" target=\"_blank\" rel=\"noopener\">AWS.Tools.{moduleName}</a>");
             }
             if (inMonolithic)
             {
                 text.Append(inModular ? ", " : " and ");
-                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell.NetCore/\" target=\"_blank\">AWSPowerShell.NetCore</a>");
+                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell.NetCore/\" target=\"_blank\" rel=\"noopener\">AWSPowerShell.NetCore</a>");
                 if (inModular)
                 {
                     text.Append(" and ");
                 }
-                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell/\" target=\"_blank\">AWSPowerShell</a>");
+                text.Append($"<a href=\"https://www.powershellgallery.com/packages/AWSPowerShell/\" target=\"_blank\" rel=\"noopener\">AWSPowerShell</a>");
             }
             return text.ToString();
         }
