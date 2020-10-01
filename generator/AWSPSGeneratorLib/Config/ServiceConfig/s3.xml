@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>s3</C2jFilename>
     <AssemblyName>S3</AssemblyName>
@@ -17,7 +18,6 @@
         <Map From="Versions" To="Version" />
     </NounMappings>
     <Params />
-    <AdditionalNamespaces />
     <CustomAliases>
         <AliasSet Cmdlet="Get-S3Bucket">List-S3Buckets</AliasSet>
         <AliasSet Cmdlet="Get-S3Object">List-S3Objects</AliasSet>
@@ -75,6 +75,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBucketMetricsConfiguration" Verb="Remove" Noun="BucketMetricsConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBucketOwnershipControls" Verb="Remove" Noun="BucketOwnershipControl" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,6 +155,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetBucketNotification" OutputProperty="*" Verb="Get" Noun="BucketNotification" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketOwnershipControls" OutputProperty="OwnershipControls" Verb="Get" Noun="BucketOwnershipControl" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -318,6 +326,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutBucketOwnershipControls" Verb="Write" Noun="BucketOwnershipControl" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutBucketPolicy" Verb="Write" Noun="BucketPolicy" ShouldProcessTarget="BucketName" PositionalParameters="Policy" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -395,8 +407,6 @@
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>
-    <InputObjectMappingRules />
-    <SupportsShouldProcessVerbs />
     <TypesNotToFlatten>
         <Type>Amazon.S3.Model.SelectParameters</Type>
         <Type>Amazon.S3.Model.InputSerialization</Type>

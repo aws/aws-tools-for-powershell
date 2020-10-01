@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags to assign to the load balancer.</para>
+        /// <para>The tags to assign to the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

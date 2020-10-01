@@ -3416,9 +3416,12 @@ $BAT_SelectMap = @{
                "Get-BATJobQueue",
                "Get-BATJobDetail",
                "Get-BATJobList",
+               "Get-BATResourceTag",
                "Register-BATJobDefinition",
                "Submit-BATJob",
+               "Add-BATResourceTag",
                "Remove-BATJob",
+               "Remove-BATResourceTag",
                "Update-BATComputeEnvironment",
                "Update-BATJobQueue")
 }
@@ -10153,6 +10156,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.CharLengthSemantics
+        {
+            ($_ -eq "Edit-DMSEndpoint/OracleSettings_CharLengthSemantics") -Or
+            ($_ -eq "New-DMSEndpoint/OracleSettings_CharLengthSemantics")
+        }
+        {
+            $v = "byte","char","default"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.CompressionTypeValue
         {
             ($_ -eq "Edit-DMSEndpoint/S3Settings_CompressionType") -Or
@@ -10170,6 +10183,26 @@ $DMS_Completers = {
         }
         {
             $v = "csv","parquet"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.DatePartitionDelimiterValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/S3Settings_DatePartitionDelimiter") -Or
+            ($_ -eq "New-DMSEndpoint/S3Settings_DatePartitionDelimiter")
+        }
+        {
+            $v = "DASH","NONE","SLASH","UNDERSCORE"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.DatePartitionSequenceValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/S3Settings_DatePartitionSequence") -Or
+            ($_ -eq "New-DMSEndpoint/S3Settings_DatePartitionSequence")
+        }
+        {
+            $v = "DDMMYYYY","MMYYYYDD","YYYYMM","YYYYMMDD","YYYYMMDDHH"
             break
         }
 
@@ -10265,6 +10298,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.SafeguardPolicy
+        {
+            ($_ -eq "Edit-DMSEndpoint/MicrosoftSQLServerSettings_SafeguardPolicy") -Or
+            ($_ -eq "New-DMSEndpoint/MicrosoftSQLServerSettings_SafeguardPolicy")
+        }
+        {
+            $v = "exclusive-automatic-truncation","rely-on-sql-server-replication-agent","shared-automatic-truncation"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.SourceType
         "Get-DMSEvent/SourceType"
         {
@@ -10276,6 +10319,16 @@ $DMS_Completers = {
         "Start-DMSReplicationTask/StartReplicationTaskType"
         {
             $v = "reload-target","resume-processing","start-replication"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.TargetDbType
+        {
+            ($_ -eq "Edit-DMSEndpoint/MySQLSettings_TargetDbType") -Or
+            ($_ -eq "New-DMSEndpoint/MySQLSettings_TargetDbType")
+        }
+        {
+            $v = "multiple-databases","specific-database"
             break
         }
 
@@ -10291,14 +10344,19 @@ $DMS_map = @{
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MicrosoftSQLServerSettings_SafeguardPolicy"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MigrationType"=@("Edit-DMSReplicationTask","Get-DMSApplicableIndividualAssessment","New-DMSReplicationTask")
     "MongoDbSettings_AuthMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "OracleSettings_CharLengthSemantics"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedshiftSettings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "ReloadOption"=@("Restore-DMSTable")
     "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_DataFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "S3Settings_DatePartitionDelimiter"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "S3Settings_DatePartitionSequence"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_EncodingType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_ParquetVersion"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -24644,7 +24702,9 @@ $PERSE_SelectCompleters = {
 }
 
 $PERSE_SelectMap = @{
-    "Select"=@("Write-PERSEEvent")
+    "Select"=@("Write-PERSEEvent",
+               "Write-PERSEItem",
+               "Write-PERSEUser")
 }
 
 _awsArgumentCompleterRegistration $PERSE_SelectCompleters $PERSE_SelectMap
@@ -25734,7 +25794,7 @@ $QS_Completers = {
         # Amazon.QuickSight.DataSourceType
         "New-QSDataSource/Type"
         {
-            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","GITHUB","JIRA","MARIADB","MYSQL","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TWITTER"
+            $v = "ADOBE_ANALYTICS","AMAZON_ELASTICSEARCH","ATHENA","AURORA","AURORA_POSTGRESQL","AWS_IOT_ANALYTICS","GITHUB","JIRA","MARIADB","MYSQL","POSTGRESQL","PRESTO","REDSHIFT","S3","SALESFORCE","SERVICENOW","SNOWFLAKE","SPARK","SQLSERVER","TERADATA","TIMESTREAM","TWITTER"
             break
         }
 
@@ -28104,6 +28164,7 @@ $S3_SelectMap = @{
                "Remove-S3BucketEncryption",
                "Remove-S3BucketInventoryConfiguration",
                "Remove-S3BucketMetricsConfiguration",
+               "Remove-S3BucketOwnershipControl",
                "Remove-S3BucketPolicy",
                "Remove-S3BucketReplication",
                "Remove-S3BucketTagging",
@@ -28121,6 +28182,7 @@ $S3_SelectMap = @{
                "Get-S3BucketLogging",
                "Get-S3BucketMetricsConfiguration",
                "Get-S3BucketNotification",
+               "Get-S3BucketOwnershipControl",
                "Get-S3BucketPolicy",
                "Get-S3BucketPolicyStatus",
                "Get-S3BucketReplication",
@@ -28150,6 +28212,7 @@ $S3_SelectMap = @{
                "Write-S3BucketLogging",
                "Write-S3BucketMetricsConfiguration",
                "Write-S3BucketNotification",
+               "Write-S3BucketOwnershipControl",
                "Write-S3BucketPolicy",
                "Write-S3BucketReplication",
                "Write-S3BucketRequestPayment",
@@ -28477,6 +28540,13 @@ $SM_Completers = {
         "New-SMApp/ResourceSpec_InstanceType"
         {
             $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","system"
+            break
+        }
+
+        # Amazon.SageMaker.AppNetworkAccessType
+        "New-SMDomain/AppNetworkAccessType"
+        {
+            $v = "PublicInternetOnly","VpcOnly"
             break
         }
 
@@ -29049,6 +29119,7 @@ $SM_Completers = {
 }
 
 $SM_map = @{
+    "AppNetworkAccessType"=@("New-SMDomain")
     "AppType"=@("Get-SMApp","New-SMApp","Remove-SMApp")
     "AuthMode"=@("New-SMDomain")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob")
@@ -31532,6 +31603,157 @@ $SSO_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SSO_SelectCompleters $SSO_SelectMap
+# Argument completions for service AWS Single Sign-On Admin
+
+
+$SSOADMN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SSOAdmin.PrincipalType
+        {
+            ($_ -eq "New-SSOADMNAccountAssignment/PrincipalType") -Or
+            ($_ -eq "Remove-SSOADMNAccountAssignment/PrincipalType")
+        }
+        {
+            $v = "GROUP","USER"
+            break
+        }
+
+        # Amazon.SSOAdmin.ProvisioningStatus
+        {
+            ($_ -eq "Get-SSOADMNAccountsForProvisionedPermissionSetList/ProvisioningStatus") -Or
+            ($_ -eq "Get-SSOADMNPermissionSetsProvisionedToAccountList/ProvisioningStatus")
+        }
+        {
+            $v = "LATEST_PERMISSION_SET_NOT_PROVISIONED","LATEST_PERMISSION_SET_PROVISIONED"
+            break
+        }
+
+        # Amazon.SSOAdmin.ProvisionTargetType
+        "Add-SSOADMNPermissionSetProvision/TargetType"
+        {
+            $v = "ALL_PROVISIONED_ACCOUNTS","AWS_ACCOUNT"
+            break
+        }
+
+        # Amazon.SSOAdmin.StatusValues
+        {
+            ($_ -eq "Get-SSOADMNAccountAssignmentCreationStatusList/Filter_Status") -Or
+            ($_ -eq "Get-SSOADMNAccountAssignmentDeletionStatusList/Filter_Status") -Or
+            ($_ -eq "Get-SSOADMNPermissionSetProvisioningStatusList/Filter_Status")
+        }
+        {
+            $v = "FAILED","IN_PROGRESS","SUCCEEDED"
+            break
+        }
+
+        # Amazon.SSOAdmin.TargetType
+        {
+            ($_ -eq "New-SSOADMNAccountAssignment/TargetType") -Or
+            ($_ -eq "Remove-SSOADMNAccountAssignment/TargetType")
+        }
+        {
+            $v = "AWS_ACCOUNT"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SSOADMN_map = @{
+    "Filter_Status"=@("Get-SSOADMNAccountAssignmentCreationStatusList","Get-SSOADMNAccountAssignmentDeletionStatusList","Get-SSOADMNPermissionSetProvisioningStatusList")
+    "PrincipalType"=@("New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
+    "ProvisioningStatus"=@("Get-SSOADMNAccountsForProvisionedPermissionSetList","Get-SSOADMNPermissionSetsProvisionedToAccountList")
+    "TargetType"=@("Add-SSOADMNPermissionSetProvision","New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
+}
+
+_awsArgumentCompleterRegistration $SSOADMN_Completers $SSOADMN_map
+
+$SSOADMN_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SSOADMN.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SSOADMN_SelectMap = @{
+    "Select"=@("Mount-SSOADMNManagedPolicyToPermissionSet",
+               "New-SSOADMNAccountAssignment",
+               "New-SSOADMNPermissionSet",
+               "Remove-SSOADMNAccountAssignment",
+               "Remove-SSOADMNInlinePolicyFromPermissionSet",
+               "Remove-SSOADMNPermissionSet",
+               "Get-SSOADMNAccountAssignmentCreationStatus",
+               "Get-SSOADMNAccountAssignmentDeletionStatus",
+               "Get-SSOADMNPermissionSet",
+               "Get-SSOADMNPermissionSetProvisioningStatus",
+               "Dismount-SSOADMNManagedPolicyFromPermissionSet",
+               "Get-SSOADMNInlinePolicyForPermissionSet",
+               "Get-SSOADMNAccountAssignmentCreationStatusList",
+               "Get-SSOADMNAccountAssignmentDeletionStatusList",
+               "Get-SSOADMNAccountAssignmentList",
+               "Get-SSOADMNAccountsForProvisionedPermissionSetList",
+               "Get-SSOADMNInstanceList",
+               "Get-SSOADMNManagedPoliciesInPermissionSetList",
+               "Get-SSOADMNPermissionSetProvisioningStatusList",
+               "Get-SSOADMNPermissionSetList",
+               "Get-SSOADMNPermissionSetsProvisionedToAccountList",
+               "Get-SSOADMNResourceTag",
+               "Add-SSOADMNPermissionSetProvision",
+               "Write-SSOADMNInlinePolicyToPermissionSet",
+               "Add-SSOADMNResourceTag",
+               "Remove-SSOADMNResourceTag",
+               "Update-SSOADMNPermissionSet")
+}
+
+_awsArgumentCompleterRegistration $SSOADMN_SelectCompleters $SSOADMN_SelectMap
 # Argument completions for service AWS Single Sign-On OIDC
 
 
@@ -33129,7 +33351,7 @@ $WAF2_Completers = {
         # Amazon.WAFV2.ResourceType
         "Get-WAF2ResourcesForWebACLList/ResourceType"
         {
-            $v = "API_GATEWAY","APPLICATION_LOAD_BALANCER"
+            $v = "API_GATEWAY","APPLICATION_LOAD_BALANCER","APPSYNC"
             break
         }
 

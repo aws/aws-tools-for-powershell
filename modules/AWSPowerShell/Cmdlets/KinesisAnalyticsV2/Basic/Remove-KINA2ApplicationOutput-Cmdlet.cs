@@ -28,9 +28,9 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Deletes the output destination configuration from your SQL-based Amazon Kinesis Data
-    /// Analytics application's configuration. Kinesis Data Analytics will no longer write
-    /// data from the corresponding in-application stream to the external output destination.
+    /// Deletes the output destination configuration from your SQL-based Kinesis Data Analytics
+    /// application's configuration. Kinesis Data Analytics will no longer write data from
+    /// the corresponding in-application stream to the external output destination.
     /// </summary>
     [Cmdlet("Remove", "KINA2ApplicationOutput", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.KinesisAnalyticsV2.Model.DeleteApplicationOutputResponse")]

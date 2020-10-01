@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// WAF Developer Guide</a>. 
     /// </para></note><para>
     /// Associates a Web ACL with a regional application resource, to protect the resource.
-    /// A regional application can be an Application Load Balancer (ALB) or an API Gateway
-    /// stage. 
+    /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
+    /// API, or an AppSync GraphQL API. 
     /// </para><para>
     /// For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution
     /// configuration. To associate a Web ACL, in the CloudFront call <code>UpdateDistribution</code>,
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </para><para>The ARN must be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an API Gateway REST API: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li><li><para>For an AppSync GraphQL API: <code>arn:aws:appsync:<i>region</i>:<i>account-id</i>:apis/<i>GraphQLApiId</i></code></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

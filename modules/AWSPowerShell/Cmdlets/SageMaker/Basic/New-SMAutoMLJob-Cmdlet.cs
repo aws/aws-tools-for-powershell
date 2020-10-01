@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Similar to InputDataConfig supported by Tuning. Format(s) supported: CSV. Minimum
-        /// of 1000 rows.</para>
+        /// of 500 rows.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

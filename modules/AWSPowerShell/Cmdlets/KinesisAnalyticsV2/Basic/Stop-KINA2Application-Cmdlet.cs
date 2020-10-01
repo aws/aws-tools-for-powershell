@@ -59,6 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         public System.String ApplicationName { get; set; }
         #endregion
         
+        #region Parameter ForceStop
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>true</code> to force the application to stop. If you set <code>Force</code>
+        /// to <code>true</code>, Kinesis Data Analytics stops the application without taking
+        /// a snapshot.</para><para>You can only force stop a Flink-based Kinesis Data Analytics application. You can't
+        /// force stop a SQL-based Kinesis Data Analytics application.</para><para>The application must be in the <code>STARTING</code>, <code>UPDATING</code>, <code>STOPPING</code>,
+        /// <code>AUTOSCALING</code>, or <code>RUNNING</code> state. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceStop { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -126,6 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
                 WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ForceStop = this.ForceStop;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -145,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            if (cmdletContext.ForceStop != null)
+            {
+                request.Force = cmdletContext.ForceStop.Value;
             }
             
             CmdletOutput output;
@@ -208,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
+            public System.Boolean? ForceStop { get; set; }
             public System.Func<Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse, StopKINA2ApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

@@ -28,25 +28,47 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a <code>Domain</code> used by SageMaker Studio. A domain consists of an associated
-    /// directory, a list of authorized users, and a variety of security, application, policy,
-    /// and Amazon Virtual Private Cloud (VPC) configurations. An AWS account is limited to
-    /// one domain per region. Users within a domain can share notebook files and other artifacts
-    /// with each other.
+    /// Creates a <code>Domain</code> used by Amazon SageMaker Studio. A domain consists of
+    /// an associated Amazon Elastic File System (EFS) volume, a list of authorized users,
+    /// and a variety of security, application, policy, and Amazon Virtual Private Cloud (VPC)
+    /// configurations. An AWS account is limited to one domain per region. Users within a
+    /// domain can share notebook files and other artifacts with each other.
     /// 
     ///  
     /// <para>
-    /// When a domain is created, an Amazon Elastic File System (EFS) volume is also created
-    /// for use by all of the users within the domain. Each user receives a private home directory
-    /// within the EFS for notebooks, Git repositories, and data files.
+    /// When a domain is created, an EFS volume is created for use by all of the users within
+    /// the domain. Each user receives a private home directory within the EFS volume for
+    /// notebooks, Git repositories, and data files.
+    /// </para><para><b>VPC configuration</b></para><para>
+    /// All SageMaker Studio traffic between the domain and the EFS volume is through the
+    /// specified VPC and subnets. For other Studio traffic, you specify the <code>AppNetworkAccessType</code>
+    /// parameter. <code>AppNetworkAccessType</code> corresponds to the VPC mode that's chosen
+    /// when you onboard to Studio. The following options are available:
+    /// </para><ul><li><para><code>PublicInternetOnly</code> - Non-EFS traffic goes through a VPC managed by Amazon
+    /// SageMaker, which allows internet access. This is the default value.
+    /// </para></li><li><para><code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets.
+    /// Internet access is disabled by default. To allow internet access, you must specify
+    /// a NAT gateway.
     /// </para><para>
-    /// All traffic between the domain and the EFS volume is communicated through the specified
-    /// subnet IDs. All other traffic goes over the Internet through an Amazon SageMaker system
-    /// VPC. The EFS traffic uses the NFS/TCP protocol over port 2049.
-    /// </para><important><para>
-    /// NFS traffic over TCP on port 2049 needs to be allowed in both inbound and outbound
-    /// rules in order to launch a SageMaker Studio app successfully.
-    /// </para></important>
+    /// When internet access is disabled, you won't be able to train or host models unless
+    /// your VPC has an interface endpoint (PrivateLink) or a NAT gateway and your security
+    /// groups allow outbound connections.
+    /// </para></li></ul><para><b><code>VpcOnly</code> mode</b></para><para>
+    /// When you specify <code>VpcOnly</code>, you must specify the following:
+    /// </para><ul><li><para>
+    /// Security group inbound and outbound rules to allow NFS traffic over TCP on port 2049
+    /// between the domain and the EFS volume
+    /// </para></li><li><para>
+    /// Security group inbound and outbound rules to allow traffic between the JupyterServer
+    /// app and the KernelGateway apps
+    /// </para></li><li><para>
+    /// Interface endpoints to access the SageMaker API and SageMaker runtime
+    /// </para></li></ul><para>
+    /// For more information, see:
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security
+    /// groups for your VPC</a></para></li><li><para><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.html">VPC
+    /// with public and private subnets (NAT)</a></para></li><li><para><a href="https://docs.aws.amazon.com/sagemaker/latest/dg/interface-vpc-endpoint.html">Connect
+    /// to SageMaker through a VPC interface endpoint</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "SMDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMaker.Model.CreateDomainResponse")]
@@ -56,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
     )]
     public partial class NewSMDomainCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
+        
+        #region Parameter AppNetworkAccessType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the VPC used for non-EFS traffic. The default value is <code>PublicInternetOnly</code>.</para><ul><li><para><code>PublicInternetOnly</code> - Non-EFS traffic is through a VPC managed by Amazon
+        /// SageMaker, which allows direct internet access</para></li><li><para><code>VpcOnly</code> - All Studio traffic is through the specified VPC and subnets</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.AppNetworkAccessType")]
+        public Amazon.SageMaker.AppNetworkAccessType AppNetworkAccessType { get; set; }
+        #endregion
         
         #region Parameter AuthMode
         /// <summary>
@@ -122,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>The VPC subnets to use for communication with the EFS volume.</para>
+        /// <para>The VPC subnets that Studio uses for communication.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,8 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Virtual Private Cloud (VPC) to use for communication with the
-        /// EFS volume.</para>
+        /// <para>The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -229,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.DomainName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AppNetworkAccessType = this.AppNetworkAccessType;
             context.AuthMode = this.AuthMode;
             #if MODULAR
             if (this.AuthMode == null && ParameterWasBound(nameof(this.AuthMode)))
@@ -288,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateDomainRequest();
             
+            if (cmdletContext.AppNetworkAccessType != null)
+            {
+                request.AppNetworkAccessType = cmdletContext.AppNetworkAccessType;
+            }
             if (cmdletContext.AuthMode != null)
             {
                 request.AuthMode = cmdletContext.AuthMode;
@@ -377,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SageMaker.AppNetworkAccessType AppNetworkAccessType { get; set; }
             public Amazon.SageMaker.AuthMode AuthMode { get; set; }
             public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
             public System.String DomainName { get; set; }

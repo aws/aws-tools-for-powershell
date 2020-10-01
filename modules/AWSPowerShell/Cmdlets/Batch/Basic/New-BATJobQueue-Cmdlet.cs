@@ -120,6 +120,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.JQState State { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags that you apply to the job queue to help you categorize and organize your
+        /// resources. Each tag consists of a key and an optional value. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a> in <i>AWS General Reference</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -186,6 +200,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             #endif
             context.State = this.State;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -217,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.State != null)
             {
                 request.State = cmdletContext.State;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -283,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.String JobQueueName { get; set; }
             public System.Int32? Priority { get; set; }
             public Amazon.Batch.JQState State { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Batch.Model.CreateJobQueueResponse, NewBATJobQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

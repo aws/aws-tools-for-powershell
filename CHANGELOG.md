@@ -1,4 +1,40 @@
-﻿### 4.1.1.0 (2020-09-30)
+﻿### 4.1.2.0 (2020-10-06)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.5.31.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Single Sign-On Admin. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SSOADMN and can be listed using the command 'Get-AWSCmdletName -Service SSOADMN'.
+  * Amazon Batch
+    * Added cmdlet Add-BATResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-BATResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-BATResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-BATComputeEnvironment: added parameter Tag.
+    * Modified cmdlet New-BATJobQueue: added parameter Tag.
+    * Modified cmdlet Register-BATJobDefinition: added parameter Tag.
+    * Modified cmdlet Submit-BATJob: added parameter Tag.
+  * Amazon Cloud Map
+    * Modified cmdlet Find-SDInstance: added parameter OptionalParameter.
+  * Amazon Database Migration Service
+    * Modified cmdlet Edit-DMSEndpoint: added parameters IBMDb2Settings_CurrentLsn, IBMDb2Settings_MaxKBytesPerRead, IBMDb2Settings_SetDataCaptureChange, MicrosoftSQLServerSettings_BcpPacketSize, MicrosoftSQLServerSettings_ControlTablesFileGroup, MicrosoftSQLServerSettings_ReadBackupOnly, MicrosoftSQLServerSettings_SafeguardPolicy, MicrosoftSQLServerSettings_UseBcpFullLoad, MySQLSettings_AfterConnectScript, MySQLSettings_EventsPollInterval, MySQLSettings_MaxFileSize, MySQLSettings_ParallelLoadThread, MySQLSettings_ServerTimezone, MySQLSettings_TargetDbType, OracleSettings_AccessAlternateDirectly, OracleSettings_AdditionalArchivedLogDestId, OracleSettings_AddSupplementalLogging, OracleSettings_AllowSelectNestedTable, OracleSettings_ArchivedLogDestId, OracleSettings_ArchivedLogsOnly, OracleSettings_CharLengthSemantic, OracleSettings_DirectPathNoLog, OracleSettings_DirectPathParallelLoad, OracleSettings_EnableHomogenousTablespace, OracleSettings_FailTasksOnLobTruncation, OracleSettings_NumberDatatypeScale, OracleSettings_OraclePathPrefix, OracleSettings_ParallelAsmReadThread, OracleSettings_ReadAheadBlock, OracleSettings_ReadTableSpaceName, OracleSettings_ReplacePathPrefix, OracleSettings_RetryInterval, OracleSettings_UseAlternateFolderForOnline, OracleSettings_UsePathPrefix, PostgreSQLSettings_AfterConnectScript, PostgreSQLSettings_CaptureDdl, PostgreSQLSettings_DdlArtifactsSchema, PostgreSQLSettings_ExecuteTimeout, PostgreSQLSettings_FailTasksOnLobTruncation, PostgreSQLSettings_MaxFileSize, PostgreSQLSettings_SlotName, S3Settings_DatePartitionDelimiter, S3Settings_DatePartitionEnabled and S3Settings_DatePartitionSequence.
+    * Modified cmdlet New-DMSEndpoint: added parameters IBMDb2Settings_CurrentLsn, IBMDb2Settings_MaxKBytesPerRead, IBMDb2Settings_SetDataCaptureChange, MicrosoftSQLServerSettings_BcpPacketSize, MicrosoftSQLServerSettings_ControlTablesFileGroup, MicrosoftSQLServerSettings_ReadBackupOnly, MicrosoftSQLServerSettings_SafeguardPolicy, MicrosoftSQLServerSettings_UseBcpFullLoad, MySQLSettings_AfterConnectScript, MySQLSettings_EventsPollInterval, MySQLSettings_MaxFileSize, MySQLSettings_ParallelLoadThread, MySQLSettings_ServerTimezone, MySQLSettings_TargetDbType, OracleSettings_AccessAlternateDirectly, OracleSettings_AdditionalArchivedLogDestId, OracleSettings_AddSupplementalLogging, OracleSettings_AllowSelectNestedTable, OracleSettings_ArchivedLogDestId, OracleSettings_ArchivedLogsOnly, OracleSettings_CharLengthSemantic, OracleSettings_DirectPathNoLog, OracleSettings_DirectPathParallelLoad, OracleSettings_EnableHomogenousTablespace, OracleSettings_FailTasksOnLobTruncation, OracleSettings_NumberDatatypeScale, OracleSettings_OraclePathPrefix, OracleSettings_ParallelAsmReadThread, OracleSettings_ReadAheadBlock, OracleSettings_ReadTableSpaceName, OracleSettings_ReplacePathPrefix, OracleSettings_RetryInterval, OracleSettings_UseAlternateFolderForOnline, OracleSettings_UsePathPrefix, PostgreSQLSettings_AfterConnectScript, PostgreSQLSettings_CaptureDdl, PostgreSQLSettings_DdlArtifactsSchema, PostgreSQLSettings_ExecuteTimeout, PostgreSQLSettings_FailTasksOnLobTruncation, PostgreSQLSettings_MaxFileSize, PostgreSQLSettings_SlotName, S3Settings_DatePartitionDelimiter, S3Settings_DatePartitionEnabled and S3Settings_DatePartitionSequence.
+  * Amazon Elastic Load Balancing V2
+    * Modified cmdlet New-ELB2Listener: added parameter Tag.
+    * Modified cmdlet New-ELB2Rule: added parameter Tag.
+    * Modified cmdlet New-ELB2TargetGroup: added parameter Tag.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEPlan: added parameter AdditionalPlanOptionsMap.
+  * Amazon Kinesis Analytics V2
+    * Modified cmdlet Stop-KINA2Application: added parameter ForceStop.
+  * Amazon Personalize Events
+    * Added cmdlet Write-PERSEItem leveraging the PutItems service API.
+    * Added cmdlet Write-PERSEUser leveraging the PutUsers service API.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBInstance: added parameter NcharCharacterSetName.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter AppNetworkAccessType.
+  * Amazon Simple Storage Service (S3)
+    * Added cmdlet Get-S3BucketOwnershipControl leveraging the GetBucketOwnershipControls service API.
+    * Added cmdlet Remove-S3BucketOwnershipControl leveraging the DeleteBucketOwnershipControls service API.
+    * Added cmdlet Write-S3BucketOwnershipControl leveraging the PutBucketOwnershipControls service API.  
+
+### 4.1.1.0 (2020-09-30)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.5.27.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon API Gateway
     * Modified cmdlet New-AGDomainName: added parameters MutualTlsAuthentication_TruststoreUri and MutualTlsAuthentication_TruststoreVersion.

@@ -28,8 +28,7 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Adds a streaming source to your SQL-based Amazon Kinesis Data Analytics application.
-    /// 
+    /// Adds a streaming source to your SQL-based Kinesis Data Analytics application. 
     /// 
     ///  
     /// <para>

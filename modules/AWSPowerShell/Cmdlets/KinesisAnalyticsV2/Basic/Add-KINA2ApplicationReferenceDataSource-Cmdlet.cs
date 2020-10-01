@@ -28,8 +28,7 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Adds a reference data source to an existing SQL-based Amazon Kinesis Data Analytics
-    /// application.
+    /// Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.
     /// 
     ///  
     /// <para>

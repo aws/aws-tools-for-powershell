@@ -70,12 +70,27 @@ namespace Amazon.PowerShell.Cmdlets.SD
         public System.String NamespaceName { get; set; }
         #endregion
         
+        #region Parameter OptionalParameter
+        /// <summary>
+        /// <para>
+        /// <para>Opportunistic filters to scope the results based on custom attributes. If there are
+        /// instances that match both the filters specified in both the <code>QueryParameters</code>
+        /// parameter and this parameter, they are returned. Otherwise, these filters are ignored
+        /// and only instances that match the filters specified in the <code>QueryParameters</code>
+        /// parameter are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OptionalParameters")]
+        public System.Collections.Hashtable OptionalParameter { get; set; }
+        #endregion
+        
         #region Parameter QueryParameter
         /// <summary>
         /// <para>
-        /// <para>A string map that contains attributes with values that you can use to filter instances
-        /// by any custom attribute that you specified when you registered the instance. Only
-        /// instances that match all the specified key/value pairs will be returned.</para>
+        /// <para>Filters to scope the results based on custom attributes for the instance. For example,
+        /// <code>{version=v1, az=1a}</code>. Only instances that match all the specified key-value
+        /// pairs will be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,6 +182,14 @@ namespace Amazon.PowerShell.Cmdlets.SD
                 WriteWarning("You are passing $null as a value for parameter NamespaceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.OptionalParameter != null)
+            {
+                context.OptionalParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.OptionalParameter.Keys)
+                {
+                    context.OptionalParameter.Add((String)hashKey, (String)(this.OptionalParameter[hashKey]));
+                }
+            }
             if (this.QueryParameter != null)
             {
                 context.QueryParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -209,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
             if (cmdletContext.NamespaceName != null)
             {
                 request.NamespaceName = cmdletContext.NamespaceName;
+            }
+            if (cmdletContext.OptionalParameter != null)
+            {
+                request.OptionalParameters = cmdletContext.OptionalParameter;
             }
             if (cmdletContext.QueryParameter != null)
             {
@@ -282,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             public Amazon.ServiceDiscovery.HealthStatusFilter HealthStatus { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NamespaceName { get; set; }
+            public Dictionary<System.String, System.String> OptionalParameter { get; set; }
             public Dictionary<System.String, System.String> QueryParameter { get; set; }
             public System.String ServiceName { get; set; }
             public System.Func<Amazon.ServiceDiscovery.Model.DiscoverInstancesResponse, FindSDInstanceCmdlet, object> Select { get; set; } =

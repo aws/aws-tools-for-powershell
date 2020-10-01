@@ -448,6 +448,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? MultiAZ { get; set; }
         #endregion
         
+        #region Parameter NcharCharacterSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the NCHAR character set for the Oracle DB instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NcharCharacterSetName { get; set; }
+        #endregion
+        
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
@@ -768,6 +778,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.MultiAZ = this.MultiAZ;
+            context.NcharCharacterSetName = this.NcharCharacterSetName;
             context.OptionGroupName = this.OptionGroupName;
             context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             context.PerformanceInsightsRetentionPeriod = this.PerformanceInsightsRetentionPeriod;
@@ -929,6 +940,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.MultiAZ = cmdletContext.MultiAZ.Value;
             }
+            if (cmdletContext.NcharCharacterSetName != null)
+            {
+                request.NcharCharacterSetName = cmdletContext.NcharCharacterSetName;
+            }
             if (cmdletContext.OptionGroupName != null)
             {
                 request.OptionGroupName = cmdletContext.OptionGroupName;
@@ -1084,6 +1099,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }
+            public System.String NcharCharacterSetName { get; set; }
             public System.String OptionGroupName { get; set; }
             public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.Int32? PerformanceInsightsRetentionPeriod { get; set; }

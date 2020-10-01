@@ -28,14 +28,18 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Updates an existing Amazon Kinesis Data Analytics application. Using this operation,
-    /// you can update application code, input configuration, and output configuration. 
+    /// Updates an existing Kinesis Data Analytics application. Using this operation, you
+    /// can update application code, input configuration, and output configuration. 
     /// 
     ///  
     /// <para>
     /// Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you
     /// update your application. 
-    /// </para>
+    /// </para><note><para>
+    /// You cannot update the <code>RuntimeEnvironment</code> of an existing application.
+    /// If you need to update an application's <code>RuntimeEnvironment</code>, you must delete
+    /// the application and create it again.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationDetail")]

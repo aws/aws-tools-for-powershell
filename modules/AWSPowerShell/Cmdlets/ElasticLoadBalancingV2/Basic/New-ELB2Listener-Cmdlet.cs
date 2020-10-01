@@ -171,6 +171,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public System.String SslPolicy { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the listener.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ElasticLoadBalancingV2.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Listeners'.
@@ -272,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             }
             #endif
             context.SslPolicy = this.SslPolicy;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ElasticLoadBalancingV2.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -315,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.SslPolicy != null)
             {
                 request.SslPolicy = cmdletContext.SslPolicy;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -384,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public System.Int32? Port { get; set; }
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
             public System.String SslPolicy { get; set; }
+            public List<Amazon.ElasticLoadBalancingV2.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ElasticLoadBalancingV2.Model.CreateListenerResponse, NewELB2ListenerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Listeners;
         }

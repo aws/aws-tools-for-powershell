@@ -255,6 +255,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.Snowball.dll',
         'AWSSDK.SQS.dll',
         'AWSSDK.SSO.dll',
+        'AWSSDK.SSOAdmin.dll',
         'AWSSDK.SSOOIDC.dll',
         'AWSSDK.StepFunctions.dll',
         'AWSSDK.StorageGateway.dll',

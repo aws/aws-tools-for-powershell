@@ -94,6 +94,13 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.AppNetworkAccessType
+        "New-SMDomain/AppNetworkAccessType"
+        {
+            $v = "PublicInternetOnly","VpcOnly"
+            break
+        }
+
         # Amazon.SageMaker.AppSortKey
         "Get-SMAppList/SortBy"
         {
@@ -663,6 +670,7 @@ $SM_Completers = {
 }
 
 $SM_map = @{
+    "AppNetworkAccessType"=@("New-SMDomain")
     "AppType"=@("Get-SMApp","New-SMApp","Remove-SMApp")
     "AuthMode"=@("New-SMDomain")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob")

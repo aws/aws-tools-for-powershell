@@ -231,6 +231,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? ArrayProperties_Size { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags that you apply to the job request to help you categorize and organize your
+        /// resources. Each tag consists of a key and an optional value. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a> in <i>AWS General Reference</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
@@ -374,6 +388,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 }
             }
             context.RetryStrategy_Attempt = this.RetryStrategy_Attempt;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.Timeout = this.Timeout;
             
             // allow further manipulation of loaded context prior to processing
@@ -547,6 +569,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.RetryStrategy = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Timeout != null)
             {
                 request.Timeout = cmdletContext.Timeout;
@@ -627,6 +653,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? NodeOverrides_NumNode { get; set; }
             public Dictionary<System.String, System.String> Parameter { get; set; }
             public System.Int32? RetryStrategy_Attempt { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
             public System.Func<Amazon.Batch.Model.SubmitJobResponse, SubmitBATJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

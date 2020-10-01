@@ -339,12 +339,31 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>Key-value pair tags to be applied to resources that are launched in the compute environment.
         /// For AWS Batch, these take the form of "String1": "String2", where String1 is the tag
         /// key and String2 is the tag value—for example, { "Name": "AWS Batch Instance - C4OnDemand"
-        /// }.</para>
+        /// }. These tags can not be updated or removed after the compute environment has been
+        /// created; any changes require creating a new compute environment and removing the old
+        /// compute environment. These tags are not seen when using the AWS Batch ListTagsForResource
+        /// API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ComputeResources_Tags")]
         public System.Collections.Hashtable ComputeResources_Tag { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags that you apply to the compute environment to help you categorize and organize
+        /// your resources. Each tag consists of a key and an optional value. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a> in <i>AWS General Reference</i>.</para><para>These tags can be updated or removed using the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_TagResource.html">TagResource</a>
+        /// and <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_UntagResource.html">UntagResource</a>
+        /// API operations. These tags do not propagate to the underlying compute resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter ComputeResources_Type
@@ -479,6 +498,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             #endif
             context.State = this.State;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.Type = this.Type;
             #if MODULAR
             if (this.Type == null && ParameterWasBound(nameof(this.Type)))
@@ -718,6 +745,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.State = cmdletContext.State;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
@@ -804,6 +835,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public Amazon.Batch.CRType ComputeResources_Type { get; set; }
             public System.String ServiceRole { get; set; }
             public Amazon.Batch.CEState State { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Batch.CEType Type { get; set; }
             public System.Func<Amazon.Batch.Model.CreateComputeEnvironmentResponse, NewBATComputeEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

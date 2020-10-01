@@ -28,8 +28,8 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Creates an Amazon Kinesis Data Analytics application. For information about creating
-    /// a Kinesis Data Analytics application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating
+    /// Creates a Kinesis Data Analytics application. For information about creating a Kinesis
+    /// Data Analytics application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating
     /// an Application</a>.
     /// </summary>
     [Cmdlet("New", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter RuntimeEnvironment
         /// <summary>
         /// <para>
-        /// <para>The runtime environment for the application (<code>SQL-1.0</code> or <code>FLINK-1_6</code>).</para>
+        /// <para>The runtime environment for the application (<code>SQL-1.0</code>, <code>FLINK-1_6</code>,
+        /// or <code>FLINK-1_8</code>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

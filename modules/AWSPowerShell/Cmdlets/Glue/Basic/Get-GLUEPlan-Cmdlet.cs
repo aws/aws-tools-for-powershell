@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class GetGLUEPlanCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalPlanOptionsMap
+        /// <summary>
+        /// <para>
+        /// <para>A map to hold additional optional key-value parameters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AdditionalPlanOptionsMap { get; set; }
+        #endregion
+        
         #region Parameter Language
         /// <summary>
         /// <para>
@@ -149,6 +159,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = (response, cmdlet) => this.Source;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AdditionalPlanOptionsMap != null)
+            {
+                context.AdditionalPlanOptionsMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AdditionalPlanOptionsMap.Keys)
+                {
+                    context.AdditionalPlanOptionsMap.Add((String)hashKey, (String)(this.AdditionalPlanOptionsMap[hashKey]));
+                }
+            }
             context.Language = this.Language;
             context.Location = this.Location;
             if (this.Mapping != null)
@@ -188,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.GetPlanRequest();
             
+            if (cmdletContext.AdditionalPlanOptionsMap != null)
+            {
+                request.AdditionalPlanOptionsMap = cmdletContext.AdditionalPlanOptionsMap;
+            }
             if (cmdletContext.Language != null)
             {
                 request.Language = cmdletContext.Language;
@@ -269,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> AdditionalPlanOptionsMap { get; set; }
             public Amazon.Glue.Language Language { get; set; }
             public Amazon.Glue.Model.Location Location { get; set; }
             public List<Amazon.Glue.Model.MappingEntry> Mapping { get; set; }

@@ -59,13 +59,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <p>Deletes the replication subresource associated with the specified
-        /// bucket.</p><note><p>There is usually some time lag before
+        /// <para>Deletes the replication subresource associated with the specified bucket.</para><note><para>There is usually some time lag before
         /// replication configuration deletion is fully propagated to all the
-        /// Amazon S3 systems.</p></note><p> For more information, see
+        /// Amazon S3 systems.</para></note><para> For more information, see
         /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">
         /// Cross-Region Replication (CRR)</a> in the Amazon S3 Developer
-        /// Guide. </p>
+        /// Guide. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// block) for any request that does not match any of the rules. The rules in a Web ACL
     /// can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule
     /// group. You can associate a Web ACL with one or more AWS resources to protect. The
-    /// resources can be Amazon CloudFront, an Amazon API Gateway API, or an Application Load
-    /// Balancer. 
+    /// resources can be Amazon CloudFront, an Amazon API Gateway REST API, an Application
+    /// Load Balancer, or an AWS AppSync GraphQL API. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "WAF2WebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -177,8 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// <summary>
         /// <para>
         /// <para>Specifies whether this is for an AWS CloudFront distribution or for a regional application.
-        /// A regional application can be an Application Load Balancer (ALB) or an API Gateway
-        /// stage. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
+        /// A regional application can be an Application Load Balancer (ALB), an API Gateway REST
+        /// API, or an AppSync GraphQL API. </para><para>To work with CloudFront, you must also specify the Region US East (N. Virginia) as
         /// follows: </para><ul><li><para>CLI - Specify the Region when you use the CloudFront scope: <code>--scope=CLOUDFRONT
         /// --region=us-east-1</code>. </para></li><li><para>API and SDKs - For all calls, use the Region endpoint us-east-1. </para></li></ul>
         /// </para>

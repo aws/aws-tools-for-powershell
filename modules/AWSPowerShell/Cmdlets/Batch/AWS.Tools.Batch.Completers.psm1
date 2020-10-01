@@ -220,9 +220,12 @@ $BAT_SelectMap = @{
                "Get-BATJobQueue",
                "Get-BATJobDetail",
                "Get-BATJobList",
+               "Get-BATResourceTag",
                "Register-BATJobDefinition",
                "Submit-BATJob",
+               "Add-BATResourceTag",
                "Remove-BATJob",
+               "Remove-BATResourceTag",
                "Update-BATComputeEnvironment",
                "Update-BATJobQueue")
 }

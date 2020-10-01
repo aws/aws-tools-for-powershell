@@ -28,7 +28,7 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Returns information about a specific Amazon Kinesis Data Analytics application.
+    /// Returns information about a specific Kinesis Data Analytics application.
     /// 
     ///  
     /// <para>

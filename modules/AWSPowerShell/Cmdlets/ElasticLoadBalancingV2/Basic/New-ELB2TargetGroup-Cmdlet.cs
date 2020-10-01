@@ -211,6 +211,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the target group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ElasticLoadBalancingV2.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetType
         /// <summary>
         /// <para>
@@ -309,6 +320,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             #endif
             context.Port = this.Port;
             context.Protocol = this.Protocol;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ElasticLoadBalancingV2.Model.Tag>(this.Tag);
+            }
             context.TargetType = this.TargetType;
             context.UnhealthyThresholdCount = this.UnhealthyThresholdCount;
             context.VpcId = this.VpcId;
@@ -386,6 +401,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.Protocol != null)
             {
                 request.Protocol = cmdletContext.Protocol;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TargetType != null)
             {
@@ -471,6 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public System.String Name { get; set; }
             public System.Int32? Port { get; set; }
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
+            public List<Amazon.ElasticLoadBalancingV2.Model.Tag> Tag { get; set; }
             public Amazon.ElasticLoadBalancingV2.TargetTypeEnum TargetType { get; set; }
             public System.Int32? UnhealthyThresholdCount { get; set; }
             public System.String VpcId { get; set; }

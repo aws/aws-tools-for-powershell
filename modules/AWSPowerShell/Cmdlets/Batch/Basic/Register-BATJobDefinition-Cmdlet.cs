@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
-        /// ECS task execution IAM role</a>.</para>
+        /// more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">AWS
+        /// Batch execution IAM role</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LinuxParameters_InitProcessEnabled
         /// <summary>
         /// <para>
-        /// <para>Run an <code>init</code> process inside the container that forwards signals and reaps
-        /// processes. This parameter maps to the <code>--init</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
+        /// <para>If true, run an <code>init</code> process inside the container that forwards signals
+        /// and reaps processes. This parameter maps to the <code>--init</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>. This parameter requires version 1.25 of the Docker Remote API or greater
         /// on your container instance. To check the Docker Remote API version on your container
         /// instance, log into your container instance and run the following command: <code>sudo
@@ -194,8 +194,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The log driver to use for the container. The valid values listed for this parameter
         /// are log drivers that the Amazon ECS container agent can communicate with by default.</para><para>The supported log drivers are <code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
         /// <code>json-file</code>, <code>journald</code>, <code>logentries</code>, <code>syslog</code>,
-        /// and <code>splunk</code>.</para><para>For more information about using the <code>awslogs</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html">Using
-        /// the awslogs Log Driver</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><note><para>If you have a custom driver that is not listed earlier that you would like to work
+        /// and <code>splunk</code>.</para><dl><dt>awslogs</dt><dd><para>Specifies the Amazon CloudWatch Logs logging driver. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html">Using
+        /// the awslogs Log Driver</a> in the <i>AWS Batch User Guide</i> and <a href="https://docs.docker.com/config/containers/logging/awslogs/">Amazon
+        /// CloudWatch Logs logging driver</a> in the Docker documentation.</para></dd><dt>fluentd</dt><dd><para>Specifies the Fluentd logging driver. For more information, including usage and options,
+        /// see <a href="https://docs.docker.com/config/containers/logging/fluentd/">Fluentd logging
+        /// driver</a> in the Docker documentation.</para></dd><dt>gelf</dt><dd><para>Specifies the Graylog Extended Format (GELF) logging driver. For more information,
+        /// including usage and options, see <a href="https://docs.docker.com/config/containers/logging/gelf/">Graylog
+        /// Extended Format logging driver</a> in the Docker documentation.</para></dd><dt>journald</dt><dd><para>Specifies the journald logging driver. For more information, including usage and options,
+        /// see <a href="https://docs.docker.com/config/containers/logging/journald/">Journald
+        /// logging driver</a> in the Docker documentation.</para></dd><dt>json-file</dt><dd><para>Specifies the JSON file logging driver. For more information, including usage and
+        /// options, see <a href="https://docs.docker.com/config/containers/logging/json-file/">JSON
+        /// File logging driver</a> in the Docker documentation.</para></dd><dt>splunk</dt><dd><para>Specifies the Splunk logging driver. For more information, including usage and options,
+        /// see <a href="https://docs.docker.com/config/containers/logging/splunk/">Splunk logging
+        /// driver</a> in the Docker documentation.</para></dd><dt>syslog</dt><dd><para>Specifies the syslog logging driver. For more information, including usage and options,
+        /// see <a href="https://docs.docker.com/config/containers/logging/syslog/">Syslog logging
+        /// driver</a> in the Docker documentation.</para></dd></dl><note><para>If you have a custom driver that is not listed earlier that you would like to work
         /// with the Amazon ECS container agent, you can fork the Amazon ECS container agent project
         /// that is <a href="https://github.com/aws/amazon-ecs-agent">available on GitHub</a>
         /// and customize it to work with that driver. We encourage you to submit pull requests
@@ -367,8 +380,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter LogConfiguration_SecretOption
         /// <summary>
         /// <para>
-        /// <para>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
-        /// Sensitive Data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
+        /// <para>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html">Specifying
+        /// Sensitive Data</a> in the <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -417,6 +430,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ContainerProperties_LinuxParameters_Swappiness")]
         public System.Int32? LinuxParameters_Swappiness { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags that you apply to the job definition to help you categorize and organize
+        /// your resources. Each tag consists of a key and an optional value. For more information,
+        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a> in <i>AWS General Reference</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Timeout
@@ -665,6 +692,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 }
             }
             context.RetryStrategy_Attempt = this.RetryStrategy_Attempt;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.Timeout = this.Timeout;
             context.Type = this.Type;
             #if MODULAR
@@ -1044,6 +1079,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.RetryStrategy = null;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Timeout != null)
             {
                 request.Timeout = cmdletContext.Timeout;
@@ -1144,6 +1183,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? NodeProperties_NumNode { get; set; }
             public Dictionary<System.String, System.String> Parameter { get; set; }
             public System.Int32? RetryStrategy_Attempt { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Batch.Model.JobTimeout Timeout { get; set; }
             public Amazon.Batch.JobDefinitionType Type { get; set; }
             public System.Func<Amazon.Batch.Model.RegisterJobDefinitionResponse, RegisterBATJobDefinitionCmdlet, object> Select { get; set; } =

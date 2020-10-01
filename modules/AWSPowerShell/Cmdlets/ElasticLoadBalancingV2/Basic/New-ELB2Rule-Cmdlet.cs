@@ -136,6 +136,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public System.Int32? Priority { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.ElasticLoadBalancingV2.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Rules'.
@@ -231,6 +242,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 WriteWarning("You are passing $null as a value for parameter Priority which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.ElasticLoadBalancingV2.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -262,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.Priority != null)
             {
                 request.Priority = cmdletContext.Priority.Value;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -328,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public List<Amazon.ElasticLoadBalancingV2.Model.RuleCondition> Condition { get; set; }
             public System.String ListenerArn { get; set; }
             public System.Int32? Priority { get; set; }
+            public List<Amazon.ElasticLoadBalancingV2.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.ElasticLoadBalancingV2.Model.CreateRuleResponse, NewELB2RuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Rules;
         }

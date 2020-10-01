@@ -28,11 +28,10 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Infers a schema for an SQL-based Amazon Kinesis Data Analytics application by evaluating
-    /// sample records on the specified streaming source (Kinesis data stream or Kinesis Data
-    /// Firehose delivery stream) or Amazon S3 object. In the response, the operation returns
-    /// the inferred schema and also the sample records that the operation used to infer the
-    /// schema.
+    /// Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating sample
+    /// records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose
+    /// delivery stream) or Amazon S3 object. In the response, the operation returns the inferred
+    /// schema and also the sample records that the operation used to infer the schema.
     /// 
     ///  
     /// <para>
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         /// <para>
         /// <para>The ARN of the AWS Lambda function that operates on records in the stream.</para><note><para>To specify an earlier version of the Lambda function than the latest, include the
         /// Lambda function version in the Lambda function ARN. For more information about Lambda
-        /// ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example
+        /// ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example
         /// ARNs: AWS Lambda</a></para></note>
         /// </para>
         /// </summary>

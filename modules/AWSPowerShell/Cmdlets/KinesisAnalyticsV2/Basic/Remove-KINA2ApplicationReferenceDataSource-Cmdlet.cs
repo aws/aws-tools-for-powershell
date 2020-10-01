@@ -28,8 +28,8 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Deletes a reference data source configuration from the specified SQL-based Amazon
-    /// Kinesis Data Analytics application's configuration.
+    /// Deletes a reference data source configuration from the specified SQL-based Kinesis
+    /// Data Analytics application's configuration.
     /// 
     ///  
     /// <para>

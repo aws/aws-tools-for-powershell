@@ -86,17 +86,20 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-BATResourceTag', 
         'Get-BATComputeEnvironment', 
         'Get-BATJobDefinition', 
         'Get-BATJobDetail', 
         'Get-BATJobList', 
         'Get-BATJobQueue', 
+        'Get-BATResourceTag', 
         'New-BATComputeEnvironment', 
         'New-BATJobQueue', 
         'Register-BATJobDefinition', 
         'Remove-BATComputeEnvironment', 
         'Remove-BATJob', 
         'Remove-BATJobQueue', 
+        'Remove-BATResourceTag', 
         'Stop-BATJob', 
         'Submit-BATJob', 
         'Unregister-BATJobDefinition', 

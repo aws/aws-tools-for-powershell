@@ -1,0 +1,3 @@
+﻿# SSOAdmin
+
+Export-ModuleMember -Alias *

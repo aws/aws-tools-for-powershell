@@ -54,6 +54,66 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Boolean? RedshiftSettings_AcceptAnyDate { get; set; }
         #endregion
         
+        #region Parameter OracleSettings_AccessAlternateDirectly
+        /// <summary>
+        /// <para>
+        /// <para>Set this attribute to <code>false</code> in order to use the Binary Reader to capture
+        /// change data for an Amazon RDS for Oracle as the source. This tells the DMS instance
+        /// to not access redo logs through any specified path prefix replacement using direct
+        /// file access.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_AccessAlternateDirectly { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_AdditionalArchivedLogDestId
+        /// <summary>
+        /// <para>
+        /// <para>Set this attribute with <code>archivedLogDestId</code> in a primary/ standby setup.
+        /// This attribute is useful in the case of a switchover. In this case, AWS DMS needs
+        /// to know which destination to get archive redo logs from to read changes. This need
+        /// arises because the previous primary instance is now a standby instance after switchover.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OracleSettings_AdditionalArchivedLogDestId { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_AddSupplementalLogging
+        /// <summary>
+        /// <para>
+        /// <para>Set this attribute to set up table-level supplemental logging for the Oracle database.
+        /// This attribute enables PRIMARY KEY supplemental logging on all tables selected for
+        /// a migration task.</para><para>If you use this option, you still need to enable database-level supplemental logging.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_AddSupplementalLogging { get; set; }
+        #endregion
+        
+        #region Parameter MySQLSettings_AfterConnectScript
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a script to run immediately after AWS DMS connects to the endpoint. The
+        /// migration task continues running regardless if the SQL statement succeeds or fails.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MySQLSettings_AfterConnectScript { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_AfterConnectScript
+        /// <summary>
+        /// <para>
+        /// <para>For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign
+        /// keys and user triggers to reduce the time it takes to bulk load data.</para><para>Example: <code>afterConnectScript=SET session_replication_role='replica'</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_AfterConnectScript { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_AfterConnectScript
         /// <summary>
         /// <para>
@@ -63,6 +123,44 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String RedshiftSettings_AfterConnectScript { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_AllowSelectNestedTable
+        /// <summary>
+        /// <para>
+        /// <para>Set this attribute to <code>true</code> to enable replication of Oracle tables containing
+        /// columns that are nested tables or defined types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OracleSettings_AllowSelectNestedTables")]
+        public System.Boolean? OracleSettings_AllowSelectNestedTable { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_ArchivedLogDestId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the destination of the archived redo logs. The value should be the same
+        /// as the DEST_ID number in the v$archived_log table. When working with multiple log
+        /// destinations (DEST_ID), we recommend that you to specify an archived redo logs location
+        /// identifier. Doing this improves performance by ensuring that the correct logs are
+        /// accessed from the outset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OracleSettings_ArchivedLogDestId { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_ArchivedLogsOnly
+        /// <summary>
+        /// <para>
+        /// <para>When this field is set to <code>Y</code>, AWS DMS only accesses the archived redo
+        /// logs. If the archived redo logs are stored on Oracle ASM only, the AWS DMS user account
+        /// needs to be granted ASM privileges.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_ArchivedLogsOnly { get; set; }
         #endregion
         
         #region Parameter OracleSettings_AsmPassword
@@ -144,6 +242,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.AuthTypeValue MongoDbSettings_AuthType { get; set; }
         #endregion
         
+        #region Parameter MicrosoftSQLServerSettings_BcpPacketSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum size of the packets (in bytes) used to transfer data using BCP.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MicrosoftSQLServerSettings_BcpPacketSize { get; set; }
+        #endregion
+        
         #region Parameter KafkaSettings_Broker
         /// <summary>
         /// <para>
@@ -159,8 +267,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_BucketFolder
         /// <summary>
         /// <para>
-        /// <para>The location where the comma-separated value (.csv) files are stored before being
-        /// uploaded to the S3 bucket. </para>
+        /// <para>An S3 folder where the comma-separated-value (.csv) files are stored before being
+        /// uploaded to the target Redshift cluster. </para><para>For full load mode, AWS DMS converts source records into .csv files and loads them
+        /// to the <i>BucketFolder/TableID</i> path. AWS DMS uses the Redshift <code>COPY</code>
+        /// command to upload the .csv files to the target table. The files are deleted once the
+        /// <code>COPY</code> operation has finished. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">Amazon
+        /// Redshift Database Developer Guide</a></para><para>For change-data-capture (CDC) mode, AWS DMS creates a <i>NetChanges</i> table, and
+        /// loads the .csv files to this <i>BucketFolder/NetChangesTableID</i> path.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,7 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the S3 bucket you want to use</para>
+        /// <para>The name of the intermediate S3 bucket used to store .csv files before uploading data
+        /// to Redshift.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -208,6 +322,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3Settings_BucketName { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_CaptureDdl
+        /// <summary>
+        /// <para>
+        /// <para>To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database
+        /// when the task starts. You can later remove these artifacts.</para><para>If this value is set to <code>N</code>, you don't have to create tables or triggers
+        /// on the source database.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PostgreSQLSettings_CaptureDdls")]
+        public System.Boolean? PostgreSQLSettings_CaptureDdl { get; set; }
         #endregion
         
         #region Parameter S3Settings_CdcInsertsAndUpdate
@@ -274,6 +401,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String CertificateArn { get; set; }
         #endregion
         
+        #region Parameter OracleSettings_CharLengthSemantic
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the length of a character column is in bytes or in characters. To
+        /// indicate that the character column length is in characters, set this attribute to
+        /// <code>CHAR</code>. Otherwise, the character column length is in bytes.</para><para>Example: <code>charLengthSemantics=CHAR;</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OracleSettings_CharLengthSemantics")]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.CharLengthSemantics")]
+        public Amazon.DatabaseMigrationService.CharLengthSemantics OracleSettings_CharLengthSemantic { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_CompressionType
         /// <summary>
         /// <para>
@@ -299,6 +440,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? RedshiftSettings_ConnectionTimeout { get; set; }
         #endregion
         
+        #region Parameter MicrosoftSQLServerSettings_ControlTablesFileGroup
+        /// <summary>
+        /// <para>
+        /// <para>Specify a filegroup for the AWS DMS internal tables. When the replication task starts,
+        /// all the internal AWS DMS control tables (awsdms_ apply_exception, awsdms_apply, awsdms_changes)
+        /// are created on the specified filegroup.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MicrosoftSQLServerSettings_ControlTablesFileGroup { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_CsvDelimiter
         /// <summary>
         /// <para>
@@ -319,6 +472,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String S3Settings_CsvRowDelimiter { get; set; }
+        #endregion
+        
+        #region Parameter IBMDb2Settings_CurrentLsn
+        /// <summary>
+        /// <para>
+        /// <para>For ongoing replication (CDC), use CurrentLSN to specify a log sequence number (LSN)
+        /// where you want the replication to start.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IBMDb2Settings_CurrentLsn { get; set; }
         #endregion
         
         #region Parameter DatabaseName
@@ -450,6 +614,55 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String RedshiftSettings_DateFormat { get; set; }
         #endregion
         
+        #region Parameter S3Settings_DatePartitionDelimiter
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a date separating delimiter to use during folder partitioning. The default
+        /// value is <code>SLASH</code> (/). Use this parameter when <code>DatePartitionedEnabled</code>
+        /// is set to <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DatePartitionDelimiterValue")]
+        public Amazon.DatabaseMigrationService.DatePartitionDelimiterValue S3Settings_DatePartitionDelimiter { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_DatePartitionEnabled
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, this parameter partitions S3 bucket folders based on
+        /// transaction commit dates. The default value is <code>false</code>. For more information
+        /// about date-based folder partitoning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Using
+        /// date-based folder partitioning</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? S3Settings_DatePartitionEnabled { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_DatePartitionSequence
+        /// <summary>
+        /// <para>
+        /// <para>Identifies the sequence of the date format to use during folder partitioning. The
+        /// default value is <code>YYYYMMDD</code>. Use this parameter when <code>DatePartitionedEnabled</code>
+        /// is set to <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DatePartitionSequenceValue")]
+        public Amazon.DatabaseMigrationService.DatePartitionSequenceValue S3Settings_DatePartitionSequence { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_DdlArtifactsSchema
+        /// <summary>
+        /// <para>
+        /// <para>The schema in which the operational DDL database artifacts are created.</para><para>Example: <code>ddlArtifactsSchema=xyzddlschema;</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_DdlArtifactsSchema { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_DictPageSizeLimit
         /// <summary>
         /// <para>
@@ -462,6 +675,30 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? S3Settings_DictPageSizeLimit { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_DirectPathNoLog
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, this attribute helps to increase the commit rate on
+        /// the Oracle target database by writing directly to tables and not writing a trail to
+        /// database logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_DirectPathNoLog { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_DirectPathParallelLoad
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, this attribute specifies a parallel load when <code>useDirectPathFullLoad</code>
+        /// is set to <code>Y</code>. This attribute also only applies when you use the AWS DMS
+        /// parallel load feature. Note that the target table cannot have any constraints or indexes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_DirectPathParallelLoad { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_DocsToInvestigate
@@ -485,6 +722,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? RedshiftSettings_EmptyAsNull { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_EnableHomogenousTablespace
+        /// <summary>
+        /// <para>
+        /// <para>Set this attribute to enable homogenous tablespace replication and create existing
+        /// tables or indexes under the same tablespace on the target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_EnableHomogenousTablespace { get; set; }
         #endregion
         
         #region Parameter S3Settings_EnableStatistic
@@ -588,7 +836,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ElasticsearchSettings_EndpointUri
         /// <summary>
         /// <para>
-        /// <para>The endpoint for the Elasticsearch cluster.</para>
+        /// <para>The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a transport protocol
+        /// (http/https) is not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -640,6 +889,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? NeptuneSettings_ErrorRetryDuration { get; set; }
         #endregion
         
+        #region Parameter MySQLSettings_EventsPollInterval
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how often to check the binary log for new changes/events when the database
+        /// is idle.</para><para>Example: <code>eventsPollInterval=5;</code></para><para>In the example, AWS DMS checks for changes in the binary logs every five seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MySQLSettings_EventsPollInterval { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_ExecuteTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Sets the client statement timeout for the PostgreSQL instance, in seconds. The default
+        /// value is 60 seconds.</para><para>Example: <code>executeTimeout=100;</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PostgreSQLSettings_ExecuteTimeout { get; set; }
+        #endregion
+        
         #region Parameter ExternalTableDefinition
         /// <summary>
         /// <para>
@@ -686,11 +957,38 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MongoDbSettings_ExtractDocId { get; set; }
         #endregion
         
+        #region Parameter OracleSettings_FailTasksOnLobTruncation
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, this attribute causes a task to fail if the actual
+        /// size of an LOB column is greater than the specified <code>LobMaxSize</code>.</para><para>If a task is set to limited LOB mode and this option is set to <code>true</code>,
+        /// the task fails instead of truncating the LOB data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_FailTasksOnLobTruncation { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_FailTasksOnLobTruncation
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, this value causes a task to fail if the actual size
+        /// of a LOB column is greater than the specified <code>LobMaxSize</code>.</para><para>If task is set to Limited LOB mode and this option is set to true, the task fails
+        /// instead of truncating the LOB data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PostgreSQLSettings_FailTasksOnLobTruncation { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_FileTransferUploadStream
         /// <summary>
         /// <para>
         /// <para>The number of threads used to upload a single file. This parameter accepts a value
-        /// from 1 through 64. It defaults to 10.</para>
+        /// from 1 through 64. It defaults to 10.</para><para>The number of parallel streams used to upload a single .csv file to an S3 bucket using
+        /// S3 Multipart Upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html">Multipart
+        /// upload overview</a>. </para><para><code>FileTransferUploadStreams</code> accepts a value from 1 through 64. It defaults
+        /// to 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -702,7 +1000,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>The maximum percentage of records that can fail to be written before a full load operation
-        /// stops. </para>
+        /// stops.</para><para>To avoid early failure, this counter is only effective after 1000 records are transferred.
+        /// Elasticsearch also has the concept of error monitoring during the last 10 minutes
+        /// of an Observation Window. If transfer of all records fail in the last 10 minutes,
+        /// the full load operation stops. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -895,12 +1196,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_LoadTimeout
         /// <summary>
         /// <para>
-        /// <para>The amount of time to wait (in milliseconds) before timing out, beginning from when
-        /// you begin loading.</para>
+        /// <para>The amount of time to wait (in milliseconds) before timing out of operations performed
+        /// by AWS DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? RedshiftSettings_LoadTimeout { get; set; }
+        #endregion
+        
+        #region Parameter MySQLSettings_MaxFileSize
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible
+        /// database.</para><para>Example: <code>maxFileSize=512</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MySQLSettings_MaxFileSize { get; set; }
         #endregion
         
         #region Parameter NeptuneSettings_MaxFileSize
@@ -916,15 +1228,35 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? NeptuneSettings_MaxFileSize { get; set; }
         #endregion
         
+        #region Parameter PostgreSQLSettings_MaxFileSize
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL.</para><para>Example: <code>maxFileSize=512</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? PostgreSQLSettings_MaxFileSize { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_MaxFileSize
         /// <summary>
         /// <para>
-        /// <para>The maximum size (in KB) of any .csv file used to transfer data to Amazon Redshift.
-        /// This accepts a value from 1 through 1,048,576. It defaults to 32,768 KB (32 MB).</para>
+        /// <para>The maximum size (in KB) of any .csv file used to load data on an S3 bucket and transfer
+        /// data to Amazon Redshift. It defaults to 1048576KB (1 GB).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? RedshiftSettings_MaxFileSize { get; set; }
+        #endregion
+        
+        #region Parameter IBMDb2Settings_MaxKBytesPerRead
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of bytes per read, as a NUMBER value. The default is 64 KB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? IBMDb2Settings_MaxKBytesPerRead { get; set; }
         #endregion
         
         #region Parameter NeptuneSettings_MaxRetryCount
@@ -983,6 +1315,57 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.NestingLevelValue")]
         public Amazon.DatabaseMigrationService.NestingLevelValue MongoDbSettings_NestingLevel { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_NumberDatatypeScale
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the number scale. You can select a scale up to 38, or you can select FLOAT.
+        /// By default, the NUMBER data type is converted to precision 38, scale 10.</para><para>Example: <code>numberDataTypeScale=12</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OracleSettings_NumberDatatypeScale { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_OraclePathPrefix
+        /// <summary>
+        /// <para>
+        /// <para>Set this string attribute to the required value in order to use the Binary Reader
+        /// to capture change data for an Amazon RDS for Oracle as the source. This value specifies
+        /// the default Oracle root used to access the redo logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_OraclePathPrefix { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_ParallelAsmReadThread
+        /// <summary>
+        /// <para>
+        /// <para>Set this attribute to change the number of threads that DMS configures to perform
+        /// a Change Data Capture (CDC) load using Oracle Automatic Storage Management (ASM).
+        /// You can specify an integer value between 2 (the default) and 8 (the maximum). Use
+        /// this attribute together with the <code>readAheadBlocks</code> attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OracleSettings_ParallelAsmReadThreads")]
+        public System.Int32? OracleSettings_ParallelAsmReadThread { get; set; }
+        #endregion
+        
+        #region Parameter MySQLSettings_ParallelLoadThread
+        /// <summary>
+        /// <para>
+        /// <para>Improves performance when loading data into the MySQLcompatible target database. Specifies
+        /// how many threads to use to load the data into the MySQL-compatible target database.
+        /// Setting a large number of threads can have an adverse effect on database performance,
+        /// because a separate connection is required for each thread.</para><para>Example: <code>parallelLoadThreads=1</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MySQLSettings_ParallelLoadThreads")]
+        public System.Int32? MySQLSettings_ParallelLoadThread { get; set; }
         #endregion
         
         #region Parameter S3Settings_ParquetTimestampInMillisecond
@@ -1226,6 +1609,44 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32? SybaseSettings_Port { get; set; }
         #endregion
         
+        #region Parameter OracleSettings_ReadAheadBlock
+        /// <summary>
+        /// <para>
+        /// <para>Set this attribute to change the number of read-ahead blocks that DMS configures to
+        /// perform a Change Data Capture (CDC) load using Oracle Automatic Storage Management
+        /// (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the
+        /// maximum).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OracleSettings_ReadAheadBlocks")]
+        public System.Int32? OracleSettings_ReadAheadBlock { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_ReadBackupOnly
+        /// <summary>
+        /// <para>
+        /// <para>When this attribute is set to <code>Y</code>, AWS DMS only reads changes from transaction
+        /// log backups and doesn't read from the active transaction log file during ongoing replication.
+        /// Setting this parameter to <code>Y</code> enables you to control active transaction
+        /// log file growth during full load and ongoing replication tasks. However, it can add
+        /// some source latency to ongoing replication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MicrosoftSQLServerSettings_ReadBackupOnly { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_ReadTableSpaceName
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>true</code>, this attribute supports tablespace replication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_ReadTableSpaceName { get; set; }
+        #endregion
+        
         #region Parameter RedshiftSettings_RemoveQuote
         /// <summary>
         /// <para>
@@ -1262,6 +1683,29 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String RedshiftSettings_ReplaceInvalidChar { get; set; }
         #endregion
         
+        #region Parameter OracleSettings_ReplacePathPrefix
+        /// <summary>
+        /// <para>
+        /// <para>Set this attribute to true in order to use the Binary Reader to capture change data
+        /// for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace
+        /// the default Oracle root with the specified <code>usePathPrefix</code> setting to access
+        /// the redo logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_ReplacePathPrefix { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_RetryInterval
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the number of seconds that the system waits before resending a query.</para><para>Example: <code>retryInterval=6;</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? OracleSettings_RetryInterval { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_RowGroupLength
         /// <summary>
         /// <para>
@@ -1296,6 +1740,28 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NeptuneSettings_S3BucketName { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_SafeguardPolicy
+        /// <summary>
+        /// <para>
+        /// <para>Use this attribute to minimize the need to access the backup log and enable AWS DMS
+        /// to prevent truncation using one of the following two methods.</para><para><i>Start transactions in the database:</i> This is the default method. When this
+        /// method is used, AWS DMS prevents TLOG truncation by mimicking a transaction in the
+        /// database. As long as such a transaction is open, changes that appear after the transaction
+        /// started aren't truncated. If you need Microsoft Replication to be enabled in your
+        /// database, then you must choose this method.</para><para><i>Exclusively use sp_repldone within a single task</i>: When this method is used,
+        /// AWS DMS reads the changes and then uses sp_repldone to mark the TLOG transactions
+        /// as ready for truncation. Although this method doesn't involve any transactional activities,
+        /// it can only be used when Microsoft Replication isn't running. Also, when using this
+        /// method, only one AWS DMS task can access the database at any given time. Therefore,
+        /// if you need to run parallel AWS DMS tasks against the same database, use the default
+        /// method.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.SafeguardPolicy")]
+        public Amazon.DatabaseMigrationService.SafeguardPolicy MicrosoftSQLServerSettings_SafeguardPolicy { get; set; }
         #endregion
         
         #region Parameter OracleSettings_SecurityDbEncryption
@@ -1447,6 +1913,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String S3Settings_ServerSideEncryptionKmsKeyId { get; set; }
         #endregion
         
+        #region Parameter MySQLSettings_ServerTimezone
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the time zone for the source MySQL database.</para><para>Example: <code>serverTimezone=US/Pacific;</code></para><para>Note: Do not enclose time zones in single quotes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MySQLSettings_ServerTimezone { get; set; }
+        #endregion
+        
         #region Parameter DmsTransferSettings_ServiceAccessRoleArn
         /// <summary>
         /// <para>
@@ -1534,6 +2010,29 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String ServiceAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter IBMDb2Settings_SetDataCaptureChange
+        /// <summary>
+        /// <para>
+        /// <para>Enables ongoing replication (CDC) as a BOOLEAN value. The default is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IBMDb2Settings_SetDataCaptureChanges")]
+        public System.Boolean? IBMDb2Settings_SetDataCaptureChange { get; set; }
+        #endregion
+        
+        #region Parameter PostgreSQLSettings_SlotName
+        /// <summary>
+        /// <para>
+        /// <para>Sets the name of a previously created logical replication slot for a CDC load of the
+        /// PostgreSQL source instance.</para><para>When used with the AWS DMS API <code>CdcStartPosition</code> request parameter, this
+        /// attribute also enables using native CDC start points.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String PostgreSQLSettings_SlotName { get; set; }
+        #endregion
+        
         #region Parameter SslMode
         /// <summary>
         /// <para>
@@ -1565,6 +2064,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.DatabaseMigrationService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter MySQLSettings_TargetDbType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies where to migrate source tables on the target, either to a single database
+        /// or multiple databases.</para><para>Example: <code>targetDbType=MULTIPLE_DATABASES</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.TargetDbType")]
+        public Amazon.DatabaseMigrationService.TargetDbType MySQLSettings_TargetDbType { get; set; }
         #endregion
         
         #region Parameter RedshiftSettings_TimeFormat
@@ -1636,6 +2147,42 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RedshiftSettings_TruncateColumns")]
         public System.Boolean? RedshiftSettings_TruncateColumn { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_UseAlternateFolderForOnline
+        /// <summary>
+        /// <para>
+        /// <para>Set this attribute to <code>true</code> in order to use the Binary Reader to capture
+        /// change data for an Amazon RDS for Oracle as the source. This tells the DMS instance
+        /// to use any specified prefix replacement to access all online redo logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? OracleSettings_UseAlternateFolderForOnline { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftSQLServerSettings_UseBcpFullLoad
+        /// <summary>
+        /// <para>
+        /// <para>Use this to attribute to transfer data for full-load operations using BCP. When the
+        /// target table contains an identity column that does not exist in the source table,
+        /// you must disable the use BCP for loading table option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? MicrosoftSQLServerSettings_UseBcpFullLoad { get; set; }
+        #endregion
+        
+        #region Parameter OracleSettings_UsePathPrefix
+        /// <summary>
+        /// <para>
+        /// <para>Set this string attribute to the required value in order to use the Binary Reader
+        /// to capture change data for an Amazon RDS for Oracle as the source. This value specifies
+        /// the path prefix used to replace the default Oracle root to access the redo logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OracleSettings_UsePathPrefix { get; set; }
         #endregion
         
         #region Parameter IBMDb2Settings_Username
@@ -1731,8 +2278,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter RedshiftSettings_WriteBufferSize
         /// <summary>
         /// <para>
-        /// <para>The size of the write buffer to use in rows. Valid values range from 1 through 2,048.
-        /// The default is 1,024. Use this setting to tune performance. </para>
+        /// <para>The size (in KB) of the in-memory file write buffer used when generating .csv files
+        /// on the local disk at the DMS replication instance. The default value is 1000 (buffer
+        /// size is 1000KB).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1832,10 +2380,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             #endif
             context.ExternalTableDefinition = this.ExternalTableDefinition;
             context.ExtraConnectionAttribute = this.ExtraConnectionAttribute;
+            context.IBMDb2Settings_CurrentLsn = this.IBMDb2Settings_CurrentLsn;
             context.IBMDb2Settings_DatabaseName = this.IBMDb2Settings_DatabaseName;
+            context.IBMDb2Settings_MaxKBytesPerRead = this.IBMDb2Settings_MaxKBytesPerRead;
             context.IBMDb2Settings_Password = this.IBMDb2Settings_Password;
             context.IBMDb2Settings_Port = this.IBMDb2Settings_Port;
             context.IBMDb2Settings_ServerName = this.IBMDb2Settings_ServerName;
+            context.IBMDb2Settings_SetDataCaptureChange = this.IBMDb2Settings_SetDataCaptureChange;
             context.IBMDb2Settings_Username = this.IBMDb2Settings_Username;
             context.KafkaSettings_Broker = this.KafkaSettings_Broker;
             context.KafkaSettings_IncludeControlDetail = this.KafkaSettings_IncludeControlDetail;
@@ -1857,10 +2408,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.KinesisSettings_ServiceAccessRoleArn = this.KinesisSettings_ServiceAccessRoleArn;
             context.KinesisSettings_StreamArn = this.KinesisSettings_StreamArn;
             context.KmsKeyId = this.KmsKeyId;
+            context.MicrosoftSQLServerSettings_BcpPacketSize = this.MicrosoftSQLServerSettings_BcpPacketSize;
+            context.MicrosoftSQLServerSettings_ControlTablesFileGroup = this.MicrosoftSQLServerSettings_ControlTablesFileGroup;
             context.MicrosoftSQLServerSettings_DatabaseName = this.MicrosoftSQLServerSettings_DatabaseName;
             context.MicrosoftSQLServerSettings_Password = this.MicrosoftSQLServerSettings_Password;
             context.MicrosoftSQLServerSettings_Port = this.MicrosoftSQLServerSettings_Port;
+            context.MicrosoftSQLServerSettings_ReadBackupOnly = this.MicrosoftSQLServerSettings_ReadBackupOnly;
+            context.MicrosoftSQLServerSettings_SafeguardPolicy = this.MicrosoftSQLServerSettings_SafeguardPolicy;
             context.MicrosoftSQLServerSettings_ServerName = this.MicrosoftSQLServerSettings_ServerName;
+            context.MicrosoftSQLServerSettings_UseBcpFullLoad = this.MicrosoftSQLServerSettings_UseBcpFullLoad;
             context.MicrosoftSQLServerSettings_Username = this.MicrosoftSQLServerSettings_Username;
             context.MongoDbSettings_AuthMechanism = this.MongoDbSettings_AuthMechanism;
             context.MongoDbSettings_AuthSource = this.MongoDbSettings_AuthSource;
@@ -1874,10 +2430,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.MongoDbSettings_Port = this.MongoDbSettings_Port;
             context.MongoDbSettings_ServerName = this.MongoDbSettings_ServerName;
             context.MongoDbSettings_Username = this.MongoDbSettings_Username;
+            context.MySQLSettings_AfterConnectScript = this.MySQLSettings_AfterConnectScript;
             context.MySQLSettings_DatabaseName = this.MySQLSettings_DatabaseName;
+            context.MySQLSettings_EventsPollInterval = this.MySQLSettings_EventsPollInterval;
+            context.MySQLSettings_MaxFileSize = this.MySQLSettings_MaxFileSize;
+            context.MySQLSettings_ParallelLoadThread = this.MySQLSettings_ParallelLoadThread;
             context.MySQLSettings_Password = this.MySQLSettings_Password;
             context.MySQLSettings_Port = this.MySQLSettings_Port;
             context.MySQLSettings_ServerName = this.MySQLSettings_ServerName;
+            context.MySQLSettings_ServerTimezone = this.MySQLSettings_ServerTimezone;
+            context.MySQLSettings_TargetDbType = this.MySQLSettings_TargetDbType;
             context.MySQLSettings_Username = this.MySQLSettings_Username;
             context.NeptuneSettings_ErrorRetryDuration = this.NeptuneSettings_ErrorRetryDuration;
             context.NeptuneSettings_IamAuthEnabled = this.NeptuneSettings_IamAuthEnabled;
@@ -1886,22 +2448,49 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.NeptuneSettings_S3BucketFolder = this.NeptuneSettings_S3BucketFolder;
             context.NeptuneSettings_S3BucketName = this.NeptuneSettings_S3BucketName;
             context.NeptuneSettings_ServiceAccessRoleArn = this.NeptuneSettings_ServiceAccessRoleArn;
+            context.OracleSettings_AccessAlternateDirectly = this.OracleSettings_AccessAlternateDirectly;
+            context.OracleSettings_AdditionalArchivedLogDestId = this.OracleSettings_AdditionalArchivedLogDestId;
+            context.OracleSettings_AddSupplementalLogging = this.OracleSettings_AddSupplementalLogging;
+            context.OracleSettings_AllowSelectNestedTable = this.OracleSettings_AllowSelectNestedTable;
+            context.OracleSettings_ArchivedLogDestId = this.OracleSettings_ArchivedLogDestId;
+            context.OracleSettings_ArchivedLogsOnly = this.OracleSettings_ArchivedLogsOnly;
             context.OracleSettings_AsmPassword = this.OracleSettings_AsmPassword;
             context.OracleSettings_AsmServer = this.OracleSettings_AsmServer;
             context.OracleSettings_AsmUser = this.OracleSettings_AsmUser;
+            context.OracleSettings_CharLengthSemantic = this.OracleSettings_CharLengthSemantic;
             context.OracleSettings_DatabaseName = this.OracleSettings_DatabaseName;
+            context.OracleSettings_DirectPathNoLog = this.OracleSettings_DirectPathNoLog;
+            context.OracleSettings_DirectPathParallelLoad = this.OracleSettings_DirectPathParallelLoad;
+            context.OracleSettings_EnableHomogenousTablespace = this.OracleSettings_EnableHomogenousTablespace;
+            context.OracleSettings_FailTasksOnLobTruncation = this.OracleSettings_FailTasksOnLobTruncation;
+            context.OracleSettings_NumberDatatypeScale = this.OracleSettings_NumberDatatypeScale;
+            context.OracleSettings_OraclePathPrefix = this.OracleSettings_OraclePathPrefix;
+            context.OracleSettings_ParallelAsmReadThread = this.OracleSettings_ParallelAsmReadThread;
             context.OracleSettings_Password = this.OracleSettings_Password;
             context.OracleSettings_Port = this.OracleSettings_Port;
+            context.OracleSettings_ReadAheadBlock = this.OracleSettings_ReadAheadBlock;
+            context.OracleSettings_ReadTableSpaceName = this.OracleSettings_ReadTableSpaceName;
+            context.OracleSettings_ReplacePathPrefix = this.OracleSettings_ReplacePathPrefix;
+            context.OracleSettings_RetryInterval = this.OracleSettings_RetryInterval;
             context.OracleSettings_SecurityDbEncryption = this.OracleSettings_SecurityDbEncryption;
             context.OracleSettings_SecurityDbEncryptionName = this.OracleSettings_SecurityDbEncryptionName;
             context.OracleSettings_ServerName = this.OracleSettings_ServerName;
+            context.OracleSettings_UseAlternateFolderForOnline = this.OracleSettings_UseAlternateFolderForOnline;
+            context.OracleSettings_UsePathPrefix = this.OracleSettings_UsePathPrefix;
             context.OracleSettings_Username = this.OracleSettings_Username;
             context.Password = this.Password;
             context.Port = this.Port;
+            context.PostgreSQLSettings_AfterConnectScript = this.PostgreSQLSettings_AfterConnectScript;
+            context.PostgreSQLSettings_CaptureDdl = this.PostgreSQLSettings_CaptureDdl;
             context.PostgreSQLSettings_DatabaseName = this.PostgreSQLSettings_DatabaseName;
+            context.PostgreSQLSettings_DdlArtifactsSchema = this.PostgreSQLSettings_DdlArtifactsSchema;
+            context.PostgreSQLSettings_ExecuteTimeout = this.PostgreSQLSettings_ExecuteTimeout;
+            context.PostgreSQLSettings_FailTasksOnLobTruncation = this.PostgreSQLSettings_FailTasksOnLobTruncation;
+            context.PostgreSQLSettings_MaxFileSize = this.PostgreSQLSettings_MaxFileSize;
             context.PostgreSQLSettings_Password = this.PostgreSQLSettings_Password;
             context.PostgreSQLSettings_Port = this.PostgreSQLSettings_Port;
             context.PostgreSQLSettings_ServerName = this.PostgreSQLSettings_ServerName;
+            context.PostgreSQLSettings_SlotName = this.PostgreSQLSettings_SlotName;
             context.PostgreSQLSettings_Username = this.PostgreSQLSettings_Username;
             context.RedshiftSettings_AcceptAnyDate = this.RedshiftSettings_AcceptAnyDate;
             context.RedshiftSettings_AfterConnectScript = this.RedshiftSettings_AfterConnectScript;
@@ -1937,6 +2526,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.S3Settings_CsvRowDelimiter = this.S3Settings_CsvRowDelimiter;
             context.S3Settings_DataFormat = this.S3Settings_DataFormat;
             context.S3Settings_DataPageSize = this.S3Settings_DataPageSize;
+            context.S3Settings_DatePartitionDelimiter = this.S3Settings_DatePartitionDelimiter;
+            context.S3Settings_DatePartitionEnabled = this.S3Settings_DatePartitionEnabled;
+            context.S3Settings_DatePartitionSequence = this.S3Settings_DatePartitionSequence;
             context.S3Settings_DictPageSizeLimit = this.S3Settings_DictPageSizeLimit;
             context.S3Settings_EnableStatistic = this.S3Settings_EnableStatistic;
             context.S3Settings_EncodingType = this.S3Settings_EncodingType;
@@ -2107,6 +2699,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
              // populate IBMDb2Settings
             var requestIBMDb2SettingsIsNull = true;
             request.IBMDb2Settings = new Amazon.DatabaseMigrationService.Model.IBMDb2Settings();
+            System.String requestIBMDb2Settings_iBMDb2Settings_CurrentLsn = null;
+            if (cmdletContext.IBMDb2Settings_CurrentLsn != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_CurrentLsn = cmdletContext.IBMDb2Settings_CurrentLsn;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_CurrentLsn != null)
+            {
+                request.IBMDb2Settings.CurrentLsn = requestIBMDb2Settings_iBMDb2Settings_CurrentLsn;
+                requestIBMDb2SettingsIsNull = false;
+            }
             System.String requestIBMDb2Settings_iBMDb2Settings_DatabaseName = null;
             if (cmdletContext.IBMDb2Settings_DatabaseName != null)
             {
@@ -2115,6 +2717,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestIBMDb2Settings_iBMDb2Settings_DatabaseName != null)
             {
                 request.IBMDb2Settings.DatabaseName = requestIBMDb2Settings_iBMDb2Settings_DatabaseName;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.Int32? requestIBMDb2Settings_iBMDb2Settings_MaxKBytesPerRead = null;
+            if (cmdletContext.IBMDb2Settings_MaxKBytesPerRead != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_MaxKBytesPerRead = cmdletContext.IBMDb2Settings_MaxKBytesPerRead.Value;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_MaxKBytesPerRead != null)
+            {
+                request.IBMDb2Settings.MaxKBytesPerRead = requestIBMDb2Settings_iBMDb2Settings_MaxKBytesPerRead.Value;
                 requestIBMDb2SettingsIsNull = false;
             }
             System.String requestIBMDb2Settings_iBMDb2Settings_Password = null;
@@ -2145,6 +2757,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestIBMDb2Settings_iBMDb2Settings_ServerName != null)
             {
                 request.IBMDb2Settings.ServerName = requestIBMDb2Settings_iBMDb2Settings_ServerName;
+                requestIBMDb2SettingsIsNull = false;
+            }
+            System.Boolean? requestIBMDb2Settings_iBMDb2Settings_SetDataCaptureChange = null;
+            if (cmdletContext.IBMDb2Settings_SetDataCaptureChange != null)
+            {
+                requestIBMDb2Settings_iBMDb2Settings_SetDataCaptureChange = cmdletContext.IBMDb2Settings_SetDataCaptureChange.Value;
+            }
+            if (requestIBMDb2Settings_iBMDb2Settings_SetDataCaptureChange != null)
+            {
+                request.IBMDb2Settings.SetDataCaptureChanges = requestIBMDb2Settings_iBMDb2Settings_SetDataCaptureChange.Value;
                 requestIBMDb2SettingsIsNull = false;
             }
             System.String requestIBMDb2Settings_iBMDb2Settings_Username = null;
@@ -2378,6 +3000,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
              // populate MicrosoftSQLServerSettings
             var requestMicrosoftSQLServerSettingsIsNull = true;
             request.MicrosoftSQLServerSettings = new Amazon.DatabaseMigrationService.Model.MicrosoftSQLServerSettings();
+            System.Int32? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_BcpPacketSize = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_BcpPacketSize != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_BcpPacketSize = cmdletContext.MicrosoftSQLServerSettings_BcpPacketSize.Value;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_BcpPacketSize != null)
+            {
+                request.MicrosoftSQLServerSettings.BcpPacketSize = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_BcpPacketSize.Value;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ControlTablesFileGroup = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_ControlTablesFileGroup != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ControlTablesFileGroup = cmdletContext.MicrosoftSQLServerSettings_ControlTablesFileGroup;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ControlTablesFileGroup != null)
+            {
+                request.MicrosoftSQLServerSettings.ControlTablesFileGroup = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ControlTablesFileGroup;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
             System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_DatabaseName = null;
             if (cmdletContext.MicrosoftSQLServerSettings_DatabaseName != null)
             {
@@ -2408,6 +3050,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.MicrosoftSQLServerSettings.Port = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Port.Value;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
+            System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ReadBackupOnly = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_ReadBackupOnly != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ReadBackupOnly = cmdletContext.MicrosoftSQLServerSettings_ReadBackupOnly.Value;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ReadBackupOnly != null)
+            {
+                request.MicrosoftSQLServerSettings.ReadBackupOnly = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ReadBackupOnly.Value;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.SafeguardPolicy requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SafeguardPolicy = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_SafeguardPolicy != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SafeguardPolicy = cmdletContext.MicrosoftSQLServerSettings_SafeguardPolicy;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SafeguardPolicy != null)
+            {
+                request.MicrosoftSQLServerSettings.SafeguardPolicy = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_SafeguardPolicy;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
             System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName = null;
             if (cmdletContext.MicrosoftSQLServerSettings_ServerName != null)
             {
@@ -2416,6 +3078,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName != null)
             {
                 request.MicrosoftSQLServerSettings.ServerName = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_ServerName;
+                requestMicrosoftSQLServerSettingsIsNull = false;
+            }
+            System.Boolean? requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseBcpFullLoad = null;
+            if (cmdletContext.MicrosoftSQLServerSettings_UseBcpFullLoad != null)
+            {
+                requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseBcpFullLoad = cmdletContext.MicrosoftSQLServerSettings_UseBcpFullLoad.Value;
+            }
+            if (requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseBcpFullLoad != null)
+            {
+                request.MicrosoftSQLServerSettings.UseBcpFullLoad = requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_UseBcpFullLoad.Value;
                 requestMicrosoftSQLServerSettingsIsNull = false;
             }
             System.String requestMicrosoftSQLServerSettings_microsoftSQLServerSettings_Username = null;
@@ -2566,6 +3238,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
              // populate MySQLSettings
             var requestMySQLSettingsIsNull = true;
             request.MySQLSettings = new Amazon.DatabaseMigrationService.Model.MySQLSettings();
+            System.String requestMySQLSettings_mySQLSettings_AfterConnectScript = null;
+            if (cmdletContext.MySQLSettings_AfterConnectScript != null)
+            {
+                requestMySQLSettings_mySQLSettings_AfterConnectScript = cmdletContext.MySQLSettings_AfterConnectScript;
+            }
+            if (requestMySQLSettings_mySQLSettings_AfterConnectScript != null)
+            {
+                request.MySQLSettings.AfterConnectScript = requestMySQLSettings_mySQLSettings_AfterConnectScript;
+                requestMySQLSettingsIsNull = false;
+            }
             System.String requestMySQLSettings_mySQLSettings_DatabaseName = null;
             if (cmdletContext.MySQLSettings_DatabaseName != null)
             {
@@ -2574,6 +3256,36 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMySQLSettings_mySQLSettings_DatabaseName != null)
             {
                 request.MySQLSettings.DatabaseName = requestMySQLSettings_mySQLSettings_DatabaseName;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.Int32? requestMySQLSettings_mySQLSettings_EventsPollInterval = null;
+            if (cmdletContext.MySQLSettings_EventsPollInterval != null)
+            {
+                requestMySQLSettings_mySQLSettings_EventsPollInterval = cmdletContext.MySQLSettings_EventsPollInterval.Value;
+            }
+            if (requestMySQLSettings_mySQLSettings_EventsPollInterval != null)
+            {
+                request.MySQLSettings.EventsPollInterval = requestMySQLSettings_mySQLSettings_EventsPollInterval.Value;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.Int32? requestMySQLSettings_mySQLSettings_MaxFileSize = null;
+            if (cmdletContext.MySQLSettings_MaxFileSize != null)
+            {
+                requestMySQLSettings_mySQLSettings_MaxFileSize = cmdletContext.MySQLSettings_MaxFileSize.Value;
+            }
+            if (requestMySQLSettings_mySQLSettings_MaxFileSize != null)
+            {
+                request.MySQLSettings.MaxFileSize = requestMySQLSettings_mySQLSettings_MaxFileSize.Value;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.Int32? requestMySQLSettings_mySQLSettings_ParallelLoadThread = null;
+            if (cmdletContext.MySQLSettings_ParallelLoadThread != null)
+            {
+                requestMySQLSettings_mySQLSettings_ParallelLoadThread = cmdletContext.MySQLSettings_ParallelLoadThread.Value;
+            }
+            if (requestMySQLSettings_mySQLSettings_ParallelLoadThread != null)
+            {
+                request.MySQLSettings.ParallelLoadThreads = requestMySQLSettings_mySQLSettings_ParallelLoadThread.Value;
                 requestMySQLSettingsIsNull = false;
             }
             System.String requestMySQLSettings_mySQLSettings_Password = null;
@@ -2604,6 +3316,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestMySQLSettings_mySQLSettings_ServerName != null)
             {
                 request.MySQLSettings.ServerName = requestMySQLSettings_mySQLSettings_ServerName;
+                requestMySQLSettingsIsNull = false;
+            }
+            System.String requestMySQLSettings_mySQLSettings_ServerTimezone = null;
+            if (cmdletContext.MySQLSettings_ServerTimezone != null)
+            {
+                requestMySQLSettings_mySQLSettings_ServerTimezone = cmdletContext.MySQLSettings_ServerTimezone;
+            }
+            if (requestMySQLSettings_mySQLSettings_ServerTimezone != null)
+            {
+                request.MySQLSettings.ServerTimezone = requestMySQLSettings_mySQLSettings_ServerTimezone;
+                requestMySQLSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.TargetDbType requestMySQLSettings_mySQLSettings_TargetDbType = null;
+            if (cmdletContext.MySQLSettings_TargetDbType != null)
+            {
+                requestMySQLSettings_mySQLSettings_TargetDbType = cmdletContext.MySQLSettings_TargetDbType;
+            }
+            if (requestMySQLSettings_mySQLSettings_TargetDbType != null)
+            {
+                request.MySQLSettings.TargetDbType = requestMySQLSettings_mySQLSettings_TargetDbType;
                 requestMySQLSettingsIsNull = false;
             }
             System.String requestMySQLSettings_mySQLSettings_Username = null;
@@ -2704,6 +3436,66 @@ namespace Amazon.PowerShell.Cmdlets.DMS
              // populate OracleSettings
             var requestOracleSettingsIsNull = true;
             request.OracleSettings = new Amazon.DatabaseMigrationService.Model.OracleSettings();
+            System.Boolean? requestOracleSettings_oracleSettings_AccessAlternateDirectly = null;
+            if (cmdletContext.OracleSettings_AccessAlternateDirectly != null)
+            {
+                requestOracleSettings_oracleSettings_AccessAlternateDirectly = cmdletContext.OracleSettings_AccessAlternateDirectly.Value;
+            }
+            if (requestOracleSettings_oracleSettings_AccessAlternateDirectly != null)
+            {
+                request.OracleSettings.AccessAlternateDirectly = requestOracleSettings_oracleSettings_AccessAlternateDirectly.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Int32? requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId = null;
+            if (cmdletContext.OracleSettings_AdditionalArchivedLogDestId != null)
+            {
+                requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId = cmdletContext.OracleSettings_AdditionalArchivedLogDestId.Value;
+            }
+            if (requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId != null)
+            {
+                request.OracleSettings.AdditionalArchivedLogDestId = requestOracleSettings_oracleSettings_AdditionalArchivedLogDestId.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Boolean? requestOracleSettings_oracleSettings_AddSupplementalLogging = null;
+            if (cmdletContext.OracleSettings_AddSupplementalLogging != null)
+            {
+                requestOracleSettings_oracleSettings_AddSupplementalLogging = cmdletContext.OracleSettings_AddSupplementalLogging.Value;
+            }
+            if (requestOracleSettings_oracleSettings_AddSupplementalLogging != null)
+            {
+                request.OracleSettings.AddSupplementalLogging = requestOracleSettings_oracleSettings_AddSupplementalLogging.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Boolean? requestOracleSettings_oracleSettings_AllowSelectNestedTable = null;
+            if (cmdletContext.OracleSettings_AllowSelectNestedTable != null)
+            {
+                requestOracleSettings_oracleSettings_AllowSelectNestedTable = cmdletContext.OracleSettings_AllowSelectNestedTable.Value;
+            }
+            if (requestOracleSettings_oracleSettings_AllowSelectNestedTable != null)
+            {
+                request.OracleSettings.AllowSelectNestedTables = requestOracleSettings_oracleSettings_AllowSelectNestedTable.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Int32? requestOracleSettings_oracleSettings_ArchivedLogDestId = null;
+            if (cmdletContext.OracleSettings_ArchivedLogDestId != null)
+            {
+                requestOracleSettings_oracleSettings_ArchivedLogDestId = cmdletContext.OracleSettings_ArchivedLogDestId.Value;
+            }
+            if (requestOracleSettings_oracleSettings_ArchivedLogDestId != null)
+            {
+                request.OracleSettings.ArchivedLogDestId = requestOracleSettings_oracleSettings_ArchivedLogDestId.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Boolean? requestOracleSettings_oracleSettings_ArchivedLogsOnly = null;
+            if (cmdletContext.OracleSettings_ArchivedLogsOnly != null)
+            {
+                requestOracleSettings_oracleSettings_ArchivedLogsOnly = cmdletContext.OracleSettings_ArchivedLogsOnly.Value;
+            }
+            if (requestOracleSettings_oracleSettings_ArchivedLogsOnly != null)
+            {
+                request.OracleSettings.ArchivedLogsOnly = requestOracleSettings_oracleSettings_ArchivedLogsOnly.Value;
+                requestOracleSettingsIsNull = false;
+            }
             System.String requestOracleSettings_oracleSettings_AsmPassword = null;
             if (cmdletContext.OracleSettings_AsmPassword != null)
             {
@@ -2734,6 +3526,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.OracleSettings.AsmUser = requestOracleSettings_oracleSettings_AsmUser;
                 requestOracleSettingsIsNull = false;
             }
+            Amazon.DatabaseMigrationService.CharLengthSemantics requestOracleSettings_oracleSettings_CharLengthSemantic = null;
+            if (cmdletContext.OracleSettings_CharLengthSemantic != null)
+            {
+                requestOracleSettings_oracleSettings_CharLengthSemantic = cmdletContext.OracleSettings_CharLengthSemantic;
+            }
+            if (requestOracleSettings_oracleSettings_CharLengthSemantic != null)
+            {
+                request.OracleSettings.CharLengthSemantics = requestOracleSettings_oracleSettings_CharLengthSemantic;
+                requestOracleSettingsIsNull = false;
+            }
             System.String requestOracleSettings_oracleSettings_DatabaseName = null;
             if (cmdletContext.OracleSettings_DatabaseName != null)
             {
@@ -2742,6 +3544,76 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestOracleSettings_oracleSettings_DatabaseName != null)
             {
                 request.OracleSettings.DatabaseName = requestOracleSettings_oracleSettings_DatabaseName;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Boolean? requestOracleSettings_oracleSettings_DirectPathNoLog = null;
+            if (cmdletContext.OracleSettings_DirectPathNoLog != null)
+            {
+                requestOracleSettings_oracleSettings_DirectPathNoLog = cmdletContext.OracleSettings_DirectPathNoLog.Value;
+            }
+            if (requestOracleSettings_oracleSettings_DirectPathNoLog != null)
+            {
+                request.OracleSettings.DirectPathNoLog = requestOracleSettings_oracleSettings_DirectPathNoLog.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Boolean? requestOracleSettings_oracleSettings_DirectPathParallelLoad = null;
+            if (cmdletContext.OracleSettings_DirectPathParallelLoad != null)
+            {
+                requestOracleSettings_oracleSettings_DirectPathParallelLoad = cmdletContext.OracleSettings_DirectPathParallelLoad.Value;
+            }
+            if (requestOracleSettings_oracleSettings_DirectPathParallelLoad != null)
+            {
+                request.OracleSettings.DirectPathParallelLoad = requestOracleSettings_oracleSettings_DirectPathParallelLoad.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Boolean? requestOracleSettings_oracleSettings_EnableHomogenousTablespace = null;
+            if (cmdletContext.OracleSettings_EnableHomogenousTablespace != null)
+            {
+                requestOracleSettings_oracleSettings_EnableHomogenousTablespace = cmdletContext.OracleSettings_EnableHomogenousTablespace.Value;
+            }
+            if (requestOracleSettings_oracleSettings_EnableHomogenousTablespace != null)
+            {
+                request.OracleSettings.EnableHomogenousTablespace = requestOracleSettings_oracleSettings_EnableHomogenousTablespace.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Boolean? requestOracleSettings_oracleSettings_FailTasksOnLobTruncation = null;
+            if (cmdletContext.OracleSettings_FailTasksOnLobTruncation != null)
+            {
+                requestOracleSettings_oracleSettings_FailTasksOnLobTruncation = cmdletContext.OracleSettings_FailTasksOnLobTruncation.Value;
+            }
+            if (requestOracleSettings_oracleSettings_FailTasksOnLobTruncation != null)
+            {
+                request.OracleSettings.FailTasksOnLobTruncation = requestOracleSettings_oracleSettings_FailTasksOnLobTruncation.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Int32? requestOracleSettings_oracleSettings_NumberDatatypeScale = null;
+            if (cmdletContext.OracleSettings_NumberDatatypeScale != null)
+            {
+                requestOracleSettings_oracleSettings_NumberDatatypeScale = cmdletContext.OracleSettings_NumberDatatypeScale.Value;
+            }
+            if (requestOracleSettings_oracleSettings_NumberDatatypeScale != null)
+            {
+                request.OracleSettings.NumberDatatypeScale = requestOracleSettings_oracleSettings_NumberDatatypeScale.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_OraclePathPrefix = null;
+            if (cmdletContext.OracleSettings_OraclePathPrefix != null)
+            {
+                requestOracleSettings_oracleSettings_OraclePathPrefix = cmdletContext.OracleSettings_OraclePathPrefix;
+            }
+            if (requestOracleSettings_oracleSettings_OraclePathPrefix != null)
+            {
+                request.OracleSettings.OraclePathPrefix = requestOracleSettings_oracleSettings_OraclePathPrefix;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Int32? requestOracleSettings_oracleSettings_ParallelAsmReadThread = null;
+            if (cmdletContext.OracleSettings_ParallelAsmReadThread != null)
+            {
+                requestOracleSettings_oracleSettings_ParallelAsmReadThread = cmdletContext.OracleSettings_ParallelAsmReadThread.Value;
+            }
+            if (requestOracleSettings_oracleSettings_ParallelAsmReadThread != null)
+            {
+                request.OracleSettings.ParallelAsmReadThreads = requestOracleSettings_oracleSettings_ParallelAsmReadThread.Value;
                 requestOracleSettingsIsNull = false;
             }
             System.String requestOracleSettings_oracleSettings_Password = null;
@@ -2762,6 +3634,46 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestOracleSettings_oracleSettings_Port != null)
             {
                 request.OracleSettings.Port = requestOracleSettings_oracleSettings_Port.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Int32? requestOracleSettings_oracleSettings_ReadAheadBlock = null;
+            if (cmdletContext.OracleSettings_ReadAheadBlock != null)
+            {
+                requestOracleSettings_oracleSettings_ReadAheadBlock = cmdletContext.OracleSettings_ReadAheadBlock.Value;
+            }
+            if (requestOracleSettings_oracleSettings_ReadAheadBlock != null)
+            {
+                request.OracleSettings.ReadAheadBlocks = requestOracleSettings_oracleSettings_ReadAheadBlock.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Boolean? requestOracleSettings_oracleSettings_ReadTableSpaceName = null;
+            if (cmdletContext.OracleSettings_ReadTableSpaceName != null)
+            {
+                requestOracleSettings_oracleSettings_ReadTableSpaceName = cmdletContext.OracleSettings_ReadTableSpaceName.Value;
+            }
+            if (requestOracleSettings_oracleSettings_ReadTableSpaceName != null)
+            {
+                request.OracleSettings.ReadTableSpaceName = requestOracleSettings_oracleSettings_ReadTableSpaceName.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Boolean? requestOracleSettings_oracleSettings_ReplacePathPrefix = null;
+            if (cmdletContext.OracleSettings_ReplacePathPrefix != null)
+            {
+                requestOracleSettings_oracleSettings_ReplacePathPrefix = cmdletContext.OracleSettings_ReplacePathPrefix.Value;
+            }
+            if (requestOracleSettings_oracleSettings_ReplacePathPrefix != null)
+            {
+                request.OracleSettings.ReplacePathPrefix = requestOracleSettings_oracleSettings_ReplacePathPrefix.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.Int32? requestOracleSettings_oracleSettings_RetryInterval = null;
+            if (cmdletContext.OracleSettings_RetryInterval != null)
+            {
+                requestOracleSettings_oracleSettings_RetryInterval = cmdletContext.OracleSettings_RetryInterval.Value;
+            }
+            if (requestOracleSettings_oracleSettings_RetryInterval != null)
+            {
+                request.OracleSettings.RetryInterval = requestOracleSettings_oracleSettings_RetryInterval.Value;
                 requestOracleSettingsIsNull = false;
             }
             System.String requestOracleSettings_oracleSettings_SecurityDbEncryption = null;
@@ -2794,6 +3706,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.OracleSettings.ServerName = requestOracleSettings_oracleSettings_ServerName;
                 requestOracleSettingsIsNull = false;
             }
+            System.Boolean? requestOracleSettings_oracleSettings_UseAlternateFolderForOnline = null;
+            if (cmdletContext.OracleSettings_UseAlternateFolderForOnline != null)
+            {
+                requestOracleSettings_oracleSettings_UseAlternateFolderForOnline = cmdletContext.OracleSettings_UseAlternateFolderForOnline.Value;
+            }
+            if (requestOracleSettings_oracleSettings_UseAlternateFolderForOnline != null)
+            {
+                request.OracleSettings.UseAlternateFolderForOnline = requestOracleSettings_oracleSettings_UseAlternateFolderForOnline.Value;
+                requestOracleSettingsIsNull = false;
+            }
+            System.String requestOracleSettings_oracleSettings_UsePathPrefix = null;
+            if (cmdletContext.OracleSettings_UsePathPrefix != null)
+            {
+                requestOracleSettings_oracleSettings_UsePathPrefix = cmdletContext.OracleSettings_UsePathPrefix;
+            }
+            if (requestOracleSettings_oracleSettings_UsePathPrefix != null)
+            {
+                request.OracleSettings.UsePathPrefix = requestOracleSettings_oracleSettings_UsePathPrefix;
+                requestOracleSettingsIsNull = false;
+            }
             System.String requestOracleSettings_oracleSettings_Username = null;
             if (cmdletContext.OracleSettings_Username != null)
             {
@@ -2821,6 +3753,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
              // populate PostgreSQLSettings
             var requestPostgreSQLSettingsIsNull = true;
             request.PostgreSQLSettings = new Amazon.DatabaseMigrationService.Model.PostgreSQLSettings();
+            System.String requestPostgreSQLSettings_postgreSQLSettings_AfterConnectScript = null;
+            if (cmdletContext.PostgreSQLSettings_AfterConnectScript != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_AfterConnectScript = cmdletContext.PostgreSQLSettings_AfterConnectScript;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_AfterConnectScript != null)
+            {
+                request.PostgreSQLSettings.AfterConnectScript = requestPostgreSQLSettings_postgreSQLSettings_AfterConnectScript;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.Boolean? requestPostgreSQLSettings_postgreSQLSettings_CaptureDdl = null;
+            if (cmdletContext.PostgreSQLSettings_CaptureDdl != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_CaptureDdl = cmdletContext.PostgreSQLSettings_CaptureDdl.Value;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_CaptureDdl != null)
+            {
+                request.PostgreSQLSettings.CaptureDdls = requestPostgreSQLSettings_postgreSQLSettings_CaptureDdl.Value;
+                requestPostgreSQLSettingsIsNull = false;
+            }
             System.String requestPostgreSQLSettings_postgreSQLSettings_DatabaseName = null;
             if (cmdletContext.PostgreSQLSettings_DatabaseName != null)
             {
@@ -2829,6 +3781,46 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestPostgreSQLSettings_postgreSQLSettings_DatabaseName != null)
             {
                 request.PostgreSQLSettings.DatabaseName = requestPostgreSQLSettings_postgreSQLSettings_DatabaseName;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.String requestPostgreSQLSettings_postgreSQLSettings_DdlArtifactsSchema = null;
+            if (cmdletContext.PostgreSQLSettings_DdlArtifactsSchema != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_DdlArtifactsSchema = cmdletContext.PostgreSQLSettings_DdlArtifactsSchema;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_DdlArtifactsSchema != null)
+            {
+                request.PostgreSQLSettings.DdlArtifactsSchema = requestPostgreSQLSettings_postgreSQLSettings_DdlArtifactsSchema;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.Int32? requestPostgreSQLSettings_postgreSQLSettings_ExecuteTimeout = null;
+            if (cmdletContext.PostgreSQLSettings_ExecuteTimeout != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_ExecuteTimeout = cmdletContext.PostgreSQLSettings_ExecuteTimeout.Value;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_ExecuteTimeout != null)
+            {
+                request.PostgreSQLSettings.ExecuteTimeout = requestPostgreSQLSettings_postgreSQLSettings_ExecuteTimeout.Value;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.Boolean? requestPostgreSQLSettings_postgreSQLSettings_FailTasksOnLobTruncation = null;
+            if (cmdletContext.PostgreSQLSettings_FailTasksOnLobTruncation != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_FailTasksOnLobTruncation = cmdletContext.PostgreSQLSettings_FailTasksOnLobTruncation.Value;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_FailTasksOnLobTruncation != null)
+            {
+                request.PostgreSQLSettings.FailTasksOnLobTruncation = requestPostgreSQLSettings_postgreSQLSettings_FailTasksOnLobTruncation.Value;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.Int32? requestPostgreSQLSettings_postgreSQLSettings_MaxFileSize = null;
+            if (cmdletContext.PostgreSQLSettings_MaxFileSize != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_MaxFileSize = cmdletContext.PostgreSQLSettings_MaxFileSize.Value;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_MaxFileSize != null)
+            {
+                request.PostgreSQLSettings.MaxFileSize = requestPostgreSQLSettings_postgreSQLSettings_MaxFileSize.Value;
                 requestPostgreSQLSettingsIsNull = false;
             }
             System.String requestPostgreSQLSettings_postgreSQLSettings_Password = null;
@@ -2859,6 +3851,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestPostgreSQLSettings_postgreSQLSettings_ServerName != null)
             {
                 request.PostgreSQLSettings.ServerName = requestPostgreSQLSettings_postgreSQLSettings_ServerName;
+                requestPostgreSQLSettingsIsNull = false;
+            }
+            System.String requestPostgreSQLSettings_postgreSQLSettings_SlotName = null;
+            if (cmdletContext.PostgreSQLSettings_SlotName != null)
+            {
+                requestPostgreSQLSettings_postgreSQLSettings_SlotName = cmdletContext.PostgreSQLSettings_SlotName;
+            }
+            if (requestPostgreSQLSettings_postgreSQLSettings_SlotName != null)
+            {
+                request.PostgreSQLSettings.SlotName = requestPostgreSQLSettings_postgreSQLSettings_SlotName;
                 requestPostgreSQLSettingsIsNull = false;
             }
             System.String requestPostgreSQLSettings_postgreSQLSettings_Username = null;
@@ -3229,6 +4231,36 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.S3Settings.DataPageSize = requestS3Settings_s3Settings_DataPageSize.Value;
                 requestS3SettingsIsNull = false;
             }
+            Amazon.DatabaseMigrationService.DatePartitionDelimiterValue requestS3Settings_s3Settings_DatePartitionDelimiter = null;
+            if (cmdletContext.S3Settings_DatePartitionDelimiter != null)
+            {
+                requestS3Settings_s3Settings_DatePartitionDelimiter = cmdletContext.S3Settings_DatePartitionDelimiter;
+            }
+            if (requestS3Settings_s3Settings_DatePartitionDelimiter != null)
+            {
+                request.S3Settings.DatePartitionDelimiter = requestS3Settings_s3Settings_DatePartitionDelimiter;
+                requestS3SettingsIsNull = false;
+            }
+            System.Boolean? requestS3Settings_s3Settings_DatePartitionEnabled = null;
+            if (cmdletContext.S3Settings_DatePartitionEnabled != null)
+            {
+                requestS3Settings_s3Settings_DatePartitionEnabled = cmdletContext.S3Settings_DatePartitionEnabled.Value;
+            }
+            if (requestS3Settings_s3Settings_DatePartitionEnabled != null)
+            {
+                request.S3Settings.DatePartitionEnabled = requestS3Settings_s3Settings_DatePartitionEnabled.Value;
+                requestS3SettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.DatePartitionSequenceValue requestS3Settings_s3Settings_DatePartitionSequence = null;
+            if (cmdletContext.S3Settings_DatePartitionSequence != null)
+            {
+                requestS3Settings_s3Settings_DatePartitionSequence = cmdletContext.S3Settings_DatePartitionSequence;
+            }
+            if (requestS3Settings_s3Settings_DatePartitionSequence != null)
+            {
+                request.S3Settings.DatePartitionSequence = requestS3Settings_s3Settings_DatePartitionSequence;
+                requestS3SettingsIsNull = false;
+            }
             System.Int32? requestS3Settings_s3Settings_DictPageSizeLimit = null;
             if (cmdletContext.S3Settings_DictPageSizeLimit != null)
             {
@@ -3508,10 +4540,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String EngineName { get; set; }
             public System.String ExternalTableDefinition { get; set; }
             public System.String ExtraConnectionAttribute { get; set; }
+            public System.String IBMDb2Settings_CurrentLsn { get; set; }
             public System.String IBMDb2Settings_DatabaseName { get; set; }
+            public System.Int32? IBMDb2Settings_MaxKBytesPerRead { get; set; }
             public System.String IBMDb2Settings_Password { get; set; }
             public System.Int32? IBMDb2Settings_Port { get; set; }
             public System.String IBMDb2Settings_ServerName { get; set; }
+            public System.Boolean? IBMDb2Settings_SetDataCaptureChange { get; set; }
             public System.String IBMDb2Settings_Username { get; set; }
             public System.String KafkaSettings_Broker { get; set; }
             public System.Boolean? KafkaSettings_IncludeControlDetail { get; set; }
@@ -3533,10 +4568,15 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String KinesisSettings_ServiceAccessRoleArn { get; set; }
             public System.String KinesisSettings_StreamArn { get; set; }
             public System.String KmsKeyId { get; set; }
+            public System.Int32? MicrosoftSQLServerSettings_BcpPacketSize { get; set; }
+            public System.String MicrosoftSQLServerSettings_ControlTablesFileGroup { get; set; }
             public System.String MicrosoftSQLServerSettings_DatabaseName { get; set; }
             public System.String MicrosoftSQLServerSettings_Password { get; set; }
             public System.Int32? MicrosoftSQLServerSettings_Port { get; set; }
+            public System.Boolean? MicrosoftSQLServerSettings_ReadBackupOnly { get; set; }
+            public Amazon.DatabaseMigrationService.SafeguardPolicy MicrosoftSQLServerSettings_SafeguardPolicy { get; set; }
             public System.String MicrosoftSQLServerSettings_ServerName { get; set; }
+            public System.Boolean? MicrosoftSQLServerSettings_UseBcpFullLoad { get; set; }
             public System.String MicrosoftSQLServerSettings_Username { get; set; }
             public Amazon.DatabaseMigrationService.AuthMechanismValue MongoDbSettings_AuthMechanism { get; set; }
             public System.String MongoDbSettings_AuthSource { get; set; }
@@ -3550,10 +4590,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? MongoDbSettings_Port { get; set; }
             public System.String MongoDbSettings_ServerName { get; set; }
             public System.String MongoDbSettings_Username { get; set; }
+            public System.String MySQLSettings_AfterConnectScript { get; set; }
             public System.String MySQLSettings_DatabaseName { get; set; }
+            public System.Int32? MySQLSettings_EventsPollInterval { get; set; }
+            public System.Int32? MySQLSettings_MaxFileSize { get; set; }
+            public System.Int32? MySQLSettings_ParallelLoadThread { get; set; }
             public System.String MySQLSettings_Password { get; set; }
             public System.Int32? MySQLSettings_Port { get; set; }
             public System.String MySQLSettings_ServerName { get; set; }
+            public System.String MySQLSettings_ServerTimezone { get; set; }
+            public Amazon.DatabaseMigrationService.TargetDbType MySQLSettings_TargetDbType { get; set; }
             public System.String MySQLSettings_Username { get; set; }
             public System.Int32? NeptuneSettings_ErrorRetryDuration { get; set; }
             public System.Boolean? NeptuneSettings_IamAuthEnabled { get; set; }
@@ -3562,22 +4608,49 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String NeptuneSettings_S3BucketFolder { get; set; }
             public System.String NeptuneSettings_S3BucketName { get; set; }
             public System.String NeptuneSettings_ServiceAccessRoleArn { get; set; }
+            public System.Boolean? OracleSettings_AccessAlternateDirectly { get; set; }
+            public System.Int32? OracleSettings_AdditionalArchivedLogDestId { get; set; }
+            public System.Boolean? OracleSettings_AddSupplementalLogging { get; set; }
+            public System.Boolean? OracleSettings_AllowSelectNestedTable { get; set; }
+            public System.Int32? OracleSettings_ArchivedLogDestId { get; set; }
+            public System.Boolean? OracleSettings_ArchivedLogsOnly { get; set; }
             public System.String OracleSettings_AsmPassword { get; set; }
             public System.String OracleSettings_AsmServer { get; set; }
             public System.String OracleSettings_AsmUser { get; set; }
+            public Amazon.DatabaseMigrationService.CharLengthSemantics OracleSettings_CharLengthSemantic { get; set; }
             public System.String OracleSettings_DatabaseName { get; set; }
+            public System.Boolean? OracleSettings_DirectPathNoLog { get; set; }
+            public System.Boolean? OracleSettings_DirectPathParallelLoad { get; set; }
+            public System.Boolean? OracleSettings_EnableHomogenousTablespace { get; set; }
+            public System.Boolean? OracleSettings_FailTasksOnLobTruncation { get; set; }
+            public System.Int32? OracleSettings_NumberDatatypeScale { get; set; }
+            public System.String OracleSettings_OraclePathPrefix { get; set; }
+            public System.Int32? OracleSettings_ParallelAsmReadThread { get; set; }
             public System.String OracleSettings_Password { get; set; }
             public System.Int32? OracleSettings_Port { get; set; }
+            public System.Int32? OracleSettings_ReadAheadBlock { get; set; }
+            public System.Boolean? OracleSettings_ReadTableSpaceName { get; set; }
+            public System.Boolean? OracleSettings_ReplacePathPrefix { get; set; }
+            public System.Int32? OracleSettings_RetryInterval { get; set; }
             public System.String OracleSettings_SecurityDbEncryption { get; set; }
             public System.String OracleSettings_SecurityDbEncryptionName { get; set; }
             public System.String OracleSettings_ServerName { get; set; }
+            public System.Boolean? OracleSettings_UseAlternateFolderForOnline { get; set; }
+            public System.String OracleSettings_UsePathPrefix { get; set; }
             public System.String OracleSettings_Username { get; set; }
             public System.String Password { get; set; }
             public System.Int32? Port { get; set; }
+            public System.String PostgreSQLSettings_AfterConnectScript { get; set; }
+            public System.Boolean? PostgreSQLSettings_CaptureDdl { get; set; }
             public System.String PostgreSQLSettings_DatabaseName { get; set; }
+            public System.String PostgreSQLSettings_DdlArtifactsSchema { get; set; }
+            public System.Int32? PostgreSQLSettings_ExecuteTimeout { get; set; }
+            public System.Boolean? PostgreSQLSettings_FailTasksOnLobTruncation { get; set; }
+            public System.Int32? PostgreSQLSettings_MaxFileSize { get; set; }
             public System.String PostgreSQLSettings_Password { get; set; }
             public System.Int32? PostgreSQLSettings_Port { get; set; }
             public System.String PostgreSQLSettings_ServerName { get; set; }
+            public System.String PostgreSQLSettings_SlotName { get; set; }
             public System.String PostgreSQLSettings_Username { get; set; }
             public System.Boolean? RedshiftSettings_AcceptAnyDate { get; set; }
             public System.String RedshiftSettings_AfterConnectScript { get; set; }
@@ -3613,6 +4686,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String S3Settings_CsvRowDelimiter { get; set; }
             public Amazon.DatabaseMigrationService.DataFormatValue S3Settings_DataFormat { get; set; }
             public System.Int32? S3Settings_DataPageSize { get; set; }
+            public Amazon.DatabaseMigrationService.DatePartitionDelimiterValue S3Settings_DatePartitionDelimiter { get; set; }
+            public System.Boolean? S3Settings_DatePartitionEnabled { get; set; }
+            public Amazon.DatabaseMigrationService.DatePartitionSequenceValue S3Settings_DatePartitionSequence { get; set; }
             public System.Int32? S3Settings_DictPageSizeLimit { get; set; }
             public System.Boolean? S3Settings_EnableStatistic { get; set; }
             public Amazon.DatabaseMigrationService.EncodingTypeValue S3Settings_EncodingType { get; set; }

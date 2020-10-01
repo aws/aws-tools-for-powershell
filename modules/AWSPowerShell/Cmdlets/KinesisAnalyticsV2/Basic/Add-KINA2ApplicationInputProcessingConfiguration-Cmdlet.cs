@@ -28,10 +28,10 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Adds an <a>InputProcessingConfiguration</a> to an SQL-based Kinesis Data Analytics
+    /// Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics
     /// application. An input processor pre-processes records on the input stream before the
     /// application's SQL code executes. Currently, the only input processor available is
-    /// <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>.
+    /// <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.
     /// </summary>
     [Cmdlet("Add", "KINA2ApplicationInputProcessingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KinesisAnalyticsV2.Model.AddApplicationInputProcessingConfigurationResponse")]
@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         /// <para>
         /// <para>The ARN of the AWS Lambda function that operates on records in the stream.</para><note><para>To specify an earlier version of the Lambda function than the latest, include the
         /// Lambda function version in the Lambda function ARN. For more information about Lambda
-        /// ARNs, see <a href="/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example
+        /// ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example
         /// ARNs: AWS Lambda</a></para></note>
         /// </para>
         /// </summary>

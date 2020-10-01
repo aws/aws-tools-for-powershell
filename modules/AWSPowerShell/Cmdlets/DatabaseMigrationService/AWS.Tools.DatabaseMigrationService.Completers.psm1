@@ -100,6 +100,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.CharLengthSemantics
+        {
+            ($_ -eq "Edit-DMSEndpoint/OracleSettings_CharLengthSemantics") -Or
+            ($_ -eq "New-DMSEndpoint/OracleSettings_CharLengthSemantics")
+        }
+        {
+            $v = "byte","char","default"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.CompressionTypeValue
         {
             ($_ -eq "Edit-DMSEndpoint/S3Settings_CompressionType") -Or
@@ -117,6 +127,26 @@ $DMS_Completers = {
         }
         {
             $v = "csv","parquet"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.DatePartitionDelimiterValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/S3Settings_DatePartitionDelimiter") -Or
+            ($_ -eq "New-DMSEndpoint/S3Settings_DatePartitionDelimiter")
+        }
+        {
+            $v = "DASH","NONE","SLASH","UNDERSCORE"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.DatePartitionSequenceValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/S3Settings_DatePartitionSequence") -Or
+            ($_ -eq "New-DMSEndpoint/S3Settings_DatePartitionSequence")
+        }
+        {
+            $v = "DDMMYYYY","MMYYYYDD","YYYYMM","YYYYMMDD","YYYYMMDDHH"
             break
         }
 
@@ -212,6 +242,16 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.SafeguardPolicy
+        {
+            ($_ -eq "Edit-DMSEndpoint/MicrosoftSQLServerSettings_SafeguardPolicy") -Or
+            ($_ -eq "New-DMSEndpoint/MicrosoftSQLServerSettings_SafeguardPolicy")
+        }
+        {
+            $v = "exclusive-automatic-truncation","rely-on-sql-server-replication-agent","shared-automatic-truncation"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.SourceType
         "Get-DMSEvent/SourceType"
         {
@@ -223,6 +263,16 @@ $DMS_Completers = {
         "Start-DMSReplicationTask/StartReplicationTaskType"
         {
             $v = "reload-target","resume-processing","start-replication"
+            break
+        }
+
+        # Amazon.DatabaseMigrationService.TargetDbType
+        {
+            ($_ -eq "Edit-DMSEndpoint/MySQLSettings_TargetDbType") -Or
+            ($_ -eq "New-DMSEndpoint/MySQLSettings_TargetDbType")
+        }
+        {
+            $v = "multiple-databases","specific-database"
             break
         }
 
@@ -238,14 +288,19 @@ $DMS_map = @{
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MicrosoftSQLServerSettings_SafeguardPolicy"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MigrationType"=@("Edit-DMSReplicationTask","Get-DMSApplicableIndividualAssessment","New-DMSReplicationTask")
     "MongoDbSettings_AuthMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "OracleSettings_CharLengthSemantics"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedshiftSettings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "ReloadOption"=@("Restore-DMSTable")
     "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_DataFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "S3Settings_DatePartitionDelimiter"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "S3Settings_DatePartitionSequence"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_EncodingType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_ParquetVersion"=@("Edit-DMSEndpoint","New-DMSEndpoint")

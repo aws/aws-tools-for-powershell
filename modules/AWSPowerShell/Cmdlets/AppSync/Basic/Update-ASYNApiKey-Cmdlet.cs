@@ -28,7 +28,7 @@ using Amazon.AppSync.Model;
 namespace Amazon.PowerShell.Cmdlets.ASYN
 {
     /// <summary>
-    /// Updates an API key.
+    /// Updates an API key. The key can be updated while it is not deleted.
     /// </summary>
     [Cmdlet("Update", "ASYNApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppSync.Model.ApiKey")]

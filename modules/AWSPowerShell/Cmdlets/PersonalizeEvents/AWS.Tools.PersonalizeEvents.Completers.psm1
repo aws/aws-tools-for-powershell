@@ -123,7 +123,9 @@ $PERSE_SelectCompleters = {
 }
 
 $PERSE_SelectMap = @{
-    "Select"=@("Write-PERSEEvent")
+    "Select"=@("Write-PERSEEvent",
+               "Write-PERSEItem",
+               "Write-PERSEUser")
 }
 
 _awsArgumentCompleterRegistration $PERSE_SelectCompleters $PERSE_SelectMap

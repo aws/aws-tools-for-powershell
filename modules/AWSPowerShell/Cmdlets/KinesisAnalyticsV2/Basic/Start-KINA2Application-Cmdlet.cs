@@ -28,8 +28,8 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Starts the specified Amazon Kinesis Data Analytics application. After creating an
-    /// application, you must exclusively call this operation to start your application.
+    /// Starts the specified Kinesis Data Analytics application. After creating an application,
+    /// you must exclusively call this operation to start your application.
     /// </summary>
     [Cmdlet("Start", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
